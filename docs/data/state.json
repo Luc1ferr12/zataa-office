@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-11T14:27:10.550Z",
+ "generated_at": "2026-10-11T14:37:10.551Z",
  "today": "2026-10-11",
  "week_start": "2026-10-05",
  "campaign": {
@@ -61,8 +61,8 @@
    "name": "Fikri",
    "title": "Social Media Publisher",
    "status": "done",
-   "current_task": "undefined",
-   "updated_at": "2026-10-11 14:27:08"
+   "current_task": null,
+   "updated_at": "2026-10-11 14:29:03"
   },
   {
    "id": "ads",
@@ -119,10 +119,10 @@
    "game": "valorant",
    "pillar": "news",
    "title": "Hasil Lower Round 2 VCT Champions 2026: NRG vs 100T & G2 vs T1",
-   "status": "approved",
+   "status": "posted",
    "asset_url": "{\"feed\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-11/4-hasil-lower-round-2-vct-champions-2026-n.jpg\"],\"story\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-11/4-hasil-lower-round-2-vct-champions-2026-n-916.jpg\"]}",
    "scheduled_at": null,
-   "posted_at": null
+   "posted_at": "2026-10-11 14:29:03"
   },
   {
    "id": 5,
@@ -190,6 +190,16 @@
   }
  ],
  "activity": [
+  {
+   "ts": "2026-10-11 14:30:08",
+   "agent_id": "owner",
+   "message": "Chat: Thanks team!"
+  },
+  {
+   "ts": "2026-10-11 14:29:03",
+   "agent_id": "publisher",
+   "message": "Posting #4 ke IG ✅"
+  },
   {
    "ts": "2026-10-11 14:27:08",
    "agent_id": "owner",
@@ -304,19 +314,30 @@
    "ts": "2026-10-11 11:54:42",
    "agent_id": "publisher",
    "message": "Posting #5 ke IG ✅"
-  },
-  {
-   "ts": "2026-10-11 11:52:43",
-   "agent_id": "owner",
-   "message": "Approve konten #5 ✅"
-  },
-  {
-   "ts": "2026-10-11 11:51:58",
-   "agent_id": "publisher",
-   "message": "Kirim #5 ke Owner buat approval · revisi ke-3"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-10-11 14:30:08",
+   "agent_id": "dir",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Siap, sama-sama Bos! Lanjut kerja lagi 💪"
+  },
+  {
+   "ts": "2026-10-11 14:30:08",
+   "agent_id": "owner",
+   "to_id": "dir",
+   "kind": "bos",
+   "message": "Thanks team!"
+  },
+  {
+   "ts": "2026-10-11 14:29:03",
+   "agent_id": "publisher",
+   "to_id": null,
+   "kind": "oper",
+   "message": "\"Hasil Lower Round 2 VCT Champions 2026: NRG vs 100\" udah tayang di IG 🚀 Makasih semua!"
+  },
   {
    "ts": "2026-10-11 14:25:46",
    "agent_id": "designer",
@@ -575,36 +596,15 @@
    "to_id": null,
    "kind": "curhat",
    "message": "Noted bos, aku benerin sekarang"
-  },
-  {
-   "ts": "2026-10-11 11:36:27",
-   "agent_id": "designer",
-   "to_id": "publisher",
-   "kind": "oper",
-   "message": "Visual \"Revisi #5: Champions Shanghai: 100T 2-0 NRG\" kelar! Fikri, cek typo-nya sekalian ya 🙏"
-  },
-  {
-   "ts": "2026-10-11 11:36:27",
-   "agent_id": "copywriter",
-   "to_id": "designer",
-   "kind": "oper",
-   "message": "Maria, copy \"Revisi #5: Champions Shanghai: 100T 2-0 NRG\" udah masuk. Headline-nya jangan dikecilin ya 😆"
-  },
-  {
-   "ts": "2026-10-11 11:35:30",
-   "agent_id": "designer",
-   "to_id": null,
-   "kind": "curhat",
-   "message": "Noted bos, aku benerin sekarang"
   }
  ],
  "stats": {
   "this_week": {
    "week": "2026-10-05",
    "total": 4,
-   "posted": 2,
+   "posted": 3,
    "pending": 0,
-   "scheduled": 1,
+   "scheduled": 0,
    "views": 0,
    "likes": 3,
    "comments": 0,
