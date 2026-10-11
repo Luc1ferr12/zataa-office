@@ -42,6 +42,14 @@ def node_mat(name, info):
         br.inputs['Mortar Size'].default_value = 0.012; br.inputs['Brick Width'].default_value = 2.2; br.inputs['Row Height'].default_value = 0.42
         L(tc.outputs['Object'], br.inputs['Vector']); L(br.outputs['Color'], b.inputs['Base Color'])
         TL.setin(b, ['Coat Weight'], 0.15)
+    elif name in ('rubble', 'ledge', 'ledgeDark'):   # dinding batu: blok batu tak rata
+        tc = nt.nodes.new('ShaderNodeTexCoord'); br = nt.nodes.new('ShaderNodeTexBrick')
+        br.inputs['Color1'].default_value = col; br.inputs['Color2'].default_value = TL.hexc(TL.shade(info['color'], -0.18))
+        br.inputs['Mortar'].default_value = TL.hexc(TL.shade(info['color'], -0.45)); br.inputs['Scale'].default_value = 1.6
+        br.inputs['Mortar Size'].default_value = 0.025; br.inputs['Brick Width'].default_value = 0.9; br.inputs['Row Height'].default_value = 0.45
+        br.inputs['Bias'].default_value = 0.2
+        L(tc.outputs['Object'], br.inputs['Vector']); L(br.outputs['Color'], b.inputs['Base Color']); TL.setin(b, 'Roughness', 0.9)
+        bump = nt.nodes.new('ShaderNodeBump'); bump.inputs['Strength'].default_value = 0.4; L(br.outputs['Fac'], bump.inputs['Height']); L(bump.outputs['Normal'], b.inputs['Normal'])
     elif name in GRASS:
         nz = nt.nodes.new('ShaderNodeTexNoise'); nz.inputs['Scale'].default_value = 0.6
         ramp = nt.nodes.new('ShaderNodeValToRGB')

@@ -491,7 +491,9 @@ export function buildScene(logo) {
   const HX0 = -72, HX1 = 72;   // lebar bukit
 
   // ================================================================ BUKIT TERASERING
-  B.floor(HX0, HX1, FRONT[0] - DEPTH, 48, M.grass, -0.03);   // halaman depan + lantai 1
+  // halaman depan + lantai 1 (bolong di kolam supaya air tembus pandang ke dasar kolam)
+  const ph = [POOL.x0 - 0.35, POOL.x1 + 0.35, POOL.z0 - 0.35, POOL.z1 + 0.35];
+  for (const [x0, x1, z0, z1] of [[HX0, HX1, FRONT[0] - DEPTH, ph[2]], [HX0, HX1, ph[3], 48], [HX0, ph[0], ph[2], ph[3]], [ph[1], HX1, ph[2], ph[3]]]) B.floor(x0, x1, z0, z1, M.grass, -0.03);
   for (let L4 = 2; L4 <= 4; L4++) B.floor(HX0, HX1, FRONT[L4 - 1] - DEPTH, FRONT[L4 - 1], M.grass, LY[L4 - 1] - 0.02);
   B.floor(HX0, HX1, -90, FRONT[3] - DEPTH, M.grassDark, LY[3] - 0.02);   // puncak bukit di belakang
   // dinding batu undakan (belakang tiap tingkat = dinding belakang ruangan)
