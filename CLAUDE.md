@@ -31,6 +31,10 @@ Update status visual: `office.mjs agent <id> working "<tugas>"` → selesai `off
 ## Chat Owner via Telegram
 Pesan bebas Owner di Telegram dikerjakan watcher lewat `scripts/ask.mjs`: "lagi pada ngapain" dijawab tanpa AI; tugas lain dijalankan Claude CLI. Konten dadakan: `office.mjs content new '<json>'` (slot `kilat` = tayang begitu approved). Owner bilang "langsung post" = approval. Tugas pantau: `office.mjs followup <menit> "<konteks>"` (maks 16×/hari).
 
+## Server (VPS)
+Kantor jalan di VPS (`~/zataa-office`, watcher = service `zataa-watcher`, cron sesi harian + backup DB: `scripts/vps/`). DB & `.env` asli hanya di VPS.
+Kalau sesi ini jalan di laptop (Windows): jangan nyalain watcher lokal; ubah kode → commit + push → `ssh zataa-vps "cd ~/zataa-office && git pull && sudo systemctl restart zataa-watcher"`.
+
 ## Ritme kerja
 - Kantor jalan **24 jam** (VPS); pegawai tinggal di mess. Sesi kerja Claude otomatis 07:00 WITA, SOP lengkap: `office/daily.md`.
 - **Senin 07:00–08:00**: rapat plan mingguan → `approval.mjs plan` → produksi baru jalan setelah Owner ✅ plan.
