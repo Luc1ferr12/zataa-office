@@ -8,6 +8,8 @@
   .scene { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; gap: 44px; opacity: 0; }
   .scene > * { will-change: transform, opacity; }
   .mini { position: absolute; left: 80px; top: 120px; display: flex; align-items: center; gap: 14px; font: 800 30px/1 Sora; letter-spacing: .12em; opacity: .92; }
+  .gtag { position: absolute; right: 80px; top: 124px; display: flex; align-items: center; gap: 14px; padding: 14px 30px; border-radius: 999px; border: 3px solid var(--accent); background: #0009; font: 800 30px/1 Sora; letter-spacing: .08em; box-shadow: 0 0 24px color-mix(in srgb, var(--accent) 45%, transparent); }
+  .gtag::before { content: ''; width: 16px; height: 16px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 12px var(--accent); }
   .mini img { width: 64px; height: 64px; border-radius: 16px; box-shadow: 0 0 0 3px #ffffff22; }
   .bar { position: absolute; left: 0; top: 0; height: 12px; background: linear-gradient(90deg, var(--brand-2), var(--accent)); box-shadow: 0 0 20px var(--accent); }
   .flash { position: absolute; inset: 0; background: #fff; opacity: 0; pointer-events: none; }
@@ -37,7 +39,7 @@
 <body class="story">
 <div class="bg" id="bg"></div><div class="watermark">ZA</div>
 <div id="parts"></div>
-<div class="mini"><img src="../../docs/assets/logo.png" alt="">ZATAA</div>
+<div class="mini"><img src="../../docs/assets/logo.png" alt="">ZATAA</div><div class="gtag" id="gtag"></div>
 <div class="stage" id="stage"></div>
 <div class="wipe" id="wipe"></div><div class="flash" id="flash"></div><div class="bar" id="bar"></div>
 <script type="module">
@@ -68,6 +70,10 @@ const autoDur = (s) => s.dur ?? (s.t === 'list' ? DUR.list + 0.55 * (s.items?.le
 window.setup = async (data) => {
   const g = GAMES[data.game];
   document.documentElement.style.setProperty('--accent', data.accent ?? g?.accent ?? '#a78bfa');
+  // nama game di kanan atas (gameName = override, mis. game di luar ML/Valorant/FF)
+  const tag = document.getElementById('gtag');
+  tag.textContent = data.gameName ?? g?.name ?? '';
+  tag.style.display = tag.textContent ? 'flex' : 'none';
   const list = [...(data.scenes ?? [])];
   if (!list.some((s) => s.t === 'cta')) list.push({ t: 'cta' });
   let durs = list.map(autoDur);

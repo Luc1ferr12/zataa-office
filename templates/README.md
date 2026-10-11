@@ -25,7 +25,7 @@ Hasil feed/carousel: JPG 1080×1080 (IG, 1:1) + `-916.jpg` 1080×1920 (TikTok). 
 | `carousel` | `slides:[{kind:"hook", headline, sub} · {kind:"point", title, body, n?} · {kind:"cta", headline, sub}]` (5–7 slide) |
 
 ## Video (`format: video`, template otomatis `video`)
-`data_json = { game, duration?, music?, scenes:[...] }` — durasi dinormalkan ke 15–30 dtk, adegan CTA ditambah otomatis kalau tidak ada.
+`data_json = { game, gameName?, duration?, music?, scenes:[...] }` (nama game otomatis di kanan atas; `gameName` untuk game di luar ML/Valorant/FF) — durasi dinormalkan ke 15–30 dtk, adegan CTA ditambah otomatis kalau tidak ada.
 
 | `t` | field | default dtk |
 |---|---|---|
