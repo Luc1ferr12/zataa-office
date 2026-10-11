@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-11T13:57:10.534Z",
+ "generated_at": "2026-10-11T14:07:10.629Z",
  "today": "2026-10-11",
  "week_start": "2026-10-05",
  "campaign": {
@@ -28,25 +28,25 @@
    "id": "researcher",
    "name": "Clariana",
    "title": "Researcher",
-   "status": "working",
-   "current_task": "Mantau: Clariana: cek hasil akhir G2 vs T1 VCT Champions S (cek lagi 22.04)",
-   "updated_at": "2026-10-11 13:36:42"
+   "status": "done",
+   "current_task": "Hasil G2 vs T1 terverifikasi",
+   "updated_at": "2026-10-11 14:06:56"
   },
   {
    "id": "copywriter",
    "name": "Ista",
    "title": "Copywriter",
    "status": "done",
-   "current_task": "Revisi #5: Thank You NRG — Champions Shanghai",
-   "updated_at": "2026-10-11 11:51:54"
+   "current_task": "Teks konten #4 hasil Lower Round 2",
+   "updated_at": "2026-10-11 14:07:08"
   },
   {
    "id": "designer",
    "name": "Maria",
    "title": "Graphic Designer",
-   "status": "done",
-   "current_task": "Revisi #5: Thank You NRG — Champions Shanghai",
-   "updated_at": "2026-10-11 11:51:54"
+   "status": "working",
+   "current_task": "Render konten #4 hasil VCT",
+   "updated_at": "2026-10-11 14:07:08"
   },
   {
    "id": "video",
@@ -191,6 +191,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-11 14:06:56",
+   "agent_id": "researcher",
+   "message": "G2 2-1 T1 FINAL (Lotus 13-11, Abyss 10-13, Ascent 13-6) — vlr.gg + thespike (match ended, Ascent decider). LR3: 100T vs G2, 16 Okt 16:00 WIB"
+  },
+  {
    "ts": "2026-10-11 13:23:37",
    "agent_id": "owner",
    "message": "Chat: Manggil ajaa"
@@ -309,14 +314,23 @@
    "ts": "2026-10-11 11:36:28",
    "agent_id": "designer",
    "message": "Revisi #5 kelar: Konten #5 sekarang pakai layout versus 100T vs NRG dengan lambang inisial tim, logo aslinya tinggal ditaruh file PNG-nya"
-  },
-  {
-   "ts": "2026-10-11 11:35:30",
-   "agent_id": "designer",
-   "message": "Balik ke komputer, ngerjain revisi #5"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-10-11 14:07:08",
+   "agent_id": "copywriter",
+   "to_id": "designer",
+   "kind": "oper",
+   "message": "Teks buat \"Teks konten #4 hasil Lower Round 2\" ready. Maria, giliranmu bikin cakep!"
+  },
+  {
+   "ts": "2026-10-11 14:06:56",
+   "agent_id": "researcher",
+   "to_id": "copywriter",
+   "kind": "oper",
+   "message": "Ista, bahan buat \"Hasil G2 vs T1 terverifikasi\" udah aku rangkum + sumbernya. Tinggal kamu racik captionnya ✍️"
+  },
   {
    "ts": "2026-10-11 13:23:37",
    "agent_id": "dir",
