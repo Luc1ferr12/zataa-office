@@ -134,6 +134,21 @@ async function talk() {
   talking = false;
 }
 
+// GitHub Pages: push state.json tiap 10 menit kalau ada perubahan (status pegawai, aktivitas, chit-chat). 0 token.
+const SYNC_EVERY = 10 * 60_000;
+function syncPages() {
+  if (posting) return; // publish.mjs juga lagi push media, jangan tabrakan
+  const git = (...a) => execFileSync('git', a, { cwd: ROOT, encoding: 'utf8', windowsHide: true, stdio: ['ignore', 'pipe', 'pipe'] });
+  try {
+    exportState();
+    if (!git('status', '--porcelain', '--', 'docs/data/state.json').trim()) return;
+    git('add', '--', 'docs/data/state.json');
+    git('commit', '-m', 'state: update dashboard', '--', 'docs/data/state.json');
+    git('push');
+    log('state.json ke-push ke GitHub Pages');
+  } catch (e) { log(`push state gagal: ${String(e.stderr || e.message).trim().split('\n').pop()}`); }
+}
+
 async function tick() {
   autopost();
   ads();
@@ -157,4 +172,8 @@ async function tick() {
 
 log('watcher approval jalan (cek tiap 60 dtk)');
 await tick();
-if (!process.argv.includes('--once')) setInterval(tick, EVERY);
+if (!process.argv.includes('--once')) {
+  setInterval(tick, EVERY);
+  syncPages();
+  setInterval(syncPages, SYNC_EVERY);
+}
