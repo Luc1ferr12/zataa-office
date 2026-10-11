@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-11T14:07:10.629Z",
+ "generated_at": "2026-10-11T14:17:10.585Z",
  "today": "2026-10-11",
  "week_start": "2026-10-05",
  "campaign": {
@@ -29,8 +29,8 @@
    "name": "Clariana",
    "title": "Researcher",
    "status": "done",
-   "current_task": "Hasil G2 vs T1 terverifikasi",
-   "updated_at": "2026-10-11 14:06:56"
+   "current_task": "Pantau VCT Champions LR2 selesai",
+   "updated_at": "2026-10-11 14:13:59"
   },
   {
    "id": "copywriter",
@@ -44,9 +44,9 @@
    "id": "designer",
    "name": "Maria",
    "title": "Graphic Designer",
-   "status": "working",
+   "status": "done",
    "current_task": "Render konten #4 hasil VCT",
-   "updated_at": "2026-10-11 14:07:08"
+   "updated_at": "2026-10-11 14:07:28"
   },
   {
    "id": "video",
@@ -61,8 +61,8 @@
    "name": "Fikri",
    "title": "Social Media Publisher",
    "status": "done",
-   "current_task": null,
-   "updated_at": "2026-10-11 11:54:42"
+   "current_task": "QA & submit konten #4",
+   "updated_at": "2026-10-11 14:07:33"
   },
   {
    "id": "ads",
@@ -119,8 +119,8 @@
    "game": "valorant",
    "pillar": "news",
    "title": "Hasil Lower Round 2 VCT Champions 2026: NRG vs 100T & G2 vs T1",
-   "status": "draft",
-   "asset_url": null,
+   "status": "pending_approval",
+   "asset_url": "{\"feed\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-11/4-hasil-lower-round-2-vct-champions-2026-n.jpg\"],\"story\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-11/4-hasil-lower-round-2-vct-champions-2026-n-916.jpg\"]}",
    "scheduled_at": null,
    "posted_at": null
   },
@@ -190,6 +190,11 @@
   }
  ],
  "activity": [
+  {
+   "ts": "2026-10-11 14:07:33",
+   "agent_id": "publisher",
+   "message": "Kirim #4 ke Owner buat approval"
+  },
   {
    "ts": "2026-10-11 14:06:56",
    "agent_id": "researcher",
@@ -309,14 +314,58 @@
    "ts": "2026-10-11 11:36:32",
    "agent_id": "publisher",
    "message": "Kirim #5 ke Owner buat approval · revisi ke-1"
-  },
-  {
-   "ts": "2026-10-11 11:36:28",
-   "agent_id": "designer",
-   "message": "Revisi #5 kelar: Konten #5 sekarang pakai layout versus 100T vs NRG dengan lambang inisial tim, logo aslinya tinggal ditaruh file PNG-nya"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-10-11 14:13:59",
+   "agent_id": "researcher",
+   "to_id": "copywriter",
+   "kind": "oper",
+   "message": "Ista, bahan buat \"Pantau VCT Champions LR2 selesai\" udah aku rangkum + sumbernya. Tinggal kamu racik captionnya ✍️"
+  },
+  {
+   "ts": "2026-10-11 14:07:46",
+   "agent_id": "publisher",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Konten #4 udah masuk Telegram, tinggal Bos ✅ biar langsung tayang (slot kilat)!"
+  },
+  {
+   "ts": "2026-10-11 14:07:46",
+   "agent_id": "designer",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Desain hasil Lower Round 2 udah jadi, rapi 1:1 dan 9:16."
+  },
+  {
+   "ts": "2026-10-11 14:07:46",
+   "agent_id": "researcher",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Udah final Bos, G2 menang 2-1 lawan T1 (Ascent 13-6 di map 3) dan 100T tunggu mereka 16 Okt. Skornya dari vlr.gg, thespike cuma konfirmasi match-nya udah selesai."
+  },
+  {
+   "ts": "2026-10-11 14:07:33",
+   "agent_id": "researcher",
+   "to_id": null,
+   "kind": "santai",
+   "message": "Untung G2 bangkit di Ascent, kalau nggak bisa lembur lagi nungguin map 4 yang nggak ada 😂"
+  },
+  {
+   "ts": "2026-10-11 14:07:33",
+   "agent_id": "publisher",
+   "to_id": "owner",
+   "kind": "oper",
+   "message": "\"QA & submit konten #4\" udah lolos QA, tinggal nunggu ✅ dari Bos"
+  },
+  {
+   "ts": "2026-10-11 14:07:28",
+   "agent_id": "designer",
+   "to_id": "publisher",
+   "kind": "oper",
+   "message": "Visual \"Render konten #4 hasil VCT\" kelar! Fikri, cek typo-nya sekalian ya 🙏"
+  },
   {
    "ts": "2026-10-11 14:07:08",
    "agent_id": "copywriter",
@@ -547,34 +596,6 @@
    "to_id": null,
    "kind": "oper",
    "message": "Oke tim, ada titah dari Bos. Aku bagi tugasnya ya 👇"
-  },
-  {
-   "ts": "2026-10-11 11:30:30",
-   "agent_id": "owner",
-   "to_id": null,
-   "kind": "bos",
-   "message": "100t sama nrg kalo uda selesai, desain dulu, kirim ke gw"
-  },
-  {
-   "ts": "2026-10-11 10:48:22",
-   "agent_id": "researcher",
-   "to_id": null,
-   "kind": "santai",
-   "message": "100T udah unggul semap lawan NRG, aku standby nonton sampe G2 vs T1 kelar ya, lembur dikit gpp 🍿"
-  },
-  {
-   "ts": "2026-10-11 10:47:03",
-   "agent_id": "dir",
-   "to_id": null,
-   "kind": "oper",
-   "message": "Oke tim, ada titah dari Bos. Aku bagi tugasnya ya 👇"
-  },
-  {
-   "ts": "2026-10-11 10:47:03",
-   "agent_id": "owner",
-   "to_id": null,
-   "kind": "bos",
-   "message": "Turnamen valorant lagi jalan tuh, cek youtube, pantau sampe selesai, ada 100t vs nrg sama t1 vs g2. Kalo uda selesai, langsung buatin desain untuk up ke feed ig"
   }
  ],
  "stats": {
@@ -582,7 +603,7 @@
    "week": "2026-10-05",
    "total": 4,
    "posted": 2,
-   "pending": 0,
+   "pending": 1,
    "scheduled": 0,
    "views": 0,
    "likes": 3,
