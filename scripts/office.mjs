@@ -11,6 +11,7 @@ const { DatabaseSync } = await import('node:sqlite');
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { CHAT_SQL, chat as chatTo, handoff } from './chatter.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const DB_PATH = join(ROOT, 'db', 'office.db');
@@ -18,6 +19,9 @@ const STATE_PATH = join(ROOT, 'docs', 'data', 'state.json');
 
 const db = new DatabaseSync(DB_PATH);
 db.exec('PRAGMA foreign_keys = ON');
+db.exec(CHAT_SQL);
+db.exec(`CREATE TABLE IF NOT EXISTS followups (id INTEGER PRIMARY KEY AUTOINCREMENT, note TEXT NOT NULL, due_at TEXT NOT NULL,
+  done INTEGER NOT NULL DEFAULT 0, created_at TEXT DEFAULT (datetime('now')))`);
 
 // Tanggal hari ini versi WITA, zona jam kantor (YYYY-MM-DD)
 const today = () => new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Makassar' }).format(new Date());
@@ -67,7 +71,24 @@ const commands = {
   },
 
   agent(id, status, ...task) {
-    run("UPDATE agents SET status = ?, current_task = ?, updated_at = datetime('now') WHERE id = ?", status, task.join(' ') || null, id);
+    const t = task.join(' ') || null;
+    const prev = get('SELECT status FROM agents WHERE id = ?', id);
+    run("UPDATE agents SET status = ?, current_task = ?, updated_at = datetime('now') WHERE id = ?", status, t, id);
+    // kelar → otomatis oper ke pegawai berikutnya di panel chit-chat
+    if (status === 'done' && prev?.status === 'working' && t) handoff(db, id, t);
+    out('ok');
+  },
+
+  // followup <menit> "<apa yang dicek>" — minta watcher membangunkan Claude lagi nanti (mis. pantau skor pertandingan)
+  followup(minutes, ...note) {
+    const m = Math.max(15, Math.min(240, +minutes || 30));
+    run("INSERT INTO followups (note, due_at) VALUES (?, datetime('now', ?))", note.join(' '), `+${m} minutes`);
+    out(`ok: dicek lagi ${m} menit lagi`);
+  },
+
+  // chat <dari> <ke|all> <oper|santai|curhat> "<pesan>"  — obrolan antar pegawai (panel Chit-chat)
+  chat(from, to, kind, ...msg) {
+    chatTo(db, from, to === 'all' ? null : to, msg.join(' '), kind);
     out('ok');
   },
 
@@ -117,6 +138,13 @@ const commands = {
   content(sub, id, payload) {
     if (sub === 'get') return out(get('SELECT * FROM contents WHERE id = ?', id));
     if (sub === 'list') return out(all('SELECT id, slot, format, game, pillar, title, status FROM contents WHERE day = ? ORDER BY id', id ?? today()));
+    // content new '{"format":"feed","game":"mlbb","pillar":"promo","title":"..."}' → konten dadakan (permintaan Owner), slot "kilat" = tayang begitu di-approve
+    if (sub === 'new') {
+      const p = existsSync(id) ? JSON.parse(readFileSync(id, 'utf8')) : JSON.parse(id);
+      const r = run('INSERT INTO contents (day, slot, format, game, pillar, title) VALUES (?, ?, ?, ?, ?, ?)',
+        p.day ?? today(), p.slot ?? 'kilat', p.format ?? 'feed', p.game ?? null, p.pillar ?? null, p.title);
+      return out({ ok: true, id: Number(r.lastInsertRowid) });
+    }
     if (sub === 'set') {
       const data = existsSync(payload) ? JSON.parse(readFileSync(payload, 'utf8')) : JSON.parse(payload);
       const allowed = ['title', 'data_json', 'caption', 'hashtags', 'cta', 'link', 'template', 'asset_path', 'asset_url', 'status',
@@ -127,7 +155,7 @@ const commands = {
       }
       return out('ok');
     }
-    out('pakai: content get|set|list');
+    out('pakai: content get|set|list|new');
   },
 
   // task done <id> | task list [agent]
@@ -161,6 +189,7 @@ const commands = {
                           FROM contents WHERE day BETWEEN ? AND ? ORDER BY day, CASE slot WHEN 'pagi' THEN 0 WHEN 'siang' THEN 1 ELSE 2 END`, week, addDays(week, 6)),
       today_tasks: all('SELECT agent_id, type, title, status FROM tasks WHERE day = ? ORDER BY id', t),
       activity: all('SELECT ts, agent_id, message FROM activity ORDER BY id DESC LIMIT 25'),
+      chats: all('SELECT ts, agent_id, to_id, kind, message FROM chats ORDER BY id DESC LIMIT 40'),
       stats: { this_week: weekStats(week), last_week: weekStats(addDays(week, -7)) },
     };
     mkdirSync(dirname(STATE_PATH), { recursive: true });
@@ -186,7 +215,7 @@ function weekStats(week) {
 const normalize = (o) => Object.fromEntries(Object.entries(o ?? {}).map(([k, v]) => [k, Number(v ?? 0)]));
 
 if (!commands[cmd]) {
-  out('perintah: init | brief <agent> | agent <id> <status> [task] | log <agent> <msg> | memory <agent> <note> | campaign <file> | research <file> | content get|set|list | task done|doing|list | metric ... | stats [week] | export');
+  out('perintah: init | brief <agent> | agent <id> <status> [task] | chat <dari> <ke|all> <kind> <pesan> | log <agent> <msg> | memory <agent> <note> | campaign <file> | research <file> | content get|set|list|new | followup <menit> <catatan> | task done|doing|list | metric ... | stats [week] | export');
   process.exit(cmd ? 1 : 0);
 }
 commands[cmd](...args);

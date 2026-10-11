@@ -68,12 +68,21 @@ const WOMEN = AGENTS.filter((a) => a.gender === 'f').map((a) => a.id);
 
 // Lokasi tujuan untuk pegawai `idx` → { pos, rot, pose, anchor, approach[] }
 export function locationFor(spots, agent, idx, loc, info) {
-  switch (loc) {
+  switch (String(loc).startsWith('visit') ? 'visit' : loc) {
     case 'desk': {
       const d = spots.desk[idx];
       return d.row === 'A'
         ? { pos: V(d.x, 0, d.z), rot: d.rot, pose: 'type', anchor: 'W_AISLE', approach: [V(d.x, 0, -2.2)] }
         : { pos: V(d.x, 0, d.z), rot: d.rot, pose: 'type', anchor: 'WORK_IN', approach: [V(d.x, 0, 1.0)] };
+    }
+    case 'visit': {
+      // berdiri di samping meja teman (oper kerjaan), menghadap mejanya
+      const ti = AGENTS.findIndex((a) => a.id === info?.target);
+      const d = spots.desk[ti] ?? spots.desk[idx];
+      const x = d.x + 0.95;
+      return d.row === 'A'
+        ? { pos: V(x, 0, d.z + 0.15), rot: d.rot, pose: 'stand', anchor: 'W_AISLE', approach: [V(x, 0, -2.2)] }
+        : { pos: V(x, 0, d.z + 0.15), rot: d.rot, pose: 'stand', anchor: 'WORK_IN', approach: [V(x, 0, 1.0)] };
     }
     case 'meeting': {
       const m = spots.meeting[idx];
@@ -83,6 +92,9 @@ export function locationFor(spots, agent, idx, loc, info) {
           : m.side === 'W' ? [V(-5.6, UP, -9.9), V(-5.6, UP, -11.6)] : [V(m.x, UP, -9.7)];
       return { pos: V(m.x, UP, m.z), rot: m.rot, pose: 'talk', anchor: 'MEET_IN', approach };
     }
+    case 'mimbar':
+      // khotib berdiri di depan, menghadap jamaah
+      return { pos: V(-14.5, UP, -13.25), rot: 0, pose: 'stand', anchor: 'MUS_IN', approach: [V(-14.5, UP, -9.6)] };
     case 'musholla': {
       // kiblat = mihrab di dinding belakang → semua menghadap -z
       const m = spots.musholla;

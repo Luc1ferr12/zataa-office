@@ -28,15 +28,20 @@ function setEnv(key, value) {
 const env = { ...loadEnv(), ...process.env };
 export { setEnv };
 
-async function db() {
+export async function db() {
   const { DatabaseSync } = await import('node:sqlite');
   const d = new DatabaseSync(join(ROOT, 'db', 'office.db'));
   try { d.exec('ALTER TABLE contents ADD COLUMN revisions INTEGER NOT NULL DEFAULT 0'); } catch { /* sudah ada */ }
+  d.exec(`CREATE TABLE IF NOT EXISTS boosts (
+    id INTEGER PRIMARY KEY AUTOINCREMENT, content_id INTEGER NOT NULL, month TEXT NOT NULL, amount INTEGER NOT NULL, days INTEGER NOT NULL,
+    score REAL, status TEXT NOT NULL DEFAULT 'proposed', -- proposed | approved | skipped | active | failed
+    campaign_id TEXT, adset_id TEXT, ad_id TEXT, error TEXT,
+    created_at TEXT DEFAULT (datetime('now')), updated_at TEXT DEFAULT (datetime('now')))`);
   return d;
 }
 
 // ---------- Telegram Bot API
-async function tg(method, params = {}, files = {}) {
+export async function tg(method, params = {}, files = {}) {
   if (!env.TELEGRAM_BOT_TOKEN) throw new Error('TELEGRAM_BOT_TOKEN belum diisi di .env');
   let body, headers = {};
   if (Object.keys(files).length) {
@@ -55,10 +60,12 @@ async function tg(method, params = {}, files = {}) {
 const esc = (s) => String(s ?? '').replace(/[&<>]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' })[c]);
 export const say = (text) => tg('sendMessage', { chat_id: env.TELEGRAM_CHAT_ID, text, parse_mode: 'HTML', disable_web_page_preview: true });
 
-export const SLOT = { pagi: '09:00', siang: '12:00', malam: '19:00' };
-// tujuan posting per format: video → IG Reels + TikTok (private dulu), feed/carousel → IG Feed
-export const targets = (c) => (c.format === 'video' ? ['ig', 'tiktok'] : ['ig']);
-export const targetLabel = (c) => (c.format === 'video' ? 'IG Reels + TikTok (private)' : c.format === 'carousel' ? 'IG Feed (carousel)' : 'IG Feed');
+export const SLOT = { pagi: '09:00', siang: '12:00', malam: '19:00', kilat: 'langsung' };
+const slotLabel = (c) => (c.slot === 'kilat' ? 'langsung tayang' : `${SLOT[c.slot] ?? '?'} WIB`);
+// tujuan posting per format: video → IG Reels (+ TikTok private kalau sudah login), feed/carousel → IG Feed
+const tiktokOn = () => !!loadEnv().TIKTOK_REFRESH_TOKEN;
+export const targets = (c) => (c.format === 'video' && tiktokOn() ? ['ig', 'tiktok'] : ['ig']);
+export const targetLabel = (c) => (c.format === 'video' ? (tiktokOn() ? 'IG Reels + TikTok (private)' : 'IG Reels') : c.format === 'carousel' ? 'IG Feed (carousel)' : 'IG Feed');
 const DAYS = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
 
 export async function submit(id, { note = '' } = {}) {
@@ -70,7 +77,7 @@ export async function submit(id, { note = '' } = {}) {
   const abs = (p) => join(ROOT, p);
   const rev = c.revisions ? ` · revisi ke-${c.revisions}` : '';
   const hari = DAYS[new Date(`${c.day}T00:00:00Z`).getUTCDay()];
-  const head = `<b>#${c.id}</b> · ${hari} ${c.day.slice(8)}/${c.day.slice(5, 7)} · ${c.slot} (${SLOT[c.slot] ?? '?'} WIB) · ${c.format}${rev}`;
+  const head = `<b>#${c.id}</b> · ${hari} ${c.day.slice(8)}/${c.day.slice(5, 7)} · ${c.slot} (${slotLabel(c)}) · ${c.format}${rev}`;
   const chat = env.TELEGRAM_CHAT_ID;
   if (!chat) throw new Error('TELEGRAM_CHAT_ID belum diisi (jalankan: node scripts/approval.mjs setup)');
 
@@ -86,7 +93,7 @@ export async function submit(id, { note = '' } = {}) {
   }
   // 2) detail + tombol
   const lines = [
-    head, `<b>${esc(c.title)}</b>`, `📍 Tayang di: ${targetLabel(c)} · ${SLOT[c.slot] ?? '?'} WIB (otomatis setelah Approve)`, '',
+    head, `<b>${esc(c.title)}</b>`, `📍 Tayang di: ${targetLabel(c)} · ${slotLabel(c)} (otomatis setelah Approve)`, '',
     note ? `🔁 <i>${esc(note)}</i>\n` : '',
     `<b>Caption:</b>\n${esc(c.caption ?? '-')}`,
     c.hashtags ? `\n${esc(c.hashtags)}` : '',
@@ -116,6 +123,14 @@ export async function poll() {
   const d = await db();
   const log = (m) => d.prepare('INSERT INTO activity (agent_id, message) VALUES (?, ?)').run('owner', m);
   for (const x of fresh) {
+    // tombol usulan boost dari Fahriah (id = nomor boost, bukan konten) → dieksekusi scripts/boost.mjs
+    if (x.action === 'chat') { log(`Chat: ${x.note}`); continue; } // dikerjakan watcher (scripts/ask.mjs)
+    if (x.action === 'boost' || x.action === 'boost_skip') {
+      const st = x.action === 'boost' ? 'approved' : 'skipped';
+      d.prepare("UPDATE boosts SET status = ?, updated_at = datetime('now') WHERE id = ? AND status = 'proposed'").run(st, x.id);
+      log(x.action === 'boost' ? `Setujui boost B${x.id} 💸` : `Lewati boost B${x.id}`);
+      continue;
+    }
     if (x.action === 'approve') { d.prepare("UPDATE contents SET status = 'approved', updated_at = datetime('now') WHERE id = ?").run(x.id); log(`Approve konten #${x.id} ✅`); }
     else if (x.action === 'reject') { d.prepare("UPDATE contents SET status = 'rejected', updated_at = datetime('now') WHERE id = ?").run(x.id); log(`Tolak konten #${x.id}`); }
     else if (x.action === 'revision') {

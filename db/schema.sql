@@ -4,7 +4,7 @@ PRAGMA foreign_keys = ON;
 
 -- Pegawai kantor (AI + owner)
 CREATE TABLE IF NOT EXISTS agents (
-  id           TEXT PRIMARY KEY,          -- dir, researcher, copywriter, designer, video, publisher, owner
+  id           TEXT PRIMARY KEY,          -- dir, researcher, copywriter, designer, video, publisher, ads, owner
   name         TEXT NOT NULL,
   title        TEXT NOT NULL,
   status       TEXT NOT NULL DEFAULT 'idle', -- idle | working | waiting | done | off
@@ -121,4 +121,5 @@ INSERT OR IGNORE INTO agents (id, name, title) VALUES
   ('copywriter', 'Ista',   'Copywriter'),
   ('designer',   'Maria',  'Graphic Designer'),
   ('video',      'Dimas',  'Video Production'),
-  ('publisher',  'Fikri',  'Social Media Publisher');
+  ('publisher',  'Fikri',  'Social Media Publisher'),
+  ('ads',        'Fahriah', 'Ads Specialist');

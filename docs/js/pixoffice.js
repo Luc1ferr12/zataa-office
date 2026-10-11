@@ -156,7 +156,7 @@ export class Office {
     c.label.querySelector('.b-act').textContent = `${info.emoji} ${info.label}`;
     c.label.classList.toggle('is-selected', this.selected === id);
 
-    const key = info.loc === 'lounge' && info.label.includes('Mabar') ? 'game' : info.loc;
+    const key = info.loc === 'visit' ? `visit:${info.target}` : info.loc === 'lounge' && info.label.includes('Mabar') ? 'game' : info.loc;
     if (c.idx < DESKS) this.screens[c.idx] = c.locKey === 'desk' && !c.path.length;
 
     if (mode === 'init') {
@@ -464,7 +464,7 @@ export class Office {
         if (m && (t + c.seed * 7) % m[1] < m[2]) { if (m[0] === 'shake') jitter = Math.floor(t * 12) % 2 ? 1 : -1; else v = m[0]; }
       } else if (pose === 'talk') f = Math.floor(t * 1.3 + c.seed) % 4;
       else if (pose === 'eat' || pose === 'drink') f = Math.floor(t * 0.6 + c.seed) % 4;
-      else if (pose === 'pray') v = phase;
+      else if (pose === 'pray') v = c.info?.phase ?? phase; // mis. duduk dengerin khotbah
       if (pose === 'drink' && f >= 2) pose = 'stand';
       const spr = sprite(c.agent.id, this.outfit, pose, dir, f, v);
       const [x, y] = proj(c.pos.x, c.pos.y, c.pos.z);

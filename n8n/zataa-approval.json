@@ -2,58 +2,110 @@
   "name": "Zataa — Approval Telegram",
   "nodes": [
     {
-      "parameters": { "updates": ["message", "callback_query"], "additionalFields": {} },
+      "parameters": {
+        "updates": [
+          "message",
+          "callback_query"
+        ],
+        "additionalFields": {}
+      },
       "id": "a1f0c6a2-1111-4a0b-9c01-000000000001",
       "name": "Telegram masuk",
       "type": "n8n-nodes-base.telegramTrigger",
       "typeVersion": 1.1,
-      "position": [0, 0],
+      "position": [
+        0,
+        0
+      ],
       "webhookId": "zataa-approval-telegram",
-      "credentials": { "telegramApi": { "id": "", "name": "Telegram Zataa" } }
+      "credentials": {
+        "telegramApi": {
+          "id": "",
+          "name": "Telegram Zataa"
+        }
+      }
     },
     {
       "parameters": {
-        "jsCode": "// GANTI dengan chat id Telegram owner (angka). Kirim pesan apa saja ke bot: bot membalas dengan chat id kamu.\nconst OWNER = 'ISI_CHAT_ID_OWNER'; // boleh angka atau teks\n\nconst s = $getWorkflowStaticData('global');\ns.queue = s.queue || []; s.seq = s.seq || 0;\nconst u = $input.first().json;\nconst out = { chatId: null, text: null, queryId: null };\nconst push = (id, action, note = '') => { s.seq += 1; s.queue.push({ seq: s.seq, id: Number(id), action, note, ts: new Date().toISOString() }); };\n\nif (u.callback_query) {\n  const q = u.callback_query;\n  out.queryId = q.id;\n  out.chatId = String(q.message.chat.id);\n  if (String(q.from.id) !== String(OWNER).trim()) {\n    out.text = 'Bot ini khusus owner Zataa.';\n  } else {\n    const [act, id] = String(q.data || '').split(':');\n    if (act === 'ok') { push(id, 'approve'); s.waiting = null; out.text = `✅ #${id} di-approve. Masuk antrian tayang.`; }\n    else if (act === 'no') { push(id, 'reject'); s.waiting = null; out.text = `❌ #${id} ditolak.`; }\n    else if (act === 'rev') { s.waiting = id; out.text = `✏️ Ketik catatan revisi buat #${id}:`; }\n  }\n} else if (u.message) {\n  const m = u.message;\n  out.chatId = String(m.chat.id);\n  const txt = String(m.text || m.caption || '').trim();\n  if (String(m.from.id) !== String(OWNER).trim()) {\n    out.text = `Chat ID kamu: ${m.chat.id}\\nMasukkan angka ini ke node Proses (baris OWNER) di n8n.`;\n  } else {\n    // balas langsung ke pesan konten (#id) juga dihitung revisi\n    const replied = String(m.reply_to_message?.text || m.reply_to_message?.caption || '').match(/#(\\d+)/);\n    const id = replied ? replied[1] : s.waiting;\n    if (txt && !txt.startsWith('/') && id) {\n      push(id, 'revision', txt);\n      s.waiting = null;\n      out.text = `📝 Revisi #${id} dicatat:\\n«${txt}»\\nTim lagi ngerjain, nanti dikirim ulang ke sini.`;\n    } else {\n      out.text = 'Halo bos 👋 Konten yang siap otomatis dikirim ke sini.\\nTekan ✅ Approve, ✏️ Revisi (lalu ketik catatannya), atau ❌ Tolak. Bisa juga langsung balas (reply) pesan kontennya dengan catatan revisi.';\n    }\n  }\n}\ns.queue = s.queue.slice(-300);\nreturn [{ json: out }];"
+        "jsCode": "// GANTI dengan chat id Telegram owner (angka). Kirim pesan apa saja ke bot: bot membalas dengan chat id kamu.\nconst OWNER = 'ISI_CHAT_ID_OWNER'; // boleh angka atau teks\n\nconst s = $getWorkflowStaticData('global');\ns.queue = s.queue || []; s.seq = s.seq || 0;\nconst u = $input.first().json;\nconst out = { chatId: null, text: null, queryId: null };\nconst push = (id, action, note = '') => { s.seq += 1; s.queue.push({ seq: s.seq, id: Number(id), action, note, ts: new Date().toISOString() }); };\n\nif (u.callback_query) {\n  const q = u.callback_query;\n  out.queryId = q.id;\n  out.chatId = String(q.message.chat.id);\n  if (String(q.from.id) !== String(OWNER).trim()) {\n    out.text = 'Bot ini khusus owner Zataa.';\n  } else {\n    const [act, id] = String(q.data || '').split(':');\n    if (act === 'ok') { push(id, 'approve'); s.waiting = null; out.text = `✅ #${id} di-approve. Masuk antrian tayang.`; }\n    else if (act === 'no') { push(id, 'reject'); s.waiting = null; out.text = `❌ #${id} ditolak.`; }\n    else if (act === 'rev') { s.waiting = id; out.text = `✏️ Ketik catatan revisi buat #${id}:`; }\n    else if (act === 'boost') { push(id, 'boost'); out.text = `🚀 Boost B${id} disetujui. Fahriah lagi pasang iklannya.`; }\n    else if (act === 'skip') { push(id, 'boost_skip'); out.text = `👌 Boost B${id} dilewati.`; }\n  }\n} else if (u.message) {\n  const m = u.message;\n  out.chatId = String(m.chat.id);\n  const txt = String(m.text || m.caption || '').trim();\n  if (String(m.from.id) !== String(OWNER).trim()) {\n    out.text = `Chat ID kamu: ${m.chat.id}\\nMasukkan angka ini ke node Proses (baris OWNER) di n8n.`;\n  } else {\n    // balas langsung ke pesan konten (#id) juga dihitung revisi\n    const replied = String(m.reply_to_message?.text || m.reply_to_message?.caption || '').match(/#(\\d+)/);\n    const id = replied ? replied[1] : s.waiting;\n    if (txt && !txt.startsWith('/') && id) {\n      push(id, 'revision', txt);\n      s.waiting = null;\n      out.text = `📝 Revisi #${id} dicatat:\\n«${txt}»\\nTim lagi ngerjain, nanti dikirim ulang ke sini.`;\n    } else {\n      out.text = 'Halo bos 👋 Konten yang siap otomatis dikirim ke sini.\\nTekan ✅ Approve, ✏️ Revisi (lalu ketik catatannya), atau ❌ Tolak. Bisa juga langsung balas (reply) pesan kontennya dengan catatan revisi.';\n    }\n  }\n}\ns.queue = s.queue.slice(-300);\nreturn [{ json: out }];"
       },
       "id": "a1f0c6a2-1111-4a0b-9c01-000000000002",
       "name": "Proses",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [220, 0]
+      "position": [
+        220,
+        0
+      ]
     },
     {
-      "parameters": { "resource": "callback", "queryId": "={{ $json.queryId }}", "additionalFields": {} },
+      "parameters": {
+        "resource": "callback",
+        "queryId": "={{ $json.queryId }}",
+        "additionalFields": {}
+      },
       "id": "a1f0c6a2-1111-4a0b-9c01-000000000003",
       "name": "Tutup loading tombol",
       "type": "n8n-nodes-base.telegram",
       "typeVersion": 1.2,
-      "position": [440, 0],
+      "position": [
+        440,
+        0
+      ],
       "onError": "continueRegularOutput",
-      "credentials": { "telegramApi": { "id": "", "name": "Telegram Zataa" } }
+      "credentials": {
+        "telegramApi": {
+          "id": "",
+          "name": "Telegram Zataa"
+        }
+      }
     },
     {
       "parameters": {
         "chatId": "={{ $('Proses').item.json.chatId }}",
         "text": "={{ $('Proses').item.json.text }}",
-        "additionalFields": { "appendAttribution": false }
+        "additionalFields": {
+          "appendAttribution": false
+        }
       },
       "id": "a1f0c6a2-1111-4a0b-9c01-000000000004",
       "name": "Balas Owner",
       "type": "n8n-nodes-base.telegram",
       "typeVersion": 1.2,
-      "position": [660, 0],
+      "position": [
+        660,
+        0
+      ],
       "onError": "continueRegularOutput",
-      "credentials": { "telegramApi": { "id": "", "name": "Telegram Zataa" } }
+      "credentials": {
+        "telegramApi": {
+          "id": "",
+          "name": "Telegram Zataa"
+        }
+      }
     },
     {
-      "parameters": { "path": "zataa-decisions", "authentication": "headerAuth", "responseMode": "responseNode", "options": {} },
+      "parameters": {
+        "path": "zataa-decisions",
+        "authentication": "headerAuth",
+        "responseMode": "responseNode",
+        "options": {}
+      },
       "id": "a1f0c6a2-1111-4a0b-9c01-000000000005",
       "name": "PC ambil keputusan",
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 2,
-      "position": [0, 260],
+      "position": [
+        0,
+        260
+      ],
       "webhookId": "zataa-decisions",
-      "credentials": { "httpHeaderAuth": { "id": "", "name": "Zataa key" } }
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "",
+          "name": "Zataa key"
+        }
+      }
     },
     {
       "parameters": {
@@ -63,24 +115,86 @@
       "name": "Antrian",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [220, 260]
+      "position": [
+        220,
+        260
+      ]
     },
     {
-      "parameters": { "respondWith": "json", "responseBody": "={{ $json }}", "options": {} },
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ $json }}",
+        "options": {}
+      },
       "id": "a1f0c6a2-1111-4a0b-9c01-000000000007",
       "name": "Kirim ke PC",
       "type": "n8n-nodes-base.respondToWebhook",
       "typeVersion": 1.1,
-      "position": [440, 260]
+      "position": [
+        440,
+        260
+      ]
     }
   ],
   "connections": {
-    "Telegram masuk": { "main": [[{ "node": "Proses", "type": "main", "index": 0 }]] },
-    "Proses": { "main": [[{ "node": "Tutup loading tombol", "type": "main", "index": 0 }]] },
-    "Tutup loading tombol": { "main": [[{ "node": "Balas Owner", "type": "main", "index": 0 }]] },
-    "PC ambil keputusan": { "main": [[{ "node": "Antrian", "type": "main", "index": 0 }]] },
-    "Antrian": { "main": [[{ "node": "Kirim ke PC", "type": "main", "index": 0 }]] }
+    "Telegram masuk": {
+      "main": [
+        [
+          {
+            "node": "Proses",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Proses": {
+      "main": [
+        [
+          {
+            "node": "Tutup loading tombol",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Tutup loading tombol": {
+      "main": [
+        [
+          {
+            "node": "Balas Owner",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "PC ambil keputusan": {
+      "main": [
+        [
+          {
+            "node": "Antrian",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Antrian": {
+      "main": [
+        [
+          {
+            "node": "Kirim ke PC",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
   },
-  "settings": { "executionOrder": "v1" },
+  "settings": {
+    "executionOrder": "v1"
+  },
   "pinData": {}
 }

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Watcher approval (tanpa AI, 0 token saat diam): tiap 60 dtk tarik keputusan Owner dari n8n.
 // Revisi → jalankan Claude Code CLI untuk memperbaiki + render ulang → kirim lagi ke Telegram.
-// Approved → auto-post ke IG/TikTok saat jam slot (scripts/publish.mjs).
+// Approved → auto-post ke IG/TikTok saat jam slot (scripts/publish.mjs). Pesan bebas Owner → scripts/ask.mjs.
 //   node scripts/watch.mjs          (biarkan jalan; dipasang otomatis saat Windows login lewat scripts/start-watcher.cmd)
 //   node scripts/watch.mjs --once   (sekali cek, untuk tes)
 process.removeAllListeners('warning');
@@ -10,6 +10,9 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { poll, submit, say, loadEnv } from './approval.mjs';
 import { publishDue } from './publish.mjs';
+import { revisionText } from './chatter.mjs';
+import { adsReady, propose, runApproved } from './boost.mjs';
+import { handleOwnerMessage, runFollowups, syncMonitor } from './ask.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const EVERY = 60_000;
@@ -50,6 +53,7 @@ async function revise(x) {
   setAgent('copywriter', 'working', task);
   setAgent(maker, 'working', task);
   note(maker, `Balik ke komputer, ngerjain revisi #${x.id}`);
+  office('chat', maker, 'all', 'curhat', revisionText());
   exportState();
   await say(`🛠️ Revisi #${x.id} lagi dikerjain…`).catch(() => {});
   const prompt = `Kamu tim kantor marketing Zataa (zataa.my.id) di folder ini. Owner minta REVISI konten #${x.id}:
@@ -95,14 +99,54 @@ async function autopost() {
   exportState();
 }
 
+// Fahriah: usul boost sekali sehari + pasang iklan yang sudah di-✅ Owner (aktif kalau setelan iklan lengkap di .env)
+let boosting = false;
+async function ads() {
+  if (boosting || !adsReady()) return;
+  boosting = true;
+  try {
+    for (const r of await runApproved()) log(r.ok ? `boost B${r.id} jalan` : `boost B${r.id} gagal: ${r.error}`);
+    const p = await propose();
+    if (p.proposed) log(`usul boost B${p.proposed} (#${p.content})`);
+  } catch (e) { log(`boost gagal: ${e.message}`); }
+  boosting = false;
+  exportState();
+}
+
+// pesan bebas Owner di Telegram (tanya status / kasih tugas) + tugas pantau terjadwal — dikerjakan satu per satu
+const inbox = [];
+let talking = false;
+async function talk() {
+  if (talking) return;
+  talking = true;
+  try {
+    while (inbox.length) {
+      const msg = inbox.shift();
+      log(`pesan owner: ${msg.slice(0, 80)}`);
+      const r = await handleOwnerMessage(msg, log);
+      log(`pesan owner beres (${r.kind}${r.ok === false ? ', gagal' : ''})`);
+      exportState();
+    }
+    const f = await runFollowups(log);
+    await syncMonitor();
+    if (f) exportState();
+  } catch (e) { log(`chat gagal: ${e.message}`); }
+  talking = false;
+}
+
 async function tick() {
   autopost();
+  ads();
+  talk();
   try {
     const got = await poll();
     if (!got.length) return;
     log(`${got.length} keputusan baru`);
     // Owner udah mutusin → Fikri nggak nunggu approval lagi
-    if (got.some((g) => g.action !== 'revision')) setAgent('publisher', 'done');
+    if (got.some((g) => ['approve', 'reject'].includes(g.action))) setAgent('publisher', 'done');
+    if (got.some((g) => g.action === 'boost_skip')) setAgent('ads', 'done');
+    for (const g of got.filter((x) => x.action === 'chat' && x.note)) inbox.push(g.note);
+    if (inbox.length) talk();
     exportState();
     // revisi terakhir per konten saja (kalau Owner kirim beberapa catatan, gabungkan)
     const notes = new Map();

@@ -18,10 +18,15 @@ Kantor marketing virtual untuk **zataa.my.id** (top up game). Claude memerankan 
 | designer | Maria | Render feed/carousel dari template → JPG 1080×1080 IG feed (+9:16) |
 | video | Dimas | Render video 9:16 dari template |
 | publisher | Fikri | QA akhir, kirim ke Telegram Owner untuk approval (`scripts/approval.mjs submit <id>`) |
+| ads | Fahriah | Boost post IG terbaik (usul via Telegram, budget bulanan dikunci; otomatis lewat watcher, `scripts/boost.mjs`) |
 
 Sebelum memerankan pegawai, baca **hanya** playbook-nya: `office/roles/<id>.md` (keahlian diadaptasi dari agency-agents, MIT).
 
 Update status visual: `office.mjs agent <id> working "<tugas>"` → selesai `office.mjs agent <id> done "<tugas>"`, dan log singkat `office.mjs log <id> "<pesan>"`.
+`done` otomatis menulis obrolan oper kerjaan ke panel Chit-chat. Boleh tambah 1–2 obrolan natural per sesi (santai/curhat, singkat): `office.mjs chat <dari> <ke|all> <oper|santai|curhat> "<pesan>"`.
+
+## Chat Owner via Telegram
+Pesan bebas Owner di Telegram dikerjakan watcher lewat `scripts/ask.mjs`: "lagi pada ngapain" dijawab tanpa AI; tugas lain dijalankan Claude CLI. Konten dadakan: `office.mjs content new '<json>'` (slot `kilat` = tayang begitu approved). Owner bilang "langsung post" = approval. Tugas pantau: `office.mjs followup <menit> "<konteks>"` (maks 16×/hari).
 
 ## Ritme kerja
 - Kantor buka **setiap hari (Senin–Minggu) 07:00–21:00 WITA**; sesi kerja Claude otomatis mulai 07:00 WITA. Senin: plan mingguan. Minggu: evaluasi mingguan.

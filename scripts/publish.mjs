@@ -15,8 +15,11 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execFileSync } from 'node:child_process';
 import { loadEnv, setEnv, say, SLOT, targets } from './approval.mjs';
+import { chat } from './chatter.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
+// jangan pernah bocorkan token ke log/Telegram (pesan error Meta kadang memuatnya)
+const hide = (m) => String(m).replace(/EAA[A-Za-z0-9]{10,}/g, 'EAA…');
 const out = (o) => console.log(typeof o === 'string' ? o : JSON.stringify(o));
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const env = () => ({ ...loadEnv(), ...process.env }); // baca ulang tiap kali: watcher jalan lama, .env bisa berubah
@@ -58,7 +61,7 @@ async function graph(path, params = {}, method = 'POST') {
   const body = new URLSearchParams({ ...params, access_token: e.IG_ACCESS_TOKEN });
   const r = method === 'GET' ? await fetch(`${url}?${body}`) : await fetch(url, { method, body });
   const j = await r.json();
-  if (j.error) throw new Error(`IG: ${j.error.error_user_msg || j.error.message}`);
+  if (j.error) throw new Error(`IG: ${hide(j.error.error_user_msg || j.error.message)}`);
   return j;
 }
 async function igReady(id) {
@@ -154,7 +157,7 @@ async function postTikTok(c, A, caption) {
 }
 
 // ---------- jadwal: slot WIB (UTC+7)
-const dueAt = (c) => new Date(`${c.day}T${SLOT[c.slot] ?? '12:00'}:00+07:00`).getTime();
+const dueAt = (c) => (c.slot === 'kilat' ? 0 : new Date(`${c.day}T${SLOT[c.slot] ?? '12:00'}:00+07:00`).getTime());
 const failures = new Map(); // id → jumlah gagal (di memori watcher)
 
 export async function publishOne(id) {
@@ -185,11 +188,11 @@ export async function publishOne(id) {
     } catch (e) { errs.push(e.message); }
   }
   setAgent(d, 'done');
-  if (done.length) activity(d, 'publisher', `Posting #${c.id} ke ${done.join(' + ')} ✅`);
+  if (done.length) { activity(d, 'publisher', `Posting #${c.id} ke ${done.join(' + ')} ✅`); chat(d, 'publisher', null, `"${c.title.slice(0, 50)}" udah tayang di ${done.join(' + ')} 🚀 Makasih semua!`, 'oper'); }
   if (!errs.length) {
     d.prepare("UPDATE contents SET status = 'posted', posted_at = datetime('now'), updated_at = datetime('now') WHERE id = ?").run(c.id);
     failures.delete(c.id);
-    await say(`🚀 #${c.id} udah tayang di ${done.join(' + ') || 'semua platform'}.${c.format === 'video' ? '\nTikTok masih private, ubah privacy di app kalau mau publik.' : ''}`).catch(() => {});
+    await say(`🚀 #${c.id} udah tayang di ${done.join(' + ') || 'semua platform'}.${done.some((p) => p.startsWith('TikTok')) ? '\nTikTok masih private, ubah privacy di app kalau mau publik.' : ''}`).catch(() => {});
     return { ok: true, id: c.id, posted: done };
   }
   const n = (failures.get(c.id) ?? 0) + 1;

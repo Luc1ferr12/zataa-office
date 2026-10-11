@@ -55,8 +55,22 @@ main { padding: 20px 24px 40px; max-width: 1440px; margin: 0 auto; display: grid
 .kpi strong { font-family: Sora, sans-serif; font-size: 28px; font-variant-numeric: tabular-nums; }
 .kpi small { color: var(--muted); font-size: 12px; }
 
-.grid { display: grid; grid-template-columns: 1.7fr 1fr; grid-template-areas: 'week team' 'activity team'; gap: 14px; align-items: start; }
-.week { grid-area: week; } .team { grid-area: team; } .activity { grid-area: activity; }
+.grid { display: grid; grid-template-columns: 1.7fr 1fr; grid-template-areas: 'week team' 'activity chat'; gap: 14px; align-items: stretch; }
+/* baris 1: jadwal & tim sama tinggi; baris 2: aktivitas & chit-chat sama tinggi (list di dalamnya scroll) */
+.week, .activity, .chat { display: flex; flex-direction: column; }
+.week .week-grid { flex: 1; }
+.activity-list, .chat-list { height: 300px; max-height: none; }
+.week { grid-area: week; } .team { grid-area: team; } .activity { grid-area: activity; } .chat { grid-area: chat; }
+.chat-list { list-style: none; margin: 0; padding: 0 4px 0 0; display: flex; flex-direction: column; gap: 10px; overflow: auto; }
+.chat-list li { display: grid; grid-template-columns: 28px 1fr; gap: 8px; align-items: start; }
+.chat-list .av { width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; font-size: 12px; font-weight: 700; color: #fff; }
+.chat-list .msg { background: var(--panel-2, rgba(127, 127, 160, 0.12)); border-radius: 4px 12px 12px 12px; padding: 7px 10px; font-size: 13px; line-height: 1.45; min-width: 0; overflow-wrap: anywhere; }
+.chat-list .meta { display: flex; gap: 6px; align-items: baseline; font-size: 11.5px; color: var(--muted); margin-bottom: 2px; }
+.chat-list .meta b { color: var(--text, inherit); font-size: 12px; }
+.chat-list li.oper .msg { box-shadow: inset 3px 0 0 #7c3aed; }
+.chat-list li.curhat .msg { box-shadow: inset 3px 0 0 #db2777; }
+.chat-list li.bos .msg { box-shadow: inset 3px 0 0 #d4a63a; }
+.chat-list .empty { color: var(--muted); font-size: 12.5px; display: block; }
 .card { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px; min-width: 0; }
 .card-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; margin-bottom: 12px; }
 
@@ -81,7 +95,7 @@ main { padding: 20px 24px 40px; max-width: 1440px; margin: 0 auto; display: grid
 .member .who strong { display: block; font-size: 13.5px; }
 .member .who span { color: var(--muted); font-size: 12px; display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .member .emoji { font-size: 18px; }
-.activity-list { max-height: 230px; overflow: auto; }
+.activity-list { overflow: auto; align-content: start; }
 .activity-list li { font-size: 12.5px; padding: 6px 0; border-bottom: 1px dashed var(--line); }
 .activity-list time { color: var(--muted); font-size: 11.5px; margin-right: 6px; font-variant-numeric: tabular-nums; }
 
@@ -150,7 +164,7 @@ main { padding: 20px 24px 40px; max-width: 1440px; margin: 0 auto; display: grid
 .loading { position: absolute; inset: 0; display: grid; place-items: center; color: var(--muted); pointer-events: none; }
 
 @media (max-width: 1100px) {
-  .grid { grid-template-columns: 1fr; grid-template-areas: 'week' 'team' 'activity'; }
+  .grid { grid-template-columns: 1fr; grid-template-areas: 'week' 'team' 'activity' 'chat'; }
   .week-grid { overflow-x: auto; grid-template-columns: repeat(7, minmax(120px, 1fr)); padding-bottom: 4px; }
 }
 @media (max-width: 640px) {
