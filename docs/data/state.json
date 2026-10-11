@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-11T11:50:45.962Z",
+ "generated_at": "2026-10-11T11:52:43.470Z",
  "today": "2026-10-11",
  "week_start": "2026-10-05",
  "campaign": {
@@ -36,17 +36,17 @@
    "id": "copywriter",
    "name": "Ista",
    "title": "Copywriter",
-   "status": "working",
+   "status": "done",
    "current_task": "Revisi #5: Thank You NRG — Champions Shanghai",
-   "updated_at": "2026-10-11 11:49:43"
+   "updated_at": "2026-10-11 11:51:54"
   },
   {
    "id": "designer",
    "name": "Maria",
    "title": "Graphic Designer",
-   "status": "working",
+   "status": "done",
    "current_task": "Revisi #5: Thank You NRG — Champions Shanghai",
-   "updated_at": "2026-10-11 11:49:43"
+   "updated_at": "2026-10-11 11:51:54"
   },
   {
    "id": "video",
@@ -60,9 +60,9 @@
    "id": "publisher",
    "name": "Fikri",
    "title": "Social Media Publisher",
-   "status": "waiting",
-   "current_task": "#5 Champions Shanghai: 100T 2-0 NRG",
-   "updated_at": "2026-10-11 11:45:49"
+   "status": "done",
+   "current_task": "undefined",
+   "updated_at": "2026-10-11 11:52:43"
   },
   {
    "id": "ads",
@@ -121,7 +121,7 @@
    "game": "valorant",
    "pillar": "esport",
    "title": "Thank You NRG — Champions Shanghai",
-   "status": "revision",
+   "status": "approved",
    "asset_url": "{\"feed\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-11/5-thank-you-nrg-champions-shanghai.jpg\"],\"story\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-11/5-thank-you-nrg-champions-shanghai-916.jpg\"]}",
    "scheduled_at": null,
    "posted_at": null
@@ -166,6 +166,26 @@
   }
  ],
  "activity": [
+  {
+   "ts": "2026-10-11 11:52:43",
+   "agent_id": "owner",
+   "message": "Approve konten #5 ✅"
+  },
+  {
+   "ts": "2026-10-11 11:51:58",
+   "agent_id": "publisher",
+   "message": "Kirim #5 ke Owner buat approval · revisi ke-3"
+  },
+  {
+   "ts": "2026-10-11 11:51:54",
+   "agent_id": "designer",
+   "message": "Revisi #5 kelar: Desainnya udah ganti pakai foto pemain NRG dengan nuansa ungu dan tulisan \"THANK YOU\" gede kayak contoh Owner."
+  },
+  {
+   "ts": "2026-10-11 11:51:44",
+   "agent_id": "designer",
+   "message": "Revisi #5: news pakai foto pemain NRG + overlay ungu, judul THANK YOU besar"
+  },
   {
    "ts": "2026-10-11 11:49:43",
    "agent_id": "designer",
@@ -270,29 +290,23 @@
    "ts": "2026-10-11 06:19:17",
    "agent_id": "publisher",
    "message": "Kirim #2 ke Owner buat approval · revisi ke-2"
-  },
-  {
-   "ts": "2026-10-11 06:19:04",
-   "agent_id": "designer",
-   "message": "Revisi #2: logo RRQ & ONIC (Liquipedia) dipasang di template versus, render ulang"
-  },
-  {
-   "ts": "2026-10-11 06:17:33",
-   "agent_id": "owner",
-   "message": "Minta revisi #2: langsung kasi file logo nya,logo rrq sama onic, cari di web"
-  },
-  {
-   "ts": "2026-10-11 06:16:05",
-   "agent_id": "publisher",
-   "message": "Kirim #2 ke Owner buat approval · revisi ke-1"
-  },
-  {
-   "ts": "2026-10-11 06:13:33",
-   "agent_id": "owner",
-   "message": "Minta revisi #2: Ini uda pake ukuran 1080x1080p ? Kalo belum, ubah. Di inget ini, untuk feed ig pake ukuran 1080x1080p, kecuali video ya. Terus itu ubah pake logo tim nya rrq sama onic, jangan cuma tulisan. Base nya tetep warna ungu gitu cuma kasi nuansa mobile legends"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-10-11 11:51:54",
+   "agent_id": "designer",
+   "to_id": "publisher",
+   "kind": "oper",
+   "message": "Fikri, desain \"Revisi #5: Thank You NRG — Champions Shanghai\" udah render 1080×1080. QA dulu ya sebelum ke bos"
+  },
+  {
+   "ts": "2026-10-11 11:51:54",
+   "agent_id": "copywriter",
+   "to_id": "designer",
+   "kind": "oper",
+   "message": "Teks buat \"Revisi #5: Thank You NRG — Champions Shanghai\" ready. Maria, giliranmu bikin cakep!"
+  },
   {
    "ts": "2026-10-11 11:49:43",
    "agent_id": "designer",
@@ -419,7 +433,7 @@
    "total": 4,
    "posted": 1,
    "pending": 0,
-   "scheduled": 0,
+   "scheduled": 1,
    "views": 0,
    "likes": 0,
    "comments": 0,
