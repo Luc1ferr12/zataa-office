@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="id"><head><meta charset="utf-8"><title>tips</title>
+<link rel="stylesheet" href="../shared/brand.css">
+<style>
+  .h1 { font-size: 92px; }
+  .list { display: grid; gap: 18px; }
+  .item { display: grid; grid-template-columns: 92px 1fr; gap: 24px; align-items: center; padding: 22px 28px; }
+  .num { font: 800 76px/1 Sora; color: transparent; -webkit-text-stroke: 3px var(--accent); text-align: center; }
+  .item b { display: block; font: 800 38px/1.15 Sora; }
+  .item p { margin-top: 6px; font: 500 27px/1.35 Inter; color: var(--muted); }
+</style></head>
+<body><div id="root"></div>
+<script type="module">
+import { setup, shell, kicker, md, fit, ready } from '../shared/brand.js';
+// data: { game, kicker, headline, items:[{title, desc}] (3–5), cta }
+window.render = async (d, size) => {
+  const g = setup(d, size);
+  const items = (d.items ?? []).slice(0, 5).map((it, i) => `<div class="card item"><div class="num">${i + 1}</div><div><b>${md(it.title)}</b>${it.desc ? `<p>${md(it.desc)}</p>` : ''}</div></div>`).join('');
+  document.getElementById('root').innerHTML = shell(d, g, `
+    <div class="grow"><h1 class="h1">${md(d.headline)}</h1><div class="list">${items}</div></div>`, { kicker: kicker(d.kicker ?? 'TIPS') });
+  await ready();
+  fit(document.querySelector('.h1'), 52);
+};
+</script></body></html>

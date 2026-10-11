@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="id"><head><meta charset="utf-8"><title>promo</title>
+<link rel="stylesheet" href="../shared/brand.css">
+<style>
+  .prices { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+  .story .prices { grid-template-columns: 1fr; gap: 18px; }
+  .price { display: flex; flex-direction: column; gap: 10px; }
+  .story .price { flex-direction: row; align-items: center; justify-content: space-between; padding: 26px 32px; }
+  .price .name { font: 700 32px/1.15 Inter; color: var(--muted); }
+  .price .val { font: 800 54px/1 Sora; letter-spacing: -0.02em; }
+  .price .val small { font-size: .55em; color: var(--muted); margin-right: 6px; }
+  .price .old { font: 500 24px/1 Inter; color: #ffffff80; text-decoration: line-through; margin-top: 6px; }
+  .price.hot { border-color: var(--accent); background: linear-gradient(160deg, color-mix(in srgb, var(--accent) 26%, transparent), #ffffff08); }
+  .tag { position: absolute; top: -16px; right: 22px; padding: 8px 14px; border-radius: 10px; font: 800 18px/1 Sora; letter-spacing: .08em; color: var(--ink); background: var(--accent); }
+</style></head>
+<body><div id="root"></div>
+<script type="module">
+import { setup, shell, kicker, md, esc, fit, ready } from '../shared/brand.js';
+// data: { game, kicker, headline, sub, items:[{name, price, old?, tag?}] (≤4), cta, footnote }
+window.render = async (d, size) => {
+  const g = setup(d, size);
+  const items = (d.items ?? []).slice(0, 4).map((it) => {
+    const [cur, ...num] = String(it.price).split(' ');
+    const val = num.length ? `<small>${esc(cur)}</small>${esc(num.join(' '))}` : esc(it.price);
+    return `<div class="card price ${it.tag ? 'hot' : ''}">${it.tag ? `<span class="tag">${esc(it.tag)}</span>` : ''}
+      <div class="name">${md(it.name)}</div><div><div class="val">${val}</div>${it.old ? `<div class="old">${esc(it.old)}</div>` : ''}</div></div>`;
+  }).join('');
+  document.getElementById('root').innerHTML = shell(d, g, `
+    <div class="grow">
+      <h1 class="h1">${md(d.headline)}</h1>
+      ${d.sub ? `<p class="sub">${md(d.sub)}</p>` : ''}
+      <div class="prices">${items}</div>
+    </div>`, { kicker: kicker(d.kicker ?? 'PROMO HARI INI') });
+  await ready();
+  fit(document.querySelector('.h1'), 56);
+};
+</script></body></html>

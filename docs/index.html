@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Zataa AI Office</title>
+  <meta name="description" content="Kantor virtual AI tim marketing Zataa Top Up Game." />
+  <link rel="icon" href="assets/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600&family=Pixelify+Sans:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <img src="assets/logo.png" alt="" width="40" height="40" />
+      <div>
+        <h1>Zataa AI Office</h1>
+        <p>Tim marketing virtual · zataa.my.id</p>
+      </div>
+    </div>
+    <div class="clock">
+      <span id="office-status" class="pill">—</span>
+      <div class="clock-time"><span id="clock-day">—</span> <strong id="clock-time">--:--</strong> <small>WITA</small></div>
+    </div>
+  </header>
+
+  <main>
+    <section class="kpis" aria-label="Ringkasan minggu ini">
+      <article class="kpi"><span>Konten minggu ini</span><strong id="k-total">0</strong><small id="k-total-sub">dari plan</small></article>
+      <article class="kpi"><span>Nunggu approval</span><strong id="k-pending">0</strong><small>cek Telegram</small></article>
+      <article class="kpi"><span>Terposting</span><strong id="k-posted">0</strong><small id="k-sched">0 terjadwal</small></article>
+      <article class="kpi"><span>Views minggu ini</span><strong id="k-views">0</strong><small id="k-views-sub">vs minggu lalu</small></article>
+    </section>
+
+    <section class="grid">
+      <div class="card week">
+        <div class="card-head">
+          <h2>Jadwal konten minggu ini</h2>
+          <span class="muted" id="campaign-theme">Belum ada campaign</span>
+        </div>
+        <div class="week-grid" id="week-grid"></div>
+      </div>
+
+      <div class="card team">
+        <div class="card-head"><h2>Tim</h2><span class="muted">klik untuk lihat di kantor</span></div>
+        <ul id="team-list" class="team-list"></ul>
+      </div>
+
+      <div class="card activity">
+        <div class="card-head"><h2>Aktivitas</h2><span class="muted" id="updated-at"></span></div>
+        <ol id="activity" class="activity-list"></ol>
+      </div>
+    </section>
+
+    <section class="office-wrap" aria-label="Kantor virtual">
+      <div class="office-head">
+        <div>
+          <h2>Kantor Virtual</h2>
+          <p class="muted">Drag buat geser, scroll / pinch buat zoom. Klik pegawai buat lihat detail.</p>
+        </div>
+        <div class="sim">
+          <label class="switch"><input type="checkbox" id="upper-toggle" checked /> <span>Lantai atas</span></label>
+          <span class="sep"></span>
+          <label class="switch"><input type="checkbox" id="sim-toggle" /> <span>Simulasi</span></label>
+          <select id="sim-day" disabled>
+            <option value="1">Senin</option><option value="2">Selasa</option><option value="3">Rabu</option>
+            <option value="4">Kamis</option><option value="5">Jumat</option><option value="6">Sabtu</option><option value="0">Minggu</option>
+          </select>
+          <button type="button" id="sim-play" class="play" disabled aria-label="Putar waktu">▶</button>
+          <input type="range" id="sim-time" min="0" max="1439" step="1" value="600" disabled />
+          <output id="sim-out">10:00</output>
+        </div>
+      </div>
+      <div class="office" id="office">
+        <div class="office-canvas" id="office-canvas"></div>
+        <div class="office-title" aria-hidden="true">
+          <strong>ZATAA OFFICE</strong>
+          <span>TOP UP GAME. LEBIH MUDAH. LEBIH DEKAT.</span>
+        </div>
+        <div class="legend">
+          <span>💻 Ruang Kerja</span><span>🗣️ Ruang Meeting</span><span>👔 Ruang Boss</span><span>☕ Cafe</span>
+          <span>🛋️ Ruang Santai</span><span>🕌 Tempat Ibadah</span><span>🏊 Kolam Renang</span><span>🌿 Teras &amp; Taman</span>
+        </div>
+        <aside class="inspector" id="inspector" hidden>
+          <button class="close" id="insp-close" aria-label="Tutup">×</button>
+          <div class="insp-name" id="insp-name"></div>
+          <div class="insp-title muted" id="insp-title"></div>
+          <div class="insp-act" id="insp-act"></div>
+          <div class="insp-mood muted" id="insp-mood"></div>
+          <div class="insp-tasks" id="insp-tasks"></div>
+        </aside>
+        <div class="loading" id="loading">Lagi nyiapin kantor…</div>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

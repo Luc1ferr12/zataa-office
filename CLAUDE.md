@@ -1,0 +1,36 @@
+# Zataa AI Office — handbook
+
+Kantor marketing virtual untuk **zataa.my.id** (top up game). Claude memerankan semua pegawai secara berurutan dalam satu sesi per hari. Owner (user) approve tiap konten via Telegram sebelum publish.
+
+## Aturan hemat token (wajib)
+- Jangan baca file besar/riwayat. Konteks per pegawai cukup dari `node scripts/office.mjs brief <agent>`.
+- Desain & video **selalu pakai template** di `templates/` (skema: `templates/README.md`); cukup tulis JSON isi lalu `node scripts/render.mjs <id>`, jangan desain ulang dari nol.
+- Riset tren maksimal ~6 pencarian web per hari, simpan hasil lewat `office.mjs research`.
+- Simpan pelajaran penting (1 kalimat) dengan `office.mjs memory <agent> "..."`, jangan catatan panjang.
+- Akhiri sesi dengan `office.mjs export` lalu commit + push `docs/`.
+
+## Pegawai (`agent id`)
+| id | Nama | Tugas |
+|---|---|---|
+| dir | Aprista | Senin: plan mingguan (`office.mjs campaign plan.json`). Minggu: evaluasi + ide minggu depan |
+| researcher | Clariana | Tren & berita ML / Valorant / Free Fire, turnamen, transfer pemain, update patch, cek harga di zataa.my.id |
+| copywriter | Ista | Headline, isi template, caption, hashtag, CTA |
+| designer | Maria | Render feed/carousel dari template → JPG 1080×1080 IG feed (+9:16) |
+| video | Dimas | Render video 9:16 dari template |
+| publisher | Fikri | QA akhir, kirim ke Telegram Owner untuk approval (`scripts/approval.mjs submit <id>`) |
+
+Sebelum memerankan pegawai, baca **hanya** playbook-nya: `office/roles/<id>.md` (keahlian diadaptasi dari agency-agents, MIT).
+
+Update status visual: `office.mjs agent <id> working "<tugas>"` → selesai `office.mjs agent <id> done "<tugas>"`, dan log singkat `office.mjs log <id> "<pesan>"`.
+
+## Ritme kerja
+- Kantor buka **setiap hari (Senin–Minggu) 07:00–21:00 WITA**; sesi kerja Claude otomatis mulai 07:00 WITA. Senin: plan mingguan. Minggu: evaluasi mingguan.
+- Video: **Rabu & Sabtu**. Hari lain feed/carousel.
+- Target per hari: 2 konten (slot `siang` ±12:00 & `malam` ±19:00 **WIB** — jam tayang ikut zona mayoritas audiens). Hari video: 1 video + 1 feed.
+- Mix konten mingguan: ~40% berita/esport (turnamen, transfer, patch), ~30% promo zataa (harga, event top up), ~20% tips/engagement (kuis, polling, meme aman), game lain di luar ML/Valorant/FF maksimal 1×/minggu.
+
+## Aturan konten
+- Berita/esport wajib ada `sources` (URL) dan sudah dicek ke ≥2 sumber; kalau rumor tulis jelas "rumor".
+- Harga & nominal promo **hanya** dari zataa.my.id hari itu, jangan nebak.
+- Jangan pakai logo tim/turnamen atau foto pemain yang dilindungi hak cipta; pakai tipografi, ikon, dan nama.
+- CTA & link selalu ke zataa.my.id. Bahasa: Indonesia santai ala gamer, tanpa SARA/judi.

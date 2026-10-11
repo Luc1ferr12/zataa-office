@@ -1,0 +1,16 @@
+# database lokal & rahasia — jangan pernah di-push
+db/*.db
+db/*.db-*
+.env
+*.env
+node_modules/
+out/
+
+# file besar Blender/MPFB (bisa di-download ulang)
+_downloads/
+
+# log watcher
+logs/
+
+# setelan lokal Claude Code
+.claude/settings.local.json

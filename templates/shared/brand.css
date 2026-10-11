@@ -1,0 +1,85 @@
+/* Brand Zataa untuk semua template (feed, carousel, video). Font lokal dari node_modules → render offline. */
+@font-face { font-family: Sora; font-weight: 700; src: url('../../node_modules/@fontsource/sora/files/sora-latin-700-normal.woff2') format('woff2'); }
+@font-face { font-family: Sora; font-weight: 800; src: url('../../node_modules/@fontsource/sora/files/sora-latin-800-normal.woff2') format('woff2'); }
+@font-face { font-family: Inter; font-weight: 500; src: url('../../node_modules/@fontsource/inter/files/inter-latin-500-normal.woff2') format('woff2'); }
+@font-face { font-family: Inter; font-weight: 700; src: url('../../node_modules/@fontsource/inter/files/inter-latin-700-normal.woff2') format('woff2'); }
+
+:root {
+  --ink: #0d0420;
+  --deep: #1a0846;
+  --brand-dark: #2a0a6b;
+  --brand: #5b1fd6;
+  --brand-2: #a78bfa;
+  --white: #ffffff;
+  --muted: #cbbcf5;
+  --accent: #a78bfa;   /* diganti per game: ML emas, Valorant merah, FF oranye */
+  --warn: #ffd43b;
+  --W: 1080px; --H: 1080px;   /* IG feed 1:1 (Owner); .story = 9:16 */
+  --pad: 64px; --safe-b: 60px; --safe-r: 64px; --top: 56px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: var(--W); height: var(--H); overflow: hidden; background: var(--ink); }
+body { font-family: Inter, 'Segoe UI', sans-serif; color: var(--white); -webkit-font-smoothing: antialiased; }
+.story { --H: 1920px; --safe-b: 384px; --safe-r: 162px; --top: 150px; }
+
+/* ---------- latar */
+.bg { position: absolute; inset: 0; overflow: hidden;
+  background:
+    radial-gradient(900px 760px at 8% 0%, #5b1fd6cc, transparent 62%),
+    radial-gradient(760px 640px at 105% 92%, color-mix(in srgb, var(--accent) 38%, transparent), transparent 64%),
+    linear-gradient(165deg, #22095a 0%, #12052f 55%, #0b0320 100%);
+}
+.bg::before { /* grid titik */
+  content: ''; position: absolute; inset: 0; opacity: .16;
+  background-image: radial-gradient(#fff 1.6px, transparent 1.7px); background-size: 30px 30px;
+  -webkit-mask-image: linear-gradient(180deg, #000 0%, transparent 70%); mask-image: linear-gradient(180deg, #000 0%, transparent 70%);
+}
+.bg::after { /* garis miring khas */
+  content: ''; position: absolute; width: 140%; height: 220px; left: -20%; bottom: 16%; transform: rotate(-11deg); opacity: .07;
+  background: repeating-linear-gradient(90deg, var(--accent) 0 18px, transparent 18px 44px);
+}
+.watermark { position: absolute; right: -60px; top: 34%; font: 800 520px/0.8 Sora; letter-spacing: -0.06em; color: #ffffff08; pointer-events: none; }
+.hud { position: absolute; width: 70px; height: 70px; border: 0 solid var(--brand-2); opacity: .7; }
+.hud.tl { left: 28px; top: 28px; border-left-width: 5px; border-top-width: 5px; }
+.hud.br { right: 28px; bottom: 28px; border-right-width: 5px; border-bottom-width: 5px; }
+
+/* ---------- bingkai konten (patuh zona aman 9:16) */
+.frame { position: absolute; left: var(--pad); top: var(--top); right: var(--safe-r); bottom: var(--safe-b); display: flex; flex-direction: column; gap: 34px; }
+.story .frame { left: 80px; }
+.feed .frame { gap: 24px; }
+
+.head { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.brandmark { display: flex; align-items: center; gap: 18px; }
+.brandmark img { width: 84px; height: 84px; border-radius: 20px; box-shadow: 0 10px 30px #0008, 0 0 0 3px #ffffff22; }
+.brandmark b { display: block; font: 800 40px/1 Sora; letter-spacing: .12em; }
+.brandmark small { display: block; margin-top: 6px; font: 700 17px/1 Inter; letter-spacing: .3em; color: var(--muted); }
+.chip { display: inline-flex; align-items: center; gap: 12px; padding: 12px 22px; border-radius: 999px; font: 800 22px/1 Sora; letter-spacing: .1em;
+  border: 3px solid var(--accent); color: var(--white); background: color-mix(in srgb, var(--accent) 18%, #0d042099); }
+.chip i { width: 14px; height: 14px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 14px var(--accent); }
+
+.kicker { align-self: flex-start; display: inline-flex; align-items: center; gap: 12px; padding: 12px 22px 12px 18px; border-radius: 12px;
+  font: 800 26px/1 Sora; letter-spacing: .12em; text-transform: uppercase; color: var(--ink); background: var(--accent); transform: skewX(-8deg); }
+.kicker > span { transform: skewX(8deg); display: inline-block; }
+.kicker.rumor { background: repeating-linear-gradient(-45deg, var(--warn) 0 22px, #ffe78a 22px 44px); }
+.kicker.alt { background: var(--white); }
+
+.h1 { font: 800 112px/1.02 Sora; letter-spacing: -0.035em; text-wrap: balance; }
+.h1 em, .h2 em, .big em { font-style: normal; color: var(--accent); }
+.h2 { font: 800 58px/1.1 Sora; letter-spacing: -0.02em; text-wrap: balance; }
+.sub { font: 500 38px/1.35 Inter; color: var(--muted); text-wrap: pretty; }
+.sub b, .body b { color: var(--white); }
+.small { font: 500 24px/1.4 Inter; color: var(--muted); }
+
+.grow { flex: 1; min-height: 0; display: flex; flex-direction: column; gap: 28px; justify-content: center; }
+
+/* ---------- footer CTA */
+.foot { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.cta { display: inline-flex; align-items: center; gap: 14px; white-space: nowrap; flex-shrink: 0; padding: 24px 36px; border-radius: 22px; font: 800 34px/1 Sora;
+  color: var(--brand-dark); background: var(--white); box-shadow: 0 12px 0 #00000055, 0 0 0 4px #ffffff33; }
+.cta .bolt { color: var(--brand); }
+.site { font: 800 28px/1 Sora; letter-spacing: .06em; color: var(--white); opacity: .9; }
+.story .foot { flex-direction: column; align-items: flex-start; }
+
+/* ---------- kartu */
+.card { position: relative; border-radius: 28px; padding: 30px 34px; background: linear-gradient(160deg, #ffffff16, #ffffff07); border: 2px solid #ffffff22;
+  box-shadow: inset 0 1px 0 #ffffff22, 0 18px 40px #0006; }

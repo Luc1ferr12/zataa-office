@@ -1,0 +1,192 @@
+#!/usr/bin/env node
+// CLI kantor: dipakai Claude tiap sesi kerja supaya baca/tulis DB dengan output sekecil mungkin (hemat token).
+// Contoh:
+//   node scripts/office.mjs init
+//   node scripts/office.mjs brief researcher
+//   node scripts/office.mjs agent designer working "Feed promo Diamond ML"
+//   node scripts/office.mjs log designer "Render feed #12 selesai"
+//   node scripts/office.mjs export
+process.removeAllListeners('warning'); // sembunyikan ExperimentalWarning node:sqlite
+const { DatabaseSync } = await import('node:sqlite');
+import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
+import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
+const DB_PATH = join(ROOT, 'db', 'office.db');
+const STATE_PATH = join(ROOT, 'docs', 'data', 'state.json');
+
+const db = new DatabaseSync(DB_PATH);
+db.exec('PRAGMA foreign_keys = ON');
+
+// Tanggal hari ini versi WITA, zona jam kantor (YYYY-MM-DD)
+const today = () => new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Makassar' }).format(new Date());
+const mondayOf = (d) => {
+  const dt = new Date(d + 'T00:00:00Z');
+  const diff = (dt.getUTCDay() + 6) % 7;
+  dt.setUTCDate(dt.getUTCDate() - diff);
+  return dt.toISOString().slice(0, 10);
+};
+const addDays = (d, n) => {
+  const dt = new Date(d + 'T00:00:00Z');
+  dt.setUTCDate(dt.getUTCDate() + n);
+  return dt.toISOString().slice(0, 10);
+};
+const all = (sql, ...p) => db.prepare(sql).all(...p);
+const get = (sql, ...p) => db.prepare(sql).get(...p);
+const run = (sql, ...p) => db.prepare(sql).run(...p);
+const out = (o) => console.log(typeof o === 'string' ? o : JSON.stringify(o));
+const log = (agent, msg) => run('INSERT INTO activity (agent_id, message) VALUES (?, ?)', agent, msg);
+
+const [cmd, ...args] = process.argv.slice(2);
+
+const commands = {
+  init() {
+    db.exec(readFileSync(join(ROOT, 'db', 'schema.sql'), 'utf8'));
+    out('ok: db siap di db/office.db');
+  },
+
+  // Konteks ringkas untuk satu pegawai — satu-satunya yang perlu dibaca Claude sebelum kerja
+  brief(agent) {
+    const t = today();
+    // plan lengkap cuma untuk Director; pegawai lain cukup tema (hemat token)
+    const cols = agent === 'dir' ? 'id, week_start, theme, goals, plan_json' : 'theme, goals';
+    const camp = get(`SELECT ${cols} FROM campaigns WHERE week_start = ?`, mondayOf(t));
+    const mem = all('SELECT note FROM memories WHERE agent_id = ? ORDER BY id DESC LIMIT 6', agent).map((r) => r.note);
+    const tasks = all("SELECT id, type, title, status, content_id FROM tasks WHERE agent_id = ? AND day = ? AND status != 'done'", agent, t);
+    const revisions = all("SELECT id, title, owner_note FROM contents WHERE status = 'revision' ORDER BY id");
+    const brief = { today: t, campaign: camp ?? null, memory: mem, tasks };
+    if (revisions.length) brief.revisions = revisions;
+    if (agent === 'researcher' || agent === 'dir') {
+      brief.recent_topics = all('SELECT topic FROM research WHERE day >= ? ORDER BY id DESC LIMIT 15', addDays(t, -14)).map((r) => r.topic);
+    }
+    if (agent === 'dir') {
+      brief.last_week = weekStats(addDays(mondayOf(t), -7));
+    }
+    out(brief);
+  },
+
+  agent(id, status, ...task) {
+    run("UPDATE agents SET status = ?, current_task = ?, updated_at = datetime('now') WHERE id = ?", status, task.join(' ') || null, id);
+    out('ok');
+  },
+
+  log(agent, ...msg) {
+    log(agent, msg.join(' '));
+    out('ok');
+  },
+
+  memory(agent, ...note) {
+    // memory <agent> "<catatan>"  — simpan pelajaran penting, pendek
+    run('INSERT INTO memories (agent_id, note) VALUES (?, ?)', agent, note.join(' '));
+    // simpan maksimal 30 catatan per pegawai
+    run('DELETE FROM memories WHERE agent_id = ? AND id NOT IN (SELECT id FROM memories WHERE agent_id = ? ORDER BY id DESC LIMIT 30)', agent, agent);
+    out('ok');
+  },
+
+  // campaign <file.json>  {theme, goals, plan:[{day, slot, format, game, pillar, title}]}
+  campaign(file) {
+    const c = JSON.parse(readFileSync(file, 'utf8'));
+    const week = c.week_start ?? mondayOf(today());
+    run(`INSERT INTO campaigns (week_start, theme, goals, plan_json) VALUES (?, ?, ?, ?)
+         ON CONFLICT(week_start) DO UPDATE SET theme = excluded.theme, goals = excluded.goals, plan_json = excluded.plan_json`,
+      week, c.theme, c.goals ?? null, JSON.stringify(c.plan ?? []));
+    const { id } = get('SELECT id FROM campaigns WHERE week_start = ?', week);
+    for (const p of c.plan ?? []) {
+      const r = run('INSERT INTO contents (campaign_id, day, slot, format, game, pillar, title) VALUES (?, ?, ?, ?, ?, ?, ?)',
+        id, p.day, p.slot, p.format, p.game ?? null, p.pillar ?? null, p.title);
+      const cid = Number(r.lastInsertRowid);
+      const steps = p.format === 'video' ? ['copywriter', 'video', 'publisher'] : ['copywriter', 'designer', 'publisher'];
+      const typeOf = { copywriter: 'copy', designer: 'design', video: 'video', publisher: 'publish' };
+      for (const a of steps) run('INSERT INTO tasks (campaign_id, agent_id, day, type, title, content_id) VALUES (?, ?, ?, ?, ?, ?)', id, a, p.day, typeOf[a], p.title, cid);
+    }
+    log('dir', `Plan minggu ${week} dibuat: ${c.theme} (${(c.plan ?? []).length} konten)`);
+    out({ ok: true, campaign_id: id, contents: (c.plan ?? []).length });
+  },
+
+  // research <file.json>  [{game, topic, summary, source_url, score}]
+  research(file) {
+    const items = JSON.parse(readFileSync(file, 'utf8'));
+    for (const i of items) run('INSERT INTO research (day, game, topic, summary, source_url, score) VALUES (?, ?, ?, ?, ?, ?)',
+      today(), i.game ?? null, i.topic, i.summary ?? null, i.source_url ?? null, i.score ?? 0);
+    log('researcher', `Nemu ${items.length} topik baru`);
+    out({ ok: true, added: items.length });
+  },
+
+  // content get <id> | content set <id> <json-string-or-file> | content list [day]
+  content(sub, id, payload) {
+    if (sub === 'get') return out(get('SELECT * FROM contents WHERE id = ?', id));
+    if (sub === 'list') return out(all('SELECT id, slot, format, game, pillar, title, status FROM contents WHERE day = ? ORDER BY id', id ?? today()));
+    if (sub === 'set') {
+      const data = existsSync(payload) ? JSON.parse(readFileSync(payload, 'utf8')) : JSON.parse(payload);
+      const allowed = ['title', 'data_json', 'caption', 'hashtags', 'cta', 'link', 'template', 'asset_path', 'asset_url', 'status',
+        'owner_note', 'scheduled_at', 'posted_at', 'ig_media_id', 'tiktok_id', 'sources', 'game', 'pillar', 'slot', 'format'];
+      for (const [k, v] of Object.entries(data)) {
+        if (!allowed.includes(k)) continue;
+        run(`UPDATE contents SET ${k} = ?, updated_at = datetime('now') WHERE id = ?`, typeof v === 'object' && v !== null ? JSON.stringify(v) : v, id);
+      }
+      return out('ok');
+    }
+    out('pakai: content get|set|list');
+  },
+
+  // task done <id> | task list [agent]
+  task(sub, a) {
+    if (sub === 'done') { run("UPDATE tasks SET status = 'done', updated_at = datetime('now') WHERE id = ?", a); return out('ok'); }
+    if (sub === 'doing') { run("UPDATE tasks SET status = 'doing', updated_at = datetime('now') WHERE id = ?", a); return out('ok'); }
+    if (sub === 'list') return out(all("SELECT id, agent_id, type, title, status, content_id FROM tasks WHERE day = ? AND (? IS NULL OR agent_id = ?) ORDER BY id", today(), a ?? null, a ?? null));
+    out('pakai: task done|doing|list');
+  },
+
+  // metric <content_id> <platform> views likes comments shares saves
+  metric(cid, platform, views = 0, likes = 0, comments = 0, shares = 0, saves = 0) {
+    run('INSERT INTO metrics (content_id, platform, views, likes, comments, shares, saves) VALUES (?, ?, ?, ?, ?, ?, ?)',
+      cid, platform, +views, +likes, +comments, +shares, +saves);
+    out('ok');
+  },
+
+  stats(week) { out(weekStats(week ?? mondayOf(today()))); },
+
+  export() {
+    const t = today();
+    const week = mondayOf(t);
+    const camp = get('SELECT week_start, theme, goals FROM campaigns WHERE week_start = ?', week);
+    const state = {
+      generated_at: new Date().toISOString(),
+      today: t,
+      week_start: week,
+      campaign: camp ?? null,
+      agents: all('SELECT id, name, title, status, current_task, updated_at FROM agents'),
+      week_contents: all(`SELECT id, day, slot, format, game, pillar, title, status, asset_url, scheduled_at, posted_at
+                          FROM contents WHERE day BETWEEN ? AND ? ORDER BY day, CASE slot WHEN 'pagi' THEN 0 WHEN 'siang' THEN 1 ELSE 2 END`, week, addDays(week, 6)),
+      today_tasks: all('SELECT agent_id, type, title, status FROM tasks WHERE day = ? ORDER BY id', t),
+      activity: all('SELECT ts, agent_id, message FROM activity ORDER BY id DESC LIMIT 25'),
+      stats: { this_week: weekStats(week), last_week: weekStats(addDays(week, -7)) },
+    };
+    mkdirSync(dirname(STATE_PATH), { recursive: true });
+    writeFileSync(STATE_PATH, JSON.stringify(state, null, 1));
+    out('ok: docs/data/state.json');
+  },
+};
+
+function weekStats(week) {
+  const end = addDays(week, 6);
+  const c = get(`SELECT COUNT(*) total,
+      SUM(status = 'posted') posted,
+      SUM(status = 'pending_approval') pending,
+      SUM(status IN ('approved','scheduled')) scheduled
+    FROM contents WHERE day BETWEEN ? AND ?`, week, end);
+  const m = get(`SELECT COALESCE(SUM(m.views),0) views, COALESCE(SUM(m.likes),0) likes, COALESCE(SUM(m.comments),0) comments,
+      COALESCE(SUM(m.shares),0) shares, COALESCE(SUM(m.saves),0) saves
+    FROM metrics m JOIN contents c ON c.id = m.content_id WHERE c.day BETWEEN ? AND ?`, week, end);
+  const top = all(`SELECT c.title, c.format, c.pillar, SUM(m.views) views FROM metrics m JOIN contents c ON c.id = m.content_id
+    WHERE c.day BETWEEN ? AND ? GROUP BY c.id ORDER BY views DESC LIMIT 3`, week, end);
+  return { week, ...normalize(c), ...normalize(m), top };
+}
+const normalize = (o) => Object.fromEntries(Object.entries(o ?? {}).map(([k, v]) => [k, Number(v ?? 0)]));
+
+if (!commands[cmd]) {
+  out('perintah: init | brief <agent> | agent <id> <status> [task] | log <agent> <msg> | memory <agent> <note> | campaign <file> | research <file> | content get|set|list | task done|doing|list | metric ... | stats [week] | export');
+  process.exit(cmd ? 1 : 0);
+}
+commands[cmd](...args);

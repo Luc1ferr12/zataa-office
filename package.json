@@ -1,0 +1,17 @@
+{
+  "name": "zataa-ai-office",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "db:init": "node scripts/office.mjs init",
+    "export": "node scripts/office.mjs export",
+    "serve": "node scripts/serve.mjs",
+    "render": "node scripts/render.mjs"
+  },
+  "devDependencies": {
+    "@fontsource/inter": "^5.1.0",
+    "@fontsource/sora": "^5.1.0",
+    "ffmpeg-static": "^5.2.0",
+    "playwright-core": "^1.48.2"
+  }
+}

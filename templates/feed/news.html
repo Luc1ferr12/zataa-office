@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="id"><head><meta charset="utf-8"><title>news</title>
+<link rel="stylesheet" href="../shared/brand.css">
+<style>
+  .meta { display: flex; align-items: center; gap: 18px; }
+  .date { font: 700 24px/1 Inter; letter-spacing: .08em; color: var(--muted); text-transform: uppercase; }
+  .h1 { font-size: 100px; }
+  .points { list-style: none; display: grid; gap: 20px; }
+  .points li { display: grid; grid-template-columns: 22px 1fr; gap: 22px; align-items: start; font: 500 34px/1.35 Inter; color: #efe9ff; }
+  .points li::before { content: ''; width: 18px; height: 18px; margin-top: 14px; background: var(--accent); transform: rotate(45deg); box-shadow: 0 0 16px var(--accent); }
+  .source { padding-top: 18px; border-top: 2px solid #ffffff1f; }
+</style></head>
+<body><div id="root"></div>
+<script type="module">
+import { setup, shell, kicker, md, esc, fit, ready } from '../shared/brand.js';
+// data: { game, label: BERITA|RUMOR|PATCH|TRANSFER|ESPORT, date, headline, sub, points:[≤3], source, cta }
+window.render = async (d, size) => {
+  const g = setup(d, size);
+  const label = (d.label ?? 'BERITA').toUpperCase();
+  const pts = (d.points ?? []).slice(0, 3).map((p) => `<li>${md(p)}</li>`).join('');
+  const meta = `<div class="meta">${kicker(label === 'RUMOR' ? '⚠ RUMOR' : label, label === 'RUMOR' ? 'rumor' : '')}${d.date ? `<span class="date">${esc(d.date)}</span>` : ''}</div>`;
+  document.getElementById('root').innerHTML = shell(d, g, `
+    <div class="grow">
+      <h1 class="h1">${md(d.headline)}</h1>
+      ${d.sub ? `<p class="sub">${md(d.sub)}</p>` : ''}
+      ${pts ? `<ul class="points">${pts}</ul>` : ''}
+      ${d.source ? `<p class="small source">Sumber: ${esc(d.source)}</p>` : ''}
+    </div>`, { kicker: meta });
+  await ready();
+  fit(document.querySelector('.h1'), 56);
+};
+</script></body></html>

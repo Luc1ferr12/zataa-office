@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="id"><head><meta charset="utf-8"><title>carousel</title>
+<link rel="stylesheet" href="../shared/brand.css">
+<style>
+  .topline { display: flex; justify-content: space-between; align-items: center; }
+  .count { font: 800 28px/1 Sora; letter-spacing: .08em; padding: 12px 20px; border-radius: 14px; background: #ffffff14; border: 2px solid #ffffff26; }
+  .dots { display: flex; gap: 10px; }
+  .dots i { width: 16px; height: 16px; border-radius: 50%; background: #ffffff33; }
+  .dots i.on { width: 46px; border-radius: 10px; background: var(--accent); }
+  .swipe { font: 800 34px/1 Sora; color: var(--accent); }
+  .pt-n { font: 800 200px/0.8 Sora; color: transparent; -webkit-text-stroke: 4px var(--accent); }
+  .h2.pt { font-size: 72px; }
+  .body { font: 500 42px/1.4 Inter; color: #efe9ff; text-wrap: pretty; }
+  .h1.hook { font-size: 124px; }
+  .cta-logo { width: 220px; height: 220px; border-radius: 48px; box-shadow: 0 20px 60px #0009, 0 0 0 4px #ffffff22; }
+</style></head>
+<body><div id="root"></div>
+<script type="module">
+import { setup, shell, md, esc, fit, ready, footer } from '../shared/brand.js';
+// data: { game, slides:[{kind:'hook', headline, sub} | {kind:'point', title, body} | {kind:'cta', headline, sub}], cta } ; opts.slide = indeks
+window.render = async (d, size, opts = {}) => {
+  const g = setup(d, size);
+  const n = d.slides.length, i = opts.slide ?? 0, s = d.slides[i];
+  const dots = `<div class="dots">${d.slides.map((_, k) => `<i class="${k === i ? 'on' : ''}"></i>`).join('')}</div>`;
+  const top = `<div class="topline">${dots}<span class="count">${i + 1}/${n}</span></div>`;
+  let inner;
+  if (s.kind === 'hook') {
+    inner = `<div class="grow"><h1 class="h1 hook">${md(s.headline)}</h1>${s.sub ? `<p class="sub">${md(s.sub)}</p>` : ''}</div><div class="swipe">Geser ➜</div>`;
+  } else if (s.kind === 'cta') {
+    const logo = new URL('../../docs/assets/logo.png', location.href).href;
+    inner = `<div class="grow"><img class="cta-logo" src="${logo}" alt=""><h1 class="h1">${md(s.headline ?? 'Top up sekarang!')}</h1>${s.sub ? `<p class="sub">${md(s.sub)}</p>` : ''}</div>${footer(d)}`;
+  } else {
+    const num = s.n ?? i;
+    inner = `<div class="grow"><div class="pt-n">${esc(String(num).padStart(2, '0'))}</div><h2 class="h2 pt">${md(s.title)}</h2>${s.body ? `<p class="body">${md(s.body)}</p>` : ''}</div><div class="swipe">Geser ➜</div>`;
+  }
+  document.getElementById('root').innerHTML = shell(d, g, top + inner, { foot: false });
+  await ready();
+  fit(document.querySelector('.h1, .h2'), 52);
+};
+</script></body></html>

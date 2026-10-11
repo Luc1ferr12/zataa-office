@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="id"><head><meta charset="utf-8"><title>versus</title>
+<link rel="stylesheet" href="../shared/brand.css">
+<style>
+  .vs-wrap { position: relative; display: grid; grid-template-columns: 1fr auto 1fr; align-items: stretch; gap: 18px; }
+  .vs-wrap .vs { align-self: center; }
+  .story .vs-wrap { grid-template-columns: 1fr; gap: 14px; }
+  .team { padding: 30px 24px 28px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; }
+  .team.l { border-color: var(--brand-2); background: linear-gradient(160deg, #5b1fd655, #ffffff08); }
+  .team.r { border-color: var(--accent); background: linear-gradient(200deg, color-mix(in srgb, var(--accent) 30%, transparent), #ffffff08); }
+  .team b { font: 800 60px/1 Sora; letter-spacing: -0.02em; overflow-wrap: anywhere; }
+  .team span { font: 500 26px/1.3 Inter; color: var(--muted); }
+  /* logo tim: data.left.logo / data.right.logo (path dari root, mis. assets/teams/rrq.png); kalau file tidak ada → lambang inisial */
+  .crest { position: relative; width: 210px; height: 210px; display: grid; place-items: center; margin-bottom: 6px; }
+  .crest::before { content: ''; position: absolute; inset: 0; clip-path: polygon(50% 0, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);
+    background: linear-gradient(160deg, var(--accent), #8a5a12 55%, var(--accent)); }
+  .crest::after { content: ''; position: absolute; inset: 7px; clip-path: polygon(50% 0, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);
+    background: radial-gradient(circle at 50% 35%, #3b1590, #12052f 75%); }
+  .crest img { position: relative; z-index: 1; width: 150px; height: 150px; object-fit: contain; filter: drop-shadow(0 6px 14px #000a); }
+  .crest i { position: relative; z-index: 1; font: 800 52px/1 Sora; font-style: normal; letter-spacing: -0.02em; color: var(--accent); text-shadow: 0 3px 0 #0008; }
+  .crest img + i { display: none; }
+  .story .team { display: grid; grid-template-columns: auto 1fr; grid-template-rows: auto auto; column-gap: 28px; row-gap: 8px; text-align: left; align-items: center; padding: 26px 30px; }
+  .story .team .crest { grid-row: 1 / 3; width: 170px; height: 170px; margin: 0; } .story .crest img { width: 120px; height: 120px; }
+  .story .crest i { font-size: 42px; }
+  .story .team b { align-self: end; } .story .team span { align-self: start; }
+  .story .vs { font-size: 96px; }
+  .vs { font: 800 110px/1 Sora; font-style: italic; transform: skewX(-8deg); padding: 0 6px;
+    background: linear-gradient(180deg, #fff6d8 0%, var(--accent) 45%, #a8711a 100%); -webkit-background-clip: text; background-clip: text; color: transparent;
+    filter: drop-shadow(5px 5px 0 var(--brand)) drop-shadow(0 0 24px color-mix(in srgb, var(--accent) 55%, transparent)); }
+  .story .vs { justify-self: center; }
+  .when { display: inline-flex; align-self: center; gap: 14px; align-items: center; padding: 14px 26px; border-radius: 14px; font: 800 30px/1 Sora;
+    background: #0d0420aa; border: 2px solid color-mix(in srgb, var(--accent) 60%, transparent); }
+  .h2 { font-size: 64px; text-align: center; }
+  .story .h2 { font-size: 80px; text-align: left; } .story .when { align-self: flex-start; }
+  .grow { gap: 24px; }
+
+  /* nuansa Mobile Legends: ornamen emas, pola hexagon, kilau lane — base tetap ungu */
+  .mlbb .bg { background:
+      radial-gradient(620px 420px at 50% 52%, color-mix(in srgb, var(--accent) 22%, transparent), transparent 70%),
+      radial-gradient(900px 760px at 8% 0%, #5b1fd6cc, transparent 62%),
+      radial-gradient(760px 640px at 105% 100%, #5b1fd688, transparent 64%),
+      linear-gradient(165deg, #22095a 0%, #12052f 55%, #0b0320 100%); }
+  .mlbb .bg::before { opacity: .1; background-size: 56px 97px;
+    background-image:
+      linear-gradient(30deg, transparent 47%, var(--accent) 48% 52%, transparent 53%),
+      linear-gradient(150deg, transparent 47%, var(--accent) 48% 52%, transparent 53%),
+      linear-gradient(90deg, transparent 48.5%, var(--accent) 49% 51%, transparent 51.5%);
+    -webkit-mask-image: radial-gradient(circle at 50% 55%, #000 0%, transparent 70%); mask-image: radial-gradient(circle at 50% 55%, #000 0%, transparent 70%); }
+  .mlbb .bg::after { opacity: .14; height: 6px; bottom: 30%; background: linear-gradient(90deg, transparent, var(--accent), transparent); }
+  .mlbb .hud { border-color: var(--accent); }
+  .mlbb .watermark { display: none; }
+  .ornament { position: absolute; left: 50%; transform: translateX(-50%); width: 62%; height: 2px; background: linear-gradient(90deg, transparent, var(--accent), transparent); opacity: .7; }
+  .ornament::after { content: ''; position: absolute; left: 50%; top: 50%; width: 14px; height: 14px; background: var(--accent); transform: translate(-50%, -50%) rotate(45deg); box-shadow: 0 0 14px var(--accent); }
+  .ornament.t { top: -14px; } .ornament.b { bottom: -14px; }
+  .story .ornament { display: none; }
+  .mlbb .team { border-width: 3px; box-shadow: inset 0 0 0 1px #ffffff18, 0 0 0 1px color-mix(in srgb, var(--accent) 35%, transparent), 0 18px 40px #0007; }
+</style></head>
+<body><div id="root"></div>
+<script type="module">
+import { setup, shell, kicker, md, esc, fit, ready } from '../shared/brand.js';
+// data: { game, event, headline, left:{name, sub, logo?, short?}, right:{name, sub, logo?, short?}, time, cta }
+window.render = async (d, size) => {
+  const g = setup(d, size);
+  if (d.game === 'mlbb') document.body.classList.add('mlbb');
+  const initials = (t) => t?.short ?? String(t?.name ?? '').split(/\s+/)[0].slice(0, 4);
+  const crest = (t) => `<div class="crest">${t?.logo ? `<img src="/${esc(t.logo.replace(/^\/+/, ''))}" alt="">` : ''}<i>${esc(initials(t))}</i></div>`;
+  const team = (t, c) => `<div class="card team ${c}">${crest(t)}<b>${esc(t?.name)}</b>${t?.sub ? `<span>${md(t.sub)}</span>` : ''}</div>`;
+  document.getElementById('root').innerHTML = shell(d, g, `
+    <div class="grow">
+      ${d.headline ? `<h2 class="h2">${md(d.headline)}</h2>` : ''}
+      <div class="vs-wrap"><div class="ornament t"></div>${team(d.left, 'l')}<div class="vs">VS</div>${team(d.right, 'r')}<div class="ornament b"></div></div>
+      ${d.time ? `<div class="when">🗓️ ${esc(d.time)}</div>` : ''}
+    </div>`, { kicker: kicker(d.event ?? 'BIG MATCH') });
+  await ready();
+  document.querySelectorAll('.crest img').forEach((im) => { if (!im.naturalWidth) im.remove(); });
+  document.querySelectorAll('.team b').forEach((b) => fit(b, 36));
+};
+</script></body></html>

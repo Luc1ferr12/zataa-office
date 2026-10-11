@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="id"><head><meta charset="utf-8"><title>video</title>
+<link rel="stylesheet" href="../shared/brand.css">
+<style>
+  :root { --H: 1920px; }
+  /* zona aman video: 10% atas, 20% bawah, 15% kanan */
+  .stage { position: absolute; left: 80px; right: 162px; top: 250px; bottom: 384px; }
+  .scene { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; gap: 44px; opacity: 0; }
+  .scene > * { will-change: transform, opacity; }
+  .mini { position: absolute; left: 80px; top: 120px; display: flex; align-items: center; gap: 14px; font: 800 30px/1 Sora; letter-spacing: .12em; opacity: .92; }
+  .mini img { width: 64px; height: 64px; border-radius: 16px; box-shadow: 0 0 0 3px #ffffff22; }
+  .bar { position: absolute; left: 0; top: 0; height: 12px; background: linear-gradient(90deg, var(--brand-2), var(--accent)); box-shadow: 0 0 20px var(--accent); }
+  .flash { position: absolute; inset: 0; background: #fff; opacity: 0; pointer-events: none; }
+  .wipe { position: absolute; top: -10%; height: 120%; width: 70%; background: linear-gradient(90deg, transparent, var(--accent) 30%, var(--brand) 70%, transparent); transform: skewX(-14deg); opacity: 0; mix-blend-mode: screen; }
+  .p { position: absolute; width: 14px; height: 14px; background: var(--accent); opacity: .35; }
+
+  .s-hook h1 { font: 800 132px/1.0 Sora; letter-spacing: -0.04em; text-wrap: balance; }
+  .t-sub { font: 700 60px/1.25 Inter; color: var(--muted); text-wrap: balance; }
+  h1 em, h2 em, .t-sub em { font-style: normal; color: var(--accent); }
+  .num { font: 800 230px/0.8 Sora; color: transparent; -webkit-text-stroke: 5px var(--accent); }
+  h2 { font: 800 104px/1.04 Sora; letter-spacing: -0.03em; text-wrap: balance; }
+  .row { display: flex; align-items: center; gap: 28px; padding: 30px 36px; border-radius: 30px; background: linear-gradient(160deg, #ffffff1c, #ffffff08); border: 3px solid #ffffff22; font: 800 64px/1.1 Sora; }
+  .row i { flex: 0 0 auto; width: 26px; height: 26px; background: var(--accent); transform: rotate(45deg); box-shadow: 0 0 20px var(--accent); }
+  .list { display: grid; gap: 24px; width: 100%; }
+  .price { display: flex; justify-content: space-between; align-items: center; padding: 34px 40px; border-radius: 30px; border: 3px solid #ffffff26; background: linear-gradient(160deg, #ffffff1e, #ffffff08); }
+  .price b { font: 700 60px/1 Inter; color: var(--muted); }
+  .price span { font: 800 84px/1 Sora; letter-spacing: -0.02em; }
+  .price:first-child { border-color: var(--accent); }
+  .team { padding: 54px 40px; border-radius: 36px; font: 800 120px/1 Sora; letter-spacing: -0.03em; text-align: center; border: 4px solid; }
+  .team.l { border-color: var(--brand-2); background: #5b1fd655; }
+  .team.r { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 28%, transparent); }
+  .vs { align-self: center; font: 800 150px/1 Sora; font-style: italic; text-shadow: 8px 8px 0 var(--brand), -4px -4px 0 var(--accent); }
+  .cta-logo { width: 300px; height: 300px; border-radius: 68px; box-shadow: 0 30px 80px #000a, 0 0 0 5px #ffffff26; }
+  .site { font: 800 76px/1 Sora; letter-spacing: .02em; color: var(--white); min-height: 76px; }
+  .btn { align-self: flex-start; padding: 36px 52px; border-radius: 30px; font: 800 64px/1 Sora; color: var(--brand-dark); background: #fff; box-shadow: 0 16px 0 #0006; }
+</style></head>
+<body class="story">
+<div class="bg" id="bg"></div><div class="watermark">ZA</div>
+<div id="parts"></div>
+<div class="mini"><img src="../../docs/assets/logo.png" alt="">ZATAA</div>
+<div class="stage" id="stage"></div>
+<div class="wipe" id="wipe"></div><div class="flash" id="flash"></div><div class="bar" id="bar"></div>
+<script type="module">
+import { GAMES, md, esc, ready } from '../shared/brand.js';
+
+const DUR = { hook: 2.6, point: 3.2, list: 1.4, price: 1.6, versus: 3.6, cta: 3.6 };
+const clamp = (v, a = 0, b = 1) => Math.max(a, Math.min(b, v));
+const outExpo = (p) => (p >= 1 ? 1 : 1 - 2 ** (-10 * p));
+const outBack = (p) => { const c = 1.7; return 1 + (c + 1) * (p - 1) ** 3 + c * (p - 1) ** 2; };
+const outCubic = (p) => 1 - (1 - p) ** 3;
+let scenes = [], total = 0;
+
+// ---- isi tiap jenis adegan; data-a = jenis animasi masuk, data-d = jeda (detik)
+function html(s, i) {
+  switch (s.t) {
+    case 'hook': return `<h1 data-a="slam">${md(s.text)}</h1>${s.sub ? `<p class="t-sub" data-a="up" data-d=".45">${md(s.sub)}</p>` : ''}`;
+    case 'point': return `${s.n !== false ? `<div class="num" data-a="pop">${String(s.n ?? i).padStart(2, '0')}</div>` : ''}<h2 data-a="up" data-d=".15">${md(s.title)}</h2>${s.body ? `<p class="t-sub" data-a="up" data-d=".4">${md(s.body)}</p>` : ''}`;
+    case 'list': return `${s.title ? `<h2 data-a="up">${md(s.title)}</h2>` : ''}<div class="list">${(s.items ?? []).map((it, k) => `<div class="row" data-a="left" data-d="${0.35 + k * 0.4}"><i></i><span>${md(it)}</span></div>`).join('')}</div>`;
+    case 'price': return `${s.title ? `<h2 data-a="up">${md(s.title)}</h2>` : ''}<div class="list">${(s.items ?? []).map((it, k) => `<div class="price" data-a="pop" data-d="${0.3 + k * 0.35}"><b>${md(it.name)}</b><span data-count="${esc(it.price)}" data-d="${0.3 + k * 0.35}">${esc(it.price)}</span></div>`).join('')}</div>`;
+    case 'versus': return `${s.title ? `<h2 data-a="up">${md(s.title)}</h2>` : ''}<div class="team l" data-a="fromL">${esc(s.left)}</div><div class="vs" data-a="slam" data-d=".45">VS</div><div class="team r" data-a="fromR" data-d=".2">${esc(s.right)}</div>${s.sub ? `<p class="t-sub" data-a="up" data-d=".8">${md(s.sub)}</p>` : ''}`;
+    case 'cta': return `<img class="cta-logo" data-a="pop" src="../../docs/assets/logo.png" alt=""><h2 data-a="up" data-d=".25">${md(s.text ?? 'Top up sekarang!')}</h2><div class="site" data-a="type" data-d=".6" data-text="zataa.my.id"></div><div class="btn" data-a="pulse" data-d="1.1">${esc(s.button ?? 'Top up ⚡')}</div>`;
+    default: return `<h2 data-a="up">${md(s.text ?? s.title ?? '')}</h2>`;
+  }
+}
+const autoDur = (s) => s.dur ?? (s.t === 'list' ? DUR.list + 0.55 * (s.items?.length ?? 3) : s.t === 'price' ? DUR.price + 0.55 * (s.items?.length ?? 3) : DUR[s.t] ?? 3);
+
+// dipanggil sekali; kembalikan durasi total (detik)
+window.setup = async (data) => {
+  const g = GAMES[data.game];
+  document.documentElement.style.setProperty('--accent', data.accent ?? g?.accent ?? '#a78bfa');
+  const list = [...(data.scenes ?? [])];
+  if (!list.some((s) => s.t === 'cta')) list.push({ t: 'cta' });
+  let durs = list.map(autoDur);
+  const sum = durs.reduce((a, b) => a + b, 0);
+  const target = clamp(data.duration ?? sum, 15, 30);
+  durs = durs.map((d) => (d * target) / sum);
+  const stage = document.getElementById('stage');
+  let t0 = 0;
+  scenes = list.map((s, i) => {
+    const el = document.createElement('div');
+    el.className = `scene s-${s.t}`;
+    el.innerHTML = html(s, i);
+    stage.appendChild(el);
+    const sc = { el, t0, dur: durs[i], parts: [...el.querySelectorAll('[data-a]')] };
+    t0 += durs[i];
+    return sc;
+  });
+  total = t0;
+  // partikel deterministik
+  const P = document.getElementById('parts');
+  for (let k = 0; k < 22; k++) { const p = document.createElement('div'); p.className = 'p'; p.dataset.k = k; P.appendChild(p); }
+  await ready();
+  window.seek(0);
+  return total;
+};
+
+const rnd = (k) => { const x = Math.sin(k * 127.1 + 311.7) * 43758.5453; return x - Math.floor(x); };
+
+window.seek = (t) => {
+  // latar & partikel
+  document.getElementById('bg').style.transform = `scale(1.08) translate(${Math.sin(t * 0.4) * 24}px, ${Math.cos(t * 0.3) * 30}px)`;
+  document.querySelectorAll('.p').forEach((p) => {
+    const k = +p.dataset.k, sp = 40 + rnd(k) * 90;
+    const y = 1920 - (((t * sp) + rnd(k + 9) * 1920) % 2100);
+    p.style.transform = `translate(${rnd(k + 3) * 1080}px, ${y}px) rotate(${t * 60 + k * 20}deg) scale(${0.5 + rnd(k + 5)})`;
+  });
+  document.getElementById('bar').style.width = `${(t / total) * 100}%`;
+
+  // flash di awal & transisi sapuan di tiap pergantian adegan
+  document.getElementById('flash').style.opacity = String(clamp(0.55 - t * 2.2) );
+  let wipe = 0, wx = -80;
+  for (const s of scenes) if (s.t0 > 0) { const d = t - s.t0 + 0.18; if (d > 0 && d < 0.4) { wipe = 0.9; wx = -80 + (d / 0.4) * 230; } }
+  const W = document.getElementById('wipe');
+  W.style.opacity = String(wipe); W.style.left = `${wx}%`;
+
+  for (const s of scenes) {
+    const lt = t - s.t0;
+    const on = lt >= 0 && lt < s.dur;
+    s.el.style.display = on ? 'flex' : 'none';
+    if (!on) continue;
+    // keluar: 0.25 dtk terakhir (adegan terakhir pudar lebih lama supaya loop mulus)
+    const outLen = s === scenes[scenes.length - 1] ? 0.5 : 0.25;
+    const o = clamp((s.dur - lt) / outLen);
+    s.el.style.opacity = String(o);
+    s.el.style.transform = `translateY(${(1 - o) * -40}px) scale(${1 + (1 - o) * 0.04})`;
+    for (const el of s.parts) anim(el, lt - (+el.dataset.d || 0), t);
+    s.el.querySelectorAll('[data-count]').forEach((el) => count(el, lt - (+el.dataset.d || 0)));
+  }
+};
+
+function anim(el, lt, t) {
+  const p = clamp(lt / 0.5), e = outExpo(p);
+  const a = el.dataset.a;
+  let tr = '', op = clamp(lt / 0.2);
+  if (a === 'slam') { const jit = p < 1 ? Math.sin(t * 95) * 10 * (1 - p) : 0; tr = `translateX(${jit}px) scale(${1.7 - 0.7 * e}) rotate(${(1 - e) * -3}deg)`; op = clamp(lt / 0.12); }
+  else if (a === 'up') tr = `translateY(${(1 - outCubic(p)) * 90}px)`;
+  else if (a === 'left') tr = `translateX(${(1 - e) * -160}px)`;
+  else if (a === 'fromL') tr = `translateX(${(1 - e) * -900}px)`;
+  else if (a === 'fromR') tr = `translateX(${(1 - e) * 900}px)`;
+  else if (a === 'pop') tr = `scale(${0.5 + 0.5 * outBack(clamp(lt / 0.45))})`;
+  else if (a === 'pulse') tr = `scale(${(0.6 + 0.4 * outBack(clamp(lt / 0.45))) * (1 + (lt > 0.5 ? Math.sin((lt - 0.5) * 6) * 0.035 : 0))})`;
+  else if (a === 'type') { const s = el.dataset.text; el.textContent = s.slice(0, Math.floor(clamp(lt / 0.6) * s.length)) + (lt > 0 && Math.floor(t * 3) % 2 ? '_' : ''); }
+  el.style.opacity = String(lt <= 0 ? 0 : op);
+  el.style.transform = tr;
+}
+// "Rp 21.500" berhitung naik
+function count(el, lt) {
+  const raw = el.dataset.count, m = raw.match(/^(\D*)([\d.]+)(.*)$/);
+  if (!m) return;
+  const target = +m[2].replace(/\./g, ''), p = outCubic(clamp(lt / 0.8));
+  if (!target) { el.textContent = raw; return; }
+  el.textContent = m[1] + Math.round(target * p).toLocaleString('id-ID') + m[3];
+}
+</script></body></html>
