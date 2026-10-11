@@ -58,6 +58,30 @@ export async function tg(method, params = {}, files = {}) {
   return j.result;
 }
 const esc = (s) => String(s ?? '').replace(/[&<>]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' })[c]);
+// foto dari Owner (contoh desain) → simpan lokal di tmp/telegram/ supaya bisa dibaca Claude (Read bisa buka gambar)
+export async function downloadPhotos(ids = []) {
+  const { mkdir, writeFile } = await import('node:fs/promises');
+  const dir = join(ROOT, 'tmp', 'telegram');
+  await mkdir(dir, { recursive: true });
+  const paths = [];
+  for (const id of ids.slice(0, 4)) {
+    try {
+      const f = await tg('getFile', { file_id: id });
+      const r = await fetch(`https://api.telegram.org/file/bot${env.TELEGRAM_BOT_TOKEN}/${f.file_path}`);
+      if (!r.ok) continue;
+      const name = `${Date.now()}-${basename(f.file_path)}`;
+      await writeFile(join(dir, name), Buffer.from(await r.arrayBuffer()));
+      paths.push(`tmp/telegram/${name}`);
+    } catch { /* foto kedaluwarsa / gagal unduh → lewati */ }
+  }
+  return paths;
+}
+// teks tambahan untuk prompt Claude kalau Owner kirim gambar
+export const photoNote = (paths) => (paths.length
+  ? `
+Owner juga kirim ${paths.length} gambar contoh/referensi: ${paths.join(', ')}. WAJIB buka tiap gambar dengan Read dan ikuti gaya/isi yang dimaksud Owner (warna, layout, tipografi, elemen), tetap pakai template & aturan konten.`
+  : '');
+
 export const say = (text) => tg('sendMessage', { chat_id: env.TELEGRAM_CHAT_ID, text, parse_mode: 'HTML', disable_web_page_preview: true });
 
 export const SLOT = { pagi: '09:00', siang: '12:00', malam: '19:00', kilat: 'langsung' };

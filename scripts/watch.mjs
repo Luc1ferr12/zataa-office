@@ -8,7 +8,7 @@ process.removeAllListeners('warning');
 import { spawn, execFileSync } from 'node:child_process';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { poll, submit, say, loadEnv } from './approval.mjs';
+import { poll, submit, say, loadEnv, downloadPhotos, photoNote } from './approval.mjs';
 import { publishDue } from './publish.mjs';
 import { revisionText } from './chatter.mjs';
 import { adsReady, propose, runApproved } from './boost.mjs';
@@ -55,9 +55,10 @@ async function revise(x) {
   note(maker, `Balik ke komputer, ngerjain revisi #${x.id}`);
   office('chat', maker, 'all', 'curhat', revisionText());
   exportState();
-  await say(`🛠️ Revisi #${x.id} lagi dikerjain…`).catch(() => {});
+  await say(`🛠️ Revisi #${x.id} lagi dikerjain…${x.photos?.length ? ` (📷 ${x.photos.length} contoh desain ikut dibaca)` : ''}`).catch(() => {});
+  const refs = await downloadPhotos(x.photos ?? []);
   const prompt = `Kamu tim kantor marketing Zataa (zataa.my.id) di folder ini. Owner minta REVISI konten #${x.id}:
-"${x.note}"
+"${x.note || '(tanpa teks — ikuti gambar contoh)'}"${photoNote(refs)}
 
 Langkah:
 1. Baca CLAUDE.md seperlunya, lalu office/roles/copywriter.md dan office/roles/designer.md (atau office/roles/video.md kalau formatnya video). Skema template: templates/README.md.
@@ -121,9 +122,9 @@ async function talk() {
   talking = true;
   try {
     while (inbox.length) {
-      const msg = inbox.shift();
-      log(`pesan owner: ${msg.slice(0, 80)}`);
-      const r = await handleOwnerMessage(msg, log);
+      const { msg, photos } = inbox.shift();
+      log(`pesan owner: ${msg.slice(0, 80)}${photos.length ? ` (+${photos.length} foto)` : ''}`);
+      const r = await handleOwnerMessage(msg, log, photos);
       log(`pesan owner beres (${r.kind}${r.ok === false ? ', gagal' : ''})`);
       exportState();
     }
@@ -160,13 +161,16 @@ async function tick() {
     // Owner udah mutusin → Fikri nggak nunggu approval lagi
     if (got.some((g) => ['approve', 'reject'].includes(g.action))) setAgent('publisher', 'done');
     if (got.some((g) => g.action === 'boost_skip')) setAgent('ads', 'done');
-    for (const g of got.filter((x) => x.action === 'chat' && x.note)) inbox.push(g.note);
+    for (const g of got.filter((x) => x.action === 'chat' && (x.note || x.photos?.length))) inbox.push({ msg: g.note ?? '', photos: g.photos ?? [] });
     if (inbox.length) talk();
     exportState();
     // revisi terakhir per konten saja (kalau Owner kirim beberapa catatan, gabungkan)
     const notes = new Map();
-    for (const x of got.filter((g) => g.action === 'revision')) notes.set(x.id, notes.has(x.id) ? `${notes.get(x.id)}; ${x.note}` : x.note);
-    for (const [id, note] of notes) if (!busy.has(id)) await revise({ id, note });
+    for (const x of got.filter((g) => g.action === 'revision')) {
+      const n = notes.get(x.id) ?? { note: '', photos: [] };
+      notes.set(x.id, { note: [n.note, x.note].filter(Boolean).join('; '), photos: [...n.photos, ...(x.photos ?? [])] });
+    }
+    for (const [id, n] of notes) if (!busy.has(id)) await revise({ id, ...n });
   } catch (e) { log(`cek gagal: ${e.message}`); }
 }
 

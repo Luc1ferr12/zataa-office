@@ -9,7 +9,7 @@ process.removeAllListeners('warning');
 import { spawn } from 'node:child_process';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { loadEnv, say, db } from './approval.mjs';
+import { loadEnv, say, db, downloadPhotos, photoNote } from './approval.mjs';
 import { chat } from './chatter.mjs';
 import { AGENTS, wita, activityAt, describe } from '../docs/js/schedule.js';
 
@@ -68,17 +68,18 @@ const replyOf = (text) => {
   return (i >= 0 ? text.slice(i + 8) : text.split('\n').filter(Boolean).pop() ?? '').trim().slice(0, 1500);
 };
 
-export async function handleOwnerMessage(msg, log = console.log) {
-  if (isStatusQuestion(msg)) {
+export async function handleOwnerMessage(msg, log = console.log, photos = []) {
+  if (!photos.length && isStatusQuestion(msg)) {
     await say(await statusReport());
     return { kind: 'status' };
   }
   const d = await db();
-  chat(d, 'owner', null, msg, 'bos');
+  chat(d, 'owner', null, msg || '📷 (kirim gambar contoh)', 'bos');
   d.prepare("UPDATE agents SET status = 'working', current_task = ?, updated_at = datetime('now') WHERE id = 'dir'").run(`Bagi tugas: ${msg.slice(0, 60)}`);
   chat(d, 'dir', null, 'Oke tim, ada titah dari Bos. Aku bagi tugasnya ya 👇', 'oper');
   await say('👌 Siap bos! Aprista lagi bagi tugas ke tim, nanti aku kabarin hasilnya di sini.').catch(() => {});
-  const r = await claude(`Kamu tim kantor marketing Zataa (zataa.my.id) di folder ini. Owner (Bos Zamiir) kirim pesan lewat Telegram:\n"${msg}"\n\n${RULES}`);
+  const refs = await downloadPhotos(photos);
+  const r = await claude(`Kamu tim kantor marketing Zataa (zataa.my.id) di folder ini. Owner (Bos Zamiir) kirim pesan lewat Telegram:\n"${msg || '(cuma kirim gambar)'}"${photoNote(refs)}\n\n${RULES}`);
   d.prepare("UPDATE agents SET status = 'done', updated_at = datetime('now') WHERE id = 'dir'").run();
   await syncMonitor();
   if (!r.ok) {
