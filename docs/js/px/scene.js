@@ -340,7 +340,7 @@ export function makeSpots() {
   S.meeting.push({ x: 1.9, z: -11.6, rot: -Math.PI / 2, side: 'E' }, { x: -5.2, z: -11.6, rot: Math.PI / 2, side: 'W' });
   S.garden = [];
   BENCH_X.forEach((x) => S.garden.push({ x: x - 0.45, z: 7.7, rot: Math.PI }, { x: x + 0.45, z: 7.7, rot: Math.PI }));
-  S.pool = [6.2, 7.2, 9.8, 10.9].map((z) => ({ x: 13, z, half: 4.6, y: -0.15 }));
+  S.pool = [5.9, 7.1, 8.3, 9.6, 10.9].map((z) => ({ x: 13, z, half: 4.6, y: -0.15 }));
   S.lounger = [9, 11.4, 13.8, 16.2, 18.4, 6.6, 20.6].map((x) => ({ x, z: 14.45, rot: Math.PI }));
   // sayap barat: kamar mandi (bawah), mess (bawah), tempat wudhu (atas)
   S.toilet = [-5.1, -3.6, -2.1].map((z) => ({ x: -24.5, z, rot: -Math.PI / 2 }));

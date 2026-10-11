@@ -1,6 +1,6 @@
 // Sprite pixel pegawai, digambar prosedural (tanpa file gambar) lalu di-cache.
 // Arah: S (menghadap kamera), N (membelakangi), E (kanan), W (cermin E).
-import { hex, pack } from './engine.js';
+import { hex, pack, RES } from './engine.js';
 
 const SW = 20, SH = 30, AX = 10, AY = 29; // kanvas sprite & titik kaki
 
@@ -14,7 +14,7 @@ const LOOK = {
   publisher:  { g: 'm', skin: '#d1a380', hair: '#3d3430', style: 'short2', kerja: { top: '#5b6475', bot: '#2e3440', shoe: '#1d1d22', sleeve: 'long', inner: '#eeeae2' } },
   ads:        { g: 'f', skin: '#e3b593', hair: '#4a2c20', style: 'bob',  kerja: { top: '#0d9488', bot: '#f0ece2', skirt: 'short', shoe: '#3a2f2a', sleeve: 'long', collar: true } },
   analyst:    { g: 'm', skin: '#c99a76', hair: '#1f1a17', style: 'short2', kerja: { top: '#475569', bot: '#d6d0c4', shoe: '#2b2b2b', sleeve: 'short', collar: true } },
-  price:      { g: 'f', skin: '#e2b48f', hair: '#2e1d16', style: 'pony', kerja: { top: '#f59e0b', bot: '#2f2a3d', skirt: 'long', shoe: '#2a2630', sleeve: 'short' } },
+  price:      { g: 'm', skin: '#c48f69', hair: '#231a15', style: 'short', kerja: { top: '#f59e0b', bot: '#2f2a3d', shoe: '#2a2630', sleeve: 'short', collar: true } },
   ob:         { g: 'f', skin: '#d6a882', hair: '#3a2a22', style: 'bob', uniform: true, kerja: { top: '#3d7ea6', bot: '#2c3e50', skirt: 'long', shoe: '#1d1d22', sleeve: 'short', vest: '#f1efe8' } },
   owner:      { g: 'm', skin: '#cc9e7a', hair: '#1b1717', style: 'short', kerja: { top: '#17151d', bot: '#3b3f4a', shoe: '#e9e6df', sleeve: 'short', acc: '#d4a63a' } },
 };
@@ -37,7 +37,7 @@ function palette(id, outfit, praying) {
     g: L.g, style: L.style, skirt: L.g === 'f' ? o.skirt : null, sleeve: o.sleeve, collar: o.collar, neck: o.neck,
     skin: tone(L.skin, 0), skinD: tone(L.skin, -0.22), hair: tone(L.hair, 0), hairD: tone(L.hair, -0.3), hairL: tone(L.hair, 0.25),
     top: tone(o.top, 0), topD: tone(o.top, -0.25), topL: tone(o.top, 0.2), bot: tone(o.bot, 0), botD: tone(o.bot, -0.28),
-    shoe: tone(o.shoe, 0), eye: pack(29, 20, 32), mouth: tone('#b8645a', 0), blush: tone(L.skin, -0.1),
+    shoe: tone(o.shoe, 0), shoeL: tone(o.shoe, 0.3), eye: pack(29, 20, 32), iris: pack(78, 46, 34), lip: tone('#c4706a', 0), pink: pack(...hex(L.skin).map((c, i) => c * 0.6 + [236, 138, 130][i] * 0.4)), mouth: tone('#b8645a', 0), blush: tone(L.skin, -0.1),
     inner: o.inner ? tone(o.inner, 0) : null, tie: o.tie ? tone(o.tie, 0) : null, vest: o.vest ? tone(o.vest, 0) : null,
     acc: L.kerja.acc && outfit !== 'formal' ? tone(L.kerja.acc, 0) : null,
     broomH: pack(139, 94, 52), broomB: pack(214, 178, 96), broomBD: pack(170, 136, 66),
@@ -54,7 +54,7 @@ function palette(id, outfit, praying) {
 }
 
 class Grid {
-  constructor() { this.d = new Uint32Array(SW * SH); }
+  constructor() { this.d = new Uint32Array(SW * SH); this.m = []; } // m: catatan bagian tubuh utk detail HD
   p(x, y, c) { if (c == null) return; x |= 0; y |= 0; if (x >= 0 && y >= 0 && x < SW && y < SH) this.d[y * SW + x] = c; }
   r(x, y, w, h, c) { for (let j = 0; j < h; j++) for (let i = 0; i < w; i++) this.p(x + i, y + j, c); }
   clear(x, y) { if (x >= 0 && y >= 0 && x < SW && y < SH) this.d[y * SW + x] = 0; }
@@ -62,6 +62,7 @@ class Grid {
 
 // ---------------------------------------------------------------- kepala
 function headS(g, P, y) {
+  g.m.push(['faceS', y]);
   if (P.mukena) {
     g.r(6, y, 8, 9, P.white); g.r(5, y + 3, 10, 6, P.white);
     g.r(8, y + 3, 4, 4, P.skin); g.p(8, y + 4, P.eye); g.p(11, y + 4, P.eye); g.r(6, y + 8, 8, 1, P.whiteD);
@@ -89,6 +90,7 @@ function headS(g, P, y) {
   if (P.peci) { g.r(7, y - 1, 6, 2, P.black); g.r(7, y + 1, 6, 1, P.black); }
 }
 function headN(g, P, y) {
+  g.m.push(['hairN', y]);
   if (P.mukena) { g.r(6, y, 8, 9, P.white); g.r(5, y + 3, 10, 7, P.white); g.r(6, y + 9, 8, 1, P.whiteD); return; }
   g.r(7, y, 6, 7, P.hair); g.r(6, y + 1, 8, 5, P.hair);
   if (P.g === 'm') { g.r(8, y + 6, 4, 1, P.skinD); g.r(7, y + 5, 6, 1, P.hairD); }
@@ -102,6 +104,7 @@ function longBack(g, P, y) { // rambut panjang jatuh di punggung (digambar setel
   if (P.style === 'long') { g.r(7, y + 6, 6, 6, P.hair); g.r(8, y + 12, 4, 1, P.hairD); }
 }
 function headE(g, P, y) {
+  g.m.push(['faceE', y]);
   if (P.mukena) {
     g.r(6, y, 7, 9, P.white); g.r(5, y + 3, 3, 7, P.white);
     g.r(10, y + 3, 3, 4, P.skin); g.p(11, y + 4, P.eye); g.p(13, y + 4, P.skin); g.r(6, y + 8, 7, 1, P.whiteD);
@@ -130,6 +133,7 @@ function armS(g, P, x, y, len) {
   g.p(x, y + len - 1, P.skin);
 }
 function torsoS(g, P, y, arms, back = false) {
+  g.m.push(['torsoS', y, arms, back]);
   g.r(9, y - 1, 2, 1, P.skinD);
   g.r(7, y, 6, 6, P.top); g.r(6, y, 8, 1, P.top);
   g.r(12, y + 1, 1, 5, P.topD);
@@ -163,6 +167,7 @@ function torsoS(g, P, y, arms, back = false) {
   armS(g, P, 6, y + 1, 5); armS(g, P, 13, y + 1, 5);
 }
 function legsS(g, P, y, mode) {
+  g.m.push(['legsS', y, mode]);
   const liftL = mode === 'walk1' ? 1 : 0, liftR = mode === 'walk3' ? 1 : 0;
   if (mode === 'sit') {
     if (P.skirt === 'long') { g.r(6, y, 8, 5, P.bot); g.r(6, y + 4, 8, 1, P.botD); g.r(7, y + 5, 2, 1, P.shoe); g.r(11, y + 5, 2, 1, P.shoe); return; }
@@ -192,6 +197,7 @@ function legsS(g, P, y, mode) {
   g.r(7, y + 7 - liftL, 3, 1, P.shoe); g.r(10, y + 7 - liftR, 3, 1, P.shoe);
 }
 function torsoE(g, P, y, arms) {
+  g.m.push(['torsoE', y, arms]);
   g.r(9, y - 1, 2, 1, P.skinD);
   g.r(8, y, 4, 6, P.top);
   g.r(8, y, 1, 6, P.topD);
@@ -212,6 +218,7 @@ function torsoE(g, P, y, arms) {
   }
 }
 function legsE(g, P, y, mode) {
+  g.m.push(['legsE', y, mode]);
   const stride = mode === 'walk1' || mode === 'walk3';
   const leg = P.skirt === 'short' ? P.skin : P.bot;
   if (mode === 'sit') {
@@ -329,6 +336,161 @@ function drawBroom(g, P, y, f, view) {
 const SEATED = new Set(['type', 'talk', 'eat', 'phone', 'game', 'bench', 'beanbag']);
 const ARMS = { type: 'type', talk: 'down', eat: 'cup', phone: 'phone', game: 'pad', bench: 'down', beanbag: 'phone', drink: 'cup', stand: 'down', sweep: 'down' };
 
+// HD: perbesar sprite pakai Scale2x (EPX) — sudut & garis miring jadi halus tanpa blur, tetap gaya pixel art
+function scale2x(s) {
+  const { w, h, d } = s, W2 = w * 2, o = new Uint32Array(W2 * h * 2);
+  const at = (x, y) => (x < 0 || y < 0 || x >= w || y >= h ? 0 : d[y * w + x]);
+  for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) {
+    const P = d[y * w + x], A = at(x, y - 1), B = at(x + 1, y), C = at(x - 1, y), D = at(x, y + 1);
+    const e0 = C === A && C !== D && A !== B ? A : P;
+    const e1 = A === B && A !== C && B !== D ? B : P;
+    const e2 = D === C && D !== B && C !== A ? C : P;
+    const e3 = B === D && B !== A && D !== C ? D : P;
+    const i = y * 2 * W2 + x * 2;
+    o[i] = e0; o[i + 1] = e1; o[i + W2] = e2; o[i + W2 + 1] = e3;
+  }
+  return { ...s, w: W2, h: h * 2, ax: s.ax * 2, ay: s.ay * 2 + 1, lift: s.lift * 2, d: o };
+}
+
+// ---------------------------------------------------------------- detail HD (koordinat piksel 40×60 asli, bukan hasil perbesar)
+// wajah (mata berkilau, bulu mata, alis, hidung, bibir, pipi), helai & kilau rambut, kerah, kancing, dasi, sabuk, lipatan rok, kilap sepatu
+class HGrid {
+  constructor(s) { this.w = s.w; this.h = s.h; this.d = s.d; }
+  at(x, y) { return x >= 0 && y >= 0 && x < this.w && y < this.h ? this.d[y * this.w + x] : 0; }
+  p(x, y, c) { if (c != null && x >= 0 && y >= 0 && x < this.w && y < this.h) this.d[y * this.w + x] = c; }
+  r(x, y, w, h, c) { for (let j = 0; j < h; j++) for (let i = 0; i < w; i++) this.p(x + i, y + j, c); }
+  // hanya menimpa piksel yang warnanya salah satu `only` (mis. cuma di atas kain, tidak menimpa tangan)
+  on(x, y, c, ...only) { if (only.includes(this.at(x, y))) this.p(x, y, c); }
+}
+const BUSY = new Set(['phone', 'pad', 'chest', 'cup', 'face', 'up']);
+
+function eyeS(h, P, x, Y, side) {
+  const f = P.g === 'f';
+  h.r(x, Y + 7, 2, 1, P.eye);                          // garis kelopak / bulu mata
+  if (f) h.p(side < 0 ? x - 1 : x + 2, Y + 6, P.eye);  // lentik di ujung luar
+  h.p(x, Y + 8, P.iris); h.p(x + 1, Y + 8, P.white);   // kilau mata
+  h.r(x, Y + 9, 2, 1, P.iris);
+}
+function faceS(h, P, y) {
+  const Y = y * 2, f = P.g === 'f';
+  if (!P.mukena) {
+    [16, 18, 19, 22, 23].forEach((x) => h.on(x, Y + 5, P.skin, P.hair)); // ujung poni digerigi jadi helai
+    h.r(16, Y, 4, 2, P.hair);
+    [[15, Y + 2], [16, Y + 1], [17, Y + 1], [18, Y + 1], [19, Y + 2]].forEach(([x, yy]) => h.p(x, yy, P.hairL)); // kilau rambut
+    h.p(21, Y + 2, P.hairD); h.p(22, Y + 3, P.hairD); h.p(17, Y + 3, P.hairD);
+    if (f && (P.style === 'long' || P.style === 'bob')) { const n = P.style === 'long' ? 8 : 4; for (let j = 0; j < n; j++) { h.on(13, Y + 8 + j, P.hairL, P.hair); h.on(26, Y + 8 + j, P.hairD, P.hair); } }
+  }
+  h.r(16, Y + 6, 8, 8, P.skin); // hapus mata/mulut lama 2×2, gambar ulang lebih detail
+  eyeS(h, P, 16, Y, -1); eyeS(h, P, 22, Y, 1);
+  h.p(19, Y + 10, P.skinD); // hidung
+  if (f) { h.p(15, Y + 10, P.pink); h.p(24, Y + 10, P.pink); h.r(19, Y + 12, 2, 1, P.lip); }
+  else h.r(19, Y + 12, 2, 1, P.mouth);
+}
+function faceE(h, P, y) {
+  const Y = y * 2, f = P.g === 'f';
+  h.r(21, Y + 7, 3, 6, P.skin); h.r(24, Y + 12, 2, 2, P.skin);
+  h.r(22, Y + 7, 2, 1, P.eye); if (f) h.p(21, Y + 6, P.eye);
+  h.p(22, Y + 8, P.iris); h.p(23, Y + 8, P.white); h.p(22, Y + 9, P.iris);
+  if (!P.mukena) { h.p(27, Y + 8, 0); h.p(26, Y + 10, P.skin); h.p(25, Y + 10, P.skinD); } // hidung
+  h.p(25, Y + 12, f ? P.lip : P.mouth);
+  if (f) h.p(23, Y + 10, P.pink);
+  if (!f && !P.mukena) { h.r(18, Y + 8, 1, 3, P.skinD); h.p(19, Y + 9, P.skinD); } // telinga
+  if (!P.mukena) {
+    [[17, Y + 1], [18, Y + 1], [19, Y + 1], [16, Y + 2]].forEach(([x, yy]) => h.p(x, yy, P.hairL));
+    h.on(21, Y + 2, P.hairD, P.hair); h.on(15, Y + 6, P.hairD, P.hair);
+  }
+}
+function hairN(h, P, y) {
+  if (P.mukena) return;
+  const Y = y * 2;
+  [[16, Y + 2], [17, Y + 1], [18, Y + 1], [19, Y + 1], [20, Y + 1], [21, Y + 2]].forEach(([x, yy]) => h.on(x, yy, P.hairL, P.hair, P.hairL));
+  [17, 20, 23].forEach((x, i) => { for (let j = 4 + i; j < 10 + i; j++) h.on(x - (j > 7 + i ? 1 : 0), Y + j, P.hairD, P.hair); });
+  if (P.style === 'long') for (let j = 12; j < 24; j++) { h.on(17, Y + j, P.hairD, P.hair); h.on(22, Y + j, P.hairD, P.hair); }
+}
+function torsoSd(h, P, y, arms, back) {
+  const T = y * 2, cloth = [P.top, P.topD, P.topL];
+  if (P.mukena) { for (let x = 14; x < 27; x += 4) for (let j = 2; j < 11; j++) h.on(x, T + j, P.whiteD, P.white); return; }
+  const free = !BUSY.has(arms);
+  if (!back) {
+    if (P.inner) { // jas + kemeja (+ dasi)
+      h.r(18, T, 4, free ? 10 : 4, P.inner);
+      [[17, T], [17, T + 1], [18, T + 2], [22, T], [22, T + 1], [21, T + 2]].forEach(([x, yy]) => h.p(x, yy, P.topD));
+      if (P.tie) { h.r(19, T, 2, 2, P.tie); if (free) { h.r(19, T + 2, 2, 7, tone('#7c3aed', -0.18)); h.p(19, T + 2, P.tie); h.p(20, T + 9, P.inner); } }
+      if (free) { h.on(17, T + 7, P.topL, P.top); h.on(17, T + 9, P.topL, P.top); }
+    } else if (P.neck) {
+      h.r(16, T - 2, 8, 2, P.top); h.r(16, T - 1, 8, 1, P.topD); // turtleneck
+    } else if (P.collar) {
+      h.r(18, T, 4, 1, P.skin); h.r(19, T + 1, 2, 1, P.skin);
+      const c = P.vest ? P.white : P.topL;
+      [[16, T], [17, T], [17, T + 1], [18, T + 1], [23, T], [22, T], [22, T + 1], [21, T + 1]].forEach(([x, yy]) => h.p(x, yy, c));
+      if (free) { for (let j = 2; j < 10; j++) h.on(20, T + j, P.topD, P.top); [T + 4, T + 7].forEach((yy) => h.on(19, yy, P.topL, P.top)); }
+    } else { // leher bulat
+      h.r(18, T, 4, 1, P.skin); h.r(19, T + 1, 2, 1, P.skin);
+      [[17, T], [22, T], [18, T + 1], [21, T + 1], [19, T + 2], [20, T + 2]].forEach(([x, yy]) => h.p(x, yy, P.topD));
+    }
+    if (P.acc) { h.p(18, T + 2, P.acc); h.p(19, T + 3, P.acc); } // kalung
+    if (free) { h.on(16, T + 6, P.topD, P.top); h.on(17, T + 7, P.topD, P.top); h.on(23, T + 6, P.topD, P.top); } // lipatan kain
+  } else for (let j = 1; j < 9; j++) h.on(20, T + j, P.topD, P.top); // jahitan punggung
+  if (P.sleeve === 'short') [12, 13, 26, 27].forEach((x) => h.on(x, T + 3, P.topD, P.top));
+  if (P.sleeve === 'long' && free) [12, 13, 26, 27].forEach((x) => h.on(x, T + 8, P.topD, ...cloth));
+  if (!P.skirt) { // sabuk + gesper
+    for (let x = 14; x < 26; x++) h.on(x, T + 10, P.black, P.botD, P.top, P.topD);
+    if (!back && free) h.r(19, T + 10, 2, 1, pack(212, 166, 58));
+  }
+}
+function shoeShine(h, P, L, dx) {
+  for (let x = 4; x < 36; x++) for (let j = 4; j < 20; j++)
+    if (h.at(x, L + j) === P.shoe && h.at(x, L + j - 1) !== P.shoe && h.at(x + dx, L + j) !== P.shoe) h.p(x, L + j, P.shoeL);
+}
+function legsSd(h, P, y, mode) {
+  const L = y * 2;
+  if (P.mukena) return;
+  if (mode !== 'sitBack') {
+    if (P.skirt === 'short') [16, 19, 22].forEach((x) => { h.on(x, L + 2, P.botD, P.bot); h.on(x, L + 3, P.botD, P.bot); }); // lipit rok
+    else if (P.skirt === 'long') [15, 19, 23].forEach((x) => { for (let j = 3; j < 10; j++) h.on(x + (j > 6 ? Math.sign(x - 19) : 0), L + j, P.botD, P.bot); });
+  }
+  shoeShine(h, P, L, -1);
+}
+function torsoEd(h, P, y) {
+  const T = y * 2;
+  if (P.mukena) return;
+  if (P.collar || P.inner) { h.on(22, T, P.inner ?? P.topL, P.top, P.topD); h.on(23, T, P.inner ?? P.topL, P.top, P.topD); }
+  if (P.tie) h.on(23, T + 2, P.tie, P.top, P.inner);
+  if (!P.skirt) for (let x = 16; x < 24; x++) h.on(x, T + 10, P.black, P.botD, P.top, P.topD);
+  for (let j = 3; j < 9; j++) h.on(22, T + j, P.topL, P.top);
+}
+function legsEd(h, P, y) {
+  const L = y * 2;
+  shoeShine(h, P, L, 1);
+  if (P.skirt === 'long' && !P.mukena) for (let j = 3; j < 10; j++) h.on(18, L + j, P.botD, P.bot);
+}
+const DETAIL = { faceS, faceE, hairN, torsoS: torsoSd, legsS: legsSd, torsoE: torsoEd, legsE: legsEd };
+
+// cermin di resolusi HD (setara mirror() dasar: kolom x ← W−3−x, titik kaki tetap di tengah)
+function mirrorHD(s) {
+  const o = new Uint32Array(s.w * s.h);
+  for (let y = 0; y < s.h; y++) for (let x = 0; x < s.w - 2; x++) o[y * s.w + x] = s.d[y * s.w + s.w - 3 - x];
+  s.d = o;
+}
+// garis tepi 1 px, warnanya ikut bagian di sebelahnya (rambut → coklat tua, baju → versi gelap bajunya)
+function outlineHD(s) {
+  const { w, h, d } = s, src = d.slice(), O = hex('#1b1226'), k = 0.28;
+  for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) {
+    if (src[y * w + x]) continue;
+    const n = (x > 0 && src[y * w + x - 1]) || (x < w - 1 && src[y * w + x + 1]) || (y > 0 && src[(y - 1) * w + x]) || (y < h - 1 && src[(y + 1) * w + x]);
+    if (n) d[y * w + x] = pack(O[0] + ((n & 255) - O[0]) * k, O[1] + (((n >> 8) & 255) - O[1]) * k, O[2] + (((n >> 16) & 255) - O[2]) * k);
+  }
+}
+// rakit akhir: dasar 20×30 → Scale2x → detail HD → cermin → garis tepi tipis
+function finish(g, P, flip, flat = false, lift = 0, ay = AY) {
+  if (RES < 2) { if (flip) mirror(g); outline(g); return { w: SW, h: SH, ax: AX, ay, d: g.d, flat, lift }; }
+  const s = scale2x({ w: SW, h: SH, ax: AX, ay, d: g.d, flat, lift });
+  if (P) { const h = new HGrid(s); for (const [k, ...a] of g.m) DETAIL[k](h, P, ...a); }
+  if (flip) mirrorHD(s);
+  outlineHD(s);
+  return s;
+}
+
 const cache = new Map();
 // f: frame animasi 0..3 ; v: varian (mood/fase sholat)
 export function sprite(id, outfit, pose, dir, f = 0, v = '') {
@@ -341,7 +503,7 @@ export function sprite(id, outfit, pose, dir, f = 0, v = '') {
   let flat = false, lift = 0;
   const view = dir === 'W' ? 'E' : dir;
   if (pose === 'lie') { drawLie(g, P); flat = true; lift = 5; }
-  else if (pose === 'swim') { drawSwim(g, P, f); if (dir === 'W') mirror(g); }
+  else if (pose === 'swim') drawSwim(g, P, f);
   else if (praying) drawPray(g, P, v || 'qiyam');
   else if (SEATED.has(pose)) {
     let arms = ARMS[pose];
@@ -353,7 +515,6 @@ export function sprite(id, outfit, pose, dir, f = 0, v = '') {
     if (view === 'S') { headS(g, P, y + (v === 'sleepy' ? 1 : 0)); torsoS(g, P, y + 8, arms); legsS(g, P, y + 14, 'sit'); }
     else if (view === 'N') { headN(g, P, y); torsoS(g, P, y + 8, arms, true); longBack(g, P, y); legsS(g, P, y + 14, 'sitBack'); }
     else { torsoE(g, P, y + 8, arms); headE(g, P, y); legsE(g, P, y + 14, low ? 'lowsit' : 'sit'); }
-    if (view === 'E' && dir === 'W') mirror(g);
   } else {
     const walk = pose === 'walk';
     const legs = walk ? ['walk0', 'walk1', 'walk2', 'walk3'][f] : 'stand';
@@ -365,10 +526,8 @@ export function sprite(id, outfit, pose, dir, f = 0, v = '') {
     else if (view === 'N') { headN(g, P, y); torsoS(g, P, y + 8, arms, true); longBack(g, P, y); legsS(g, P, y + 14, legs); }
     else { legsE(g, P, y + 14, legs); torsoE(g, P, y + 8, arms); headE(g, P, y); }
     if (pose === 'sweep') drawBroom(g, P, y, f, view);
-    if (view === 'E' && dir === 'W') mirror(g);
   }
-  outline(g);
-  s = { w: SW, h: SH, ax: AX, ay: AY, d: g.d, flat, lift };
+  s = finish(g, P, dir === 'W' && pose !== 'lie' && !praying, flat, lift);
   cache.set(key, s);
   return s;
 }
@@ -381,7 +540,6 @@ export function flamingoSprite() {
   const pk = pack(244, 114, 182), pkD = pack(214, 74, 150), pkL = pack(251, 182, 214), bk = pack(30, 20, 30), yl = pack(250, 204, 21);
   g.r(4, 24, 12, 4, pk); g.r(3, 25, 14, 2, pk); g.r(6, 25, 8, 2, pack(70, 190, 220)); g.r(4, 27, 12, 1, pkD); g.r(5, 24, 10, 1, pkL);
   g.r(13, 17, 2, 8, pk); g.r(12, 15, 3, 3, pk); g.p(11, 16, yl); g.p(10, 16, bk); g.p(13, 16, bk);
-  outline(g);
-  flamingo = { w: SW, h: SH, ax: AX, ay: 27, d: g.d, flat: false, lift: 0 };
+  flamingo = finish(g, null, false, false, 0, 27);
   return flamingo;
 }

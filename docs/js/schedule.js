@@ -11,7 +11,7 @@ export const AGENTS = [
   { id: 'publisher',  name: 'Fikri',     avatar: '#33415c', title: 'Social Media Publisher', gender: 'm' },
   { id: 'ads',        name: 'Fahriah',   avatar: '#0d9488', title: 'Ads Specialist',         gender: 'f' },
   { id: 'analyst',    name: 'Raka',      avatar: '#475569', title: 'Data Analyst',           gender: 'm' },
-  { id: 'price',      name: 'Nadia',     avatar: '#d97706', title: 'Price Watcher',          gender: 'f' },
+  { id: 'price',      name: 'Budi',     avatar: '#d97706', title: 'Price Watcher',          gender: 'm' },
   { id: 'owner',      name: 'Zamiir',    avatar: '#5b1fd6', title: 'Owner / Boss',           gender: 'm', boss: true, imam: true, partner: 'dir' },
   { id: 'ob',         name: 'Mbak Sari', avatar: '#3d7ea6', title: 'Office Girl',            gender: 'f', ob: true },
 ];

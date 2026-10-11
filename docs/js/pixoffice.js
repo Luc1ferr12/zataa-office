@@ -1,6 +1,6 @@
 // Kantor virtual pixel art: gedung dirender sekali (Web Worker), pegawai & layar digambar tiap frame.
 // API sama dengan versi 3D lama supaya main.js tidak banyak berubah.
-import { W, H, PXH, VW, proj, depthOf, pack, blend, bayer, hash2, UP } from './px/engine.js';
+import { W, H, PXH, VW, proj, depthOf, pack, blend, bayer, hash2, UP, RES } from './px/engine.js';
 import { makeSpots, ROOMS, DESKS } from './px/scene.js';
 import { sprite, flamingoSprite } from './px/sprites.js';
 import { textBitmap } from './px/font.js';
@@ -13,7 +13,7 @@ const hx = (h) => { const n = parseInt(h.slice(1), 16); return pack((n >> 16) & 
 const mul = (c, r, g, b) => pack((c & 255) * r, ((c >>> 8) & 255) * g, ((c >>> 16) & 255) * b);
 
 // "kotak pandang" bagian menarik di kanvas (dipakai saat zoom pas layar)
-const FOCUS = { x: 90, y: 60, w: 820, h: 640 };
+const FOCUS = { x: 90 * RES, y: 60 * RES, w: 820 * RES, h: 640 * RES };
 const SEAT_N = new Set(['type', 'talk', 'phone', 'game', 'bench', 'eat']);
 const PRAY = [['qiyam', 6], ['ruku', 3], ['itidal', 2], ['sujud', 3], ['duduk', 2], ['sujud', 3], ['itidal', 1]];
 const PRAY_LEN = PRAY.reduce((s, p) => s + p[1], 0);
@@ -26,6 +26,18 @@ const C = Object.fromEntries(Object.entries({
   tvTop: '#3b1592', tvBot: '#140a2e', white: '#f8f6ff', violet: '#b794ff', amber: '#fbbf24', green: '#34d399', red: '#f87171',
   field: '#1f5d3a', field2: '#2a7a4a', lane: '#c7b98a',
 }).map(([k, v]) => [k, hx(v)]));
+
+// salin kotak [x0,y0,x1,y1) dari gambar dasar → buffer kerja (hapus jejak orang frame sebelumnya)
+function restoreRect(dst, src, [x0, y0, x1, y1]) {
+  x0 = Math.max(0, x0 | 0); y0 = Math.max(0, y0 | 0); x1 = Math.min(W, Math.ceil(x1)); y1 = Math.min(H, Math.ceil(y1));
+  if (x1 <= x0) return;
+  for (let y = y0; y < y1; y++) dst.set(src.subarray(y * W + x0, y * W + x1), y * W + x0);
+}
+// kirim sebagian buffer ke canvas
+function putRect(Lr, [x0, y0, x1, y1]) {
+  x0 = Math.max(0, x0 | 0); y0 = Math.max(0, y0 | 0); x1 = Math.min(W, Math.ceil(x1)); y1 = Math.min(H, Math.ceil(y1));
+  if (x1 > x0 && y1 > y0) Lr.ctx.putImageData(Lr.img, 0, 0, x0, y0, x1 - x0, y1 - y0);
+}
 
 function layer() {
   const cv = document.createElement('canvas');
@@ -228,9 +240,9 @@ export class Office {
     if (!c?.present) return;
     const [sx, sy] = proj(c.pos.x, c.pos.y, c.pos.z);
     const r = this.host.getBoundingClientRect();
-    this.z = Math.max(this.z, Math.min(3, this.maxZ));
+    this.z = Math.max(this.z, Math.min(3 / RES * 1.25, this.maxZ)); // zoom ke orang (HD: kanvas 2× lebih besar)
     this.tx = r.width / 2 - sx * this.z;
-    this.ty = r.height / 2 - (sy - 12) * this.z;
+    this.ty = r.height / 2 - (sy - 12 * RES) * this.z;
     this.clampView();
   }
 
@@ -262,10 +274,10 @@ export class Office {
     if (keep && this.fitted) { this.clampView(); return; }
     // isi selebar kotak, tapi usahakan seluruh gedung tetap kelihatan
     this.z = clamp(Math.max(Math.min(r.width / FOCUS.w, r.height / FOCUS.h), r.width / W), this.minZ, this.maxZ);
-    if (r.width < 700) this.z = Math.max(this.z, 1); // HP: jangan terlalu kecil, geser untuk lihat sisanya
+    if (r.width < 700) this.z = Math.max(this.z, 1 / RES); // HP: jangan terlalu kecil, geser untuk lihat sisanya
     this.tx = r.width / 2 - (FOCUS.x + FOCUS.w / 2) * this.z;
     this.ty = r.height / 2 - (FOCUS.y + FOCUS.h / 2) * this.z;
-    if (FOCUS.h * this.z > r.height) this.ty = -(FOCUS.y + 30) * this.z; // kalau tidak muat, utamakan atap gedung terlihat
+    if (FOCUS.h * this.z > r.height) this.ty = -(FOCUS.y + 30 * RES) * this.z; // kalau tidak muat, utamakan atap gedung terlihat
     this.fitted = true;
     this.clampView();
   }
@@ -342,7 +354,7 @@ export class Office {
       const s = a.spr, x = Math.floor(cx - (a.sx - s.ax)), y = Math.floor(cy - (a.sy - s.ay - s.lift));
       // toleransi 2 px di sekitar sprite (sprite kecil)
       let hit = false;
-      for (let dy = -2; dy <= 2 && !hit; dy++) for (let dx = -2; dx <= 2 && !hit; dx++) {
+      for (let dy = -2 * RES; dy <= 2 * RES && !hit; dy++) for (let dx = -2 * RES; dx <= 2 * RES && !hit; dx++) {
         const X = x + dx, Y = y + dy;
         if (X >= 0 && Y >= 0 && X < s.w && Y < s.h && s.d[Y * s.w + X]) hit = true;
       }
@@ -366,7 +378,7 @@ export class Office {
       c.label.hidden = !vis;
       if (!vis) return null;
       const [x, y] = proj(c.pos.x, c.pos.y, c.pos.z);
-      const top = c.pose === 'lie' ? 14 : c.pose === 'swim' ? 12 : c.pose === 'pray' ? 23 : SEAT_N.has(c.pose) || c.pose === 'beanbag' ? 21 : 24;
+      const top = RES * (c.pose === 'lie' ? 14 : c.pose === 'swim' ? 12 : c.pose === 'pray' ? 23 : SEAT_N.has(c.pose) || c.pose === 'beanbag' ? 21 : 24);
       if (!c.labelW) c.labelW = c.label.offsetWidth;
       return { c, x: this.tx + x * this.z, y: this.ty + (y - top) * this.z };
     }).filter(Boolean).sort((a, b) => b.y - a.y);
@@ -423,13 +435,22 @@ export class Office {
     const passes = [];
     if (nf < 0.999) passes.push(['day', false]);
     if (nf > 0.001) passes.push(['night', true]);
+    // gambar ulang hanya bagian yang berubah (orang, air, layar) — penting di resolusi HD
+    const rects = this.actors.map((a) => {
+      const s = a.spr, x0 = a.sx - s.ax, y0 = a.sy - s.ay - s.lift, rx = 7 * RES, ry = 3 * RES;
+      return [Math.min(x0, a.sx - rx), Math.min(y0, a.sy - ry), Math.max(x0 + s.w, a.sx + rx), Math.max(y0 + s.h, a.sy + ry)];
+    });
     for (const [k, night] of passes) {
       const buf = night ? B.night : B.day;
-      this.drawDyn(buf, night, t);
       const Lr = this.L[k];
-      Lr.u32.set(buf);
+      const full = Lr.base !== buf;
+      if (full) { Lr.u32.set(buf); Lr.base = buf; Lr.prev = []; }
+      for (const r of Lr.prev) restoreRect(Lr.u32, buf, r);
+      this.drawDyn(Lr.u32, night, t);
       for (const a of this.actors) this.drawActor(Lr.u32, a, night);
-      Lr.ctx.putImageData(Lr.img, 0, 0);
+      if (full) Lr.ctx.putImageData(Lr.img, 0, 0);
+      else for (const r of [...Lr.prev, ...rects, ...this.dynRects()]) putRect(Lr, r);
+      Lr.prev = rects;
     }
     const g = this.ctx;
     g.globalCompositeOperation = 'source-over';
@@ -462,7 +483,7 @@ export class Office {
         f = Math.floor(t * 5 + c.seed) % 4;
         if (c.mood === 'ngantuk') v = 'sleepy';
         const m = MOOD_AT_DESK[c.mood];
-        if (m && (t + c.seed * 7) % m[1] < m[2]) { if (m[0] === 'shake') jitter = Math.floor(t * 12) % 2 ? 1 : -1; else v = m[0]; }
+        if (m && (t + c.seed * 7) % m[1] < m[2]) { if (m[0] === 'shake') jitter = Math.floor(t * 12) % 2 ? RES : -RES; else v = m[0]; }
       } else if (pose === 'talk') f = Math.floor(t * 1.3 + c.seed) % 4;
       else if (pose === 'sweep') f = Math.floor(t * 2.2 + c.seed) % 4;
       else if (pose === 'eat' || pose === 'drink') f = Math.floor(t * 0.6 + c.seed) % 4;
@@ -491,8 +512,9 @@ export class Office {
     if (night) { lr = Math.max(0.3, B.lightQ[fi * 3] / 100); lg = Math.max(0.3, B.lightQ[fi * 3 + 1] / 100); lb = Math.max(0.42, B.lightQ[fi * 3 + 2] / 100); }
     // bayangan kaki & cincin pilihan
     if (a.shadow || a.ring) {
-      for (let dy = -2; dy <= 2; dy++) for (let dx = -6; dx <= 6; dx++) {
-        const e = (dx * dx) / 36 + (dy * dy) / 4;
+      const RX = 6 * RES, RY = 2 * RES;
+      for (let dy = -RY; dy <= RY; dy++) for (let dx = -RX; dx <= RX; dx++) {
+        const e = (dx * dx) / (RX * RX) + (dy * dy) / (RY * RY);
         if (e > 1.05) continue;
         const X = a.sx + dx, Y = a.sy + dy;
         if (X < 0 || Y < 0 || X >= W || Y >= H) continue;
@@ -521,22 +543,49 @@ export class Office {
     }
   }
 
+  // kotak pembungkus tiap permukaan dinamis (dihitung sekali per varian gedung)
+  dynRects() {
+    if (this._dynFor === this.base) return this._dynR;
+    this._dynFor = this.base;
+    this._dynR = Object.values(this.base.dyn ?? {}).filter((d) => d?.x?.length).map((d) => {
+      let x0 = Infinity, y0 = Infinity, x1 = -1, y1 = -1;
+      for (let k = 0; k < d.x.length; k++) { x0 = Math.min(x0, d.x[k]); x1 = Math.max(x1, d.x[k]); y0 = Math.min(y0, d.y[k]); y1 = Math.max(y1, d.y[k]); }
+      return [x0, y0, x1 + 1, y1 + 1];
+    });
+    return this._dynR;
+  }
+
   // ---------- permukaan dinamis: air kolam & layar
   drawDyn(buf, night, t) {
     const D = this.base.dyn;
     const water = D.water;
     if (water) {
       const P = night ? WATER_N : WATER_D;
+      // sin(p + ωt) = sin p·cos ωt + cos p·sin ωt → sin/cos posisi dihitung sekali, tiap frame cuma perkalian
       const { idx, x, y, a, b } = water;
+      if (!water.pre) {
+        const n = idx.length, F = () => new Float32Array(n);
+        const pre = { s: [F(), F(), F(), F(), F()], c: [F(), F(), F(), F(), F()], base: F(), dith: F() };
+        for (let k = 0; k < n; k++) {
+          const X = x[k] / RES, Y = y[k] / RES; // ukuran riak sama seperti versi 1×, tapi lebih halus
+          const ph = [X * 0.36, Y * 0.8, X * 0.3 + Y * 0.9, X * 0.21 + Y * 0.55, X * 0.13 - Y * 0.4];
+          for (let j = 0; j < 5; j++) { pre.s[j][k] = Math.sin(ph[j]); pre.c[j][k] = Math.cos(ph[j]); }
+          pre.base[k] = 0.5 - b[k] * 0.28 + (a[k] < 0.012 || a[k] > 0.988 || b[k] < 0.02 || b[k] > 0.98 ? 0.28 : 0);
+          pre.dith[k] = bayer(x[k], y[k]) * 0.8 + 0.5;
+        }
+        water.pre = pre;
+      }
+      const { s: S, c: Cc, base: B0, dith } = water.pre;
+      const w = [1.6, -1.2, 2.2, 1.1, 0.9].map((o) => [Math.cos(o * t), Math.sin(o * t)]);
       for (let k = 0; k < idx.length; k++) {
-        const X = x[k], Y = y[k];
-        let v = 0.5 + 0.2 * Math.sin(X * 0.36 + t * 1.6) * Math.sin(Y * 0.8 - t * 1.2) + 0.16 * Math.sin((X * 0.3 + Y * 0.9) + t * 2.2);
-        v -= b[k] * 0.28;
-        if (a[k] < 0.012 || a[k] > 0.988 || b[k] < 0.02 || b[k] > 0.98) v += 0.28;
-        const c = Math.sin(X * 0.21 + Y * 0.55 + t * 1.1) * Math.sin(X * 0.13 - Y * 0.4 + t * 0.9);
-        let q = Math.floor(v * 4 + bayer(X, Y) * 0.8 + 0.5);
-        if (c > 0.82) q = 4;
-        buf[idx[k]] = P[clamp(q, 0, 4)];
+        const A = S[0][k] * w[0][0] + Cc[0][k] * w[0][1];
+        const Bv = S[1][k] * w[1][0] + Cc[1][k] * w[1][1];
+        const Cv = S[2][k] * w[2][0] + Cc[2][k] * w[2][1];
+        const v = B0[k] + 0.2 * A * Bv + 0.16 * Cv;
+        const sp = (S[3][k] * w[3][0] + Cc[3][k] * w[3][1]) * (S[4][k] * w[4][0] + Cc[4][k] * w[4][1]);
+        let q = Math.floor(v * 4 + dith[k]);
+        if (sp > 0.82) q = 4;
+        buf[idx[k]] = P[q < 0 ? 0 : q > 4 ? 4 : q];
       }
     }
     const surf = (name, Wp, Hp, fn) => {

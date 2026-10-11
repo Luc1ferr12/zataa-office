@@ -7,14 +7,16 @@ export const UP = 3.6;
 // ---------------------------------------------------------------- kamera (ortografis, dari depan-kiri atas)
 const TAN_YAW = 0.25; // kamera agak dari kiri
 const SIN_EL = 0.75;  // elevasi ±49°
-export const K = 16;  // piksel per meter di sumbu x
+// RES = kelipatan resolusi (1 = pixel art klasik 944×752, 2 = HD 1888×1504)
+export const RES = 2;
+export const K = 16 * RES;  // piksel per meter di sumbu x
 const cP = 1 / Math.hypot(1, TAN_YAW), sP = TAN_YAW * cP, cE = Math.sqrt(1 - SIN_EL * SIN_EL);
 const S = K / cP;
 const RX = [K, 0, K * TAN_YAW];
 const RY = [-S * sP * SIN_EL, -S * cE, S * cP * SIN_EL];
 export const VW = [-sP * cE, SIN_EL, cP * cE]; // arah ke kamera (kedalaman: makin besar makin dekat)
 export const PXH = S * cE; // piksel per meter tinggi
-export const W = 944, H = 752, OX = 506, OY = 420;
+export const W = 944 * RES, H = 752 * RES, OX = 506 * RES, OY = 420 * RES;
 
 export const proj = (x, y, z) => [OX + RX[0] * x + RX[2] * z, OY + RY[0] * x + RY[1] * y + RY[2] * z];
 export const depthOf = (x, y, z) => VW[0] * x + VW[1] * y + VW[2] * z;
