@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-11T11:24:32.768Z",
+ "generated_at": "2026-10-11T11:34:32.780Z",
  "today": "2026-10-11",
  "week_start": "2026-10-05",
  "campaign": {
@@ -21,8 +21,8 @@
    "name": "Aprista",
    "title": "Marketing Director",
    "status": "done",
-   "current_task": "Bagi tugas: Turnamen valorant lagi jalan tuh, cek youtube, pantau sampe ",
-   "updated_at": "2026-10-11 10:48:34"
+   "current_task": "Bagi tugas: 100t sama nrg kalo uda selesai, desain dulu, kirim ke gw",
+   "updated_at": "2026-10-11 11:33:26"
   },
   {
    "id": "researcher",
@@ -30,23 +30,23 @@
    "title": "Researcher",
    "status": "working",
    "current_task": "Mantau: Tugas Owner: pantau VCT Champions 2026 Lower Round (cek lagi 19.48)",
-   "updated_at": "2026-10-11 10:48:34"
+   "updated_at": "2026-10-11 11:33:26"
   },
   {
    "id": "copywriter",
    "name": "Ista",
    "title": "Copywriter",
    "status": "done",
-   "current_task": "Caption Valorant Champions",
-   "updated_at": "2026-10-11 10:23:46"
+   "current_task": "Teks hasil 100T vs NRG",
+   "updated_at": "2026-10-11 11:32:41"
   },
   {
    "id": "designer",
    "name": "Maria",
    "title": "Graphic Designer",
    "status": "done",
-   "current_task": null,
-   "updated_at": "2026-10-11 06:20:02"
+   "current_task": "Render feed 100T vs NRG",
+   "updated_at": "2026-10-11 11:33:07"
   },
   {
    "id": "video",
@@ -61,8 +61,8 @@
    "name": "Fikri",
    "title": "Social Media Publisher",
    "status": "done",
-   "current_task": null,
-   "updated_at": "2026-10-11 07:52:49"
+   "current_task": "QA & kirim feed 100T vs NRG",
+   "updated_at": "2026-10-11 11:33:12"
   },
   {
    "id": "ads",
@@ -112,6 +112,19 @@
    "asset_url": null,
    "scheduled_at": null,
    "posted_at": null
+  },
+  {
+   "id": 5,
+   "day": "2026-10-11",
+   "slot": "kilat",
+   "format": "feed",
+   "game": "valorant",
+   "pillar": "esport",
+   "title": "Champions Shanghai: 100T 2-0 NRG",
+   "status": "pending_approval",
+   "asset_url": "{\"feed\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-11/5-champions-shanghai-100t-2-0-nrg.jpg\"],\"story\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-11/5-champions-shanghai-100t-2-0-nrg-916.jpg\"]}",
+   "scheduled_at": null,
+   "posted_at": null
   }
  ],
  "today_tasks": [
@@ -153,6 +166,26 @@
   }
  ],
  "activity": [
+  {
+   "ts": "2026-10-11 11:33:12",
+   "agent_id": "publisher",
+   "message": "Feed #5 100T 2-0 NRG dikirim ke Owner untuk approval"
+  },
+  {
+   "ts": "2026-10-11 11:33:12",
+   "agent_id": "publisher",
+   "message": "Kirim #5 ke Owner buat approval"
+  },
+  {
+   "ts": "2026-10-11 11:32:29",
+   "agent_id": "researcher",
+   "message": "Nemu 1 topik baru"
+  },
+  {
+   "ts": "2026-10-11 11:30:29",
+   "agent_id": "owner",
+   "message": "Chat: 100t sama nrg kalo uda selesai, desain dulu, kirim ke gw"
+  },
   {
    "ts": "2026-10-11 10:48:13",
    "agent_id": "researcher",
@@ -256,6 +289,55 @@
  ],
  "chats": [
   {
+   "ts": "2026-10-11 11:33:12",
+   "agent_id": "publisher",
+   "to_id": "owner",
+   "kind": "oper",
+   "message": "Bos, \"QA & kirim feed 100T vs NRG\" udah aku kirim ke Telegram. Ditunggu approve-nya 🙏"
+  },
+  {
+   "ts": "2026-10-11 11:33:08",
+   "agent_id": "designer",
+   "to_id": "copywriter",
+   "kind": "santai",
+   "message": "Sunset 14-12 OT, aku nonton sambil deg-degan, pas banget buat headline kamu 😆"
+  },
+  {
+   "ts": "2026-10-11 11:33:07",
+   "agent_id": "designer",
+   "to_id": "publisher",
+   "kind": "oper",
+   "message": "Fikri, desain \"Render feed 100T vs NRG\" udah render 1080×1080. QA dulu ya sebelum ke bos"
+  },
+  {
+   "ts": "2026-10-11 11:32:41",
+   "agent_id": "copywriter",
+   "to_id": "designer",
+   "kind": "oper",
+   "message": "Teks buat \"Teks hasil 100T vs NRG\" ready. Maria, giliranmu bikin cakep!"
+  },
+  {
+   "ts": "2026-10-11 11:32:29",
+   "agent_id": "researcher",
+   "to_id": "copywriter",
+   "kind": "oper",
+   "message": "Ista, bahan buat \"Hasil 100T vs NRG: 100T 2-0\" udah aku rangkum + sumbernya. Tinggal kamu racik captionnya ✍️"
+  },
+  {
+   "ts": "2026-10-11 11:30:30",
+   "agent_id": "dir",
+   "to_id": null,
+   "kind": "oper",
+   "message": "Oke tim, ada titah dari Bos. Aku bagi tugasnya ya 👇"
+  },
+  {
+   "ts": "2026-10-11 11:30:30",
+   "agent_id": "owner",
+   "to_id": null,
+   "kind": "bos",
+   "message": "100t sama nrg kalo uda selesai, desain dulu, kirim ke gw"
+  },
+  {
    "ts": "2026-10-11 10:48:22",
    "agent_id": "researcher",
    "to_id": null,
@@ -280,9 +362,9 @@
  "stats": {
   "this_week": {
    "week": "2026-10-05",
-   "total": 3,
+   "total": 4,
    "posted": 1,
-   "pending": 0,
+   "pending": 1,
    "scheduled": 0,
    "views": 0,
    "likes": 0,
