@@ -124,5 +124,5 @@ INSERT OR IGNORE INTO agents (id, name, title) VALUES
   ('publisher',  'Fikri',  'Social Media Publisher'),
   ('ads',        'Fahriah', 'Ads Specialist'),
   ('analyst',    'Raka',    'Data Analyst'),
-  ('price',      'Nadia',   'Price Watcher'),
+  ('price',      'Budi',    'Price Watcher'),
   ('ob',         'Mbak Sari', 'Office Girl');

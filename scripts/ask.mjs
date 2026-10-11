@@ -9,7 +9,7 @@ process.removeAllListeners('warning');
 import { spawn } from 'node:child_process';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { loadEnv, say, db, downloadPhotos, photoNote } from './approval.mjs';
+import { loadEnv, say, sayAs, NAMA, db, downloadPhotos, photoNote } from './approval.mjs';
 import { chat } from './chatter.mjs';
 import { AGENTS, wita, activityAt, describe } from '../docs/js/schedule.js';
 
@@ -30,6 +30,52 @@ export async function statusReport() {
     return `${info.emoji} <b>${a.name}</b> · ${esc(info.label)}${mood}`;
   });
   return `🏢 <b>Kantor Zataa</b> · ${t.dayName} ${t.hh}:${t.mm} WITA\n\n${lines.join('\n')}`;
+}
+
+// ---------- siapa yang dipanggil Owner → dia yang nyaut (balasan selalu "<b>Nama</b>: ...")
+const WHO = { aprista: 'dir', clariana: 'researcher', ista: 'copywriter', maria: 'designer', dimas: 'video', fikri: 'publisher', fahriah: 'ads', raka: 'analyst', budi: 'price', sari: 'ob' };
+const NAME_RE = new RegExp(`\\b(${Object.keys(WHO).join('|')})\\b`, 'i');
+export const calledAgent = (t) => WHO[(String(t).match(NAME_RE)?.[1] ?? '').toLowerCase()] ?? null;
+// cuma manggil nama ("Maria", "halo Ista", "p dimas", "kak aprista?") → yang dipanggil langsung nyaut, tanpa AI (0 token)
+const CALL_FILLER = /\b(halo+|hal+o|hai+|hi+|hey+|p+|woy+|woi+|oi+|oy+|bang|kak|mbak|mba|mas|dek|bro|sis|neng|cek|tes|test|sayang|beb)\b|[\s?!.,~👋🙋]+/giu;
+export const isCall = (t) => t.length <= 40 && !!calledAgent(t) && t.replace(NAME_RE, '').replace(CALL_FILLER, '').trim() === '';
+async function answerCall(msg) {
+  const d = await db();
+  const agent = calledAgent(msg);
+  const idx = AGENTS.findIndex((a) => a.id === agent);
+  let doing = '';
+  if (idx >= 0) {
+    const real = d.prepare('SELECT id, status, current_task FROM agents WHERE id = ?').get(agent);
+    const info = describe(AGENTS[idx], activityAt(idx, AGENTS[idx], wita(new Date()), real), real);
+    if (info?.label) doing = ` Lagi ${info.label.charAt(0).toLowerCase()}${info.label.slice(1)} nih.`;
+  }
+  const pool = ['Iya Bos? 🙋', 'Hadir Bos! 👋', 'Dalem Bos? 😄', 'Siap Bos, ada apa? 🫡'];
+  const text = `${pool[Math.floor(Math.random() * pool.length)]}${doing} Ada yang bisa aku bantu?`;
+  chat(d, 'owner', agent, msg, 'bos');
+  chat(d, agent, 'owner', text, 'santai');
+  await sayAs(agent, esc(text));
+  return { kind: 'call', agent };
+}
+
+// ---------- basa-basi (makasih, mantap, oke…) → dibalas pegawai yang disebut, tanpa AI (0 token)
+const THANKS = /\b(makasih|maksih|terima ?kasih|trims|thanks?|thank you|thx|tq|ty)\b/i;
+const PRAISE = /\b(mantap|mantul|mantep|keren|nice|good ?job|gj|gg|bagus|top|joss?|sip+|oke?|okay|ok+|siap|noted|wkwk+|haha+|hehe+)\b|[👍🙏🔥👌💯😂🤣]/iu;
+const TASKY = /\b(bikin|buat|buatin|cek|pantau|post|upload|revisi|ganti|ubah|tolong|coba|kenapa|gimana|apa|kapan|berapa|kirim|hapus|tambah|jadwal|harga)\b|\?/i;
+export const isSmallTalk = (t) => t.length <= 80 && (THANKS.test(t) || PRAISE.test(t)) && !TASKY.test(t);
+const REPLY = {
+  thanks: ['Sama-sama Bos! 🙌', 'Siap, sama-sama Bos! Lanjut kerja lagi 💪', 'Makasih balik Bos, seneng bisa bantu 😄'],
+  praise: ['Siap Bos! 🫡', 'Hehe makasih Bos, jadi semangat nih 😆', 'Gas terus Bos! 🔥'],
+};
+export async function smallTalk(msg) {
+  const d = await db();
+  const low = msg.toLowerCase();
+  const agent = calledAgent(low) ?? 'dir';
+  const pool = THANKS.test(msg) ? REPLY.thanks : REPLY.praise;
+  const text = pool[Math.floor(Math.random() * pool.length)];
+  chat(d, 'owner', agent, msg, 'bos');
+  chat(d, agent, 'owner', text, 'santai');
+  await sayAs(agent, esc(text));
+  return { kind: 'smalltalk', agent };
 }
 
 // ---------- Claude Code CLI
@@ -59,36 +105,84 @@ const RULES = `Aturan kerja:
 5. Kalau informasinya belum ada (mis. pertandingan belum selesai): kerjakan yang bisa, lalu jadwalkan cek ulang: node scripts/office.mjs followup <menit> "<apa yang dicek + konteks lengkap>" (20–60 menit; sesuaikan jadwal match, mis. BO3 ±2–3 jam), lalu berhenti. Jangan nunggu/sleep.
    Tugas Owner dikerjakan sampai tuntas walau sudah lewat jam kantor (lembur) — status pegawai yang lembur tetap working sampai selesai.
 6. Harga & nominal HANYA dari zataa.my.id hari ini (WebFetch). Berita wajib ≥2 sumber, rumor ditulis rumor. Tanpa logo tim/foto pemain kecuali Owner minta.
-7. Pertanyaan biasa cukup dijawab, tidak perlu bikin konten.
+7. Pertanyaan biasa cukup dijawab, tidak perlu bikin konten. Kalau pesannya cuma basa-basi (makasih, pujian, oke), JANGAN kerjakan apa pun — langsung BALASAN singkat dari pegawai yang disebut.
 8. Jangan ubah konten lain dan jangan kirim pesan Telegram sendiri (approval.mjs say) kecuali submit konten.
-Akhiri jawaban dengan baris "BALASAN:" diikuti pesan untuk Owner (maks 3 kalimat, santai ala tim, sebut siapa yang ngerjain dan hasilnya).`;
+Akhiri jawaban dengan baris "BALASAN:" lalu 1–3 baris pesan untuk Owner. TIAP baris WAJIB diawali nama pegawai yang ngomong, format "Nama: pesan"
+(contoh: "Maria: Desain promonya udah jadi Bos, cek di atas ya!"). Santai ala tim, yang ngerjain yang lapor hasilnya. Kalau Owner manggil nama pegawai, pegawai itu yang jawab duluan.`;
 
 const replyOf = (text) => {
   const i = text.lastIndexOf('BALASAN:');
   return (i >= 0 ? text.slice(i + 8) : text.split('\n').filter(Boolean).pop() ?? '').trim().slice(0, 1500);
 };
+// ---------- konteks obrolan Telegram (tabel chats): biar balasan nyambung, bukan mulai dari nol tiap pesan
+const TASK_RE = /\b(bikin|bikinin|buat|buatin|buatkan|desain|design|render|post|posting|upload|tayang|revisi|ganti|ubah|edit|hapus|kirim|cariin|carikan|riset|pantau|pantauin|cek|cekin|jadwal|jadwalin|promo|konten|caption|video|feed|carousel|boost|tolong)\b/i;
+export const isTask = (t) => TASK_RE.test(t);
+const lastSpeaker = (d) => {
+  const r = d.prepare("SELECT agent_id FROM chats WHERE to_id = 'owner' AND ts >= datetime('now', '-20 minutes') ORDER BY id DESC LIMIT 1").get();
+  return r?.agent_id && NAMA[r.agent_id] ? r.agent_id : null;
+};
+function recentTalk(d) {
+  const rows = d.prepare("SELECT agent_id, message FROM chats WHERE (agent_id = 'owner' OR to_id = 'owner') AND ts >= datetime('now', '-3 hours') ORDER BY id DESC LIMIT 10").all().reverse();
+  if (!rows.length) return '';
+  return `\nObrolan Telegram terakhir (lama → baru):\n${rows.map((r) => `- ${r.agent_id === 'owner' ? 'Owner' : NAMA[r.agent_id] ?? r.agent_id}: ${r.message.replace(/\s+/g, ' ').slice(0, 200)}`).join('\n')}\n`;
+}
+// simpan balasan yang dikirim ke Owner (per pembicara) ke obrolan
+function remember(d, html) {
+  const byName = Object.fromEntries(Object.entries(NAMA).map(([id, n]) => [n, id]));
+  for (const line of html.split('\n')) {
+    const m = line.match(/^<b>(.+?)<\/b>: (.*)$/);
+    if (m && byName[m[1]]) chat(d, byName[m[1]], 'owner', m[2].replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&'), 'santai');
+  }
+}
+
+// "Maria: udah jadi" → "<b>Maria</b>: udah jadi"; baris tanpa nama → diucapkan `fallback`
+const SPEAKER_RE = new RegExp(`^[*_\\s]*(mbak sari|${[...Object.keys(WHO), ...Object.values(NAMA)].join('|')})[*_\\s]*[:：]\\s*`, 'i');
+const nameOf = (n) => { const k = n.toLowerCase().replace('mbak ', ''); return NAMA[WHO[k]] ?? n; };
+export function formatReply(text, fallback = 'dir') {
+  const lines = replyOf(text).split('\n').map((l) => l.trim()).filter(Boolean);
+  let who = NAMA[fallback] ?? 'Aprista';
+  return lines.map((l) => {
+    const m = l.match(SPEAKER_RE);
+    if (m) { who = nameOf(m[1]); l = l.slice(m[0].length); }
+    return `<b>${who}</b>: ${esc(l)}`;
+  }).join('\n');
+}
 
 export async function handleOwnerMessage(msg, log = console.log, photos = []) {
   if (!photos.length && isStatusQuestion(msg)) {
     await say(await statusReport());
     return { kind: 'status' };
   }
+  if (!photos.length && isCall(msg)) return answerCall(msg);
+  if (!photos.length && isSmallTalk(msg)) return smallTalk(msg);
   const d = await db();
-  chat(d, 'owner', null, msg || '📷 (kirim gambar contoh)', 'bos');
-  d.prepare("UPDATE agents SET status = 'working', current_task = ?, updated_at = datetime('now') WHERE id = 'dir'").run(`Bagi tugas: ${msg.slice(0, 60)}`);
-  chat(d, 'dir', null, 'Oke tim, ada titah dari Bos. Aku bagi tugasnya ya 👇', 'oper');
-  await say('👌 Siap bos! Aprista lagi bagi tugas ke tim, nanti aku kabarin hasilnya di sini.').catch(() => {});
+  // yang jawab: yang dipanggil namanya → kalau nggak ada, yang barusan ngobrol sama Owner (≤20 menit) → Aprista
+  const lead = calledAgent(msg) ?? lastSpeaker(d) ?? 'dir';
+  const task = photos.length > 0 || isTask(msg);
+  const history = recentTalk(d);
+  chat(d, 'owner', lead, msg || '📷 (kirim gambar contoh)', 'bos');
+  if (task) { // tugas produksi: kasih kabar dulu karena bisa makan beberapa menit; obrolan biasa langsung dibalas
+    d.prepare("UPDATE agents SET status = 'working', current_task = ?, updated_at = datetime('now') WHERE id = 'dir'").run(`Bagi tugas: ${msg.slice(0, 60)}`);
+    chat(d, 'dir', null, 'Oke tim, ada titah dari Bos. Aku bagi tugasnya ya 👇', 'oper');
+    await sayAs(lead, lead === 'dir' ? 'Siap Bos! 👌 Aku bagi tugas ke tim dulu, nanti hasilnya aku kabarin di sini.' : 'Siap Bos, aku kerjain! 👌 Nanti aku kabarin hasilnya di sini.').catch(() => {});
+  }
   const refs = await downloadPhotos(photos);
-  const r = await claude(`Kamu tim kantor marketing Zataa (zataa.my.id) di folder ini. Owner (Bos Zamiir) kirim pesan lewat Telegram:\n"${msg || '(cuma kirim gambar)'}"${photoNote(refs)}\n\n${RULES}`);
-  d.prepare("UPDATE agents SET status = 'done', updated_at = datetime('now') WHERE id = 'dir'").run();
+  const r = await claude(`Kamu tim kantor marketing Zataa (zataa.my.id) di folder ini.${history}
+Pesan BARU Owner (Bos Zamiir) lewat Telegram:\n"${msg || '(cuma kirim gambar)'}"${photoNote(refs)}
+${lead !== 'dir' ? `Yang diajak ngomong / pegang: ${NAMA[lead]} (${lead}) — dia yang jawab duluan di BALASAN.\n` : ''}Baca pesan ini SESUAI KONTEKS obrolan di atas. Kalau cuma ngobrol, nyambung obrolan, atau ngasih info (bukan nyuruh bikin sesuatu): JANGAN bagi tugas / bikin konten, cukup bales natural sebagai pegawai itu (boleh catat infonya kalau relevan, mis. update skor ke followup yang ada).
+
+${RULES}`);
+  if (task) d.prepare("UPDATE agents SET status = 'done', updated_at = datetime('now') WHERE id = 'dir'").run();
   await syncMonitor();
   if (!r.ok) {
     log(`tugas owner gagal: ${r.text.slice(0, 300)}`);
-    await say(`⚠️ Tim belum bisa ngerjain itu otomatis (${esc(r.text.slice(0, 150))}).`).catch(() => {});
+    await sayAs(lead, `⚠️ Maaf Bos, belum bisa ngerjain itu otomatis (${esc(r.text.slice(0, 150))}).`).catch(() => {});
     return { kind: 'task', ok: false };
   }
-  await say(`💬 ${esc(replyOf(r.text))}`).catch(() => {});
-  return { kind: 'task', ok: true };
+  const reply = formatReply(r.text, lead);
+  await say(reply).catch(() => {});
+  remember(d, reply);
+  return { kind: task ? 'task' : 'talk', ok: true };
 }
 
 // selama masih ada tugas pantau, Clariana tetap di laptop (lewat jam kantor = lembur); beres → santai lagi
@@ -110,14 +204,16 @@ export async function syncMonitor() {
 }
 
 // ---------- keputusan Owner dari tombol Telegram yang butuh kerja tim (plan, ide briefing, promo harga)
-async function team(intro, task, log) {
+async function team(intro, task, log, lead = 'dir') {
   const r = await claude(`Kamu tim kantor marketing Zataa (zataa.my.id) di folder ini. ${intro}\n\n${task}\n\n${RULES}`);
   if (!r.ok) {
     log(`tugas tim gagal: ${r.text.slice(0, 300)}`);
-    await say(`⚠️ Tim belum bisa ngerjain otomatis (${esc(r.text.slice(0, 150))}). Dilanjut di sesi harian.`).catch(() => {});
+    await sayAs(lead, `⚠️ Tim belum bisa ngerjain otomatis (${esc(r.text.slice(0, 150))}). Dilanjut di sesi harian.`).catch(() => {});
     return false;
   }
-  await say(`💬 ${esc(replyOf(r.text))}`).catch(() => {});
+  const reply = formatReply(r.text, lead);
+  await say(reply).catch(() => {});
+  remember(await db(), reply);
   return true;
 }
 
@@ -145,8 +241,8 @@ export async function handleDecision(x, log = console.log) {
   if (x.action === 'price_promo') {
     const snap = d.prepare('SELECT * FROM price_snapshots WHERE id = ?').get(x.id);
     chat(d, 'price', 'copywriter', 'Ista, harga di web berubah nih, Bos minta dibikinin konten promo! 💰', 'oper');
-    return team(`Nadia (Price Watcher) nemu perubahan harga di zataa.my.id dan Owner minta dibikinin konten promo. Perubahan:\n${snap?.diff ?? '(cek ulang web)'}`,
-      'Cek ulang harga langsung di zataa.my.id (WebFetch), lalu bikin 1 konten feed promo slot "kilat" (content new), Ista isi teks, Maria render, Fikri QA lalu node scripts/approval.mjs submit <id>. Angka harga WAJIB sesuai web hari ini.', log);
+    return team(`Budi (Price Watcher) nemu perubahan harga di zataa.my.id dan Owner minta dibikinin konten promo. Perubahan:\n${snap?.diff ?? '(cek ulang web)'}`,
+      'Cek ulang harga langsung di zataa.my.id (WebFetch), lalu bikin 1 konten feed promo slot "kilat" (content new), Ista isi teks, Maria render, Fikri QA lalu node scripts/approval.mjs submit <id>. Angka harga WAJIB sesuai web hari ini.', log, 'price');
   }
   return false;
 }
@@ -160,14 +256,14 @@ export async function runFollowups(log = console.log) {
   d.prepare('UPDATE followups SET done = 1 WHERE id = ?').run(due.id);
   const used = d.prepare("SELECT COUNT(*) n FROM followups WHERE done = 1 AND date(due_at, '+8 hours') = date('now', '+8 hours')").get().n;
   if (used > MAX_FOLLOWUPS_PER_DAY) {
-    await say(`⏸️ Pantauan dihentikan dulu (batas ${MAX_FOLLOWUPS_PER_DAY}×/hari biar hemat). Catatan terakhir: ${esc(due.note.slice(0, 200))}`).catch(() => {});
+    await sayAs('researcher', `⏸️ Pantauan dihentikan dulu (batas ${MAX_FOLLOWUPS_PER_DAY}×/hari biar hemat). Catatan terakhir: ${esc(due.note.slice(0, 200))}`).catch(() => {});
     return { id: due.id, skipped: true };
   }
   log(`followup #${due.id}: ${due.note.slice(0, 80)}`);
   const r = await claude(`Kamu tim kantor marketing Zataa (zataa.my.id) di folder ini. Ini LANJUTAN tugas pantau dari Owner yang kamu jadwalkan sendiri:\n"${due.note}"\nCek lagi sekarang. Kalau sudah ada hasil: kerjakan sesuai permintaan awal. Kalau belum: jadwalkan followup lagi (maks sampai acaranya selesai). Kalau tidak ada yang baru, jangan kirim apa-apa dan tulis "BALASAN: -".\n\n${RULES}`);
   await syncMonitor();
   const reply = r.ok ? replyOf(r.text) : '';
-  if (reply && reply !== '-') await say(`💬 ${esc(reply)}`).catch(() => {});
+  if (reply && reply !== '-') { const out = formatReply(r.text, 'researcher'); await say(out).catch(() => {}); remember(d, out); }
   return { id: due.id, ok: r.ok };
 }
 

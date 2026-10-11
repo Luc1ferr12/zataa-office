@@ -17,7 +17,7 @@ export const NEXT = {
   analyst: ['dir'],
   price: ['copywriter'],
 };
-export const NAMES = { dir: 'Aprista', researcher: 'Clariana', copywriter: 'Ista', designer: 'Maria', video: 'Dimas', publisher: 'Fikri', ads: 'Fahriah', analyst: 'Raka', price: 'Nadia', ob: 'Mbak Sari', owner: 'Bos Zamiir' };
+export const NAMES = { dir: 'Aprista', researcher: 'Clariana', copywriter: 'Ista', designer: 'Maria', video: 'Dimas', publisher: 'Fikri', ads: 'Fahriah', analyst: 'Raka', price: 'Budi', ob: 'Mbak Sari', owner: 'Bos Zamiir' };
 
 const pick = (arr, seed) => arr[Math.abs(seed) % arr.length];
 const seedOf = (s) => [...String(s)].reduce((a, c) => (a * 31 + c.charCodeAt(0)) | 0, 7);

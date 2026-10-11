@@ -8,7 +8,7 @@ process.removeAllListeners('warning');
 import { spawn, execFileSync } from 'node:child_process';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { poll, submit, say, loadEnv, downloadPhotos, photoNote } from './approval.mjs';
+import { poll, submit, sayAs, loadEnv, downloadPhotos, photoNote } from './approval.mjs';
 import { publishDue } from './publish.mjs';
 import { revisionText } from './chatter.mjs';
 import { adsReady, propose, runApproved } from './boost.mjs';
@@ -57,7 +57,7 @@ async function revise(x) {
   note(maker, `Balik ke komputer, ngerjain revisi #${x.id}`);
   office('chat', maker, 'all', 'curhat', revisionText());
   exportState();
-  await say(`🛠️ Revisi #${x.id} lagi dikerjain…${x.photos?.length ? ` (📷 ${x.photos.length} contoh desain ikut dibaca)` : ''}`).catch(() => {});
+  await sayAs('copywriter', `🛠️ Revisi #${x.id} lagi dikerjain…${x.photos?.length ? ` (📷 ${x.photos.length} contoh desain ikut dibaca)` : ''}`).catch(() => {});
   const refs = await downloadPhotos(x.photos ?? []);
   const prompt = `Kamu tim kantor marketing Zataa (zataa.my.id) di folder ini. Owner minta REVISI konten #${x.id}:
 "${x.note || '(tanpa teks — ikuti gambar contoh)'}"${photoNote(refs)}
@@ -75,7 +75,7 @@ Akhiri jawaban dengan SATU kalimat ringkas (bahasa santai) tentang apa yang diub
     log(`claude gagal: ${r.text.slice(0, 300)}`);
     setAgent(maker, 'done', task);
     note(maker, `Revisi #${x.id} ketunda, lanjut di sesi harian`);
-    await say(`⚠️ Revisi #${x.id} belum bisa dikerjain otomatis (Claude Code CLI: ${r.text.slice(0, 150)}). Dikerjain di sesi harian berikutnya.`).catch(() => {});
+    await sayAs('copywriter', `⚠️ Revisi #${x.id} belum bisa dikerjain otomatis (Claude Code CLI: ${r.text.slice(0, 150)}). Dikerjain di sesi harian berikutnya.`).catch(() => {});
   } else {
     const summary = r.text.split('\n').filter(Boolean).pop() ?? '';
     setAgent(maker, 'done', task);
@@ -83,7 +83,7 @@ Akhiri jawaban dengan SATU kalimat ringkas (bahasa santai) tentang apa yang diub
     setAgent('publisher', 'working', `QA & kirim ulang #${x.id}`);
     exportState();
     try { await submit(x.id, { note: `Hasil revisi: ${summary}` }); log(`#${x.id} dikirim ulang`); setAgent('publisher', 'waiting', `#${x.id} ${title}`); }
-    catch (e) { log(`submit gagal: ${e.message}`); setAgent('publisher', 'done'); await say(`⚠️ Revisi #${x.id} selesai tapi gagal dikirim: ${e.message}`).catch(() => {}); }
+    catch (e) { log(`submit gagal: ${e.message}`); setAgent('publisher', 'done'); await sayAs('publisher', `⚠️ Revisi #${x.id} selesai tapi gagal dikirim: ${e.message}`).catch(() => {}); }
   }
   exportState();
   busy.delete(x.id);
@@ -159,7 +159,7 @@ function syncPages() {
   } catch (e) { log(`push state gagal: ${String(e.stderr || e.message).trim().split('\n').pop()}`); }
 }
 
-// Raka (data IG tiap 3 jam + laporan Minggu) & Nadia (cek harga tiap 2 jam) — tanpa AI
+// Raka (data IG tiap 3 jam + laporan Minggu) & Budi (cek harga tiap 2 jam) — tanpa AI
 let crunching = false;
 async function staff() {
   if (crunching) return;

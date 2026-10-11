@@ -83,6 +83,9 @@ Owner juga kirim ${paths.length} gambar contoh/referensi: ${paths.join(', ')}. W
   : '');
 
 export const say = (text) => tg('sendMessage', { chat_id: env.TELEGRAM_CHAT_ID, text, parse_mode: 'HTML', disable_web_page_preview: true });
+// nama pegawai yang ngomong selalu di depan pesan, biar Owner tahu siapa yang bales: "<b>Maria</b>: ..."
+export const NAMA = { dir: 'Aprista', researcher: 'Clariana', copywriter: 'Ista', designer: 'Maria', video: 'Dimas', publisher: 'Fikri', ads: 'Fahriah', analyst: 'Raka', price: 'Budi', ob: 'Mbak Sari' };
+export const sayAs = (agent, text) => say(`<b>${NAMA[agent] ?? agent}</b>: ${text}`);
 
 export const SLOT = { pagi: '10:00', siang: '12:00', sore: '16:00', malam: '19:00', kilat: 'langsung' }; // WIB; pagi & sore = konten tambahan dari briefing
 const slotLabel = (c) => (c.slot === 'kilat' ? 'langsung tayang' : `${SLOT[c.slot] ?? '?'} WIB`);
@@ -164,7 +167,6 @@ export async function submitIdeas() {
   const today = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Makassar' }).format(new Date());
   const ideas = d.prepare('SELECT * FROM ideas WHERE day = ? AND chosen = 1 ORDER BY id LIMIT 2').all(today);
   if (!ideas.length) throw new Error('belum ada ide yang dipilih hari ini (office.mjs idea pick)');
-  const NAMA = { dir: 'Aprista', researcher: 'Clariana', copywriter: 'Ista', designer: 'Maria', video: 'Dimas', publisher: 'Fikri', ads: 'Fahriah', analyst: 'Raka', price: 'Nadia' };
   const slotOf = (i) => (i === 0 ? 'pagi 10:00' : 'sore 16:00');
   const text = ['💡 <b>Ide konten tambahan hari ini</b> (hasil briefing, dipilih Aprista)', '',
     ...ideas.map((x, i) => `<b>Ide ${i + 1}</b> · dari ${NAMA[x.agent_id] ?? x.agent_id} · tayang ${slotOf(i)} WIB\n<b>${esc(x.title)}</b>\n${esc(x.concept ?? '')}`), '',

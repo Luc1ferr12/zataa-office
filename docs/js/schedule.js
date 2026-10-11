@@ -20,7 +20,9 @@ export const AGENTS = [
 const DOW = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
 // kapasitas tempat (sinkron dengan px/scene.js CAP) — yang nomor urutnya lewat kapasitas pilih tempat lain
 const CAP = { lounge: 9, garden: 8, lounger: 7, counter: 8 };
-const BED = (idx, agent) => (agent.ob ? 9 : idx); // 10 kasur: 9 pegawai + Mbak Sari
+// mess dibagi 3 kamar (px/scene.js MESS): 0-3 cowok, 4-9 cewek, 10-11 kasur double Zamiir & Aprista
+const BED_SLOT = { video: 0, publisher: 1, analyst: 2, price: 3, researcher: 4, copywriter: 5, designer: 6, ads: 7, ob: 8, dir: 10, owner: 11 };
+const BED = (idx, agent) => BED_SLOT[agent.id] ?? idx;
 const LUNCH_SEAT = { dir: 10, owner: 11, ob: 0 }; // Zamiir & Aprista semeja
 
 export function wita(date) {
@@ -216,11 +218,12 @@ export function activityAt(idx, agent, t, real, ctx = {}) {
   const busy = working || real?.status === 'waiting';
   const desk = agent.boss ? 'boss' : 'desk';
 
-  // Zamiir pulang malam (punya rumah sendiri); pegawai lain & Mbak Sari tinggal di mess
-  const bossHome = agent.boss && (m < at(6, 40) + j(1, 20) || m >= at(21) + j(2, 40));
-  const wake = at(4, 25) + j(3, 8);
-  const bed = at(22) + j(4, 90);
-  const asleep = !agent.boss && (m < wake || m >= bed);
+  // semua tinggal di mess; Zamiir & Aprista sekamar, jadi jam tidur & bangunnya barengan
+  const bossHome = false;
+  const jj = agent.partner ? (k, span) => Math.floor(hash(day * 13.37 + 0.5 + k) * span) : j;
+  const wake = at(4, 25) + jj(3, 8);
+  const bed = at(22) + jj(4, 90);
+  const asleep = m < wake || m >= bed;
   const prayer = prayerAt(idx, agent, t, !bossHome && !asleep);
 
   // kerja asli dari database menang (lembur malam pun tetap di meja), kecuali pas sholat
@@ -234,11 +237,11 @@ export function activityAt(idx, agent, t, real, ctx = {}) {
   if (bossHome) return withMood({ act: 'off', loc: 'out', label: m < at(12) ? 'Otw kantor' : 'Pulang ke rumah', emoji: '🏠' });
   if (asleep) return withMood({ act: 'sleep', loc: 'bed', slot: BED(idx, agent), label: 'Tidur', emoji: '💤' });
   if (prayer) return withMood(prayer);
-  if (!agent.boss && m < at(4, 40)) return withMood({ act: 'sleep', loc: 'bed', slot: BED(idx, agent), label: 'Melek, ngumpulin nyawa buat Subuh', emoji: '🥱' });
+  if (m < at(4, 40)) return withMood({ act: 'sleep', loc: 'bed', slot: BED(idx, agent), label: 'Melek, ngumpulin nyawa buat Subuh', emoji: '🥱' });
 
   // pagi: abis Subuh tidur lagi / santai → mandi gantian (3 bilik) → sarapan
-  if (!agent.boss && m < at(7)) {
-    const rank = idx; // 9 pegawai → 3 gelombang mandi
+  if (m < at(7)) {
+    const rank = idx; // 10 orang → gantian mandi per 3 bilik
     const bath = at(5, 35) + Math.floor(rank / 3) * 13;
     if (m >= bath && m < bath + 11) return withMood({ act: 'free', loc: 'toilet', slot: rank % 3, label: 'Mandi pagi', emoji: '🚿' });
     if (m >= at(6, 20)) return withMood({ act: 'lunch', loc: 'cafe', label: 'Sarapan', emoji: '🍞' });
@@ -247,7 +250,6 @@ export function activityAt(idx, agent, t, real, ctx = {}) {
       : withMood({ act: 'free', loc: idx < CAP.lounge ? 'lounge' : 'cafe', label: 'Nunggu giliran mandi', emoji: '📱' });
     return withMood({ act: 'free', loc: 'cafe', label: 'Ngeteh pagi', emoji: '🍵' });
   }
-  if (agent.boss && m < at(7)) return withMood({ act: 'work', loc: 'boss', label: 'Baru dateng, nyalain PC', emoji: '☕' });
 
   // pagi kerja: Senin rapat plan mingguan; Selasa–Minggu riset sendiri lalu briefing pitching ide bareng Bos
   if (dow === 1 && m < at(8)) return withMood({ act: 'meeting', loc: 'meeting', label: 'Rapat plan konten mingguan', emoji: '🗓️' });
@@ -271,7 +273,7 @@ export function activityAt(idx, agent, t, real, ctx = {}) {
     const d = dateAt(t);
     if (d) return withMood({ act: 'free', loc: d.loc, slot: d.slots[agent.id], label: d.label, emoji: d.emoji, pose: d.pose }, true);
   }
-  if (!agent.boss && m >= bed - 12) return withMood({ act: 'free', loc: 'sink', slot: idx % 2, label: 'Sikat gigi, siap tidur', emoji: '🪥' }, true);
+  if (m >= bed - 12) return withMood({ act: 'free', loc: 'sink', slot: idx % 2, label: 'Sikat gigi, siap tidur', emoji: '🪥' }, true);
 
   const done = real?.status === 'done' || m >= at(19, 30) || (!busy && m >= doneAt(idx, agent, dow, day));
   if (done) return withMood(freeTime(idx, agent, t), true);

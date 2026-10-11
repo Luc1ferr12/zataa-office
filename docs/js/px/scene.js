@@ -135,10 +135,17 @@ export const DESKS = DESK_X.length * 2;
 const BENCH_X = [-6.5, -3.2, 0, 3.2];
 const CAFE_TABLES = [[-17.5, -3.5], [-13.5, -3.5], [-17.5, 0], [-13.5, 0], [-10.3, -3.5], [-10.3, 0]];
 const MEET_X = [-4.05, -2.55, -1.05, 0.45];
-const BUNK_X = [-25.1, -24.1, -23.1, -22.1, -21.1];
+// mess dibagi 3 kamar (dari utara): cowok (2 kasur tingkat), cewek (3 kasur tingkat), kamar Zamiir & Aprista (kasur double).
+// Koridor di sisi timur (x -21.4 … -20.3), pintu tiap kamar ke koridor.
+export const MESS = {
+  corridorX: -20.85, wallX: -21.4,
+  cowok: { z0: -14, z1: -11.2, door: -11.55, bunkX: [-25.1, -24.1], bunkZ: -12.95 },
+  cewek: { z0: -11.2, z1: -8.6, door: -8.85, bunkX: [-25.1, -24.1, -23.1], bunkZ: -10.1 },
+  pasangan: { z0: -8.6, z1: -6.0, door: -7.0, bed: [-24.55, -7.35] },
+};
 const WUDHU_Z = [-13.3, -12.5, -11.7, -10.9, -10.1];
 // kapasitas tiap tempat (dipakai schedule.js supaya nggak ada yang duduk numpuk)
-export const CAP = { cafe: CAFE_TABLES.length * 2, counter: 8, lounge: 9, garden: 8, lounger: 7, meeting: MEET_X.length * 2 + 2, bed: BUNK_X.length * 2 };
+export const CAP = { cafe: CAFE_TABLES.length * 2, counter: 8, lounge: 9, garden: 8, lounger: 7, meeting: MEET_X.length * 2 + 2, bed: 12 };
 // permukaan dinamis (digambar ulang tiap frame oleh pixoffice.js)
 const dynM = (name, color) => mk(name, color, { emissive: true, dyn: name });
 dynM('water', '#2fb3d6');
@@ -347,7 +354,14 @@ export function makeSpots() {
   S.sink = [-5.0, -3.8].map((z) => ({ x: -21.1, z, rot: Math.PI / 2 }));
   S.bed = [];
   // y = permukaan kasur dikurangi tinggi bantalan sprite tiduran (sama seperti kursi berjemur)
-  BUNK_X.forEach((x) => [0.08, 1.05].forEach((y) => S.bed.push({ x, y, z: -12.9, rot: 0 })));
+  // room: pintu kamar di dinding koridor (z) + titik lorong dalam kamar
+  for (const k of ['cowok', 'cewek']) {
+    const R = MESS[k];
+    R.bunkX.forEach((x) => [0.08, 1.05].forEach((y) => S.bed.push({ x, y, z: R.bunkZ, rot: 0, room: k, door: R.door, aisle: [x, R.door] })));
+  }
+  while (S.bed.length < 10) S.bed.push({ ...S.bed[S.bed.length - 1] });  // cadangan
+  const [bx, bz] = MESS.pasangan.bed;
+  for (const dz of [-0.4, 0.4]) S.bed.push({ x: bx, y: 0.13, z: bz + dz, rot: -Math.PI / 2, room: 'pasangan', door: MESS.pasangan.door, aisle: [-22.9, MESS.pasangan.door] });
   S.wudhu = WUDHU_Z.map((z) => ({ x: -24.7, z, rot: -Math.PI / 2 }));
   return S;
 }
@@ -449,7 +463,7 @@ export function buildScene(logo, { upper = true } = {}) {
     B.box(W, 0.9, 0.05, XC, 0.45, 2, M.glass);
     B.box(W, 0.07, 0.12, XC, 0.92, 2, M.steel);
     // sekat mess | kamar mandi (rendah + kaca, ada pintu)
-    for (const [a, b] of [[X0, -23.4], [-22.4, X1]]) {
+    for (const [a, b] of [[X0, -21.4]]) {
       const w = b - a, cx = (a + b) / 2;
       B.box(w, 0.8, 0.12, cx, 0.4, -6, M.slat);
       B.box(w, 1.4, 0.03, cx, 1.5, -6, M.glass);
@@ -468,20 +482,57 @@ export function buildScene(logo, { upper = true } = {}) {
     B.box(0.5, 0.05, 1.6, -21.3, 0.01, -0.4, M.rug); // keset
     pottedPlant(B, -21.0, 1.2, 1.1);
     L(-23, 2.6, -3.5, COOL, 4.0, 0.9);
-    // --- mess: 5 kasur tingkat (10 orang), loker, karpet
-    for (const x of BUNK_X) {
-      for (const dx of [-0.42, 0.42]) for (const dz of [-0.95, 0.95]) B.box(0.07, 1.95, 0.07, x + dx, 0.97, -12.9 + dz, M.steel);
-      for (const [y, mat] of [[0.3, M.blanket], [1.27, M.blanket2]]) {
-        B.box(0.9, 0.12, 2.0, x, y, -12.9, M.lightwood);
-        B.box(0.82, 0.12, 1.9, x, y + 0.12, -12.9, M.white);
-        B.box(0.84, 0.05, 1.1, x, y + 0.19, -12.6, mat);
-        B.box(0.6, 0.1, 0.35, x, y + 0.22, -13.65, M.white);
+    // --- mess: 3 kamar (cowok | cewek | Zamiir & Aprista) + koridor timur
+    const sekat = (x0, x1, z0, z1, gaps = []) => {   // sekat rendah + kaca, dengan bukaan pintu
+      const alongX = Math.abs(x1 - x0) > Math.abs(z1 - z0);
+      const a0 = alongX ? x0 : z0, a1 = alongX ? x1 : z1;
+      const segs = []; let cur = a0;
+      for (const [g0, g1] of gaps) { segs.push([cur, g0]); cur = g1; }
+      segs.push([cur, a1]);
+      for (const [u0, u1] of segs) {
+        const len = u1 - u0, c = (u0 + u1) / 2;
+        if (len < 0.05) continue;
+        const [w, d, cx, cz] = alongX ? [len, 0.12, c, z0] : [0.12, len, x0, c];
+        B.box(w, 0.8, d, cx, 0.4, cz, M.slat);
+        B.box(alongX ? w : 0.03, 1.4, alongX ? 0.03 : d, cx, 1.5, cz, M.glass);
+        B.box(alongX ? w : 0.08, 0.07, alongX ? 0.08 : d, cx, 2.22, cz, M.steel);
       }
-      B.box(0.06, 1.0, 0.06, x + 0.45, 1.0, -11.95, M.steel); // tangga
+    };
+    // dinding koridor (x -21.4) dengan pintu ke tiap kamar
+    sekat(MESS.wallX, MESS.wallX, -14, -6, [[MESS.cowok.door - 0.5, MESS.cowok.door + 0.5], [MESS.cewek.door - 0.5, MESS.cewek.door + 0.5], [MESS.pasangan.door - 0.5, MESS.pasangan.door + 0.5]]);
+    sekat(X0, MESS.wallX, -11.2, -11.2);
+    sekat(X0, MESS.wallX, -8.6, -8.6);
+    const bunk = (x, z) => {
+      for (const dx of [-0.42, 0.42]) for (const dz of [-0.95, 0.95]) B.box(0.07, 1.95, 0.07, x + dx, 0.97, z + dz, M.steel);
+      for (const [y, mat] of [[0.3, M.blanket], [1.27, M.blanket2]]) {
+        B.box(0.9, 0.12, 2.0, x, y, z, M.lightwood);
+        B.box(0.82, 0.12, 1.9, x, y + 0.12, z, M.white);
+        B.box(0.84, 0.05, 1.1, x, y + 0.19, z + 0.3, mat);
+        B.box(0.6, 0.1, 0.35, x, y + 0.22, z - 0.75, M.white);
+      }
+      B.box(0.06, 1.0, 0.06, x + 0.45, 1.0, z + 0.95, M.steel); // tangga
+    };
+    for (const k of ['cowok', 'cewek']) for (const x of MESS[k].bunkX) bunk(x, MESS[k].bunkZ);
+    // loker di tiap kamar
+    for (let k = 0; k < 2; k++) B.box(0.8, 1.8, 0.45, -22.8 + k * 0.85, 0.9, -13.65, M[`acc${k + 3}`]);
+    for (let k = 0; k < 2; k++) B.box(0.45, 1.8, 0.8, -21.75, 0.9, -10.6 + k * 0.85, M[`acc${k}`]);
+    B.disc(-23.6, 0.012, -9.2, 1.3, 0.45, M.rug, 20);
+    // kamar Zamiir & Aprista: kasur double (kepala di dinding barat), meja samping, lampu tidur
+    const [bx, bz] = MESS.pasangan.bed;
+    B.box(2.1, 0.3, 1.75, bx, 0.15, bz, M.walnut);
+    B.box(2.0, 0.16, 1.65, bx, 0.38, bz, M.white);
+    B.box(1.25, 0.06, 1.69, bx + 0.32, 0.48, bz, M.blanket2);
+    for (const dz of [-0.4, 0.4]) B.box(0.38, 0.12, 0.6, bx - 0.78, 0.52, bz + dz, M.white);
+    B.box(0.12, 0.95, 1.8, X0 + 0.18, 0.47, bz, M.walnut);   // sandaran kepala
+    for (const dz of [-1.15, 1.15]) {
+      B.box(0.45, 0.5, 0.42, bx - 0.8, 0.25, bz + dz, M.lightwood);
+      B.box(0.14, 0.22, 0.14, bx - 0.8, 0.61, bz + dz, M.lampWarm, { cast: false });
     }
-    for (let k = 0; k < 5; k++) B.box(0.8, 1.8, 0.45, -25.2 + k * 0.85, 0.9, -7.0 + 0, M[`acc${k}`]);
-    B.disc(-22.9, 0.012, -9.4, 1.8, 1.0, M.rug, 20);
-    L(-23, 2.4, -10.5, WARM, 4.5, 0.8);
+    B.disc(-23.2, 0.012, bz, 0.9, 1.1, M.rug, 20);
+    B.box(0.5, 1.9, 1.2, -21.85, 0.95, -6.75, M.walnut);   // lemari
+    L(-23, 2.4, -12.8, WARM, 3.2, 0.7);
+    L(-23, 2.4, -10.1, WARM, 3.2, 0.7);
+    L(-24.6, 1.1, -7.3, [1.0, 0.6, 0.5], 2.6, 0.8);
   }
 
   // ---------- pelat lantai atas, fasia, kolom

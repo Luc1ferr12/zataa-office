@@ -97,7 +97,7 @@ export async function propose({ force = false } = {}) {
 
   const id = Number(d.prepare('INSERT INTO boosts (content_id, month, amount, days, score) VALUES (?, ?, ?, ?, ?)').run(best.id, month(), c.per, c.days, best.score).lastInsertRowid);
   const text = [
-    `💸 <b>Usulan boost B${id}</b> dari Fahriah`,
+    `<b>Fahriah</b>: 💸 <b>Usulan boost B${id}</b>`,
     `Post #${best.id}: ${best.title}`,
     `❤️ ${best.like_count ?? 0} · 💬 ${best.comments_count ?? 0} (paling rame dari ${scored.length} post terakhir)`,
     `Budget: <b>${rp(c.per)}</b> selama ${c.days} hari · target Indonesia 18–34, IG`,
@@ -156,13 +156,13 @@ export async function runApproved() {
       const k = await launch(d, b);
       activity(d, `Boost #${k.id} jalan ${rp(b.amount)} / ${b.days} hari 🚀`);
       chat(d, 'ads', null, `Iklan buat "${k.title.slice(0, 40)}" udah jalan! Semoga rame 🤞`, 'santai');
-      await tg('sendMessage', { chat_id: env().TELEGRAM_CHAT_ID, parse_mode: 'HTML', text: `🚀 Boost B${b.id} jalan: #${k.id} ${k.title}\n${rp(b.amount)} sampai ${k.end.toLocaleString('id-ID', { timeZone: 'Asia/Makassar', dateStyle: 'medium', timeStyle: 'short' })} WITA (nunggu review iklan Meta ±15 menit–1 jam).` }).catch(() => {});
+      await tg('sendMessage', { chat_id: env().TELEGRAM_CHAT_ID, parse_mode: 'HTML', text: `<b>Fahriah</b>: 🚀 Boost B${b.id} jalan: #${k.id} ${k.title}\n${rp(b.amount)} sampai ${k.end.toLocaleString('id-ID', { timeZone: 'Asia/Makassar', dateStyle: 'medium', timeStyle: 'short' })} WITA (nunggu review iklan Meta ±15 menit–1 jam).` }).catch(() => {});
       res.push({ id: b.id, ok: true });
     } catch (e) {
       // iklan yang sempat dibuat tetap PAUSED (campaign belum dinyalakan) → tidak ada uang keluar
       d.prepare("UPDATE boosts SET status = 'failed', error = ?, updated_at = datetime('now') WHERE id = ?").run(e.message, b.id);
       activity(d, `Gagal pasang boost B${b.id}: ${e.message.slice(0, 100)}`);
-      await tg('sendMessage', { chat_id: env().TELEGRAM_CHAT_ID, text: `⚠️ Boost B${b.id} gagal dipasang (budget nggak kepakai): ${e.message.slice(0, 300)}` }).catch(() => {});
+      await tg('sendMessage', { chat_id: env().TELEGRAM_CHAT_ID, parse_mode: 'HTML', text: `<b>Fahriah</b>: ⚠️ Boost B${b.id} gagal dipasang (budget nggak kepakai): ${e.message.slice(0, 300).replace(/[<>&]/g, " ")}` }).catch(() => {});
       res.push({ id: b.id, ok: false, error: e.message });
     }
     setFahriah(d, 'done');

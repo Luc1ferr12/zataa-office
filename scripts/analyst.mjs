@@ -4,7 +4,7 @@
 //   node scripts/analyst.mjs report     kirim laporan minggu ini sekarang
 process.removeAllListeners('warning');
 import { fileURLToPath } from 'node:url';
-import { loadEnv, db, say } from './approval.mjs';
+import { loadEnv, db, say, sayAs } from './approval.mjs';
 import { chat } from './chatter.mjs';
 
 const env = () => ({ ...loadEnv(), ...process.env });
@@ -51,7 +51,7 @@ export async function weeklyReport() {
     FROM contents c JOIN metrics m ON m.id = (SELECT id FROM metrics WHERE content_id = c.id ORDER BY id DESC LIMIT 1)
     WHERE c.posted_at >= datetime('now', '-7 days')`).all();
   if (!rows.length) {
-    await say('📊 <b>Laporan mingguan Raka</b>\nMinggu ini belum ada post IG yang bisa dianalisis.');
+    await sayAs('analyst', '📊 <b>Laporan mingguan</b>\nMinggu ini belum ada post IG yang bisa dianalisis.');
     return { posts: 0 };
   }
   const score = (r) => r.likes + 3 * r.comments + 2 * r.saves;
@@ -61,7 +61,7 @@ export async function weeklyReport() {
   const avg = Object.entries(pillars).map(([k, v]) => [k, v.reduce((a, b) => a + b, 0) / v.length]).sort((a, b) => b[1] - a[1]);
   const total = rows.reduce((a, r) => ({ likes: a.likes + r.likes, comments: a.comments + r.comments, views: a.views + r.views }), { likes: 0, comments: 0, views: 0 });
   const text = [
-    '📊 <b>Laporan mingguan Raka</b>', `${rows.length} post · ❤️ ${total.likes} · 💬 ${total.comments}${total.views ? ` · 👀 ${total.views}` : ''}`, '',
+    '<b>Raka</b>: 📊 <b>Laporan mingguan</b>', `${rows.length} post · ❤️ ${total.likes} · 💬 ${total.comments}${total.views ? ` · 👀 ${total.views}` : ''}`, '',
     '<b>Top 3 post:</b>', ...top.map((r, i) => `${i + 1}. #${r.id} ${esc(r.title)} (❤️ ${r.likes} · 💬 ${r.comments})`), '',
     '<b>Pilar paling works:</b>', ...avg.map(([k, v]) => `• ${esc(k)}: skor rata-rata ${v.toFixed(1)}`), '',
     `Saran: perbanyak pilar <b>${esc(avg[0][0])}</b> minggu depan. Aprista pakai ini buat evaluasi & plan Senin.`,

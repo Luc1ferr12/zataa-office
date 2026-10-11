@@ -6,6 +6,7 @@ import { sprite, flamingoSprite } from './px/sprites.js';
 import { textBitmap } from './px/font.js';
 import { AGENTS } from './schedule.js';
 import { locationFor, route } from './nav.js';
+import { DS, DW, DH, loadBackground, loadSprites, toySprite } from './px/toy.js';
 
 const clamp = (v, a = 0, b = 1) => Math.max(a, Math.min(b, v));
 const smooth = (a, b, x) => { const t = clamp((x - a) / (b - a)); return t * t * (3 - 2 * t); };
@@ -27,23 +28,50 @@ const C = Object.fromEntries(Object.entries({
   field: '#1f5d3a', field2: '#2a7a4a', lane: '#c7b98a',
 }).map(([k, v]) => [k, hx(v)]));
 
+// gambar procedural 1× → 2× (cadangan kalau aset 3D belum ada)
+function upscale(src) {
+  const out = new Uint32Array(DW * DH);
+  for (let y = 0; y < DH; y++) { const sy = ((y / DS) | 0) * W, o = y * DW; for (let x = 0; x < DW; x++) out[o + x] = src[sy + ((x / DS) | 0)]; }
+  return out;
+}
+// campur warna sprite (RGBA, alpha di byte atas) ke latar
+function over(dst, src) {
+  const a = src >>> 24;
+  if (a >= 250) return src | 0xff000000;
+  const t = a / 255, u = 1 - t;
+  return (0xff000000 | (((((src >>> 16) & 255) * t + ((dst >>> 16) & 255) * u) & 255) << 16) | (((((src >>> 8) & 255) * t + ((dst >>> 8) & 255) * u) & 255) << 8)
+    | (((src & 255) * t + (dst & 255) * u) & 255)) >>> 0;
+}
+
+const up2cache = new WeakMap();
+function up2(s) {
+  if (!s || s.toy) return s;
+  let o = up2cache.get(s);
+  if (o) return o;
+  const w = s.w * DS, h = s.h * DS, d = new Uint32Array(w * h);
+  for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) { const c = s.d[((y / DS) | 0) * s.w + ((x / DS) | 0)]; d[y * w + x] = c ? (c | 0xff000000) >>> 0 : 0; }
+  o = { ...s, w, h, ax: s.ax * DS, ay: s.ay * DS, lift: s.lift * DS, d };
+  up2cache.set(s, o);
+  return o;
+}
+
 // salin kotak [x0,y0,x1,y1) dari gambar dasar → buffer kerja (hapus jejak orang frame sebelumnya)
 function restoreRect(dst, src, [x0, y0, x1, y1]) {
-  x0 = Math.max(0, x0 | 0); y0 = Math.max(0, y0 | 0); x1 = Math.min(W, Math.ceil(x1)); y1 = Math.min(H, Math.ceil(y1));
+  x0 = Math.max(0, x0 | 0); y0 = Math.max(0, y0 | 0); x1 = Math.min(DW, Math.ceil(x1)); y1 = Math.min(DH, Math.ceil(y1));
   if (x1 <= x0) return;
-  for (let y = y0; y < y1; y++) dst.set(src.subarray(y * W + x0, y * W + x1), y * W + x0);
+  for (let y = y0; y < y1; y++) dst.set(src.subarray(y * DW + x0, y * DW + x1), y * DW + x0);
 }
 // kirim sebagian buffer ke canvas
 function putRect(Lr, [x0, y0, x1, y1]) {
-  x0 = Math.max(0, x0 | 0); y0 = Math.max(0, y0 | 0); x1 = Math.min(W, Math.ceil(x1)); y1 = Math.min(H, Math.ceil(y1));
+  x0 = Math.max(0, x0 | 0); y0 = Math.max(0, y0 | 0); x1 = Math.min(DW, Math.ceil(x1)); y1 = Math.min(DH, Math.ceil(y1));
   if (x1 > x0 && y1 > y0) Lr.ctx.putImageData(Lr.img, 0, 0, x0, y0, x1 - x0, y1 - y0);
 }
 
 function layer() {
   const cv = document.createElement('canvas');
-  cv.width = W; cv.height = H;
+  cv.width = DW; cv.height = DH;
   const ctx = cv.getContext('2d');
-  const img = ctx.createImageData(W, H);
+  const img = ctx.createImageData(DW, DH);
   return { cv, ctx, img, u32: new Uint32Array(img.data.buffer) };
 }
 
@@ -74,7 +102,8 @@ export class Office {
     this.t = 0;
 
     this.cv = document.createElement('canvas');
-    this.cv.width = W; this.cv.height = H;
+    this.cv.width = DW; this.cv.height = DH;
+    this.cv.style.width = `${W}px`; this.cv.style.height = `${H}px`; // koordinat CSS tetap 1×, isinya 2×
     this.cv.className = 'px-canvas';
     container.appendChild(this.cv);
     this.ctx = this.cv.getContext('2d');
@@ -99,9 +128,11 @@ export class Office {
 
     this.pendingRenders = new Map();
     this.variants = {};
+    this.toy = loadSprites(AGENTS.map((a) => a.id)).then(() => true).catch((e) => { console.warn('sprite 3D belum ada, pakai pixel art', e); return false; });
     this.ready = (async () => {
       this.logo = await loadLogo();
       this.base = await this.renderVariant(true);
+      this.toyOn = await this.toy;
       this.buildPeople();
       this.fit();
     })();
@@ -116,7 +147,11 @@ export class Office {
     if (this.variants[upper]) return Promise.resolve(this.variants[upper]);
     if (this.pendingRenders.has(upper)) return this.pendingRenders.get(upper);
     const p = new Promise((resolve) => {
-      const done = (r) => { this.variants[upper] = r; this.pendingRenders.delete(upper); resolve(r); };
+      const done = async (r) => {
+        // tampilan: render Blender 2× kalau ada; kalau belum, gambar pixel diperbesar
+        try { Object.assign(r, await loadBackground(upper)); r.toyBg = true; } catch (e) { console.warn('latar 3D belum ada', e); r.day = upscale(r.day); r.night = upscale(r.night); }
+        this.variants[upper] = r; this.pendingRenders.delete(upper); resolve(r);
+      };
       try {
         if (!this.worker) {
           this.worker = new Worker(new URL('./px/worker.js', import.meta.url), { type: 'module' });
@@ -271,7 +306,7 @@ export class Office {
     if (!r.width) return;
     this.minZ = Math.max(r.width / W, r.height / H);
     this.maxZ = 6;
-    if (keep && this.fitted) { this.clampView(); return; }
+    if (keep && this.fitted) { if (this.z < this.minZ) this.z = this.minZ; this.clampView(); return; }
     // isi selebar kotak, tapi usahakan seluruh gedung tetap kelihatan
     this.z = clamp(Math.max(Math.min(r.width / FOCUS.w, r.height / FOCUS.h), r.width / W), this.minZ, this.maxZ);
     if (r.width < 700) this.z = Math.max(this.z, 1 / RES); // HP: jangan terlalu kecil, geser untuk lihat sisanya
@@ -294,7 +329,7 @@ export class Office {
     this.tx = cw <= r.width ? (r.width - cw) / 2 : clamp(this.tx, r.width - cw, 0);
     this.ty = ch <= r.height ? (r.height - ch) / 2 : clamp(this.ty, r.height - ch, 0);
     this.cv.style.transform = `translate(${this.tx}px, ${this.ty}px) scale(${this.z})`;
-    this.cv.classList.toggle('smooth', this.z < 1);
+    this.cv.classList.toggle('smooth', this.z * DS < 2.5);
     this.placeLabels();
   }
   bindInput(host) {
@@ -351,12 +386,12 @@ export class Office {
     let best = null;
     for (const a of this.actors ?? []) {
       if (!a.c) continue;
-      const s = a.spr, x = Math.floor(cx - (a.sx - s.ax)), y = Math.floor(cy - (a.sy - s.ay - s.lift));
+      const s = a.spr, x = Math.floor(cx * DS - (a.sx - s.ax)), y = Math.floor(cy * DS - (a.sy - s.ay - s.lift));
       // toleransi 2 px di sekitar sprite (sprite kecil)
       let hit = false;
-      for (let dy = -2 * RES; dy <= 2 * RES && !hit; dy++) for (let dx = -2 * RES; dx <= 2 * RES && !hit; dx++) {
+      for (let dy = -2 * RES * DS; dy <= 2 * RES * DS && !hit; dy += DS) for (let dx = -2 * RES * DS; dx <= 2 * RES * DS && !hit; dx += DS) {
         const X = x + dx, Y = y + dy;
-        if (X >= 0 && Y >= 0 && X < s.w && Y < s.h && s.d[Y * s.w + X]) hit = true;
+        if (X >= 0 && Y >= 0 && X < s.w && Y < s.h && s.d[Y * s.w + X] >>> 24) hit = true;
       }
       if (hit && (!best || a.d0 > best.d0)) best = a;
     }
@@ -378,7 +413,9 @@ export class Office {
       c.label.hidden = !vis;
       if (!vis) return null;
       const [x, y] = proj(c.pos.x, c.pos.y, c.pos.z);
-      const top = RES * (c.pose === 'lie' ? 14 : c.pose === 'swim' ? 12 : c.pose === 'pray' ? 23 : SEAT_N.has(c.pose) || c.pose === 'beanbag' ? 21 : 24);
+      const top = RES * (this.toyOn   // karakter 3D lebih tinggi (±1,9 m) dari sprite pixel
+        ? (c.pose === 'lie' ? 18 : c.pose === 'swim' ? 10 : c.pose === 'pray' ? 30 : SEAT_N.has(c.pose) || c.pose === 'beanbag' ? 27 : 34)
+        : (c.pose === 'lie' ? 14 : c.pose === 'swim' ? 12 : c.pose === 'pray' ? 23 : SEAT_N.has(c.pose) || c.pose === 'beanbag' ? 21 : 24));
       if (!c.labelW) c.labelW = c.label.offsetWidth;
       return { c, x: this.tx + x * this.z, y: this.ty + (y - top) * this.z };
     }).filter(Boolean).sort((a, b) => b.y - a.y);
@@ -437,7 +474,7 @@ export class Office {
     if (nf > 0.001) passes.push(['night', true]);
     // gambar ulang hanya bagian yang berubah (orang, air, layar) — penting di resolusi HD
     const rects = this.actors.map((a) => {
-      const s = a.spr, x0 = a.sx - s.ax, y0 = a.sy - s.ay - s.lift, rx = 7 * RES, ry = 3 * RES;
+      const s = a.spr, x0 = a.sx - s.ax, y0 = a.sy - s.ay - s.lift, rx = 7 * RES * DS, ry = 3 * RES * DS;
       return [Math.min(x0, a.sx - rx), Math.min(y0, a.sy - ry), Math.max(x0 + s.w, a.sx + rx), Math.max(y0 + s.h, a.sy + ry)];
     });
     for (const [k, night] of passes) {
@@ -446,7 +483,7 @@ export class Office {
       const full = Lr.base !== buf;
       if (full) { Lr.u32.set(buf); Lr.base = buf; Lr.prev = []; }
       for (const r of Lr.prev) restoreRect(Lr.u32, buf, r);
-      this.drawDyn(Lr.u32, night, t);
+      this.drawDyn(Lr.u32, night, t, buf);
       for (const a of this.actors) this.drawActor(Lr.u32, a, night);
       if (full) Lr.ctx.putImageData(Lr.img, 0, 0);
       else for (const r of [...Lr.prev, ...rects, ...this.dynRects()]) putRect(Lr, r);
@@ -461,7 +498,7 @@ export class Office {
     if (gold > 0.01 || dim > 0.01) {
       g.globalCompositeOperation = 'multiply';
       g.fillStyle = `rgb(${255 * (1 - dim)}, ${(255 - 70 * gold) * (1 - dim)}, ${(255 - 120 * gold) * (1 - dim * 0.6)})`;
-      g.fillRect(0, 0, W, H);
+      g.fillRect(0, 0, DW, DH);
       g.globalCompositeOperation = 'source-over';
     }
     this.placeLabels();
@@ -489,37 +526,40 @@ export class Office {
       else if (pose === 'eat' || pose === 'drink') f = Math.floor(t * 0.6 + c.seed) % 4;
       else if (pose === 'pray') v = c.info?.phase ?? phase; // mis. duduk dengerin khotbah
       if (pose === 'drink' && f >= 2) pose = 'stand';
-      const spr = sprite(c.agent.id, this.outfit, pose, dir, f, v);
-      const [x, y] = proj(c.pos.x, c.pos.y, c.pos.z);
+      let spr = this.toyOn ? toySprite(c.agent.id, pose, dir, f, v) : null;
+      if (!spr) spr = up2(sprite(c.agent.id, this.outfit, pose, dir, f, v));
+      if (spr.toy) jitter *= DS;
+      const [x0_, y0_] = proj(c.pos.x, c.pos.y, c.pos.z), x = x0_ * DS, y = y0_ * DS;
       let bias = 0.25;
       if (SEAT_N.has(pose) && dir === 'N') bias = 0.7;
       else if (SEAT_N.has(pose)) bias = 0.35;
       if (pose === 'swim') bias = 0.45;
-      const d0 = pose === 'lie' ? depthOf(c.pos.x, c.pos.y + 0.45, c.pos.z) + 0.3 : depthOf(c.pos.x, c.pos.y, c.pos.z) + bias;
+      const d0 = pose === 'lie' ? depthOf(c.pos.x, c.pos.y + 0.45, c.pos.z) + (spr.toy ? 0.75 : 0.3) : depthOf(c.pos.x, c.pos.y, c.pos.z) + bias;
       out.push({ c, spr, sx: Math.round(x) + jitter, sy: Math.round(y), d0, foot: depthOf(c.pos.x, c.pos.y, c.pos.z), shadow: pose === 'walk' || pose === 'stand' || pose === 'drink' || pose === 'sweep', ring: this.selected === c.agent.id });
     });
-    // flamingo mengambang pelan
-    const fx = 15.5 + Math.sin(t * 0.07) * 1.6, fz = 8.6 + Math.sin(t * 0.05 + 1) * 1.2;
-    const [x, y] = proj(fx, -0.1, fz);
-    out.push({ c: null, spr: flamingoSprite(), sx: Math.round(x), sy: Math.round(y + Math.sin(t * 1.3) * 0.6), d0: depthOf(fx, -0.1, fz) + 0.3 });
+    if (!this.base?.toyBg) {   // flamingo pixel cuma di tampilan lama (versi 3D: pelampung sudah ada di render kolam)
+      const fx = 15.5 + Math.sin(t * 0.07) * 1.6, fz = 8.6 + Math.sin(t * 0.05 + 1) * 1.2;
+      const [x, y] = proj(fx, -0.1, fz);
+      out.push({ c: null, spr: up2(flamingoSprite()), sx: Math.round(x * DS), sy: Math.round((y + Math.sin(t * 1.3) * 0.6) * DS), d0: depthOf(fx, -0.1, fz) + 0.3 });
+    }
     return out.sort((a, b) => a.d0 - b.d0);
   }
 
   drawActor(buf, a, night) {
     const B = this.base, s = a.spr, depth = B.depth, glassD = B.glassD, glass = night ? B.glassNight : B.glassDay;
-    const fi = clamp(a.sy, 0, H - 1) * W + clamp(a.sx, 0, W - 1);
+    const fi = clamp((a.sy / DS) | 0, 0, H - 1) * W + clamp((a.sx / DS) | 0, 0, W - 1);
     let lr = 1, lg = 1, lb = 1;
     if (night) { lr = Math.max(0.3, B.lightQ[fi * 3] / 100); lg = Math.max(0.3, B.lightQ[fi * 3 + 1] / 100); lb = Math.max(0.42, B.lightQ[fi * 3 + 2] / 100); }
     // bayangan kaki & cincin pilihan
     if (a.shadow || a.ring) {
-      const RX = 6 * RES, RY = 2 * RES;
+      const RX = 7 * RES * DS, RY = 2.4 * RES * DS;
       for (let dy = -RY; dy <= RY; dy++) for (let dx = -RX; dx <= RX; dx++) {
         const e = (dx * dx) / (RX * RX) + (dy * dy) / (RY * RY);
         if (e > 1.05) continue;
         const X = a.sx + dx, Y = a.sy + dy;
-        if (X < 0 || Y < 0 || X >= W || Y >= H) continue;
-        const i = Y * W + X;
-        if (Math.abs(depth[i] - a.foot) > 0.3) continue;
+        if (X < 0 || Y < 0 || X >= DW || Y >= DH) continue;
+        const i = Y * DW + X;
+        if (Math.abs(depth[((Y / DS) | 0) * W + ((X / DS) | 0)] - a.foot) > 0.3) continue;
         if (a.ring && e > 0.55) buf[i] = night ? hx('#c4a5ff') : hx('#8b5cf6');
         else if (a.shadow && e <= 0.75) buf[i] = mul(buf[i], 0.72, 0.7, 0.78);
       }
@@ -527,18 +567,19 @@ export class Office {
     const x0 = a.sx - s.ax, y0 = a.sy - s.ay - s.lift;
     for (let j = 0; j < s.h; j++) {
       const Y = y0 + j;
-      if (Y < 0 || Y >= H) continue;
-      const dd = s.flat ? a.d0 : a.d0 + ((s.ay - j) / PXH) * VW[1];
+      if (Y < 0 || Y >= DH) continue;
+      const dd = s.flat ? a.d0 : a.d0 + ((s.ay - j) / (PXH * DS)) * VW[1];
+      const row = ((Y / DS) | 0) * W;
       for (let i = 0; i < s.w; i++) {
         const col = s.d[j * s.w + i];
-        if (!col) continue;
+        if (!(col >>> 24)) continue;
         const X = x0 + i;
-        if (X < 0 || X >= W) continue;
-        const k = Y * W + X;
+        if (X < 0 || X >= DW) continue;
+        const k = row + ((X / DS) | 0), q = Y * DW + X;
         if (dd < depth[k]) continue;
-        let c = night ? mul(col, lr, lg, lb) : col;
-        if (glassD[k] > dd) c = blend(c, glass[k]);
-        buf[k] = c;
+        let c = night ? (mul(col, lr, lg, lb) & 0xffffff) | (col & 0xff000000) : col;
+        if (!s.toy && glassD[k] > dd) c = blend(c | 0xff000000, glass[k]);
+        buf[q] = over(buf[q], c);
       }
     }
   }
@@ -550,16 +591,30 @@ export class Office {
     this._dynR = Object.values(this.base.dyn ?? {}).filter((d) => d?.x?.length).map((d) => {
       let x0 = Infinity, y0 = Infinity, x1 = -1, y1 = -1;
       for (let k = 0; k < d.x.length; k++) { x0 = Math.min(x0, d.x[k]); x1 = Math.max(x1, d.x[k]); y0 = Math.min(y0, d.y[k]); y1 = Math.max(y1, d.y[k]); }
-      return [x0, y0, x1 + 1, y1 + 1];
+      return [x0 * DS, y0 * DS, (x1 + 1) * DS, (y1 + 1) * DS];
     });
     return this._dynR;
   }
 
   // ---------- permukaan dinamis: air kolam & layar
-  drawDyn(buf, night, t) {
+  drawDyn(buf, night, t, bg) {
     const D = this.base.dyn;
     const water = D.water;
-    if (water) {
+    const put = (k, c) => { const x = (k % W) * DS, y = ((k / W) | 0) * DS; for (let j = 0; j < DS; j++) { const o = (y + j) * DW + x; for (let i = 0; i < DS; i++) buf[o + i] = c; } };
+    if (water && this.base.toyBg) {   // render 3D: air asli dari Blender, tambah kilau bergerak
+      const { idx, x, y } = water;
+      if (!water.ph) {
+        water.ph = new Float32Array(idx.length * 2);
+        for (let k = 0; k < idx.length; k++) { water.ph[k * 2] = x[k] * 0.21 + y[k] * 0.33; water.ph[k * 2 + 1] = x[k] * 0.13 - y[k] * 0.27; }
+      }
+      const ph = water.ph, ca = Math.cos(t * 1.7), sa = Math.sin(t * 1.7), cb = Math.cos(t * 1.1), sb = Math.sin(t * 1.1);
+      for (let k = 0; k < idx.length; k++) {
+        const v = Math.sin(ph[k * 2]) * ca + Math.cos(ph[k * 2]) * sa, w = Math.sin(ph[k * 2 + 1]) * cb + Math.cos(ph[k * 2 + 1]) * sb;
+        const g = 1 + 0.07 * v * w + (v * w > 0.8 ? 0.12 : 0);
+        const X = (idx[k] % W) * DS, Y = ((idx[k] / W) | 0) * DS;
+        for (let j = 0; j < DS; j++) { const o = (Y + j) * DW + X; for (let i = 0; i < DS; i++) buf[o + i] = mul(bg[o + i], g, g, g); }
+      }
+    } else if (water) {
       const P = night ? WATER_N : WATER_D;
       // sin(p + ωt) = sin p·cos ωt + cos p·sin ωt → sin/cos posisi dihitung sekali, tiap frame cuma perkalian
       const { idx, x, y, a, b } = water;
@@ -585,13 +640,13 @@ export class Office {
         const sp = (S[3][k] * w[3][0] + Cc[3][k] * w[3][1]) * (S[4][k] * w[4][0] + Cc[4][k] * w[4][1]);
         let q = Math.floor(v * 4 + dith[k]);
         if (sp > 0.82) q = 4;
-        buf[idx[k]] = P[q < 0 ? 0 : q > 4 ? 4 : q];
+        put(idx[k], P[q < 0 ? 0 : q > 4 ? 4 : q]);
       }
     }
     const surf = (name, Wp, Hp, fn) => {
       const d = D[name];
       if (!d) return;
-      for (let k = 0; k < d.idx.length; k++) buf[d.idx[k]] = fn(Math.floor(d.a[k] * Wp), Math.floor((1 - d.b[k]) * Hp), d.x[k], d.y[k]);
+      for (let k = 0; k < d.idx.length; k++) put(d.idx[k], fn(Math.floor(d.a[k] * Wp), Math.floor((1 - d.b[k]) * Hp), d.x[k], d.y[k]));
     };
     // monitor kerja (12×5 px)
     for (let i = 0; i < DESKS; i++) {

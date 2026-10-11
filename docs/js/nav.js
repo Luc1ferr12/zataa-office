@@ -24,7 +24,7 @@ const N = {
   WORK_IN: [5.95, 0, 1.0], W_AISLE: [5.95, 0, -2.2], WORK_DOOR: [9, 0, 2], WORK_OUT: [9, 0, 3.3],
   P1: [5.8, 0, 3.6], P_W: [5.8, 0, 8.5], P2: [5.8, 0, 13.0], P3: [12, 0, 13.0],
   // sayap barat
-  BATH_DOOR: [-20.15, 0, -1.75], BATH_IN: [-22.6, 0, -1.75], MESS_DOOR: [-22.9, 0, -6], MESS_IN: [-22.9, 0, -8.6],
+  BATH_DOOR: [-20.15, 0, -1.75], BATH_IN: [-22.6, 0, -1.75], MESS_DOOR: [-20.85, 0, -6], MESS_IN: [-20.85, 0, -9.0],
   MUS_W: [-19.3, UP, -9.35], WUDHU_DOOR: [-20.15, UP, -9.35], WUDHU_IN: [-22.6, UP, -9.35],
 };
 const EDGES = [
@@ -78,7 +78,7 @@ export const CLEAN = {
   kerja: { p: [12.8, 0, -2.2], a: 'W_AISLE', rot: Math.PI / 2 },
   kerja2: { p: [12.8, 0, 1.0], a: 'WORK_IN', rot: -Math.PI / 2 },
   kamarmandi: { p: [-22.6, 0, -3.6], a: 'BATH_IN', rot: Math.PI },
-  mess: { p: [-22.9, 0, -10.2], a: 'MESS_IN' },
+  mess: { p: [-20.85, 0, -10.2], a: 'MESS_IN' },
   musholla: { p: [-16.5, UP, -9.3], a: 'MUS_IN', rot: Math.PI / 2 },
   wudhu: { p: [-22.6, UP, -11.4], a: 'WUDHU_IN' },
   meeting: { p: [-1.5, UP, -9.3], a: 'MEET_IN', rot: Math.PI / 2 },
@@ -128,7 +128,8 @@ export function locationFor(spots, agent, idx, loc, info) {
     }
     case 'bed': {
       const b = spots.bed[(info?.slot ?? idx) % spots.bed.length];
-      return { pos: V(b.x, b.y, b.z), rot: b.rot, pose: 'lie', anchor: 'MESS_IN', approach: [V(-22.9, 0, -11.5), V(b.x, 0, -11.5)] };
+      // lewat koridor timur → pintu kamar → lorong dalam kamar → kasur
+      return { pos: V(b.x, b.y, b.z), rot: b.rot, pose: 'lie', anchor: 'MESS_IN', approach: [V(-20.85, 0, b.door), V(-22.0, 0, b.door), V(b.aisle[0], 0, b.aisle[1])] };
     }
     case 'wudhu': {
       const w = spots.wudhu[(info?.slot ?? idx) % spots.wudhu.length];

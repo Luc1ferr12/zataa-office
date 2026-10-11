@@ -14,7 +14,7 @@ import { open } from 'node:fs/promises';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execFileSync } from 'node:child_process';
-import { loadEnv, setEnv, say, SLOT, targets } from './approval.mjs';
+import { loadEnv, setEnv, sayAs, SLOT, targets } from './approval.mjs';
 import { chat } from './chatter.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -192,7 +192,7 @@ export async function publishOne(id) {
   if (!errs.length) {
     d.prepare("UPDATE contents SET status = 'posted', posted_at = datetime('now'), updated_at = datetime('now') WHERE id = ?").run(c.id);
     failures.delete(c.id);
-    await say(`🚀 #${c.id} udah tayang di ${done.join(' + ') || 'semua platform'}.${done.some((p) => p.startsWith('TikTok')) ? '\nTikTok masih private, ubah privacy di app kalau mau publik.' : ''}`).catch(() => {});
+    await sayAs('publisher', `🚀 #${c.id} udah tayang di ${done.join(' + ') || 'semua platform'}.${done.some((p) => p.startsWith('TikTok')) ? '\nTikTok masih private, ubah privacy di app kalau mau publik.' : ''}`).catch(() => {});
     return { ok: true, id: c.id, posted: done };
   }
   const n = (failures.get(c.id) ?? 0) + 1;
@@ -200,7 +200,7 @@ export async function publishOne(id) {
   activity(d, 'publisher', `Gagal posting #${c.id}: ${errs[0].slice(0, 120)}`);
   if (n >= 3) {
     d.prepare("UPDATE contents SET status = 'publish_failed', updated_at = datetime('now') WHERE id = ?").run(c.id);
-    await say(`⚠️ #${c.id} gagal diposting 3× (${errs.join(' | ').slice(0, 300)}). Cek .env lalu jalankan: node scripts/publish.mjs now ${c.id}`).catch(() => {});
+    await sayAs('publisher', `⚠️ #${c.id} gagal diposting 3× (${errs.join(' | ').slice(0, 300)}). Cek .env lalu jalankan: node scripts/publish.mjs now ${c.id}`).catch(() => {});
   }
   return { ok: false, id: c.id, posted: done, errors: errs };
 }

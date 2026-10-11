@@ -20,7 +20,7 @@ Bikin akun IG & TikTok Zataa jadi tempat nongkrong gamer ML/Valorant/FF, lalu ub
 ```
 
 ## Selasa–Minggu — briefing pagi (08:00–08:30)
-- Tiap pegawai (Clariana, Ista, Maria, Dimas, Fikri, Fahriah, Raka, Nadia) pitching **1 ide konten tambahan** di luar plan: **desain feed saja**, bukan video, tetap ikut mix & aturan konten.
+- Tiap pegawai (Clariana, Ista, Maria, Dimas, Fikri, Fahriah, Raka, Budi) pitching **1 ide konten tambahan** di luar plan: **desain feed saja**, bukan video, tetap ikut mix & aturan konten.
 - Simpan semua ide: `office.mjs idea add ideas.json` (`[{agent, title, concept, game, pillar}]`).
 - Aprista pilih **2 terbaik** (paling relevan hari ini, beda pilar dari konten terjadwal, gampang dieksekusi): `office.mjs idea pick <id1> <id2>` → `node scripts/approval.mjs ideas`.
 - Owner boleh approve 1, 2, atau skip. Yang di-approve dibikin otomatis (slot `pagi` 10:00 & `sore` 16:00 WIB).

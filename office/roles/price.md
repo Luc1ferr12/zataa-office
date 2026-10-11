@@ -1,4 +1,4 @@
-# Nadia — Price Watcher
+# Budi — Price Watcher
 Diadaptasi dari: Competitive Intelligence, Pricing Analyst (agency-agents, MIT).
 
 ## Misi

@@ -1,18 +1,18 @@
 #!/usr/bin/env node
-// Nadia (Price Watcher): cek harga zataa.my.id tiap 2 jam (07:00–22:00 WITA), 0 token.
+// Budi (Price Watcher): cek harga zataa.my.id tiap 2 jam (07:00–22:00 WITA), 0 token.
 // Ada perubahan → kabarin Owner + tombol 🎨 bikin konten promo. Web nggak bisa dibuka → kabarin (maks 1×/12 jam).
 //   node scripts/price.mjs check      cek sekarang
 // Halaman yang dipantau: PRICE_URLS di .env (pisah koma), default https://zataa.my.id
 process.removeAllListeners('warning');
 import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
-import { loadEnv, db, say, tg } from './approval.mjs';
+import { loadEnv, db, sayAs, tg } from './approval.mjs';
 import { chat } from './chatter.mjs';
 
 const env = () => ({ ...loadEnv(), ...process.env });
 const esc = (s) => String(s ?? '').replace(/[&<>]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' })[c]);
 const wita = () => new Date(Date.now() + 8 * 3600_000);
-const setNadia = (d, status, task = null) => d.prepare("UPDATE agents SET status = ?, current_task = ?, updated_at = datetime('now') WHERE id = 'price'").run(status, task);
+const setBudi = (d, status, task = null) => d.prepare("UPDATE agents SET status = ?, current_task = ?, updated_at = datetime('now') WHERE id = 'price'").run(status, task);
 const SQL = `CREATE TABLE IF NOT EXISTS price_snapshots (id INTEGER PRIMARY KEY AUTOINCREMENT, url TEXT NOT NULL, ts TEXT DEFAULT (datetime('now')),
   hash TEXT, text TEXT, diff TEXT)`;
 const flag = (d, key, value) => {
@@ -42,7 +42,7 @@ export async function check() {
   const d = await db();
   d.exec(SQL);
   const urls = String(env().PRICE_URLS || 'https://zataa.my.id').split(',').map((u) => u.trim()).filter(Boolean);
-  setNadia(d, 'working', 'Cek harga di zataa.my.id');
+  setBudi(d, 'working', 'Cek harga di zataa.my.id');
   const res = [];
   for (const url of urls) {
     let html;
@@ -55,7 +55,7 @@ export async function check() {
       const last = +(flag(d, `price_down_${url}`) ?? 0);
       if (Date.now() - last > 12 * 3600_000) {
         flag(d, `price_down_${url}`, Date.now());
-        await say(`⚠️ <b>Nadia</b>: ${esc(url)} nggak bisa dibuka (${esc(why)}). Konten harga ditunda dulu sampai web normal.`).catch(() => {});
+        await sayAs('price', `⚠️ ${esc(url)} nggak bisa dibuka (${esc(why)}). Konten harga ditunda dulu sampai web normal.`).catch(() => {});
         chat(d, 'price', null, `Web zataa lagi nggak bisa dibuka nih (${why}) 😥 aku cek lagi nanti`, 'curhat');
       }
       res.push({ url, error: why });
@@ -76,12 +76,12 @@ export async function check() {
     chat(d, 'price', 'dir', 'Kak, ada perubahan harga di web! Udah aku laporin ke Bos 💰', 'oper');
     await tg('sendMessage', {
       chat_id: env().TELEGRAM_CHAT_ID, parse_mode: 'HTML',
-      text: `💰 <b>Nadia: harga di web berubah</b>\n${esc(url)}\n\n<pre>${esc(diff)}</pre>\n(+ baru · - lama)\n\nMau dibikinin konten promo?`,
+      text: `<b>Budi</b>: 💰 <b>Harga di web berubah</b>\n${esc(url)}\n\n<pre>${esc(diff)}</pre>\n(+ baru · - lama)\n\nMau dibikinin konten promo?`,
       reply_markup: { inline_keyboard: [[{ text: '🎨 Bikin konten promo', callback_data: `pricepromo:${id}` }]] },
     }).catch(() => {});
     res.push({ url, changed: true, snapshot: id });
   }
-  setNadia(d, 'done');
+  setBudi(d, 'done');
   return res;
 }
 
