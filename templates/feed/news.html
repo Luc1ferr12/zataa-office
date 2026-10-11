@@ -17,6 +17,10 @@
   .photo::after { content: ''; position: absolute; inset: 0;
     background: linear-gradient(180deg, #12052fcc 0%, transparent 22%, transparent 48%, #12052f 96%), radial-gradient(70% 60% at 50% 40%, transparent, #2a0a6b66); }
   .with-photo .watermark { display: none; }
+  /* logo tim (data.logo = path atau array path) */
+  .tlogos { display: flex; gap: 22px; align-items: center; }
+  .tlogos img { width: 128px; height: 128px; object-fit: contain; filter: drop-shadow(0 8px 22px #000b); }
+  .with-photo .tlogos { justify-content: center; }
   .with-photo .grow { justify-content: flex-end; gap: 14px; text-align: center; align-items: center; }
   .with-photo .h1 { font-size: 132px; line-height: .95; text-transform: uppercase; text-shadow: 0 6px 30px #0009; }
   .with-photo .pre { font: 800 40px/1 Sora; letter-spacing: .32em; color: var(--white); text-shadow: 0 4px 20px #000a; }
@@ -30,10 +34,13 @@
 <script type="module">
 import { setup, shell, kicker, md, esc, fit, ready } from '../shared/brand.js';
 // data: { game, label: BERITA|RUMOR|PATCH|TRANSFER|ESPORT, date, headline, sub, points:[≤3], source, cta, photo?, pre? }
+// logo = path logo tim (string / array, mis. assets/teams/rrq.png) → tampil di atas judul
 // photo = path dari root (mis. assets/photos/x.jpg) → layout foto bernuansa ungu; pre = teks kecil di atas judul
 window.render = async (d, size) => {
   const g = setup(d, size);
   const label = (d.label ?? 'BERITA').toUpperCase();
+  const logos = [d.logo ?? []].flat().filter(Boolean);
+  const logoRow = logos.length ? `<div class="tlogos">${logos.map((l) => `<img src="/${esc(l.replace(/^\/+/, ''))}" alt="">`).join('')}</div>` : '';
   const pts = (d.points ?? []).slice(0, 3).map((p) => `<li>${md(p)}</li>`).join('');
   const meta = `<div class="meta">${kicker(label === 'RUMOR' ? '⚠ RUMOR' : label, label === 'RUMOR' ? 'rumor' : '')}${d.date ? `<span class="date">${esc(d.date)}</span>` : ''}</div>`;
   if (d.photo) {
@@ -41,6 +48,7 @@ window.render = async (d, size) => {
     const photo = `<div class="bg"></div><div class="photo"><img src="/${esc(d.photo.replace(/^\/+/, ''))}" alt=""></div>`;
     document.getElementById('root').innerHTML = shell(d, g, `
       <div class="grow">
+        ${logoRow}
         ${meta}
         ${d.pre ? `<div class="pre">${md(d.pre)}</div>` : ''}
         <h1 class="h1">${md(d.headline)}</h1>
@@ -54,6 +62,7 @@ window.render = async (d, size) => {
   }
   document.getElementById('root').innerHTML = shell(d, g, `
     <div class="grow">
+      ${logoRow}
       <h1 class="h1">${md(d.headline)}</h1>
       ${d.sub ? `<p class="sub">${md(d.sub)}</p>` : ''}
       ${pts ? `<ul class="points">${pts}</ul>` : ''}

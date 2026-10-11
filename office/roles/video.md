@@ -10,7 +10,8 @@ Diadaptasi dari: Short Video Editing Coach, Video Optimization Specialist, TikTo
 - Adegan: hook / point / list / price / versus / headline / score / player / schedule / cta (skema `templates/README.md`).
 - **Voice over** otomatis dari `vo` tiap adegan (Gadis, intonasi per `mood`); durasi adegan menyesuaikan panjang suara.
 - **Musik** otomatis acak dari 5 lagu `assets/audio/bg-*.mp3` (buatan sendiri, bebas lisensi), mengecil saat voice over.
-- **Klip gameplay** latar otomatis acak dari `assets/clips/<game>/` kalau ada (digelapkan supaya teks terbaca).
+- **Klip latar** otomatis acak dari `assets/clips/<game>/` (sementara klip suasana gaming bebas lisensi; nanti rekaman gameplay Owner).
+- **Logo tim & foto pemain** wajib di konten tim/pemain (aturan Owner): cek tiap adegan headline/player/score/versus sudah ada `logo`/`logoL`/`logoR`, dan `photo` kalau ada.
 
 ## Struktur
 | Waktu | Isi |

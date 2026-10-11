@@ -46,5 +46,6 @@ Kalau sesi ini jalan di laptop (Windows): jangan nyalain watcher lokal; ubah kod
 ## Aturan konten
 - Berita/esport wajib ada `sources` (URL) dan sudah dicek ke ≥2 sumber; kalau rumor tulis jelas "rumor".
 - Harga & nominal promo **hanya** dari zataa.my.id hari itu, jangan nebak.
-- Jangan pakai logo tim/turnamen atau foto pemain yang dilindungi hak cipta; pakai tipografi, ikon, dan nama.
+- **Aturan Owner (feed & video):** konten tentang tim/pemain WAJIB pakai logo tim terkait. Bahas tim → kalau ada, foto bareng seluruh pemain. Bahas 1 pemain → logo tim + foto pemainnya. Ambil via `node scripts/asset.mjs get <url> <teams|players|photos>/<nama>` (cek `asset.mjs list` dulu).
+- Video: latar klip suasana gaming (`assets/clips/`) sampai Owner kirim rekaman gameplay sendiri.
 - CTA & link selalu ke zataa.my.id. Bahasa: Indonesia santai ala gamer, tanpa SARA/judi.

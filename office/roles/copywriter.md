@@ -19,6 +19,7 @@ Maksimal 8 kata di gambar/teks pertama.
   - Pilih `style`: topup → `promo` / `flash` (flash sale); esport → `breaking` (berita/transfer), `matchday` (jadwal/preview), `glitch` (hasil/upset/juara), `tribute` (pensiun/perpisahan). Contoh lengkap: `templates/samples/video-<style>.json`.
   - Tiap adegan wajib `vo` = kalimat voice over (suara cewek "Gadis"), 1 kalimat pendek ≤14 kata, natural diucapkan (tulis angka "tiga satu" bukan "3-1", jangan singkatan aneh).
   - Intonasi lewat `mood`: `hype` (berita heboh), `promo`, `tanya` (nanya penonton, akhiri "?"), `info`, `santai`, `haru` (pensiun/kalah). Kosong = ditebak otomatis.
+  - Logo & foto (aturan Owner): adegan soal tim/pemain WAJIB `logo` (headline/player) atau `logoL`/`logoR` (score/versus); tambah `photo` (foto bareng tim / foto pemain) kalau ada di `assets/`.
   - Selang-seling: 1 adegan nanya ke penonton ("Kalian tim siapa?") biar komen rame.
 
 ## Caption

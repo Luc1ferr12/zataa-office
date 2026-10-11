@@ -1,2 +1,3 @@
-Klip gameplay latar video: assets/clips/<game>/*.mp4 (mlbb, valorant, freefire, other).
-Dipilih acak per video & digelapkan di belakang teks. Pakai klip yang boleh dipakai komersial / rekaman sendiri.
+Klip latar video.
+<game>/ (mlbb, valorant, freefire): rekaman gameplay Owner — diprioritaskan.
+mobile/, pc/, arena/: klip suasana gaming bebas lisensi (Pexels), dipakai kalau folder game kosong. Sumber: SUMBER.txt

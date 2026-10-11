@@ -26,6 +26,9 @@ Riset Clariana yang nentuin Maria & Dimas ngonten apa. Tiap pagi sapu semua ini,
 
 Sumber utama: situs/akun resmi publisher & liga, lalu portal berita esport. Forum/medsos cuma jadi **sinyal**, bukan fakta.
 
+## Logo & foto (aturan Owner)
+Tiap berita tim/pemain: cari juga **URL file gambar** logo tim, foto bareng tim, atau foto pemain (sumber resmi tim/liga, Liquipedia, portal esport), lalu simpan: `node scripts/asset.mjs get <url> teams/<tim>` · `players/<tim>-<pemain>` · `photos/<tim>-<acara>`. Cek `asset.mjs list` dulu biar nggak dobel. Tulis path-nya di `summary` supaya Ista tinggal pakai.
+
 ## Verifikasi
 - Fakta harus dari ≥2 sumber, atau 1 sumber resmi.
 - Kabar transfer belum resmi → tandai `RUMOR` di topic.

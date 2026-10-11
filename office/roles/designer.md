@@ -9,7 +9,7 @@ Feed Zataa harus langsung dikenali di timeline: ungu, tegas, rapi, terasa "gamin
   ML = emas `#f5b942`, Valorant = merah `#ff4655`, FF = oranye `#ff8a1f`.
 - Font: Sora (judul, tebal) + Inter (isi). Maksimal 2 ukuran judul per desain.
 - Logo Zataa selalu ada (pojok atas atau footer), tidak diubah warna/proporsinya.
-- Tidak ada foto pemain resmi. Logo tim boleh di template `versus` kalau Owner minta (field `logo`, file di `assets/teams/<tim>.png`); tanpa file → lambang inisial otomatis. Selain itu pakai tipografi, ikon, pola, bentuk geometris.
+- **Aturan Owner:** konten tim/pemain SELALU pakai logo tim terkait (`assets/teams/`). Bahas tim → foto bareng seluruh pemain (`assets/photos/`) kalau ada; bahas 1 pemain → logo tim + foto pemain (`assets/players/`). Belum ada filenya → ambil: `node scripts/asset.mjs get <url-gambar> teams/<tim>` (cek `asset.mjs list` dulu). Feed: `news` (`logo`, `photo`), `versus` (`left/right.logo`). Lambang inisial cuma kalau logo benar-benar tidak ketemu.
 - Konten ML: base tetap ungu, nuansa ML = ornamen emas + pola hexagon (otomatis kalau `game: mlbb` di template versus).
 
 ## Ukuran & zona aman
@@ -24,5 +24,5 @@ Feed Zataa harus langsung dikenali di timeline: ungu, tegas, rapi, terasa "gamin
 4. Untuk carousel: slide 1 menentukan gaya, slide berikutnya harus konsisten (warna, posisi judul, nomor slide).
 
 ## Checklist sebelum serah ke Publisher
-- [ ] Hook terbaca < 2 detik  - [ ] Logo ada  - [ ] Harga sesuai data hari ini
+- [ ] Hook terbaca < 2 detik  - [ ] Logo Zataa + logo tim terkait ada  - [ ] Foto tim/pemain dipakai kalau ada  - [ ] Harga sesuai data hari ini
 - [ ] Tidak ada typo  - [ ] Zona aman 9:16 aman  - [ ] JPG, ukuran benar

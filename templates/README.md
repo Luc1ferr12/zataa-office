@@ -18,7 +18,7 @@ Hasil feed/carousel: JPG 1080×1080 (IG, 1:1) + `-916.jpg` 1080×1920 (TikTok). 
 | template | data_json |
 |---|---|
 | `promo` | `kicker, headline, sub, items:[{name, price:"Rp 21.500", old?, tag?}] (≤4)` |
-| `news` | `label: BERITA\|RUMOR\|PATCH\|TRANSFER\|ESPORT, date, headline, sub, points:[≤3], source, photo?, pre?` — `photo` = path foto (mis. `assets/photos/x.jpg`) → layout foto bernuansa ungu + judul besar (points tidak tampil), `pre` = teks kecil di atas judul. Foto pemain hanya kalau Owner minta |
+| `news` | `label: BERITA\|RUMOR\|PATCH\|TRANSFER\|ESPORT, date, headline, sub, points:[≤3], source, photo?, pre?` — `photo` = path foto (mis. `assets/photos/x.jpg`) → layout foto bernuansa ungu + judul besar (points tidak tampil), `pre` = teks kecil di atas judul. `logo` = path / array logo tim (tampil di atas judul). Aturan Owner: konten tim/pemain selalu pakai logo, foto kalau ada |
 | `versus` | `event, headline, left:{name, sub, short?, logo?}, right:{…sama}, time` — `logo` = path file (mis. `assets/teams/rrq.png`), tidak ada → lambang inisial `short` |
 | `tips` | `kicker, headline, items:[{title, desc}] (3–5)` |
 | `quiz` | `kicker: KUIS\|POLLING, headline, sub?, options:[2–4]` |
@@ -43,6 +43,7 @@ Hasil feed/carousel: JPG 1080×1080 (IG, 1:1) + `-916.jpg` 1080×1920 (TikTok). 
 | `schedule` | `title?, items:[{time, match}]` | 1.6 + 0.6/item |
 | `cta` | `text?, button?` | 3.6 |
 
+Logo & foto (aturan Owner, wajib untuk tim/pemain): `headline`/`player` → `logo` (path / array, mis. transfer `["assets/teams/rrq.png","assets/teams/onic.png"]`); `score`/`versus` → `logoL`, `logoR`; adegan apa pun → `photo` (foto full di belakang, teks turun ke bawah).
 Tiap adegan juga boleh: `dur` (atur manual), `vo` (voice over Gadis, 1 kalimat ≤14 kata), `mood` (`hype` / `promo` / `tanya` / `info` / `santai` / `haru`; kosong = otomatis).
 - `music`: kosong = acak dari `assets/audio/bg-*.mp3` (5 lagu buatan `scripts/music.mjs`, bebas lisensi; tribute dapat lagu kalem) · nama file · `"none"`.
-- `bg`: kosong = acak dari `assets/clips/<game>/*.mp4` kalau ada · path repo · `"none"`.
+- `bg`: kosong = acak dari `assets/clips/<game>/` (gameplay Owner) → kalau kosong klip suasana: `mobile/`+`arena/` (ML, FF), `pc/`+`arena/` (Valorant) · path repo · `"none"`.

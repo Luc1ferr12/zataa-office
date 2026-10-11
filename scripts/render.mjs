@@ -118,10 +118,14 @@ function chooseMusic(data) {
 function chooseClip(data) {
   if (data.bg === 'none') return null;
   if (data.bg) return existsSync(join(ROOT, data.bg)) ? data.bg.replaceAll('\\', '/') : null;
+  // prioritas: gameplay asli di assets/clips/<game>/ → kalau kosong, klip suasana (HP untuk game mobile, PC untuk Valorant, + arena)
   const g = data.game ?? 'other';
-  const dir = join(ROOT, 'assets', 'clips', g);
-  const all = existsSync(dir) ? readdirSync(dir).filter((f) => /\.(mp4|webm)$/i.test(f)) : [];
-  return all.length ? `assets/clips/${g}/${pick(all)}` : null;
+  const files = (sub) => { const d = join(ROOT, 'assets', 'clips', sub); return existsSync(d) ? readdirSync(d).filter((f) => /\.(mp4|webm)$/i.test(f)).map((f) => `assets/clips/${sub}/${f}`) : []; };
+  const own = files(g);
+  if (own.length) return pick(own);
+  const mood = { mlbb: ['mobile', 'arena'], freefire: ['mobile', 'arena'], valorant: ['pc', 'arena'] }[g] ?? ['mobile', 'pc', 'arena'];
+  const all = mood.flatMap(files);
+  return all.length ? pick(all) : null;
 }
 
 // ---------- video: seek per frame → JPG → ffmpeg (H.264 + voice over + musik latar)

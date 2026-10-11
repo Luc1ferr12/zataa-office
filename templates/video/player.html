@@ -16,10 +16,10 @@
   .wipe { position: absolute; top: -10%; height: 120%; width: 70%; background: linear-gradient(90deg, transparent, var(--accent) 30%, var(--brand) 70%, transparent); transform: skewX(-14deg); opacity: 0; mix-blend-mode: screen; z-index: 7; }
   .p { position: absolute; width: 14px; height: 14px; background: var(--accent); opacity: .35; }
   /* klip gameplay di belakang teks */
-  .clip { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: none; filter: saturate(1.1) contrast(1.05) blur(3px); }
-  .clipshade { position: absolute; inset: 0; display: none; background: linear-gradient(180deg, #0d0420f0 0%, #0d0420b8 28%, #0d0420c8 62%, #0d0420f5 100%), color-mix(in srgb, var(--brand) 30%, transparent); }
+  .clip { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: none; filter: saturate(1.2) contrast(1.08) brightness(1.1) blur(1.5px); }
+  .clipshade { position: absolute; inset: 0; display: none; background: linear-gradient(180deg, #0d0420d0 0%, #0d042070 26%, #0d042090 60%, #0d0420e8 100%), color-mix(in srgb, var(--brand) 18%, transparent); }
   .has-clip .clip, .has-clip .clipshade { display: block; }
-  .has-clip .bg { opacity: .35; }
+  .has-clip .bg { opacity: 0; }
 
   /* ---- isi adegan */
   .s-hook h1 { font: 800 132px/1.0 Sora; letter-spacing: -0.04em; text-wrap: balance; }
@@ -41,6 +41,18 @@
   .cta-logo { width: 300px; height: 300px; border-radius: 68px; box-shadow: 0 30px 80px #000a, 0 0 0 5px #ffffff26; }
   .btn { align-self: flex-start; padding: 30px 56px; border-radius: 999px; background: var(--accent); color: #0d0420; font: 800 64px/1 Sora; letter-spacing: -0.01em; box-shadow: 0 18px 50px color-mix(in srgb, var(--accent) 45%, transparent); }
   .site { font: 800 76px/1 Sora; letter-spacing: .02em; color: var(--white); min-height: 76px; }
+  /* foto per adegan (data scene.photo): full layar, teks turun ke bawah supaya wajah tidak ketutup */
+  .shot { position: absolute; inset: 0; opacity: 0; overflow: hidden; }
+  .shot img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 22%; filter: saturate(.95) contrast(1.05); }
+  .shot::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, #0d042099 0%, #0d042022 22%, #0d042033 42%, #0d0420dd 64%, #0d0420fa 100%); }
+  .shot::before { content: ''; position: absolute; inset: 0; z-index: 1; background: linear-gradient(160deg, var(--brand), #2a0a6b); mix-blend-mode: color; opacity: .28; }
+  .scene.on-photo { justify-content: flex-end; }
+  .scene.on-photo h1, .scene.on-photo h2, .scene.on-photo .big, .scene.on-photo .who { text-shadow: 0 6px 30px #000c; }
+  /* logo tim */
+  .tlogos { display: flex; gap: 26px; align-items: center; }
+  .tlogos img, .tm img, .team img { object-fit: contain; filter: drop-shadow(0 8px 22px #000c); }
+  .tlogos img { width: 170px; height: 170px; }
+  .tm img, .team img { display: block; margin: 0 auto 14px; width: 150px; height: 150px; }
   /* esport: headline / skor / pemain / jadwal */
   .kick { align-self: flex-start; display: inline-flex; align-items: center; gap: 14px; padding: 16px 28px; border-radius: 14px; background: var(--accent); color: #0d0420; font: 800 44px/1 Sora; letter-spacing: .1em; }
   .kick::before { content: ''; width: 18px; height: 18px; border-radius: 50%; background: #0d0420; }
@@ -107,7 +119,7 @@
 <body class="story">
 <div class="bg" id="bg"></div><div class="watermark">ZA</div>
 <video class="clip" id="clip" muted playsinline preload="auto"></video><div class="clipshade"></div>
-<div id="parts"></div>
+<div id="shots"></div><div id="parts"></div>
 <div class="hazard t"></div><div class="hazard b"></div><div class="scan"></div>
 <div class="ticker" id="ticker"><b>BREAKING</b><span id="tickt"></span></div>
 <div class="mini"><img src="../../docs/assets/logo.png" alt="">ZATAA</div><div class="gtag" id="gtag"></div>
@@ -133,19 +145,21 @@ const outCubic = (p) => 1 - (1 - p) ** 3;
 let scenes = [], total = 0, style = 'promo', clip = null;
 
 // ---- isi tiap jenis adegan; data-a = jenis animasi masuk, data-d = jeda (detik)
+const img = (p) => (p ? `<img src="/${esc(String(p).replace(/^\/+/, ''))}" alt="">` : '');
+const logos = (l, d = 0) => { const a = [l ?? []].flat().filter(Boolean); return a.length ? `<div class="tlogos" data-a="pop" data-d="${d}">${a.map(img).join('')}</div>` : ''; };
 function html(s, i) {
   switch (s.t) {
     case 'hook': return `<h1 data-a="slam">${md(s.text)}</h1>${s.sub ? `<p class="t-sub" data-a="up" data-d=".45">${md(s.sub)}</p>` : ''}`;
     case 'point': return `${s.n !== false ? `<div class="num" data-a="pop">${String(s.n ?? i).padStart(2, '0')}</div>` : ''}<h2 data-a="up" data-d=".15">${md(s.title)}</h2>${s.body ? `<p class="t-sub" data-a="up" data-d=".4">${md(s.body)}</p>` : ''}`;
     case 'list': return `${s.title ? `<h2 data-a="up">${md(s.title)}</h2>` : ''}<div class="list">${(s.items ?? []).map((it, k) => `<div class="row" data-a="left" data-d="${0.35 + k * 0.4}"><i></i><span>${md(it)}</span></div>`).join('')}</div>`;
     case 'price': return `${s.title ? `<h2 data-a="up">${md(s.title)}</h2>` : ''}<div class="list">${(s.items ?? []).map((it, k) => `<div class="price" data-a="pop" data-d="${0.3 + k * 0.35}"><b>${md(it.name)}</b><span data-count="${esc(it.price)}" data-d="${0.3 + k * 0.35}">${esc(it.price)}</span></div>`).join('')}</div>`;
-    case 'versus': return `${s.title ? `<h2 data-a="up">${md(s.title)}</h2>` : ''}<div class="team l" data-a="fromL">${esc(s.left)}</div><div class="vs" data-a="slam" data-d=".45">VS</div><div class="team r" data-a="fromR" data-d=".2">${esc(s.right)}</div>${s.sub ? `<p class="t-sub" data-a="up" data-d=".8">${md(s.sub)}</p>` : ''}`;
-    case 'headline': return `${s.kicker ? `<div class="kick" data-a="pop">${esc(s.kicker)}</div>` : ''}<div class="big" data-a="slam" data-d=".2">${md(s.text)}</div>${s.sub ? `<p class="t-sub" data-a="up" data-d=".6">${md(s.sub)}</p>` : ''}`;
+    case 'versus': return `${s.title ? `<h2 data-a="up">${md(s.title)}</h2>` : ''}<div class="team l" data-a="fromL">${img(s.logoL)}${esc(s.left)}</div><div class="vs" data-a="slam" data-d=".45">VS</div><div class="team r" data-a="fromR" data-d=".2">${img(s.logoR)}${esc(s.right)}</div>${s.sub ? `<p class="t-sub" data-a="up" data-d=".8">${md(s.sub)}</p>` : ''}`;
+    case 'headline': return `${logos(s.logo)}${s.kicker ? `<div class="kick" data-a="pop">${esc(s.kicker)}</div>` : ''}<div class="big" data-a="slam" data-d=".2">${md(s.text)}</div>${s.sub ? `<p class="t-sub" data-a="up" data-d=".6">${md(s.sub)}</p>` : ''}`;
     case 'score': {
       const l = +s.sl, r = +s.sr;
-      return `${s.title ? `<h2 data-a="up">${md(s.title)}</h2>` : ''}<div class="score"><div class="tm ${l > r ? 'win' : ''}" data-a="fromL">${esc(s.left)}</div><div class="sc" data-a="slam" data-d=".5">${l > r ? `<span>${l}</span>` : l}–${r > l ? `<span>${r}</span>` : r}</div><div class="tm ${r > l ? 'win' : ''}" data-a="fromR" data-d=".2">${esc(s.right)}</div></div>${s.sub ? `<p class="t-sub" data-a="up" data-d=".9">${md(s.sub)}</p>` : ''}`;
+      return `${s.title ? `<h2 data-a="up">${md(s.title)}</h2>` : ''}<div class="score"><div class="tm ${l > r ? 'win' : ''}" data-a="fromL">${img(s.logoL)}${esc(s.left)}</div><div class="sc" data-a="slam" data-d=".5">${l > r ? `<span>${l}</span>` : l}–${r > l ? `<span>${r}</span>` : r}</div><div class="tm ${r > l ? 'win' : ''}" data-a="fromR" data-d=".2">${img(s.logoR)}${esc(s.right)}</div></div>${s.sub ? `<p class="t-sub" data-a="up" data-d=".9">${md(s.sub)}</p>` : ''}`;
     }
-    case 'player': return `${s.tag ? `<div class="kick" data-a="pop">${esc(s.tag)}</div>` : ''}<div class="who" data-a="slam" data-d=".2">${esc(s.name)}</div>${s.role ? `<p class="role" data-a="up" data-d=".5">${md(s.role)}</p>` : ''}${s.from || s.to ? `<div class="move" data-a="left" data-d=".8">${s.from ? `<b>${esc(s.from)}</b>` : ''}<i>→</i>${s.to ? `<b>${esc(s.to)}</b>` : ''}</div>` : ''}${s.sub ? `<p class="t-sub" data-a="up" data-d="1.1">${md(s.sub)}</p>` : ''}`;
+    case 'player': return `${logos(s.logo)}${s.tag ? `<div class="kick" data-a="pop">${esc(s.tag)}</div>` : ''}<div class="who" data-a="slam" data-d=".2">${esc(s.name)}</div>${s.role ? `<p class="role" data-a="up" data-d=".5">${md(s.role)}</p>` : ''}${s.from || s.to ? `<div class="move" data-a="left" data-d=".8">${s.from ? `<b>${esc(s.from)}</b>` : ''}<i>→</i>${s.to ? `<b>${esc(s.to)}</b>` : ''}</div>` : ''}${s.sub ? `<p class="t-sub" data-a="up" data-d="1.1">${md(s.sub)}</p>` : ''}`;
     case 'schedule': return `${s.title ? `<h2 data-a="up">${md(s.title)}</h2>` : ''}<div class="list">${(s.items ?? []).map((it, k) => `<div class="sched" data-a="left" data-d="${0.35 + k * 0.4}"><time>${esc(it.time)}</time><span>${md(it.match)}</span></div>`).join('')}</div>`;
     case 'cta': return `<img class="cta-logo" data-a="pop" src="../../docs/assets/logo.png" alt=""><h2 data-a="up" data-d=".25">${md(s.text ?? 'Top up sekarang!')}</h2><div class="site" data-a="type" data-d=".6" data-text="zataa.my.id"></div><div class="btn" data-a="pulse" data-d="1.1">${esc(s.button ?? 'Top up ⚡')}</div>`;
     default: return `<h2 data-a="up">${md(s.text ?? s.title ?? '')}</h2>`;
@@ -175,10 +189,12 @@ window.setup = async (data) => {
   let t0 = 0;
   scenes = list.map((s, i) => {
     const el = document.createElement('div');
-    el.className = `scene s-${s.t}`;
+    el.className = `scene s-${s.t}${s.photo ? ' on-photo' : ''}`;
     el.innerHTML = html(s, i);
     stage.appendChild(el);
-    const sc = { el, t0, dur: durs[i], parts: [...el.querySelectorAll('[data-a]')] };
+    let shot = null;
+    if (s.photo) { shot = document.createElement('div'); shot.className = 'shot'; shot.innerHTML = img(s.photo); document.getElementById('shots').appendChild(shot); }
+    const sc = { el, shot, t0, dur: durs[i], parts: [...el.querySelectorAll('[data-a]')] };
     t0 += durs[i];
     return sc;
   });
@@ -191,6 +207,7 @@ window.setup = async (data) => {
     await new Promise((res) => { clip.onloadeddata = res; clip.onerror = () => { clip = null; res(); }; setTimeout(res, 15000); });
     if (clip?.duration) document.body.classList.add('has-clip'); else clip = null;
   }
+  await Promise.all([...document.images].map((im) => im.decode().catch(() => {})));
   await ready();
   await window.seek(0);
   return { total, starts: scenes.map((s) => +s.t0.toFixed(3)) };
@@ -234,6 +251,7 @@ window.seek = async (t) => {
     const lt = t - s.t0;
     const on = lt >= 0 && lt < s.dur;
     s.el.style.display = on ? 'flex' : 'none';
+    if (s.shot) { const fo = on ? clamp(lt / 0.35) * clamp((s.dur - lt) / 0.35) : 0; s.shot.style.opacity = String(fo); s.shot.firstChild.style.transform = `scale(${1.04 + Math.max(0, lt) * 0.012})`; }
     if (!on) continue;
     // keluar: akhir adegan (tribute lebih pelan; adegan terakhir pudar lebih lama supaya loop mulus)
     const outLen = style === 'tribute' ? 0.6 : s === scenes[scenes.length - 1] ? 0.5 : 0.25;
