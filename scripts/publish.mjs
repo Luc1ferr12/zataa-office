@@ -257,16 +257,27 @@ if (isMain) {
       setEnv('IG_USER_ID', acc.id);
       out(`ok: IG_USER_ID = ${acc.id} (@${acc.username}) disimpan ke .env · token yang diisi: ${kind} token`);
     }
+    else if (cmd === 'tiktok-setup') { // Owner ngisi sendiri Client Key & Secret (rahasia) dari TikTok for Developers
+      const { createInterface } = await import('node:readline/promises');
+      const rl = createInterface({ input: process.stdin, output: process.stdout });
+      const key = (await rl.question('Client key: ')).trim();
+      const secret = (await rl.question('Client secret: ')).trim();
+      rl.close();
+      if (!key || !secret) throw new Error('client key / secret kosong, ulangi');
+      setEnv('TIKTOK_CLIENT_KEY', key);
+      setEnv('TIKTOK_CLIENT_SECRET', secret);
+      out('ok: tersimpan di .env. Kabarin Claude, lanjut login TikTok.');
+    }
     else if (cmd === 'tiktok-login') {
       const e = env();
       if (!e.TIKTOK_CLIENT_KEY || !e.TIKTOK_REDIRECT_URI) throw new Error('isi TIKTOK_CLIENT_KEY & TIKTOK_REDIRECT_URI di .env dulu');
       const u = new URL('https://www.tiktok.com/v2/auth/authorize/');
-      u.search = new URLSearchParams({ client_key: e.TIKTOK_CLIENT_KEY, scope: 'user.info.basic,video.publish', response_type: 'code', redirect_uri: e.TIKTOK_REDIRECT_URI, state: 'zataa' });
+      u.search = new URLSearchParams({ client_key: e.TIKTOK_CLIENT_KEY, scope: 'user.info.basic,video.publish,video.upload,video.list', response_type: 'code', redirect_uri: e.TIKTOK_REDIRECT_URI, state: 'zataa' });
       out(`Buka link ini, login & izinkan, lalu salin URL halaman tujuan (yang ada ?code=...):\n${u}\n\nLanjut: node scripts/publish.mjs tiktok-code "<URL itu>"`);
     } else if (cmd === 'tiktok-code') {
       const code = a?.includes('code=') ? new URL(a).searchParams.get('code') : a;
       await tiktokOAuth({ grant_type: 'authorization_code', code, redirect_uri: env().TIKTOK_REDIRECT_URI });
       out('ok: token TikTok disimpan ke .env (auto-refresh, berlaku ±1 tahun)');
-    } else out('pakai: publish.mjs due | now <id> | ig-check | tiktok-login | tiktok-code <url>');
+    } else out('pakai: publish.mjs due | now <id> | ig-check | tiktok-setup | tiktok-login | tiktok-code <url>');
   } catch (e) { out(`gagal: ${e.message}`); process.exit(1); }
 }

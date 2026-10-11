@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Login TikTok · Zataa Topup</title>
+<style>
+  :root { --bg: #ffffff; --fg: #1d1b26; --muted: #5c5870; --accent: #6d28d9; }
+  @media (prefers-color-scheme: dark) { :root { --bg: #0f0c1a; --fg: #ece9f5; --muted: #a6a0bd; --accent: #a78bfa; } }
+  body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.65 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  main { max-width: 720px; margin: 0 auto; padding: 40px 16px 64px; }
+  h1 { font-size: 1.8rem; margin: 0 0 4px; }
+  h2 { font-size: 1.1rem; margin: 28px 0 6px; }
+  p, li { color: var(--fg); }
+  .muted { color: var(--muted); }
+  a { color: var(--accent); }
+</style>
+</head>
+<body>
+<main>
+  <h1>Login TikTok berhasil?</h1>
+  <p class="muted">Halaman tujuan setelah izin TikTok untuk aplikasi Zataa Topup.</p>
+  <p id="s">Memeriksa…</p>
+  <p><code id="c" style="word-break:break-all"></code></p>
+  <script>
+    const q = new URLSearchParams(location.search);
+    const s = document.getElementById('s'), c = document.getElementById('c');
+    if (q.get('code')) { s.textContent = '✅ Berhasil. Salin SELURUH alamat (URL) halaman ini dari address bar, lalu kirim ke Claude.'; c.textContent = location.href; }
+    else s.textContent = q.get('error') ? '❌ Gagal: ' + (q.get('error_description') || q.get('error')) : 'Belum ada kode login di alamat ini.';
+  </script>
+</main>
+</body>
+</html>
