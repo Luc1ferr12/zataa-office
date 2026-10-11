@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-11T11:34:32.780Z",
+ "generated_at": "2026-10-11T11:40:42.442Z",
  "today": "2026-10-11",
  "week_start": "2026-10-05",
  "campaign": {
@@ -37,16 +37,16 @@
    "name": "Ista",
    "title": "Copywriter",
    "status": "done",
-   "current_task": "Teks hasil 100T vs NRG",
-   "updated_at": "2026-10-11 11:32:41"
+   "current_task": "Revisi #5: Champions Shanghai: 100T 2-0 NRG",
+   "updated_at": "2026-10-11 11:36:27"
   },
   {
    "id": "designer",
    "name": "Maria",
    "title": "Graphic Designer",
    "status": "done",
-   "current_task": "Render feed 100T vs NRG",
-   "updated_at": "2026-10-11 11:33:07"
+   "current_task": "Revisi #5: Champions Shanghai: 100T 2-0 NRG",
+   "updated_at": "2026-10-11 11:36:27"
   },
   {
    "id": "video",
@@ -60,9 +60,9 @@
    "id": "publisher",
    "name": "Fikri",
    "title": "Social Media Publisher",
-   "status": "done",
-   "current_task": "QA & kirim feed 100T vs NRG",
-   "updated_at": "2026-10-11 11:33:12"
+   "status": "waiting",
+   "current_task": "#5 Champions Shanghai: 100T 2-0 NRG",
+   "updated_at": "2026-10-11 11:36:32"
   },
   {
    "id": "ads",
@@ -167,6 +167,26 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-11 11:36:32",
+   "agent_id": "publisher",
+   "message": "Kirim #5 ke Owner buat approval · revisi ke-1"
+  },
+  {
+   "ts": "2026-10-11 11:36:28",
+   "agent_id": "designer",
+   "message": "Revisi #5 kelar: Konten #5 sekarang pakai layout versus 100T vs NRG dengan lambang inisial tim, logo aslinya tinggal ditaruh file PNG-nya"
+  },
+  {
+   "ts": "2026-10-11 11:35:30",
+   "agent_id": "designer",
+   "message": "Balik ke komputer, ngerjain revisi #5"
+  },
+  {
+   "ts": "2026-10-11 11:35:30",
+   "agent_id": "owner",
+   "message": "Minta revisi #5: Isiin foto team nya"
+  },
+  {
    "ts": "2026-10-11 11:33:12",
    "agent_id": "publisher",
    "message": "Feed #5 100T 2-0 NRG dikirim ke Owner untuk approval"
@@ -270,24 +290,30 @@
    "ts": "2026-10-11 05:23:50",
    "agent_id": "dir",
    "message": "Campaign darurat dibuat: 2 slot hari ini, tanpa promo harga"
-  },
-  {
-   "ts": "2026-10-11 05:23:42",
-   "agent_id": "dir",
-   "message": "Plan minggu 2026-10-05 dibuat: Road to Playoff & Champions (2 konten)"
-  },
-  {
-   "ts": "2026-10-11 05:23:27",
-   "agent_id": "researcher",
-   "message": "4 topik (MPL W8, Valorant Champions, FF rumor); zataa.my.id gagal dibuka (DNS), harga tidak tersedia"
-  },
-  {
-   "ts": "2026-10-11 05:23:26",
-   "agent_id": "researcher",
-   "message": "Nemu 5 topik baru"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-10-11 11:36:27",
+   "agent_id": "designer",
+   "to_id": "publisher",
+   "kind": "oper",
+   "message": "Visual \"Revisi #5: Champions Shanghai: 100T 2-0 NRG\" kelar! Fikri, cek typo-nya sekalian ya 🙏"
+  },
+  {
+   "ts": "2026-10-11 11:36:27",
+   "agent_id": "copywriter",
+   "to_id": "designer",
+   "kind": "oper",
+   "message": "Maria, copy \"Revisi #5: Champions Shanghai: 100T 2-0 NRG\" udah masuk. Headline-nya jangan dikecilin ya 😆"
+  },
+  {
+   "ts": "2026-10-11 11:35:30",
+   "agent_id": "designer",
+   "to_id": null,
+   "kind": "curhat",
+   "message": "Noted bos, aku benerin sekarang"
+  },
   {
    "ts": "2026-10-11 11:33:12",
    "agent_id": "publisher",
