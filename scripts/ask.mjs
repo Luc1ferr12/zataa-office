@@ -79,11 +79,13 @@ export async function smallTalk(msg) {
 }
 
 // ---------- Claude Code CLI
-function claude(prompt, minutes = 20) {
+// model kosong = model default CLI (kerja berat: konten, riset, harga); obrolan ringan pakai CHAT_MODEL (default haiku)
+const FULL_TOOLS = ['Bash(node:*)', 'Read', 'Edit', 'Write', 'Glob', 'Grep', 'WebSearch', 'WebFetch'];
+function claude(prompt, minutes = 20, { model, tools = FULL_TOOLS } = {}) {
   const bin = loadEnv().CLAUDE_BIN || 'claude';
-  const tools = ['Bash(node:*)', 'Read', 'Edit', 'Write', 'Glob', 'Grep', 'WebSearch', 'WebFetch'];
+  const args = ['-p', '--permission-mode', 'acceptEdits', ...(model ? ['--model', model] : []), '--allowedTools', ...tools];
   return new Promise((resolve) => {
-    const p = spawn(bin, ['-p', '--permission-mode', 'acceptEdits', '--allowedTools', ...tools], { cwd: ROOT, shell: true, windowsHide: true });
+    const p = spawn(bin, args, { cwd: ROOT, shell: true, windowsHide: true });
     let o = '', e = '';
     const timer = setTimeout(() => { p.kill(); e += `\n(dihentikan: lewat ${minutes} menit)`; }, minutes * 60_000);
     p.stdout.on('data', (b) => { o += b; });
@@ -117,6 +119,10 @@ const replyOf = (text) => {
 // ---------- konteks obrolan Telegram (tabel chats): biar balasan nyambung, bukan mulai dari nol tiap pesan
 const TASK_RE = /\b(bikin|bikinin|buat|buatin|buatkan|desain|design|render|post|posting|upload|tayang|revisi|ganti|ubah|edit|hapus|kirim|cariin|carikan|riset|pantau|pantauin|cek|cekin|jadwal|jadwalin|promo|konten|caption|video|feed|carousel|boost|tolong)\b/i;
 export const isTask = (t) => TASK_RE.test(t);
+// butuh data/riset (harga, berita, skor, turnamen, angka IG…) → tetap model utama walau bentuknya pertanyaan
+const WORK_RE = /\b(harga|berapa|diamond|dm|nominal|diskon|promo|berita|news|info|update|patch|meta|skor|score|menang|kalah|juara|final|turnamen|tournament|match|mpl|mdl|msc|vct|ffws|ffml|transfer|rumor|roster|tren|trending|viral|data|insight|laporan|report|engagement|reach|follower|analisa|analisis|bandingin)\b|https?:\/\//i;
+export const isLightChat = (t) => t.length <= 300 && !isTask(t) && !WORK_RE.test(t);
+const ESCALATE = '[[ESKALASI]]';
 const lastSpeaker = (d) => {
   const r = d.prepare("SELECT agent_id FROM chats WHERE to_id = 'owner' AND ts >= datetime('now', '-20 minutes') ORDER BY id DESC LIMIT 1").get();
   return r?.agent_id && NAMA[r.agent_id] ? r.agent_id : null;
@@ -167,6 +173,23 @@ export async function handleOwnerMessage(msg, log = console.log, photos = []) {
     await sayAs(lead, lead === 'dir' ? 'Siap Bos! 👌 Aku bagi tugas ke tim dulu, nanti hasilnya aku kabarin di sini.' : 'Siap Bos, aku kerjain! 👌 Nanti aku kabarin hasilnya di sini.').catch(() => {});
   }
   const refs = await downloadPhotos(photos);
+  // obrolan santai / pertanyaan singkat → model kecil (murah); kalau ternyata butuh kerja beneran, dioper ke model utama
+  if (!task && !refs.length && isLightChat(msg)) {
+    const chatModel = loadEnv().CHAT_MODEL || 'haiku';
+    const light = await claude(`Kamu tim kantor marketing Zataa (zataa.my.id, top up game), lagi ngobrol santai dengan Owner (Bos Zamiir) lewat Telegram.${history}
+Pesan BARU Owner:\n"${msg}"
+${lead !== 'dir' ? `Yang diajak ngomong: ${NAMA[lead]} (${lead}) — dia yang jawab duluan.\n` : ''}Bales natural & singkat, bahasa Indonesia santai ala gamer, sebagai pegawai kantor. Jangan ngarang data (harga, skor, berita, angka IG).
+Kalau pesannya ternyata butuh riset web, cek harga, data, atau bikin/ubah konten: JANGAN dikerjakan, cukup tulis persis ${ESCALATE} lalu berhenti.
+Tim: Aprista (dir), Clariana (researcher), Ista (copywriter), Maria (designer), Dimas (video), Fikri (publisher), Fahriah (ads), Raka (analyst), Budi (price).
+Akhiri dengan baris "BALASAN:" lalu 1–2 baris, TIAP baris diawali nama pegawai: "Nama: pesan".`, 3, { model: chatModel, tools: ['Read', 'Glob', 'Grep'] });
+    if (light.ok && !light.text.includes(ESCALATE)) {
+      const reply = formatReply(light.text, lead);
+      await say(reply).catch(() => {});
+      remember(d, reply);
+      return { kind: 'talk', ok: true, model: chatModel };
+    }
+    log(light.ok ? 'obrolan dioper ke model utama (eskalasi)' : `model chat gagal, pakai model utama: ${light.text.slice(0, 200)}`);
+  }
   const r = await claude(`Kamu tim kantor marketing Zataa (zataa.my.id) di folder ini.${history}
 Pesan BARU Owner (Bos Zamiir) lewat Telegram:\n"${msg || '(cuma kirim gambar)'}"${photoNote(refs)}
 ${lead !== 'dir' ? `Yang diajak ngomong / pegang: ${NAMA[lead]} (${lead}) — dia yang jawab duluan di BALASAN.\n` : ''}Baca pesan ini SESUAI KONTEKS obrolan di atas. Kalau cuma ngobrol, nyambung obrolan, atau ngasih info (bukan nyuruh bikin sesuatu): JANGAN bagi tugas / bikin konten, cukup bales natural sebagai pegawai itu (boleh catat infonya kalau relevan, mis. update skor ke followup yang ada).
