@@ -2,23 +2,29 @@
 <html lang="id"><head><meta charset="utf-8"><title>video</title>
 <link rel="stylesheet" href="../shared/brand.css">
 <style>
-  :root { --H: 1920px; }
+  :root { --H: 1920px; --hot: #ff3b4e; }
   /* zona aman video: 10% atas, 20% bawah, 15% kanan */
   .stage { position: absolute; left: 80px; right: 162px; top: 250px; bottom: 384px; }
   .scene { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; gap: 44px; opacity: 0; }
   .scene > * { will-change: transform, opacity; }
-  .mini { position: absolute; left: 80px; top: 120px; display: flex; align-items: center; gap: 14px; font: 800 30px/1 Sora; letter-spacing: .12em; opacity: .92; }
-  .gtag { position: absolute; right: 80px; top: 124px; display: flex; align-items: center; gap: 14px; padding: 14px 30px; border-radius: 999px; border: 3px solid var(--accent); background: #0009; font: 800 30px/1 Sora; letter-spacing: .08em; box-shadow: 0 0 24px color-mix(in srgb, var(--accent) 45%, transparent); }
-  .gtag::before { content: ''; width: 16px; height: 16px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 12px var(--accent); }
+  .mini { position: absolute; left: 80px; top: 120px; display: flex; align-items: center; gap: 14px; font: 800 30px/1 Sora; letter-spacing: .12em; opacity: .92; z-index: 5; }
   .mini img { width: 64px; height: 64px; border-radius: 16px; box-shadow: 0 0 0 3px #ffffff22; }
-  .bar { position: absolute; left: 0; top: 0; height: 12px; background: linear-gradient(90deg, var(--brand-2), var(--accent)); box-shadow: 0 0 20px var(--accent); }
-  .flash { position: absolute; inset: 0; background: #fff; opacity: 0; pointer-events: none; }
-  .wipe { position: absolute; top: -10%; height: 120%; width: 70%; background: linear-gradient(90deg, transparent, var(--accent) 30%, var(--brand) 70%, transparent); transform: skewX(-14deg); opacity: 0; mix-blend-mode: screen; }
+  .gtag { position: absolute; right: 80px; top: 124px; display: flex; align-items: center; gap: 14px; padding: 14px 30px; border-radius: 999px; border: 3px solid var(--accent); background: #0009; font: 800 30px/1 Sora; letter-spacing: .08em; box-shadow: 0 0 24px color-mix(in srgb, var(--accent) 45%, transparent); z-index: 5; }
+  .gtag::before { content: ''; width: 16px; height: 16px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 12px var(--accent); }
+  .bar { position: absolute; left: 0; top: 0; height: 12px; background: linear-gradient(90deg, var(--brand-2), var(--accent)); box-shadow: 0 0 20px var(--accent); z-index: 6; }
+  .flash { position: absolute; inset: 0; background: #fff; opacity: 0; pointer-events: none; z-index: 7; }
+  .wipe { position: absolute; top: -10%; height: 120%; width: 70%; background: linear-gradient(90deg, transparent, var(--accent) 30%, var(--brand) 70%, transparent); transform: skewX(-14deg); opacity: 0; mix-blend-mode: screen; z-index: 7; }
   .p { position: absolute; width: 14px; height: 14px; background: var(--accent); opacity: .35; }
+  /* klip gameplay di belakang teks */
+  .clip { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: none; filter: saturate(1.1) contrast(1.05) blur(3px); }
+  .clipshade { position: absolute; inset: 0; display: none; background: linear-gradient(180deg, #0d0420f0 0%, #0d0420b8 28%, #0d0420c8 62%, #0d0420f5 100%), color-mix(in srgb, var(--brand) 30%, transparent); }
+  .has-clip .clip, .has-clip .clipshade { display: block; }
+  .has-clip .bg { opacity: .35; }
 
+  /* ---- isi adegan */
   .s-hook h1 { font: 800 132px/1.0 Sora; letter-spacing: -0.04em; text-wrap: balance; }
   .t-sub { font: 700 60px/1.25 Inter; color: var(--muted); text-wrap: balance; }
-  h1 em, h2 em, .t-sub em { font-style: normal; color: var(--accent); }
+  h1 em, h2 em, .t-sub em, .big em { font-style: normal; color: var(--accent); }
   .num { font: 800 230px/0.8 Sora; color: transparent; -webkit-text-stroke: 5px var(--accent); }
   h2 { font: 800 104px/1.04 Sora; letter-spacing: -0.03em; text-wrap: balance; }
   .row { display: flex; align-items: center; gap: 28px; padding: 30px 36px; border-radius: 30px; background: linear-gradient(160deg, #ffffff1c, #ffffff08); border: 3px solid #ffffff22; font: 800 64px/1.1 Sora; }
@@ -33,24 +39,98 @@
   .team.r { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 28%, transparent); }
   .vs { align-self: center; font: 800 150px/1 Sora; font-style: italic; text-shadow: 8px 8px 0 var(--brand), -4px -4px 0 var(--accent); }
   .cta-logo { width: 300px; height: 300px; border-radius: 68px; box-shadow: 0 30px 80px #000a, 0 0 0 5px #ffffff26; }
+  .btn { align-self: flex-start; padding: 30px 56px; border-radius: 999px; background: var(--accent); color: #0d0420; font: 800 64px/1 Sora; letter-spacing: -0.01em; box-shadow: 0 18px 50px color-mix(in srgb, var(--accent) 45%, transparent); }
   .site { font: 800 76px/1 Sora; letter-spacing: .02em; color: var(--white); min-height: 76px; }
-  .btn { align-self: flex-start; padding: 36px 52px; border-radius: 30px; font: 800 64px/1 Sora; color: var(--brand-dark); background: #fff; box-shadow: 0 16px 0 #0006; }
+  /* esport: headline / skor / pemain / jadwal */
+  .kick { align-self: flex-start; display: inline-flex; align-items: center; gap: 14px; padding: 16px 28px; border-radius: 14px; background: var(--accent); color: #0d0420; font: 800 44px/1 Sora; letter-spacing: .1em; }
+  .kick::before { content: ''; width: 18px; height: 18px; border-radius: 50%; background: #0d0420; }
+  .big { font: 800 116px/1.02 Sora; letter-spacing: -0.035em; text-wrap: balance; }
+  .score { display: flex; flex-direction: column; align-items: stretch; gap: 22px; }
+  .score .tm { font: 800 92px/1.05 Sora; letter-spacing: -0.02em; text-align: center; padding: 30px 24px; border-radius: 30px; background: #ffffff12; border: 3px solid #ffffff26; overflow-wrap: anywhere; }
+  .score .tm.win { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 26%, transparent); box-shadow: 0 0 50px color-mix(in srgb, var(--accent) 40%, transparent); }
+  .score .sc { align-self: center; font: 800 220px/1 Sora; letter-spacing: -0.04em; white-space: nowrap; }
+  .score .sc span { color: var(--accent); }
+  .who { font: 800 150px/0.95 Sora; letter-spacing: -0.045em; overflow-wrap: anywhere; }
+  .role { font: 700 54px/1.2 Inter; color: var(--muted); letter-spacing: .02em; }
+  .move { display: flex; align-items: center; gap: 26px; font: 800 64px/1.1 Sora; }
+  .move b { padding: 22px 30px; border-radius: 24px; background: #ffffff14; border: 3px solid #ffffff2a; }
+  .move b:last-child { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 24%, transparent); }
+  .move i { font-style: normal; color: var(--accent); font-size: 90px; }
+  .sched { display: flex; align-items: center; gap: 28px; padding: 28px 34px; border-radius: 26px; background: linear-gradient(160deg, #ffffff1c, #ffffff08); border: 3px solid #ffffff22; }
+  .sched time { flex: 0 0 auto; font: 800 50px/1 Sora; color: #0d0420; background: var(--accent); padding: 16px 20px; border-radius: 16px; }
+  .sched span { font: 800 58px/1.1 Sora; letter-spacing: -0.02em; }
+
+  /* ================= GAYA ================= */
+  /* overlay khusus gaya */
+  .ticker, .letterbox, .scan, .hazard { display: none; position: absolute; pointer-events: none; }
+
+  /* 1. promo (default) — clean, ungu brand */
+
+  /* 2. flash — flash sale: kuning-hitam, garis hazard, guncangan */
+  .st-flash { --accent: #ffd400 !important; }
+  .st-flash .bg { background: radial-gradient(900px 700px at 50% 40%, #3a2a00, transparent 70%), linear-gradient(165deg, #1a1300, #0b0900) !important; }
+  .st-flash .hazard { display: block; left: -10%; width: 120%; height: 70px; background: repeating-linear-gradient(-45deg, #ffd400 0 40px, #111 40px 80px); opacity: .9; }
+  .st-flash .hazard.t { top: 210px; } .st-flash .hazard.b { bottom: 300px; }
+  .st-flash .price:first-child, .st-flash .row { border-color: #ffd400; }
+  .st-flash h1, .st-flash h2 { text-shadow: 6px 6px 0 #b8860b88; }
+  .st-flash .price span { color: #ffd400; }
+
+  /* 3. breaking — berita: ticker merah, label LIVE, reveal dari kiri */
+  .st-breaking { --accent: var(--hot); }
+  .st-breaking .ticker { display: flex; left: 0; right: 0; bottom: 300px; height: 84px; background: #0d0420e6; border-top: 4px solid var(--hot); align-items: center; overflow: hidden; z-index: 4; }
+  .st-breaking .ticker b { position: relative; z-index: 2; flex: 0 0 auto; height: 100%; display: flex; align-items: center; gap: 12px; padding: 0 28px; background: var(--hot); font: 800 38px/1 Sora; letter-spacing: .1em; }
+  .st-breaking .ticker b::before { content: ''; width: 16px; height: 16px; border-radius: 50%; background: #fff; }
+  .st-breaking .ticker span { white-space: nowrap; font: 700 38px/1 Inter; padding-left: 30px; color: #fff; }
+  .st-breaking .bg::after { opacity: .04; }
+
+  /* 4. matchday — arena: layar terbelah dua warna, garis diagonal */
+  .st-matchday .bg { background: linear-gradient(115deg, #2a0a6b 0 49.6%, #fff 49.6% 50.4%, color-mix(in srgb, var(--accent) 45%, #12052f) 50.4% 100%) !important; }
+  .st-matchday .bg::before { opacity: .1; }
+  .st-matchday .team.l { background: #0d0420bb; } .st-matchday .team.r { background: #0d0420bb; }
+
+  /* 5. glitch — hype: scanline, RGB split, kedip */
+  .st-glitch .scan { display: block; inset: 0; background: repeating-linear-gradient(0deg, #ffffff0a 0 2px, transparent 2px 6px); z-index: 4; }
+  .st-glitch h1, .st-glitch h2, .st-glitch .big, .st-glitch .who, .st-glitch .sc { text-shadow: 6px 0 0 #ff2a6daa, -6px 0 0 #00e5ffaa; }
+  .st-glitch .bg { background: radial-gradient(800px 700px at 50% 45%, color-mix(in srgb, var(--accent) 30%, transparent), transparent 70%), #07020f !important; }
+
+  /* 6. tribute — sinematik: letterbox, emas, pelan */
+  .st-tribute { --accent: #e9c46a; }
+  .st-tribute .letterbox { display: block; left: 0; right: 0; height: 150px; background: #000; z-index: 4; }
+  .st-tribute .letterbox.t { top: 0; } .st-tribute .letterbox.b { bottom: 0; }
+  .st-tribute .bg { background: radial-gradient(900px 900px at 50% 40%, #2b2140, #07050c 75%) !important; }
+  .st-tribute .bg::after, .st-tribute .p { display: none; }
+  .st-tribute .who, .st-tribute .big, .st-tribute h1, .st-tribute h2 { font-weight: 700; letter-spacing: -0.02em; }
+  .st-tribute .kick { background: transparent; color: var(--accent); border: 3px solid var(--accent); }
+  .st-tribute .kick::before { background: var(--accent); }
+  .st-tribute .mini { top: 190px; } .st-tribute .gtag { top: 194px; }
 </style></head>
 <body class="story">
 <div class="bg" id="bg"></div><div class="watermark">ZA</div>
+<video class="clip" id="clip" muted playsinline preload="auto"></video><div class="clipshade"></div>
 <div id="parts"></div>
+<div class="hazard t"></div><div class="hazard b"></div><div class="scan"></div>
+<div class="ticker" id="ticker"><b>BREAKING</b><span id="tickt"></span></div>
 <div class="mini"><img src="../../docs/assets/logo.png" alt="">ZATAA</div><div class="gtag" id="gtag"></div>
 <div class="stage" id="stage"></div>
+<div class="letterbox t"></div><div class="letterbox b"></div>
 <div class="wipe" id="wipe"></div><div class="flash" id="flash"></div><div class="bar" id="bar"></div>
 <script type="module">
 import { GAMES, md, esc, ready } from '../shared/brand.js';
 
-const DUR = { hook: 2.6, point: 3.2, list: 1.4, price: 1.6, versus: 3.6, cta: 3.6 };
+const DUR = { hook: 2.6, point: 3.2, list: 1.4, price: 1.6, versus: 3.6, cta: 3.6, headline: 3.0, score: 3.6, player: 3.6, schedule: 1.6 };
+const STYLES = ['promo', 'flash', 'breaking', 'matchday', 'glitch', 'tribute'];
+// animasi masuk per gaya (ganti jenis animasi bawaan)
+const REMAP = {
+  breaking: { slam: 'reveal', up: 'reveal', pop: 'reveal' },
+  glitch: { slam: 'glitch', up: 'glitch', pop: 'glitch' },
+  tribute: { slam: 'fade', up: 'fade', pop: 'fade', left: 'fade', fromL: 'fade', fromR: 'fade' },
+  flash: { up: 'slam', left: 'fromL' },
+};
 const clamp = (v, a = 0, b = 1) => Math.max(a, Math.min(b, v));
 const outExpo = (p) => (p >= 1 ? 1 : 1 - 2 ** (-10 * p));
 const outBack = (p) => { const c = 1.7; return 1 + (c + 1) * (p - 1) ** 3 + c * (p - 1) ** 2; };
 const outCubic = (p) => 1 - (1 - p) ** 3;
-let scenes = [], total = 0;
+let scenes = [], total = 0, style = 'promo', clip = null;
 
 // ---- isi tiap jenis adegan; data-a = jenis animasi masuk, data-d = jeda (detik)
 function html(s, i) {
@@ -60,26 +140,37 @@ function html(s, i) {
     case 'list': return `${s.title ? `<h2 data-a="up">${md(s.title)}</h2>` : ''}<div class="list">${(s.items ?? []).map((it, k) => `<div class="row" data-a="left" data-d="${0.35 + k * 0.4}"><i></i><span>${md(it)}</span></div>`).join('')}</div>`;
     case 'price': return `${s.title ? `<h2 data-a="up">${md(s.title)}</h2>` : ''}<div class="list">${(s.items ?? []).map((it, k) => `<div class="price" data-a="pop" data-d="${0.3 + k * 0.35}"><b>${md(it.name)}</b><span data-count="${esc(it.price)}" data-d="${0.3 + k * 0.35}">${esc(it.price)}</span></div>`).join('')}</div>`;
     case 'versus': return `${s.title ? `<h2 data-a="up">${md(s.title)}</h2>` : ''}<div class="team l" data-a="fromL">${esc(s.left)}</div><div class="vs" data-a="slam" data-d=".45">VS</div><div class="team r" data-a="fromR" data-d=".2">${esc(s.right)}</div>${s.sub ? `<p class="t-sub" data-a="up" data-d=".8">${md(s.sub)}</p>` : ''}`;
+    case 'headline': return `${s.kicker ? `<div class="kick" data-a="pop">${esc(s.kicker)}</div>` : ''}<div class="big" data-a="slam" data-d=".2">${md(s.text)}</div>${s.sub ? `<p class="t-sub" data-a="up" data-d=".6">${md(s.sub)}</p>` : ''}`;
+    case 'score': {
+      const l = +s.sl, r = +s.sr;
+      return `${s.title ? `<h2 data-a="up">${md(s.title)}</h2>` : ''}<div class="score"><div class="tm ${l > r ? 'win' : ''}" data-a="fromL">${esc(s.left)}</div><div class="sc" data-a="slam" data-d=".5">${l > r ? `<span>${l}</span>` : l}–${r > l ? `<span>${r}</span>` : r}</div><div class="tm ${r > l ? 'win' : ''}" data-a="fromR" data-d=".2">${esc(s.right)}</div></div>${s.sub ? `<p class="t-sub" data-a="up" data-d=".9">${md(s.sub)}</p>` : ''}`;
+    }
+    case 'player': return `${s.tag ? `<div class="kick" data-a="pop">${esc(s.tag)}</div>` : ''}<div class="who" data-a="slam" data-d=".2">${esc(s.name)}</div>${s.role ? `<p class="role" data-a="up" data-d=".5">${md(s.role)}</p>` : ''}${s.from || s.to ? `<div class="move" data-a="left" data-d=".8">${s.from ? `<b>${esc(s.from)}</b>` : ''}<i>→</i>${s.to ? `<b>${esc(s.to)}</b>` : ''}</div>` : ''}${s.sub ? `<p class="t-sub" data-a="up" data-d="1.1">${md(s.sub)}</p>` : ''}`;
+    case 'schedule': return `${s.title ? `<h2 data-a="up">${md(s.title)}</h2>` : ''}<div class="list">${(s.items ?? []).map((it, k) => `<div class="sched" data-a="left" data-d="${0.35 + k * 0.4}"><time>${esc(it.time)}</time><span>${md(it.match)}</span></div>`).join('')}</div>`;
     case 'cta': return `<img class="cta-logo" data-a="pop" src="../../docs/assets/logo.png" alt=""><h2 data-a="up" data-d=".25">${md(s.text ?? 'Top up sekarang!')}</h2><div class="site" data-a="type" data-d=".6" data-text="zataa.my.id"></div><div class="btn" data-a="pulse" data-d="1.1">${esc(s.button ?? 'Top up ⚡')}</div>`;
     default: return `<h2 data-a="up">${md(s.text ?? s.title ?? '')}</h2>`;
   }
 }
-const autoDur = (s) => s.dur ?? (s.t === 'list' ? DUR.list + 0.55 * (s.items?.length ?? 3) : s.t === 'price' ? DUR.price + 0.55 * (s.items?.length ?? 3) : DUR[s.t] ?? 3);
+const n = (s) => s.items?.length ?? 3;
+const autoDur = (s) => s.dur ?? (s.t === 'list' ? DUR.list + 0.55 * n(s) : s.t === 'price' ? DUR.price + 0.55 * n(s) : s.t === 'schedule' ? DUR.schedule + 0.6 * n(s) : DUR[s.t] ?? 3);
 
-// dipanggil sekali; kembalikan durasi total (detik)
+// dipanggil sekali; kembalikan { total, starts } (detik)
+// data.fixed = true → durasi adegan dari renderer (voice over) dipakai apa adanya, tidak dinormalkan
 window.setup = async (data) => {
+  style = STYLES.includes(data.style) ? data.style : 'promo';
+  document.body.classList.add(`st-${style}`);
   const g = GAMES[data.game];
-  document.documentElement.style.setProperty('--accent', data.accent ?? g?.accent ?? '#a78bfa');
+  if (!['flash', 'tribute', 'breaking'].includes(style) || data.accent) document.documentElement.style.setProperty('--accent', data.accent ?? g?.accent ?? '#a78bfa');
   // nama game di kanan atas (gameName = override, mis. game di luar ML/Valorant/FF)
   const tag = document.getElementById('gtag');
   tag.textContent = data.gameName ?? g?.name ?? '';
   tag.style.display = tag.textContent ? 'flex' : 'none';
+  document.getElementById('tickt').textContent = `${data.ticker ?? ''}  •  zataa.my.id  •  `.repeat(4);
   const list = [...(data.scenes ?? [])];
   if (!list.some((s) => s.t === 'cta')) list.push({ t: 'cta' });
   let durs = list.map(autoDur);
   const sum = durs.reduce((a, b) => a + b, 0);
-  const target = clamp(data.duration ?? sum, 15, 30);
-  durs = durs.map((d) => (d * target) / sum);
+  if (!data.fixed) { const target = clamp(data.duration ?? sum, 15, 30); durs = durs.map((d) => (d * target) / sum); }
   const stage = document.getElementById('stage');
   let t0 = 0;
   scenes = list.map((s, i) => {
@@ -92,18 +183,28 @@ window.setup = async (data) => {
     return sc;
   });
   total = t0;
-  // partikel deterministik
   const P = document.getElementById('parts');
   for (let k = 0; k < 22; k++) { const p = document.createElement('div'); p.className = 'p'; p.dataset.k = k; P.appendChild(p); }
+  if (data.bg) {
+    clip = document.getElementById('clip');
+    clip.src = data.bg;
+    await new Promise((res) => { clip.onloadeddata = res; clip.onerror = () => { clip = null; res(); }; setTimeout(res, 15000); });
+    if (clip?.duration) document.body.classList.add('has-clip'); else clip = null;
+  }
   await ready();
-  window.seek(0);
-  return total;
+  await window.seek(0);
+  return { total, starts: scenes.map((s) => +s.t0.toFixed(3)) };
 };
 
 const rnd = (k) => { const x = Math.sin(k * 127.1 + 311.7) * 43758.5453; return x - Math.floor(x); };
 
-window.seek = (t) => {
-  // latar & partikel
+window.seek = async (t) => {
+  // klip latar: loop + zoom pelan
+  if (clip) {
+    const want = (t + 0.5) % Math.max(1, clip.duration - 0.3);
+    if (Math.abs(clip.currentTime - want) > 0.001) { clip.currentTime = want; await new Promise((r) => { clip.onseeked = r; setTimeout(r, 2000); }); }
+    clip.style.transform = `scale(${1.06 + Math.sin(t * 0.25) * 0.03})`;
+  }
   document.getElementById('bg').style.transform = `scale(1.08) translate(${Math.sin(t * 0.4) * 24}px, ${Math.cos(t * 0.3) * 30}px)`;
   document.querySelectorAll('.p').forEach((p) => {
     const k = +p.dataset.k, sp = 40 + rnd(k) * 90;
@@ -111,33 +212,43 @@ window.seek = (t) => {
     p.style.transform = `translate(${rnd(k + 3) * 1080}px, ${y}px) rotate(${t * 60 + k * 20}deg) scale(${0.5 + rnd(k + 5)})`;
   });
   document.getElementById('bar').style.width = `${(t / total) * 100}%`;
+  const tk = document.getElementById('tickt');
+  if (style === 'breaking') tk.style.transform = `translateX(${-(t * 160) % 1600}px)`;
 
-  // flash di awal & transisi sapuan di tiap pergantian adegan
-  document.getElementById('flash').style.opacity = String(clamp(0.55 - t * 2.2) );
-  let wipe = 0, wx = -80;
-  for (const s of scenes) if (s.t0 > 0) { const d = t - s.t0 + 0.18; if (d > 0 && d < 0.4) { wipe = 0.9; wx = -80 + (d / 0.4) * 230; } }
-  const W = document.getElementById('wipe');
+  // transisi antar adegan, beda per gaya
+  const since = Math.min(...scenes.map((s) => (t >= s.t0 ? t - s.t0 : 99)));
+  const F = document.getElementById('flash'), W = document.getElementById('wipe');
+  let flash = clamp(0.55 - t * 2.2), wipe = 0, wx = -80, shake = 0;
+  const cut = t > 0.3 && since < 0.45;
+  if (style === 'promo' || style === 'matchday') { const d = since + 0.18; if (t > 0.3 && d < 0.4) { wipe = 0.9; wx = -80 + (d / 0.4) * 230; } }
+  if (style === 'flash' && cut) { flash = Math.max(flash, clamp(0.7 - since * 4)); shake = clamp(1 - since * 3) * 18; }
+  if (style === 'glitch' && cut) { flash = Math.max(flash, rnd(Math.floor(t * 30)) > 0.6 ? 0.25 : 0); shake = clamp(1 - since * 2.5) * 26 * (rnd(Math.floor(t * 30) + 3) - 0.5) * 2; }
+  if (style === 'tribute') flash = 0;
+  F.style.background = style === 'breaking' ? 'var(--hot)' : '#fff';
+  if (style === 'breaking' && cut) { wipe = 0; flash = clamp(0.5 - since * 2.2); }
+  F.style.opacity = String(flash);
   W.style.opacity = String(wipe); W.style.left = `${wx}%`;
+  document.getElementById('stage').style.transform = shake ? `translate(${shake}px, ${shake * 0.4}px)` : '';
 
   for (const s of scenes) {
     const lt = t - s.t0;
     const on = lt >= 0 && lt < s.dur;
     s.el.style.display = on ? 'flex' : 'none';
     if (!on) continue;
-    // keluar: 0.25 dtk terakhir (adegan terakhir pudar lebih lama supaya loop mulus)
-    const outLen = s === scenes[scenes.length - 1] ? 0.5 : 0.25;
+    // keluar: akhir adegan (tribute lebih pelan; adegan terakhir pudar lebih lama supaya loop mulus)
+    const outLen = style === 'tribute' ? 0.6 : s === scenes[scenes.length - 1] ? 0.5 : 0.25;
     const o = clamp((s.dur - lt) / outLen);
     s.el.style.opacity = String(o);
-    s.el.style.transform = `translateY(${(1 - o) * -40}px) scale(${1 + (1 - o) * 0.04})`;
+    s.el.style.transform = style === 'tribute' ? `scale(${1 + lt * 0.012})` : `translateY(${(1 - o) * -40}px) scale(${1 + (1 - o) * 0.04})`;
     for (const el of s.parts) anim(el, lt - (+el.dataset.d || 0), t);
     s.el.querySelectorAll('[data-count]').forEach((el) => count(el, lt - (+el.dataset.d || 0)));
   }
 };
 
 function anim(el, lt, t) {
+  const a = REMAP[style]?.[el.dataset.a] ?? el.dataset.a;
   const p = clamp(lt / 0.5), e = outExpo(p);
-  const a = el.dataset.a;
-  let tr = '', op = clamp(lt / 0.2);
+  let tr = '', op = clamp(lt / 0.2), clipPath = '';
   if (a === 'slam') { const jit = p < 1 ? Math.sin(t * 95) * 10 * (1 - p) : 0; tr = `translateX(${jit}px) scale(${1.7 - 0.7 * e}) rotate(${(1 - e) * -3}deg)`; op = clamp(lt / 0.12); }
   else if (a === 'up') tr = `translateY(${(1 - outCubic(p)) * 90}px)`;
   else if (a === 'left') tr = `translateX(${(1 - e) * -160}px)`;
@@ -146,8 +257,12 @@ function anim(el, lt, t) {
   else if (a === 'pop') tr = `scale(${0.5 + 0.5 * outBack(clamp(lt / 0.45))})`;
   else if (a === 'pulse') tr = `scale(${(0.6 + 0.4 * outBack(clamp(lt / 0.45))) * (1 + (lt > 0.5 ? Math.sin((lt - 0.5) * 6) * 0.035 : 0))})`;
   else if (a === 'type') { const s = el.dataset.text; el.textContent = s.slice(0, Math.floor(clamp(lt / 0.6) * s.length)) + (lt > 0 && Math.floor(t * 3) % 2 ? '_' : ''); }
+  else if (a === 'reveal') { const q = outExpo(clamp(lt / 0.55)); clipPath = `inset(-10% ${(1 - q) * 100}% -10% 0)`; op = lt > 0 ? 1 : 0; tr = `translateX(${(1 - q) * -30}px)`; }
+  else if (a === 'glitch') { const live = lt < 0.45; const j = live ? (rnd(Math.floor(t * 40) + el.textContent.length) - 0.5) * 60 : 0; tr = `translateX(${j}px) skewX(${live ? j / 6 : 0}deg)`; op = lt > 0 ? (live && rnd(Math.floor(t * 40)) > 0.75 ? 0.3 : 1) : 0; if (live) { const y = rnd(Math.floor(t * 40) + 7) * 70; clipPath = `inset(${y}% 0 ${Math.max(0, 85 - y)}% 0)`; if (lt > 0.3) clipPath = ''; } }
+  else if (a === 'fade') { const q = outCubic(clamp(lt / 0.9)); op = q; tr = `translateY(${(1 - q) * 30}px)`; }
   el.style.opacity = String(lt <= 0 ? 0 : op);
   el.style.transform = tr;
+  el.style.clipPath = clipPath;
 }
 // "Rp 21.500" berhitung naik
 function count(el, lt) {

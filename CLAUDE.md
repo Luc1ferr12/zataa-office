@@ -5,7 +5,7 @@ Kantor marketing virtual untuk **zataa.my.id** (top up game). Claude memerankan 
 ## Aturan hemat token (wajib)
 - Jangan baca file besar/riwayat. Konteks per pegawai cukup dari `node scripts/office.mjs brief <agent>`.
 - Desain & video **selalu pakai template** di `templates/` (skema: `templates/README.md`); cukup tulis JSON isi lalu `node scripts/render.mjs <id>`, jangan desain ulang dari nol.
-- Riset tren maksimal ~6 pencarian web per hari, simpan hasil lewat `office.mjs research`.
+- Riset tren maksimal ~10 pencarian web per hari (mayoritas esport oleh Clariana), simpan hasil lewat `office.mjs research`.
 - Simpan pelajaran penting (1 kalimat) dengan `office.mjs memory <agent> "..."`, jangan catatan panjang.
 - Akhiri sesi dengan `office.mjs export` lalu commit + push `docs/`.
 

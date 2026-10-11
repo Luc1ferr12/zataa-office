@@ -25,7 +25,10 @@ Hasil feed/carousel: JPG 1080×1080 (IG, 1:1) + `-916.jpg` 1080×1920 (TikTok). 
 | `carousel` | `slides:[{kind:"hook", headline, sub} · {kind:"point", title, body, n?} · {kind:"cta", headline, sub}]` (5–7 slide) |
 
 ## Video (`format: video`, template otomatis `video`)
-`data_json = { game, gameName?, duration?, music?, scenes:[...] }` (nama game otomatis di kanan atas; `gameName` untuk game di luar ML/Valorant/FF) — durasi dinormalkan ke 15–30 dtk, adegan CTA ditambah otomatis kalau tidak ada.
+`data_json = { game, gameName?, style, ticker?, duration?, music?, bg?, scenes:[...] }` — contoh tiap gaya: `templates/samples/video-<style>.json`.
+- Nama game otomatis di kanan atas; `gameName` untuk game di luar ML/Valorant/FF.
+- `style`: `promo` · `flash` (topup) · `breaking` (berita/transfer, `ticker` = teks berjalan) · `matchday` (jadwal/preview) · `glitch` (hasil/upset/juara) · `tribute` (pensiun/perpisahan).
+- Adegan CTA ditambah otomatis kalau tidak ada. Tanpa `vo` durasi dinormalkan ke 15–30 dtk; dengan `vo` tiap adegan minimal sepanjang suaranya.
 
 | `t` | field | default dtk |
 |---|---|---|
@@ -34,6 +37,12 @@ Hasil feed/carousel: JPG 1080×1080 (IG, 1:1) + `-916.jpg` 1080×1920 (TikTok). 
 | `list` | `title?, items:[teks ≤7 kata]` | 1.4 + 0.55/item |
 | `price` | `title?, items:[{name, price}]` (angka berhitung naik) | 1.6 + 0.55/item |
 | `versus` | `title?, left, right, sub?` | 3.6 |
+| `headline` | `kicker?, text, sub?` (kicker mis. BREAKING / RESMI / JUARA) | 3.0 |
+| `score` | `title?, left, right, sl, sr, sub?` (pemenang disorot) | 3.6 |
+| `player` | `name, tag?, role?, from?, to?, sub?` (transfer: from → to; pensiun: tag PENSIUN) | 3.6 |
+| `schedule` | `title?, items:[{time, match}]` | 1.6 + 0.6/item |
 | `cta` | `text?, button?` | 3.6 |
 
-Field `dur` per adegan untuk atur manual. `music`: nama file di `assets/audio/` (bebas lisensi); tanpa itu video berisi audio senyap.
+Tiap adegan juga boleh: `dur` (atur manual), `vo` (voice over Gadis, 1 kalimat ≤14 kata), `mood` (`hype` / `promo` / `tanya` / `info` / `santai` / `haru`; kosong = otomatis).
+- `music`: kosong = acak dari `assets/audio/bg-*.mp3` (5 lagu buatan `scripts/music.mjs`, bebas lisensi; tribute dapat lagu kalem) · nama file · `"none"`.
+- `bg`: kosong = acak dari `assets/clips/<game>/*.mp4` kalau ada · path repo · `"none"`.

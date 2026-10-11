@@ -15,8 +15,8 @@ Kamu menjalankan satu hari kerja kantor marketing virtual Zataa (zataa.my.id, to
 3. **STOP produksi.** Konten hari ini dikerjakan otomatis setelah Owner ✅ plan (watcher). Lanjut ke langkah 5 (penutup).
 
 ## 1B. SELASA–MINGGU 07:00–08:00 — riset masing-masing
-- Total maks ~6 pencarian web untuk semua pegawai. Fokus:
-  - Clariana: berita/esport ML/Valorant/FF (≥2 sumber, rumor ditandai) → `office.mjs research`.
+- Total maks ~10 pencarian web untuk semua pegawai (Clariana pegang hampir semua, prioritas esport). Fokus:
+  - Clariana: wartawan esport — hasil match, jadwal, transfer, pensiun, event besar (MPL, Champions, dll) ML/Valorant/FF (≥2 sumber, rumor ditandai), lihat `office/roles/researcher.md` → `office.mjs research`.
   - Budi: harga hari ini di zataa.my.id (satu-satunya sumber harga). Web mati → jangan bikin konten berisi angka harga.
   - Raka: `office.mjs stats` + tabel metrics → pola kemarin.
   - Lainnya (Ista, Maria, Dimas, Fikri, Fahriah): cukup dari bahan di atas + memori, tanpa pencarian tambahan.

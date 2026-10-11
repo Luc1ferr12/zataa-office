@@ -15,7 +15,11 @@ Maksimal 8 kata di gambar/teks pertama.
 ## Struktur isi
 - **Feed single**: headline (≤8 kata) + subjudul (≤14 kata) + badge (harga/tanggal/game).
 - **Carousel 5–7 slide**: 1 Hook → 2–5 isi (1 ide per slide, ≤25 kata) → slide terakhir CTA.
-- **Video script** 15–30 dtk: `[0–3s] hook` → `[3–20s] 3–5 poin` → `[akhir] CTA`, tiap baris teks ≤7 kata (tanpa voice over, jadi semua harus terbaca di layar).
+- **Video script** 15–30 dtk: `[0–3s] hook` → `[3–20s] 3–5 poin` → `[akhir] CTA`, tiap baris teks di layar ≤7 kata.
+  - Pilih `style`: topup → `promo` / `flash` (flash sale); esport → `breaking` (berita/transfer), `matchday` (jadwal/preview), `glitch` (hasil/upset/juara), `tribute` (pensiun/perpisahan). Contoh lengkap: `templates/samples/video-<style>.json`.
+  - Tiap adegan wajib `vo` = kalimat voice over (suara cewek "Gadis"), 1 kalimat pendek ≤14 kata, natural diucapkan (tulis angka "tiga satu" bukan "3-1", jangan singkatan aneh).
+  - Intonasi lewat `mood`: `hype` (berita heboh), `promo`, `tanya` (nanya penonton, akhiri "?"), `info`, `santai`, `haru` (pensiun/kalah). Kosong = ditebak otomatis.
+  - Selang-seling: 1 adegan nanya ke penonton ("Kalian tim siapa?") biar komen rame.
 
 ## Caption
 ```
