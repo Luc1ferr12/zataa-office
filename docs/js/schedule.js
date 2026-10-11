@@ -9,6 +9,7 @@ export const AGENTS = [
   { id: 'designer',   name: 'Maria',    avatar: '#c0668a', title: 'Graphic Designer',       gender: 'f' },
   { id: 'video',      name: 'Dimas',    avatar: '#7a3b3b', title: 'Video Production',       gender: 'm' },
   { id: 'publisher',  name: 'Fikri',    avatar: '#33415c', title: 'Social Media Publisher', gender: 'm' },
+  { id: 'ads',        name: 'Fahriah',  avatar: '#0d9488', title: 'Ads Specialist',         gender: 'f' },
   { id: 'owner',      name: 'Zamiir',   avatar: '#5b1fd6', title: 'Owner / Boss',           gender: 'm', boss: true, imam: true },
 ];
 // tampilan tiap orang (sprite pixel) ada di js/px/sprites.js
@@ -44,6 +45,7 @@ function doneAt(idx, agent, dow) {
     designer: video ? at(13, 50) : at(14, 30),
     video: video ? at(16, 10) : at(13, 40),
     publisher: at(15, 10),
+    ads: at(16, 20),
     owner: at(15, 45),
   }[agent.id];
   return base + Math.floor(hash(dow * 7 + idx) * 30) - 10;
@@ -154,7 +156,7 @@ export function describe(agent, sched, real) {
   if (real?.status === 'working' && real.current_task) return { ...sched, label: real.current_task, emoji: '⚡' };
   const idle = {
     dir: 'Pantau performa konten', researcher: 'Scroll tren & berita esport', copywriter: 'Nyusun bank ide caption',
-    designer: 'Rapihin aset template', video: 'Cek referensi motion', publisher: 'Cek komentar & DM', owner: 'Review konten & cek approval',
+    designer: 'Rapihin aset template', video: 'Cek referensi motion', publisher: 'Cek komentar & DM', ads: 'Pantau performa post & iklan', owner: 'Review konten & cek approval',
   };
   return { ...sched, label: idle[agent.id] ?? 'Kerja', emoji: '💻' };
 }

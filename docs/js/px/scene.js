@@ -67,6 +67,7 @@ mk('sofa', '#4c3f78', { tex: noise(6, 0.08), base: 0.5 });
 mk('bossSofa', '#3a2a24', { base: 0.48 });
 mk('beanbag', '#8b45f0', { base: 0.52 });
 mk('beanbag2', '#e0a640', { base: 0.52 });
+mk('beanbag3', '#0d9488', { base: 0.52 });
 mk('rug', '#2e2752', { tex: (u, v) => (fr(Math.hypot(u + 4.6, (v + 2.6) * 1.4) / 0.6) < 0.12 ? 0.14 : 0), base: 0.48 });
 mk('rugBoss', '#5a2f2a', { tex: (u, v) => (fr(u / 0.5) < 0.1 || fr(v / 0.5) < 0.1 ? 0.12 : 0), base: 0.46 });
 mk('tread', '#9a6b45', { tex: hslats(0.5, 0.1), base: 0.54 });
@@ -123,12 +124,16 @@ em('candle', '#ffb347', 0.7, 0.7);
 mk('cityView', '#8fb6e0', { flat: true, base: 0.55 });
 mk('cityDark', '#262a40', { flat: true, base: 0.5 });
 em('cityWin', '#ffd38a', 0.6, 0.6);
-const rgb = ['#7c3aed', '#0891b2', '#db2777', '#65a30d', '#d97706', '#2563eb'];
+const rgb = ['#7c3aed', '#0891b2', '#db2777', '#65a30d', '#d97706', '#2563eb', '#e11d48', '#0d9488'];
 rgb.forEach((c, i) => { em(`rgb${i}`, c, 0.6, 0.9); mk(`acc${i}`, c, { base: 0.5 }); });
+// ruang kerja 2 baris × 4 meja; bangku taman 4
+export const DESK_X = [8, 11, 14, 17];
+export const DESKS = DESK_X.length * 2;
+const BENCH_X = [-6.5, -3.2, 0, 3.2];
 // permukaan dinamis (digambar ulang tiap frame oleh pixoffice.js)
 const dynM = (name, color) => mk(name, color, { emissive: true, dyn: name });
 dynM('water', '#2fb3d6');
-for (let i = 0; i < 6; i++) dynM(`scr${i}`, '#0b0a14');
+for (let i = 0; i < DESKS; i++) dynM(`scr${i}`, '#0b0a14');
 dynM('tvLounge', '#120a26');
 dynM('tvMeet', '#120a26');
 dynM('tvBoss', '#120a26');
@@ -305,27 +310,28 @@ export function makeSpots() {
   [[-17.5, -3.5], [-13.5, -3.5], [-17.5, 0], [-13.5, 0]].forEach(([x, z]) => [-1, 1].forEach((side) => {
     S.cafe.push({ x: x + side * 0.8, z, rot: side < 0 ? Math.PI / 2 : -Math.PI / 2, lane: z + 0.95 });
   }));
-  S.counter = [0, 1, 2, 3, 4, 5, 6].map((k) => ({ x: -18.6 + k * 0.78, z: -6.5, rot: Math.PI }));
+  S.counter = [0, 1, 2, 3, 4, 5, 6, 7].map((k) => ({ x: -18.6 + k * 0.78, z: -6.5, rot: Math.PI }));
   S.lounge = [
     { x: -6.1, z: -1.4, rot: Math.PI, pose: 'phone' }, { x: -5.1, z: -1.4, rot: Math.PI, pose: 'phone' },
     { x: -4.1, z: -1.4, rot: Math.PI, pose: 'phone' }, { x: -3.1, z: -1.4, rot: Math.PI, pose: 'phone' },
     { x: -1.75, z: -3.55, rot: -Math.PI / 2, pose: 'beanbag' }, { x: -7.75, z: -3.55, rot: Math.PI / 2, pose: 'beanbag' },
+    { x: -1.6, z: -2.1, rot: -Math.PI / 2, pose: 'beanbag' },
   ];
   S.desk = [];
-  [[-4.2, 'A'], [-0.8, 'B']].forEach(([z, row]) => [8.5, 12.5, 16.5].forEach((x) => S.desk.push({ x, z: z + 0.7, rot: Math.PI, row })));
+  [[-4.2, 'A'], [-0.8, 'B']].forEach(([z, row]) => DESK_X.forEach((x) => S.desk.push({ x, z: z + 0.7, rot: Math.PI, row })));
   // musholla: kiblat ke dinding belakang (mihrab), imam di depan, shaf laki-laki lalu perempuan
   S.musholla = {
     imam: { x: -14.5, z: -12.7 },
     men: [-15.1, -13.9].map((x) => ({ x, z: -11.6 })),
-    women: [-16.3, -15.1, -13.9, -12.7].map((x) => ({ x, z: -10.4 })),
+    women: [-16.3, -15.1, -13.9, -12.7, -11.5].map((x) => ({ x, z: -10.4 })),
   };
   S.meeting = [];
   [-3.8, -1.8, 0.2].forEach((x) => S.meeting.push({ x, z: -12.8, rot: 0, side: 'N' }, { x, z: -10.4, rot: Math.PI, side: 'S' }));
-  S.meeting.push({ x: 1.9, z: -11.6, rot: -Math.PI / 2, side: 'E' });
+  S.meeting.push({ x: 1.9, z: -11.6, rot: -Math.PI / 2, side: 'E' }, { x: -5.2, z: -11.6, rot: Math.PI / 2, side: 'W' });
   S.garden = [];
-  [-6, -2, 2.5].forEach((x) => S.garden.push({ x: x - 0.45, z: 7.7, rot: Math.PI }, { x: x + 0.45, z: 7.7, rot: Math.PI }));
+  BENCH_X.forEach((x) => S.garden.push({ x: x - 0.45, z: 7.7, rot: Math.PI }, { x: x + 0.45, z: 7.7, rot: Math.PI }));
   S.pool = [6.2, 7.2, 9.8, 10.9].map((z) => ({ x: 13, z, half: 4.6, y: -0.15 }));
-  S.lounger = [9, 11.4, 13.8, 16.2, 18.4, 6.6].map((x) => ({ x, z: 14.45, rot: Math.PI }));
+  S.lounger = [9, 11.4, 13.8, 16.2, 18.4, 6.6, 20.6].map((x) => ({ x, z: 14.45, rot: Math.PI }));
   return S;
 }
 
@@ -462,6 +468,7 @@ export function buildScene(logo, { upper = true } = {}) {
   B.cyl(0.32, 0.38, -4.6, 0.19, -3.1, M.furn, 10);
   B.ell(-1.75, 0.3, -3.7, 0.55, 0.32, 0.55, M.beanbag);
   B.ell(-7.75, 0.3, -3.7, 0.55, 0.32, 0.55, M.beanbag2);
+  B.ell(-1.45, 0.3, -2.1, 0.55, 0.32, 0.55, M.beanbag3);
   pottedPlant(B, 0.9, -4.8, 1.5);
   pottedPlant(B, -8.3, -4.8, 1.2);
   B.box(1.2, 1.8, 0.4, -8.1, 0.9, -2.0, M.furn, { ry: Math.PI / 2 });
@@ -498,7 +505,7 @@ export function buildScene(logo, { upper = true } = {}) {
   }
   let di = 0;
   for (const z of [-4.2, -0.8]) {
-    for (const x of [8.5, 12.5, 16.5]) {
+    for (const x of DESK_X) {
       B.box(1.9, 0.06, 0.85, x, 0.75, z, M.black);
       for (const sx of [-0.88, 0.88]) B.box(0.07, 0.72, 0.7, x + sx, 0.37, z, M.steel);
       B.box(1.9, 0.04, 0.04, x, 0.72, z + 0.43, M[`rgb${di}`], { cast: false });
@@ -573,7 +580,7 @@ export function buildScene(logo, { upper = true } = {}) {
     const saj = (x, z, mat) => B.poly([[x - 0.36, UP + 0.012, z + 0.6], [x + 0.36, UP + 0.012, z + 0.6], [x + 0.36, UP + 0.012, z - 0.6], [x - 0.36, UP + 0.012, z - 0.6]], mat, { two: true, cast: false });
     saj(-14.5, -12.6, M.sajadah);
     for (const x of [-15.1, -13.9]) saj(x, -11.5, M.sajadah);
-    for (const x of [-16.3, -15.1, -13.9, -12.7]) saj(x, -10.3, M.sajadah2);
+    for (const x of [-16.3, -15.1, -13.9, -12.7, -11.5]) saj(x, -10.3, M.sajadah2);
     B.box(1.6, 1.0, 0.4, -10.4, UP + 0.5, -13.6, M.furn);
     for (let k = 0; k < 6; k++) B.box(0.18, 0.28, 0.22, -11.0 + k * 0.24, UP + 1.14, -13.6, k % 2 ? M.green : M.brass);
     B.box(1.4, 0.45, 0.35, -18.6, UP + 0.23, -9.0, M.lightwood);
@@ -588,6 +595,7 @@ export function buildScene(logo, { upper = true } = {}) {
     for (const lx of [-3.8, 0.2]) B.box(0.24, 0.72, 0.24, lx, UP + 0.36, -11.6, M.steel);
     for (const x of [-3.8, -1.8, 0.2]) { officeChair(B, x, UP, -12.85, 0, M.leather); officeChair(B, x, UP, -10.35, Math.PI, M.leather); }
     officeChair(B, 1.95, UP, -11.6, -Math.PI / 2, M.leather);
+    officeChair(B, -5.25, UP, -11.6, Math.PI / 2, M.leather);
     B.box(4.1, 2.25, 0.1, -1.8, UP + 1.75, -13.92, M.black);
     B.vquad(3.9, 2.05, -1.8, UP + 1.75, -13.86, M.tvMeet);
     B.box(0.4, 2.6, 2.6, -8.7, UP + 1.3, -11.3, M.slatdark);
@@ -656,7 +664,7 @@ export function buildScene(logo, { upper = true } = {}) {
   B.floor(-2.6, -1.4, 9.5, 18.5, M.stone, 0.012);
   B.floor(5.4, 21.2, 13.0, 17.2, M.deck, 0.014);
   // bangku taman
-  for (const bx of [-6, -2, 2.5]) {
+  for (const bx of BENCH_X) {
     B.box(1.9, 0.08, 0.5, bx, 0.45, 7.75, M.deck);
     B.box(1.9, 0.45, 0.07, bx, 0.75, 8.05, M.deck, { rx: -0.08 });
     for (const dx of [-0.8, 0.8]) B.box(0.08, 0.45, 0.45, bx + dx, 0.22, 7.8, M.steel);
@@ -675,7 +683,7 @@ export function buildScene(logo, { upper = true } = {}) {
   for (const sz of [5.6, 6.8, 8.0, 9.2, 10.4, 11.6]) L(18.6, -0.3, sz, CYAN, 3.2, 0.8);
   L(13, 0.5, 8.5, CYAN, 8.5, 1.1);
   // kursi berjemur + payung
-  for (const lx of [6.6, 9, 11.4, 13.8, 16.2, 18.4]) {
+  for (const lx of [6.6, 9, 11.4, 13.8, 16.2, 18.4, 20.6]) {
     B.box(0.74, 0.08, 2.0, lx, 0.33, 14.4, M.lightwood);
     B.box(0.66, 0.09, 1.15, lx, 0.42, 14.0, M.cushion);
     B.box(0.66, 0.09, 0.78, lx, 0.64, 15.25, M.cushion, { rx: 0.75 });

@@ -12,6 +12,7 @@ const LOOK = {
   designer:   { g: 'f', skin: '#d9ad8a', hair: '#5a3d2e', style: 'pony', kerja: { top: '#e8b4c8', bot: '#40394f', skirt: 'long', shoe: '#2a2630', sleeve: 'short' } },
   video:      { g: 'm', skin: '#bd8f6b', hair: '#262222', style: 'short', kerja: { top: '#8a3b3b', bot: '#6b6450', shoe: '#2b2b2b', sleeve: 'short', collar: true } },
   publisher:  { g: 'm', skin: '#d1a380', hair: '#3d3430', style: 'short2', kerja: { top: '#5b6475', bot: '#2e3440', shoe: '#1d1d22', sleeve: 'long', inner: '#eeeae2' } },
+  ads:        { g: 'f', skin: '#e3b593', hair: '#4a2c20', style: 'bob',  kerja: { top: '#0d9488', bot: '#f0ece2', skirt: 'short', shoe: '#3a2f2a', sleeve: 'long', collar: true } },
   owner:      { g: 'm', skin: '#cc9e7a', hair: '#1b1717', style: 'short', kerja: { top: '#17151d', bot: '#3b3f4a', shoe: '#e9e6df', sleeve: 'short', acc: '#d4a63a' } },
 };
 // Senin: jas (cowok), kemeja sekretaris + rok pensil (cewek)

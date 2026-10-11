@@ -79,7 +79,8 @@ export function locationFor(spots, agent, idx, loc, info) {
       const m = spots.meeting[idx];
       const approach = m.side === 'N'
         ? [V(-5.6, UP, -9.9), V(-5.6, UP, -13.5), V(m.x, UP, -13.5)]
-        : m.side === 'E' ? [V(2.6, UP, -9.8), V(2.6, UP, -11.6)] : [V(m.x, UP, -9.7)];
+        : m.side === 'E' ? [V(2.6, UP, -9.8), V(2.6, UP, -11.6)]
+          : m.side === 'W' ? [V(-5.6, UP, -9.9), V(-5.6, UP, -11.6)] : [V(m.x, UP, -9.7)];
       return { pos: V(m.x, UP, m.z), rot: m.rot, pose: 'talk', anchor: 'MEET_IN', approach };
     }
     case 'musholla': {

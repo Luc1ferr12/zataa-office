@@ -1,7 +1,7 @@
 // Kantor virtual pixel art: gedung dirender sekali (Web Worker), pegawai & layar digambar tiap frame.
 // API sama dengan versi 3D lama supaya main.js tidak banyak berubah.
 import { W, H, PXH, VW, proj, depthOf, pack, blend, bayer, hash2, UP } from './px/engine.js';
-import { makeSpots, ROOMS } from './px/scene.js';
+import { makeSpots, ROOMS, DESKS } from './px/scene.js';
 import { sprite, flamingoSprite } from './px/sprites.js';
 import { textBitmap } from './px/font.js';
 import { AGENTS } from './schedule.js';
@@ -56,7 +56,7 @@ export class Office {
     this.showUpper = true;
     this.host = labelHost;
     this.spots = makeSpots();
-    this.screens = new Array(6).fill(false);
+    this.screens = new Array(DESKS).fill(false);
     this.tv = { theme: 'Belum ada plan', pending: 0, game: false };
     this.nightF = 0; this.golden = 0; this.dim = 0;
     this.t = 0;
@@ -157,7 +157,7 @@ export class Office {
     c.label.classList.toggle('is-selected', this.selected === id);
 
     const key = info.loc === 'lounge' && info.label.includes('Mabar') ? 'game' : info.loc;
-    if (c.idx < 6) this.screens[c.idx] = c.locKey === 'desk' && !c.path.length;
+    if (c.idx < DESKS) this.screens[c.idx] = c.locKey === 'desk' && !c.path.length;
 
     if (mode === 'init') {
       const to = locationFor(this.spots, c.agent, c.idx, key, info);
@@ -404,7 +404,7 @@ export class Office {
       c.pos.set(L.x - L.half * Math.cos(ph), L.y, L.z);
       c.yaw = Math.sin(ph) >= 0 ? Math.PI / 2 : -Math.PI / 2;
     }
-    if (c.idx < 6) this.screens[c.idx] = c.locKey === 'desk' && !c.path.length;
+    if (c.idx < DESKS) this.screens[c.idx] = c.locKey === 'desk' && !c.path.length;
   }
 
   // ---------- satu frame
@@ -543,7 +543,7 @@ export class Office {
       for (let k = 0; k < d.idx.length; k++) buf[d.idx[k]] = fn(Math.floor(d.a[k] * Wp), Math.floor((1 - d.b[k]) * Hp), d.x[k], d.y[k]);
     };
     // monitor kerja (12×5 px)
-    for (let i = 0; i < 6; i++) {
+    for (let i = 0; i < DESKS; i++) {
       const on = this.screens[i];
       const kind = AGENTS[i]?.id;
       surf(`scr${i}`, 12, 5, (X, Y, px) => {
