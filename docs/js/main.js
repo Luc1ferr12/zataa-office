@@ -64,6 +64,19 @@ function renderDashboard() {
     ? acts.map((a) => `<li><time>${fmtTs(a.ts)}</time><b>${esc(NAMES[a.agent_id] ?? '')}</b> ${esc(a.message)}</li>`).join('')
     : '<li class="muted">Belum ada aktivitas. Kantor buka tiap hari 07:00–21:00 WITA.</li>';
 
+  // tim Trading XAUUSD
+  const tr = s?.trading;
+  $('trd-mode').textContent = tr ? `mode ${tr.mode}${tr.paused ? ' · dijeda' : ''}` : 'belum jalan';
+  $('trd-price').textContent = tr?.price ? tr.price.toFixed(2) : '–';
+  $('trd-bal').textContent = tr?.balance != null ? `$${Number(tr.balance).toLocaleString('id-ID', { maximumFractionDigits: 2 })}` : '–';
+  $('trd-pnl').textContent = tr ? `${tr.today_pnl >= 0 ? '+' : '−'}$${Math.abs(tr.today_pnl).toFixed(2)}` : '–';
+  const rows = [
+    ...(tr?.open ?? []).map((o) => `<li><b>${o.side.toUpperCase()} ${o.lot}</b> kebuka @ ${o.entry} · SL ${o.sl} · TP ${o.tp}</li>`),
+    ...(tr?.trades ?? []).map((x) => `<li><time>${fmtTs(x.close_ts)}</time><b>${x.side.toUpperCase()} ${x.lot}</b> ${x.pnl >= 0 ? '✅' : '🔻'} ${x.pnl >= 0 ? '+' : '−'}$${Math.abs(x.pnl).toFixed(2)} (${esc(x.reason_close)})</li>`),
+    ...(tr?.signals ?? []).slice(0, 3).map((x) => `<li><time>${fmtTs(x.ts)}</time><b>${esc(x.decision)}</b> ${esc(x.reason)}</li>`),
+  ];
+  $('trd-list').innerHTML = rows.length ? rows.join('') : '<li class="muted">Tim trading belum mulai analisa.</li>';
+
   office?.setCampaign(s?.campaign?.theme, st.pending ?? 0);
   lastChatKey = null;
   tick(true);
@@ -190,7 +203,6 @@ $('sim-play').addEventListener('click', () => {
     updateSimOut(); tick();
   }, 1000);
 });
-$('upper-toggle').addEventListener('change', (e) => office?.toggleUpper(e.target.checked));
 const updateSimOut = () => { const m = +$('sim-time').value; $('sim-out').textContent = `${String(Math.floor(m / 60)).padStart(2, '0')}:${String(m % 60).padStart(2, '0')}`; };
 $('sim-time').addEventListener('input', () => { updateSimOut(); tick(); });
 $('sim-day').addEventListener('change', () => tick());
@@ -205,7 +217,7 @@ try {
   office = new Office($('office-canvas'), $('office'), now().dow === 1 ? 'formal' : 'kerja');
   office.onSelect = (id) => select(id);
   window.office = office; // memudahkan debug dari console
-  $('loading').textContent = 'Lagi ngegambar kantor pixel…';
+  $('loading').textContent = 'Lagi ngegambar kantor…';
   await office.ready;
   $('loading').remove();
   office.setCampaign(state?.campaign?.theme, state?.stats?.this_week?.pending ?? 0);

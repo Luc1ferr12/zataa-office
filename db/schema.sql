@@ -125,4 +125,11 @@ INSERT OR IGNORE INTO agents (id, name, title) VALUES
   ('ads',        'Fahriah', 'Ads Specialist'),
   ('analyst',    'Raka',    'Data Analyst'),
   ('price',      'Budi',    'Price Watcher'),
-  ('ob',         'Mbak Sari', 'Office Girl');
+  ('ob',         'Mbak Sari', 'Office Girl'),
+  ('tdir',       'Mahendra',  'Trading Director'),
+  ('tresearch',  'Davina',    'Research & Fundamental'),
+  ('ttech',      'Keira',     'Technical Analysis'),
+  ('trisk',      'Aryaputra', 'Decision & Risk · MQL Developer'),
+  ('texec',      'Wiratama',  'Execution'),
+  ('teval',      'Jihan',     'Evaluation & Optimization'),
+  ('treport',    'Selena',    'Reporting');

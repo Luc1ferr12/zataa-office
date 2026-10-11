@@ -35,6 +35,15 @@ const BANK = {
     [[0, '{b}, render-nya udah kelar?'], [1, 'Bentar lagi, PC-ku lagi ngos-ngosan']],
     [[0, 'Caption-nya kurang CTA nih'], [1, 'Tambahin "top up di zataa.my.id" aja, simpel']],
   ],
+  trading: [
+    [[0, '{b}, CPI malam ini rilis jam berapa?'], [1, '20:30 WITA, siap-siap volatil 🔥'], [0, 'Oke, aku kabarin Aryaputra biar lot dikecilin']],
+    [[0, 'H4 masih bullish, tapi H1 udah bikin lower high'], [1, 'Tunggu konfirmasi di support dulu deh'], [0, 'Setuju, jangan FOMO']],
+    [[0, 'Risk per trade tetap 1% ya'], [1, 'Siap, RR minimal 1:2 kan?'], [0, 'Betul, kalau nggak masuk ya NO TRADE']],
+    [[0, 'Order udah ke-fill, SL TP kepasang'], [1, 'Mantap, aku kirim laporan ke Telegram']],
+    [[0, 'Backtest versi baru winrate naik dikit'], [1, 'Forward test seminggu dulu sebelum deploy ya'], [0, 'Siap bos']],
+    [[0, 'Spread lagi lebar banget nih'], [1, 'Tahan dulu entry-nya, tunggu normal']],
+    [[0, 'Fed ngomong hawkish lagi 😬'], [1, 'Gold bisa turun, cek level 2 hari terakhir']],
+  ],
   pacaran: [
     [[0, 'Udah makan belum? Jangan kerja mulu 🥺'], [1, 'Belum, nungguin kamu dong'], [0, 'Gombal ah 🙈']],
     [[0, 'Nanti malem nonton bareng yuk'], [1, 'Boleh, tapi aku yang pilih filmnya ya'], [0, 'Asal bukan horor 😤']],
@@ -73,7 +82,7 @@ function topicOf(a1, a2) {
   if (a1.mood?.key && ['marah', 'kesel', 'capek'].includes(a1.mood.key)) return 'curhat';
   if (a1.act === 'lunch' || a2.act === 'lunch') return 'makan';
   if (a1.act === 'coffee' || a1.loc === 'cafe') return 'ngopi';
-  if (a1.act === 'work' && a2.act === 'work') return 'kerja';
+  if (a1.act === 'work' && a2.act === 'work') return a1.a.team === 'trd' && a2.a.team === 'trd' ? 'trading' : 'kerja';
   if (a1.act === 'free' || a1.act === 'break') return 'santai';
   return null;
 }
@@ -90,7 +99,7 @@ export function simulatedChats(t, real = {}, dayDate = new Date()) {
     const tt = { ...t, minutes: m };
     const acts = people.map((a) => ({ a, ...activityAt(idxOf(a.id), a, tt, real[a.id]) }));
     // pasangan yang lagi di tempat yang sama (meja kerja dihitung satu ruangan)
-    const room = (x) => (x.loc === 'desk' ? 'work' : x.loc);
+    const room = (x) => (x.loc === 'desk' ? `work-${x.a.team}` : x.loc);
     const here = acts.filter((x) => !['off', 'pray', 'meeting', 'sleep'].includes(x.act));
     const groups = {};
     for (const x of here) (groups[room(x)] ??= []).push(x);
@@ -111,7 +120,7 @@ export function simulatedChats(t, real = {}, dayDate = new Date()) {
       if (minute > t.minutes) return; // belum terjadi
       const [from, to] = who === 0 ? [p1.a, p2.a] : [p2.a, p1.a];
       out.push({
-        minute, from: from.id, to: to.id, kind: topic === 'curhat' ? 'curhat' : topic === 'kerja' ? 'kerja' : topic === 'pacaran' ? 'pacaran' : 'santai',
+        minute, from: from.id, to: to.id, kind: topic === 'curhat' ? 'curhat' : topic === 'kerja' || topic === 'trading' ? 'kerja' : topic === 'pacaran' ? 'pacaran' : 'santai',
         message: text.replaceAll('{a}', p1.a.name).replaceAll('{b}', p2.a.name),
       });
     });

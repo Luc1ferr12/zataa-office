@@ -209,7 +209,43 @@ CHARS = {
                shoe=dict(kind='sneaker', color='#2b2b30', sole='#cfcfcf'), props=['apron', 'duster'],
                pose=dict(head=(6, 2, -4), twist=-3, el={1: (0.17, -0.0, 0.55)}, wr={1: (0.17, -0.085, 0.49)},
                          foot={-1: (0, 0, 10), 1: (0, -0.02, 10)})),
+    # ---------------- tim Trading (spesifikasi Owner, 12 Okt 2026)
+    'tdir': dict(name='Mahendra', g='m', skin='#c99a76', hair='#141111', brow='#141111', hair_style='side_part',
+                 top=dict(kind='shirt', color='#f4f2ee', sleeve='long'), outer=dict(kind='blazer', color='#1f2a4a'),
+                 bottom=dict(kind='pants', color='#1f2a4a'), shoe=dict(kind='oxford', color='#111014'), props=['tie'], tie='#7c3aed',
+                 pose=dict(head=(2, 2, 3), twist=2, pocket=[1], el={1: (0.16, 0.035, 0.53)}, wr={1: (0.118, 0.01, 0.43)},
+                           foot={-1: (-0.012, 0, 12), 1: (0.012, 0, 12)}), scale=1.03),
+    'tresearch': dict(name='Davina', g='f', skin='#ecc19c', hair='#3d2416', brow='#2e1a10', hair_style='wavy_long',
+                      glasses='#2a2a30', glasses_thin=True, top=dict(kind='shirt', color='#f4f2ee', sleeve='long'), outer=dict(kind='blazer', color='#3b1d5e'),
+                      bottom=dict(kind='skirt', color='#17151d', length='knee', cut='pencil'), shoe=dict(kind='pump', color='#111014'),
+                      props=['notebook'], pose=dict(head=(-5, 4, -6), twist=-4, el={1: (0.168, -0.012, 0.548)}, wr={1: (0.085, -0.13, 0.565)},
+                                                    foot={-1: (0.004, 0, 8), 1: (-0.004, -0.015, 8)})),
+    'ttech': dict(name='Keira', g='f', skin='#e8bc96', hair='#141111', brow='#141111', hair_style='pony_high', scrunchie='#141111',
+                  top=dict(kind='shirt', color='#f4f2ee', sleeve='long'), outer=dict(kind='vest', color='#1c1b22'),
+                  bottom=dict(kind='skirt', color='#17151d', length='knee', cut='aline'), shoe=dict(kind='loafer', color='#111014'),
+                  props=['watch'], pose=dict(head=(4, 3, 6), twist=3, lean=-1, foot={-1: (-0.01, 0, 10), 1: (0.01, -0.01, 12)})),
+    'teval': dict(name='Jihan', g='f', skin='#efc6a2', hair='#8b7d6b', brow='#5a4c3e', hair_style='bob', glasses='#2a2a30',
+                  top=dict(kind='tee', color='#7c3aed'), outer=dict(kind='blazer', color='#1c1b22'),
+                  bottom=dict(kind='skirt', color='#3a3a44', length='knee', cut='pencil'), shoe=dict(kind='lowheel', color='#111014'),
+                  props=['notebook'], pose=dict(head=(-4, 3, 5), twist=-3, el={1: (0.168, -0.012, 0.548)}, wr={1: (0.085, -0.13, 0.565)},
+                                                foot={-1: (0, 0, 8), 1: (0, -0.015, 10)})),
+    'treport': dict(name='Selena', g='f', skin='#e6bd99', hair='#141111', brow='#141111', hair_style='halfup_long',
+                    top=dict(kind='shirt', color='#f4f2ee', sleeve='long'), outer=dict(kind='cardigan', color='#7c3aed'),
+                    bottom=dict(kind='skirt', color='#17151d', length='knee', cut='pleated'), shoe=dict(kind='flat', color='#111014'),
+                    props=['phone'], pose=dict(head=(5, 5, 4), twist=2, el={1: (0.168, -0.012, 0.548)}, wr={1: (0.085, -0.135, 0.56)},
+                                               foot={-1: (0, 0, 8), 1: (0, -0.015, 8)})),
+    'texec': dict(name='Wiratama', g='m', skin='#d4a07a', hair='#4a2c1a', brow='#2e1a10', hair_style='messy',
+                  top=dict(kind='tee', color='#1c1b22'), outer=dict(kind='techwear', color='#3b1764'),
+                  bottom=dict(kind='pants', color='#1c1b22'), shoe=dict(kind='sneaker', color='#f4f2ee'), props=['watch'],
+                  pose=dict(head=(-3, 3, -5), twist=-4, pocket=[1], el={1: (0.16, 0.035, 0.53)}, wr={1: (0.118, 0.01, 0.43)},
+                            foot={-1: (-0.012, 0, 12), 1: (0.012, -0.015, 12)})),
+    'trisk': dict(name='Aryaputra', g='m', skin='#c48f69', hair='#141111', brow='#141111', hair_style='undercut', glasses='#1d1d22',
+                  top=dict(kind='hoodie', color='#1c1b22', accent='#7c3aed'), bottom=dict(kind='cargo', color='#1c1b22'),
+                  shoe=dict(kind='sneaker', color='#f4f2ee'),
+                  pose=dict(head=(3, 4, 4), twist=3, pocket=[-1, 1], el={-1: (-0.16, 0.035, 0.53), 1: (0.16, 0.035, 0.53)},
+                            wr={-1: (-0.118, 0.01, 0.43), 1: (0.118, 0.01, 0.43)}, foot={-1: (-0.01, 0, 12), 1: (0.01, 0, 12)})),
 }
+LOW_SHOES = ('flat', 'slipon', 'pump', 'lowheel', 'loafer', 'oxford')
 
 # ---------------------------------------------------------------- preset pose (digabung ke pose khas tiap karakter)
 SIT_DROP = 0.16
@@ -291,7 +327,7 @@ def build(cid, loc=(0, 0, 0), yaw=0.0, pose_name='stand'):
     over = POSES[pose_name]
     if over:   # pose aktivitas: kaki/lengan diganti, gaya kepala karakter tetap
         base = {k: v for k, v in base.items() if k in ('head', 'twist', 'lean')}
-        props = [p for p in props if p not in ('notebook', 'phone', 'duster')]
+        props = [p for p in props if p not in ('notebook', 'phone', 'duster')]   # dasi & jam tangan tetap dipakai
         if 'head' in over and 'head' in base:   # gabung miringnya kepala khas karakter dengan pose
             over = {**over, 'head': tuple(a + b * 0.5 for a, b in zip(over['head'], base['head']))}
     pose = {**base, **over}
@@ -329,7 +365,7 @@ def build(cid, loc=(0, 0, 0), yaw=0.0, pose_name='stand'):
 
     # ================= BAWAH (kaki, celana/rok, sepatu) — tidak ikut putaran badan atas
     skirt = B['kind'] == 'skirt'
-    ankle_h = 0.07 if S['kind'] in ('flat', 'slipon', 'barefoot') else 0.085
+    ankle_h = 0.07 if S['kind'] in LOW_SHOES + ('barefoot',) else 0.085
     SIT = pose.get('sit', False)
     HIP = {s: Vector((0.057 * s, 0, 0.43)) for s in (-1, 1)}
     # pergelangan kaki & lutut: default berdiri, bisa diatur per sendi (duduk / jalan)
@@ -349,7 +385,18 @@ def build(cid, loc=(0, 0, 0), yaw=0.0, pose_name='stand'):
             fuse(parts, 0.0035, 10)
         else:
             h = 0.43 if B.get('length') == 'ankle' else 0.25 if knee else 0.17
-            frustum('skirt', (0, 0, 0.47 - h / 2), 0.21 if h > 0.3 else 0.19 if knee else 0.182, 0.104, h, bot, P, bevel=0.015, seg=64)
+            cut = B.get('cut', 'aline')
+            r1 = 0.21 if h > 0.3 else (0.128 if cut == 'pencil' else 0.2 if cut == 'pleated' else 0.19) if knee else 0.182
+            sk = frustum('skirt', (0, 0, 0.47 - h / 2), r1, 0.104, h, bot, P, bevel=0.015, seg=64)
+            if cut == 'pencil':
+                sk.scale = (1, 0.82, 1)
+                capsule('slit', (0.0, 0.1, 0.47 - h + 0.004), (0.0, 0.1, 0.47 - h + 0.08), 0.0035, mat('slit', shade(B['color'], -0.25), 0.8), P)
+            if cut == 'pleated':   # lipitan: garis tegak mengelilingi rok
+                pm = mat('pleat', shade(B['color'], 0.14), 0.75)
+                for i in range(18):
+                    a = i / 18 * 2 * math.pi
+                    top_ = Vector((math.cos(a) * 0.106, math.sin(a) * 0.106, 0.465)); bot_ = Vector((math.cos(a) * (r1 + 0.004), math.sin(a) * (r1 + 0.004), 0.47 - h + 0.012))
+                    capsule('pleat', top_, bot_, 0.004, pm, P)
         torus('waistband', (0, 0, 0.468), (0, 0, 1), 0.101, 0.0085, bot, P)
     else:
         parts = [ellipsoid('hips', (0, 0.0, 0.44), (0.11, 0.08, 0.065), bot, P)]
@@ -367,7 +414,7 @@ def build(cid, loc=(0, 0, 0), yaw=0.0, pose_name='stand'):
                 capsule('seam', HIP[s] + Vector((0.043 * s, -0.01, -0.01)), KN[s] + Vector((0.046 * s, 0, 0)), 0.0022, mat('seam', '#d9a441', 0.6), P)
                 capsule('seam', KN[s] + Vector((0.046 * s, 0, 0)), AK[s] + Vector((0.042 * s, 0, 0.015)), 0.0022, mat('seam', '#d9a441', 0.6), P)
     # sepatu
-    shoe = mat('shoe', S['color'], 0.4 if S['kind'] != 'sneaker' else 0.6, coat=0.5 if S['kind'] != 'sneaker' else 0.1)
+    shoe = mat('shoe', S['color'], 0.4 if S['kind'] != 'sneaker' else 0.6, coat=0.8 if S['kind'] in ('pump', 'oxford', 'lowheel') else 0.5 if S['kind'] != 'sneaker' else 0.1)
     sole = mat('sole', S.get('sole', '#f2efe9' if S['kind'] != 'sneaker' else '#ffffff'), 0.6)
     for s in (-1, 1):
         if S['kind'] == 'barefoot':
@@ -377,19 +424,28 @@ def build(cid, loc=(0, 0, 0), yaw=0.0, pose_name='stand'):
             Rz = Matrix.Rotation(radians(FT[s][2] * s), 4, 'Z') @ Matrix.Rotation(radians(pose.get('toe', {}).get(s, 0)), 4, 'X')
             ft.matrix_basis = Matrix.Translation(Vector((AK[s].x, AK[s].y, AK[s].z - ankle_h))) @ Rz @ ft.matrix_basis
             continue
-        low = S['kind'] in ('flat', 'slipon')
-        th = 0.028 if S['kind'] == 'flat' else 0.033 if low else 0.037
+        low = S['kind'] in LOW_SHOES
+        th = 0.028 if S['kind'] in ('flat', 'pump', 'lowheel') else 0.033 if low else 0.037
         parts = [ellipsoid('toe', (0, -0.045, 0.034), (0.046, 0.066, th), shoe, P),
                  ellipsoid('heel', (0, 0.018, 0.036), (0.043, 0.045, th + 0.003), shoe, P)]
         if not low: parts.append(capsule('ankle', (0, 0.0, 0.04), (0, 0.0, 0.085 if S['kind'] != 'boot' else 0.11), 0.042 if S['kind'] == 'boot' else 0.04, shoe, P))
         sh_ = fuse(parts, 0.003, 6)
         boolean_cut(sh_, (0, -0.02, -0.04), (0.2, 0.3, 0.1))
-        if low and S['kind'] == 'flat':  # bukaan punggung kaki
+        if low and S['kind'] in ('flat', 'pump', 'lowheel'):  # bukaan punggung kaki
             boolean_cut(sh_, (0, -0.0, 0.075), (0.07, 0.09, 0.05), shape='ell')
         sh2 = 0.02 if S['kind'] != 'sneaker' else 0.026
         so_ = fuse([ellipsoid('stoe', (0, -0.045, 0.02), (0.05, 0.07, 0.03), sole, P), ellipsoid('sheel', (0, 0.018, 0.02), (0.047, 0.05, 0.03), sole, P)], 0.003, 6)
         boolean_cut(so_, (0, -0.02, sh2 + 0.05), (0.2, 0.3, 0.1)); boolean_cut(so_, (0, -0.02, -0.05), (0.2, 0.3, 0.1))
         objs = [sh_, so_]
+        if S['kind'] in ('pump', 'lowheel'):   # hak sepatu
+            hh = 0.035 if S['kind'] == 'pump' else 0.022
+            objs.append(rbox('heelblk', (0, 0.035, -0.002 - hh / 2 + 0.012), (0.03, 0.03, hh), shoe, 0.006, P))
+        if S['kind'] in ('loafer', 'oxford'):   # loafer: strap di punggung kaki · oxford: tali tipis
+            if S['kind'] == 'loafer':
+                objs.append(rbox('strap', (0, -0.035, 0.066), (0.06, 0.018, 0.008), mat('strapL', shade(S['color'], 0.18), 0.4, coat=0.5), 0.004, P))
+            else:
+                lace = mat('laceO', '#2a2a2e', 0.5)
+                for i in range(3): objs.append(capsule('lace', (-0.014, -0.025 - i * 0.014, 0.068 - i * 0.004), (0.014, -0.025 - i * 0.014, 0.068 - i * 0.004), 0.0028, lace, P))
         if S['kind'] == 'sneaker':
             lace = mat('lace', '#ffffff' if S['color'] != '#f4f2ee' else '#d8d8d8', 0.6)
             for i in range(3):
@@ -468,20 +524,25 @@ def build(cid, loc=(0, 0, 0), yaw=0.0, pose_name='stand'):
     # ---- baju dalam
     kind = T['kind']
     tuck = skirt
-    sleeve_in = 'none' if O else {'tee': 'short', 'polo': 'short', 'sweater': 'long', 'hoodie': 'long', 'shirt': 'rolled', 'tunic': 'long'}[kind]
+    vest = bool(O) and O['kind'] == 'vest'
+    sleeve_in = 'none' if O and not vest else T.get('sleeve') or {'tee': 'short', 'polo': 'short', 'sweater': 'long', 'hoodie': 'long', 'shirt': 'rolled', 'tunic': 'long'}[kind]
     z0 = {'tee': 0.45 if tuck else 0.41, 'polo': 0.41, 'sweater': 0.4, 'hoodie': 0.39, 'shirt': 0.41, 'tunic': 0.33}[kind]
     if O: z0 = max(z0, 0.42)
     inner = garment(top, z0, 1.0, sleeve_in, flare=0.012 if kind == 'tunic' else 0.0)
-    rib = mat('rib', shade(T['color'], -0.12), 0.85)
-    if not O: cuffs(sleeve_in, rib if kind in ('sweater', 'hoodie') else top)
+    rib = mat('rib', T['accent'], 0.6) if T.get('accent') else mat('rib', shade(T['color'], -0.12), 0.85)
+    if not O or vest: cuffs(sleeve_in, rib if kind in ('sweater', 'hoodie') else top)
     if kind == 'tee' or kind == 'tunic':
         torus('collar', (0, 0.0, 0.69), (0, 0.25, 1), 0.052, 0.008, top if kind == 'tee' else mat('tcol', T['color'], 0.8), P)
     if kind == 'sweater':
         torus('collar', (0, 0.0, 0.69), (0, 0.25, 1), 0.053, 0.012, rib, P)
     if kind == 'hoodie':
         ellipsoid('hood', (0, 0.07, 0.715), (0.125, 0.07, 0.06), top, P)
-        torus('hoodrim', (0, -0.005, 0.7), (0, 0.35, 1), 0.06, 0.016, top, P)
-        st = mat('string', '#e8e6e1', 0.6)
+        torus('hoodrim', (0, -0.005, 0.7), (0, 0.35, 1), 0.06, 0.016, rib if T.get('accent') else top, P)
+        st = mat('string', T.get('accent', '#e8e6e1'), 0.6)
+        if T.get('accent'):   # aksen: kantong kanguru + logo kecil
+            rbox('kpocket', (0, -0.095, 0.47), (0.12, 0.012, 0.055), mat('kpk', shade(T['color'], 0.06), 0.8), 0.01, P)
+            capsule('kline', (-0.06, -0.102, 0.5), (0.06, -0.102, 0.5), 0.003, rib, P)
+            ellipsoid('hlogo', (0.05, -0.096, 0.6), (0.014, 0.004, 0.014), rib, P)
         for s in (-1, 1):
             capsule('string', (0.028 * s, -0.075, 0.69), (0.034 * s, -0.098, 0.6), 0.004, st, P)
             ellipsoid('aglet', (0.034 * s, -0.099, 0.597), (0.006, 0.006, 0.01), st, P)
@@ -492,7 +553,11 @@ def build(cid, loc=(0, 0, 0), yaw=0.0, pose_name='stand'):
         rbox('placket', (0, -0.083, 0.655), (0.022, 0.008, 0.06), col, 0.004, P)
         for z in (0.67, 0.64): ellipsoid('pbtn', (0, -0.088, z), (0.005, 0.003, 0.005), mat('btnw', '#f4f2ee', 0.3), P)
         ellipsoid('logo', (-0.055, -0.083, 0.64), (0.011, 0.004, 0.009), mat('logo', '#f59e0b', 0.4), P)  # bordir
-    if kind == 'shirt':
+    if kind == 'shirt' and O:   # kerah kemeja nongol di atas jas/rompi/kardigan
+        col = mat('shirtcol', shade(T['color'], 0.1), 0.75)
+        for s_ in (-1, 1):
+            rbox('scollarO', (0.04 * s_, -0.07, 0.716), (0.06, 0.024, 0.028), col, 0.007, P, rot=Matrix.Rotation(radians(-30 * s_), 4, 'Y').to_quaternion())
+    if kind == 'shirt' and not O:
         col = mat('shirtcol', shade(T['color'], 0.15), 0.75)
         for s in (-1, 1):
             rbox('scollar', (0.036 * s, -0.058, 0.705), (0.058, 0.022, 0.026), col, 0.007, P, rot=Matrix.Rotation(radians(-28 * s), 4, 'Y').to_quaternion())
@@ -506,14 +571,27 @@ def build(cid, loc=(0, 0, 0), yaw=0.0, pose_name='stand'):
     if O:
         ok = O['kind']
         oc = pattern_mat('flannel_' + nm, 'plaid', O['color'], O['color2'], 55) if ok == 'flannel' else mat('outer', O['color'], 0.8, sheen=0.35)
-        oz0 = {'blazer': 0.38, 'cardigan': 0.36, 'flannel': 0.38, 'parka': 0.33, 'jacket': 0.39, 'bomber': 0.42}[ok]
-        outer = garment(oc, oz0, 1.07, 'long', sr=0.004)
-        trim = mat('otrim', shade(O['color'], -0.15), 0.8)
+        oz0 = {'blazer': 0.38, 'cardigan': 0.36, 'flannel': 0.38, 'parka': 0.33, 'jacket': 0.39, 'bomber': 0.42, 'vest': 0.4, 'techwear': 0.37}[ok]
+        outer = garment(oc, oz0, 1.07, 'none' if ok == 'vest' else 'long', sr=0.004)
+        trim = mat('otrim', shade(O['color'], -0.15 if O['color'] != '#1c1b22' else 0.12), 0.8)
         if ok != 'bomber':
-            wb, wt = {'blazer': (0.012, 0.056), 'cardigan': (0.02, 0.046), 'flannel': (0.026, 0.046), 'jacket': (0.028, 0.04), 'parka': (0.03, 0.044)}[ok]
-            edge_m = mat('zip', '#c9c9c9', 0.3, metal=0.7) if ok in ('jacket', 'parka') else trim
+            wb, wt = {'blazer': (0.012, 0.056), 'cardigan': (0.02, 0.046), 'flannel': (0.026, 0.046), 'jacket': (0.028, 0.04), 'parka': (0.03, 0.044),
+                      'vest': (0.016, 0.06), 'techwear': (0.026, 0.038)}[ok]
+            edge_m = mat('zip', '#c9c9c9', 0.3, metal=0.7) if ok in ('jacket', 'parka', 'techwear') else trim
             front_opening(outer, top, oz0 + 0.03, 0.716, wb, wt, edge_m, 0.0042 if ok != 'blazer' else 0.0055)
-        cuffs('long', trim if ok in ('bomber', 'cardigan') else oc, 0.035, 0.0065 if ok != 'bomber' else 0.01, sr=0.004)
+        if ok != 'vest': cuffs('long', trim if ok in ('bomber', 'cardigan', 'techwear') else oc, 0.035, 0.0065 if ok != 'bomber' else 0.01, sr=0.004)
+        if ok == 'vest':   # rompi: kancing + saku welt
+            for j in range(3): ellipsoid('vbtn', (0.026, -0.097, 0.56 - j * 0.05), (0.006, 0.004, 0.006), mat('vbtnc', '#3a3a40', 0.3, coat=0.6), P)
+            for s_ in (-1, 1): rbox('vwelt', (0.06 * s_, -0.094, 0.5), (0.04, 0.008, 0.007), trim, 0.003, P)
+        if ok == 'techwear':   # jaket techwear: kerah tinggi, strap dada + gesper, kantong lengan, garis reflektif
+            zp = mat('zip', '#c9c9c9', 0.3, metal=0.7)
+            torus('tcollar', (0, 0.0, 0.705), (0, 0.2, 1), 0.07, 0.02, oc, P)
+            strap = mat('tstrap', '#141218', 0.6)
+            capsule('tstrap', (-0.1, -0.09, 0.66), (0.1, -0.098, 0.5), 0.008, strap, P)
+            rbox('tbuckle', (0.0, -0.104, 0.58), (0.028, 0.01, 0.022), mat('tbk', '#b8bcc4', 0.25, metal=0.8), 0.004, P)
+            for s_ in (-1, 1):
+                rbox('tpocket', (0.07 * s_, -0.096, 0.47), (0.045, 0.012, 0.05), trim, 0.006, P)
+                capsule('trefl', SH[s_].lerp(EL[s_], 0.55) + Vector((0.038 * s_, -0.005, 0)), SH[s_].lerp(EL[s_], 0.55) + Vector((0.034 * s_, -0.03, -0.004)), 0.004, mat('trefl', '#a78bfa', 0.3, emit=0.6), P)
         if ok == 'blazer':
             lap = mat('lapel', shade(O['color'], 0.1), 0.7)
             ellipsoid('btn', (0.034, -0.096, 0.47), (0.009, 0.005, 0.009), mat('btnd', '#c8a25a', 0.3, metal=0.6), P)
@@ -543,6 +621,19 @@ def build(cid, loc=(0, 0, 0), yaw=0.0, pose_name='stand'):
             rbox('bpatch', (-0.17, -0.02, 0.6), (0.02, 0.03, 0.03), mat('patch', '#f59e0b', 0.5), 0.006, P)
 
     # ---- properti
+    if 'tie' in props and not pose.get('pray'):
+        tm = mat('tie', cfg.get('tie', '#7c3aed'), 0.4, sheen=0.4)
+        ellipsoid('tieknot', (0, -0.088, 0.688), (0.014, 0.009, 0.013), tm, P)
+        rbox('tie1', (0, -0.094, 0.625), (0.026, 0.006, 0.11), tm, 0.004, P)
+        rbox('tie2', (0, -0.096, 0.545), (0.034, 0.006, 0.07), tm, 0.006, P)
+    if 'watch' in props and not pose.get('pray'):
+        s_ = -1
+        if s_ not in POCKET:
+            d = (WR[s_] - EL[s_]).normalized(); c = WR[s_] - d * 0.03
+            torus('wband', c, d, 0.03, 0.0065, mat('wband', '#141218', 0.5), P)
+            out_ = Vector((s_ * 0.9, -0.45, 0.2)).normalized()
+            ellipsoid('wface', c + out_ * 0.029, (0.016, 0.016, 0.016), mat('wface', '#1d1d22', 0.2, coat=0.9), P, rot=out_.to_track_quat('Z', 'Y'))
+            ellipsoid('wscr', c + out_ * 0.036, (0.011, 0.011, 0.004), mat('wscr', '#5eead4', 0.2, emit=1.2), P, rot=out_.to_track_quat('Z', 'Y'))
     if 'notebook' in props:
         s = 1
         d = (WR[s] - EL[s]).normalized()
@@ -650,7 +741,7 @@ def build(cid, loc=(0, 0, 0), yaw=0.0, pose_name='stand'):
 
     if cfg.get('glasses'):
         fr = mat('glassframe', cfg['glasses'], 0.3, coat=0.6)
-        thick = 0.0055 if cfg['glasses'] == '#2563eb' else 0.0042
+        thick = 0.0055 if cfg['glasses'] == '#2563eb' else 0.0032 if cfg.get('glasses_thin') else 0.0042
         for s in (-1, 1):
             c = surf(0.062 * s, 0.888, 0.016)
             torus('lensring', c, (0.22 * s, -1, 0), 0.034, thick, fr, P)
@@ -799,6 +890,42 @@ def hair_style(style, cfg, hair, P):
         boolean_cut(c, (0.21, -0.03, 0.83), (0.08, 0.16, 0.14))           # sisi kanan pendek (telinga keliatan)
         boolean_cut(c, (0.08, 0.04, 0.73), (0.36, 0.4, 0.12))
         ellipsoid('earring', (0.185, -0.005, 0.85), (0.008, 0.008, 0.008), mat('gold', '#d4a63a', 0.25, metal=0.9), P)
+    elif style == 'bob':   # bob sebahu, poni samping, ujung rata
+        parts = [cap((0.02, 0.022, 0.016), (0, 0.014, 0.02)),
+                 ellipsoid('bang', (0.04, -0.096, 1.0), (0.16, 0.08, 0.062), hair, P, rot=rotY(16)),
+                 ellipsoid('bback', (0, 0.06, 0.86), (0.2, 0.13, 0.16), hair, P)]
+        for sx in (-1, 1):
+            parts.append(capsule('bside', (0.158 * sx, -0.02, 0.96), (0.172 * sx, -0.03, 0.775), 0.056, hair, P, r2=0.05))
+            parts.append(ellipsoid('bflip', (0.175 * sx, -0.01, 0.775), (0.06, 0.07, 0.035), hair, P))
+        c = fuse(parts, 0.0045, 12)
+        boolean_cut(c, (0, -0.19, 0.82), (0.27, 0.2, 0.2))
+        boolean_cut(c, (-0.03, -0.2, 0.89), (0.16, 0.12, 0.07))
+        boolean_cut(c, (0, 0.0, 0.69), (0.5, 0.5, 0.12))
+    elif style == 'halfup_long':   # hitam panjang lurus, setengah diikat ke belakang
+        parts = [cap((0.016, 0.02, 0.014), (0, 0.014, 0.018)),
+                 ellipsoid('bang', (0.0, -0.1, 0.995), (0.16, 0.075, 0.06), hair, P),
+                 ellipsoid('hairback2', (0, 0.07, 0.88), (0.19, 0.13, 0.18), hair, P),
+                 ellipsoid('knot', (0, 0.17, 0.97), (0.05, 0.04, 0.045), hair, P)]
+        for i, x in enumerate((-0.13, -0.065, 0.0, 0.065, 0.13)):
+            parts.append(capsule('strand', (x, 0.08, 0.86), (x * 1.05, 0.095, 0.52), 0.05, hair, P, r2=0.038))
+        for sx in (-1, 1):
+            parts.append(capsule('front', (0.163 * sx, -0.025, 0.9), (0.17 * sx, -0.045, 0.6), 0.04, hair, P, r2=0.03))
+        c = fuse(parts, 0.0045, 12)
+        boolean_cut(c, (0, -0.19, 0.82), (0.27, 0.2, 0.2))
+        boolean_cut(c, (0, -0.2, 0.895), (0.05, 0.12, 0.07))
+        torus('htie', (0, 0.2, 0.975), (0, 1, 0.3), 0.03, 0.008, mat('htie', '#7c3aed', 0.5), P)
+    elif style == 'undercut':   # atas tebal bertekstur, samping tipis (fade)
+        fade = ellipsoid('fade', H + Vector((0, 0.01, 0.012)), (R[0] + 0.005, R[1] + 0.006, R[2] + 0.004), mat('fade', shade(cfg['hair'], 0.18), 0.7), P)
+        boolean_cut(fade, (0, -0.17, 0.81), (0.44, 0.2, 0.22))
+        boolean_cut(fade, (0, 0.02, 0.74), (0.5, 0.5, 0.14))
+        parts = [ellipsoid('utop', (0, -0.01, 1.04), (0.16, 0.16, 0.07), hair, P)]
+        dirs = [(-0.3, -0.6, 0.75), (0.15, -0.65, 0.75), (0.45, -0.4, 0.8), (-0.45, -0.1, 0.85), (0.4, 0.1, 0.9), (0.0, 0.3, 0.95), (-0.2, -0.3, 0.95), (0.2, -0.1, 1.0)]
+        for d in dirs:
+            d = Vector(d).normalized()
+            parts.append(ellipsoid('tuft', H + d * 0.175 + Vector((0, 0, 0.02)), (0.055, 0.046, 0.05), hair, P, rot=d.to_track_quat('Z', 'Y')))
+        c = fuse(parts, 0.0048, 14)
+        boolean_cut(c, (0, -0.2, 0.93), (0.3, 0.12, 0.09))
+        boolean_cut(c, (0, 0.0, 0.86), (0.5, 0.5, 0.2))
     elif style == 'mukena':   # mukena: penutup kepala putih yang jatuh lebar menutup bahu sampai pinggang
         parts = [ellipsoid('mk', H + Vector((0, 0.01, 0.006)), (R[0] + 0.02, R[1] + 0.022, R[2] + 0.016), hair, P),
                  ellipsoid('mkwrap', (0, 0.0, 0.73), (0.15, 0.13, 0.08), hair, P),

@@ -219,12 +219,31 @@ const commands = {
       activity: all('SELECT ts, agent_id, message FROM activity ORDER BY id DESC LIMIT 25'),
       chats: all('SELECT ts, agent_id, to_id, kind, message FROM chats ORDER BY id DESC LIMIT 40'),
       stats: { this_week: weekStats(week), last_week: weekStats(addDays(week, -7)) },
+      trading: tradingState(),
     };
     mkdirSync(dirname(STATE_PATH), { recursive: true });
     writeFileSync(STATE_PATH, JSON.stringify(state, null, 1));
     out('ok: docs/data/state.json');
   },
 };
+
+// ringkasan tim Trading XAUUSD untuk dashboard (tabel trd_* dibuat scripts/trading/store.mjs)
+function tradingState() {
+  try {
+    const kv = (k, d) => { const r = get('SELECT value FROM trd_kv WHERE key = ?', k); try { return r ? JSON.parse(r.value) : d; } catch { return d; } };
+    const mode = kv('mode', 'paper');
+    const day = new Date().toISOString().slice(0, 10);
+    return {
+      mode, paused: kv('paused', false),
+      balance: mode === 'paper' ? kv('paper', { balance: 10000 }).balance : kv('ea', {})?.equity ?? null,
+      today_pnl: get("SELECT COALESCE(SUM(pnl), 0) v FROM trd_trades WHERE status = 'closed' AND mode = ? AND substr(close_ts, 1, 10) = ?", mode, day).v,
+      price: get("SELECT c FROM trd_bars WHERE tf = 'M15' ORDER BY t DESC LIMIT 1")?.c ?? null,
+      open: all("SELECT side, lot, entry, sl, tp FROM trd_trades WHERE status = 'open' AND mode = ?", mode),
+      signals: all('SELECT ts, decision, reason FROM trd_signals ORDER BY id DESC LIMIT 5'),
+      trades: all("SELECT side, lot, entry, exit, pnl, close_ts, reason_close FROM trd_trades WHERE status = 'closed' ORDER BY id DESC LIMIT 5"),
+    };
+  } catch { return null; }
+}
 
 function weekStats(week) {
   const end = addDays(week, 6);

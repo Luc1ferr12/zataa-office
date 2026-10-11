@@ -1,7 +1,36 @@
-// Gedung Zataa Office versi pixel art. Tata letak = porting langsung dari blender/make_office.py
-// (koordinat sama dengan nav.js), dengan potongan "dollhouse": dinding depan rendah supaya interior terlihat.
+// Gedung Zataa Office v2: kantor terasering 4 tingkat di lereng bukit (desain: office/layout-v2.html).
+// Tiap tingkat = selasar 2 m di depan + deretan ruang sedalam 8 m; tingkat di atasnya mundur penuh 10 m,
+// jadi dari kamera semua ruangan selalu kelihatan (tanpa tombol lantai). Koordinat sama dengan nav.js:
+// x ke kanan, y ke atas, z ke arah kamera (depan). Satuan meter.
 import { material, T, UP, K, PXH, hash2, hash3, vnoise } from './engine.js';
 import { textBitmap } from './font.js';
+
+// ---------------------------------------------------------------- tata letak (dipakai juga oleh nav.js & export Blender)
+export const FRONT = [4, -6, -16, -26];      // tepi depan tiap tingkat (lantai 1…4)
+export const CORR = 2;                       // lebar selasar
+export const DEPTH = 10;                     // selasar + ruang
+export const LY = [0, UP, UP * 2, UP * 3];   // tinggi lantai
+export const RF = (L) => FRONT[L - 1] - CORR; // muka ruang (garis kaca depan)
+export const RZ = (L, lz) => RF(L) + lz;     // lz: 0 = muka ruang, −8 = dinding belakang
+export const SPAN = [[-32, 32], [-32, 32], [-32, 19], [-14, 22]];
+export const CORR_SPAN = [[-32, 32], [-32, 32], [-32, 32], [-14, 22]];
+// ruang per tingkat: [id, x0, x1, nama]
+export const ROOMDEF = {
+  1: [['cafe', -32, -14, 'Cafe & Resto'], ['dapur', -14, -9, 'Dapur'], ['gudang', -9, -6, 'Gudang Mbak Sari'], ['lobby', -6, 2, 'Lobby'],
+    ['bioskop', 2, 15, 'Bioskop Mini'], ['santai', 15, 27, 'Ruang Santai'], ['toilet', 27, 32, 'Toilet']],
+  2: [['meetM', -32, -24, 'Meeting Marketing'], ['dirRoom', -24, -17, 'R. Marketing Director'], ['mkt', -17, -2, 'Bilik Marketing'], ['tangga2', -2, 2, 'Tangga'],
+    ['trd', 2, 15, 'Bilik Trading'], ['tdirRoom', 15, 23, 'R. Trading Director'], ['meetT', 23, 29, 'Meeting Trading'], ['server', 29, 32, 'Server Bot']],
+  3: [['mushola', -32, -20, 'Mushola'], ['wudhu', -20, -17, 'Wudhu'], ['messF', -17, -6, 'Mess Cewek'], ['kmW', -6, -2, 'KM Wanita'], ['tangga3', -2, 2, 'Tangga'],
+    ['kmP', 2, 6, 'KM Pria'], ['messM', 6, 15, 'Mess Cowok'], ['laundry', 15, 19, 'Laundry'], ['tamanAtas', 19, 32, 'Taman Atas']],
+  4: [['king', -14, -2, 'Kamar Zamiir & Aprista'], ['tangga4', -2, 2, 'Tangga'], ['boss', 2, 16, 'Ruang Boss'], ['terasBoss', 16, 22, 'Teras Boss']],
+};
+export const ROOM = {};
+for (const [L, list] of Object.entries(ROOMDEF)) for (const [id, x0, x1, name] of list) ROOM[id] = { id, L: +L, x0, x1, name, door: x1 - 1.2 };
+ROOM.lobby.door = 0.8;   // pintu lobby di depan tangga
+export const STAIR = { x0: -1.4, x1: 1.4, lz0: -1.6, lz1: -8, steps: 12 };
+export const POOL = { x0: 9, x1: 27, z0: 8, z1: 16, y: -0.1 };
+export const GAZEBO = { x: -17, z: 13, s: 6 };
+export const GAZEBO2 = { x: 25.5, lz: -4.4, s: 3.6 };
 
 // ---------------------------------------------------------------- tekstur
 const fr = (v) => v - Math.floor(v);
@@ -22,6 +51,12 @@ const ledge = (u, v) => {
   const uu = u + hash2(row, 9) * 4, col = Math.floor(uu / L);
   let s = (hash2(row, col) - 0.5) * 0.3;
   if (fr(v / 0.16) < 0.22 || fr(uu / L) < 0.04) s -= 0.2;
+  return s;
+};
+const rubble = (u, v) => {   // dinding batu undakan bukit
+  const row = Math.floor(v / 0.45), uu = u + hash2(row, 5) * 3, L = 0.6 + hash2(row, 11) * 0.5, col = Math.floor(uu / L);
+  let s = (hash2(row, col) - 0.5) * 0.28;
+  if (fr(v / 0.45) < 0.1 || fr(uu / L) < 0.06) s -= 0.22;
   return s;
 };
 const grass = (u, v, a, b, x, y, z, px, py) => (vnoise(u * 0.35, v * 0.35) - 0.5) * 0.3 + (vnoise(u * 2, v * 2) - 0.5) * 0.12 + (hash2(px, py) < 0.08 ? 0.14 : 0) + (hash2(px + 7, py) < 0.05 ? -0.14 : 0);
@@ -49,6 +84,9 @@ mk('oak', '#b98d5e', { tex: planks(0.55, 2.4), base: 0.5 });
 mk('workwood', '#5e4a5c', { tex: tiles(1.0, 0.04, 0.06), base: 0.5 });
 mk('ledge', '#8d8577', { tex: ledge, base: 0.5 });
 mk('ledgeDark', '#5f5a55', { tex: ledge, base: 0.45 });
+mk('rubble', '#8a8172', { tex: rubble, base: 0.48 });
+mk('plaster', '#e6ddd0', { tex: noise(2, 0.05), base: 0.55 });
+mk('plasterWarm', '#d9c3a5', { tex: noise(2, 0.05), base: 0.53 });
 mk('slatdark', '#3e2a21', { tex: slats(0.3, 0.2), base: 0.5 });
 mk('slatdarkH', '#3e2a21', { tex: hslats(0.16), base: 0.5 });
 mk('slat', '#a87447', { tex: slats(0.16), base: 0.52 });
@@ -69,14 +107,19 @@ mk('beanbag', '#8b45f0', { base: 0.52 });
 mk('beanbag2', '#e0a640', { base: 0.52 });
 mk('beanbag3', '#0d9488', { base: 0.52 });
 mk('tile', '#dfe7ee', { tex: (u, v) => ((Math.floor(u * 3) + Math.floor(v * 3)) % 2 ? 0.06 : 0), base: 0.6 });
+mk('tileBlue', '#cfe6ef', { tex: tiles(0.4, 0.06, 0.05), base: 0.58 });
 mk('blanket', '#5b6bb5', { base: 0.5 });
 mk('blanket2', '#c0668a', { base: 0.5 });
-mk('rug', '#2e2752', { tex: (u, v) => (fr(Math.hypot(u + 4.6, (v + 2.6) * 1.4) / 0.6) < 0.12 ? 0.14 : 0), base: 0.48 });
+mk('rug', '#2e2752', { tex: (u, v) => (fr(Math.hypot(u, v * 1.4) / 0.6) < 0.12 ? 0.14 : 0), base: 0.48 });
 mk('rugBoss', '#5a2f2a', { tex: (u, v) => (fr(u / 0.5) < 0.1 || fr(v / 0.5) < 0.1 ? 0.12 : 0), base: 0.46 });
 mk('tread', '#9a6b45', { tex: hslats(0.5, 0.1), base: 0.54 });
 mk('leather', '#24212c', { base: 0.47 });
 mk('musCarpet', '#2f7a57', { tex: (u, v) => (fr(v / 0.85) < 0.08 ? 0.16 : (vnoise(u * 3, v * 3) - 0.5) * 0.08), base: 0.47 });
 mk('meetCarpet', '#3b3656', { tex: noise(5, 0.07), base: 0.47 });
+mk('trdCarpet', '#26323d', { tex: tiles(0.6, 0.04, 0.05), base: 0.46 });
+mk('cineCarpet', '#2a1f3d', { tex: noise(6, 0.06), base: 0.44 });
+mk('cineWall', '#231a30', { tex: slats(0.5, 0.08), base: 0.44 });
+mk('seatRed', '#9b2335', { base: 0.5 });
 mk('deck', '#a5714a', { tex: planks(0.4, 1.8, 0.04), base: 0.5 });
 mk('stone', '#bdb6a8', { tex: paving, base: 0.52 });
 mk('stoneDark', '#5a5660', { tex: paving, base: 0.47 });
@@ -94,11 +137,9 @@ mk('pot', '#3a3540', { base: 0.47 });
 mk('potLight', '#d8d2c6', { base: 0.52 });
 mk('soil', '#3b2a20', { base: 0.45 });
 mk('cushion', '#f3efe4', { base: 0.56 });
-mk('umbrella', '#f4f0e6', { tex: (u, v, a, b, x, y, z) => (fr(Math.atan2(z - 15.6, x - (x > 12.6 ? 15 : 10.2)) / 0.785) < 0.5 ? 0 : NaN), base: 0.56 });
+mk('umbrella', '#f4f0e6', { base: 0.56 });
 mk('umbrella2', '#7c3aed', { base: 0.5 });
 mk('fence', '#2c2724', { tex: (u) => (fr(u / 0.3) < 0.42 ? NaN : 0), base: 0.47 });
-mk('carPaint', '#1d1d26', { base: 0.47 });
-mk('carGlass', '#384a66', { base: 0.5 });
 mk('fridge', '#d9dde3', { base: 0.54 });
 mk('bottle1', '#7a2f2f'); mk('bottle2', '#2f6b4a'); mk('bottle3', '#c79a3a'); mk('bottle4', '#3a4a8a');
 mk('book1', '#7c3aed'); mk('book2', '#c2410c'); mk('book3', '#0e7490'); mk('book4', '#e7e2d6');
@@ -106,13 +147,19 @@ mk('cake', '#e9b7c8');
 mk('copper', '#b8733e', { base: 0.52 });
 mk('brass', '#c9a24a', { base: 0.54 });
 mk('green', '#1f6b45', { base: 0.48 });
+mk('felt', '#2f7a4b', { base: 0.48 });
 mk('whiteboard', '#f4f4f0', { base: 0.6 });
 mk('art1', '#7c3aed'); mk('art2', '#f59e0b'); mk('art3', '#14b8a6');
 mk('rack', '#1d1b24', { tex: hslats(0.22, 0.2), base: 0.46 });
 mk('pink', '#f472b6', { base: 0.55 });
+mk('flower', '#e27aa0', { base: 0.55 });
+mk('flower2', '#f2c94c', { base: 0.55 });
 mk('sajadah', '#9b2d3a', { tex: (u, v, a, b) => (a < 0.1 || a > 0.9 || b < 0.06 || b > 0.94 ? 0.18 : b > 0.7 && b < 0.8 && a > 0.3 && a < 0.7 ? 0.2 : 0), base: 0.47 });
 mk('sajadah2', '#235a8a', { tex: (u, v, a, b) => (a < 0.1 || a > 0.9 || b < 0.06 || b > 0.94 ? 0.18 : b > 0.7 && b < 0.8 && a > 0.3 && a < 0.7 ? 0.2 : 0), base: 0.47 });
 mk('mihrab', '#1f5f45', { base: 0.47 });
+mk('tabir', '#e8dccb', { tex: slats(0.18, 0.25), base: 0.55 });
+mk('navy', '#1f2a4a', { base: 0.47 });
+mk('gold', '#d4a73a', { base: 0.56 });
 // lampu & layar (menyala, tidak kena bayangan)
 const em = (name, color, base = 0.62, dayDim = 0.85) => mk(name, color, { emissive: true, base, dayDim });
 em('lampWarm', '#ffd38a', 0.7, 0.8);
@@ -124,36 +171,25 @@ em('signViolet', '#b28dff', 0.55, 1);
 em('signPurple', '#5b21b6', 0.5, 1);
 em('signGold', '#f5c451', 0.6, 1);
 em('candle', '#ffb347', 0.7, 0.7);
-mk('cityView', '#8fb6e0', { flat: true, base: 0.55 });
-mk('cityDark', '#262a40', { flat: true, base: 0.5 });
-em('cityWin', '#ffd38a', 0.6, 0.6);
 const rgb = ['#7c3aed', '#0891b2', '#db2777', '#65a30d', '#d97706', '#2563eb', '#e11d48', '#0d9488', '#ea580c', '#9333ea'];
 rgb.forEach((c, i) => { em(`rgb${i}`, c, 0.6, 0.9); mk(`acc${i}`, c, { base: 0.5 }); });
-// ruang kerja 2 baris × 5 meja; bangku taman 4
-export const DESK_X = [7.4, 10.1, 12.8, 15.5, 18.2];
-export const DESKS = DESK_X.length * 2;
-const BENCH_X = [-6.5, -3.2, 0, 3.2];
-const CAFE_TABLES = [[-17.5, -3.5], [-13.5, -3.5], [-17.5, 0], [-13.5, 0], [-10.3, -3.5], [-10.3, 0]];
-const MEET_X = [-4.05, -2.55, -1.05, 0.45];
-// mess dibagi 3 kamar (dari utara): cowok (2 kasur tingkat), cewek (3 kasur tingkat), kamar Zamiir & Aprista (kasur double).
-// Koridor di sisi timur (x -21.4 … -20.3), pintu tiap kamar ke koridor.
-export const MESS = {
-  corridorX: -20.85, wallX: -21.4,
-  cowok: { z0: -14, z1: -11.2, door: -11.55, bunkX: [-25.1, -24.1], bunkZ: -12.95 },
-  cewek: { z0: -11.2, z1: -8.6, door: -8.85, bunkX: [-25.1, -24.1, -23.1], bunkZ: -10.1 },
-  pasangan: { z0: -8.6, z1: -6.0, door: -7.0, bed: [-24.55, -7.35] },
-};
-const WUDHU_Z = [-13.3, -12.5, -11.7, -10.9, -10.1];
+
+// ---------------------------------------------------------------- meja kerja: 8 Marketing + 6 Trading
+// tiap meja: { x, z, rot, row, team, cell } — orang duduk menghadap monitor (−z)
+export const MKT_X = [-15.15, -11.85, -8.55, -5.25], TRD_X = [4.15, 7.85, 11.55];
+export const AISLE = { mkt: -2.8, trd: 14.2, A: -4.8, B: -1.2 };   // lorong samping (x) & lorong baris (lz)
+const ROW_DESK = { A: -7.25, B: -3.6 };   // lz tengah meja
+export const DESKS = 14;
+export const DESK_LIST = [];
+for (const row of ['A', 'B']) for (const x of MKT_X) DESK_LIST.push({ x, lz: ROW_DESK[row], row, team: 'mkt', w: 3.3 });
+for (const row of ['A', 'B']) for (const x of TRD_X) DESK_LIST.push({ x, lz: ROW_DESK[row], row, team: 'trd', w: 3.7 });
 // kapasitas tiap tempat (dipakai schedule.js supaya nggak ada yang duduk numpuk)
-export const CAP = { cafe: CAFE_TABLES.length * 2, counter: 8, lounge: 9, garden: 8, lounger: 7, meeting: MEET_X.length * 2 + 2, bed: 12 };
+export const CAP = { cafe: 28, counter: 8, lounge: 10, garden: 10, lounger: 6, meeting: 10, meetingT: 8, bed: 20, cinema: 20, gardenTop: 4 };
 // permukaan dinamis (digambar ulang tiap frame oleh pixoffice.js)
 const dynM = (name, color) => mk(name, color, { emissive: true, dyn: name });
 dynM('water', '#2fb3d6');
 for (let i = 0; i < DESKS; i++) dynM(`scr${i}`, '#0b0a14');
-dynM('tvLounge', '#120a26');
-dynM('tvMeet', '#120a26');
-dynM('tvBoss', '#120a26');
-dynM('racks', '#0b0a14');
+for (const n of ['tvLounge', 'tvMeet', 'tvMeetT', 'tvBoss', 'racks', 'ticker', 'cinema', 'tvDir', 'tvTdir']) dynM(n, '#120a26');
 export { M as MAT };
 
 // ---------------------------------------------------------------- papan nama: teks 1:1 piksel di bidang yang menghadap kamera
@@ -187,8 +223,8 @@ function logoTex(logo, w, h) {
 
 // ---------------------------------------------------------------- builder
 class Builder {
-  constructor() { this.prims = []; this.layer = 'G'; }
-  push(p) { p.layer = this.layer; this.prims.push(p); return p; }
+  constructor() { this.prims = []; }
+  push(p) { this.prims.push(p); return p; }
   poly(P, mat, o = {}) { return this.push({ kind: 'poly', P, mat, ...o }); }
   // kotak w×h×d berpusat di (x,y,z); ry/rx seperti three.js. o.top = material permukaan atas
   box(w, h, d, x, y, z, mat, o = {}) {
@@ -205,7 +241,6 @@ class Builder {
       if (k === 'y-' && !o.bottom) continue;
       const m = (k === 'y+' && o.top) || (k === 'z+' && o.front) || (k[0] === 'x' && o.side) || mat;
       let P = [V[a], V[b], V[c], V[e]];
-      // pastikan normal menghadap keluar
       const e1 = P[1].map((q, j) => q - P[0][j]), e2 = P[2].map((q, j) => q - P[1][j]);
       const n = [e1[1] * e2[2] - e1[2] * e2[1], e1[2] * e2[0] - e1[0] * e2[2], e1[0] * e2[1] - e1[1] * e2[0]];
       const fc = [0, 1, 2].map((j) => (P[0][j] + P[2][j]) / 2 - [x, y, z][j]);
@@ -213,6 +248,8 @@ class Builder {
       this.poly(P, m, { cast: o.cast, face: k });
     }
   }
+  // kotak dari batas (x0..x1, y0..y1, z0..z1)
+  bx(x0, x1, y0, y1, z0, z1, mat, o) { this.box(x1 - x0, y1 - y0, z1 - z0, (x0 + x1) / 2, (y0 + y1) / 2, (z0 + z1) / 2, mat, o); }
   // bidang tegak menghadap +z (diputar ry). Titik 0 = kiri bawah → a ke kanan, b ke atas (dipakai tekstur papan nama)
   vquad(w, h, x, y, z, mat, ry = 0, o = {}) {
     const c = Math.cos(ry), s = Math.sin(ry);
@@ -240,11 +277,11 @@ class Builder {
     this.poly(top, o.top ?? mat, { two: true, cast: o.cast });
   }
   ell(x, y, z, rx, ry, rz, mat, o = {}) { return this.push({ kind: 'ell', c: [x, y, z], r: [rx, ry, rz], mat, ...o }); }
-  // kerucut terbalik (payung)
-  cone(x, y, z, r, h, mat, seg = 8) {
+  // kerucut (payung / atap)
+  cone(x, y, z, r, h, mat, seg = 8, alt = M.umbrella2) {
     for (let i = 0; i < seg; i++) {
       const a0 = (i / seg) * Math.PI * 2, a1 = ((i + 1) / seg) * Math.PI * 2;
-      this.poly([[x, y + h, z], [x + Math.cos(a1) * r, y, z + Math.sin(a1) * r], [x + Math.cos(a0) * r, y, z + Math.sin(a0) * r]], i % 2 ? M.umbrella2 : mat, { two: true });
+      this.poly([[x, y + h, z], [x + Math.cos(a1) * r, y, z + Math.sin(a1) * r], [x + Math.cos(a0) * r, y, z + Math.sin(a0) * r]], i % 2 && alt ? alt : mat, { two: true });
     }
   }
 }
@@ -257,25 +294,29 @@ function pottedPlant(B, x, z, h = 1.3, y = 0, light = false) {
 }
 function planter(B, x, z, y = 0, w = 1.4) {
   B.box(w, 0.5, 0.6, x, y + 0.25, z, M.pot);
-  for (let i = 0; i < Math.max(2, Math.round(w * 2)); i++) {
-    const px = x - w / 2 + 0.3 + (i * (w - 0.6)) / Math.max(1, Math.round(w * 2) - 1);
+  const n = Math.max(2, Math.round(w * 2));
+  for (let i = 0; i < n; i++) {
+    const px = x - w / 2 + 0.3 + (i * (w - 0.6)) / Math.max(1, n - 1);
     B.ell(px, y + 0.72, z, 0.3, 0.28, 0.26, i % 2 ? M.foliage : M.foliageLight, { leafy: true });
   }
 }
-function tree(B, x, z, h, dark = false) {
-  B.box(0.3, h * 0.55, 0.3, x, h * 0.27, z, M.trunk);
+function tree(B, x, z, h, dark = false, y = 0) {
+  B.box(0.3, h * 0.55, 0.3, x, y + h * 0.27, z, M.trunk);
   const f = dark ? M.foliageDark : M.foliage;
-  B.ell(x, h * 0.66, z, h * 0.3, h * 0.26, h * 0.3, f, { leafy: true });
-  B.ell(x - h * 0.12, h * 0.8, z + h * 0.06, h * 0.2, h * 0.18, h * 0.2, dark ? M.foliage : M.foliageLight, { leafy: true });
+  B.ell(x, y + h * 0.66, z, h * 0.3, h * 0.26, h * 0.3, f, { leafy: true });
+  B.ell(x - h * 0.12, y + h * 0.8, z + h * 0.06, h * 0.2, h * 0.18, h * 0.2, dark ? M.foliage : M.foliageLight, { leafy: true });
 }
-function palm(B, x, z, h) {
-  for (let k = 0; k < 5; k++) B.box(0.22, h / 5 + 0.02, 0.22, x + k * 0.06, (k + 0.5) * (h / 5), z, M.palmTrunk);
-  const tx = x + 0.3, ty = h + 0.1;
+function palm(B, x, z, h, y = 0) {
+  for (let k = 0; k < 5; k++) B.box(0.22, h / 5 + 0.02, 0.22, x + k * 0.06, y + (k + 0.5) * (h / 5), z, M.palmTrunk);
+  const tx = x + 0.3, ty = y + h + 0.1;
   for (let i = 0; i < 7; i++) {
     const a = (i / 7) * Math.PI * 2;
-    B.ell(tx + Math.cos(a) * 0.9, ty - 0.2, z + Math.sin(a) * 0.9, 0.95, 0.16, 0.95, i % 2 ? M.palm : M.foliageLight, { leafy: true, r2: true });
+    B.ell(tx + Math.cos(a) * 0.9, ty - 0.2, z + Math.sin(a) * 0.9, 0.95, 0.16, 0.95, i % 2 ? M.palm : M.foliageLight, { leafy: true });
   }
   B.ell(tx, ty, z, 0.45, 0.3, 0.45, M.palm, { leafy: true });
+}
+function bush(B, x, z, r = 0.7, y = 0) {
+  B.ell(x, y + r * 0.6, z, r, r * 0.75, r, hash2(x * 3, z * 3) < 0.5 ? M.hedge : M.foliage, { leafy: true });
 }
 function sofa(B, x, z, w, mat, seats, y = 0, faceUp = false) {
   const bz = faceUp ? z - 0.36 : z + 0.36;
@@ -297,17 +338,21 @@ function officeChair(B, x, y, z, ry, fab, scale = 1) {
   B.box(0.08, 0.38 * scale, 0.08, x, y + 0.24 * scale, z, M.chrome);
   B.box(0.5 * scale, 0.05, 0.5 * scale, x, y + 0.04, z, M.steel, { ry: 0.6 });
 }
-function gamingChair(B, x, z, ry, i) {
+function gamingChair(B, x, y, z, ry, i) {
   const c = Math.cos(ry), s = Math.sin(ry);
   const loc = (lx, lz) => [x + lx * c + lz * s, z - lx * s + lz * c];
   let [px, pz] = loc(0, 0.02);
-  B.box(0.56, 0.12, 0.52, px, 0.47, pz, M.leather, { ry });
+  B.box(0.56, 0.12, 0.52, px, y + 0.47, pz, M.leather, { ry });
   [px, pz] = loc(0, -0.26);
-  B.box(0.54, 0.84, 0.1, px, 0.96, pz, M.leather, { ry, rx: 0.12 });
+  B.box(0.54, 0.84, 0.1, px, y + 0.96, pz, M.leather, { ry, rx: 0.12 });
   [px, pz] = loc(0, -0.27);
-  B.box(0.18, 0.62, 0.11, px, 0.98, pz, M[`acc${i}`], { ry, rx: 0.12 });
-  B.box(0.08, 0.38, 0.08, x, 0.25, z, M.chrome);
-  B.box(0.6, 0.05, 0.6, x, 0.05, z, M.steel, { ry: 0.4 });
+  B.box(0.18, 0.62, 0.11, px, y + 0.98, pz, M[`acc${i % 10}`], { ry, rx: 0.12 });
+  B.box(0.08, 0.38, 0.08, x, y + 0.25, z, M.chrome);
+  B.box(0.6, 0.05, 0.6, x, y + 0.05, z, M.steel, { ry: 0.4 });
+}
+function stool(B, x, y, z, mat = M.copper) {
+  B.cyl(0.22, 0.08, x, y + 0.46, z, mat, 10);
+  B.box(0.06, 0.42, 0.06, x, y + 0.21, z, M.steel);
 }
 function frame(B, x, y, z, w, h, palette, ry = 0) {
   B.vquad(w + 0.1, h + 0.1, x, y, z, M.black, ry);
@@ -318,604 +363,680 @@ function frame(B, x, y, z, w, h, palette, ry = 0) {
     B.vquad(uw * w, vh * h, x + c * u * w + s * oo, y + v * h, z - s * u * w + c * oo, M[palette[k]], ry);
   });
 }
+function bookshelf(B, x0, x1, y, z, h = 2.2) {   // rak menempel dinding belakang (menghadap +z)
+  const w = x1 - x0, cx = (x0 + x1) / 2;
+  B.box(w, h, 0.4, cx, y + h / 2, z + 0.2, M.furn);
+  const rows = Math.floor(h / 0.48), n = Math.floor(w / 0.24);
+  for (let k = 0; k < rows; k++) for (let b = 0; b < n; b++) {
+    if (hash2(b * 3 + k, Math.round(x0 * 10)) < 0.18) continue;
+    B.box(0.18, 0.26 + (b % 3) * 0.03, 0.1, x0 + 0.15 + b * 0.24, y + 0.36 + k * 0.48, z + 0.42, M[`book${(k + b) % 4 + 1}`]);
+  }
+}
+function bunk(B, x, y, z, blanket) {   // kasur tingkat, kepala di belakang (−z)
+  for (const dx of [-0.42, 0.42]) for (const dz of [-0.95, 0.95]) B.box(0.07, 1.95, 0.07, x + dx, y + 0.97, z + dz, M.steel);
+  for (const [yy, mat] of [[0.3, blanket], [1.27, blanket === M.blanket ? M.blanket2 : M.blanket]]) {
+    B.box(0.9, 0.12, 2.0, x, y + yy, z, M.lightwood);
+    B.box(0.82, 0.12, 1.9, x, y + yy + 0.12, z, M.white);
+    B.box(0.84, 0.05, 1.1, x, y + yy + 0.19, z + 0.3, mat);
+    B.box(0.6, 0.1, 0.35, x, y + yy + 0.22, z - 0.75, M.white);
+  }
+  B.box(0.06, 1.0, 0.06, x + 0.45, y + 1.0, z + 0.95, M.steel);
+}
 
-// ---------------------------------------------------------------- tempat duduk/berdiri (dipakai nav.js)
+// ---------------------------------------------------------------- tempat duduk/berdiri (dipakai nav.js) — semua koordinat dunia
 export function makeSpots() {
   const S = {};
+  const y = (L) => LY[L - 1];
+  // meja kerja
+  S.desk = DESK_LIST.map((d) => ({ x: d.x, y: y(2), z: RZ(2, d.lz + 1.05), rot: Math.PI, row: d.row, team: d.team, room: d.team, aisle: RZ(2, AISLE[d.row]), side: AISLE[d.team] }));
+  // ruang director & boss: duduk di belakang meja menghadap kamera
+  S.dirDesk = { x: -20.5, y: y(2), z: RZ(2, -6.95), rot: 0 };
+  S.tdirDesk = { x: 19.4, y: y(2), z: RZ(2, -6.95), rot: 0 };
+  S.bossDesk = { x: 8.6, y: y(4), z: RZ(4, -6.6), rot: 0 };
+  S.dirSofa = [-22.6, -21.8].map((x) => ({ x, y: y(2), z: RZ(2, -1.3), rot: Math.PI }));
+  S.tdirSofa = [16.6, 17.4].map((x) => ({ x, y: y(2), z: RZ(2, -1.3), rot: Math.PI }));
+  S.bossSofa = [12.6, 13.4, 14.2].map((x) => ({ x, y: y(4), z: RZ(4, -6.95), rot: 0 }));
+  // cafe: 4 meja × 4 kursi + meja makan panjang 12 kursi
   S.cafe = [];
-  CAFE_TABLES.forEach(([x, z]) => [-1, 1].forEach((side) => {
-    S.cafe.push({ x: x + side * 0.8, z, rot: side < 0 ? Math.PI / 2 : -Math.PI / 2, lane: z + 0.95 });
-  }));
-  S.counter = [0, 1, 2, 3, 4, 5, 6, 7].map((k) => ({ x: -18.6 + k * 0.78, z: -6.5, rot: Math.PI }));
-  S.lounge = [
-    { x: -6.1, z: -1.4, rot: Math.PI, pose: 'phone' }, { x: -5.1, z: -1.4, rot: Math.PI, pose: 'phone' },
-    { x: -4.1, z: -1.4, rot: Math.PI, pose: 'phone' }, { x: -3.1, z: -1.4, rot: Math.PI, pose: 'phone' },
-    { x: -1.75, z: -3.55, rot: -Math.PI / 2, pose: 'beanbag' }, { x: -7.75, z: -3.55, rot: Math.PI / 2, pose: 'beanbag' },
-    { x: -1.6, z: -2.1, rot: -Math.PI / 2, pose: 'beanbag' },
-    { x: 0.1, z: -3.5, rot: -Math.PI / 2, pose: 'beanbag' }, { x: 0.35, z: -1.75, rot: -Math.PI / 2, pose: 'beanbag' },
-  ];
-  S.desk = [];
-  [[-4.2, 'A'], [-0.8, 'B']].forEach(([z, row]) => DESK_X.forEach((x) => S.desk.push({ x, z: z + 0.7, rot: Math.PI, row })));
-  // musholla: kiblat ke dinding belakang (mihrab), imam di depan, shaf laki-laki lalu perempuan
-  S.musholla = {
-    imam: { x: -14.5, z: -12.7 },
-    men: [-15.1, -13.9, -16.3, -12.7].map((x) => ({ x, z: -11.6 })),
-    women: [-16.3, -15.1, -13.9, -12.7, -11.5, -17.5, -10.3].map((x) => ({ x, z: -10.4 })),
-  };
-  S.meeting = [];
-  MEET_X.forEach((x) => S.meeting.push({ x, z: -12.8, rot: 0, side: 'N' }, { x, z: -10.4, rot: Math.PI, side: 'S' }));
-  S.meeting.push({ x: 1.9, z: -11.6, rot: -Math.PI / 2, side: 'E' }, { x: -5.2, z: -11.6, rot: Math.PI / 2, side: 'W' });
-  S.garden = [];
-  BENCH_X.forEach((x) => S.garden.push({ x: x - 0.45, z: 7.7, rot: Math.PI }, { x: x + 0.45, z: 7.7, rot: Math.PI }));
-  S.pool = [5.9, 7.1, 8.3, 9.6, 10.9].map((z) => ({ x: 13, z, half: 4.6, y: -0.15 }));
-  S.lounger = [9, 11.4, 13.8, 16.2, 18.4, 6.6, 20.6].map((x) => ({ x, z: 14.45, rot: Math.PI }));
-  // sayap barat: kamar mandi (bawah), mess (bawah), tempat wudhu (atas)
-  S.toilet = [-5.1, -3.6, -2.1].map((z) => ({ x: -24.5, z, rot: -Math.PI / 2 }));
-  S.sink = [-5.0, -3.8].map((z) => ({ x: -21.1, z, rot: Math.PI / 2 }));
-  S.bed = [];
-  // y = permukaan kasur dikurangi tinggi bantalan sprite tiduran (sama seperti kursi berjemur)
-  // room: pintu kamar di dinding koridor (z) + titik lorong dalam kamar
-  for (const k of ['cowok', 'cewek']) {
-    const R = MESS[k];
-    R.bunkX.forEach((x) => [0.08, 1.05].forEach((y) => S.bed.push({ x, y, z: R.bunkZ, rot: 0, room: k, door: R.door, aisle: [x, R.door] })));
+  // lane = lorong (lz) untuk mendekati kursi: antar baris meja −6.0 / −3.15 / −0.4
+  for (const [tx, tz] of CAFE_TABLES) {
+    const row1 = tz < -3, side = row1 ? -3.15 : -0.4;
+    S.cafe.push({ x: tx - 0.85, z: RZ(1, tz), rot: Math.PI / 2, lane: side, cafe: true }, { x: tx + 0.85, z: RZ(1, tz), rot: -Math.PI / 2, lane: side, cafe: true });
+    S.cafe.push({ x: tx, z: RZ(1, tz - 0.85), rot: 0, lane: row1 ? -6.0 : -3.15, cafe: true }, { x: tx, z: RZ(1, tz + 0.85), rot: Math.PI, lane: row1 ? -3.15 : -0.4, cafe: true });
   }
-  while (S.bed.length < 10) S.bed.push({ ...S.bed[S.bed.length - 1] });  // cadangan
-  const [bx, bz] = MESS.pasangan.bed;
-  for (const dz of [-0.4, 0.4]) S.bed.push({ x: bx, y: 0.13, z: bz + dz, rot: -Math.PI / 2, room: 'pasangan', door: MESS.pasangan.door, aisle: [-22.9, MESS.pasangan.door] });
-  S.wudhu = WUDHU_Z.map((z) => ({ x: -24.7, z, rot: -Math.PI / 2 }));
+  for (let i = 0; i < 6; i++) {
+    const x = RESTO.x0 + 0.5 + i * 1.05;
+    S.cafe.push({ x, z: RZ(1, RESTO.lz - 1.0), rot: 0, lane: -5.0 }, { x, z: RZ(1, RESTO.lz + 1.0), rot: Math.PI, lane: -1.2 });
+  }
+  S.counter = [0, 1, 2, 3, 4, 5, 6, 7].map((k) => ({ x: -30.6 + k * 0.9, z: RZ(1, -6.3), rot: Math.PI }));
+  S.kitchen = { x: -11.5, z: RZ(1, -6.4), rot: Math.PI };
+  S.gudang = { x: -7.5, z: RZ(1, -5.0), rot: -Math.PI / 2 };
+  // ruang santai: sofa menghadap TV (belakang), beanbag
+  S.lounge = [
+    ...[19.6, 20.5, 21.4, 22.3].map((x) => ({ x, z: RZ(1, -4.1), rot: Math.PI, pose: 'phone' })),
+    { x: 16.9, z: RZ(1, -5.45), rot: Math.PI, pose: 'phone' }, { x: 17.9, z: RZ(1, -5.45), rot: Math.PI, pose: 'phone' },
+    { x: 24.4, z: RZ(1, -5.2), rot: Math.PI, pose: 'beanbag' }, { x: 24.6, z: RZ(1, -3.4), rot: Math.PI, pose: 'beanbag' },
+    { x: 18.2, z: RZ(1, -2.6), rot: Math.PI, pose: 'beanbag' }, { x: 23.0, z: RZ(1, -2.4), rot: Math.PI, pose: 'beanbag' },
+  ];
+  // bioskop: 4 baris × 5 kursi menghadap layar di dinding belakang; baris belakang kursi 1–2 = love seat Zamiir & Aprista
+  S.cinema = [];
+  CINE_ROWS.forEach((r) => CINE_X.forEach((x) => S.cinema.push({ x, y: r.h + 0.05, z: RZ(1, r.lz + 0.05), rot: Math.PI, row: r.lz })));
+  // meeting marketing: 4 kursi tiap sisi + 2 ujung
+  S.meeting = [];
+  MEETM_X.forEach((x) => S.meeting.push({ x, y: y(2), z: RZ(2, -4.0 - 0.95), rot: 0 }, { x, y: y(2), z: RZ(2, -4.0 + 0.95), rot: Math.PI }));
+  S.meeting.push({ x: -31.55, y: y(2), z: RZ(2, -4.0), rot: Math.PI / 2 }, { x: -24.6, y: y(2), z: RZ(2, -4.0), rot: -Math.PI / 2 });
+  S.meetingT = [];
+  [24.9, 26.0, 27.1].forEach((x) => S.meetingT.push({ x, y: y(2), z: RZ(2, -4.2 - 0.95), rot: 0 }, { x, y: y(2), z: RZ(2, -4.2 + 0.95), rot: Math.PI }));
+  S.meetingT.push({ x: 23.65, y: y(2), z: RZ(2, -4.2), rot: Math.PI / 2 }, { x: 28.35, y: y(2), z: RZ(2, -4.2), rot: -Math.PI / 2 });
+  // musholla: kiblat = mihrab di dinding belakang. Imam, 1 shaf pria (7), tabir, 1 shaf wanita (10)
+  S.musholla = makeSpotsMushola();
+  S.mimbar = { x: MIMBAR_X, y: y(3) + 0.9, z: RZ(3, -7.15), rot: 0 };
+  S.wudhu = WUDHU_X.map((x) => ({ x, y: y(3), z: RZ(3, -6.9), rot: Math.PI }));
+  // kamar mandi lantai 3 (pria / wanita) + toilet umum lantai 1
+  S.showerM = SHOWER_P.map((x) => ({ x, y: y(3), z: RZ(3, -6.6), rot: Math.PI, room: 'kmP' }));
+  S.showerF = SHOWER_W.map((x) => ({ x, y: y(3), z: RZ(3, -6.6), rot: Math.PI, room: 'kmW' }));
+  S.sinkM = [2.9, 3.7].map((x) => ({ x, y: y(3), z: RZ(3, -2.0), rot: Math.PI, room: 'kmP' }));
+  S.sinkF = [-5.1, -4.3].map((x) => ({ x, y: y(3), z: RZ(3, -2.0), rot: Math.PI, room: 'kmW' }));
+  S.toilet = [28.2, 30.4].map((x) => ({ x, y: 0, z: RZ(1, -6.6), rot: Math.PI, room: 'toilet' }));
+  // kasur: mess cewek 5 tingkat (10), mess cowok 4 tingkat (8), king bed (2)
+  S.bedF = []; S.bedM = [];
+  for (const x of BUNK_F) for (const yy of [0.08, 1.05]) S.bedF.push({ x, y: y(3) + yy, z: RZ(3, -6.75), rot: 0, room: 'messF' });
+  for (const x of BUNK_M) for (const yy of [0.08, 1.05]) S.bedM.push({ x, y: y(3) + yy, z: RZ(3, -6.75), rot: 0, room: 'messM' });
+  S.bedKing = [KING.x - 0.45, KING.x + 0.45].map((x) => ({ x, y: y(4) + 0.13, z: RZ(4, -6.5), rot: 0, room: 'king' }));
+  S.bed = [...S.bedF, ...S.bedM, ...S.bedKing];   // slot 0–9 cewek, 10–17 cowok, 18–19 king
+  // halaman: gazebo + bangku taman, kursi berjemur, kolam
+  S.garden = [];
+  for (const dx of [-0.9, 0, 0.9]) S.garden.push({ x: GAZEBO.x + dx, y: 0.3, z: GAZEBO.z - 1.25, rot: 0, gz: true }, { x: GAZEBO.x + dx, y: 0.3, z: GAZEBO.z + 1.25, rot: Math.PI, gz: true });
+  for (const [bx, bz] of BENCHES) S.garden.push({ x: bx - 0.45, z: bz, rot: Math.PI }, { x: bx + 0.45, z: bz, rot: Math.PI });
+  S.gardenTop = [-0.6, 0.6].flatMap((dx) => [{ x: GAZEBO2.x + dx, y: y(3) + 0.3, z: RZ(3, GAZEBO2.lz - 0.7), rot: 0 }, { x: GAZEBO2.x + dx, y: y(3) + 0.3, z: RZ(3, GAZEBO2.lz + 0.7), rot: Math.PI }]);
+  S.lounger = LOUNGER_X.map((x) => ({ x, z: 19.0, rot: Math.PI }));
+  S.pool = [9.2, 10.6, 12.0, 13.4, 14.8].map((z) => ({ x: (POOL.x0 + POOL.x1) / 2, z, half: 7.6, y: -0.15 }));
+  S.terasBoss = [{ x: 18.4, y: y(4), z: RZ(4, -3.6), rot: Math.PI }, { x: 20.4, y: y(4), z: RZ(4, -3.6), rot: Math.PI }];
   return S;
 }
 
+// angka tata letak per ruangan (dipakai builder & makeSpots)
+const CAFE_TABLES = [[-29.6, -4.6], [-25.9, -4.6], [-29.6, -1.7], [-25.9, -1.7]];
+const RESTO = { x0: -22.6, x1: -16.2, lz: -3.2 };
+const CINE_X = [6.3, 7.4, 8.5, 9.6, 10.7];
+const CINE_ROWS = [{ lz: -5.0, h: 0 }, { lz: -3.65, h: 0.25 }, { lz: -2.3, h: 0.5 }, { lz: -0.95, h: 0.75 }];
+const MEETM_X = [-30.4, -29.0, -27.6, -26.2];
+const MIHRAB_X = -26, MIMBAR_X = -23.6;
+const WUDHU_X = [-19.55, -18.85, -18.15, -17.45];
+const SHOWER_W = [-5.4, -4.0, -2.6], SHOWER_P = [2.6, 4.0, 5.4];
+const BUNK_F = [-15.9, -13.8, -11.7, -9.6, -7.5], BUNK_M = [7.0, 9.1, 11.2, 13.3];
+const KING = { x: -7.6 };
+const BENCHES = [[-4.6, 9.5], [-4.6, 15.5], [-24.5, 22.5]];
+const LOUNGER_X = [10, 11.8, 13.6, 15.4, 17.2, 19.0];
+
 // label ruangan (posisi dunia) — ditampilkan sebagai HTML di atas canvas
+const ICON = {
+  cafe: '☕', dapur: '🍳', gudang: '🧹', lobby: '🏢', bioskop: '🎬', santai: '🛋️', toilet: '🚻',
+  meetM: '🗣️', dirRoom: '💼', mkt: '💻', trd: '📈', tdirRoom: '💼', meetT: '🗣️', server: '🖥️',
+  mushola: '🕌', wudhu: '💧', messF: '🛏️', kmW: '🚿', kmP: '🚿', messM: '🛏️', laundry: '🧺', tamanAtas: '🌳',
+  king: '👑', boss: '👔', terasBoss: '🌿',
+};
 export const ROOMS = [
-  { name: 'Tempat Ibadah', icon: '🕌', p: [-14.5, 8.3, -14.2] },
-  { name: 'Tempat Wudhu', icon: '💧', p: [-23, 8.3, -14.2] },
-  { name: 'Kamar Mandi', icon: '🚿', p: [-23, 1.3, 2.3] },
-  { name: 'Mess', icon: '🛏️', p: [-23, 2.9, -5.9] },
-  { name: 'Ruang Meeting', icon: '🗣️', p: [-1.8, 8.3, -14.2] },
-  { name: 'Ruang Boss', icon: '👔', p: [18.9, 7.9, -14.2] },
-  { name: 'Cafe', icon: '☕', p: [-15.5, 1.3, 2.3] },
-  { name: 'Ruang Santai', icon: '🛋️', p: [-6.2, 1.3, 2.3] },
-  { name: 'Ruang Kerja', icon: '💻', p: [14.5, 1.3, 2.3] },
-  { name: 'Kolam Renang', icon: '🏊', p: [16.5, 0.6, 12.6] },
-  { name: 'Teras & Taman', icon: '🌿', p: [-5, 0.9, 9.6] },
-]
+  ...Object.values(ROOM).filter((r) => !r.id.startsWith('tangga')).map((r) => ({ name: r.name, icon: ICON[r.id] ?? '', p: [(r.x0 + r.x1) / 2, LY[r.L - 1] + 3.0, RZ(r.L, -7.6)] })),
+  { name: 'Taman & Gazebo', icon: '🌿', p: [GAZEBO.x, 3.9, GAZEBO.z] },
+  { name: 'Kolam Renang', icon: '🏊', p: [(POOL.x0 + POOL.x1) / 2, 0.6, POOL.z1 + 0.5] },
+];
 
 // ---------------------------------------------------------------- bangun seluruh kompleks
-export function buildScene(logo, { upper = true } = {}) {
+export function buildScene(logo) {
   const B = new Builder();
   const lights = [];
-  const L = (x, y, z, color, r, i = 1, layer = 'G') => lights.push({ p: [x, y, z], color, r, i, layer });
-  const WARM = [1.0, 0.72, 0.42], COOL = [0.8, 0.85, 1.0], PURP = [0.7, 0.45, 1.0], CYAN = [0.3, 0.85, 1.0];
+  const L = (x, y, z, color, r, i = 1) => lights.push({ p: [x, y, z], color, r, i });
+  const WARM = [1.0, 0.72, 0.42], COOL = [0.8, 0.85, 1.0], PURP = [0.7, 0.45, 1.0], CYAN = [0.3, 0.85, 1.0], GREEN = [0.4, 1.0, 0.6];
+  const HX0 = -72, HX1 = 72;   // lebar bukit
 
-  // ---------- tanah, hutan sekitar
-  const hole = [7, 19, 5, 12];
-  const G0 = [-60, 60, -60, 45];
-  B.floor(G0[0], G0[1], G0[2], hole[2], M.grass, -0.03);
-  B.floor(G0[0], G0[1], hole[3], G0[3], M.grass, -0.03);
-  B.floor(G0[0], hole[0], hole[2], hole[3], M.grass, -0.03);
-  B.floor(hole[1], G0[1], hole[2], hole[3], M.grass, -0.03);
-  const rnd = (() => { let s = 7; return () => (s = (s * 16807) % 2147483647) / 2147483647; })();
-  for (let i = 0; i < 260; i++) {
-    const x = -46 + rnd() * 92, z = -40 + rnd() * 66;
-    if (x > -28.5 && x < 23.5 && z > -18.5 && z < 20.5) continue;
-    const h = 4 + rnd() * 4.5;
-    tree(B, x, z, h, rnd() < 0.55);
+  // ================================================================ BUKIT TERASERING
+  B.floor(HX0, HX1, FRONT[0] - DEPTH, 48, M.grass, -0.03);   // halaman depan + lantai 1
+  for (let L4 = 2; L4 <= 4; L4++) B.floor(HX0, HX1, FRONT[L4 - 1] - DEPTH, FRONT[L4 - 1], M.grass, LY[L4 - 1] - 0.02);
+  B.floor(HX0, HX1, -90, FRONT[3] - DEPTH, M.grassDark, LY[3] - 0.02);   // puncak bukit di belakang
+  // dinding batu undakan (belakang tiap tingkat = dinding belakang ruangan)
+  for (let t = 1; t <= 3; t++) {
+    const z = FRONT[t - 1] - DEPTH, y0 = LY[t - 1];
+    B.box(HX1 - HX0, UP, 0.8, 0, y0 + UP / 2, z - 0.4, M.rubble, { top: M.grass });
   }
-
-  // ---------- lantai & dinding luar
-  B.floor(-20, -9, -14, 2, M.walnut, 0.004);
-  B.floor(-9, 5, -14, 2, M.oak, 0.004);
-  B.floor(5, 20, -14, 2, M.workwood, 0.004);
-  B.box(40.3, 0.3, 16.3, 0, -0.17, -6, M.slab);
-  B.box(40.6, 7.8, 0.3, 0, 3.9, -14.15, M.ledge, { top: M.dark });
-  B.box(40, 3.3, 0.05, 0, 1.65, -13.98, M.slatdark);
-  // lantai bawah sisi barat = sekat kaca rendah (biar mess & kamar mandi di sayap barat kelihatan dari kamera)
-  for (const [z0, z1] of [[-14.3, -2.3], [-1.2, 2.0]]) {
-    const d = z1 - z0, zc = (z0 + z1) / 2;
-    B.box(0.3, 0.8, d, -20.15, 0.4, zc, M.ledge, { top: M.dark });
-    B.box(0.03, 1.5, d, -20.15, 1.55, zc, M.glass);
-    B.box(0.08, 0.07, d, -20.15, 2.32, zc, M.steel);
-  }
-  if (upper) {
-    B.box(0.3, 7.8 - UP, 4.4, -20.15, UP + (7.8 - UP) / 2, -12.1, M.ledge, { top: M.dark }); // atas, sebelah utara pintu wudhu
-    B.box(0.3, 7.8 - UP, 2.8, -20.15, UP + (7.8 - UP) / 2, -7.4, M.ledge, { top: M.dark });
-    B.box(0.3, 7.8 - UP - 2.3, 1.1, -20.15, UP + 2.3 + (7.8 - UP - 2.3) / 2, -9.35, M.ledge); // ambang pintu wudhu
-  }
-
-  B.box(0.3, 4.2, 16.6, 20.15, 2.1, -6, M.ledgeDark, { top: M.dark });
-  // atap: balok kayu di atas dinding (seperti referensi)
-  B.box(40.9, 0.28, 0.7, 0, 7.94, -14.1, M.slatdark);
-  B.box(0.7, 0.28, 8.6, -20.1, 7.94, -10.1, M.slatdark);
-  B.box(0.7, 0.24, 8.3, -20.1, UP + 0.42, -1.85, M.slatdark);
-  B.box(0.7, 0.28, 16.9, 20.1, 4.34, -6, M.slatdark);
-  for (let gx = -19.5; gx < 20; gx += 1.5) B.box(0.14, 0.18, 0.9, gx, 7.86, -13.5, M.slatdark);
-  // papan nama ZATAA di atas atap
-  B.box(8.6, 1.9, 0.25, 12.6, 9.05, -14.2, M.black);
-  for (const px of [9.6, 15.6]) B.box(0.14, 1.0, 0.14, px, 8.1, -14.2, M.steel);
-  B.vquad(6.4, 1.7, 13.6, 9.05, -14.06, M.black, 0, { tex: sign(6.4, 1.7, 'ZATAA', M.signWhite, 3) });
-  B.vquad(1.7, 1.7, 9.4, 9.05, -14.06, M.black, 0, { tex: logoTex(logo, 1.7, 1.7) });
-  B.box(8.6, 0.08, 0.06, 12.6, 8.12, -14.06, M.lampPurple, { cast: false });
-
-  // fasad depan dipotong rendah (kaca + rangka) dengan bukaan pintu
-  for (const [a, b] of [[-20, -13], [-11, -4], [-1, 8], [10, 20]]) {
-    const w = b - a, cx = (a + b) / 2;
-    B.box(w, 0.9, 0.05, cx, 0.45, 2, M.glass);
-    B.box(w, 0.07, 0.12, cx, 0.92, 2, M.steel);
-    B.box(w, 0.08, 0.14, cx, 0.04, 2, M.steel);
-    for (let k = 0; k <= Math.max(1, Math.round(w / 2)); k++) B.box(0.09, 0.9, 0.1, a + (w * k) / Math.max(1, Math.round(w / 2)), 0.45, 2, M.steel);
-  }
-  // keset di pintu
-  for (const cx of [-12, -2.5, 9]) B.floor(cx - 0.7, cx + 0.7, 2.15, 2.75, M.rug, 0.012);
-
-  // =========================================================== SAYAP BARAT (kamar mandi + mess, atasnya tempat wudhu)
-  {
-    const X0 = -25.75, X1 = -20.3, XC = (X0 + X1) / 2, W = X1 - X0;
-    B.box(W + 0.3, 0.3, 16.3, XC, -0.17, -6, M.slab);
-    B.floor(X0, X1, -6, 1.85, M.tile, 0.004); // kamar mandi
-    B.floor(X0, X1, -14, -6, M.oak, 0.004); // mess
-    B.box(0.3, 7.8, 8.3, X0, 3.9, -10.15, M.ledge, { top: M.dark });
-    B.box(0.3, UP + 0.3, 8.0, X0, (UP + 0.3) / 2, -2.0, M.ledge, { top: M.dark });
-    B.box(W + 0.3, 7.8, 0.3, XC, 3.9, -14.15, M.ledge, { top: M.dark });
-    B.box(0.7, 0.28, 8.6, X0, 7.94, -10.1, M.slatdark);
-    B.box(W, 0.28, 0.7, XC, 7.94, -14.1, M.slatdark);
-    // fasad depan rendah (kaca) seperti gedung utama
-    B.box(W, 0.9, 0.05, XC, 0.45, 2, M.glass);
-    B.box(W, 0.07, 0.12, XC, 0.92, 2, M.steel);
-    // sekat mess | kamar mandi (rendah + kaca, ada pintu)
-    for (const [a, b] of [[X0, -21.4]]) {
-      const w = b - a, cx = (a + b) / 2;
-      B.box(w, 0.8, 0.12, cx, 0.4, -6, M.slat);
-      B.box(w, 1.4, 0.03, cx, 1.5, -6, M.glass);
-      B.box(w, 0.07, 0.08, cx, 2.22, -6, M.steel);
-    }
-    // --- kamar mandi: 3 bilik di barat, wastafel + cermin di timur
-    for (const z of [-5.85, -4.35, -2.85, -1.35]) B.box(1.7, 1.4, 0.08, -24.75, 0.7, z, M.white);
-    for (const z of [-5.1, -3.6, -2.1]) {
-      B.box(0.45, 0.42, 0.55, -25.3, 0.21, z, M.white); // kloset
-      B.box(0.2, 0.5, 0.5, -25.55, 0.55, z, M.whiteD ?? M.white);
-      B.box(0.06, 1.3, 0.05, -23.9, 0.65, z - 0.65, M.chrome);
-    }
-    B.box(0.55, 0.85, 2.4, -20.65, 0.42, -4.4, M.marble);
-    for (const z of [-5.0, -3.8]) { B.box(0.38, 0.06, 0.42, -20.7, 0.87, z, M.white); B.box(0.06, 0.2, 0.06, -20.5, 1.0, z, M.chrome); }
-    B.vquad(2.2, 1.0, -20.5, 1.75, -4.4, M.glass, Math.PI / 2);
-    B.box(0.5, 0.05, 1.6, -21.3, 0.01, -0.4, M.rug); // keset
-    pottedPlant(B, -21.0, 1.2, 1.1);
-    L(-23, 2.6, -3.5, COOL, 4.0, 0.9);
-    // --- mess: 3 kamar (cowok | cewek | Zamiir & Aprista) + koridor timur
-    const sekat = (x0, x1, z0, z1, gaps = []) => {   // sekat rendah + kaca, dengan bukaan pintu
-      const alongX = Math.abs(x1 - x0) > Math.abs(z1 - z0);
-      const a0 = alongX ? x0 : z0, a1 = alongX ? x1 : z1;
-      const segs = []; let cur = a0;
-      for (const [g0, g1] of gaps) { segs.push([cur, g0]); cur = g1; }
-      segs.push([cur, a1]);
-      for (const [u0, u1] of segs) {
-        const len = u1 - u0, c = (u0 + u1) / 2;
-        if (len < 0.05) continue;
-        const [w, d, cx, cz] = alongX ? [len, 0.12, c, z0] : [0.12, len, x0, c];
-        B.box(w, 0.8, d, cx, 0.4, cz, M.slat);
-        B.box(alongX ? w : 0.03, 1.4, alongX ? 0.03 : d, cx, 1.5, cz, M.glass);
-        B.box(alongX ? w : 0.08, 0.07, alongX ? 0.08 : d, cx, 2.22, cz, M.steel);
-      }
-    };
-    // dinding koridor (x -21.4) dengan pintu ke tiap kamar
-    sekat(MESS.wallX, MESS.wallX, -14, -6, [[MESS.cowok.door - 0.5, MESS.cowok.door + 0.5], [MESS.cewek.door - 0.5, MESS.cewek.door + 0.5], [MESS.pasangan.door - 0.5, MESS.pasangan.door + 0.5]]);
-    sekat(X0, MESS.wallX, -11.2, -11.2);
-    sekat(X0, MESS.wallX, -8.6, -8.6);
-    const bunk = (x, z) => {
-      for (const dx of [-0.42, 0.42]) for (const dz of [-0.95, 0.95]) B.box(0.07, 1.95, 0.07, x + dx, 0.97, z + dz, M.steel);
-      for (const [y, mat] of [[0.3, M.blanket], [1.27, M.blanket2]]) {
-        B.box(0.9, 0.12, 2.0, x, y, z, M.lightwood);
-        B.box(0.82, 0.12, 1.9, x, y + 0.12, z, M.white);
-        B.box(0.84, 0.05, 1.1, x, y + 0.19, z + 0.3, mat);
-        B.box(0.6, 0.1, 0.35, x, y + 0.22, z - 0.75, M.white);
-      }
-      B.box(0.06, 1.0, 0.06, x + 0.45, 1.0, z + 0.95, M.steel); // tangga
-    };
-    for (const k of ['cowok', 'cewek']) for (const x of MESS[k].bunkX) bunk(x, MESS[k].bunkZ);
-    // loker di tiap kamar
-    for (let k = 0; k < 2; k++) B.box(0.8, 1.8, 0.45, -22.8 + k * 0.85, 0.9, -13.65, M[`acc${k + 3}`]);
-    for (let k = 0; k < 2; k++) B.box(0.45, 1.8, 0.8, -21.75, 0.9, -10.6 + k * 0.85, M[`acc${k}`]);
-    B.disc(-23.6, 0.012, -9.2, 1.3, 0.45, M.rug, 20);
-    // kamar Zamiir & Aprista: kasur double (kepala di dinding barat), meja samping, lampu tidur
-    const [bx, bz] = MESS.pasangan.bed;
-    B.box(2.1, 0.3, 1.75, bx, 0.15, bz, M.walnut);
-    B.box(2.0, 0.16, 1.65, bx, 0.38, bz, M.white);
-    B.box(1.25, 0.06, 1.69, bx + 0.32, 0.48, bz, M.blanket2);
-    for (const dz of [-0.4, 0.4]) B.box(0.38, 0.12, 0.6, bx - 0.78, 0.52, bz + dz, M.white);
-    B.box(0.12, 0.95, 1.8, X0 + 0.18, 0.47, bz, M.walnut);   // sandaran kepala
-    for (const dz of [-1.15, 1.15]) {
-      B.box(0.45, 0.5, 0.42, bx - 0.8, 0.25, bz + dz, M.lightwood);
-      B.box(0.14, 0.22, 0.14, bx - 0.8, 0.61, bz + dz, M.lampWarm, { cast: false });
-    }
-    B.disc(-23.2, 0.012, bz, 0.9, 1.1, M.rug, 20);
-    B.box(0.5, 1.9, 1.2, -21.85, 0.95, -6.75, M.walnut);   // lemari
-    L(-23, 2.4, -12.8, WARM, 3.2, 0.7);
-    L(-23, 2.4, -10.1, WARM, 3.2, 0.7);
-    L(-24.6, 1.1, -7.3, [1.0, 0.6, 0.5], 2.6, 0.8);
-  }
-
-  // ---------- pelat lantai atas, fasia, kolom
-  if (upper) {
-    B.box(40.3, 0.3, 8, 0, UP - 0.17, -10, M.slab, { top: M.slab });
-    B.box(40.3, 0.5, 0.26, 0, UP - 0.2, -6.0, M.slatdarkH);
-    B.box(40.3, 0.09, 0.06, 0, UP - 0.47, -5.86, M.lampWarm, { cast: false });
-  }
-  for (const x of [-9, 5.5, 13]) B.box(0.26, UP - 0.3, 0.26, x, (UP - 0.3) / 2, -6.2, M.steel);
-  for (let x = -18; x <= 18; x += 3) for (const z of [-12, -8]) L(x, UP - 0.4, z, WARM, 4.2, 0.9);
-
-  // ---------- CAFE
-  B.box(6.6, 1.05, 0.9, -15.6, 0.52, -7.45, M.slatdark, { top: M.marble });
-  B.box(6.8, 0.07, 1.05, -15.6, 1.08, -7.45, M.marble);
-  B.box(0.6, 0.5, 0.5, -17.8, 1.36, -7.6, M.chrome);
-  B.box(0.55, 0.42, 0.45, -16.9, 1.32, -7.6, M.purple);
-  B.box(1.3, 0.1, 0.12, -15.0, 1.16, -7.35, M.white);
-  B.box(0.5, 0.3, 0.4, -13.6, 1.26, -7.5, M.glass);
-  B.box(0.46, 0.08, 0.36, -13.6, 1.15, -7.5, M.cake);
-  B.box(7, 2.6, 0.5, -15.6, 1.3, -9.4, M.furn);
-  for (let k = 0; k < 3; k++) {
-    B.box(6.8, 0.06, 0.45, -15.6, 1.2 + k * 0.55, -9.1, M.furn);
-    B.box(6.8, 0.06, 0.04, -15.6, 1.17 + k * 0.55, -8.87, M.lampWarm, { cast: false });
-    for (let b = 0; b < 16; b++) B.box(0.13, 0.26 + (b % 3) * 0.03, 0.13, -18.8 + b * 0.42, 1.36 + k * 0.55, -9.1, M[`bottle${(b + k) % 4 + 1}`]);
-  }
-  for (let i = 0; i < 4; i++) {
-    const px = -18.2 + i * 1.75;
-    if (upper) B.box(0.06, 1.2, 0.06, px, UP - 0.9, -7.3, M.black);
-    B.ell(px, UP - 1.55, -7.3, 0.18, 0.15, 0.18, M.bulb, { cast: false });
-    L(px, UP - 1.7, -7.0, WARM, 3.2, 1.1);
-  }
-  for (const [tx, tz] of CAFE_TABLES) {
-    B.cyl(0.6, 0.06, tx, 0.75, tz, M.marble, 14);
-    B.box(0.1, 0.7, 0.1, tx, 0.37, tz, M.steel);
-    for (const side of [-1, 1]) {
-      B.cyl(0.22, 0.08, tx + side * 0.85, 0.46, tz, M.copper, 10);
-      B.box(0.06, 0.42, 0.06, tx + side * 0.85, 0.21, tz, M.steel);
-    }
-    B.box(0.1, 0.1, 0.1, tx + 0.15, 0.82, tz - 0.1, M.white);
-    B.box(0.08, 0.09, 0.08, tx - 0.2, 0.83, tz + 0.15, M.candle, { cast: false });
-    L(tx, 1.6, tz, WARM, 3.0, 0.7);
-  }
-  B.box(0.8, 1.9, 0.75, -19.2, 0.95, -5.4, M.fridge);
-  B.box(0.6, 1.4, 0.05, -19.1, 1.0, -5.0, M.lampCyan, { cast: false });
-  B.box(1.2, 0.9, 0.5, -19.35, 0.45, -3.2, M.furn);
-  B.box(1.0, 0.25, 0.35, -19.4, 1.05, -3.2, M.cake);
-  if (upper) {
-    B.box(2.6, 1.0, 0.06, -15.5, UP - 0.75, -5.83, M.black);
-    B.vquad(2.5, 0.9, -15.5, UP - 0.75, -5.79, M.black, 0, { tex: sign(2.5, 0.9, 'CAFE', M.signGold, 2) });
-  }
-  pottedPlant(B, -19.3, 1.3, 1.5);
-  pottedPlant(B, -8.6, 1.3, 1.3, 0, true);
-
-  // ---------- RUANG SANTAI
-  B.box(5.4, 2.8, 0.3, -4.6, 1.4, -5.45, M.slatdark);
-  B.box(3.3, 1.9, 0.07, -4.6, 1.55, -5.27, M.black);
-  B.vquad(3.1, 1.72, -4.6, 1.55, -5.23, M.tvLounge);
-  B.box(5.4, 0.06, 0.06, -4.6, 0.05, -5.27, M.lampPurple, { cast: false });
-  B.box(2.6, 0.4, 0.45, -4.6, 0.2, -5.0, M.furn);
-  B.box(0.35, 0.08, 0.25, -4.0, 0.44, -5.0, M.white);
-  B.box(0.4, 0.09, 0.2, -5.2, 0.44, -5.0, M.black);
-  B.disc(-4.6, 0.014, -2.6, 2.9, 2.0, M.rug, 24);
-  sofa(B, -4.65, -1.2, 4.2, M.sofa, 4);
-  B.cyl(0.5, 0.06, -4.6, 0.42, -3.1, M.furn, 14);
-  B.cyl(0.32, 0.38, -4.6, 0.19, -3.1, M.furn, 10);
-  B.ell(-1.75, 0.3, -3.7, 0.55, 0.32, 0.55, M.beanbag);
-  B.ell(-7.75, 0.3, -3.7, 0.55, 0.32, 0.55, M.beanbag2);
-  B.ell(-1.45, 0.3, -2.1, 0.55, 0.32, 0.55, M.beanbag3);
-  B.ell(0.4, 0.3, -3.5, 0.55, 0.32, 0.55, M.beanbag2);
-  B.ell(0.65, 0.3, -1.75, 0.55, 0.32, 0.55, M.beanbag);
-  pottedPlant(B, 0.9, -4.8, 1.5);
-  pottedPlant(B, -8.3, -4.8, 1.2);
-  B.box(1.2, 1.8, 0.4, -8.1, 0.9, -2.0, M.furn, { ry: Math.PI / 2 });
-  for (let k = 0; k < 3; k++) for (let b = 0; b < 4; b++) B.box(0.22, 0.28, 0.12, -8.1, 0.4 + k * 0.5, -2.45 + b * 0.28, M[`book${(k + b) % 4 + 1}`]);
-  L(-4.6, 2.6, -2.6, WARM, 4.5, 0.9);
-  L(-4.6, 1.6, -4.4, PURP, 3.2, 0.8);
-
-  // ---------- TANGGA (16 anak tangga ke lantai atas)
-  const steps = 16, run = 7.4, rise = UP / steps;
-  for (let i = 0; i < steps; i++) {
-    const sz = 1.2 - (i + 0.5) * (run / steps), sy = (i + 1) * rise;
-    B.box(3, 0.13, run / steps + 0.04, 3, sy - 0.065, sz, M.tread, { front: M.dark });
-    B.box(2.9, 0.035, 0.04, 3, sy - 0.13, sz + run / steps / 2 - 0.02, M.lampWarm, { cast: false });
-  }
-  for (const sx of [1.45, 4.55]) {
-    const P = [[sx, 0, 1.2], [sx, UP, -6.2], [sx, UP - 0.5, -6.2], [sx, 0, 0.2]];
-    B.poly(P, M.dark, { two: true });
-    B.poly([[sx, 0.12, 1.2], [sx, UP + 0.12, -6.2], [sx, UP + 1.12, -6.2], [sx, 1.12, 1.2]], M.glassRail, { two: true });
-    B.poly([[sx - 0.05, 1.14, 1.2], [sx + 0.05, 1.14, 1.2], [sx + 0.05, UP + 1.14, -6.2], [sx - 0.05, UP + 1.14, -6.2]], M.steel, { two: true });
-  }
-  L(3, 2.2, -2.5, WARM, 3.5, 0.6);
-
-  // ---------- RUANG KERJA
-  B.box(0.12, 3.2, 7.5, 19.9, 1.8, -2.5, M.slatdark);
-  B.box(0.06, 0.05, 7.5, 19.8, 0.25, -2.5, M.lampPurple, { cast: false });
-  // dinding fitur ZATAA di belakang ruang kerja (di bawah ruang boss)
-  B.box(14.3, UP - 0.3, 0.2, 12.75, (UP - 0.3) / 2, -6.45, M.slatdark);
-  B.vquad(6.4, 1.1, 12.2, 1.75, -6.33, M.slatdark, 0, { tex: sign(6.4, 1.1, 'ZATAA', M.signViolet, 2) });
-  B.vquad(1.3, 1.3, 7.6, 1.75, -6.33, M.slatdark, 0, { tex: logoTex(logo, 1.3, 1.3) });
-  B.box(13.5, 0.05, 0.05, 12.75, 1.05, -6.32, M.lampPurple, { cast: false });
-  for (const rx of [17.6, 18.8]) {
-    B.box(1.0, 2.2, 0.7, rx, 1.1, -5.95, M.rack);
-    B.vquad(0.8, 1.9, rx, 1.12, -5.59, M.racks);
-  }
-  let di = 0;
-  for (const z of [-4.2, -0.8]) {
-    for (const x of DESK_X) {
-      B.box(1.9, 0.06, 0.85, x, 0.75, z, M.black);
-      for (const sx of [-0.88, 0.88]) B.box(0.07, 0.72, 0.7, x + sx, 0.37, z, M.steel);
-      B.box(1.9, 0.04, 0.04, x, 0.72, z + 0.43, M[`rgb${di}`], { cast: false });
-      for (const [k, dx] of [[0, -0.43], [1, 0.43]]) {
-        const ry = -dx * 0.25;
-        B.box(0.86, 0.52, 0.05, x + dx, 1.2, z - 0.25, M.black, { ry });
-        B.vquad(0.78, 0.44, x + dx - Math.sin(ry) * 0.0, 1.2, z - 0.22, M[`scr${di}`], ry);
-      }
-      B.box(0.08, 0.32, 0.08, x, 0.93, z - 0.3, M.steel);
-      B.box(0.48, 0.03, 0.16, x, 0.79, z + 0.12, M.dark);
-      B.box(0.1, 0.1, 0.1, x - 0.65, 0.82, z + 0.05, M[`acc${di}`]);
-      B.box(0.25, 0.5, 0.5, x + 1.25, 0.25, z - 0.1, M.black);
-      B.box(0.03, 0.42, 0.03, x + 1.11, 0.27, z + 0.16, M[`rgb${di}`], { cast: false });
-      gamingChair(B, x, z + 0.75, Math.PI, di);
-      L(x, 2.4, z + 0.3, COOL, 3.6, 0.9);
-      di++;
+  // pohon & semak di undakan kiri-kanan gedung + puncak bukit
+  const rnd = (() => { let s = 11; return () => (s = (s * 16807) % 2147483647) / 2147483647; })();
+  for (let t = 1; t <= 4; t++) {
+    const [a, b] = CORR_SPAN[t - 1], y0 = LY[t - 1];
+    const z0 = FRONT[t - 1] - DEPTH + 1.2, z1 = FRONT[t - 1] - (t === 1 ? 4 : 0.8);
+    for (let x = -50; x < 50; x += 2.6 + rnd() * 1.2) {
+      if (x > a - 1.2 && x < b + 1.2) continue;
+      const z = z0 + rnd() * (z1 - z0);
+      if (rnd() < 0.55) tree(B, x, z, 3.4 + rnd() * 2.2, rnd() < 0.5, y0); else bush(B, x, z, 0.6 + rnd() * 0.4, y0);
     }
   }
-  pottedPlant(B, 5.25, 1.6, 1.2);
-  pottedPlant(B, 19.2, 1.2, 1.4);
-  pottedPlant(B, 5.6, -5.4, 1.3);
+  for (let x = -54; x < 54; x += 2.4 + rnd() * 1.4) tree(B, x, FRONT[3] - DEPTH - 2 - rnd() * 7, 4 + rnd() * 2.5, rnd() < 0.6, LY[3]);
 
-  // =========================================================== LANTAI ATAS
-  if (upper) {
-    B.layer = 'U';
-    B.floor(-20, 20, -8.5, -6, M.oak, UP + 0.01);
-    B.floor(-20, -9, -14, -8.5, M.musCarpet, UP + 0.01);
-    B.floor(-9, 5.5, -14, -8.5, M.meetCarpet, UP + 0.01);
-    B.floor(5.5, 20, -14, -8.5, M.walnut, UP + 0.01);
-    // pagar kaca depan (celah di atas tangga)
-    for (const [x1, x2] of [[-20, 1.5], [4.5, 20]]) {
-      B.box(x2 - x1, 1.0, 0.04, (x1 + x2) / 2, UP + 0.5, -6.05, M.glassRail);
-      B.box(x2 - x1, 0.07, 0.1, (x1 + x2) / 2, UP + 1.03, -6.05, M.steel);
-      for (let px = x1; px <= x2 + 0.01; px += 2) B.box(0.07, 1.0, 0.07, px, UP + 0.5, -6.05, M.steel);
-    }
-    // sekat ruangan: panel kayu rendah + kaca + rangka
-    const partition = (x1, z1, x2, z2, gaps = []) => {
-      const horiz = z1 === z2;
-      const len = horiz ? x2 - x1 : z2 - z1;
-      let segs = [[0, len]];
-      for (const [a, b] of gaps) segs = segs.flatMap(([s0, s1]) => (b <= s0 || a >= s1 ? [[s0, s1]] : [[s0, a], [b, s1]].filter((p) => p[1] - p[0] > 0.01)));
-      for (const [a, b] of segs) {
-        const l = b - a, mid = a + l / 2;
-        const [px, pz] = horiz ? [x1 + mid, z1] : [x1, z1 + mid];
-        const [w, d] = horiz ? [l, 0.12] : [0.12, l];
-        B.box(w, 0.7, d, px, UP + 0.35, pz, M.slat);
-        B.box(horiz ? w : 0.03, 1.9, horiz ? 0.03 : d, px, UP + 1.65, pz, M.glass);
-        B.box(horiz ? w : 0.08, 0.07, horiz ? 0.08 : d, px, UP + 2.62, pz, M.steel);
-        const n = Math.max(1, Math.round(l / 1.5));
-        for (let k = 0; k <= n; k++) {
-          const q = a + (l * k) / n;
-          B.box(0.07, 1.9, 0.07, horiz ? x1 + q : x1, UP + 1.65, horiz ? z1 : z1 + q, M.steel);
-        }
-      }
-    };
-    partition(-20, -8.5, -9, -8.5, [[5.4, 6.6]]);
-    partition(-9, -8.5, 5.5, -8.5, [[6.9, 8.1]]);
-    partition(5.5, -8.5, 20, -8.5, [[6.9, 8.1]]);
-    partition(-9, -14, -9, -8.5);
-    partition(5.5, -14, 5.5, -8.5);
-
-
-    // ---------- TEMPAT WUDHU (sayap barat, lewat pintu di dinding barat musholla)
-    B.box(5.75, 0.3, 5.9, -23.0, UP - 0.17, -11.2, M.slab, { top: M.slab });
-    B.floor(-25.6, -20.3, -14, -8.5, M.tile, UP + 0.01);
-    partition(-25.6, -8.5, -20.3, -8.5);
-    B.box(0.5, 0.8, 4.4, -25.35, UP + 0.4, -11.7, M.marble); // bak/pancuran
-    B.box(0.06, 0.06, 4.4, -25.1, UP + 0.82, -11.7, M.lampCyan, { cast: false });
-    for (const z of WUDHU_Z) { B.box(0.08, 0.35, 0.08, -25.45, UP + 1.15, z, M.chrome); B.box(0.25, 0.05, 0.05, -25.32, UP + 1.3, z, M.chrome); }
-    for (const z of WUDHU_Z) B.box(0.35, 0.3, 0.35, -24.5, UP + 0.15, z, M.lightwood); // dingklik
-    B.box(0.06, 0.8, 2.4, -25.55, UP + 2.2, -11.7, M.black);
-    B.vquad(2.3, 0.7, -25.5, UP + 2.2, -11.7, M.black, Math.PI / 2, { tex: sign(2.3, 0.7, 'WUDHU', M.signGold, 2) });
-    pottedPlant(B, -20.9, -13.4, 1.1, UP, true);
-    L(-23, UP + 2.4, -11.3, COOL, 4.0, 0.9, 'U');
-
-    // ---------- TEMPAT IBADAH (mihrab di dinding belakang, menghadap kamera seperti referensi)
-    B.box(11, 3.4, 0.05, -14.5, UP + 1.7, -13.97, M.slat);
-    B.box(2.6, 3.0, 0.08, -14.5, UP + 1.5, -13.9, M.mihrab);
-    B.ell(-14.5, UP + 3.0, -13.88, 1.3, 0.75, 0.04, M.mihrab, { cast: false });
-    B.box(0.12, 3.0, 0.12, -15.85, UP + 1.5, -13.86, M.brass);
-    B.box(0.12, 3.0, 0.12, -13.15, UP + 1.5, -13.86, M.brass);
-    B.ell(-14.5, UP + 2.2, -13.84, 0.55, 0.55, 0.02, M.signGold, { cast: false });
-    B.ell(-14.5, UP + 2.2, -13.82, 0.42, 0.42, 0.02, M.mihrab, { cast: false });
-    B.box(0.06, 2.6, 0.05, -15.7, UP + 1.3, -13.82, M.lampWarm, { cast: false });
-    B.box(0.06, 2.6, 0.05, -13.3, UP + 1.3, -13.82, M.lampWarm, { cast: false });
-    const saj = (x, z, mat) => B.poly([[x - 0.36, UP + 0.012, z + 0.6], [x + 0.36, UP + 0.012, z + 0.6], [x + 0.36, UP + 0.012, z - 0.6], [x - 0.36, UP + 0.012, z - 0.6]], mat, { two: true, cast: false });
-    saj(-14.5, -12.6, M.sajadah);
-    for (const x of [-16.3, -15.1, -13.9, -12.7]) saj(x, -11.5, M.sajadah);
-    for (const x of [-17.5, -16.3, -15.1, -13.9, -12.7, -11.5, -10.3]) saj(x, -10.3, M.sajadah2);
-    // mimbar (kanan mihrab) — Zamiir khotbah Jumat dari sini
-    B.box(1.1, 0.3, 1.3, -12.2, UP + 0.15, -13.15, M.lightwood);
-    B.box(1.1, 0.3, 0.9, -12.2, UP + 0.45, -13.35, M.lightwood);
-    B.box(1.1, 0.3, 0.6, -12.2, UP + 0.75, -13.5, M.lightwood);
-    for (const sx of [-0.55, 0.55]) B.box(0.08, 1.0, 1.3, -12.2 + sx, UP + 0.95, -13.15, M.brass);
-    B.box(1.1, 0.06, 0.06, -12.2, UP + 1.45, -12.55, M.brass);
-    B.box(1.6, 1.0, 0.4, -10.4, UP + 0.5, -13.6, M.furn);
-    for (let k = 0; k < 6; k++) B.box(0.18, 0.28, 0.22, -11.0 + k * 0.24, UP + 1.14, -13.6, k % 2 ? M.green : M.brass);
-    B.box(1.4, 0.45, 0.35, -18.6, UP + 0.23, -9.0, M.lightwood);
-    frame(B, -18.6, UP + 1.9, -13.9, 1.2, 0.9, ['art3', 'art1', 'art2']);
-    pottedPlant(B, -19.4, -8.9, 1.2, UP, true);
-    pottedPlant(B, -9.6, -8.9, 1.2, UP, true);
-    L(-14.5, UP + 2.4, -11.5, WARM, 5.2, 1.0, 'U');
-    L(-14.5, UP + 1.6, -13.4, [1, 0.85, 0.5], 2.5, 0.9, 'U');
-
-    // ---------- RUANG MEETING
-    B.box(6.2, 0.08, 1.7, -1.8, UP + 0.76, -11.6, M.furn);
-    for (const lx of [-3.8, 0.2]) B.box(0.24, 0.72, 0.24, lx, UP + 0.36, -11.6, M.steel);
-    for (const x of MEET_X) { officeChair(B, x, UP, -12.85, 0, M.leather); officeChair(B, x, UP, -10.35, Math.PI, M.leather); }
-    officeChair(B, 1.95, UP, -11.6, -Math.PI / 2, M.leather);
-    officeChair(B, -5.25, UP, -11.6, Math.PI / 2, M.leather);
-    B.box(4.1, 2.25, 0.1, -1.8, UP + 1.75, -13.92, M.black);
-    B.vquad(3.9, 2.05, -1.8, UP + 1.75, -13.86, M.tvMeet);
-    B.box(0.4, 2.6, 2.6, -8.7, UP + 1.3, -11.3, M.slatdark);
-    // papan strategi di dinding timur ruang meeting
-    B.vquad(2.4, 1.3, 5.4, UP + 1.6, -11.4, M.whiteboard, -Math.PI / 2, {
-      tex: (u, v, a, b) => {
-        if (a > 0.08 && a < 0.92 && b > 0.12 && b < 0.88) {
-          const cx = Math.floor(a * 6), cy = Math.floor(b * 3);
-          if (fr(a * 6) > 0.2 && fr(a * 6) < 0.8 && fr(b * 3) > 0.25 && fr(b * 3) < 0.75 && hash2(cx, cy) < 0.7) T.m = M[`acc${(cx + cy) % 6}`].id;
-        }
-        return 0;
-      },
-    });
-    pottedPlant(B, 4.9, -13.4, 1.4, UP);
-    for (const px of [-3.8, -1.8, 0.2]) {
-      B.ell(px, UP + 2.25, -11.6, 0.15, 0.12, 0.15, M.bulb, { cast: false });
-      L(px, UP + 2.1, -11.6, WARM, 3.5, 0.9, 'U');
-    }
-
-    // ---------- RUANG BOSS
-    B.box(14.5, 3.6, 0.06, 12.75, UP + 1.9, -13.95, M.ledgeDark);
-    B.vquad(9.4, 3.0, 15.15, UP + 1.75, -13.88, M.cityView, 0, { tex: cityTex(9.4, 3.0) });
-    for (let x = 10.45; x <= 19.9; x += 2.35) B.box(0.09, 3.2, 0.1, x, UP + 1.75, -13.86, M.steel);
-    B.box(9.5, 0.1, 0.12, 15.15, UP + 3.3, -13.86, M.steel);
-    B.box(0.06, 3.6, 5.5, 20.0, UP + 1.9, -11.25, M.glass);
-    B.vquad(1.8, 1.0, 8.6, UP + 2.15, -13.88, M.tvBoss);
-    B.box(1.95, 1.12, 0.06, 8.6, UP + 2.15, -13.92, M.black);
-    B.vquad(1.0, 1.0, 6.4, UP + 2.2, -13.88, M.ledgeDark, 0, { tex: logoTex(logo, 1.0, 1.0) });
-    B.box(2.4, 0.08, 1.0, 14, UP + 0.77, -11.6, M.furn);
-    B.box(2.3, 0.72, 0.06, 14, UP + 0.38, -11.12, M.furn);
-    for (const sx of [-1.12, 1.12]) B.box(0.08, 0.72, 0.9, 14 + sx, UP + 0.38, -11.6, M.furn);
-    for (const dx of [-0.5, 0.5]) {
-      B.box(0.9, 0.52, 0.05, 14 + dx, UP + 1.15, -11.9, M.black, { ry: dx * 0.4 });
-      B.box(0.08, 0.3, 0.08, 14 + dx, UP + 0.95, -11.95, M.steel);
-    }
-    B.box(0.18, 0.08, 0.12, 13.2, UP + 0.86, -11.4, M.brass);
-    officeChair(B, 14, UP, -12.5, 0, M.leather, 1.2);
-    B.box(0.45, 2.6, 3, 19.6, UP + 1.3, -9.9, M.furn);
-    for (let k = 0; k < 5; k++) for (let b = 0; b < 9; b++) B.box(0.25, 0.3, 0.14, 19.4, UP + 0.38 + k * 0.48, -11.2 + b * 0.3, M[`book${(k + b) % 4 + 1}`]);
-    B.disc(8.6, UP + 0.012, -11.9, 1.6, 1.0, M.rugBoss, 4);
-    sofa(B, 8.6, -12.9, 2.4, M.bossSofa, 2, UP, true);
-    B.cyl(0.5, 0.06, 8.6, UP + 0.4, -11.6, M.marble, 14);
-    B.box(0.1, 0.38, 0.1, 8.6, UP + 0.19, -11.6, M.brass);
-    pottedPlant(B, 6.2, -13.3, 1.5, UP);
-    pottedPlant(B, 19.3, -13.3, 1.6, UP, true);
-    L(14, UP + 2.4, -11.2, WARM, 5, 1.0, 'U');
-    L(8.6, UP + 2.2, -12, WARM, 4, 0.8, 'U');
-    // koridor: planter + meja kecil
-    for (const px of [-11.5, -5, 8, 17]) planter(B, px, -6.55, UP);
-    B.box(1.8, 0.75, 0.45, 3.9, UP + 0.37, -9.0, M.furn);
-    pottedPlant(B, 4.6, -9.0, 0.8, UP + 0.75);
-    for (const x of [-16, -6, 9, 17]) L(x, UP + 2.2, -7.2, WARM, 4, 0.7, 'U');
-    B.layer = 'G';
-  }
-
-  // =========================================================== LUAR
-  B.floor(-9, 5, 2, 9.5, M.deck, 0.01);
-  B.floor(5, 21.5, 2, 5, M.stone, 0.008);
-  B.floor(5, 21.5, 12, 18.5, M.stone, 0.008);
-  B.floor(5, 7, 5, 12, M.stone, 0.008);
-  B.floor(19, 21.5, 5, 12, M.stone, 0.008);
-  B.floor(-26.5, -20, -14.5, 2, M.concrete, 0.006);
-  B.floor(20, 21.5, -14.5, 2, M.stone, 0.006);
-  B.floor(-26.5, 21.5, -16, -14, M.concrete, 0.004);
-  B.floor(-26.5, -9, 2, 18.5, M.stoneDark, 0.006);
-  B.floor(-2.6, -1.4, 9.5, 18.5, M.stone, 0.012);
-  B.floor(5.4, 21.2, 13.0, 17.2, M.deck, 0.014);
-  // bangku taman
-  for (const bx of BENCH_X) {
-    B.box(1.9, 0.08, 0.5, bx, 0.45, 7.75, M.deck);
-    B.box(1.9, 0.45, 0.07, bx, 0.75, 8.05, M.deck, { rx: -0.08 });
-    for (const dx of [-0.8, 0.8]) B.box(0.08, 0.45, 0.45, bx + dx, 0.22, 7.8, M.steel);
-  }
-  for (const [px, pz] of [[-8.3, 8.8], [4.3, 8.8], [-8.3, 2.7], [-5, 2.7]]) planter(B, px, pz);
-  // kolam
-  B.box(12, 0.1, 7, 13, -1.45, 8.5, M.mosaic);
-  B.box(12, 1.45, 0.1, 13, -0.72, 5.0, M.mosaic);
-  B.box(0.1, 1.45, 7, 19.0, -0.72, 8.5, M.mosaic);
-  B.poly([[7, -0.1, 12], [19, -0.1, 12], [19, -0.1, 5], [7, -0.1, 5]], M.water, { two: true, cast: false });
-  B.box(12.5, 0.08, 0.34, 13, 0.04, 4.85, M.poolEdge);
-  B.box(12.5, 0.08, 0.34, 13, 0.04, 12.15, M.poolEdge);
-  B.box(0.34, 0.08, 7.6, 6.85, 0.04, 8.5, M.poolEdge);
-  B.box(0.34, 0.08, 7.6, 19.15, 0.04, 8.5, M.poolEdge);
-  for (const pz of [8.1, 8.9]) B.box(0.07, 1.0, 0.07, 7.15, 0.35, pz, M.chrome);
-  for (const sz of [5.6, 6.8, 8.0, 9.2, 10.4, 11.6]) L(18.6, -0.3, sz, CYAN, 3.2, 0.8);
-  L(13, 0.5, 8.5, CYAN, 8.5, 1.1);
-  // kursi berjemur + payung
-  for (const lx of [6.6, 9, 11.4, 13.8, 16.2, 18.4, 20.6]) {
-    B.box(0.74, 0.08, 2.0, lx, 0.33, 14.4, M.lightwood);
-    B.box(0.66, 0.09, 1.15, lx, 0.42, 14.0, M.cushion);
-    B.box(0.66, 0.09, 0.78, lx, 0.64, 15.25, M.cushion, { rx: 0.75 });
-    for (const dz of [13.6, 15.2]) B.box(0.7, 0.3, 0.05, lx, 0.15, dz, M.steel);
-  }
-  for (const [ux, uz] of [[10.2, 15.6], [15, 15.6]]) {
-    B.box(0.07, 2.5, 0.07, ux, 1.25, uz, M.steel);
-    B.cone(ux, 2.2, uz, 1.5, 0.5, M.umbrella);
-  }
-  B.box(16.5, 1.0, 0.04, 13.2, 0.5, 18.4, M.glassRail);
-  B.box(0.04, 1.0, 16.5, 21.5, 0.5, 10.2, M.glassRail);
-  for (let px = 5; px <= 21.5; px += 2.75) B.box(0.07, 1.0, 0.07, px, 0.5, 18.4, M.steel);
-  // lampu taman (bollard)
-  for (const [bx, bz] of [[6, 4], [6, 13], [20.5, 4], [20.5, 13], [-9.4, 4], [-9.4, 17], [5.4, 17], [-26, 4], [-26, 17], [-1.4, 10], [-2.6, 14], [-1.4, 17]]) {
-    B.box(0.16, 0.7, 0.16, bx, 0.35, bz, M.dark);
-    B.box(0.15, 0.1, 0.15, bx, 0.74, bz, M.lampWarm, { cast: false });
-    L(bx, 0.9, bz, WARM, 3.2, 0.9);
-  }
-  // pagar kayu-besi
-  B.box(0.1, 1.6, 33.1, -26.6, 0.8, 1.95, M.fence, { top: M.dark });
-  B.box(48.1, 1.6, 0.1, -2.5, 0.8, 18.6, M.fence, { top: M.dark });
-  // gerbang + papan nama
-  B.box(3.4, 2.6, 0.7, -10.2, 1.3, 15.4, M.dark);
-  B.vquad(2.8, 1.0, -10.2, 1.65, 15.76, M.dark, 0, { tex: sign(2.8, 1.0, 'ZATAA', M.signViolet, 2) });
-  B.box(0.07, 2.3, 0.05, -11.75, 1.3, 15.78, M.lampPurple, { cast: false });
-  B.vquad(3.0, 0.5, -10.2, 0.75, 15.76, M.dark, 0, { tex: sign(3.0, 0.5, 'TOP UP GAME', M.signWhite, 1) });
-  L(-10.2, 1.4, 16.4, PURP, 3.5, 1.0);
-  // carport pergola
-  for (const [px, pz] of [[-14.5, 15.5], [-14.5, 12], [-20.5, 15.5], [-20.5, 12]]) B.box(0.16, 2.8, 0.16, px, 1.4, pz, M.dark);
-  for (let px = -20.5; px <= -14.39; px += 0.4) B.box(0.08, 0.12, 3.8, px, 2.86, 13.75, M.slatdark);
-  L(-17.5, 2.4, 13.75, WARM, 4, 0.8);
-  // mobil
-  car(B, -17.5, 6.8, 0.25);
-  // tanaman pagar
-  const hedge = (x1, z1, x2, z2, h = 0.9) => {
-    const len = Math.hypot(x2 - x1, z2 - z1), n = Math.max(1, Math.round(len / 0.7));
-    for (let k = 0; k <= n; k++) {
-      const t = k / n;
-      B.ell(x1 + (x2 - x1) * t, h * 0.5, z1 + (z2 - z1) * t, 0.48, h * 0.55, 0.48, k % 2 ? M.hedge : M.foliage, { leafy: true });
+  // ================================================================ GEDUNG: per tingkat
+  const sekat = (y, x0, x1, z0, z1, gaps = [], h = 0.8) => {   // sekat rendah + kaca, dengan bukaan pintu
+    const alongX = Math.abs(x1 - x0) > Math.abs(z1 - z0);
+    const a0 = alongX ? x0 : z0, a1 = alongX ? x1 : z1;
+    const segs = []; let cur = a0;
+    for (const [g0, g1] of gaps.sort((p, q) => p[0] - q[0])) { segs.push([cur, g0]); cur = g1; }
+    segs.push([cur, a1]);
+    for (const [u0, u1] of segs) {
+      const len = u1 - u0, c = (u0 + u1) / 2;
+      if (len < 0.05) continue;
+      const [w, d, cx, cz] = alongX ? [len, 0.12, c, z0] : [0.12, len, x0, c];
+      B.box(w, h, d, cx, y + h / 2, cz, M.slat);
+      B.box(alongX ? w : 0.03, 1.4, alongX ? 0.03 : d, cx, y + h + 0.7, cz, M.glass);
+      B.box(alongX ? w : 0.08, 0.07, alongX ? 0.08 : d, cx, y + h + 1.42, cz, M.steel);
     }
   };
-  hedge(-8.6, 18.0, -3.0, 18.0);
-  hedge(0.0, 18.0, 4.6, 18.0);
-  hedge(-26.0, -13.5, -26.0, 1.5, 1.1);
-  hedge(21.0, -13.5, 21.0, 1.0, 1.1);
-  hedge(-8.8, 10.0, -8.8, 17.6, 0.7);
-  hedge(4.8, 10.0, 4.8, 17.6, 0.7);
-  for (const [tx, tz] of [[-24, 12], [-24, 6], [-6, 17.5], [3, 16.5], [21, 1], [21, 17.5], [-22, -16.5], [-10, -16.5], [4, -16.8], [16, -16.5], [23.5, -10], [-28, -6], [24, -2]]) tree(B, tx, tz, 4.2 + hash2(tx * 10, tz * 10) * 1.8);
-  for (const [tx, tz] of [[6.2, 3.2], [20.3, 3], [-8.6, 9.2], [4.5, 9.3], [-0.5, 2.6]]) palm(B, tx, tz, 3.4 + hash2(tx * 7, tz * 3));
+  for (let t = 1; t <= 4; t++) {
+    const y = LY[t - 1], rf = RF(t), zb = rf - 8;
+    const [a, b] = SPAN[t - 1], [ca, cb] = CORR_SPAN[t - 1];
+    // selasar (teras depan untuk lantai 1)
+    B.floor(ca, cb, rf, FRONT[t - 1], t === 1 ? M.deck : M.stone, y + 0.006);
+    if (t > 1) {   // pagar kaca di tepi selasar, celah di atas tangga
+      for (const [x0, x1] of [[ca, STAIR.x0 - 0.2], [STAIR.x1 + 0.2, cb]]) {
+        B.box(x1 - x0, 1.0, 0.04, (x0 + x1) / 2, y + 0.5, FRONT[t - 1] - 0.05, M.glassRail);
+        B.box(x1 - x0, 0.07, 0.1, (x0 + x1) / 2, y + 1.03, FRONT[t - 1] - 0.05, M.steel);
+      }
+      B.box(cb - ca, 0.3, 0.3, (ca + cb) / 2, y - 0.15, FRONT[t - 1] - 0.15, M.slab);   // tepi pelat
+    }
+    for (let x = ca + 3; x < cb; x += 6) L(x, y + 2.6, FRONT[t - 1] - 1, WARM, 3.2, 0.7);
+    // dinding belakang ruangan (plester) di depan dinding batu, dinding timur penuh, barat rendah + kaca
+    for (const [id, x0, x1] of ROOMDEF[t]) if (!['boss', 'terasBoss', 'tamanAtas'].includes(id)) B.box(x1 - x0, 3.3, 0.04, (x0 + x1) / 2, y + 1.65, zb + 0.02, M.plaster);
+    if (t !== 4) B.box(0.3, 3.3, 8, b + 0.15, y + 1.65, zb + 4, M.ledgeDark, { top: M.dark });
+    B.box(0.3, 0.8, 8, a - 0.15, y + 0.4, zb + 4, M.ledge, { top: M.dark });
+    B.box(0.03, 1.4, 8, a - 0.15, y + 1.5, zb + 4, M.glass);
+    // muka ruang: kaca rendah dengan pintu, sekat antar ruang
+    for (const [id, x0, x1] of ROOMDEF[t]) {
+      if (id === 'tamanAtas' || id === 'terasBoss') continue;
+      const r = ROOM[id];
+      const gaps = id.startsWith('tangga') ? [[STAIR.x0 - 0.2, STAIR.x1 + 0.2]] : id === 'lobby' ? [[-1.6, 1.6]] : [[r.door - 0.6, r.door + 0.6]];
+      sekat(y, x0, x1, rf, rf, gaps, 0.5);
+      if (x0 > a) sekat(y, x0, x0, zb, rf);
+    }
+  }
+
+  // ---------------------------------------------------------------- tangga (lantai 1→2, 2→3, 3→4) di sel tengah
+  for (let t = 1; t <= 3; t++) {
+    const y = LY[t - 1], run = STAIR.lz0 - STAIR.lz1, n = STAIR.steps, rise = UP / n;
+    for (let i = 0; i < n; i++) {
+      const lz = STAIR.lz0 - (i + 0.5) * (run / n);
+      B.box(STAIR.x1 - STAIR.x0, 0.13, run / n + 0.04, 0, y + (i + 1) * rise - 0.065, RZ(t, lz), M.tread, { front: M.dark });
+      B.box(STAIR.x1 - STAIR.x0 - 0.1, 0.035, 0.04, 0, y + (i + 1) * rise - 0.13, RZ(t, lz) + run / n / 2 - 0.02, M.lampWarm, { cast: false });
+    }
+    for (const sx of [STAIR.x0 - 0.05, STAIR.x1 + 0.05]) {
+      const z0 = RZ(t, STAIR.lz0), z1 = RZ(t, STAIR.lz1);
+      B.poly([[sx, y, z0], [sx, y + UP, z1], [sx, y + UP - 0.5, z1], [sx, y, z0 - 1]], M.dark, { two: true });
+      B.poly([[sx, y + 0.12, z0], [sx, y + UP + 0.12, z1], [sx, y + UP + 1.0, z1], [sx, y + 1.0, z0]], M.glassRail, { two: true });
+    }
+    L(0, y + 2.4, RZ(t, -4), WARM, 3.5, 0.6);
+  }
+
+  // ================================================================ LANTAI 1 · PUBLIK
+  {
+    const y = 0, z = (lz) => RZ(1, lz);
+    // lantai ruang
+    B.floor(-32, -14, z(-8), z(0), M.oak, 0.004);
+    B.floor(-14, -6, z(-8), z(0), M.tile, 0.004);
+    B.floor(-6, 2, z(-8), z(0), M.marble, 0.004);
+    B.floor(2, 15, z(-8), z(0), M.cineCarpet, 0.004);
+    B.floor(15, 27, z(-8), z(0), M.walnut, 0.004);
+    B.floor(27, 32, z(-8), z(0), M.tile, 0.004);
+    // ---- CAFE & RESTO
+    B.box(7.4, 1.05, 0.9, -27.3, 0.52, z(-6.95), M.slatdark, { top: M.marble });
+    B.box(7.6, 0.07, 1.05, -27.3, 1.08, z(-6.95), M.marble);
+    B.box(0.6, 0.5, 0.5, -30.2, 1.36, z(-7.1), M.chrome);
+    B.box(0.55, 0.42, 0.45, -29.3, 1.32, z(-7.1), M.purple);
+    B.box(0.5, 0.3, 0.4, -25.0, 1.26, z(-7.0), M.glass);
+    B.box(0.46, 0.08, 0.36, -25.0, 1.15, z(-7.0), M.cake);
+    for (let k = 0; k < 3; k++) {   // rak botol di dinding belakang
+      B.box(7.2, 0.06, 0.35, -27.3, 1.5 + k * 0.5, z(-7.78), M.furn);
+      for (let b = 0; b < 17; b++) B.box(0.13, 0.26 + (b % 3) * 0.03, 0.13, -30.7 + b * 0.42, 1.66 + k * 0.5, z(-7.75), M[`bottle${(b + k) % 4 + 1}`]);
+    }
+    B.box(2.6, 1.0, 0.06, -27.3, 3.0, z(-7.85), M.black);
+    B.vquad(2.5, 0.9, -27.3, 3.0, z(-7.8), M.black, 0, { tex: sign(2.5, 0.9, 'CAFE', M.signGold, 2) });
+    for (const [tx, tz] of CAFE_TABLES) {
+      B.cyl(0.55, 0.06, tx, 0.75, z(tz), M.marble, 14);
+      B.box(0.1, 0.7, 0.1, tx, 0.37, z(tz), M.steel);
+      for (const [dx, dz] of [[-0.85, 0], [0.85, 0], [0, -0.85], [0, 0.85]]) stool(B, tx + dx, 0, z(tz + dz));
+      B.box(0.08, 0.09, 0.08, tx - 0.2, 0.83, z(tz) + 0.15, M.candle, { cast: false });
+      L(tx, 1.6, z(tz), WARM, 3.0, 0.7);
+    }
+    // meja makan panjang resto
+    B.box(RESTO.x1 - RESTO.x0, 0.07, 1.2, (RESTO.x0 + RESTO.x1) / 2, 0.76, z(RESTO.lz), M.walnut);
+    for (const lx of [RESTO.x0 + 0.3, RESTO.x1 - 0.3]) B.box(0.1, 0.72, 1.0, lx, 0.37, z(RESTO.lz), M.dark);
+    for (let i = 0; i < 6; i++) {
+      const x = RESTO.x0 + 0.5 + i * 1.05;
+      for (const [dz, ry] of [[-1.0, 0], [1.0, Math.PI]]) officeChair(B, x, 0, z(RESTO.lz + dz), ry, M.sofa, 0.9);
+      B.box(0.3, 0.02, 0.25, x, 0.8, z(RESTO.lz - 0.3), M.white);
+    }
+    for (let i = 0; i < 3; i++) { B.ell(RESTO.x0 + 1.2 + i * 2.1, 2.7, z(RESTO.lz), 0.2, 0.15, 0.2, M.bulb, { cast: false }); L(RESTO.x0 + 1.2 + i * 2.1, 2.5, z(RESTO.lz), WARM, 3.2, 1.0); }
+    pottedPlant(B, -31.4, z(-0.6), 1.5);
+    pottedPlant(B, -14.6, z(-7.3), 1.3, 0, true);
+    frame(B, -19.4, 2.0, z(-7.88), 1.6, 1.0, ['art2', 'art1', 'art3']);
+    // ---- DAPUR
+    B.box(4.6, 0.95, 0.7, -11.5, 0.47, z(-7.55), M.steel, { top: M.marble });
+    B.box(1.0, 0.1, 0.6, -10.6, 0.98, z(-7.55), M.black);
+    B.box(1.2, 0.7, 0.5, -10.6, 2.3, z(-7.6), M.steel);
+    B.box(0.85, 1.95, 0.7, -9.55, 0.97, z(-4.5), M.fridge);
+    B.box(2.4, 0.95, 1.0, -11.8, 0.47, z(-3.8), M.steel, { top: M.marble });
+    for (let k = 0; k < 4; k++) B.box(0.3, 0.2, 0.3, -12.7 + k * 0.6, 1.05, z(-3.8), M[`bottle${k + 1}`]);
+    L(-11.5, 2.6, z(-5), COOL, 3.5, 0.8);
+    // ---- GUDANG MBAK SARI (kecil)
+    for (const sx of [-8.6, -6.45]) {
+      B.box(0.6, 2.1, 5.2, sx, 1.05, z(-4.9), M.lightwood);
+      for (let k = 0; k < 4; k++) for (let b = 0; b < 6; b++) B.box(0.3, 0.25, 0.4, sx, 0.4 + k * 0.5, z(-7.0) + b * 0.82, M[hash2(k, b) < 0.5 ? 'acc' + ((k + b) % 10) : 'white']);
+    }
+    B.box(0.6, 0.85, 0.9, -7.5, 0.43, z(-1.6), M.steel);
+    B.cyl(0.18, 0.35, -7.9, 0.17, z(-0.7), M.acc5, 10);
+    B.box(0.05, 1.3, 0.05, -7.2, 0.65, z(-0.8), M.lightwood);
+    L(-7.5, 2.5, z(-4), WARM, 2.6, 0.6);
+    // ---- LOBBY
+    B.box(2.6, 1.1, 0.8, -4.2, 0.55, z(-3.5), M.slatdark, { top: M.marble });
+    B.box(4.6, 2.2, 0.12, -3.6, 2.0, z(-7.82), M.slatdark);
+    B.vquad(3.4, 0.8, -3.1, 2.3, z(-7.74), M.slatdark, 0, { tex: sign(3.4, 0.8, 'ZATAA', M.signViolet, 2) });
+    B.vquad(0.9, 0.9, -5.3, 2.3, z(-7.74), M.slatdark, 0, { tex: logoTex(logo, 0.9, 0.9) });
+    B.box(4.4, 0.05, 0.05, -3.6, 1.2, z(-7.74), M.lampPurple, { cast: false });
+    sofa(B, -4.4, z(-1.2), 2.2, M.sofa, 2, 0, true);
+    pottedPlant(B, -5.5, z(-7.2), 1.4);
+    L(-3, 2.6, z(-4), WARM, 4, 0.9);
+    // ---- BIOSKOP MINI
+    B.box(13, 3.3, 0.1, 8.5, 1.65, z(-7.9), M.cineWall);
+    for (const sx of [2.12, 14.88]) B.box(0.12, 2.6, 8, sx, 1.3, z(-4), M.cineWall);
+    B.box(7.6, 2.6, 0.1, 8.5, 1.95, z(-7.82), M.black);
+    B.vquad(7.4, 2.4, 8.5, 1.95, z(-7.76), M.cinema);
+    for (const sx of [4.4, 12.6]) B.box(0.6, 3.0, 0.3, sx, 1.5, z(-7.7), M.dark);
+    for (const sx of [4.4, 12.6]) B.box(0.4, 0.4, 0.2, sx, 2.8, z(-7.5), M.lampPurple, { cast: false });
+    CINE_ROWS.forEach((r, ri) => {
+      if (r.h) B.box(6.4, r.h, 1.3, 8.5, r.h / 2, z(r.lz + 0.15), M.cineCarpet);
+      CINE_X.forEach((x, k) => {
+        const love = ri === 3 && (k === 1 || k === 2);
+        const mat = love ? M.purple : M.seatRed;
+        B.box(0.82, 0.42, 0.72, x, r.h + 0.21, z(r.lz + 0.05), mat);
+        B.box(0.82, 0.6, 0.16, x, r.h + 0.62, z(r.lz + 0.42), mat);
+        B.box(0.1, 0.62, 0.72, x + 0.43, r.h + 0.31, z(r.lz + 0.05), M.black);
+      });
+      B.box(6.0, 0.03, 0.05, 8.5, r.h + 0.02, z(r.lz + 0.62), M.lampWarm, { cast: false });
+    });
+    B.box(0.5, 0.35, 0.6, 8.5, 2.8, z(-0.3), M.dark);
+    B.box(0.12, 2.6, 0.12, 8.5, 1.3, z(-0.3), M.steel);
+    B.box(1.4, 1.0, 0.6, 3.2, 0.5, z(-1.0), M.slatdark, { top: M.marble });   // popcorn
+    B.box(0.5, 0.6, 0.5, 3.0, 1.3, z(-1.0), M.glass);
+    B.box(0.4, 0.3, 0.4, 3.0, 1.15, z(-1.0), M.flower2);
+    L(8.5, 2.5, z(-4), PURP, 5, 0.6);
+    // ---- RUANG SANTAI (TV di dinding belakang, sofa menghadap TV)
+    B.box(6.0, 2.8, 0.3, 21, 1.4, z(-7.7), M.slatdark);
+    B.box(3.6, 2.0, 0.07, 21, 1.6, z(-7.52), M.black);
+    B.vquad(3.4, 1.85, 21, 1.6, z(-7.48), M.tvLounge);
+    B.box(6.0, 0.06, 0.06, 21, 0.05, z(-7.52), M.lampPurple, { cast: false });
+    B.box(2.6, 0.4, 0.45, 21, 0.2, z(-7.2), M.furn);
+    B.disc(21, 0.014, z(-4.6), 3.2, 2.0, M.rug, 24);
+    sofa(B, 21, z(-3.75), 4.0, M.sofa, 4);
+    sofa(B, 17.4, z(-5.15), 2.2, M.sofa, 2, 0, false);
+    B.cyl(0.5, 0.06, 21, 0.42, z(-5.4), M.furn, 14);
+    B.ell(24.4, 0.3, z(-5.2), 0.55, 0.32, 0.55, M.beanbag);
+    B.ell(24.6, 0.3, z(-3.4), 0.55, 0.32, 0.55, M.beanbag2);
+    B.ell(18.2, 0.3, z(-2.4), 0.55, 0.32, 0.55, M.beanbag3);
+    B.ell(23.0, 0.3, z(-2.2), 0.55, 0.32, 0.55, M.beanbag);
+    // meja biliar + arcade
+    B.box(2.6, 0.12, 1.4, 17.4, 0.82, z(-1.05), M.felt, { top: M.felt });
+    B.box(2.8, 0.18, 1.6, 17.4, 0.74, z(-1.05), M.walnut);
+    for (const [dx, dz] of [[-1.2, -0.6], [1.2, -0.6], [-1.2, 0.6], [1.2, 0.6]]) B.box(0.14, 0.7, 0.14, 17.4 + dx, 0.35, z(-1.05 + dz), M.walnut);
+    for (const ax of [25.4, 26.3]) {
+      B.box(0.8, 1.8, 0.7, ax, 0.9, z(-7.35), M.black);
+      B.box(0.6, 0.5, 0.05, ax, 1.45, z(-6.98), M[`rgb${ax > 26 ? 2 : 5}`], { cast: false });
+    }
+    bookshelf(B, 15.3, 17.0, 0, z(-8) + 0.1, 2.0);
+    pottedPlant(B, 26.4, z(-0.7), 1.3);
+    L(21, 2.6, z(-4.4), WARM, 4.5, 0.9); L(21, 1.6, z(-6.6), PURP, 3.2, 0.8);
+    // ---- TOILET UMUM
+    for (const x of [27.6, 29.8]) { B.box(0.08, 2.0, 2.0, x - 0.4, 1.0, z(-7), M.white); }
+    for (const x of [28.2, 30.4]) { B.box(0.45, 0.42, 0.55, x, 0.21, z(-7.4), M.white); B.box(0.5, 0.5, 0.2, x, 0.55, z(-7.75), M.white); }
+    B.box(3.6, 0.85, 0.55, 29.6, 0.42, z(-1.6), M.marble);
+    B.vquad(3.0, 1.0, 29.6, 1.75, z(-1.88), M.glass);
+    L(29.6, 2.6, z(-4), COOL, 3.2, 0.8);
+  }
+
+  // ================================================================ LANTAI 2 · KERJA
+  {
+    const y = LY[1], z = (lz) => RZ(2, lz);
+    B.floor(-32, -24, z(-8), z(0), M.meetCarpet, y + 0.004);
+    B.floor(-24, -17, z(-8), z(0), M.walnut, y + 0.004);
+    B.floor(-17, -2, z(-8), z(0), M.workwood, y + 0.004);
+    B.floor(-2, 2, z(-8), z(0), M.oak, y + 0.004);
+    B.floor(2, 15, z(-8), z(0), M.trdCarpet, y + 0.004);
+    B.floor(15, 23, z(-8), z(0), M.walnut, y + 0.004);
+    B.floor(23, 29, z(-8), z(0), M.meetCarpet, y + 0.004);
+    B.floor(29, 32, z(-8), z(0), M.concrete, y + 0.004);
+    // ---- MEETING MARKETING (10 kursi)
+    B.box(6.0, 0.08, 1.5, -28.3, y + 0.76, z(-4.0), M.furn);
+    for (const lx of [-30.8, -25.8]) B.box(0.24, 0.72, 0.24, lx, y + 0.36, z(-4.0), M.steel);
+    for (const x of MEETM_X) { officeChair(B, x, y, z(-4.95), 0, M.leather); officeChair(B, x, y, z(-3.05), Math.PI, M.leather); }
+    officeChair(B, -31.55, y, z(-4.0), Math.PI / 2, M.leather); officeChair(B, -24.6, y, z(-4.0), -Math.PI / 2, M.leather);
+    B.box(4.1, 2.25, 0.1, -28.3, y + 1.75, z(-7.9), M.black);
+    B.vquad(3.9, 2.05, -28.3, y + 1.75, z(-7.84), M.tvMeet);
+    pottedPlant(B, -24.7, z(-7.2), 1.3, y);
+    for (const px of [-30, -28.3, -26.6]) { B.ell(px, y + 2.6, z(-4), 0.15, 0.12, 0.15, M.bulb, { cast: false }); L(px, y + 2.4, z(-4), WARM, 3.5, 0.9); }
+    // ---- R. MARKETING DIRECTOR (Aprista)
+    B.box(2.4, 0.08, 1.0, -20.5, y + 0.77, z(-6.0), M.walnut);
+    B.box(2.3, 0.72, 0.06, -20.5, y + 0.38, z(-5.52), M.walnut);
+    for (const sx of [-1.12, 1.12]) B.box(0.08, 0.72, 0.9, -20.5 + sx, y + 0.38, z(-6.0), M.walnut);
+    B.box(0.9, 0.52, 0.05, -20.5, y + 1.15, z(-6.25), M.black);
+    B.vquad(0.82, 0.44, -20.5, y + 1.15, z(-6.22), M.tvDir, Math.PI);
+    officeChair(B, -20.5, y, z(-6.95), 0, M.pink, 1.1);
+    bookshelf(B, -23.8, -21.6, y, z(-8) + 0.1);
+    frame(B, -18.7, y + 1.9, z(-7.88), 1.3, 0.9, ['art1', 'art3', 'art2']);
+    sofa(B, -22.2, z(-1.3), 2.2, M.blanket2, 2, y, false);
+    B.cyl(0.4, 0.05, -22.2, y + 0.4, z(-2.6), M.marble, 12);
+    pottedPlant(B, -17.7, z(-1.0), 1.4, y, true);
+    L(-20.5, y + 2.6, z(-4), WARM, 4, 0.9);
+    // ---- BILIK MARKETING (8 meja) & BILIK TRADING (6 meja)
+    DESK_LIST.forEach((d, i) => {
+      const dz = z(d.lz), trd = d.team === 'trd';
+      const w = trd ? 2.6 : 1.9;
+      B.box(w, 0.06, 0.85, d.x, y + 0.75, dz, M.black);
+      for (const sx of [-w / 2 + 0.05, w / 2 - 0.05]) B.box(0.07, 0.72, 0.7, d.x + sx, y + 0.37, dz, M.steel);
+      B.box(w, 0.04, 0.04, d.x, y + 0.72, dz + 0.43, M[`rgb${i % 10}`], { cast: false });
+      const mons = trd ? [[-0.86, 0.35], [0, 0], [0.86, -0.35]] : [[-0.43, 0.12], [0.43, -0.12]];
+      for (const [dx, ry] of mons) {
+        B.box(0.82, 0.5, 0.05, d.x + dx, y + 1.2, dz - 0.25, M.black, { ry });
+        B.vquad(0.74, 0.42, d.x + dx, y + 1.2, dz - 0.22, M[`scr${i}`], ry);
+      }
+      B.box(0.08, 0.32, 0.08, d.x, y + 0.93, dz - 0.3, M.steel);
+      B.box(0.48, 0.03, 0.16, d.x, y + 0.79, dz + 0.12, M.dark);
+      B.box(0.1, 0.1, 0.1, d.x - w / 2 + 0.25, y + 0.82, dz + 0.05, M[`acc${i % 10}`]);
+      gamingChair(B, d.x, y, dz + 1.05, Math.PI, i);
+      // panel bilik (kiri-kanan + belakang baris B)
+      const bw = d.w;
+      for (const sx of [-bw / 2, bw / 2]) B.box(0.06, 1.25, 2.3, d.x + sx, y + 0.62, dz + 0.65, trd ? M.navy : M.purple);
+      L(d.x, y + 2.5, dz + 0.5, COOL, 3.4, 0.8);
+    });
+    for (const x of MKT_X) B.box(3.3, 1.25, 0.06, x, y + 0.62, z(ROW_DESK.B - 0.48), M.purple);
+    for (const x of TRD_X) B.box(3.7, 1.25, 0.06, x, y + 0.62, z(ROW_DESK.B - 0.48), M.navy);
+    // dinding fitur marketing + video wall harga emas (trading)
+    B.box(14.6, 0.05, 0.05, -9.5, y + 2.9, z(-7.94), M.lampPurple, { cast: false });
+    B.vquad(5.2, 0.9, -9.5, y + 2.85, z(-7.92), M.plaster, 0, { tex: sign(5.2, 0.9, 'MARKETING', M.signPurple, 2) });
+    B.box(11.4, 1.6, 0.1, 8.6, y + 2.45, z(-7.9), M.black);
+    B.vquad(11.2, 1.45, 8.6, y + 2.45, z(-7.84), M.ticker);
+    // ---- R. TRADING DIRECTOR (Mahendra)
+    B.box(2.6, 0.08, 1.0, 19.4, y + 0.77, z(-6.0), M.walnut);
+    B.box(2.5, 0.72, 0.06, 19.4, y + 0.38, z(-5.52), M.walnut);
+    for (const sx of [-1.22, 1.22]) B.box(0.08, 0.72, 0.9, 19.4 + sx, y + 0.38, z(-6.0), M.walnut);
+    for (const [dx, ry] of [[-0.7, 0.3], [0.7, -0.3]]) { B.box(0.9, 0.52, 0.05, 19.4 + dx, y + 1.15, z(-6.25), M.black, { ry }); B.vquad(0.82, 0.44, 19.4 + dx, y + 1.15, z(-6.22), M.tvTdir, Math.PI + ry); }
+    officeChair(B, 19.4, y, z(-6.95), 0, M.leather, 1.15);
+    B.box(4.4, 1.2, 0.08, 19.4, y + 2.3, z(-7.9), M.black);
+    B.vquad(4.2, 1.05, 19.4, y + 2.3, z(-7.85), M.plaster, 0, { tex: sign(4.2, 1.05, 'XAUUSD', M.signGold, 2, M.black) });
+    sofa(B, 17.0, z(-1.3), 2.2, M.bossSofa, 2, y, false);
+    B.box(0.6, 1.0, 0.6, 22.4, y + 0.5, z(-1.0), M.dark);   // brankas
+    B.box(0.2, 0.2, 0.05, 22.4, y + 0.7, z(-0.68), M.brass);
+    pottedPlant(B, 22.4, z(-7.2), 1.5, y);
+    L(19.4, y + 2.6, z(-4), WARM, 4, 0.9);
+    // ---- MEETING TRADING (8 kursi, meja oval)
+    B.disc(26, y + 0.78, z(-4.2), 1.5, 0.8, M.walnut, 22, { cast: true });
+    B.cyl(0.25, 0.75, 26, y + 0.38, z(-4.2), M.steel, 10);
+    for (const s of [[24.9, -5.15, 0], [26, -5.15, 0], [27.1, -5.15, 0], [24.9, -3.25, Math.PI], [26, -3.25, Math.PI], [27.1, -3.25, Math.PI], [23.65, -4.2, Math.PI / 2], [28.35, -4.2, -Math.PI / 2]]) officeChair(B, s[0], y, z(s[1]), s[2], M.navy);
+    B.box(4.0, 2.2, 0.1, 26, y + 1.75, z(-7.9), M.black);
+    B.vquad(3.8, 2.0, 26, y + 1.75, z(-7.84), M.tvMeetT);
+    L(26, y + 2.5, z(-4.2), WARM, 3.8, 0.9);
+    // ---- SERVER BOT TRADING
+    for (const rz of [-7.3, -5.9]) {
+      B.box(2.2, 2.2, 1.0, 30.6, y + 1.1, z(rz), M.rack);
+      B.vquad(2.0, 1.9, 30.6, y + 1.12, z(rz) + 0.51, M.racks);
+    }
+    B.box(1.4, 0.75, 0.7, 30.4, y + 0.37, z(-1.6), M.furn);
+    B.box(0.7, 0.45, 0.05, 30.4, y + 1.0, z(-1.8), M.black);
+    L(30.6, y + 2.4, z(-5), GREEN, 3.0, 0.7);
+  }
+
+  // ================================================================ LANTAI 3 · HUNIAN & IBADAH
+  {
+    const y = LY[2], z = (lz) => RZ(3, lz);
+    B.floor(-32, -20, z(-8), z(0), M.musCarpet, y + 0.004);
+    B.floor(-20, -17, z(-8), z(0), M.tileBlue, y + 0.004);
+    B.floor(-17, -6, z(-8), z(0), M.oak, y + 0.004);
+    B.floor(-6, -2, z(-8), z(0), M.tile, y + 0.004);
+    B.floor(-2, 2, z(-8), z(0), M.oak, y + 0.004);
+    B.floor(2, 6, z(-8), z(0), M.tile, y + 0.004);
+    B.floor(6, 15, z(-8), z(0), M.oak, y + 0.004);
+    B.floor(15, 19, z(-8), z(0), M.tileBlue, y + 0.004);
+    // ---- MUSHOLA: mihrab di dinding belakang, imam, shaf pria, tabir, shaf wanita
+    B.box(12, 3.3, 0.05, -26, y + 1.65, z(-7.92), M.slat);
+    B.box(2.6, 3.0, 0.08, MIHRAB_X, y + 1.5, z(-7.86), M.mihrab);
+    B.ell(MIHRAB_X, y + 3.0, z(-7.84), 1.3, 0.75, 0.04, M.mihrab, { cast: false });
+    for (const sx of [-1.35, 1.35]) B.box(0.12, 3.0, 0.12, MIHRAB_X + sx, y + 1.5, z(-7.82), M.brass);
+    B.ell(MIHRAB_X, y + 2.2, z(-7.8), 0.55, 0.55, 0.02, M.signGold, { cast: false });
+    B.ell(MIHRAB_X, y + 2.2, z(-7.78), 0.42, 0.42, 0.02, M.mihrab, { cast: false });
+    for (const sx of [-1.2, 1.2]) B.box(0.06, 2.6, 0.05, MIHRAB_X + sx, y + 1.3, z(-7.78), M.lampWarm, { cast: false });
+    const saj = (x, zz, mat) => B.poly([[x - 0.34, y + 0.012, zz + 0.58], [x + 0.34, y + 0.012, zz + 0.58], [x + 0.34, y + 0.012, zz - 0.58], [x - 0.34, y + 0.012, zz - 0.58]], mat, { two: true, cast: false });
+    const SP = makeSpotsMushola();
+    saj(SP.imam.x, SP.imam.z, M.sajadah);
+    for (const s of SP.men) saj(s.x, s.z, M.sajadah);
+    for (const s of SP.women) saj(s.x, s.z, M.sajadah2);
+    // tabir (pembatas pria–wanita), celah di sisi timur untuk lewat
+    B.box(9.4, 1.3, 0.08, -26.6, y + 0.65, z(-3.85), M.tabir);
+    for (const x of [-31.2, -26.6, -22.0]) B.box(0.08, 1.4, 0.08, x, y + 0.7, z(-3.85), M.brass);
+    // mimbar (kanan mihrab) — Zamiir khotbah Jumat dari sini
+    B.box(1.1, 0.3, 1.3, MIMBAR_X, y + 0.15, z(-7.15), M.lightwood);
+    B.box(1.1, 0.3, 0.9, MIMBAR_X, y + 0.45, z(-7.35), M.lightwood);
+    B.box(1.1, 0.3, 0.6, MIMBAR_X, y + 0.75, z(-7.5), M.lightwood);
+    for (const sx of [-0.55, 0.55]) B.box(0.08, 1.0, 1.3, MIMBAR_X + sx, y + 0.95, z(-7.15), M.brass);
+    B.box(1.6, 1.0, 0.4, -30.6, y + 0.5, z(-7.6), M.furn);   // rak Quran
+    for (let k = 0; k < 6; k++) B.box(0.18, 0.28, 0.22, -31.2 + k * 0.24, y + 1.14, z(-7.6), k % 2 ? M.green : M.brass);
+    B.box(0.5, 1.5, 2.6, -31.6, y + 0.75, z(-1.6), M.lightwood);   // rak sajadah & mukena
+    for (let k = 0; k < 3; k++) B.box(0.4, 0.15, 2.4, -31.6, y + 0.4 + k * 0.45, z(-1.6), k % 2 ? M.white : M.sajadah2);
+    frame(B, -29.4, y + 1.9, z(-7.88), 1.2, 0.9, ['art3', 'art1', 'art2']);
+    L(-26, y + 2.4, z(-4), WARM, 5.5, 1.0); L(MIHRAB_X, y + 1.6, z(-7.3), [1, 0.85, 0.5], 2.5, 0.9);
+    // ---- TEMPAT WUDHU (4 keran wudhu duduk)
+    B.box(2.9, 0.8, 0.5, -18.5, y + 0.4, z(-7.7), M.marble);
+    B.box(2.9, 0.06, 0.06, -18.5, y + 0.82, z(-7.45), M.lampCyan, { cast: false });
+    for (const x of WUDHU_X) { B.box(0.08, 0.35, 0.08, x, y + 1.15, z(-7.85), M.chrome); B.box(0.05, 0.05, 0.25, x, y + 1.3, z(-7.72), M.chrome); B.box(0.35, 0.3, 0.35, x, y + 0.15, z(-6.6), M.lightwood); }
+    B.box(0.06, 0.8, 2.4, -17.1, y + 2.2, z(-6.5), M.black);
+    B.box(2.4, 0.5, 0.35, -18.5, y + 0.25, z(-0.6), M.furn);   // rak sandal
+    B.vquad(2.3, 0.6, -18.5, y + 2.4, z(-7.88), M.black, 0, { tex: sign(2.3, 0.6, 'WUDHU', M.signGold, 2) });
+    L(-18.5, y + 2.4, z(-4.5), COOL, 4.0, 0.9);
+    // ---- MESS CEWEK (5 kasur tingkat) & MESS COWOK (4 kasur tingkat)
+    for (const x of BUNK_F) bunk(B, x, y, z(-6.75), M.blanket2);
+    for (const x of BUNK_M) bunk(B, x, y, z(-6.75), M.blanket);
+    for (let k = 0; k < 5; k++) B.box(0.45, 1.8, 0.7, -6.4, y + 0.9, z(-7.4 + k * 0.75), M[`acc${(k + 2) % 10}`]);
+    for (let k = 0; k < 4; k++) B.box(0.45, 1.8, 0.7, 14.6, y + 0.9, z(-7.4 + k * 0.75), M[`acc${(k + 5) % 10}`]);
+    B.disc(-11.5, y + 0.012, z(-2.6), 3.2, 1.0, M.rug, 22);
+    B.disc(10.5, y + 0.012, z(-2.6), 2.8, 1.0, M.rug, 22);
+    pottedPlant(B, -16.4, z(-0.8), 1.1, y, true); pottedPlant(B, 6.6, z(-0.8), 1.1, y, true);
+    for (const x of [-14, -9.5]) L(x, y + 2.4, z(-4), WARM, 3.6, 0.7);
+    for (const x of [8.5, 12.5]) L(x, y + 2.4, z(-4), WARM, 3.6, 0.7);
+    // ---- KAMAR MANDI (3 bilik shower + wastafel)
+    for (const [xs, sink] of [[SHOWER_W, -4.7], [SHOWER_P, 3.3]]) {
+      for (const x of xs) {
+        B.box(0.06, 2.1, 1.6, x - 0.65, y + 1.05, z(-7.2), M.white);
+        B.box(0.08, 0.35, 0.08, x, y + 2.0, z(-7.85), M.chrome);
+        B.box(1.2, 1.9, 0.04, x, y + 1.0, z(-6.4), M.glass);
+      }
+      B.box(xs[2] - xs[0] + 1.3, 2.1, 0.06, (xs[0] + xs[2]) / 2 + 0.0, y + 1.05, z(-7.95), M.tileBlue);
+      B.box(1.8, 0.85, 0.5, sink, y + 0.42, z(-2.6), M.marble);
+      B.vquad(1.6, 0.9, sink, y + 1.7, z(-2.86), M.glass);
+      L(sink + 0.7, y + 2.6, z(-4), COOL, 3.2, 0.8);
+    }
+    // ---- LAUNDRY
+    for (const x of [15.6, 16.6]) { B.box(0.85, 0.95, 0.75, x + 0.05, y + 0.47, z(-7.5), M.white); B.cyl(0.25, 0.04, x + 0.05, y + 0.6, z(-7.1), M.glass, 12); }
+    B.box(0.85, 0.95, 0.75, 17.7, y + 0.47, z(-7.5), M.fridge);
+    B.box(2.6, 0.06, 0.06, 17, y + 1.6, z(-4.2), M.steel);
+    for (let k = 0; k < 5; k++) B.box(0.35, 0.6, 0.03, 15.9 + k * 0.5, y + 1.3, z(-4.2), M[`acc${k}`]);
+    B.box(1.4, 0.06, 0.4, 17, y + 0.85, z(-1.6), M.white);
+    for (const dx of [-0.5, 0.5]) B.box(0.05, 0.85, 0.05, 17 + dx, y + 0.42, z(-1.6), M.steel);
+    L(17, y + 2.4, z(-4), COOL, 3, 0.7);
+    // ---- TAMAN ATAS (terbuka) + gazebo kecil
+    B.floor(19, 32, z(-8), z(0), M.grass, y + 0.004);
+    B.floor(19, 32, z(-8) - 0.0, z(-7.2), M.soil, y + 0.006);
+    gazebo(B, GAZEBO2.x, y, z(GAZEBO2.lz), GAZEBO2.s);
+    for (const [tx, tz] of [[20.5, -6.6], [30.6, -6.4], [30.8, -1.8]]) tree(B, tx, z(tz), 3.6, false, y);
+    for (const x of [21.5, 23, 28, 29.5]) B.ell(x, y + 0.3, z(-7.6), 0.45, 0.32, 0.4, hash2(x, 3) < 0.5 ? M.flower : M.flower2, { leafy: true });
+    B.box(1.9, 0.08, 0.5, 21.4, y + 0.45, z(-1.2), M.deck);
+    for (const dx of [-0.8, 0.8]) B.box(0.08, 0.45, 0.45, 21.4 + dx, y + 0.22, z(-1.2), M.steel);
+    B.box(0.3, 1.0, 8, 32.15, y + 0.5, z(-4), M.glassRail);
+    L(GAZEBO2.x, y + 2.4, z(GAZEBO2.lz), WARM, 3.5, 0.8);
+  }
+
+  // ================================================================ LANTAI 4 · PUNCAK (kamar & ruang boss)
+  {
+    const y = LY[3], z = (lz) => RZ(4, lz);
+    B.floor(-14, -2, z(-8), z(0), M.walnut, y + 0.004);
+    B.floor(-2, 2, z(-8), z(0), M.oak, y + 0.004);
+    B.floor(2, 16, z(-8), z(0), M.walnut, y + 0.004);
+    B.floor(16, 22, z(-8), z(0), M.deck, y + 0.004);
+    // ---- KAMAR ZAMIIR & APRISTA (king bed, KM dalam)
+    B.floor(-14, -11, z(-8), z(-4), M.tile, y + 0.006);
+    sekat(y, -11, -11, z(-8), z(-4)); sekat(y, -14, -11, z(-4), z(-4), [[-12.2, -11.2]]);
+    B.box(1.6, 0.55, 0.8, -12.6, y + 0.27, z(-7.5), M.white);   // bathtub
+    B.box(0.9, 0.85, 0.5, -13.5, y + 0.42, z(-5.0), M.marble);
+    B.box(3.4, 1.2, 0.12, KING.x, y + 0.6, z(-7.94), M.walnut);   // sandaran kepala
+    B.box(3.2, 0.3, 2.3, KING.x, y + 0.15, z(-6.7), M.walnut);
+    B.box(3.1, 0.18, 2.2, KING.x, y + 0.39, z(-6.7), M.white);
+    B.box(3.12, 0.06, 1.4, KING.x, y + 0.5, z(-6.25), M.blanket2);
+    for (const dx of [-0.75, 0.75]) B.box(1.0, 0.14, 0.45, KING.x + dx, y + 0.54, z(-7.55), M.white);
+    for (const dx of [-2.1, 2.1]) {
+      B.box(0.6, 0.55, 0.5, KING.x + dx, y + 0.27, z(-7.6), M.lightwood);
+      B.box(0.18, 0.25, 0.18, KING.x + dx, y + 0.68, z(-7.6), M.lampWarm, { cast: false });
+    }
+    B.box(0.6, 2.1, 2.6, -2.5, y + 1.05, z(-6.2), M.walnut);   // lemari
+    B.disc(KING.x, y + 0.012, z(-4.4), 2.0, 1.0, M.rugBoss, 20);
+    sofa(B, -9.0, z(-1.3), 2.0, M.blanket2, 2, y, false);
+    pottedPlant(B, -10.6, z(-0.8), 1.2, y, true);
+    L(KING.x, y + 2.4, z(-5), WARM, 4, 0.8); L(KING.x - 2.1, y + 1.0, z(-7.3), [1, 0.6, 0.5], 2.4, 0.8); L(-12.5, y + 2.4, z(-6), COOL, 2.5, 0.6);
+    // ---- RUANG BOSS (Zamiir): jendela besar ke puncak bukit, meja besar, layar approval, sofa set
+    B.box(14, 3.3, 0.1, 9, y + 1.65, z(-8.0), M.ledgeDark);
+    for (let x = 3; x <= 15.01; x += 2.4) B.box(0.09, 3.0, 0.1, x, y + 1.7, z(-7.92), M.steel);
+    B.vquad(12, 2.6, 9, y + 1.7, z(-7.94), M.glass);
+    B.box(2.6, 0.08, 1.1, 8.6, y + 0.77, z(-5.7), M.walnut);
+    B.box(2.5, 0.72, 0.06, 8.6, y + 0.38, z(-5.18), M.walnut);
+    for (const sx of [-1.22, 1.22]) B.box(0.08, 0.72, 1.0, 8.6 + sx, y + 0.38, z(-5.7), M.walnut);
+    for (const dx of [-0.5, 0.5]) { B.box(0.9, 0.52, 0.05, 8.6 + dx, y + 1.15, z(-5.95), M.black, { ry: dx * 0.4 }); B.box(0.08, 0.3, 0.08, 8.6 + dx, y + 0.95, z(-6.0), M.steel); }
+    officeChair(B, 8.6, y, z(-6.6), 0, M.leather, 1.2);
+    B.box(1.95, 1.12, 0.06, 4.6, y + 2.1, z(-7.75), M.black);
+    B.vquad(1.8, 1.0, 4.6, y + 2.1, z(-7.7), M.tvBoss);
+    B.vquad(1.0, 1.0, 3.0, y + 2.1, z(-7.7), M.ledgeDark, 0, { tex: logoTex(logo, 1.0, 1.0) });
+    B.disc(13.4, y + 0.012, z(-5.6), 1.8, 1.1, M.rugBoss, 4);
+    sofa(B, 13.4, z(-6.95), 2.8, M.bossSofa, 3, y, true);
+    B.cyl(0.55, 0.06, 13.4, y + 0.4, z(-5.4), M.marble, 14);
+    B.box(0.5, 2.0, 2.6, 15.6, y + 1.0, z(-3.6), M.furn);   // lemari piala
+    for (let k = 0; k < 3; k++) for (let b = 0; b < 4; b++) B.box(0.2, 0.3, 0.2, 15.5, y + 0.5 + k * 0.6, z(-4.6 + b * 0.65), b % 2 ? M.gold : M.brass);
+    pottedPlant(B, 2.6, z(-0.8), 1.5, y); pottedPlant(B, 15.4, z(-0.8), 1.6, y, true);
+    L(8.6, y + 2.6, z(-4.6), WARM, 5, 1.0); L(13.4, y + 2.2, z(-5.8), WARM, 4, 0.8);
+    // ---- TERAS BOSS
+    planter(B, 19, z(-7.6), y, 5.4);
+    for (const x of [18.4, 20.4]) { B.box(0.74, 0.08, 2.0, x, y + 0.33, z(-3.6), M.lightwood); B.box(0.66, 0.09, 1.15, x, y + 0.42, z(-4.0), M.cushion); B.box(0.66, 0.09, 0.78, x, y + 0.64, z(-2.75), M.cushion, { rx: 0.75 }); }
+    B.cyl(0.4, 0.05, 19.4, y + 0.6, z(-1.4), M.marble, 12);
+    B.box(0.07, 2.4, 0.07, 21.3, y + 1.2, z(-1.4), M.steel);
+    B.cone(21.3, y + 2.1, z(-1.4), 1.4, 0.5, M.umbrella);
+    B.box(0.04, 1.0, 8, 22.0, y + 0.5, z(-4), M.glassRail);
+    L(19.4, y + 2.2, z(-3), WARM, 3.5, 0.8);
+    // papan nama ZATAA di atap ruang boss (tanda gedung dari jauh)
+    B.box(8.6, 1.9, 0.25, 9, y + 4.6, z(-8.1), M.black);
+    for (const px of [6, 12]) B.box(0.14, 1.4, 0.14, px, y + 3.6, z(-8.1), M.steel);
+    B.vquad(6.4, 1.7, 10.0, y + 4.6, z(-7.96), M.black, 0, { tex: sign(6.4, 1.7, 'ZATAA', M.signWhite, 3) });
+    B.vquad(1.7, 1.7, 5.8, y + 4.6, z(-7.96), M.black, 0, { tex: logoTex(logo, 1.7, 1.7) });
+    B.box(8.6, 0.08, 0.06, 9, y + 3.67, z(-7.96), M.lampPurple, { cast: false });
+    L(9, y + 4.6, z(-7), PURP, 4, 0.9);
+  }
+
+  // ================================================================ HALAMAN DEPAN: taman + gazebo, kolam
+  {
+    const zf = FRONT[0];
+    // jalan utama dari gerbang ke lobby
+    B.floor(-0.4, 2.0, zf, 31, M.stone, 0.012);
+    B.floor(-32, -0.4, zf, zf + 1.4, M.stone, 0.01);
+    // taman kiri: gazebo besar, bangku, pohon, bedeng bunga
+    B.floor(-21, -13, GAZEBO.z - 4, GAZEBO.z + 4, M.stone, 0.01);
+    B.floor(-13, -0.4, GAZEBO.z - 0.7, GAZEBO.z + 0.7, M.stone, 0.011);
+    gazebo(B, GAZEBO.x, 0, GAZEBO.z, GAZEBO.s, true);
+    for (const [bx, bz] of BENCHES) {
+      B.box(1.9, 0.08, 0.5, bx, 0.45, bz, M.deck);
+      B.box(1.9, 0.45, 0.07, bx, 0.75, bz + 0.3, M.deck, { rx: -0.08 });
+      for (const dx of [-0.8, 0.8]) B.box(0.08, 0.45, 0.45, bx + dx, 0.22, bz + 0.05, M.steel);
+    }
+    for (const [tx, tz] of [[-30, 7], [-29, 17], [-24, 27], [-9, 26], [-30.5, 12], [-8.5, 7.5], [-23.5, 6.2], [-11, 19]]) tree(B, tx, tz, 4.0 + hash2(tx * 10, tz * 10) * 1.8, hash2(tx, tz) < 0.4);
+    for (const [px, pz] of [[-27, 5.6], [-6, 5.6], [-27, 21], [-6, 21]]) {
+      B.box(3.4, 0.3, 1.1, px, 0.15, pz, M.soil);
+      for (let k = 0; k < 5; k++) B.ell(px - 1.3 + k * 0.65, 0.42, pz, 0.32, 0.25, 0.4, k % 2 ? M.flower : M.flower2, { leafy: true });
+    }
+    for (const tx of [-2.2, 4.0]) for (const tz of [8, 14, 20, 26]) palm(B, tx, tz, 3.2 + hash2(tx * 7, tz * 3) * 0.8);
+    // kolam kanan: dek kayu, kolam, kursi berjemur, payung
+    for (const [x0, x1, z0, z1] of [[4.2, 32, zf, POOL.z0 - 0.3], [4.2, 32, POOL.z1 + 0.3, 24], [4.2, POOL.x0 - 0.3, POOL.z0 - 0.3, POOL.z1 + 0.3], [POOL.x1 + 0.3, 32, POOL.z0 - 0.3, POOL.z1 + 0.3]]) B.floor(x0, x1, z0, z1, M.deck, 0.014);
+    B.box(POOL.x1 - POOL.x0, 0.1, POOL.z1 - POOL.z0, (POOL.x0 + POOL.x1) / 2, -1.45, (POOL.z0 + POOL.z1) / 2, M.mosaic);
+    B.box(POOL.x1 - POOL.x0, 1.45, 0.1, (POOL.x0 + POOL.x1) / 2, -0.72, POOL.z0, M.mosaic);
+    B.box(0.1, 1.45, POOL.z1 - POOL.z0, POOL.x1, -0.72, (POOL.z0 + POOL.z1) / 2, M.mosaic);
+    B.poly([[POOL.x0, POOL.y, POOL.z1], [POOL.x1, POOL.y, POOL.z1], [POOL.x1, POOL.y, POOL.z0], [POOL.x0, POOL.y, POOL.z0]], M.water, { two: true, cast: false });
+    B.box(POOL.x1 - POOL.x0 + 0.5, 0.08, 0.34, (POOL.x0 + POOL.x1) / 2, 0.04, POOL.z0 - 0.15, M.poolEdge);
+    B.box(POOL.x1 - POOL.x0 + 0.5, 0.08, 0.34, (POOL.x0 + POOL.x1) / 2, 0.04, POOL.z1 + 0.15, M.poolEdge);
+    B.box(0.34, 0.08, POOL.z1 - POOL.z0 + 0.6, POOL.x0 - 0.15, 0.04, (POOL.z0 + POOL.z1) / 2, M.poolEdge);
+    B.box(0.34, 0.08, POOL.z1 - POOL.z0 + 0.6, POOL.x1 + 0.15, 0.04, (POOL.z0 + POOL.z1) / 2, M.poolEdge);
+    for (const pz of [11.6, 12.4]) B.box(0.07, 1.0, 0.07, POOL.x0 + 0.15, 0.35, pz, M.chrome);
+    for (let sz = POOL.z0 + 0.8; sz < POOL.z1; sz += 1.6) L(POOL.x1 - 0.4, -0.3, sz, CYAN, 3.2, 0.8);
+    L((POOL.x0 + POOL.x1) / 2, 0.5, (POOL.z0 + POOL.z1) / 2, CYAN, 9, 1.1);
+    for (const lx of LOUNGER_X) {
+      B.box(0.74, 0.08, 2.0, lx, 0.33, 19.0, M.lightwood);
+      B.box(0.66, 0.09, 1.15, lx, 0.42, 18.6, M.cushion);
+      B.box(0.66, 0.09, 0.78, lx, 0.64, 19.85, M.cushion, { rx: 0.75 });
+      for (const dz of [18.2, 19.8]) B.box(0.7, 0.3, 0.05, lx, 0.15, dz, M.steel);
+    }
+    for (const [ux, uz] of [[12.7, 20.6], [18.1, 20.6], [24.5, 19.4]]) { B.box(0.07, 2.5, 0.07, ux, 1.25, uz, M.steel); B.cone(ux, 2.2, uz, 1.5, 0.5, M.umbrella); }
+    B.box(2.4, 0.9, 1.2, 28.6, 0.45, 19.5, M.slatdark, { top: M.marble });   // bar kolam
+    for (const x of [27.8, 28.6, 29.4]) stool(B, x, 0, 20.5);
+    B.box(28, 1.0, 0.04, 18.1, 0.5, 24.0, M.glassRail);
+    B.box(0.04, 1.0, 20, 32.0, 0.5, 14.0, M.glassRail);
+    for (let px = 4.2; px <= 32; px += 2.8) B.box(0.07, 1.0, 0.07, px, 0.5, 24.0, M.steel);
+    // lampu taman (bollard)
+    for (const [bx, bz] of [[-1, 8], [-1, 14], [-1, 20], [-1, 26], [2.6, 8], [2.6, 14], [2.6, 20], [2.6, 26], [-13, 12], [-21, 17], [5, 6], [31, 6], [31, 22], [5, 22]]) {
+      B.box(0.16, 0.7, 0.16, bx, 0.35, bz, M.dark);
+      B.box(0.15, 0.1, 0.15, bx, 0.74, bz, M.lampWarm, { cast: false });
+      L(bx, 0.9, bz, WARM, 3.2, 0.9);
+    }
+    // gerbang + papan nama di ujung jalan
+    for (const gx of [-1.6, 3.2]) B.box(0.7, 2.6, 0.7, gx, 1.3, 30.5, M.dark);
+    B.box(5.5, 0.6, 0.6, 0.8, 2.9, 30.5, M.dark);
+    B.vquad(4.6, 0.5, 0.8, 2.9, 30.82, M.dark, 0, { tex: sign(4.6, 0.5, 'ZATAA OFFICE', M.signViolet, 1) });
+    L(0.8, 2.4, 31.2, PURP, 3.5, 1.0);
+    // pagar & tanaman pagar depan
+    const hedge = (x1, z1, x2, z2, h = 0.9) => {
+      const len = Math.hypot(x2 - x1, z2 - z1), n = Math.max(1, Math.round(len / 0.7));
+      for (let k = 0; k <= n; k++) {
+        const t = k / n;
+        B.ell(x1 + (x2 - x1) * t, h * 0.5, z1 + (z2 - z1) * t, 0.48, h * 0.55, 0.48, k % 2 ? M.hedge : M.foliage, { leafy: true });
+      }
+    };
+    hedge(-32, 30.6, -2.6, 30.6); hedge(4.2, 30.6, 32, 30.6);
+    hedge(-32.6, 5, -32.6, 30); hedge(33, 5, 33, 30);
+  }
 
   return { prims: B.prims, lights };
-}
 
-function car(B, cx, cz, ry) {
-  const c = Math.cos(ry), s = Math.sin(ry);
-  const at = (lx, lz) => [cx + lx * c + lz * s, cz - lx * s + lz * c];
-  let [x, z] = at(0, 0);
-  B.box(1.9, 0.62, 4.6, x, 0.55, z, M.carPaint, { ry });
-  [x, z] = at(0, -0.3);
-  B.box(1.66, 0.5, 2.3, x, 1.1, z, M.carGlass, { ry, top: M.carPaint });
-  for (const [wx, wz] of [[-0.9, 1.45], [0.9, 1.45], [-0.9, -1.45], [0.9, -1.45]]) {
-    [x, z] = at(wx, wz);
-    B.box(0.28, 0.66, 0.66, x, 0.33, z, M.black, { ry });
+  // gazebo: lantai kayu, 4 tiang, atap 3 susun; besar = meja + 2 bangku
+  function gazebo(B, cx, y, cz, s, big = false) {
+    const h = s / 2;
+    B.box(s + 0.6, 0.3, s + 0.6, cx, y + 0.15, cz, M.deck);
+    for (const [dx, dz] of [[-h, -h], [h, -h], [-h, h], [h, h]]) B.box(0.22, 2.6, 0.22, cx + dx, y + 1.6, cz + dz, M.walnut);
+    B.box(s + 1.6, 0.25, s + 1.6, cx, y + 3.0, cz, M.slatdark);
+    B.box(s + 0.6, 0.35, s + 0.6, cx, y + 3.3, cz, M.slatdark);
+    B.cone(cx, y + 3.45, cz, (s + 1.4) * 0.62, 1.2, M.slatdark, 4, null);
+    B.box(0.35, 0.35, 0.35, cx, y + 4.6, cz, M.brass);
+    if (big) {
+      B.box(2.0, 0.07, 1.2, cx, y + 1.05, cz, M.walnut);
+      B.box(0.15, 0.72, 0.15, cx, y + 0.66, cz, M.dark);
+      for (const dz of [-1.25, 1.25]) { B.box(2.6, 0.08, 0.45, cx, y + 0.75, cz + dz, M.walnut); for (const dx of [-1.1, 1.1]) B.box(0.08, 0.45, 0.4, cx + dx, y + 0.52, cz + dz, M.dark); }
+      for (const [dx, dz] of [[-h, -h], [h, -h], [-h, h], [h, h]]) { B.ell(cx + dx, y + 2.8, cz + dz, 0.12, 0.12, 0.12, M.bulb, { cast: false }); }
+      L(cx, y + 2.6, cz, WARM, 4.5, 1.0);
+    } else {
+      B.box(1.2, 0.07, 0.8, cx, y + 1.05, cz, M.walnut);
+      B.box(0.12, 0.72, 0.12, cx, y + 0.66, cz, M.dark);
+      for (const dz of [-0.7, 0.7]) B.box(1.6, 0.08, 0.4, cx, y + 0.75, cz + dz, M.walnut);
+    }
   }
-  for (const lx of [-0.6, 0.6]) { [x, z] = at(lx, 2.31); B.box(0.42, 0.1, 0.04, x, 0.72, z, M.bulb, { ry, cast: false }); }
-  [x, z] = at(0, -2.31);
-  B.box(1.5, 0.08, 0.04, x, 0.78, z, M.rgb2, { ry, cast: false });
 }
 
-// pemandangan kota di jendela ruang boss
-function cityTex(w, h) {
-  const Wp = Math.round(w * K), Hp = Math.round(h * PXH);
-  return (u, v, a, b) => {
-    const X = Math.floor(a * Wp), Y = Math.floor((1 - b) * Hp);
-    const bx = Math.floor(X / 5);
-    const top = Hp * (0.25 + hash2(bx, 3) * 0.55);
-    if (Y < top) { T.m = M.cityView.id; return (Y / Hp) * 0.3 - 0.15; }
-    T.m = X % 5 > 0 && X % 5 < 4 && Y % 3 === 1 && hash2(X, Y) < 0.35 ? M.cityWin.id : M.cityDark.id;
-    return 0;
+// posisi shaf (dipakai builder untuk sajadah)
+function makeSpotsMushola() {
+  return {
+    imam: { x: MIHRAB_X, z: RZ(3, -6.3) },
+    men: [0, -1, 1, -2, 2, -3, 3].map((k) => ({ x: MIHRAB_X + k * 0.8, z: RZ(3, -5.0) })),
+    women: [0, -1, 1, -2, 2, -3, 3, -4, 4, 5].map((k) => ({ x: MIHRAB_X + k * 0.8, z: RZ(3, -2.5) })),
   };
 }

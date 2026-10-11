@@ -12,6 +12,7 @@ import { fileURLToPath } from 'node:url';
 import { loadEnv, say, sayAs, NAMA, db, downloadPhotos, photoNote } from './approval.mjs';
 import { chat } from './chatter.mjs';
 import { AGENTS, wita, activityAt, describe } from '../docs/js/schedule.js';
+import { isTradingCommand, handleTrading } from './trading/telegram.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const esc = (s) => String(s ?? '').replace(/[&<>]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' })[c]);
@@ -33,7 +34,8 @@ export async function statusReport() {
 }
 
 // ---------- siapa yang dipanggil Owner → dia yang nyaut (balasan selalu "<b>Nama</b>: ...")
-const WHO = { aprista: 'dir', clariana: 'researcher', ista: 'copywriter', maria: 'designer', dimas: 'video', fikri: 'publisher', fahriah: 'ads', raka: 'analyst', budi: 'price', sari: 'ob' };
+const WHO = { aprista: 'dir', clariana: 'researcher', ista: 'copywriter', maria: 'designer', dimas: 'video', fikri: 'publisher', fahriah: 'ads', raka: 'analyst', budi: 'price', sari: 'ob',
+  mahendra: 'tdir', davina: 'tresearch', keira: 'ttech', aryaputra: 'trisk', arya: 'trisk', wiratama: 'texec', wira: 'texec', jihan: 'teval', selena: 'treport' };
 const NAME_RE = new RegExp(`\\b(${Object.keys(WHO).join('|')})\\b`, 'i');
 export const calledAgent = (t) => WHO[(String(t).match(NAME_RE)?.[1] ?? '').toLowerCase()] ?? null;
 // cuma manggil nama ("Maria", "halo Ista", "p dimas", "kak aprista?") → yang dipanggil langsung nyaut, tanpa AI (0 token)
@@ -155,6 +157,7 @@ export function formatReply(text, fallback = 'dir') {
 }
 
 export async function handleOwnerMessage(msg, log = console.log, photos = []) {
+  if (!photos.length && isTradingCommand(msg)) { await handleTrading(msg); return { kind: 'trading' }; }
   if (!photos.length && isStatusQuestion(msg)) {
     await say(await statusReport());
     return { kind: 'status' };
@@ -180,7 +183,7 @@ export async function handleOwnerMessage(msg, log = console.log, photos = []) {
 Pesan BARU Owner:\n"${msg}"
 ${lead !== 'dir' ? `Yang diajak ngomong: ${NAMA[lead]} (${lead}) — dia yang jawab duluan.\n` : ''}Bales natural & singkat, bahasa Indonesia santai ala gamer, sebagai pegawai kantor. Jangan ngarang data (harga, skor, berita, angka IG).
 Kalau pesannya ternyata butuh riset web, cek harga, data, atau bikin/ubah konten: JANGAN dikerjakan, cukup tulis persis ${ESCALATE} lalu berhenti.
-Tim: Aprista (dir), Clariana (researcher), Ista (copywriter), Maria (designer), Dimas (video), Fikri (publisher), Fahriah (ads), Raka (analyst), Budi (price).
+Tim marketing: Aprista (dir), Clariana (researcher), Ista (copywriter), Maria (designer), Dimas (video), Fikri (publisher), Fahriah (ads), Raka (analyst), Budi (price). Tim trading XAU: Mahendra (tdir, director), Davina (tresearch), Keira (ttech), Aryaputra (trisk), Wiratama (texec), Jihan (teval), Selena (treport) — data trading cuma dari "node scripts/trading/cli.mjs status", jangan ngarang.
 Akhiri dengan baris "BALASAN:" lalu 1–2 baris, TIAP baris diawali nama pegawai: "Nama: pesan".`, 3, { model: chatModel, tools: ['Read', 'Glob', 'Grep'] });
     if (light.ok && !light.text.includes(ESCALATE)) {
       const reply = formatReply(light.text, lead);

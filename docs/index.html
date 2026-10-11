@@ -53,6 +53,12 @@
         <ol id="activity" class="activity-list"></ol>
       </div>
 
+      <div class="card trading">
+        <div class="card-head"><h2>Trading XAU</h2><span class="muted" id="trd-mode"></span></div>
+        <div class="trd-kpi"><div><span class="muted">Harga</span><b id="trd-price">–</b></div><div><span class="muted">Saldo</span><b id="trd-bal">–</b></div><div><span class="muted">Hari ini</span><b id="trd-pnl">–</b></div></div>
+        <ol id="trd-list" class="activity-list"></ol>
+      </div>
+
       <div class="card chat">
         <div class="card-head"><h2>Chit-chat</h2><span class="muted">obrolan tim · 🔁 oper · ☕ santai · 💭 curhat · 💕</span></div>
         <ol id="chat" class="chat-list" aria-live="polite"></ol>
@@ -66,8 +72,6 @@
           <p class="muted">Drag buat geser, scroll / pinch buat zoom. Klik pegawai buat lihat detail.</p>
         </div>
         <div class="sim">
-          <label class="switch"><input type="checkbox" id="upper-toggle" checked /> <span>Lantai atas</span></label>
-          <span class="sep"></span>
           <label class="switch"><input type="checkbox" id="sim-toggle" /> <span>Simulasi</span></label>
           <select id="sim-day" disabled>
             <option value="1">Senin</option><option value="2">Selasa</option><option value="3">Rabu</option>
@@ -85,8 +89,8 @@
           <span>TOP UP GAME. LEBIH MUDAH. LEBIH DEKAT.</span>
         </div>
         <div class="legend">
-          <span>💻 Ruang Kerja</span><span>🗣️ Ruang Meeting</span><span>👔 Ruang Boss</span><span>☕ Cafe</span>
-          <span>🛋️ Ruang Santai</span><span>🕌 Tempat Ibadah</span><span>🏊 Kolam Renang</span><span>🌿 Teras &amp; Taman</span>
+          <span>Lt.4 👔 Boss · 👑 Kamar</span><span>Lt.3 🕌 Mushola · 🛏️ Mess</span><span>Lt.2 💻 Marketing · 📈 Trading</span>
+          <span>Lt.1 ☕ Cafe · 🎬 Bioskop · 🛋️ Santai</span><span>🌿 Taman &amp; Gazebo · 🏊 Kolam</span>
         </div>
         <aside class="inspector" id="inspector" hidden>
           <button class="close" id="insp-close" aria-label="Tutup">×</button>

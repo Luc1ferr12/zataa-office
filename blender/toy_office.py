@@ -24,7 +24,7 @@ TL.setup(COLL)
 B = lambda p: Vector((p[0], -p[2], p[1]))   # dunia web (x, y-atas, z) → Blender
 
 # ---------------------------------------------------------------- material gaya mainan
-WOOD = {'walnut', 'oak', 'workwood', 'tread', 'lightwood', 'slat', 'slatdark', 'slatdarkH', 'furn', 'trunk'}
+WOOD = {'walnut', 'oak', 'workwood', 'tread', 'lightwood', 'slat', 'slatdark', 'slatdarkH', 'furn', 'trunk', 'deck'}
 GRASS = {'grass', 'grassDark'}
 FOLIAGE = {'foliage', 'foliageDark', 'foliageLight'}
 def node_mat(name, info):
@@ -79,7 +79,7 @@ def node_mat(name, info):
         TL.setin(b, 'Emission Strength', 0.9 if MODE != 'night' else 1.4)
         TL.setin(b, 'Roughness', 0.25); TL.setin(b, ['Coat Weight'], 0.5)
         return m
-    if name.startswith('scr') or name.startswith('tv'):
+    if name.startswith('scr') or name.startswith('tv') or name in ('ticker', 'cinema', 'racks'):
         TL.setin(b, ['Emission Color', 'Emission'], TL.hexc('#5b3fb8')); TL.setin(b, 'Emission Strength', 1.5)
         TL.setin(b, ['Coat Weight'], 1.0); TL.setin(b, 'Roughness', 0.15)
     return m
@@ -111,23 +111,25 @@ for name, items in by.items():
         sub = ob.modifiers.new('sub', 'SUBSURF'); sub.levels = 1; sub.render_levels = 1
 
 # ---------------------------------------------------------------- isi kolam: pelampung donat, bola pantai, pelampung kasur
+PL = D['pool']; PX = lambda u: PL['x0'] + (PL['x1'] - PL['x0']) * u; PZ = lambda v: PL['z0'] + (PL['z1'] - PL['z0']) * v
 def pool_props():
     don = TL.mat('donut', '#ff7eb6', 0.25, coat=0.8); don2 = TL.mat('donut2', '#ffffff', 0.25, coat=0.8)
-    t = TL.torus('donut', B((10.4, -0.03, 9.6)), (0, 0, 1), 0.42, 0.17, don, None)
+    dx, dz = PX(0.18), PZ(0.3)
+    t = TL.torus('donut', B((dx, -0.03, dz)), (0, 0, 1), 0.42, 0.17, don, None)
     for i in range(6):   # garis putih di donat
         a = i * math.pi / 3
-        TL.ellipsoid('stripe', B((10.4 + math.cos(a) * 0.42, 0.0, 9.6 + math.sin(a) * 0.42)), (0.08, 0.08, 0.175), don2, None)
-    t2 = TL.torus('ring', B((17.3, -0.03, 10.6)), (0, 0, 1), 0.36, 0.14, TL.mat('ring', '#ffd166', 0.25, coat=0.8), None)
+        TL.ellipsoid('stripe', B((dx + math.cos(a) * 0.42, 0.0, dz + math.sin(a) * 0.42)), (0.08, 0.08, 0.175), don2, None)
+    t2 = TL.torus('ring', B((PX(0.75), -0.03, PZ(0.55)), ), (0, 0, 1), 0.36, 0.14, TL.mat('ring', '#ffd166', 0.25, coat=0.8), None)
     cols = ['#ef476f', '#ffffff', '#118ab2', '#ffd166', '#ffffff', '#06d6a0']
     for i, c in enumerate(cols):   # bola pantai (6 segmen)
-        b_ = TL.ellipsoid('ball', B((15.6, 0.12, 6.6)), (0.26, 0.26, 0.26), TL.mat('ball' + str(i), c, 0.3, coat=0.7), None)
+        b_ = TL.ellipsoid('ball', B((PX(0.6), 0.12, PZ(0.2))), (0.26, 0.26, 0.26), TL.mat('ball' + str(i), c, 0.3, coat=0.7), None)
         bpy.context.view_layer.objects.active = b_
         bm = bmesh.new(); bm.from_mesh(b_.data)
         a0, a1 = i * math.pi / 3, (i + 1) * math.pi / 3
         kill = [v for v in bm.verts if not (a0 <= (math.atan2(v.co.y, v.co.x) % (2 * math.pi)) < a1 + 1e-6)]
         bmesh.ops.delete(bm, geom=kill, context='VERTS'); bm.to_mesh(b_.data); bm.free()
-    TL.rbox('mat', B((12.6, -0.04, 7.2)), (1.9, 0.75, 0.12), TL.mat('airmat', '#7c3aed', 0.3, coat=0.8), 0.06, rot=Matrix.Rotation(radians(18), 4, 'Z').to_quaternion())
-    TL.rbox('matpillow', B((12.6, -0.04, 7.2)) + Matrix.Rotation(radians(18), 4, 'Z') @ Vector((0.75, 0, 0.07)), (0.3, 0.68, 0.1), TL.mat('airmat2', '#a78bfa', 0.3, coat=0.8), 0.05,
+    TL.rbox('mat', B((PX(0.4), -0.04, PZ(0.7))), (1.9, 0.75, 0.12), TL.mat('airmat', '#7c3aed', 0.3, coat=0.8), 0.06, rot=Matrix.Rotation(radians(18), 4, 'Z').to_quaternion())
+    TL.rbox('matpillow', B((PX(0.4), -0.04, PZ(0.7))) + Matrix.Rotation(radians(18), 4, 'Z') @ Vector((0.75, 0, 0.07)), (0.3, 0.68, 0.1), TL.mat('airmat2', '#a78bfa', 0.3, coat=0.8), 0.05,
             rot=Matrix.Rotation(radians(18), 4, 'Z').to_quaternion())
 pool_props()
 
@@ -158,9 +160,9 @@ if MODE == 'night':
     for l in D['lights']:
         ld = bpy.data.lights.new('l', 'POINT'); ld.energy = 70 * l.get('i', 1) * (l.get('r', 4) / 4) ** 2; ld.color = l['color']; ld.shadow_soft_size = 0.4
         lo = bpy.data.objects.new('l', ld); COLL.objects.link(lo); lo.location = B(l['p'])
-    for z in (5.8, 7.4, 9.0, 10.6):
+    for v in (0.12, 0.37, 0.62, 0.87):
         ld = bpy.data.lights.new('pool', 'POINT'); ld.energy = 60; ld.color = (0.35, 0.85, 1.0); ld.shadow_soft_size = 0.3
-        lo = bpy.data.objects.new('pool', ld); COLL.objects.link(lo); lo.location = B((18.7, -0.9, z))
+        lo = bpy.data.objects.new('pool', ld); COLL.objects.link(lo); lo.location = B((PL['x1'] - 0.3, -0.9, PZ(v)))
     moon = bpy.data.lights.new('moon', 'SUN'); moon.energy = 0.9; moon.color = (0.6, 0.7, 1.0); moon.angle = radians(10)
     mo = bpy.data.objects.new('moon', moon); COLL.objects.link(mo); mo.rotation_euler = (radians(40), 0, radians(-30))
 else:

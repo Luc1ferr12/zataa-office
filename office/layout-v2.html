@@ -1,0 +1,576 @@
+<title>Zataa HQ Layout v2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: lembar gambar arsitek — kop lembar, gambar utama tampak kamera (zoom/geser), denah tapak, daftar ruang */
+:root {
+  --bg: #eceff3; --sheet: #f8f9fb; --ink: #18202b; --muted: #5b6573; --line: #cfd5de; --accent: #6b3ce8; --accent-ink: #ffffff; --halo: #f8f9fb; --sky: #dfe8ef;
+  --display: "Big Shoulders Display", "Arial Narrow", sans-serif;
+  --body: "IBM Plex Sans", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, monospace;
+  /* jenis ruang (sama di kedua tema: gambar punya kertasnya sendiri) */
+  --k-food: #e2b07a; --k-core: #c9c4b8; --k-fun: #474276; --k-living: #e6b8a8; --k-home: #a9bfdf; --k-service: #b7c0c3;
+  --k-work: #e7d2a6; --k-trade: #8fc4b0; --k-exec: #9c7656; --k-meet: #cdbfe6; --k-worship: #86b886; --k-water: #a6dbe6;
+  --k-grass: #8dbb6e; --k-grass2: #7fae62; --k-deck: #c49a6c; --k-pool: #4fb9d8; --k-path: #ddd5c4; --k-stone: #9d978b;
+  /* perabot */
+  --f-wood: #9a6a3c; --f-woodlt: #cfa06a; --f-wooddk: #5e3f26; --f-fabric: #64799a; --f-red: #a3323b; --f-gold: #d6a637;
+  --f-screen: #8fe3ff; --f-dark: #2b2f3a; --f-white: #eeede8; --f-steel: #8e959e; --f-plant: #4c8a3a; --f-rose: #d78aa5;
+  --f-blm: #557cb8; --f-blf: #d9879f; --f-purple: #7c3aed; --f-felt: #2f7a4b; --f-leather: #6b3f2a; --f-stone: #b9b3a8;
+  --f-panel: #d9dee3; --f-wall: #ebe5d9; --f-glass: #bfe3ef; --f-green: #2ecc71; --f-flower: #e27aa0;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #10141a; --sheet: #1a2029; --ink: #e4e8ef; --muted: #9aa5b4; --line: #2e3744; --accent: #a78bfa; --accent-ink: #120c24; --halo: #1a2029; --sky: #233041; color-scheme: dark } }
+:root[data-theme="dark"] { --bg: #10141a; --sheet: #1a2029; --ink: #e4e8ef; --muted: #9aa5b4; --line: #2e3744; --accent: #a78bfa; --accent-ink: #120c24; --halo: #1a2029; --sky: #233041; color-scheme: dark }
+
+body { background: var(--bg); color: var(--ink); font: 15px/1.55 var(--body); }
+.wrap { max-width: 1240px; margin: 0 auto; padding-inline: 16px; padding-block: 28px 64px; display: grid; gap: 40px; }
+h1, h2 { font-family: var(--display); font-weight: 800; letter-spacing: .01em; line-height: 1; text-wrap: balance; margin: 0; }
+h1 { font-size: clamp(40px, 7vw, 76px); text-transform: uppercase; }
+h2 { font-size: 30px; text-transform: uppercase; }
+h3 { font: 600 16px/1.3 var(--body); margin: 0; }
+p { margin: 0; max-width: 68ch; }
+.eyebrow { font: 500 12px/1.4 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+a { color: var(--accent); }
+
+.kop { display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: end; border-bottom: 2px solid var(--ink); padding-bottom: 18px; }
+@media (max-width: 640px) { .kop { grid-template-columns: 1fr; } }
+.kop .meta { display: grid; grid-template-columns: auto auto; gap: 2px 14px; font: 12px/1.5 var(--mono); color: var(--muted); }
+.kop .meta b { color: var(--ink); font-weight: 500; }
+.lead { display: grid; gap: 10px; }
+.stats { display: flex; flex-wrap: wrap; gap: 8px 22px; font: 13px var(--mono); color: var(--muted); }
+.stats b { color: var(--ink); font-size: 18px; font-weight: 500; margin-right: 4px; }
+
+.sheet { background: var(--sheet); border: 1px solid var(--line); border-radius: 6px; }
+.view-bar { display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; justify-content: space-between; padding: 14px 16px; border-bottom: 1px solid var(--line); }
+.zoom { display: inline-flex; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+.zoom button { font: 500 14px var(--mono); background: transparent; color: var(--ink); border: 0; padding: 7px 13px; cursor: pointer; }
+.zoom button + button { border-left: 1px solid var(--line); }
+.zoom button:hover { background: color-mix(in srgb, var(--accent) 12%, transparent); }
+.zoom button:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+.stage { background: var(--sky); touch-action: none; cursor: grab; overflow: hidden; }
+.stage:active { cursor: grabbing; }
+.stage svg { display: block; width: 100%; height: auto; aspect-ratio: 101 / 70; max-height: 82vh; user-select: none; }
+.view-note { padding: 12px 16px; border-top: 1px solid var(--line); display: grid; gap: 8px; font-size: 13px; color: var(--muted); }
+.scroll { overflow-x: auto; }
+.scroll svg { display: block; min-width: 820px; width: 100%; height: auto; }
+
+.legend { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 12px; color: var(--muted); }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.legend i { width: 12px; height: 12px; border-radius: 2px; display: inline-block; border: 1px solid rgba(0,0,0,.15); }
+
+.two { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+.two > * { min-width: 0; }
+.prose { display: grid; gap: 12px; align-content: start; }
+.prose ul { margin: 0; padding-left: 18px; display: grid; gap: 6px; }
+
+table { border-collapse: collapse; width: 100%; font-size: 14px; }
+.tbl { overflow-x: auto; }
+th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font: 500 11px var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+td.num { font-family: var(--mono); font-variant-numeric: tabular-nums; white-space: nowrap; }
+td .k { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 8px; vertical-align: middle; }
+tr.lv td { font: 800 15px var(--display); text-transform: uppercase; letter-spacing: .04em; background: color-mix(in srgb, var(--accent) 8%, transparent); }
+.tag { font: 500 10px var(--mono); text-transform: uppercase; letter-spacing: .06em; color: var(--muted); border: 1px solid var(--line); border-radius: 3px; padding: 1px 5px; margin-left: 6px; white-space: nowrap; }
+.tag.new { color: var(--accent); border-color: var(--accent); }
+
+.changes { display: grid; gap: 8px; padding: 0; margin: 0; list-style: none; }
+.changes li { display: grid; grid-template-columns: 16px 1fr; gap: 8px; }
+.changes li::before { content: "✓"; color: var(--accent); font-weight: 600; }
+.refs { display: grid; gap: 8px; padding: 0; margin: 0; list-style: none; font-size: 14px; }
+.refs li span { color: var(--muted); }
+</style>
+
+<div class="wrap">
+  <header class="kop">
+    <div class="lead">
+      <div class="eyebrow">Usulan tata letak · revisi 2 · belum diimplementasi ke kantor</div>
+      <h1>Zataa HQ Layout v2</h1>
+      <p>Gedung terasering 4 tingkat di lereng bukit untuk 18 orang. Tiap tingkat mundur penuh dari tingkat di bawahnya, jadi tidak ada ruang yang ketutup. Semua ruangan, termasuk mess dan gudang Mbak Sari, langsung kelihatan dari kamera tanpa tombol.</p>
+    </div>
+    <div class="meta">
+      <span>Lembar</span><b>A-01 rev 2</b>
+      <span>Tanggal</span><b>12 Okt 2026</b>
+      <span>Skala</span><b>meter (sama dg nav.js)</b>
+      <span>Status</span><b>Menunggu ACC Owner</b>
+    </div>
+  </header>
+
+  <div class="stats">
+    <span><b>4</b>tingkat</span>
+    <span><b>64 × 60</b>m tapak</span>
+    <span><b>2 m</b>selasar tiap lantai</span>
+    <span><b>18</b>orang</span>
+    <span><b>14</b>meja kerja</span>
+    <span><b>2</b>ruang meeting</span>
+    <span><b>18</b>kasur mess + 1 king</span>
+    <span><b>20</b>kursi bioskop</span>
+    <span><b>2</b>gazebo</span>
+  </div>
+
+  <section class="sheet" aria-labelledby="t-view">
+    <div class="view-bar">
+      <div>
+        <div class="eyebrow">Tampak kamera game · scroll / cubit untuk zoom, seret untuk geser</div>
+        <h2 id="t-view" style="font-size:22px">Seluruh kantor dalam satu tampilan</h2>
+      </div>
+      <div class="zoom" role="group" aria-label="Zoom">
+        <button type="button" id="zin" aria-label="Perbesar">+</button>
+        <button type="button" id="zout" aria-label="Perkecil">−</button>
+        <button type="button" id="zreset">Semua</button>
+      </div>
+    </div>
+    <div class="stage" id="stage"><svg id="iso" role="img" aria-label="Gambar isometrik kantor terasering empat tingkat"></svg></div>
+    <div class="view-note">
+      <div class="legend" id="legend"></div>
+    </div>
+  </section>
+
+  <section class="two">
+    <div class="prose">
+      <div class="eyebrow">Revisi dari Owner</div>
+      <h2>Yang berubah</h2>
+      <ul class="changes">
+        <li><span><b>Rev 2 · Jalan lebih lega.</b> Tiap lantai sekarang punya selasar 2 m di depan semua ruangan, dan tiap ruang punya pintu 1,2 m ke selasar. Pegawai bisa jalan dari ujung ke ujung tanpa nembus ruangan lain.</span></li>
+        <li><span><b>Rev 2 · Akses Taman Atas.</b> Selasar lantai 3 nyambung terus sampai Taman Atas, jadi nggak ketutup dinding laundry lagi.</span></li>
+        <li><span><b>Rev 2 · Saf mushola digambar.</b> Imam (Zamiir) di depan mihrab, 1 saf pria 7 makmum, tabir, 1 saf wanita 10 orang. Masih sisa tempat untuk ±40 orang lagi.</span></li>
+        <li><span><b>Tanpa tombol lantai.</b> Gedungnya dibuat terasering: tiap tingkat berdiri di undakan bukit, bukan di atas ruang lain. Semua ruangan selalu kelihatan.</span></li>
+        <li><span><b>Lebih besar:</b> 64 × 60 m (sebelumnya 48 × 24 m). Versi 3D nanti pakai zoom in/out + geser kayak gambar di atas.</span></li>
+        <li><span><b>2 ruang meeting:</b> Meeting Marketing (ujung barat) dan Meeting Trading (ujung timur), dua-duanya di tingkat kerja.</span></li>
+        <li><span><b>Trading 4 cewek, 3 cowok.</b> Mess cewek 10 kasur untuk 9 orang, mess cowok 8 kasur untuk 7 orang.</span></li>
+        <li><span><b>Mushola tetap di lantai 3</b>, sebelahan dengan tempat wudhu.</span></li>
+        <li><span><b>Gazebo di taman</b> dibesarkan (6 × 6 m, atap 3 susun, meja + bangku). Ditambah gazebo kecil di Taman Atas lantai 3.</span></li>
+      </ul>
+    </div>
+    <div class="prose">
+      <div class="eyebrow">Pembagian tingkat</div>
+      <h2>Satu tingkat, satu fungsi</h2>
+      <ul>
+        <li><b>Lantai 1 · Publik.</b> Cafe & Resto, dapur, gudang Mbak Sari, lobby, bioskop mini, ruang santai, toilet umum. Di depannya taman + gazebo dan kolam.</li>
+        <li><b>Lantai 2 · Kerja.</b> Meeting Marketing, ruang Aprista, 8 bilik Marketing, tangga, 6 bilik Trading, Trading Director, Meeting Trading, server bot.</li>
+        <li><b>Lantai 3 · Hunian & Ibadah.</b> Mushola + mimbar, wudhu, mess cewek, kamar mandi, mess cowok, laundry, Taman Atas.</li>
+        <li><b>Lantai 4 · Puncak.</b> Kamar king Zamiir & Aprista, Ruang Boss, teras. Paling atas, paling tenang.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sheet" aria-labelledby="t-plan">
+    <div class="view-bar">
+      <div>
+        <div class="eyebrow">Denah tapak · tampak atas</div>
+        <h2 id="t-plan" style="font-size:22px">Denah semua tingkat</h2>
+      </div>
+      <span class="eyebrow">Garis batu tebal = dinding undakan (beda tinggi 3,6 m)</span>
+    </div>
+    <div class="scroll" id="plan"></div>
+  </section>
+
+  <section class="sheet" style="padding:16px" aria-labelledby="t-list">
+    <div class="eyebrow">Cek permintaan Owner</div>
+    <h2 id="t-list" style="margin:4px 0 12px">Daftar ruang</h2>
+    <div class="tbl"><table id="rooms"></table></div>
+    <p style="margin-top:12px;font-size:13px;color:var(--muted)">Ruang bertanda <span class="tag">tambahan</span> tidak ada di permintaan, bisa dibuang atau diganti.</p>
+  </section>
+
+  <section class="two">
+    <div class="prose">
+      <div class="eyebrow">Catatan untuk versi 3D</div>
+      <h2>Supaya zoom lancar</h2>
+      <ul>
+        <li>Latar kantor dirender sekali jadi potongan-potongan (tile), lalu yang tampil di layar saja yang digambar. Zoom dan geser jadi ringan walaupun petanya besar.</li>
+        <li>Beberapa tingkat detail: zoom jauh pakai gambar kecil, zoom dekat pakai gambar 2×.</li>
+        <li>Kontrol sama seperti gambar di atas: scroll mouse / cubit dua jari untuk zoom, seret untuk geser, tombol “Semua” untuk lihat seluruh kantor.</li>
+        <li>Sudut kamera tidak berubah (ortografis, sama dengan engine sekarang).</li>
+      </ul>
+    </div>
+    <div class="prose">
+      <div class="eyebrow">Referensi</div>
+      <h2>Dasar desain</h2>
+      <ul class="refs">
+        <li><a href="https://www.gamewatcher.com/reviews/project-highrise-review/12679">Project Highrise</a> <span>· gedung potongan, lantai per fungsi</span></li>
+        <li><a href="https://corgan.com/projects/fintech-client-office-expansion">Corgan fintech office</a> <span>· trading floor terbuka, meja multi-monitor + ruang diskusi</span></li>
+        <li><a href="https://officesnapshots.com/2023/11/13/park-west-asset-management-offices-san-francisco/">Park West Asset Management</a> <span>· trading desk tim kecil</span></li>
+        <li><a href="https://www.som.com/projects/jpmorganchase-headquarters-trading-floors/">SOM · JPMorganChase trading floors</a> <span>· garis pandang bebas antar meja</span></li>
+        <li><a href="https://archive.thedailystar.net/lifestyle/2004/06/01/back.htm">The Daily Star</a> <span>· ruang director bersebelahan area staf</span></li>
+        <li><a href="https://www.seatcraft.com/blogs/news/home-theater-room-size-guide">Seatcraft room size guide</a> <span>· ukuran ruang bioskop</span></li>
+        <li><a href="https://www.seatcraft.com/blogs/news/two-row-home-theater-seating">Seatcraft multi-row seating</a> <span>· riser tiap baris</span></li>
+        <li><a href="https://www.archify.com/hk/archifynow/5-hal-untuk-diperhatikan-sebelum-membangun-mushola-minimalis-untuk-rumah-anda">Archify · mushola minimalis</a> <span>· wudhu bersebelahan + sekat</span></li>
+        <li><a href="https://ejournal.uniramalang.ac.id/i-com/id/article/view/927">Desain musholla 6 × 8 m (Unira Malang)</a> <span>· acuan ukuran mushola kecil</span></li>
+        <li><a href="https://ejournal3.undip.ac.id/index.php/imaji/issue/download/1505/77">Jurnal Imaji (Undip)</a> <span>· 70 × 140 cm per orang sholat</span></li>
+      </ul>
+    </div>
+  </section>
+</div>
+
+<script>
+(() => {
+  const LY = [0, 3.6, 7.2, 10.8];        // tinggi tiap tingkat (UP = 3.6)
+  const FRONT = [4, -6, -16, -26];       // tepi depan tiap tingkat; tiap tingkat = selasar 2 m + ruang 8 m
+  const CORR = 2, DEPTH = 10;
+  const RF = (L) => FRONT[L - 1] - CORR; // tepi depan ruang (belakang selasar)
+  const SPAN = [[-32, 32], [-32, 32], [-32, 19], [-14, 22]];
+  const HX = [-40, 40];                  // lebar bukit
+  const K = {
+    food: ['--k-food', 'Makan'], core: ['--k-core', 'Lobby / tangga'], fun: ['--k-fun', 'Bioskop'], living: ['--k-living', 'Santai'],
+    home: ['--k-home', 'Kamar / mess'], service: ['--k-service', 'Servis'], work: ['--k-work', 'Bilik Marketing'], trade: ['--k-trade', 'Trading'],
+    exec: ['--k-exec', 'Ruang pimpinan'], meet: ['--k-meet', 'Meeting'], worship: ['--k-worship', 'Ibadah'], water: ['--k-water', 'Wudhu / KM'],
+    grass: ['--k-grass', 'Taman'], deck: ['--k-deck', 'Dek / teras'], pool: ['--k-pool', 'Kolam'],
+  };
+  // ruang: [tingkat, x0, x1, nama, label pendek, sub-label, jenis, isi, tambahan?, permintaan, (lz0, lz1)] — lz: 0 = tepi depan, -8 = dinding belakang
+  const R = [
+    [1, -32, -14, 'Cafe & Resto', 'Cafe & Resto', '28 kursi', 'food', '4 meja cafe + meja makan panjang 12 kursi, bar kopi', 0, 'Cafe & Resto'],
+    [1, -14, -9, 'Dapur Resto', 'Dapur', '', 'food', 'Dapur untuk Cafe & Resto', 1, ''],
+    [1, -9, -6, 'Gudang Mbak Sari', 'Gudang', 'Mbak Sari', 'service', 'Rak perabot & alat bersih, troli (3 × 8 m)', 0, 'Ruang Mbak Sari nyimpen perabotan'],
+    [1, -6, 2, 'Lobby & Tangga', 'Lobby', '', 'core', 'Resepsionis, tangga naik ke lantai 2', 0, ''],
+    [1, 2, 15, 'Bioskop Mini', 'Bioskop Mini', '20 kursi', 'fun', '4 baris × 5 kursi berundak, layar di dinding timur, love seat Boss & Aprista', 0, 'Bioskop mini'],
+    [1, 15, 27, 'Ruang Santai', 'Ruang Santai', '', 'living', 'Sofa L, TV + konsol, biliar, arcade, akses ke kolam', 0, 'Ruang santai'],
+    [1, 27, 32, 'Toilet Umum', 'Toilet', '', 'water', '2 bilik + wastafel', 1, ''],
+
+    [2, -32, -24, 'Meeting Marketing', 'Meeting Mkt', '', 'meet', 'Meja 8 kursi + TV (rapat Senin)', 0, 'Ruang meeting 1 (Marketing)'],
+    [2, -24, -17, 'R. Marketing Director', 'Aprista', 'Marketing Director', 'exec', 'Aprista: meja, sofa, rak buku', 0, 'Ruangan Marketing Director'],
+    [2, -17, -2, 'Bilik Marketing', 'Bilik Marketing · 8 meja', '', 'work', 'Clariana, Ista, Maria, Dimas, Fikri, Fahriah, Raka, Budi', 0, 'Bilik Marketing (8 meja)'],
+    [2, -2, 2, 'Tangga', '', '', 'core', '', 0, ''],
+    [2, 2, 15, 'Bilik Trading', 'Bilik Trading · 6 meja', '', 'trade', '6 trader, 3 monitor per meja, video wall harga', 0, 'Bilik Trading (6 meja)'],
+    [2, 15, 23, 'R. Trading Director', 'Trading Director', '', 'exec', 'Meja L + 3 monitor, sofa tamu, brankas', 0, 'Ruangan Trading Director'],
+    [2, 23, 29, 'Meeting Trading', 'Meeting Trd', '', 'meet', 'Meja bundar 6 kursi + layar', 0, 'Ruang meeting 2 (Trading)'],
+    [2, 29, 32, 'Server Bot Trading', 'Server', '', 'trade', '3 rak server bot trading + konsol', 1, ''],
+
+    [3, -32, -20, 'Mushola', 'Mushola', 'mihrab + mimbar', 'worship', 'Imam + saf pria (8 termasuk imam) + tabir + saf wanita (10). Muat ±60 orang (4 saf × 15)', 0, 'Mushola + mimbar (lantai 3)'],
+    [3, -20, -17, 'Tempat Wudhu', 'Wudhu', '', 'water', '3 keran wudhu duduk, sekat kaca, rak sandal', 0, 'Tempat wudhu'],
+    [3, -17, -5, 'Mess Cewek', 'Mess Cewek', '10 kasur · 9 org', 'home', 'Clariana, Ista, Maria, Fahriah, Mbak Sari + 4 trader cewek', 0, 'Mesh cewe'],
+    [3, -5, -2, 'KM Wanita', 'KM W', '', 'water', 'Shower + toilet + wastafel', 1, ''],
+    [3, -2, 2, 'Tangga', '', '', 'core', '', 0, ''],
+    [3, 2, 5, 'KM Pria', 'KM P', '', 'water', 'Shower + toilet + wastafel', 1, ''],
+    [3, 5, 15, 'Mess Cowok', 'Mess Cowok', '8 kasur · 7 org', 'home', 'Dimas, Fikri, Raka, Budi + 3 trader cowok', 0, 'Mesh cowo'],
+    [3, 15, 19, 'Laundry', 'Laundry', '', 'service', 'Mesin cuci, jemuran, meja setrika (wilayah Mbak Sari)', 1, ''],
+    [3, 19, 32, 'Taman Atas', 'Taman Atas', 'gazebo kecil', 'grass', 'Gazebo kecil, pohon, bangku (taman terbuka)', 1, ''],
+
+    [4, -14, -2, 'Kamar Zamiir & Aprista', 'Kamar King', 'Zamiir & Aprista', 'home', 'King bed, KM dalam (bathtub), lemari, love seat', 0, 'Kamar king bed Boss & Aprista'],
+    [4, -2, 2, 'Tangga', '', '', 'core', '', 0, ''],
+    [4, 2, 16, 'Ruang Boss', 'Ruang Boss', 'Zamiir', 'exec', 'Meja besar, dinding logo ZATAA, sofa set, lemari piala', 0, 'Ruangan Boss'],
+    [4, 16, 22, 'Teras Boss', 'Teras', '', 'deck', 'Pot tanaman, 2 kursi santai, meja', 1, ''],
+  ];
+  const OUT = [
+    [1, -32, 0, 'Taman', 'Taman', '', 'grass', 'Gazebo besar 6 × 6 m, pohon, bangku, bedeng bunga', 0, 'Taman + gazebo', 0, 20],
+    [1, 4, 32, 'Kolam Renang', 'Kolam Renang', '', 'deck', 'Kolam 18 × 8 m, dek kayu, 4 kursi jemur, payung', 0, 'Kolam', 0, 20],
+  ];
+  // lz lokal ruang: 0 = muka ruang, -8 = dinding belakang; di lantai 1 lz >= 0 = halaman (z 4 … 24)
+  const Z = (L, lz, yard = L === 1 && lz >= 0) => (yard ? FRONT[0] + lz : RF(L) + lz);
+
+  // ---------------- perabot: kotak (koordinat lokal tingkat: lz 0 = depan, -8 = belakang)
+  const F = [], SP = [];
+  const B = (L, x0, x1, lz0, lz1, h, c, y0 = 0, op = 1) => { const yd = L === 1 && lz0 >= 0; F.push({ L, x0, x1, z0: Z(L, lz0, yd), z1: Z(L, lz1, yd), y0: LY[L - 1] + y0, y1: LY[L - 1] + y0 + h, c, op }); };
+  const G = '--f-glass';
+  const part = (L, x0, x1, z0, z1) => { B(L, x0, x1, z0, z1, 0.9, '--f-panel'); B(L, x0, x1, z0, z1, 1.6, G, 0.9, 0.28); };
+  const wallX = (L, x) => part(L, x - 0.06, x + 0.06, -8, 0);
+
+  for (let L = 1; L <= 4; L++) {
+    const [a, b] = SPAN[L - 1];
+    B(L, b, b + 0.3, -8, 0, 3.3, '--f-wall');                       // dinding timur (sisi dalam terlihat)
+    B(L, a - 0.3, a, -8, 0, 0.9, '--f-wall'); B(L, a - 0.3, a, -8, 0, 2.2, G, 0.9, 0.3);
+    if (L === 4) B(L, a - 0.3, b + 0.3, -8.3, -8, 3.3, '--f-wall');  // dinding belakang tingkat puncak
+    R.filter((r) => r[0] === L).forEach((r) => { if (r[1] > a) wallX(L, r[1]); });
+  }
+  // kaca depan tiap tingkat (pagar / fasad) dengan bukaan pintu & tangga
+  // muka tiap ruang: kaca dengan pintu 1,2 m; tepi selasar lantai atas: pagar kaca
+  for (const r of R) {
+    const [L, x0, x1, name] = r;
+    if (['Tangga', 'Taman Atas', 'Teras Boss'].includes(name)) continue;
+    B(L, x0, x1 - 1.8, -0.06, 0.06, 1.0, G, 0, 0.35); B(L, x1 - 0.6, x1, -0.06, 0.06, 1.0, G, 0, 0.35);
+  }
+  for (const L of [2, 3, 4]) { const [a, b] = L === 3 ? [-32, 32] : SPAN[L - 1]; B(L, a, b, 1.94, 2.06, 1.0, G, 0, 0.35); }
+  // tangga di sel tengah (naik ke tingkat berikutnya)
+  for (const L of [1, 2, 3]) for (let i = 0; i < 12; i++) B(L, -1.4, 1.4, -1.6 - 0.5 * (i + 1), -1.6 - 0.5 * i, 0.3 * (i + 1), '--f-stone');
+
+  // ===== LANTAI 1 =====
+  B(1, -31.4, -23.6, -7.9, -7.1, 1.1, '--f-wood'); B(1, -30.8, -29.9, -7.8, -7.3, 0.5, '--f-steel', 1.1); B(1, -27, -26.2, -7.8, -7.3, 0.35, '--f-white', 1.1);
+  for (const [tx, tz] of [[-29.5, -4.6], [-25.8, -4.6], [-29.5, -1.6], [-25.8, -1.6]]) {
+    B(1, tx - 0.6, tx + 0.6, tz - 0.6, tz + 0.6, 0.75, '--f-woodlt');
+    for (const [dx, dz] of [[-1, 0], [1, 0], [0, -1], [0, 1]]) B(1, tx + dx - 0.25, tx + dx + 0.25, tz + dz - 0.25, tz + dz + 0.25, 0.5, '--f-red');
+  }
+  B(1, -22.6, -16.4, -4.7, -3.5, 0.75, '--f-wood');
+  for (let i = 0; i < 6; i++) { const x = -22.1 + i * 1.05; B(1, x - 0.22, x + 0.22, -5.4, -4.95, 0.5, '--f-fabric'); B(1, x - 0.22, x + 0.22, -3.25, -2.8, 0.5, '--f-fabric'); }
+  B(1, -31.8, -31.2, -0.8, -0.2, 1.2, '--f-plant'); B(1, -15, -14.4, -7.8, -7.2, 1.2, '--f-plant');
+  B(1, -13.6, -9.4, -7.9, -7.1, 1.0, '--f-steel'); B(1, -12.8, -10.2, -4.6, -3.4, 1.0, '--f-steel'); B(1, -9.8, -9.2, -2.2, -0.6, 2.1, '--f-white');
+  B(1, -8.9, -8.4, -7.6, -1.2, 2.0, '--f-woodlt'); B(1, -7.3, -6.5, -3.4, -2.6, 0.9, '--f-steel'); B(1, -7.1, -6.6, -6.8, -6.3, 0.45, '--f-blm');
+  B(1, -5.4, -2.8, -3.2, -2.4, 1.1, '--f-woodlt'); B(1, -5.6, -5.0, -7.6, -7.0, 1.3, '--f-plant');
+  // bioskop
+  B(1, 14.7, 14.92, -7, -1, 2.4, '--f-screen', 0.7);
+  for (let r = 0; r < 4; r++) {
+    const cx = 12.2 - 2.1 * r;
+    if (r) B(1, cx - 1.0, cx + 1.0, -7.5, -0.5, 0.3 * r, '--f-dark');
+    for (let k = 0; k < 5; k++) { const lz = -6.6 + 1.15 * k; B(1, cx - 0.4, cx + 0.4, lz - 0.42, lz + 0.42, 0.9, r === 3 && (k === 1 || k === 2) ? '--f-gold' : '--f-red', 0.3 * r); }
+  }
+  B(1, 3.0, 3.6, -4.4, -3.8, 0.4, '--f-dark', 2.6);
+  SP.push({ L: 1, t: 'beam' });
+  // ruang santai
+  B(1, 16, 20.4, -7.6, -6.8, 0.8, '--f-fabric'); B(1, 16, 16.8, -6.8, -3.6, 0.8, '--f-fabric'); B(1, 17.6, 19.4, -5.8, -4.6, 0.4, '--f-woodlt');
+  B(1, 26.3, 26.8, -6.6, -3.4, 0.6, '--f-wood'); B(1, 26.75, 26.92, -6.3, -3.7, 1.3, '--f-screen', 1.0);
+  B(1, 22.6, 23.4, -3.2, -2.4, 0.5, '--f-gold'); B(1, 24.2, 25.0, -2.4, -1.6, 0.5, '--f-purple');
+  B(1, 23.6, 24.6, -7.9, -7.1, 1.8, '--f-purple'); B(1, 18.5, 21.5, -2.6, -1.0, 0.8, '--f-felt');
+  B(1, 27.4, 29.2, -7.8, -5.8, 2.1, '--f-white'); B(1, 29.6, 31.4, -7.8, -5.8, 2.1, '--f-white'); B(1, 27.6, 31.4, -1.4, -0.9, 0.9, '--f-white');
+  // halaman: taman + gazebo besar
+  const tree = (L, x, lz, h = 3.6) => { B(L, x - 0.15, x + 0.15, lz - 0.15, lz + 0.15, h * 0.42, '--f-woodlt'); B(L, x - 1.0, x + 1.0, lz - 1.0, lz + 1.0, h * 0.58, '--f-plant', h * 0.42); };
+  [[-30, 3.5], [-29, 15.5], [-24, 18.5], [-9.5, 17], [-30.5, 9.5], [-8.5, 4.5], [-23.5, 3.2], [-12, 13]].forEach(([x, z]) => tree(1, x, z));
+  const gazebo = (L, cx, cz, s) => {
+    const h = s / 2;
+    B(L, cx - h - 0.3, cx + h + 0.3, cz - h - 0.3, cz + h + 0.3, 0.3, '--f-wood');
+    for (const [dx, dz] of [[-h, -h], [h - 0.25, -h], [-h, h - 0.25], [h - 0.25, h - 0.25]]) B(L, cx + dx, cx + dx + 0.25, cz + dz, cz + dz + 0.25, 2.6, '--f-wooddk', 0.3);
+    B(L, cx - h - 0.8, cx + h + 0.8, cz - h - 0.8, cz + h + 0.8, 0.25, '--f-wooddk', 2.9);
+    B(L, cx - h * 0.62, cx + h * 0.62, cz - h * 0.62, cz + h * 0.62, 0.35, '--f-wooddk', 3.15);
+    B(L, cx - h * 0.22, cx + h * 0.22, cz - h * 0.22, cz + h * 0.22, 0.35, '--f-gold', 3.5);
+    if (s > 4) { B(L, cx - 1, cx + 1, cz - 0.7, cz + 0.7, 0.75, '--f-woodlt', 0.3); B(L, cx - 1.4, cx + 1.4, cz - 1.7, cz - 1.3, 0.45, '--f-wood', 0.3); B(L, cx - 1.4, cx + 1.4, cz + 1.3, cz + 1.7, 0.45, '--f-wood', 0.3); }
+  };
+  gazebo(1, -18, 9.5, 6);
+  B(1, -31, -24, 0.6, 1.4, 0.35, '--f-flower'); B(1, -14, -7, 0.6, 1.4, 0.35, '--f-flower');
+  B(1, -6.2, -5, 8, 9.6, 0.45, '--f-wood'); B(1, -6.2, -5, 12.5, 14.1, 0.45, '--f-wood');
+  // kolam
+  for (const x of [10, 12, 14, 16]) B(1, x, x + 0.8, 14.2, 16.2, 0.4, '--f-white');
+  B(1, 21.4, 21.55, 15, 15.15, 2.4, '--f-steel'); B(1, 20.2, 22.8, 13.8, 16.4, 0.15, '--f-red', 2.4);
+  B(1, 30.4, 31.4, 1, 2, 1.2, '--f-plant'); B(1, 5, 6, 17.5, 18.5, 1.2, '--f-plant');
+
+  // ===== LANTAI 2 =====
+  B(2, -30.6, -25.4, -5.4, -3.6, 0.75, '--f-wood');
+  for (const x of [-29.8, -28, -26.2]) { B(2, x - 0.25, x + 0.25, -6.1, -5.6, 0.5, '--f-fabric'); B(2, x - 0.25, x + 0.25, -3.4, -2.9, 0.5, '--f-fabric'); }
+  B(2, -31.4, -30.9, -4.75, -4.25, 0.5, '--f-fabric'); B(2, -25.1, -24.6, -4.75, -4.25, 0.5, '--f-fabric');
+  B(2, -30, -26, -7.98, -7.85, 1.4, '--f-screen', 1.0); B(2, -31.6, -31, -1.2, -0.6, 1.3, '--f-plant');
+  B(2, -22.2, -19.6, -6.4, -5.4, 0.75, '--f-wood'); B(2, -21.2, -20.6, -7.4, -6.8, 0.95, '--f-rose'); B(2, -21.3, -20.5, -6.3, -6.2, 0.5, '--f-dark', 0.75);
+  B(2, -23.6, -21.2, -1.4, -0.6, 0.75, '--f-rose'); B(2, -23.9, -23.4, -7.6, -3.4, 2.2, '--f-woodlt'); B(2, -18.2, -17.6, -1.0, -0.4, 1.3, '--f-plant');
+  const bilik = (bx, bw, chairC, mon) => {
+    for (const [d0, d1, p0, p1, back] of [[-7.6, -6.9, -7.95, -5.4, false], [-3.9, -3.2, -4.2, -1.7, true]]) {
+      B(2, bx + 0.35, bx + bw - 0.35, d0, d1, 0.75, '--f-woodlt');
+      for (let m = 0; m < mon; m++) { const w = (bw - 1.2) / mon; const mx = bx + 0.6 + m * w; B(2, mx + 0.08, mx + w - 0.08, d0 + 0.1, d0 + 0.2, 0.55, '--f-screen', 0.75); }
+      B(2, bx + bw / 2 - 0.3, bx + bw / 2 + 0.3, d1 + 0.5, d1 + 1.1, 0.95, chairC);
+      B(2, bx - 0.05, bx + 0.05, p0, p1, 1.3, '--f-panel'); B(2, bx + bw - 0.05, bx + bw + 0.05, p0, p1, 1.3, '--f-panel');
+      if (back) B(2, bx, bx + bw, -4.27, -4.17, 1.3, '--f-panel');
+    }
+  };
+  for (let i = 0; i < 4; i++) bilik(-16.6 + 3.6 * i, 3.6, '--f-purple', 1);
+  for (let i = 0; i < 3; i++) bilik(2.5 + 4.1 * i, 4.1, '--f-dark', 3);
+  B(2, 3.0, 14.0, -7.98, -7.8, 1.9, '--f-dark', 1.1);
+  SP.push({ L: 2, t: 'ticker' });
+  B(2, 18.4, 22.4, -6.6, -5.6, 0.78, '--f-wooddk'); B(2, 21.6, 22.4, -5.6, -3.6, 0.78, '--f-wooddk');
+  for (let m = 0; m < 3; m++) B(2, 19 + m * 1.0, 19.85 + m * 1.0, -6.5, -6.4, 0.55, '--f-screen', 0.78);
+  B(2, 20, 20.7, -7.6, -7.0, 1.15, '--f-leather'); B(2, 15.6, 18.6, -1.3, -0.6, 0.75, '--f-leather'); B(2, 16.4, 17.8, -2.6, -1.8, 0.4, '--f-woodlt');
+  B(2, 22.3, 22.85, -3.0, -1.4, 1.0, '--f-dark'); B(2, 22.2, 22.8, -7.7, -7.1, 1.3, '--f-plant');
+  B(2, 24.8, 27.2, -5.2, -2.8, 0.75, '--f-wooddk'); B(2, 24, 28, -7.98, -7.85, 1.4, '--f-screen', 1.0);
+  for (const [x, lz] of [[24.2, -4], [27.8, -4], [26, -5.9], [26, -2.1], [24.6, -2.5], [27.4, -2.5]]) B(2, x - 0.25, x + 0.25, lz - 0.25, lz + 0.25, 0.5, '--f-fabric');
+  for (let k = 0; k < 3; k++) B(2, 30.4, 31.8, -7.8 + 1.6 * k, -6.4 + 1.6 * k, 2.3, '--f-dark');
+  B(2, 29.3, 30.1, -2.2, -0.6, 0.9, '--f-woodlt'); B(2, 29.35, 29.45, -2.0, -0.8, 0.5, '--f-green', 0.9);
+
+  // ===== LANTAI 3 =====
+  B(3, -26.9, -25.1, -8, -7.5, 2.6, '--f-felt'); B(3, -26.6, -25.4, -7.5, -7.45, 2.0, '--f-gold');
+  B(3, -22.6, -21.6, -7.9, -6.6, 1.4, '--f-wood'); B(3, -22.6, -21.6, -6.6, -6.1, 0.5, '--f-wood');
+  // saf sholat berjamaah: imam, 1 saf pria (7), tabir, 1 saf wanita (10) — sajadah 0,7 × 1,1 m
+  const sajadah = (x, lz, c) => B(3, x - 0.3, x + 0.3, lz - 0.55, lz + 0.55, 0.03, c);
+  sajadah(-26, -6.8, '--f-gold');
+  for (let i = 0; i < 7; i++) sajadah(-28.25 + 0.75 * i, -5.1, '--f-red');
+  B(3, -31.2, -20.8, -3.85, -3.75, 1.3, '--f-rose', 0, 0.7);
+  for (let i = 0; i < 10; i++) sajadah(-29.4 + 0.75 * i, -2.4, '--f-blf');
+  B(3, -31.9, -31.4, -3.5, -0.6, 1.5, '--f-woodlt'); B(3, -31.9, -31.4, -7.6, -5.6, 1.1, '--f-wood');
+  for (let k = 0; k < 3; k++) { const x = -19.4 + 0.9 * k; B(3, x, x + 0.2, -7.95, -7.75, 0.2, '--f-steel', 0.9); B(3, x - 0.15, x + 0.35, -6.9, -6.4, 0.4, '--f-stone'); }
+  B(3, -19.8, -17.2, -7.9, -7.75, 0.7, '--f-stone'); B(3, -19.8, -17.4, -0.9, -0.4, 0.6, '--f-wood');
+  const bunk = (L, bx, c) => {
+    B(L, bx, bx + 1.1, -7.8, -5.7, 0.55, c); B(L, bx, bx + 1.1, -7.8, -5.7, 0.3, c, 1.5);
+    B(L, bx, bx + 0.1, -5.8, -5.7, 1.9, '--f-wood'); B(L, bx + 1.0, bx + 1.1, -5.8, -5.7, 1.9, '--f-wood');
+  };
+  for (let i = 0; i < 5; i++) bunk(3, -16.4 + 2.2 * i, '--f-blf');
+  B(3, -5.8, -5.3, -7.0, -1.6, 1.9, '--f-steel'); B(3, -15, -12, -3.6, -2.0, 0.02, '--f-rose');
+  for (let i = 0; i < 4; i++) bunk(3, 5.6 + 2.2 * i, '--f-blm');
+  B(3, 14.3, 14.8, -7.0, -1.6, 1.9, '--f-steel'); B(3, 7, 10, -3.6, -2.0, 0.02, '--f-fabric');
+  for (const x of [-5, 2.3]) { B(3, x - 0.0, x + 2.7, -7.8, -5.8, 2.1, '--f-white'); B(3, x, x + 2.7, -1.4, -0.9, 0.9, '--f-white'); }
+  B(3, 15.4, 16.2, -7.8, -7.0, 1.0, '--f-white'); B(3, 16.4, 17.2, -7.8, -7.0, 1.0, '--f-white'); B(3, 15.6, 18.4, -4.2, -3.5, 1.2, '--f-steel'); B(3, 16, 18, -1.6, -1.0, 0.8, '--f-white');
+  gazebo(3, 25.5, -4.2, 3.6); B(3, 24.7, 26.3, -4.8, -3.6, 0.75, '--f-woodlt', 0.3);
+  tree(3, 21, -6.5); tree(3, 30.5, -6.5); tree(3, 30.5, -1.5); B(3, 20.5, 22.5, -1.2, -0.7, 0.45, '--f-wood');
+
+  // ===== LANTAI 4 =====
+  part(4, -11.06, -10.94, -8, -4); part(4, -14, -11, -4.06, -3.94);
+  B(4, -13.8, -11.4, -7.8, -6.6, 0.6, '--f-white'); B(4, -13.8, -12.8, -5.2, -4.3, 0.9, '--f-white');
+  B(4, -9.4, -6.0, -8, -7.8, 1.3, '--f-wooddk'); B(4, -9.4, -6.0, -7.8, -5.4, 0.6, '--f-white'); B(4, -9.4, -6.0, -6.8, -5.4, 0.08, '--f-rose', 0.6);
+  B(4, -9.1, -7.9, -7.7, -7.2, 0.15, '--f-white', 0.6); B(4, -7.5, -6.3, -7.7, -7.2, 0.15, '--f-white', 0.6);
+  B(4, -10.0, -9.5, -7.9, -7.3, 0.6, '--f-wood'); B(4, -5.9, -5.4, -7.9, -7.3, 0.6, '--f-wood');
+  B(4, -3.0, -2.4, -7.6, -3.6, 2.2, '--f-woodlt'); B(4, -9.8, -7.4, -1.2, -0.5, 0.7, '--f-rose'); B(4, -13.6, -13.0, -1.2, -0.6, 1.2, '--f-plant');
+  B(4, 2.3, 5.2, -7.95, -7.5, 2.4, '--f-woodlt'); B(4, 6.2, 10.2, -7.98, -7.85, 1.6, '--f-purple', 1.0);
+  B(4, 6, 10.4, -5.9, -4.7, 0.8, '--f-wooddk'); B(4, 7.9, 8.6, -7.2, -6.6, 1.25, '--f-leather'); B(4, 7.6, 8.8, -5.8, -5.7, 0.5, '--f-screen', 0.8);
+  B(4, 7, 7.6, -4.1, -3.5, 0.8, '--f-fabric'); B(4, 8.8, 9.4, -4.1, -3.5, 0.8, '--f-fabric');
+  B(4, 11.6, 15.4, -7.6, -6.8, 0.75, '--f-leather'); B(4, 14.6, 15.4, -6.8, -4.2, 0.75, '--f-leather'); B(4, 12.4, 14, -5.8, -4.6, 0.4, '--f-woodlt');
+  B(4, 2.3, 2.8, -6.5, -2, 2.0, '--f-gold'); B(4, 15.2, 15.8, -1.0, -0.4, 1.3, '--f-plant');
+  B(4, 16.4, 21.6, -7.9, -7.3, 0.6, '--f-woodlt'); for (const x of [16.8, 18.6, 20.4]) B(4, x, x + 1, -7.85, -7.35, 0.7, '--f-plant', 0.6);
+  B(4, 17.4, 18.2, -5.5, -3.5, 0.4, '--f-white'); B(4, 19.4, 20.2, -5.5, -3.5, 0.4, '--f-white'); B(4, 20.6, 21.6, -2.6, -1.6, 0.6, '--f-woodlt');
+
+  // pepohonan bukit di kiri-kanan & belakang
+  for (let L = 1; L <= 4; L++) {
+    const [a, b] = SPAN[L - 1];
+    const lzs = L === 1 ? [-6, -2] : [-5.5];
+    for (const lz of lzs) { for (let x = HX[0] + 2; x < a - 1.5; x += 3.6) tree(L, x, lz, 3.2); for (let x = b + 2.4; x < HX[1] - 1; x += 3.6) tree(L, x, lz, 3.2); }
+  }
+  for (let x = -38; x <= 38; x += 3.4) tree(4, x, -10.5 - ((x * 7) % 3 + 3) % 3, 3.4 + ((x * 13) % 5 + 5) % 5 * 0.3);
+
+  // ---------------- proyeksi = kamera engine.js (ortografis, TAN_YAW 0.25, SIN_EL 0.75)
+  const P = (x, y, z) => [x + 0.25 * z, -0.1875 * x - 0.6818 * y + 0.75 * z];
+  const VW = [-0.1604, 0.75, 0.6417];
+  const dep = (x, y, z) => VW[0] * x + VW[1] * y + VW[2] * z;
+  const pts = (a) => a.map((p) => P(...p).map((n) => n.toFixed(3)).join(',')).join(' ');
+  const shade = (c, k) => `color-mix(in srgb, var(${c}) ${k}%, #14100c)`;
+  const poly = (a, fill, extra = '') => `<polygon points="${pts(a)}" style="fill:${fill}" ${extra}/>`;
+  const quadY = (x0, x1, z0, z1, y) => [[x0, y, z0], [x1, y, z0], [x1, y, z1], [x0, y, z1]];
+
+  const boxSvg = (b) => {
+    const { x0, x1, z0, z1, y0, y1, c, op } = b;
+    const o = op < 1 ? ` fill-opacity="${op}"` : ' stroke="#14100c" stroke-opacity=".18" stroke-width=".03"';
+    return `<g${o}>` +
+      poly([[x0, y0, z0], [x0, y0, z1], [x0, y1, z1], [x0, y1, z0]], shade(c, 64)) +
+      poly([[x0, y0, z1], [x1, y0, z1], [x1, y1, z1], [x0, y1, z1]], shade(c, 80)) +
+      poly(quadY(x0, x1, z0, z1, y1), `var(${c})`) + '</g>';
+  };
+  const special = (L, t) => {
+    const y = LY[L - 1];
+    if (t === 'beam') return `<polygon points="${pts([[3.6, 2.85, Z(1, -4.1)], [14.7, 3.1, Z(1, -7)], [14.7, 0.7, Z(1, -7)], [14.7, 0.7, Z(1, -1)], [14.7, 3.1, Z(1, -1)]])}" style="fill:var(--f-screen)" fill-opacity=".10"/>`;
+    if (t === 'ticker') {
+      const a = [];
+      for (let i = 0; i < 26; i++) a.push([3.4 + (10.2 * i) / 25, y + 2.2 + 0.55 * Math.sin(i * 0.7) * Math.cos(i * 0.23) + i * 0.018, Z(2, -7.78)]);
+      return `<polyline points="${pts(a)}" fill="none" style="stroke:var(--f-green)" stroke-width=".09"/>`;
+    }
+    if (t === 'saf') return [-5.6, -4.0, -2.4].map((lz) => `<polyline points="${pts([[-31.6, y + 0.01, Z(3, lz)], [-20.4, y + 0.01, Z(3, lz)]])}" fill="none" style="stroke:var(--f-gold)" stroke-opacity=".7" stroke-width=".06"/>`).join('');
+    return '';
+  };
+  const label = (x, y, z, a, b) => {
+    const [sx, sy] = P(x, y, z);
+    return `<g text-anchor="middle" style="font-family:var(--body);paint-order:stroke;stroke:var(--halo);stroke-width:.34;stroke-linejoin:round;fill:var(--ink)">` +
+      `<text x="${sx.toFixed(2)}" y="${sy.toFixed(2)}" font-size=".92" font-weight="600">${a}</text>` +
+      (b ? `<text x="${sx.toFixed(2)}" y="${(sy + 0.9).toFixed(2)}" font-size=".62" style="fill:var(--muted)">${b}</text>` : '') + '</g>';
+  };
+
+  // ---------------- gambar tampak kamera
+  const out = [];
+  // tanah depan + halaman
+  out.push(poly(quadY(-60, 60, Z(1, -8), 40, -0.03), 'var(--k-grass)'));
+  for (const r of OUT) out.push(poly(quadY(r[1], r[2], Z(1, r[10]), Z(1, r[11]), 0), `var(${K[r[6]][0]})`));
+  out.push(poly(quadY(-4.2, -0.8, 4, 24, 0.004), 'var(--k-path)'));
+  out.push(poly(quadY(8.6, 27.4, 7.6, 16.4, 0.006), 'var(--f-white)'), poly(quadY(9, 27, 8, 16, 0.01), 'var(--k-pool)'));
+  for (const z of [10, 12.2, 14.4]) out.push(`<polyline points="${pts([[10.5, 0.02, z], [15, 0.02, z - 0.4], [20, 0.02, z + 0.3], [25.5, 0.02, z]])}" fill="none" stroke="#ffffff" stroke-opacity=".55" stroke-width=".07"/>`);
+  out.push(boxSvg({ x0: 17.6, x1: 18.4, z0: 11.6, z1: 12.4, y0: 0.01, y1: 0.18, c: '--f-gold', op: 1 }));
+
+  for (let L = 1; L <= 4; L++) {
+    const y = LY[L - 1], zf = FRONT[L - 1];
+    // undakan bukit: rumput tingkat ini + dinding batu ke tingkat atasnya
+    if (L > 1) out.push(poly(quadY(-60, 60, zf - DEPTH, zf, y), 'var(--k-grass2)'));
+    if (L === 4) out.push(poly(quadY(-60, 60, -70, zf - DEPTH, y), 'var(--k-grass2)'));
+    if (L < 4) out.push(poly([[-60, y, zf - DEPTH], [60, y, zf - DEPTH], [60, LY[L], zf - DEPTH], [-60, LY[L], zf - DEPTH]], shade('--k-stone', 88)),
+      `<polyline points="${pts([[-60, LY[L], zf - DEPTH], [60, LY[L], zf - DEPTH]])}" fill="none" style="stroke:var(--k-stone)" stroke-width=".25"/>`);
+    // lantai ruang
+    R.filter((r) => r[0] === L).sort((a, b) => a[1] - b[1]).forEach((r) => out.push(`<g><title>${r[3]}</title>${poly(quadY(r[1], r[2], RF(L) - 8, RF(L), y + 0.004), `var(${K[r[6]][0]})`, 'stroke="#14100c" stroke-opacity=".12" stroke-width=".04"')}</g>`));
+    { const [a, b] = L === 3 ? [-32, 32] : SPAN[L - 1]; out.push(poly(quadY(a, b, RF(L), zf, y + 0.004), 'var(--k-path)', 'stroke="#14100c" stroke-opacity=".12" stroke-width=".04"')); }
+    if (L > 1) { const [a, b] = SPAN[L - 1]; out.push(poly([[a, y, zf], [b, y, zf], [b, y - 0.3, zf], [a, y - 0.3, zf]], shade('--k-stone', 70))); }
+    const vs = F.filter((b) => b.L === L).map((b) => ({ d: dep((b.x0 + b.x1) / 2, (b.y0 + b.y1) / 2, (b.z0 + b.z1) / 2) + (b.y1 - b.y0 < 0.05 ? -50 : 0), s: boxSvg(b) }));
+    for (const s of SP.filter((s) => s.L === L)) vs.push({ d: s.t === 'saf' ? -60 : s.t === 'beam' ? 99 : dep(8, LY[1] + 2, Z(2, -7.7)), s: special(L, s.t) });
+    vs.sort((a, b) => a.d - b.d).forEach((v) => out.push(v.s));
+  }
+  for (const r of [...OUT, ...R]) {
+    const [L, x0, x1, , short, sub] = r;
+    if (!short) continue;
+    let lz = -4.6, cx = (x0 + x1) / 2;
+    if (r === OUT[0]) { lz = 15.6; cx = -18; } else if (r === OUT[1]) { lz = 19; }
+    if (L === 1 && short === 'Gudang') lz = -5;
+    if (short === 'Taman Atas') lz = -1.2;
+    const y = LY[L - 1] + (short === 'Taman Atas' ? 0 : 0.05);
+    out.push(label(cx, y, Z(L, lz), short, sub));
+  }
+  out.push(label(-18, 4.4, Z(1, 9.5), 'Gazebo', '6 × 6 m'));
+  for (let L = 1; L <= 4; L++) {
+    const [sx, sy] = P(SPAN[L - 1][0] - (L === 4 ? 1 : 1.2), LY[L - 1] + 0.2, FRONT[L - 1] - 0.4);
+    out.push(`<text x="${sx.toFixed(2)}" y="${sy.toFixed(2)}" text-anchor="end" font-size="1.05" font-weight="800" style="font-family:var(--display);fill:var(--ink);paint-order:stroke;stroke:var(--halo);stroke-width:.35;letter-spacing:.04em">LANTAI ${L}</text>`);
+  }
+
+  const svg = document.getElementById('iso');
+  svg.innerHTML = out.join('');
+  const HOME = { x: -50, y: -46, w: 101, h: 70 };
+  let vb = { ...HOME };
+  const apply = () => svg.setAttribute('viewBox', `${vb.x.toFixed(2)} ${vb.y.toFixed(2)} ${vb.w.toFixed(2)} ${vb.h.toFixed(2)}`);
+  const zoomAt = (f, px, py) => {
+    const nw = Math.min(HOME.w * 1.15, Math.max(12, vb.w * f)); const k = nw / vb.w;
+    vb = { x: px - (px - vb.x) * k, y: py - (py - vb.y) * k, w: nw, h: vb.h * k }; apply();
+  };
+  const toWorld = (cx, cy) => { const r = svg.getBoundingClientRect(); return [vb.x + ((cx - r.left) / r.width) * vb.w, vb.y + ((cy - r.top) / r.height) * vb.h]; };
+  apply();
+  svg.addEventListener('wheel', (e) => { e.preventDefault(); const [px, py] = toWorld(e.clientX, e.clientY); zoomAt(e.deltaY > 0 ? 1.12 : 1 / 1.12, px, py); }, { passive: false });
+  const ptrs = new Map(); let pinch0 = null;
+  svg.addEventListener('pointerdown', (e) => { svg.setPointerCapture(e.pointerId); ptrs.set(e.pointerId, [e.clientX, e.clientY]); pinch0 = null; });
+  svg.addEventListener('pointermove', (e) => {
+    if (!ptrs.has(e.pointerId)) return;
+    const prev = ptrs.get(e.pointerId); ptrs.set(e.pointerId, [e.clientX, e.clientY]);
+    const r = svg.getBoundingClientRect();
+    if (ptrs.size === 1) { vb.x -= ((e.clientX - prev[0]) / r.width) * vb.w; vb.y -= ((e.clientY - prev[1]) / r.height) * vb.h; apply(); return; }
+    const [a, b] = [...ptrs.values()]; const d = Math.hypot(a[0] - b[0], a[1] - b[1]);
+    if (pinch0) { const [px, py] = toWorld((a[0] + b[0]) / 2, (a[1] + b[1]) / 2); zoomAt(pinch0 / d, px, py); }
+    pinch0 = d;
+  });
+  const up = (e) => { ptrs.delete(e.pointerId); pinch0 = null; };
+  svg.addEventListener('pointerup', up); svg.addEventListener('pointercancel', up);
+  const center = () => [vb.x + vb.w / 2, vb.y + vb.h / 2];
+  document.getElementById('zin').onclick = () => zoomAt(1 / 1.35, ...center());
+  document.getElementById('zout').onclick = () => zoomAt(1.35, ...center());
+  document.getElementById('zreset').onclick = () => { vb = { ...HOME }; apply(); };
+
+  // ---------------- legenda
+  const used = [...new Set([...R, ...OUT].map((r) => r[6]))];
+  document.getElementById('legend').innerHTML = used.map((k) => `<span><i style="background:var(${K[k][0]})"></i>${K[k][1]}</span>`).join('');
+
+  // ---------------- denah tapak (tampak atas)
+  (() => {
+    const o = [], X0 = -42, X1 = 34, Z0 = -38, Z1 = 25;
+    const rect = (x0, x1, z0, z1, fill, extra = '') => `<rect x="${x0}" y="${z0}" width="${(x1 - x0).toFixed(2)}" height="${(z1 - z0).toFixed(2)}" style="fill:${fill}" ${extra}/>`;
+    o.push(rect(-33, 33, -36, 24, 'var(--k-grass)'));
+    for (let L = 2; L <= 4; L++) o.push(rect(-33, 33, FRONT[L - 1] - DEPTH, FRONT[L - 1], 'var(--k-grass2)'));
+    for (let L = 1; L <= 4; L++) { const [a, b] = L === 3 ? [-32, 32] : SPAN[L - 1]; o.push(rect(a, b, RF(L), FRONT[L - 1], 'var(--k-path)')); }
+    for (const r of OUT) o.push(rect(r[1], r[2], Z(1, r[10]), Z(1, r[11]), `var(${K[r[6]][0]})`));
+    o.push(rect(-4.2, -0.8, 4, 24, 'var(--k-path)'), rect(8.6, 27.4, 7.6, 16.4, 'var(--f-white)'), rect(9, 27, 8, 16, 'var(--k-pool)'));
+    for (const r of R) o.push(rect(r[1], r[2], RF(r[0]) - 8, RF(r[0]), `var(${K[r[6]][0]})`, 'stroke="#14100c" stroke-opacity=".35" stroke-width=".08"'));
+    for (const b of F) {
+      if (b.c === '--f-wall' || b.c === G || b.c === '--f-plant' && b.y1 - b.y0 < 2.2 && b.y0 > LY[b.L - 1] + 1) continue;
+      if (b.x1 - b.x0 < 0.4 && b.z1 - b.z0 < 0.4) continue;
+      o.push(rect(b.x0, b.x1, b.z0, b.z1, `var(${b.c})`, 'stroke="#14100c" stroke-opacity=".3" stroke-width=".04"'));
+    }
+    for (let L = 1; L <= 3; L++) { const z = FRONT[L - 1] - DEPTH; o.push(`<line x1="-33" y1="${z}" x2="33" y2="${z}" style="stroke:var(--k-stone)" stroke-width=".45"/>`); }
+    for (let L = 1; L <= 4; L++) {
+      const [a, b] = SPAN[L - 1];
+      o.push(rect(a, b, RF(L) - 8, RF(L), 'none', 'style="fill:none;stroke:var(--ink)" stroke-width=".2"'));
+      o.push(`<text x="${X0 + 0.6}" y="${FRONT[L - 1] - 5.2}" font-size="1.05" font-weight="800" style="font-family:var(--display);fill:var(--ink)">LANTAI ${L}</text>`,
+        `<text x="${X0 + 0.6}" y="${FRONT[L - 1] - 4.2}" font-size=".6" style="font-family:var(--mono);fill:var(--muted)">+${LY[L - 1].toFixed(1)} m</text>`);
+    }
+    const halo = 'paint-order:stroke;stroke:var(--halo);stroke-width:.3;stroke-linejoin:round';
+    for (const r of [...R, ...OUT]) {
+      const [L, x0, x1, name] = r;
+      if (name === 'Tangga') continue;
+      const w = x1 - x0, cx = (x0 + x1) / 2;
+      const dz = r.length > 10 ? r[11] - r[10] : 8;
+      let cz = r.length > 10 ? Z(1, (r[10] + r[11]) / 2) : Z(L, -3.6);
+      let tx = cx;
+      if (name === 'Taman') { tx = -26; cz = 21.5; } if (name === 'Kolam Renang') cz = 19.8;
+      const dim = `${+w.toFixed(1)} × ${+dz.toFixed(1)} m`;
+      if (w < 5.5) o.push(`<g transform="translate(${tx} ${cz - 0.4}) rotate(-90)"><text text-anchor="middle" font-size=".68" font-weight="600" style="fill:var(--ink);font-family:var(--body);${halo}">${name}</text><text y=".8" text-anchor="middle" font-size=".48" style="fill:var(--muted);font-family:var(--mono);${halo}">${dim}</text></g>`);
+      else o.push(`<text x="${tx}" y="${cz}" text-anchor="middle" font-size=".8" font-weight="600" style="fill:var(--ink);font-family:var(--body);${halo}">${name}</text>`,
+        `<text x="${tx}" y="${cz + 0.85}" text-anchor="middle" font-size=".52" style="fill:var(--muted);font-family:var(--mono);${halo}">${dim}</text>`);
+    }
+    o.push(`<text x="${X0 + 30}" y="${RF(1) + 1.4}" font-size=".55" style="fill:var(--muted);font-family:var(--mono)">selasar 2 m</text>`);
+    o.push(`<text x="-18" y="13.6" text-anchor="middle" font-size=".7" font-weight="600" style="fill:var(--ink);font-family:var(--body);${halo}">Gazebo</text>`);
+    o.push(`<g style="font-family:var(--mono)"><rect x="${X0 + 0.6}" y="23.4" width="5" height=".25" style="fill:var(--ink)"/><text x="${X0 + 6}" y="23.7" font-size=".55" style="fill:var(--muted)">5 m</text><text x="${X0 + 0.6}" y="-36.6" font-size=".55" style="fill:var(--muted)">↑ bukit (belakang)</text><text x="${X0 + 0.6}" y="22.6" font-size=".55" style="fill:var(--muted)">↓ kamera (depan)</text></g>`);
+    document.getElementById('plan').innerHTML = `<svg viewBox="${X0} ${Z0} ${X1 - X0} ${Z1 - Z0}" role="img" aria-label="Denah tapak semua tingkat">${o.join('')}</svg>`;
+  })();
+
+  // ---------------- tabel ruang
+  const rows = ['<thead><tr><th>Ruang</th><th>Ukuran</th><th>Isi / penghuni</th><th>Permintaan</th></tr></thead><tbody>'];
+  const LV = ['Lantai 1 · Publik', 'Lantai 2 · Kerja', 'Lantai 3 · Hunian & Ibadah', 'Lantai 4 · Puncak'];
+  for (const L of [4, 3, 2, 1]) {
+    rows.push(`<tr class="lv"><td colspan="4">${LV[L - 1]}</td></tr>`);
+    for (const r of R.filter((r) => r[0] === L).concat(L === 1 ? OUT : [])) {
+      const [, x0, x1, name, , , k, who, extra, req] = r;
+      if (name === 'Tangga') continue;
+      const dz = r.length > 10 ? r[11] - r[10] : 8;
+      const isNew = /meeting 2|gazebo|lantai 3/i.test(req);
+      rows.push(`<tr><td><span class="k" style="background:var(${K[k][0]})"></span>${name}${extra ? '<span class="tag">tambahan</span>' : ''}${isNew ? '<span class="tag new">revisi</span>' : ''}</td><td class="num">${+(x1 - x0).toFixed(1)} × ${+dz.toFixed(1)} m</td><td>${who}</td><td>${req ? '✓ ' + req : '<span style="color:var(--muted)">—</span>'}</td></tr>`);
+    }
+  }
+  rows.push('</tbody>');
+  document.getElementById('rooms').innerHTML = rows.join('');
+})();
+</script>

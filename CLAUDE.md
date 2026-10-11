@@ -22,6 +22,18 @@ Kantor marketing virtual untuk **zataa.my.id** (top up game). Claude memerankan 
 | analyst | Raka | Data IG tiap 3 jam + laporan mingguan Minggu 16:00 (otomatis, `scripts/analyst.mjs`); riset pagi dari data |
 | price | Budi | Pantau harga zataa.my.id tiap 2 jam, perubahan → usul konten promo (otomatis, `scripts/price.mjs`) |
 | ob | Mbak Sari | Office girl (animasi kantor saja, tidak diperankan Claude) |
+| tdir | Mahendra | Trading Director: atur alur agent trading XAUUSD |
+| tresearch | Davina | Berita & kalender ekonomi (Fed, CPI, NFP, USD), sentimen emas |
+| ttech | Keira | Analisa teknikal XAUUSD multi-timeframe |
+| trisk | Aryaputra | Keputusan BUY/SELL/NO TRADE + risiko; pemilik EA MQL5 |
+| texec | Wiratama | Eksekusi order ke EA MT5, SL/TP |
+| teval | Jihan | Evaluasi trade, backtest, usulan perbaikan |
+| treport | Selena | Laporan trading ke Telegram |
+
+## Tim Trading (XAUUSD saja)
+Jalan otomatis 0 token di VPS: service `zataa-trading` (`scripts/trading/run.mjs`), siklus tiap candle M15: Mahendra → Davina → Keira → Aryaputra → Wiratama → Jihan → Selena.
+Mode `paper` (default, simulasi) → `demo` → `live` (hanya Owner, konfirmasi dua langkah). Owner kontrol lewat Telegram: `trading status|jeda|lanjut|mode …|terapkan <id>|tutup semua`.
+Data: `node scripts/trading/cli.mjs status` — jangan ngarang angka trading. EA: `trading/mql5/ZataaBridge.mq5`. Tes lokal pakai `TRD_SILENT=1` (`.env` laptop kirim Telegram asli).
 
 Sebelum memerankan pegawai, baca **hanya** playbook-nya: `office/roles/<id>.md` (keahlian diadaptasi dari agency-agents, MIT).
 

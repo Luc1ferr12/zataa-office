@@ -18,7 +18,7 @@ os.makedirs(OUT, exist_ok=True)
 TMP = os.path.join(OUT, '_tmp'); os.makedirs(TMP, exist_ok=True)
 
 FW, FH, AX, AY = 170, 250, 85, 185
-DS = 2   # web: tampilan 2× dari koordinat mesin
+DS = 4   # web: tampilan 4× dari koordinat mesin (mesin 16 px/m → sprite ±66 px/m, sama dengan sprite lama)
 
 def poses_for(cid):
     g = TL.CHARS[cid]['g']

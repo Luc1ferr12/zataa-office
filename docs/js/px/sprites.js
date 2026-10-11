@@ -17,6 +17,14 @@ const LOOK = {
   price:      { g: 'm', skin: '#c48f69', hair: '#231a15', style: 'short', kerja: { top: '#f59e0b', bot: '#2f2a3d', shoe: '#2a2630', sleeve: 'short', collar: true } },
   ob:         { g: 'f', skin: '#d6a882', hair: '#3a2a22', style: 'bob', uniform: true, kerja: { top: '#3d7ea6', bot: '#2c3e50', skirt: 'long', shoe: '#1d1d22', sleeve: 'short', vest: '#f1efe8' } },
   owner:      { g: 'm', skin: '#cc9e7a', hair: '#1b1717', style: 'short', kerja: { top: '#17151d', bot: '#3b3f4a', shoe: '#e9e6df', sleeve: 'short', acc: '#d4a63a' } },
+  // tim Trading
+  tdir:       { g: 'm', skin: '#c99a76', hair: '#141111', style: 'short2', kerja: { top: '#1f2a4a', bot: '#1f2a4a', shoe: '#111014', sleeve: 'long', inner: '#f4f2ee', tie: '#7c3aed' } },
+  tresearch:  { g: 'f', skin: '#ecc19c', hair: '#4a2c1a', style: 'long', kerja: { top: '#4c1d95', bot: '#17151d', skirt: 'short', shoe: '#111014', sleeve: 'long', inner: '#f4f2ee' } },
+  ttech:      { g: 'f', skin: '#e8bc96', hair: '#141111', style: 'pony', kerja: { top: '#f4f2ee', bot: '#17151d', skirt: 'short', shoe: '#111014', sleeve: 'long', vest: '#17151d' } },
+  teval:      { g: 'f', skin: '#efc6a2', hair: '#8b7d6b', style: 'bob',  kerja: { top: '#17151d', bot: '#3a3a44', skirt: 'short', shoe: '#111014', sleeve: 'long', inner: '#7c3aed' } },
+  treport:    { g: 'f', skin: '#e6bd99', hair: '#141111', style: 'long', kerja: { top: '#7c3aed', bot: '#17151d', skirt: 'short', shoe: '#111014', sleeve: 'long', inner: '#f4f2ee' } },
+  texec:      { g: 'm', skin: '#d4a07a', hair: '#4a2c1a', style: 'short2', kerja: { top: '#3b1764', bot: '#17151d', shoe: '#f4f2ee', sleeve: 'long', inner: '#17151d' } },
+  trisk:      { g: 'm', skin: '#c48f69', hair: '#141111', style: 'short', kerja: { top: '#17151d', bot: '#17151d', shoe: '#f4f2ee', sleeve: 'long', acc: '#7c3aed' } },
 };
 // Senin: jas (cowok), kemeja sekretaris + rok pensil (cewek)
 const FORMAL_M = { top: '#1f2433', bot: '#1f2433', shoe: '#111014', sleeve: 'long', inner: '#f4f2ee', tie: '#7c3aed' };

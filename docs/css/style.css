@@ -55,12 +55,12 @@ main { padding: 20px 24px 40px; max-width: 1440px; margin: 0 auto; display: grid
 .kpi strong { font-family: Sora, sans-serif; font-size: 28px; font-variant-numeric: tabular-nums; }
 .kpi small { color: var(--muted); font-size: 12px; }
 
-.grid { display: grid; grid-template-columns: 1.7fr 1fr; grid-template-areas: 'week team' 'activity chat'; gap: 14px; align-items: stretch; }
+.grid { display: grid; grid-template-columns: 1.7fr 1fr; grid-template-areas: 'week team' 'activity chat' 'trading trading'; gap: 14px; align-items: stretch; }
 /* baris 1: jadwal & tim sama tinggi; baris 2: aktivitas & chit-chat sama tinggi (list di dalamnya scroll) */
 .week, .activity, .chat { display: flex; flex-direction: column; }
 .week .week-grid { flex: 1; }
 .activity-list, .chat-list { height: 300px; max-height: none; }
-.week { grid-area: week; } .team { grid-area: team; } .activity { grid-area: activity; } .chat { grid-area: chat; }
+.week { grid-area: week; } .team { grid-area: team; } .activity { grid-area: activity; } .chat { grid-area: chat; } .trading { grid-area: trading; }
 .chat-list { list-style: none; margin: 0; padding: 0 4px 0 0; display: flex; flex-direction: column; gap: 10px; overflow: auto; }
 .chat-list li { display: grid; grid-template-columns: 28px 1fr; gap: 8px; align-items: start; }
 .chat-list .av { width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; font-size: 12px; font-weight: 700; color: #fff; }
@@ -120,8 +120,7 @@ main { padding: 20px 24px 40px; max-width: 1440px; margin: 0 auto; display: grid
 }
 .office.dragging { cursor: grabbing; }
 .office-canvas { position: absolute; inset: 0; overflow: hidden; }
-.px-canvas { position: absolute; left: 0; top: 0; display: block; transform-origin: 0 0; image-rendering: pixelated; image-rendering: crisp-edges; }
-.px-canvas.smooth { image-rendering: auto; }
+.px-canvas { position: absolute; left: 0; top: 0; display: block; }
 .px-labels { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
 .px-labels > * { position: absolute; left: 0; top: 0; will-change: transform; }
 .px-labels > [hidden] { display: none; }
@@ -165,7 +164,7 @@ main { padding: 20px 24px 40px; max-width: 1440px; margin: 0 auto; display: grid
 .loading { position: absolute; inset: 0; display: grid; place-items: center; color: var(--muted); pointer-events: none; }
 
 @media (max-width: 1100px) {
-  .grid { grid-template-columns: 1fr; grid-template-areas: 'week' 'team' 'activity' 'chat'; }
+  .grid { grid-template-columns: 1fr; grid-template-areas: 'week' 'team' 'activity' 'chat' 'trading'; }
   .week-grid { overflow-x: auto; grid-template-columns: repeat(7, minmax(120px, 1fr)); padding-bottom: 4px; }
 }
 @media (max-width: 640px) {
@@ -184,3 +183,8 @@ main { padding: 20px 24px 40px; max-width: 1440px; margin: 0 auto; display: grid
   .office-title strong { font-size: 17px; }
   .office-title span { font-size: 9px; }
 }
+
+.trd-kpi { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 4px 0 10px; }
+.trading .activity-list { height: auto; max-height: 220px; overflow: auto; }
+.trd-kpi > div { display: grid; gap: 2px; background: #ffffff08; border: 1px solid var(--line); border-radius: 10px; padding: 8px 10px; }
+.trd-kpi b { font-size: 17px; font-variant-numeric: tabular-nums; }
