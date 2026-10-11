@@ -2,7 +2,7 @@
 // Watcher approval (tanpa AI, 0 token saat diam): tiap 60 dtk tarik keputusan Owner dari n8n.
 // Revisi → jalankan Claude Code CLI untuk memperbaiki + render ulang → kirim lagi ke Telegram.
 // Approved → auto-post ke IG/TikTok saat jam slot (scripts/publish.mjs). Pesan bebas Owner → scripts/ask.mjs.
-//   node scripts/watch.mjs          (biarkan jalan; dipasang otomatis saat Windows login lewat scripts/start-watcher.cmd)
+//   node scripts/watch.mjs          (biarkan jalan; di VPS = service systemd scripts/vps/zataa-watcher.service)
 //   node scripts/watch.mjs --once   (sekali cek, untuk tes)
 process.removeAllListeners('warning');
 import { spawn, execFileSync } from 'node:child_process';
@@ -37,7 +37,7 @@ function claude(prompt) {
   const bin = loadEnv().CLAUDE_BIN || 'claude';
   return new Promise((resolve) => {
     const args = ['-p', '--permission-mode', 'acceptEdits', '--allowedTools', 'Bash(node:*)', 'Read', 'Edit', 'Write', 'Glob', 'Grep'];
-    const p = spawn(bin, args, { cwd: ROOT, shell: true, windowsHide: true });
+    const p = spawn(bin, args, { cwd: ROOT, shell: process.platform === 'win32', windowsHide: true });
     let outText = '', errText = '';
     p.stdout.on('data', (b) => { outText += b; });
     p.stderr.on('data', (b) => { errText += b; });

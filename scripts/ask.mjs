@@ -85,7 +85,7 @@ function claude(prompt, minutes = 20, { model, tools = FULL_TOOLS } = {}) {
   const bin = loadEnv().CLAUDE_BIN || 'claude';
   const args = ['-p', '--permission-mode', 'acceptEdits', ...(model ? ['--model', model] : []), '--allowedTools', ...tools];
   return new Promise((resolve) => {
-    const p = spawn(bin, args, { cwd: ROOT, shell: true, windowsHide: true });
+    const p = spawn(bin, args, { cwd: ROOT, shell: process.platform === 'win32', windowsHide: true });
     let o = '', e = '';
     const timer = setTimeout(() => { p.kill(); e += `\n(dihentikan: lewat ${minutes} menit)`; }, minutes * 60_000);
     p.stdout.on('data', (b) => { o += b; });

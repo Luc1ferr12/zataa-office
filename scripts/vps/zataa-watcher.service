@@ -1,0 +1,20 @@
+# Watcher Telegram kantor Zataa (24 jam, restart otomatis kalau crash)
+# pasang: sudo cp scripts/vps/zataa-watcher.service /etc/systemd/system/ && sudo systemctl enable --now zataa-watcher
+[Unit]
+Description=Zataa AI Office watcher (Telegram, auto-post, analyst, price)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=ubuntu
+WorkingDirectory=/home/ubuntu/zataa-office
+Environment=PATH=/home/ubuntu/.local/bin:/usr/local/bin:/usr/bin:/bin
+Environment=TZ=Asia/Makassar
+ExecStart=/usr/bin/node scripts/watch.mjs
+Restart=always
+RestartSec=15
+StandardOutput=append:/home/ubuntu/zataa-office/logs/watcher.log
+StandardError=append:/home/ubuntu/zataa-office/logs/watcher.log
+
+[Install]
+WantedBy=multi-user.target
