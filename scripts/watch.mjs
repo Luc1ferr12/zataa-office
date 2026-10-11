@@ -15,6 +15,7 @@ import { adsReady, propose, runApproved } from './boost.mjs';
 import { handleOwnerMessage, handleDecision, runFollowups, syncMonitor } from './ask.mjs';
 import { analystTick } from './analyst.mjs';
 import { priceTick } from './price.mjs';
+import { limitsTick } from './limits.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const EVERY = 60_000;
@@ -169,6 +170,8 @@ async function staff() {
     if (a) log(`raka: ${JSON.stringify(a)}`);
     const p = await priceTick();
     if (p) log(`nadia: ${JSON.stringify(p).slice(0, 200)}`);
+    const l = await limitsTick().catch((e) => log(`cek limit gagal: ${e.message}`));
+    if (l) log(`limit claude: ${JSON.stringify(l)}`);
     if (a || p) exportState();
   } catch (e) { log(`raka/nadia gagal: ${e.message}`); }
   crunching = false;
