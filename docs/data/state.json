@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-11T11:52:43.470Z",
+ "generated_at": "2026-10-11T12:00:45.982Z",
  "today": "2026-10-11",
  "week_start": "2026-10-05",
  "campaign": {
@@ -21,8 +21,8 @@
    "name": "Aprista",
    "title": "Marketing Director",
    "status": "done",
-   "current_task": "Bagi tugas: 100t sama nrg kalo uda selesai, desain dulu, kirim ke gw",
-   "updated_at": "2026-10-11 11:33:26"
+   "current_task": "Bagi tugas: Clariana masih mantau ?",
+   "updated_at": "2026-10-11 11:57:09"
   },
   {
    "id": "researcher",
@@ -61,8 +61,8 @@
    "name": "Fikri",
    "title": "Social Media Publisher",
    "status": "done",
-   "current_task": "undefined",
-   "updated_at": "2026-10-11 11:52:43"
+   "current_task": null,
+   "updated_at": "2026-10-11 11:54:42"
   },
   {
    "id": "ads",
@@ -121,10 +121,10 @@
    "game": "valorant",
    "pillar": "esport",
    "title": "Thank You NRG — Champions Shanghai",
-   "status": "approved",
+   "status": "posted",
    "asset_url": "{\"feed\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-11/5-thank-you-nrg-champions-shanghai.jpg\"],\"story\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-11/5-thank-you-nrg-champions-shanghai-916.jpg\"]}",
    "scheduled_at": null,
-   "posted_at": null
+   "posted_at": "2026-10-11 11:54:42"
   }
  ],
  "today_tasks": [
@@ -166,6 +166,16 @@
   }
  ],
  "activity": [
+  {
+   "ts": "2026-10-11 11:56:43",
+   "agent_id": "owner",
+   "message": "Chat: Clariana masih mantau ?"
+  },
+  {
+   "ts": "2026-10-11 11:54:42",
+   "agent_id": "publisher",
+   "message": "Posting #5 ke IG ✅"
+  },
   {
    "ts": "2026-10-11 11:52:43",
    "agent_id": "owner",
@@ -280,19 +290,30 @@
    "ts": "2026-10-11 07:41:47",
    "agent_id": "publisher",
    "message": "Gagal posting #2: folder ini belum repo git (GitHub Pages belum di-setup)"
-  },
-  {
-   "ts": "2026-10-11 06:22:03",
-   "agent_id": "owner",
-   "message": "Approve konten #2 ✅"
-  },
-  {
-   "ts": "2026-10-11 06:19:17",
-   "agent_id": "publisher",
-   "message": "Kirim #2 ke Owner buat approval · revisi ke-2"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-10-11 11:56:43",
+   "agent_id": "dir",
+   "to_id": null,
+   "kind": "oper",
+   "message": "Oke tim, ada titah dari Bos. Aku bagi tugasnya ya 👇"
+  },
+  {
+   "ts": "2026-10-11 11:56:43",
+   "agent_id": "owner",
+   "to_id": null,
+   "kind": "bos",
+   "message": "Clariana masih mantau ?"
+  },
+  {
+   "ts": "2026-10-11 11:54:42",
+   "agent_id": "publisher",
+   "to_id": null,
+   "kind": "oper",
+   "message": "\"Thank You NRG — Champions Shanghai\" udah tayang di IG 🚀 Makasih semua!"
+  },
   {
    "ts": "2026-10-11 11:51:54",
    "agent_id": "designer",
@@ -431,9 +452,9 @@
   "this_week": {
    "week": "2026-10-05",
    "total": 4,
-   "posted": 1,
+   "posted": 2,
    "pending": 0,
-   "scheduled": 1,
+   "scheduled": 0,
    "views": 0,
    "likes": 0,
    "comments": 0,
