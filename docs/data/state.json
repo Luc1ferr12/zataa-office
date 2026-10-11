@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-11T12:40:46.021Z",
+ "generated_at": "2026-10-11T12:50:46.023Z",
  "today": "2026-10-11",
  "week_start": "2026-10-05",
  "campaign": {
@@ -29,8 +29,8 @@
    "name": "Clariana",
    "title": "Researcher",
    "status": "working",
-   "current_task": "Mantau: Tugas Owner: pantau VCT Champions 2026 Lower Round (cek lagi 20.49)",
-   "updated_at": "2026-10-11 11:49:20"
+   "current_task": "Mantau: Tugas Owner: pantau VCT Champions 2026 Lower Round (cek lagi 21.35)",
+   "updated_at": "2026-10-11 12:50:24"
   },
   {
    "id": "copywriter",
@@ -76,9 +76,9 @@
    "id": "analyst",
    "name": "Raka",
    "title": "Data Analyst",
-   "status": "idle",
+   "status": "done",
    "current_task": null,
-   "updated_at": "2026-10-11 12:32:32"
+   "updated_at": "2026-10-11 12:48:39"
   },
   {
    "id": "price",
@@ -112,19 +112,6 @@
    "posted_at": "2026-10-11 07:52:49"
   },
   {
-   "id": 3,
-   "day": "2026-10-11",
-   "slot": "malam",
-   "format": "feed",
-   "game": "valorant",
-   "pillar": "esport",
-   "title": "Valorant Champions: Vitality vs LOUD di Upper Final",
-   "status": "draft",
-   "asset_url": null,
-   "scheduled_at": null,
-   "posted_at": null
-  },
-  {
    "id": 4,
    "day": "2026-10-11",
    "slot": "kilat",
@@ -149,6 +136,19 @@
    "asset_url": "{\"feed\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-11/5-thank-you-nrg-champions-shanghai.jpg\"],\"story\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-11/5-thank-you-nrg-champions-shanghai-916.jpg\"]}",
    "scheduled_at": null,
    "posted_at": "2026-10-11 11:54:42"
+  },
+  {
+   "id": 3,
+   "day": "2026-10-11",
+   "slot": "malam",
+   "format": "feed",
+   "game": "valorant",
+   "pillar": "esport",
+   "title": "Valorant Champions: Vitality vs LOUD di Upper Final",
+   "status": "draft",
+   "asset_url": null,
+   "scheduled_at": null,
+   "posted_at": null
   }
  ],
  "today_tasks": [
@@ -190,6 +190,16 @@
   }
  ],
  "activity": [
+  {
+   "ts": "2026-10-11 12:50:18",
+   "agent_id": "researcher",
+   "message": "Pantau G2 vs T1: Lotus G2 13-11, Abyss live 7-7, cek lagi 45 menit"
+  },
+  {
+   "ts": "2026-10-11 12:48:39",
+   "agent_id": "analyst",
+   "message": "Update data 2 post IG 📈"
+  },
   {
    "ts": "2026-10-11 11:56:43",
    "agent_id": "owner",
@@ -304,16 +314,6 @@
    "ts": "2026-10-11 10:27:15",
    "agent_id": "owner",
    "message": "Chat: lagi pada ngapain"
-  },
-  {
-   "ts": "2026-10-11 07:52:49",
-   "agent_id": "publisher",
-   "message": "Posting #2 ke IG ✅"
-  },
-  {
-   "ts": "2026-10-11 07:41:47",
-   "agent_id": "publisher",
-   "message": "Gagal posting #2: folder ini belum repo git (GitHub Pages belum di-setup)"
   }
  ],
  "chats": [
@@ -480,11 +480,24 @@
    "pending": 0,
    "scheduled": 0,
    "views": 0,
-   "likes": 0,
+   "likes": 1,
    "comments": 0,
    "shares": 0,
    "saves": 0,
-   "top": []
+   "top": [
+    {
+     "title": "Thank You NRG — Champions Shanghai",
+     "format": "feed",
+     "pillar": "esport",
+     "views": 0
+    },
+    {
+     "title": "RRQ vs ONIC: Laga Hidup-Mati Zona Playoff MPL ID S18",
+     "format": "feed",
+     "pillar": "esport",
+     "views": 0
+    }
+   ]
   },
   "last_week": {
    "week": "2026-09-28",
