@@ -20,6 +20,12 @@ const STATE_PATH = join(ROOT, 'docs', 'data', 'state.json');
 const db = new DatabaseSync(DB_PATH);
 db.exec('PRAGMA foreign_keys = ON');
 db.exec(CHAT_SQL);
+// plan mingguan perlu ✅ Owner; campaign lama dianggap sudah approved
+try { db.exec("ALTER TABLE campaigns ADD COLUMN status TEXT DEFAULT 'approved'"); } catch { /* sudah ada */ }
+// ide konten tambahan dari briefing pagi (desain saja, maks 2 dipilih Aprista per hari)
+db.exec(`CREATE TABLE IF NOT EXISTS ideas (id INTEGER PRIMARY KEY AUTOINCREMENT, day TEXT NOT NULL, agent_id TEXT NOT NULL,
+  title TEXT NOT NULL, concept TEXT, game TEXT, pillar TEXT, chosen INTEGER NOT NULL DEFAULT 0,
+  status TEXT NOT NULL DEFAULT 'pitched', content_id INTEGER, created_at TEXT DEFAULT (datetime('now')))`); // pitched | proposed | approved | skipped | made
 db.exec(`CREATE TABLE IF NOT EXISTS followups (id INTEGER PRIMARY KEY AUTOINCREMENT, note TEXT NOT NULL, due_at TEXT NOT NULL,
   done INTEGER NOT NULL DEFAULT 0, created_at TEXT DEFAULT (datetime('now')))`);
 
@@ -79,6 +85,24 @@ const commands = {
     out('ok');
   },
 
+  // idea add <file.json> [{agent, title, concept, game, pillar}] | idea pick <id1> [id2] | idea list [day]
+  idea(sub, a, b) {
+    if (sub === 'add') {
+      const items = JSON.parse(existsSync(a) ? readFileSync(a, 'utf8') : a);
+      const ids = items.map((i) => Number(run('INSERT INTO ideas (day, agent_id, title, concept, game, pillar) VALUES (?, ?, ?, ?, ?, ?)',
+        today(), i.agent, i.title, i.concept ?? null, i.game ?? null, i.pillar ?? null).lastInsertRowid));
+      return out({ ok: true, ids });
+    }
+    if (sub === 'pick') {
+      for (const id of [a, b].filter(Boolean)) run('UPDATE ideas SET chosen = 1 WHERE id = ?', id);
+      log('dir', `Pilih ${[a, b].filter(Boolean).length} ide terbaik dari briefing`);
+      return out('ok');
+    }
+    if (sub === 'list') return out(all('SELECT id, agent_id, title, concept, chosen, status, content_id FROM ideas WHERE day = ? ORDER BY id', a ?? today()));
+    if (sub === 'done') { run("UPDATE ideas SET status = 'made', content_id = ? WHERE id = ?", b, a); return out('ok'); }
+    out('pakai: idea add <file.json> | pick <id1> [id2] | list [day] | done <idea_id> <content_id>');
+  },
+
   // followup <menit> "<apa yang dicek>" — minta watcher membangunkan Claude lagi nanti (mis. pantau skor pertandingan)
   followup(minutes, ...note) {
     const m = Math.max(15, Math.min(240, +minutes || 30));
@@ -113,6 +137,10 @@ const commands = {
          ON CONFLICT(week_start) DO UPDATE SET theme = excluded.theme, goals = excluded.goals, plan_json = excluded.plan_json`,
       week, c.theme, c.goals ?? null, JSON.stringify(c.plan ?? []));
     const { id } = get('SELECT id FROM campaigns WHERE week_start = ?', week);
+    // plan baru / revisi plan: buang slot lama yang belum dikerjakan, status balik draft (nunggu ✅ Owner)
+    const stale = all("SELECT id FROM contents WHERE campaign_id = ? AND status = 'draft' AND data_json IS NULL", id).map((r) => r.id);
+    for (const cid of stale) { run('DELETE FROM tasks WHERE content_id = ?', cid); run('DELETE FROM contents WHERE id = ?', cid); }
+    run("UPDATE campaigns SET status = 'draft' WHERE id = ?", id);
     for (const p of c.plan ?? []) {
       const r = run('INSERT INTO contents (campaign_id, day, slot, format, game, pillar, title) VALUES (?, ?, ?, ?, ?, ?, ?)',
         id, p.day, p.slot, p.format, p.game ?? null, p.pillar ?? null, p.title);
@@ -186,7 +214,7 @@ const commands = {
       campaign: camp ?? null,
       agents: all('SELECT id, name, title, status, current_task, updated_at FROM agents'),
       week_contents: all(`SELECT id, day, slot, format, game, pillar, title, status, asset_url, scheduled_at, posted_at
-                          FROM contents WHERE day BETWEEN ? AND ? ORDER BY day, CASE slot WHEN 'pagi' THEN 0 WHEN 'siang' THEN 1 ELSE 2 END`, week, addDays(week, 6)),
+                          FROM contents WHERE day BETWEEN ? AND ? ORDER BY day, CASE slot WHEN 'pagi' THEN 0 WHEN 'siang' THEN 1 WHEN 'kilat' THEN 2 WHEN 'sore' THEN 3 ELSE 4 END`, week, addDays(week, 6)),
       today_tasks: all('SELECT agent_id, type, title, status FROM tasks WHERE day = ? ORDER BY id', t),
       activity: all('SELECT ts, agent_id, message FROM activity ORDER BY id DESC LIMIT 25'),
       chats: all('SELECT ts, agent_id, to_id, kind, message FROM chats ORDER BY id DESC LIMIT 40'),
@@ -215,7 +243,7 @@ function weekStats(week) {
 const normalize = (o) => Object.fromEntries(Object.entries(o ?? {}).map(([k, v]) => [k, Number(v ?? 0)]));
 
 if (!commands[cmd]) {
-  out('perintah: init | brief <agent> | agent <id> <status> [task] | chat <dari> <ke|all> <kind> <pesan> | log <agent> <msg> | memory <agent> <note> | campaign <file> | research <file> | content get|set|list|new | followup <menit> <catatan> | task done|doing|list | metric ... | stats [week] | export');
+  out('perintah: init | brief <agent> | agent <id> <status> [task] | chat <dari> <ke|all> <kind> <pesan> | log <agent> <msg> | memory <agent> <note> | campaign <file> | research <file> | content get|set|list|new | idea add|pick|list|done | followup <menit> <catatan> | task done|doing|list | metric ... | stats [week] | export');
   process.exit(cmd ? 1 : 0);
 }
 commands[cmd](...args);

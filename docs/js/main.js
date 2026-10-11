@@ -71,7 +71,7 @@ function renderDashboard() {
 
 // chit-chat: diperbarui tiap ganti menit (live) atau tiap geser waktu simulasi
 const AVATAR = Object.fromEntries([['owner', '#5b1fd6'], ...AGENTS.map((a) => [a.id, a.avatar])]);
-const KIND = { oper: '🔁', santai: '☕', kerja: '💻', curhat: '💭', bos: '👑' };
+const KIND = { oper: '🔁', santai: '☕', kerja: '💻', curhat: '💭', bos: '👑', pacaran: '💕' };
 let lastChatKey = null;
 function renderChat(t) {
   const sim = $('sim-toggle').checked;
@@ -123,7 +123,8 @@ function tick(force = false) {
   const visits = visitsNow();
   const list = AGENTS.map((a, idx) => {
     const real = realOf(a.id);
-    const info = describe(a, activityAt(idx, a, t, real, { visit: visits[a.id] }), real);
+    const partnerBusy = a.partner ? realOf(a.partner)?.status === 'working' : false;
+    const info = describe(a, activityAt(idx, a, t, real, { visit: visits[a.id], partnerBusy }), real);
     office?.setActivity(a.id, info, mode);
     return { a, info };
   });

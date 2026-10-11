@@ -18,7 +18,7 @@ Hasil feed/carousel: JPG 1080×1080 (IG, 1:1) + `-916.jpg` 1080×1920 (TikTok). 
 | template | data_json |
 |---|---|
 | `promo` | `kicker, headline, sub, items:[{name, price:"Rp 21.500", old?, tag?}] (≤4)` |
-| `news` | `label: BERITA\|RUMOR\|PATCH\|TRANSFER\|ESPORT, date, headline, sub, points:[≤3], source` |
+| `news` | `label: BERITA\|RUMOR\|PATCH\|TRANSFER\|ESPORT, date, headline, sub, points:[≤3], source, photo?, pre?` — `photo` = path foto (mis. `assets/photos/x.jpg`) → layout foto bernuansa ungu + judul besar (points tidak tampil), `pre` = teks kecil di atas judul. Foto pemain hanya kalau Owner minta |
 | `versus` | `event, headline, left:{name, sub, short?, logo?}, right:{…sama}, time` — `logo` = path file (mis. `assets/teams/rrq.png`), tidak ada → lambang inisial `short` |
 | `tips` | `kicker, headline, items:[{title, desc}] (3–5)` |
 | `quiz` | `kicker: KUIS\|POLLING, headline, sub?, options:[2–4]` |

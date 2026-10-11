@@ -13,6 +13,9 @@ const LOOK = {
   video:      { g: 'm', skin: '#bd8f6b', hair: '#262222', style: 'short', kerja: { top: '#8a3b3b', bot: '#6b6450', shoe: '#2b2b2b', sleeve: 'short', collar: true } },
   publisher:  { g: 'm', skin: '#d1a380', hair: '#3d3430', style: 'short2', kerja: { top: '#5b6475', bot: '#2e3440', shoe: '#1d1d22', sleeve: 'long', inner: '#eeeae2' } },
   ads:        { g: 'f', skin: '#e3b593', hair: '#4a2c20', style: 'bob',  kerja: { top: '#0d9488', bot: '#f0ece2', skirt: 'short', shoe: '#3a2f2a', sleeve: 'long', collar: true } },
+  analyst:    { g: 'm', skin: '#c99a76', hair: '#1f1a17', style: 'short2', kerja: { top: '#475569', bot: '#d6d0c4', shoe: '#2b2b2b', sleeve: 'short', collar: true } },
+  price:      { g: 'f', skin: '#e2b48f', hair: '#2e1d16', style: 'pony', kerja: { top: '#f59e0b', bot: '#2f2a3d', skirt: 'long', shoe: '#2a2630', sleeve: 'short' } },
+  ob:         { g: 'f', skin: '#d6a882', hair: '#3a2a22', style: 'bob', uniform: true, kerja: { top: '#3d7ea6', bot: '#2c3e50', skirt: 'long', shoe: '#1d1d22', sleeve: 'short', vest: '#f1efe8' } },
   owner:      { g: 'm', skin: '#cc9e7a', hair: '#1b1717', style: 'short', kerja: { top: '#17151d', bot: '#3b3f4a', shoe: '#e9e6df', sleeve: 'short', acc: '#d4a63a' } },
 };
 // Senin: jas (cowok), kemeja sekretaris + rok pensil (cewek)
@@ -29,7 +32,7 @@ const tone = (h, k) => {
 
 function palette(id, outfit, praying) {
   const L = LOOK[id];
-  const o = outfit === 'formal' ? (L.g === 'm' ? FORMAL_M : FORMAL_F) : L.kerja;
+  const o = outfit === 'formal' && !L.uniform ? (L.g === 'm' ? FORMAL_M : FORMAL_F) : L.kerja; // OB tetap seragam
   const P = {
     g: L.g, style: L.style, skirt: L.g === 'f' ? o.skirt : null, sleeve: o.sleeve, collar: o.collar, neck: o.neck,
     skin: tone(L.skin, 0), skinD: tone(L.skin, -0.22), hair: tone(L.hair, 0), hairD: tone(L.hair, -0.3), hairL: tone(L.hair, 0.25),
@@ -37,6 +40,7 @@ function palette(id, outfit, praying) {
     shoe: tone(o.shoe, 0), eye: pack(29, 20, 32), mouth: tone('#b8645a', 0), blush: tone(L.skin, -0.1),
     inner: o.inner ? tone(o.inner, 0) : null, tie: o.tie ? tone(o.tie, 0) : null, vest: o.vest ? tone(o.vest, 0) : null,
     acc: L.kerja.acc && outfit !== 'formal' ? tone(L.kerja.acc, 0) : null,
+    broomH: pack(139, 94, 52), broomB: pack(214, 178, 96), broomBD: pack(170, 136, 66),
     white: pack(246, 244, 238), whiteD: tone('#d9d6e4', -0.05), black: pack(22, 20, 28), phone: pack(30, 28, 40), glow: pack(140, 200, 255),
     peci: false, mukena: false,
   };
@@ -312,8 +316,18 @@ function mirror(g) {
   for (let y = 0; y < SH; y++) for (let x = 0; x < SW - 1; x++) g.d[y * SW + x] = d[y * SW + x + 1];
 }
 
+// sapu OB: gagang miring dari tangan ke lantai, ujungnya goyang kiri-kanan
+function drawBroom(g, P, y, f, view) {
+  const sw = f === 1 ? 1 : f === 3 ? -1 : 0;
+  const hx = view === 'N' ? 5 : 14, hy = y + 11;
+  const fx = hx + (view === 'N' ? -2 : 2) + sw, fy = SH - 3;
+  for (let i = 0; i <= 8; i++) g.p(Math.round(hx + ((fx - hx) * i) / 8), Math.round(hy + ((fy - hy) * i) / 8), P.broomH);
+  g.r(fx - 2, fy, 5, 1, P.broomB);
+  g.r(fx - 2, fy + 1, 5, 1, P.broomBD);
+}
+
 const SEATED = new Set(['type', 'talk', 'eat', 'phone', 'game', 'bench', 'beanbag']);
-const ARMS = { type: 'type', talk: 'down', eat: 'cup', phone: 'phone', game: 'pad', bench: 'down', beanbag: 'phone', drink: 'cup', stand: 'down' };
+const ARMS = { type: 'type', talk: 'down', eat: 'cup', phone: 'phone', game: 'pad', bench: 'down', beanbag: 'phone', drink: 'cup', stand: 'down', sweep: 'down' };
 
 const cache = new Map();
 // f: frame animasi 0..3 ; v: varian (mood/fase sholat)
@@ -350,6 +364,7 @@ export function sprite(id, outfit, pose, dir, f = 0, v = '') {
     if (view === 'S') { headS(g, P, y); torsoS(g, P, y + 8, arms); legsS(g, P, y + 14, legs); }
     else if (view === 'N') { headN(g, P, y); torsoS(g, P, y + 8, arms, true); longBack(g, P, y); legsS(g, P, y + 14, legs); }
     else { legsE(g, P, y + 14, legs); torsoE(g, P, y + 8, arms); headE(g, P, y); }
+    if (pose === 'sweep') drawBroom(g, P, y, f, view);
     if (view === 'E' && dir === 'W') mirror(g);
   }
   outline(g);

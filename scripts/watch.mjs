@@ -12,7 +12,9 @@ import { poll, submit, say, loadEnv, downloadPhotos, photoNote } from './approva
 import { publishDue } from './publish.mjs';
 import { revisionText } from './chatter.mjs';
 import { adsReady, propose, runApproved } from './boost.mjs';
-import { handleOwnerMessage, runFollowups, syncMonitor } from './ask.mjs';
+import { handleOwnerMessage, handleDecision, runFollowups, syncMonitor } from './ask.mjs';
+import { analystTick } from './analyst.mjs';
+import { priceTick } from './price.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const EVERY = 60_000;
@@ -122,7 +124,14 @@ async function talk() {
   talking = true;
   try {
     while (inbox.length) {
-      const { msg, photos } = inbox.shift();
+      const item = inbox.shift();
+      if (item.decision) {
+        log(`keputusan owner: ${item.decision.action} #${item.decision.id}`);
+        await handleDecision(item.decision, log);
+        exportState();
+        continue;
+      }
+      const { msg, photos } = item;
       log(`pesan owner: ${msg.slice(0, 80)}${photos.length ? ` (+${photos.length} foto)` : ''}`);
       const r = await handleOwnerMessage(msg, log, photos);
       log(`pesan owner beres (${r.kind}${r.ok === false ? ', gagal' : ''})`);
@@ -150,10 +159,26 @@ function syncPages() {
   } catch (e) { log(`push state gagal: ${String(e.stderr || e.message).trim().split('\n').pop()}`); }
 }
 
+// Raka (data IG tiap 3 jam + laporan Minggu) & Nadia (cek harga tiap 2 jam) — tanpa AI
+let crunching = false;
+async function staff() {
+  if (crunching) return;
+  crunching = true;
+  try {
+    const a = await analystTick();
+    if (a) log(`raka: ${JSON.stringify(a)}`);
+    const p = await priceTick();
+    if (p) log(`nadia: ${JSON.stringify(p).slice(0, 200)}`);
+    if (a || p) exportState();
+  } catch (e) { log(`raka/nadia gagal: ${e.message}`); }
+  crunching = false;
+}
+
 async function tick() {
   autopost();
   ads();
   talk();
+  staff();
   try {
     const got = await poll();
     if (!got.length) return;
@@ -162,6 +187,7 @@ async function tick() {
     if (got.some((g) => ['approve', 'reject'].includes(g.action))) setAgent('publisher', 'done');
     if (got.some((g) => g.action === 'boost_skip')) setAgent('ads', 'done');
     for (const g of got.filter((x) => x.action === 'chat' && (x.note || x.photos?.length))) inbox.push({ msg: g.note ?? '', photos: g.photos ?? [] });
+    for (const g of got.filter((x) => ['plan_approve', 'plan_revision', 'idea_approve', 'price_promo'].includes(x.action))) inbox.push({ decision: g });
     if (inbox.length) talk();
     exportState();
     // revisi terakhir per konten saja (kalau Owner kirim beberapa catatan, gabungkan)

@@ -19,6 +19,9 @@ Kantor marketing virtual untuk **zataa.my.id** (top up game). Claude memerankan 
 | video | Dimas | Render video 9:16 dari template |
 | publisher | Fikri | QA akhir, kirim ke Telegram Owner untuk approval (`scripts/approval.mjs submit <id>`) |
 | ads | Fahriah | Boost post IG terbaik (usul via Telegram, budget bulanan dikunci; otomatis lewat watcher, `scripts/boost.mjs`) |
+| analyst | Raka | Data IG tiap 3 jam + laporan mingguan Minggu 16:00 (otomatis, `scripts/analyst.mjs`); riset pagi dari data |
+| price | Nadia | Pantau harga zataa.my.id tiap 2 jam, perubahan → usul konten promo (otomatis, `scripts/price.mjs`) |
+| ob | Mbak Sari | Office girl (animasi kantor saja, tidak diperankan Claude) |
 
 Sebelum memerankan pegawai, baca **hanya** playbook-nya: `office/roles/<id>.md` (keahlian diadaptasi dari agency-agents, MIT).
 
@@ -29,9 +32,11 @@ Update status visual: `office.mjs agent <id> working "<tugas>"` → selesai `off
 Pesan bebas Owner di Telegram dikerjakan watcher lewat `scripts/ask.mjs`: "lagi pada ngapain" dijawab tanpa AI; tugas lain dijalankan Claude CLI. Konten dadakan: `office.mjs content new '<json>'` (slot `kilat` = tayang begitu approved). Owner bilang "langsung post" = approval. Tugas pantau: `office.mjs followup <menit> "<konteks>"` (maks 16×/hari).
 
 ## Ritme kerja
-- Kantor buka **setiap hari (Senin–Minggu) 07:00–21:00 WITA**; sesi kerja Claude otomatis mulai 07:00 WITA. Senin: plan mingguan. Minggu: evaluasi mingguan.
+- Kantor jalan **24 jam** (VPS); pegawai tinggal di mess. Sesi kerja Claude otomatis 07:00 WITA, SOP lengkap: `office/daily.md`.
+- **Senin 07:00–08:00**: rapat plan mingguan → `approval.mjs plan` → produksi baru jalan setelah Owner ✅ plan.
+- **Selasa–Minggu**: 07:00–08:00 riset masing-masing, 08:00–08:30 briefing (tiap pegawai 1 ide desain tambahan, Aprista pilih 2 → `approval.mjs ideas`), lalu produksi konten terjadwal.
 - Video: **Rabu & Sabtu**. Hari lain feed/carousel.
-- Target per hari: 2 konten (slot `siang` ±12:00 & `malam` ±19:00 **WIB** — jam tayang ikut zona mayoritas audiens). Hari video: 1 video + 1 feed.
+- Slot WIB (jam tayang ikut zona mayoritas audiens): `siang` ±12:00 & `malam` ±19:00 (plan), `pagi` 10:00 & `sore` 16:00 (ide tambahan yang di-✅), `kilat` = langsung setelah approve.
 - Mix konten mingguan: ~40% berita/esport (turnamen, transfer, patch), ~30% promo zataa (harga, event top up), ~20% tips/engagement (kuis, polling, meme aman), game lain di luar ML/Valorant/FF maksimal 1×/minggu.
 
 ## Aturan konten

@@ -13,13 +13,20 @@ Bikin akun IG & TikTok Zataa jadi tempat nongkrong gamer ML/Valorant/FF, lalu ub
    - Jangan 2 promo berturut-turut. Promo paling kuat di hari gajian/akhir pekan.
 5. Tetapkan **1 eksperimen** minggu ini, contoh: hook pertanyaan vs hook angka, carousel vs single, jam 12 vs 13.
 6. Simpan: tulis `plan.json` → `office.mjs campaign plan.json`.
+7. Kirim ke Owner: `node scripts/approval.mjs plan` (Telegram ✅/✏️). **Produksi konten baru mulai setelah plan di-✅** (watcher yang membangunkan tim). Revisi plan: simpan ulang dengan `campaign` (slot lama yang belum dikerjakan otomatis diganti) lalu kirim lagi.
 
 ```json
 {"theme":"...","goals":"...; eksperimen: ...","plan":[{"day":"YYYY-MM-DD","slot":"siang","format":"feed|carousel|video","game":"mlbb|valorant|freefire|other","pillar":"news|esport|promo|tips|engagement","title":"..."}]}
 ```
 
+## Selasa–Minggu — briefing pagi (08:00–08:30)
+- Tiap pegawai (Clariana, Ista, Maria, Dimas, Fikri, Fahriah, Raka, Nadia) pitching **1 ide konten tambahan** di luar plan: **desain feed saja**, bukan video, tetap ikut mix & aturan konten.
+- Simpan semua ide: `office.mjs idea add ideas.json` (`[{agent, title, concept, game, pillar}]`).
+- Aprista pilih **2 terbaik** (paling relevan hari ini, beda pilar dari konten terjadwal, gampang dieksekusi): `office.mjs idea pick <id1> <id2>` → `node scripts/approval.mjs ideas`.
+- Owner boleh approve 1, 2, atau skip. Yang di-approve dibikin otomatis (slot `pagi` 10:00 & `sore` 16:00 WIB).
+
 ## Minggu — evaluasi
-- `office.mjs stats` lalu nilai tiap konten:
+- Mulai dari laporan Raka (Telegram Minggu 16:00, data di tabel metrics) + `office.mjs stats`, lalu nilai tiap konten:
   - **ER** = (like+komen+share+save) / views. Share & save bobotnya 2× (sinyal algoritma terkuat).
   - **Scale**: top 3 → bikin variasi minggu depan. **Kill**: 3 konten pilar sama di bawah median 2 minggu berturut → kurangi porsinya.
 - Hasil eksperimen: menang/kalah/belum jelas (butuh ≥3 konten per varian).

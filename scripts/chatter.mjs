@@ -14,8 +14,10 @@ export const NEXT = {
   video: ['publisher'],
   publisher: ['owner'],
   ads: ['owner'],
+  analyst: ['dir'],
+  price: ['copywriter'],
 };
-export const NAMES = { dir: 'Aprista', researcher: 'Clariana', copywriter: 'Ista', designer: 'Maria', video: 'Dimas', publisher: 'Fikri', ads: 'Fahriah', owner: 'Bos Zamiir' };
+export const NAMES = { dir: 'Aprista', researcher: 'Clariana', copywriter: 'Ista', designer: 'Maria', video: 'Dimas', publisher: 'Fikri', ads: 'Fahriah', analyst: 'Raka', price: 'Nadia', ob: 'Mbak Sari', owner: 'Bos Zamiir' };
 
 const pick = (arr, seed) => arr[Math.abs(seed) % arr.length];
 const seedOf = (s) => [...String(s)].reduce((a, c) => (a * 31 + c.charCodeAt(0)) | 0, 7);
@@ -28,6 +30,8 @@ const HANDOFF = {
   video: ['{to}, video "{task}" udah render 9:16. Musiknya aman kok', 'Render "{task}" selesai, {to}. Cek cover-nya ya'],
   publisher: ['Bos, "{task}" udah aku kirim ke Telegram. Ditunggu approve-nya 🙏', '"{task}" udah lolos QA, tinggal nunggu ✅ dari Bos'],
   ads: ['Bos, ada usulan boost buat "{task}". Cek Telegram ya 💸'],
+  analyst: ['{to}, data "{task}" udah aku rangkum. Angkanya menarik nih 📈', 'Rekap "{task}" beres, {to}. Bisa buat bahan plan'],
+  price: ['{to}, harga buat "{task}" udah aku cek di web. Angkanya aman dipake 💰', '{to}, cek harga "{task}" kelar, jangan sampe salah angka ya'],
 };
 const REVISION = [
   'Yah revisi… oke deh, aku balik ke meja dulu 💻', 'Siap, revisi dikerjain! Bos-nya teliti banget 😅', 'Noted bos, aku benerin sekarang',

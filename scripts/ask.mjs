@@ -109,6 +109,48 @@ export async function syncMonitor() {
   }
 }
 
+// ---------- keputusan Owner dari tombol Telegram yang butuh kerja tim (plan, ide briefing, promo harga)
+async function team(intro, task, log) {
+  const r = await claude(`Kamu tim kantor marketing Zataa (zataa.my.id) di folder ini. ${intro}\n\n${task}\n\n${RULES}`);
+  if (!r.ok) {
+    log(`tugas tim gagal: ${r.text.slice(0, 300)}`);
+    await say(`⚠️ Tim belum bisa ngerjain otomatis (${esc(r.text.slice(0, 150))}). Dilanjut di sesi harian.`).catch(() => {});
+    return false;
+  }
+  await say(`💬 ${esc(replyOf(r.text))}`).catch(() => {});
+  return true;
+}
+
+export async function handleDecision(x, log = console.log) {
+  const d = await db();
+  if (x.action === 'plan_approve') {
+    chat(d, 'dir', null, 'Plan minggu ini udah di-ACC Bos! Gas produksi konten hari ini 🔥', 'oper');
+    return team('Owner baru saja APPROVE plan mingguan.', `Produksi konten HARI INI sesuai plan (node scripts/office.mjs content list): Ista isi teks, Maria/Dimas render, Fikri QA lalu node scripts/approval.mjs submit <id> untuk tiap konten. Jangan bikin plan baru.`, log);
+  }
+  if (x.action === 'plan_revision') {
+    const refs = await downloadPhotos(x.photos ?? []);
+    chat(d, 'dir', null, 'Plan-nya diminta revisi sama Bos, aku benerin dulu ya 📝', 'oper');
+    return team(`Owner minta REVISI plan mingguan (campaign id ${x.id}): "${x.note}"${photoNote(refs)}`,
+      'Aprista revisi plan sesuai catatan (baca office/roles/dir.md), simpan lagi dengan node scripts/office.mjs campaign <plan.json> (slot lama yang belum dikerjakan otomatis diganti), lalu kirim ulang: node scripts/approval.mjs plan. Jangan produksi konten sebelum plan di-approve.', log);
+  }
+  if (x.action === 'idea_approve') {
+    const ids = String(x.note || x.id).split(',').map(Number).filter(Boolean);
+    const rows = ids.map((id) => d.prepare('SELECT * FROM ideas WHERE id = ?').get(id)).filter(Boolean);
+    if (!rows.length) return false;
+    chat(d, 'dir', null, `Bos ACC ${rows.length} ide tambahan! ${rows.map((r) => `"${r.title}"`).join(' & ')} 🎉`, 'oper');
+    const list = rows.map((r, i) => `- idea id ${r.id}: "${r.title}" — ${r.concept ?? ''} (dari ${r.agent_id}${r.game ? `, game ${r.game}` : ''}${r.pillar ? `, pilar ${r.pillar}` : ''}) → slot "${ids.length === 1 ? 'sore' : i === 0 ? 'pagi' : 'sore'}"`).join('\n');
+    return team('Owner APPROVE ide konten tambahan hasil briefing pagi (DESAIN FEED saja, bukan video):\n' + list,
+      'Untuk tiap ide: buat konten baru (node scripts/office.mjs content new \'{"format":"feed","slot":"<slot>","game":"...","pillar":"...","title":"..."}\'), Ista isi teks, Maria render, Fikri QA lalu node scripts/approval.mjs submit <id>, dan catat: node scripts/office.mjs idea done <idea_id> <content_id>.', log);
+  }
+  if (x.action === 'price_promo') {
+    const snap = d.prepare('SELECT * FROM price_snapshots WHERE id = ?').get(x.id);
+    chat(d, 'price', 'copywriter', 'Ista, harga di web berubah nih, Bos minta dibikinin konten promo! 💰', 'oper');
+    return team(`Nadia (Price Watcher) nemu perubahan harga di zataa.my.id dan Owner minta dibikinin konten promo. Perubahan:\n${snap?.diff ?? '(cek ulang web)'}`,
+      'Cek ulang harga langsung di zataa.my.id (WebFetch), lalu bikin 1 konten feed promo slot "kilat" (content new), Ista isi teks, Maria render, Fikri QA lalu node scripts/approval.mjs submit <id>. Angka harga WAJIB sesuai web hari ini.', log);
+  }
+  return false;
+}
+
 // ---------- tugas pantau yang dijadwalkan Claude (office.mjs followup)
 export async function runFollowups(log = console.log) {
   const d = await db();

@@ -84,7 +84,7 @@ Owner juga kirim ${paths.length} gambar contoh/referensi: ${paths.join(', ')}. W
 
 export const say = (text) => tg('sendMessage', { chat_id: env.TELEGRAM_CHAT_ID, text, parse_mode: 'HTML', disable_web_page_preview: true });
 
-export const SLOT = { pagi: '09:00', siang: '12:00', malam: '19:00', kilat: 'langsung' };
+export const SLOT = { pagi: '10:00', siang: '12:00', sore: '16:00', malam: '19:00', kilat: 'langsung' }; // WIB; pagi & sore = konten tambahan dari briefing
 const slotLabel = (c) => (c.slot === 'kilat' ? 'langsung tayang' : `${SLOT[c.slot] ?? '?'} WIB`);
 // tujuan posting per format: video → IG Reels (+ TikTok private kalau sudah login), feed/carousel → IG Feed
 const tiktokOn = () => !!loadEnv().TIKTOK_REFRESH_TOKEN;
@@ -135,6 +135,49 @@ export async function submit(id, { note = '' } = {}) {
   return { ok: true, id: c.id, status: 'pending_approval' };
 }
 
+// ---------- plan mingguan (Senin) → ✅ / ✏️ Owner
+const DAY_SHORT = ['Min', 'Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab'];
+export async function submitPlan() {
+  const d = await db();
+  const c = d.prepare('SELECT * FROM campaigns ORDER BY week_start DESC LIMIT 1').get();
+  if (!c) throw new Error('belum ada campaign minggu ini');
+  const rows = d.prepare("SELECT day, slot, format, game, pillar, title FROM contents WHERE campaign_id = ? ORDER BY day, CASE slot WHEN 'pagi' THEN 0 WHEN 'siang' THEN 1 WHEN 'sore' THEN 2 ELSE 3 END").all(c.id);
+  const byDay = {};
+  for (const r of rows) (byDay[r.day] ??= []).push(r);
+  const lines = Object.entries(byDay).map(([day, items]) => `<b>${DAY_SHORT[new Date(`${day}T00:00:00Z`).getUTCDay()]} ${day.slice(8)}/${day.slice(5, 7)}</b>\n${items
+    .map((r) => `• ${r.slot} · ${r.format === 'video' ? '🎬' : '🖼️'} ${esc(r.game ?? '')} ${esc(r.pillar ?? '')}: ${esc(r.title)}`).join('\n')}`);
+  let text = [`🗓️ <b>PLAN MINGGU ${c.week_start}</b> (Plan C${c.id}) dari Aprista`, `Tema: <b>${esc(c.theme)}</b>`, c.goals ? `Target: ${esc(c.goals)}` : '', '', ...lines, '',
+    'Tekan ✅ buat mulai produksi, atau ✏️ Revisi lalu ketik catatannya (boleh reply pesan ini).'].filter((l) => l !== '').join('\n');
+  if (text.length > 4000) text = `${text.slice(0, 3990)}…`;
+  await tg('sendMessage', {
+    chat_id: env.TELEGRAM_CHAT_ID, text, parse_mode: 'HTML',
+    reply_markup: { inline_keyboard: [[{ text: '✅ Approve plan', callback_data: `plan:${c.id}` }, { text: '✏️ Revisi plan', callback_data: `planrev:${c.id}` }]] },
+  });
+  d.prepare("UPDATE campaigns SET status = 'pending' WHERE id = ?").run(c.id);
+  d.prepare('INSERT INTO activity (agent_id, message) VALUES (?, ?)').run('dir', `Kirim plan minggu ${c.week_start} ke Owner (${rows.length} konten)`);
+  return { ok: true, campaign: c.id, contents: rows.length };
+}
+
+// ---------- ide briefing pagi (Selasa–Minggu): 2 ide terbaik pilihan Aprista → Owner pilih
+export async function submitIdeas() {
+  const d = await db();
+  const today = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Makassar' }).format(new Date());
+  const ideas = d.prepare('SELECT * FROM ideas WHERE day = ? AND chosen = 1 ORDER BY id LIMIT 2').all(today);
+  if (!ideas.length) throw new Error('belum ada ide yang dipilih hari ini (office.mjs idea pick)');
+  const NAMA = { dir: 'Aprista', researcher: 'Clariana', copywriter: 'Ista', designer: 'Maria', video: 'Dimas', publisher: 'Fikri', ads: 'Fahriah', analyst: 'Raka', price: 'Nadia' };
+  const slotOf = (i) => (i === 0 ? 'pagi 10:00' : 'sore 16:00');
+  const text = ['💡 <b>Ide konten tambahan hari ini</b> (hasil briefing, dipilih Aprista)', '',
+    ...ideas.map((x, i) => `<b>Ide ${i + 1}</b> · dari ${NAMA[x.agent_id] ?? x.agent_id} · tayang ${slotOf(i)} WIB\n<b>${esc(x.title)}</b>\n${esc(x.concept ?? '')}`), '',
+    'Desain feed aja (bukan video). Pilih yang mau dibikin:'].join('\n');
+  const row = ideas.map((x, i) => ({ text: `✅ Ide ${i + 1}`, callback_data: `idea:${x.id}` }));
+  const both = ideas.length === 2 ? [[{ text: '✅ Dua-duanya', callback_data: `ideas:${ideas[0].id}-${ideas[1].id}` }, { text: '❌ Skip', callback_data: `ideaskip:${ideas[0].id}` }]]
+    : [[{ text: '❌ Skip', callback_data: `ideaskip:${ideas[0].id}` }]];
+  await tg('sendMessage', { chat_id: env.TELEGRAM_CHAT_ID, text, parse_mode: 'HTML', reply_markup: { inline_keyboard: [row, ...both] } });
+  for (const x of ideas) d.prepare("UPDATE ideas SET status = 'proposed' WHERE id = ?").run(x.id);
+  d.prepare('INSERT INTO activity (agent_id, message) VALUES (?, ?)').run('dir', `Kirim ${ideas.length} ide briefing ke Owner`);
+  return { ok: true, ideas: ideas.map((x) => x.id) };
+}
+
 // tarik keputusan dari n8n (antrian dengan nomor urut; ack = nomor terakhir yang sudah diproses)
 export async function poll() {
   if (!env.N8N_DECISIONS_URL) throw new Error('N8N_DECISIONS_URL belum diisi di .env');
@@ -149,6 +192,16 @@ export async function poll() {
   for (const x of fresh) {
     // tombol usulan boost dari Fahriah (id = nomor boost, bukan konten) → dieksekusi scripts/boost.mjs
     if (x.action === 'chat') { log(`Chat: ${x.note}`); continue; } // dikerjakan watcher (scripts/ask.mjs)
+    if (x.action === 'plan_approve') { d.prepare("UPDATE campaigns SET status = 'approved' WHERE id = ?").run(x.id); log(`Approve plan mingguan ✅`); continue; }
+    if (x.action === 'plan_revision') { d.prepare("UPDATE campaigns SET status = 'revision' WHERE id = ?").run(x.id); log(`Minta revisi plan: ${x.note}`); continue; }
+    if (x.action === 'idea_approve') {
+      const ids = String(x.note || x.id).split(',').map(Number).filter(Boolean);
+      for (const id of ids) d.prepare("UPDATE ideas SET status = 'approved' WHERE id = ?").run(id);
+      d.prepare(`UPDATE ideas SET status = 'skipped' WHERE status = 'proposed' AND day = (SELECT day FROM ideas WHERE id = ?)`).run(ids[0] ?? 0);
+      log(`Approve ${ids.length} ide konten tambahan 💡`); continue;
+    }
+    if (x.action === 'idea_skip') { d.prepare("UPDATE ideas SET status = 'skipped' WHERE status = 'proposed' AND day = (SELECT day FROM ideas WHERE id = ?)").run(x.id); log('Skip ide tambahan hari ini'); continue; }
+    if (x.action === 'price_promo') { log('Minta konten promo dari perubahan harga 💰'); continue; }
     if (x.action === 'boost' || x.action === 'boost_skip') {
       const st = x.action === 'boost' ? 'approved' : 'skipped';
       d.prepare("UPDATE boosts SET status = ?, updated_at = datetime('now') WHERE id = ? AND status = 'proposed'").run(st, x.id);
@@ -185,8 +238,10 @@ if (isMain) {
   try {
     if (cmd === 'setup') await setup();
     else if (cmd === 'submit') out(await submit(+a));
+    else if (cmd === 'plan') out(await submitPlan());
+    else if (cmd === 'ideas') out(await submitIdeas());
     else if (cmd === 'poll') out({ decisions: await poll() });
     else if (cmd === 'say') { await say(esc(a)); out('ok'); }
-    else out('pakai: approval.mjs setup | submit <id> | poll | say "<teks>"');
+    else out('pakai: approval.mjs setup | submit <id> | plan | ideas | poll | say "<teks>"');
   } catch (e) { out(`gagal: ${e.message}`); process.exit(1); }
 }

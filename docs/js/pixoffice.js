@@ -156,7 +156,8 @@ export class Office {
     c.label.querySelector('.b-act').textContent = `${info.emoji} ${info.label}`;
     c.label.classList.toggle('is-selected', this.selected === id);
 
-    const key = info.loc === 'visit' ? `visit:${info.target}` : info.loc === 'lounge' && info.label.includes('Mabar') ? 'game' : info.loc;
+    const base = info.loc === 'visit' ? `visit:${info.target}` : info.loc === 'lounge' && info.label.includes('Mabar') ? 'game' : info.loc;
+    const key = info.slot != null ? `${base}#${info.slot}` : base;
     if (c.idx < DESKS) this.screens[c.idx] = c.locKey === 'desk' && !c.path.length;
 
     if (mode === 'init') {
@@ -463,6 +464,7 @@ export class Office {
         const m = MOOD_AT_DESK[c.mood];
         if (m && (t + c.seed * 7) % m[1] < m[2]) { if (m[0] === 'shake') jitter = Math.floor(t * 12) % 2 ? 1 : -1; else v = m[0]; }
       } else if (pose === 'talk') f = Math.floor(t * 1.3 + c.seed) % 4;
+      else if (pose === 'sweep') f = Math.floor(t * 2.2 + c.seed) % 4;
       else if (pose === 'eat' || pose === 'drink') f = Math.floor(t * 0.6 + c.seed) % 4;
       else if (pose === 'pray') v = c.info?.phase ?? phase; // mis. duduk dengerin khotbah
       if (pose === 'drink' && f >= 2) pose = 'stand';
@@ -472,8 +474,8 @@ export class Office {
       if (SEAT_N.has(pose) && dir === 'N') bias = 0.7;
       else if (SEAT_N.has(pose)) bias = 0.35;
       if (pose === 'swim') bias = 0.45;
-      const d0 = pose === 'lie' ? depthOf(c.pos.x, 0.45, c.pos.z) + 0.3 : depthOf(c.pos.x, c.pos.y, c.pos.z) + bias;
-      out.push({ c, spr, sx: Math.round(x) + jitter, sy: Math.round(y), d0, foot: depthOf(c.pos.x, c.pos.y, c.pos.z), shadow: pose === 'walk' || pose === 'stand' || pose === 'drink', ring: this.selected === c.agent.id });
+      const d0 = pose === 'lie' ? depthOf(c.pos.x, c.pos.y + 0.45, c.pos.z) + 0.3 : depthOf(c.pos.x, c.pos.y, c.pos.z) + bias;
+      out.push({ c, spr, sx: Math.round(x) + jitter, sy: Math.round(y), d0, foot: depthOf(c.pos.x, c.pos.y, c.pos.z), shadow: pose === 'walk' || pose === 'stand' || pose === 'drink' || pose === 'sweep', ring: this.selected === c.agent.id });
     });
     // flamingo mengambang pelan
     const fx = 15.5 + Math.sin(t * 0.07) * 1.6, fz = 8.6 + Math.sin(t * 0.05 + 1) * 1.2;

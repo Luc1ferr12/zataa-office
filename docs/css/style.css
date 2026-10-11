@@ -70,6 +70,7 @@ main { padding: 20px 24px 40px; max-width: 1440px; margin: 0 auto; display: grid
 .chat-list li.oper .msg { box-shadow: inset 3px 0 0 #7c3aed; }
 .chat-list li.curhat .msg { box-shadow: inset 3px 0 0 #db2777; }
 .chat-list li.bos .msg { box-shadow: inset 3px 0 0 #d4a63a; }
+.chat-list li.pacaran .msg { box-shadow: inset 3px 0 0 #f472b6; }
 .chat-list .empty { color: var(--muted); font-size: 12.5px; display: block; }
 .card { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px; min-width: 0; }
 .card-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; margin-bottom: 12px; }

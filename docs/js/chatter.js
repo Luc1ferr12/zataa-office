@@ -35,6 +35,24 @@ const BANK = {
     [[0, '{b}, render-nya udah kelar?'], [1, 'Bentar lagi, PC-ku lagi ngos-ngosan']],
     [[0, 'Caption-nya kurang CTA nih'], [1, 'Tambahin "top up di zataa.my.id" aja, simpel']],
   ],
+  pacaran: [
+    [[0, 'Udah makan belum? Jangan kerja mulu 🥺'], [1, 'Belum, nungguin kamu dong'], [0, 'Gombal ah 🙈']],
+    [[0, 'Nanti malem nonton bareng yuk'], [1, 'Boleh, tapi aku yang pilih filmnya ya'], [0, 'Asal bukan horor 😤']],
+    [[0, 'Kamu capek ya? Mukanya kusut'], [1, 'Dikit, tapi liat kamu langsung seger lagi'], [0, 'Dasar bos gombal 😆']],
+    [[0, 'Kopinya aku pesenin yang less sugar ya'], [1, 'Kok tau? 🥰'], [0, 'Udah hafal lah']],
+    [[0, 'Jangan lupa istirahat ya'], [1, 'Siap, bu director 🫡'], [0, 'Hehe good boy']],
+  ],
+  ledek: [
+    [[0, 'Itu bos sama Kak Aprista berduaan mulu ya 👀'], [1, 'Cieeee, kantor jadi berbunga-bunga 🌸']],
+    [[0, 'Kapan nih undangannya bos? 😏'], [1, 'Kerja dulu kerja, hus hus 😂']],
+    [[0, 'Pantes approve konten hari ini cepet, lagi bucin 🤭'], [1, 'Wkwk jangan kenceng-kenceng, kedengeran']],
+  ],
+  ob: [
+    [[0, 'Mbak Sari, kopinya hari ini enak banget ☕'], [1, 'Makasih, Mas/Mbak! Pake gula aren hari ini']],
+    [[1, 'Awas, lantainya masih basah ya 🧹'], [0, 'Siap Mbak, jalan jinjit nih 😆']],
+    [[0, 'Mbak udah makan belum?'], [1, 'Nanti abis beres-beres, gampang'], [0, 'Jangan telat makan lho Mbak']],
+    [[1, 'Siapa yang naro gelas di meja meeting ini? 🙄'], [0, 'Hehe aku Mbak, maaf…']],
+  ],
   curhat: [
     [[0, 'Capek banget hari ini 😮‍💨'], [1, 'Semangat {a}! Abis ini ngopi bareng yuk'], [0, 'Makasih ya 🥹']],
     [[0, 'Revisi lagi… aku salah di mana coba'], [1, 'Bukan salah kamu, bos emang detail. Itu tanda dia peduli'], [0, 'Iya sih, oke lanjut deh']],
@@ -44,10 +62,14 @@ const BANK = {
   ],
 };
 
-const people = AGENTS.filter((a) => !a.boss);
+const people = AGENTS;
 const idxOf = (id) => AGENTS.findIndex((a) => a.id === id);
 
 function topicOf(a1, a2) {
+  const ids = [a1.a.id, a2.a.id];
+  if (ids.includes('dir') && ids.includes('owner')) return 'pacaran';
+  if (ids.includes('ob')) return 'ob';
+  if (ids.includes('owner')) return null; // bos jarang nimbrung obrolan santai
   if (a1.mood?.key && ['marah', 'kesel', 'capek'].includes(a1.mood.key)) return 'curhat';
   if (a1.act === 'lunch' || a2.act === 'lunch') return 'makan';
   if (a1.act === 'coffee' || a1.loc === 'cafe') return 'ngopi';
@@ -69,7 +91,7 @@ export function simulatedChats(t, real = {}, dayDate = new Date()) {
     const acts = people.map((a) => ({ a, ...activityAt(idxOf(a.id), a, tt, real[a.id]) }));
     // pasangan yang lagi di tempat yang sama (meja kerja dihitung satu ruangan)
     const room = (x) => (x.loc === 'desk' ? 'work' : x.loc);
-    const here = acts.filter((x) => x.act !== 'off' && x.act !== 'pray' && x.act !== 'meeting');
+    const here = acts.filter((x) => !['off', 'pray', 'meeting', 'sleep'].includes(x.act));
     const groups = {};
     for (const x of here) (groups[room(x)] ??= []).push(x);
     const rooms = Object.values(groups).filter((g) => g.length >= 2);
@@ -78,7 +100,10 @@ export function simulatedChats(t, real = {}, dayDate = new Date()) {
     const i1 = Math.floor(hash(b * 5.1 + 1) * g.length) % g.length;
     const i2 = (i1 + 1 + Math.floor(hash(b * 9.3) * (g.length - 1))) % g.length; // selalu beda orang
     const [p1, p2] = [g[i1], g[i2]];
-    const topic = topicOf(p1, p2);
+    let topic = topicOf(p1, p2);
+    // kadang yang lain ngeledekin Zamiir & Aprista pas mereka lagi berduaan
+    const couple = here.filter((x) => x.a.partner).length === 2 && here.find((x) => x.a.id === 'dir')?.loc === here.find((x) => x.a.id === 'owner')?.loc;
+    if (couple && topic !== 'pacaran' && !['ob'].includes(topic) && hash(b * 4.4) < 0.5) topic = 'ledek';
     if (!topic) continue;
     const dialog = BANK[topic][Math.floor(hash(b * 2.3 + t.dow) * BANK[topic].length) % BANK[topic].length];
     dialog.forEach(([who, text], k) => {
@@ -86,7 +111,7 @@ export function simulatedChats(t, real = {}, dayDate = new Date()) {
       if (minute > t.minutes) return; // belum terjadi
       const [from, to] = who === 0 ? [p1.a, p2.a] : [p2.a, p1.a];
       out.push({
-        minute, from: from.id, to: to.id, kind: topic === 'curhat' ? 'curhat' : topic === 'kerja' ? 'kerja' : 'santai',
+        minute, from: from.id, to: to.id, kind: topic === 'curhat' ? 'curhat' : topic === 'kerja' ? 'kerja' : topic === 'pacaran' ? 'pacaran' : 'santai',
         message: text.replaceAll('{a}', p1.a.name).replaceAll('{b}', p2.a.name),
       });
     });

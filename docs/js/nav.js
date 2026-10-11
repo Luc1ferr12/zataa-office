@@ -21,8 +21,11 @@ const N = {
   BAL_W: [-14, UP, -7.25], MUS_DOOR: [-14, UP, -8.5], MUS_IN: [-14, UP, -9.6],
   MEET_DOOR: [-1.5, UP, -8.5], MEET_IN: [-1.5, UP, -9.6],
   BAL_E: [13, UP, -7.25], BOSS_DOOR: [13, UP, -8.5], BOSS_IN: [13, UP, -9.6],
-  WORK_IN: [6.5, 0, 1.0], W_AISLE: [6.4, 0, -2.2], WORK_DOOR: [9, 0, 2], WORK_OUT: [9, 0, 3.3],
+  WORK_IN: [5.95, 0, 1.0], W_AISLE: [5.95, 0, -2.2], WORK_DOOR: [9, 0, 2], WORK_OUT: [9, 0, 3.3],
   P1: [5.8, 0, 3.6], P_W: [5.8, 0, 8.5], P2: [5.8, 0, 13.0], P3: [12, 0, 13.0],
+  // sayap barat
+  BATH_DOOR: [-20.15, 0, -1.75], BATH_IN: [-22.6, 0, -1.75], MESS_DOOR: [-22.9, 0, -6], MESS_IN: [-22.9, 0, -8.6],
+  MUS_W: [-19.3, UP, -9.35], WUDHU_DOOR: [-20.15, UP, -9.35], WUDHU_IN: [-22.6, UP, -9.35],
 };
 const EDGES = [
   ['SPAWN', 'ENT'], ['ENT', 'DRIVE'], ['DRIVE', 'CAFE_OUT'], ['CAFE_OUT', 'CAFE_DOOR'], ['CAFE_DOOR', 'CAFE_IN'],
@@ -32,6 +35,8 @@ const EDGES = [
   ['BAL_MID', 'BAL_E'], ['BAL_E', 'BOSS_DOOR'], ['BOSS_DOOR', 'BOSS_IN'],
   ['WORK_IN', 'W_AISLE'], ['WORK_IN', 'WORK_DOOR'], ['WORK_DOOR', 'WORK_OUT'], ['WORK_OUT', 'P1'], ['TER', 'P1'],
   ['P1', 'P_W'], ['P_W', 'P2'], ['P2', 'P3'],
+  ['CAFE_IN', 'BATH_DOOR'], ['BATH_DOOR', 'BATH_IN'], ['BATH_IN', 'MESS_DOOR'], ['MESS_DOOR', 'MESS_IN'],
+  ['MUS_IN', 'MUS_W'], ['MUS_W', 'WUDHU_DOOR'], ['WUDHU_DOOR', 'WUDHU_IN'],
 ];
 const V = (x, y, z) => new V3(x, y, z);
 const node = (k) => V(...N[k]);
@@ -66,9 +71,27 @@ const MALES = AGENTS.filter((a) => a.gender === 'm').map((a) => a.id);
 const MEN_SHAF = AGENTS.filter((a) => a.gender === 'm' && !a.imam).map((a) => a.id);
 const WOMEN = AGENTS.filter((a) => a.gender === 'f').map((a) => a.id);
 
+// titik bersih-bersih OB per ruangan (posisi, arah, anchor graph, titik antara)
+export const CLEAN = {
+  cafe: { p: [-15.5, 0, -1.7], a: 'CAFE_IN', rot: Math.PI / 2 },
+  lounge: { p: [-4.6, 0, -2.2], a: 'LOUNGE_IN', ap: [-2.1, 0, -2.4] },
+  kerja: { p: [12.8, 0, -2.2], a: 'W_AISLE', rot: Math.PI / 2 },
+  kerja2: { p: [12.8, 0, 1.0], a: 'WORK_IN', rot: -Math.PI / 2 },
+  kamarmandi: { p: [-22.6, 0, -3.6], a: 'BATH_IN', rot: Math.PI },
+  mess: { p: [-22.9, 0, -10.2], a: 'MESS_IN' },
+  musholla: { p: [-16.5, UP, -9.3], a: 'MUS_IN', rot: Math.PI / 2 },
+  wudhu: { p: [-22.6, UP, -11.4], a: 'WUDHU_IN' },
+  meeting: { p: [-1.5, UP, -9.3], a: 'MEET_IN', rot: Math.PI / 2 },
+  boss: { p: [11.5, UP, -10.6], a: 'BOSS_IN' },
+  teras: { p: [-1.2, 0, 5.6], a: 'TER', rot: Math.PI / 2 },
+  kolam: { p: [12, 0, 13.0], a: 'P3', rot: Math.PI / 2 },
+};
+
 // Lokasi tujuan untuk pegawai `idx` → { pos, rot, pose, anchor, approach[] }
 export function locationFor(spots, agent, idx, loc, info) {
-  switch (String(loc).startsWith('visit') ? 'visit' : loc) {
+  const key = String(loc).split('#')[0];
+  const k = info?.slot ?? idx; // kursi tertentu (mis. Zamiir & Aprista duduk sebelahan), default urutan pegawai
+  switch (key.startsWith('visit') ? 'visit' : key.startsWith('clean:') ? 'clean' : key) {
     case 'desk': {
       const d = spots.desk[idx];
       return d.row === 'A'
@@ -85,7 +108,7 @@ export function locationFor(spots, agent, idx, loc, info) {
         : { pos: V(x, 0, d.z + 0.15), rot: d.rot, pose: 'stand', anchor: 'WORK_IN', approach: [V(x, 0, 1.0)] };
     }
     case 'meeting': {
-      const m = spots.meeting[idx];
+      const m = spots.meeting[k % spots.meeting.length];
       const approach = m.side === 'N'
         ? [V(-5.6, UP, -9.9), V(-5.6, UP, -13.5), V(m.x, UP, -13.5)]
         : m.side === 'E' ? [V(2.6, UP, -9.8), V(2.6, UP, -11.6)]
@@ -94,7 +117,23 @@ export function locationFor(spots, agent, idx, loc, info) {
     }
     case 'mimbar':
       // khotib berdiri di depan, menghadap jamaah
-      return { pos: V(-14.5, UP, -13.25), rot: 0, pose: 'stand', anchor: 'MUS_IN', approach: [V(-14.5, UP, -9.6)] };
+      return { pos: V(-12.2, UP + 0.9, -13.45), rot: 0, pose: 'stand', anchor: 'MUS_IN', approach: [V(-12.2, UP, -11.9), V(-12.2, UP + 0.3, -12.6)] };
+    case 'toilet': {
+      const t = spots.toilet[(info?.slot ?? idx) % spots.toilet.length];
+      return { pos: V(t.x, 0, t.z), rot: t.rot, pose: 'stand', anchor: 'BATH_IN', approach: [V(-22.6, 0, t.z)] };
+    }
+    case 'sink': {
+      const t = spots.sink[(info?.slot ?? idx) % spots.sink.length];
+      return { pos: V(t.x, 0, t.z), rot: t.rot, pose: 'stand', anchor: 'BATH_IN', approach: [V(-22.0, 0, t.z)] };
+    }
+    case 'bed': {
+      const b = spots.bed[(info?.slot ?? idx) % spots.bed.length];
+      return { pos: V(b.x, b.y, b.z), rot: b.rot, pose: 'lie', anchor: 'MESS_IN', approach: [V(-22.9, 0, -11.5), V(b.x, 0, -11.5)] };
+    }
+    case 'wudhu': {
+      const w = spots.wudhu[(info?.slot ?? idx) % spots.wudhu.length];
+      return { pos: V(w.x, UP, w.z), rot: w.rot, pose: 'stand', anchor: 'WUDHU_IN', approach: [V(-23.6, UP, -9.35), V(-23.6, UP, w.z)] };
+    }
     case 'musholla': {
       // kiblat = mihrab di dinding belakang → semua menghadap -z
       const m = spots.musholla;
@@ -105,30 +144,36 @@ export function locationFor(spots, agent, idx, loc, info) {
     case 'boss':
       return { pos: V(14, UP, -12.45), rot: 0, pose: 'type', anchor: 'BOSS_IN', approach: [V(11.8, UP, -9.8), V(11.8, UP, -13.2), V(14, UP, -13.2)] };
     case 'bossSofa':
-      return { pos: V(8.6, UP, -12.85), rot: 0, pose: 'phone', anchor: 'BOSS_IN', approach: [V(7.2, UP, -10.2), V(7.2, UP, -12.2)] };
+      // slot 0/1 = duduk berdua (Zamiir & Aprista), tanpa slot = di tengah
+      return { pos: V(info?.slot == null ? 8.6 : info.slot ? 9.2 : 8.0, UP, -12.85), rot: 0, pose: info?.pose ?? 'phone', anchor: 'BOSS_IN', approach: [V(7.2, UP, -10.2), V(7.2, UP, -12.2)] };
     case 'cafe': {
-      const c = spots.cafe[idx];
+      const c = spots.cafe[k % spots.cafe.length];
       return { pos: V(c.x, 0, c.z), rot: c.rot, pose: 'eat', anchor: 'CAFE_IN', approach: [V(-11, 0, c.lane), V(c.x, 0, c.lane)] };
     }
     case 'counter': {
-      const c = spots.counter[idx];
+      const c = spots.counter[k % spots.counter.length];
       return { pos: V(c.x, 0, c.z), rot: c.rot, pose: 'drink', anchor: 'CAFE_IN', approach: [V(-11, 0, -5.3), V(c.x, 0, -5.3)] };
     }
     case 'lounge':
     case 'game': {
-      const l = spots.lounge[idx];
+      const l = spots.lounge[k % spots.lounge.length];
       const pose = l.pose === 'beanbag' ? 'beanbag' : loc === 'game' || info?.label?.includes('Mabar') ? 'game' : 'phone';
       const approach = [V(-2.1, 0, -2.4)];
       if (l.pose !== 'beanbag' || l.x < -5) approach.push(V(l.pose === 'beanbag' ? -7.3 : l.x, 0, -2.4));
       return { pos: V(l.x, 0, l.z), rot: l.rot, pose, anchor: 'LOUNGE_IN', approach };
     }
     case 'garden': {
-      const g = spots.garden[idx];
+      const g = spots.garden[k % spots.garden.length];
       return { pos: V(g.x, 0, g.z), rot: g.rot, pose: 'bench', anchor: 'TER', approach: [V(g.x, 0, 6.6)] };
     }
     case 'lounger': {
-      const l = spots.lounger[idx];
+      const l = spots.lounger[k % spots.lounger.length];
       return { pos: V(l.x, 0, l.z), rot: l.rot, pose: 'lie', anchor: 'P3', approach: [V(l.x, 0, 13.0)] };
+    }
+    case 'clean': {
+      // Mbak Sari bersih-bersih: titik per ruangan
+      const c = CLEAN[key.slice(6)] ?? CLEAN.cafe;
+      return { pos: V(...c.p), rot: c.rot ?? 0, pose: 'sweep', anchor: c.a, approach: c.ap ? [V(...c.ap)] : [] };
     }
     case 'pool': {
       const lane = spots.pool[Math.max(0, MALES.indexOf(agent.id))];

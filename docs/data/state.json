@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-11T12:53:43.264Z",
+ "generated_at": "2026-10-11T12:58:43.374Z",
  "today": "2026-10-11",
  "week_start": "2026-10-05",
  "campaign": {
@@ -76,17 +76,17 @@
    "id": "analyst",
    "name": "Raka",
    "title": "Data Analyst",
-   "status": "working",
-   "current_task": "Narik data insight 2 post IG",
-   "updated_at": "2026-10-11 12:53:42"
+   "status": "done",
+   "current_task": null,
+   "updated_at": "2026-10-11 12:53:48"
   },
   {
    "id": "price",
    "name": "Nadia",
    "title": "Price Watcher",
-   "status": "idle",
+   "status": "done",
    "current_task": null,
-   "updated_at": "2026-10-11 12:32:32"
+   "updated_at": "2026-10-11 12:53:50"
   },
   {
    "id": "ob",
@@ -190,6 +190,11 @@
   }
  ],
  "activity": [
+  {
+   "ts": "2026-10-11 12:53:48",
+   "agent_id": "analyst",
+   "message": "Update data 2 post IG 📈"
+  },
   {
    "ts": "2026-10-11 12:50:18",
    "agent_id": "researcher",
@@ -309,14 +314,23 @@
    "ts": "2026-10-11 10:47:03",
    "agent_id": "owner",
    "message": "Chat: Turnamen valorant lagi jalan tuh, cek youtube, pantau sampe selesai, ada 100t vs nrg sama t1 vs g2. Kalo uda selesai, langsung buatin desain untuk up ke feed ig"
-  },
-  {
-   "ts": "2026-10-11 10:27:15",
-   "agent_id": "owner",
-   "message": "Chat: lagi pada ngapain"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-10-11 12:54:44",
+   "agent_id": "analyst",
+   "to_id": "dir",
+   "kind": "oper",
+   "message": "Kak, laporan minggu ini udah aku kirim ke Bos. Pilar esport paling rame 📈"
+  },
+  {
+   "ts": "2026-10-11 12:53:50",
+   "agent_id": "price",
+   "to_id": null,
+   "kind": "curhat",
+   "message": "Web zataa lagi nggak bisa dibuka nih (EAI_AGAIN) 😥 aku cek lagi nanti"
+  },
   {
    "ts": "2026-10-11 11:56:43",
    "agent_id": "dir",
@@ -480,7 +494,7 @@
    "pending": 0,
    "scheduled": 0,
    "views": 0,
-   "likes": 1,
+   "likes": 2,
    "comments": 0,
    "shares": 0,
    "saves": 0,

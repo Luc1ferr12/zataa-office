@@ -9,16 +9,49 @@
   .points li { display: grid; grid-template-columns: 22px 1fr; gap: 22px; align-items: start; font: 500 34px/1.35 Inter; color: #efe9ff; }
   .points li::before { content: ''; width: 18px; height: 18px; margin-top: 14px; background: var(--accent); transform: rotate(45deg); box-shadow: 0 0 16px var(--accent); }
   .source { padding-top: 18px; border-top: 2px solid #ffffff1f; }
+  /* varian foto (data.photo): foto di atas, nuansa ungu, judul besar di bawah */
+  .photo { position: absolute; left: 0; right: 0; top: 0; height: 74%; overflow: hidden; }
+  .story .photo { height: 62%; }
+  .photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; filter: saturate(.85) contrast(1.05); }
+  .photo::before { content: ''; position: absolute; inset: 0; background: linear-gradient(160deg, #5b1fd6, #2a0a6b); mix-blend-mode: color; opacity: .55; }
+  .photo::after { content: ''; position: absolute; inset: 0;
+    background: linear-gradient(180deg, #12052fcc 0%, transparent 22%, transparent 48%, #12052f 96%), radial-gradient(70% 60% at 50% 40%, transparent, #2a0a6b66); }
+  .with-photo .watermark { display: none; }
+  .with-photo .grow { justify-content: flex-end; gap: 14px; text-align: center; align-items: center; }
+  .with-photo .h1 { font-size: 132px; line-height: .95; text-transform: uppercase; text-shadow: 0 6px 30px #0009; }
+  .with-photo .pre { font: 800 40px/1 Sora; letter-spacing: .32em; color: var(--white); text-shadow: 0 4px 20px #000a; }
+  .with-photo .rule { width: 62%; height: 3px; background: linear-gradient(90deg, transparent, var(--accent), transparent); position: relative; }
+  .with-photo .rule::after { content: ''; position: absolute; left: 50%; top: 50%; width: 14px; height: 14px; background: var(--accent); transform: translate(-50%, -50%) rotate(45deg); box-shadow: 0 0 14px var(--accent); }
+  .with-photo .sub { font-size: 28px; color: #e6dcff; max-width: 92%; }
+  .with-photo .source { border: 0; padding: 0; font-size: 18px; }
+  .with-photo .meta { justify-content: center; margin-bottom: 6px; }
 </style></head>
 <body><div id="root"></div>
 <script type="module">
 import { setup, shell, kicker, md, esc, fit, ready } from '../shared/brand.js';
-// data: { game, label: BERITA|RUMOR|PATCH|TRANSFER|ESPORT, date, headline, sub, points:[≤3], source, cta }
+// data: { game, label: BERITA|RUMOR|PATCH|TRANSFER|ESPORT, date, headline, sub, points:[≤3], source, cta, photo?, pre? }
+// photo = path dari root (mis. assets/photos/x.jpg) → layout foto bernuansa ungu; pre = teks kecil di atas judul
 window.render = async (d, size) => {
   const g = setup(d, size);
   const label = (d.label ?? 'BERITA').toUpperCase();
   const pts = (d.points ?? []).slice(0, 3).map((p) => `<li>${md(p)}</li>`).join('');
   const meta = `<div class="meta">${kicker(label === 'RUMOR' ? '⚠ RUMOR' : label, label === 'RUMOR' ? 'rumor' : '')}${d.date ? `<span class="date">${esc(d.date)}</span>` : ''}</div>`;
+  if (d.photo) {
+    document.body.classList.add('with-photo');
+    const photo = `<div class="bg"></div><div class="photo"><img src="/${esc(d.photo.replace(/^\/+/, ''))}" alt=""></div>`;
+    document.getElementById('root').innerHTML = shell(d, g, `
+      <div class="grow">
+        ${meta}
+        ${d.pre ? `<div class="pre">${md(d.pre)}</div>` : ''}
+        <h1 class="h1">${md(d.headline)}</h1>
+        <div class="rule"></div>
+        ${d.sub ? `<p class="sub">${md(d.sub)}</p>` : ''}
+        ${d.source ? `<p class="small source">Sumber: ${esc(d.source)}</p>` : ''}
+      </div>`).replace('<div class="bg"></div>', photo);
+    await ready();
+    fit(document.querySelector('.h1'), 56);
+    return;
+  }
   document.getElementById('root').innerHTML = shell(d, g, `
     <div class="grow">
       <h1 class="h1">${md(d.headline)}</h1>
