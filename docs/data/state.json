@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-11T13:20:36.925Z",
+ "generated_at": "2026-10-11T13:27:04.793Z",
  "today": "2026-10-11",
  "week_start": "2026-10-05",
  "campaign": {
@@ -21,8 +21,8 @@
    "name": "Aprista",
    "title": "Marketing Director",
    "status": "done",
-   "current_task": "Bagi tugas: Gw bantu update ya clariana, t1 menang, jadi sementara masih",
-   "updated_at": "2026-10-11 13:19:42"
+   "current_task": "Bagi tugas: Manggil ajaa",
+   "updated_at": "2026-10-11 13:23:47"
   },
   {
    "id": "researcher",
@@ -191,6 +191,16 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-11 13:23:37",
+   "agent_id": "owner",
+   "message": "Chat: Manggil ajaa"
+  },
+  {
+   "ts": "2026-10-11 13:22:37",
+   "agent_id": "owner",
+   "message": "Chat: Aprista sayang"
+  },
+  {
    "ts": "2026-10-11 13:19:29",
    "agent_id": "researcher",
    "message": "Update Owner: T1 menang Abyss, G2 vs T1 1-1, lanjut map 3 penentu"
@@ -304,19 +314,37 @@
    "ts": "2026-10-11 11:35:30",
    "agent_id": "designer",
    "message": "Balik ke komputer, ngerjain revisi #5"
-  },
-  {
-   "ts": "2026-10-11 11:35:30",
-   "agent_id": "owner",
-   "message": "Minta revisi #5: Isiin foto team nya"
-  },
-  {
-   "ts": "2026-10-11 11:33:12",
-   "agent_id": "publisher",
-   "message": "Feed #5 100T 2-0 NRG dikirim ke Owner untuk approval"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-10-11 13:23:37",
+   "agent_id": "dir",
+   "to_id": null,
+   "kind": "oper",
+   "message": "Oke tim, ada titah dari Bos. Aku bagi tugasnya ya 👇"
+  },
+  {
+   "ts": "2026-10-11 13:23:37",
+   "agent_id": "owner",
+   "to_id": null,
+   "kind": "bos",
+   "message": "Manggil ajaa"
+  },
+  {
+   "ts": "2026-10-11 13:22:38",
+   "agent_id": "dir",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Siap Bos, ada apa? 🫡 Lagi nonton TV bareng nih. Ada yang bisa aku bantu?"
+  },
+  {
+   "ts": "2026-10-11 13:22:37",
+   "agent_id": "owner",
+   "to_id": "dir",
+   "kind": "bos",
+   "message": "Aprista sayang"
+  },
   {
    "ts": "2026-10-11 13:19:31",
    "agent_id": "researcher",
