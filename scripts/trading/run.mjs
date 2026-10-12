@@ -26,6 +26,7 @@ const env = (() => {
 })();
 process.env.TRD_AI ??= env.TRD_AI ?? '';
 process.env.CLAUDE_BIN ??= env.CLAUDE_BIN ?? '';
+process.env.TRD_LIVE_IDR ??= env.TRD_LIVE_IDR ?? '';
 
 // ---------------------------------------------------------------- bridge EA MT5
 const TOKEN = env.TRD_TOKEN || '';
