@@ -88,7 +88,7 @@ export async function propose({ force = false } = {}) {
       const m = await graph(r.ig_media_id, { fields: 'like_count,comments_count,permalink' }, 'GET', env().IG_ACCESS_TOKEN);
       // komentar lebih berharga dari like; konten promo diprioritaskan (langsung jualan)
       const score = ((m.like_count ?? 0) + 3 * (m.comments_count ?? 0)) * (r.pillar === 'promo' ? 1.5 : 1);
-      scored.push({ ...r, ...m, score });
+      scored.push({ ...m, ...r, score }); // r terakhir: `id` dari Graph (media IG) jangan menimpa id konten
     } catch { /* post dihapus / tidak bisa dibaca → lewati */ }
   }
   setFahriah(d, 'done');
