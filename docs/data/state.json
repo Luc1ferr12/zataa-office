@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-12T09:34:04.376Z",
+ "generated_at": "2026-10-12T09:44:04.405Z",
  "today": "2026-10-12",
  "week_start": "2026-10-12",
  "campaign": {
@@ -881,7 +881,7 @@
   "paused": false,
   "balance": 10000,
   "today_pnl": 0,
-  "price": 4175.700195,
+  "price": 4171.799805,
   "open": [],
   "signals": [
    {
@@ -1030,6 +1030,48 @@
    ],
    "newsBlackoutMin": 45
   },
-  "proposals": []
+  "proposals": [],
+  "tf": {
+   "M10": {
+    "bias": null,
+    "n": 1,
+    "note": "ngumpulin data (1/60 candle)",
+    "slot": 2986330,
+    "at": 1791798045436
+   },
+   "M15": {
+    "bias": "bearish",
+    "score": -3,
+    "price": 4177.3,
+    "ema20": 4183.93,
+    "ema50": 4187.33,
+    "rsi": 37.5,
+    "n": 299,
+    "slot": 1990886,
+    "at": 1791797865398
+   },
+   "M30": {
+    "bias": "sideways",
+    "score": -1,
+    "price": 4177.3,
+    "ema20": 4186.39,
+    "ema50": 4181.91,
+    "rsi": 41.4,
+    "n": 299,
+    "slot": 995443,
+    "at": 1791797865408
+   },
+   "H1": {
+    "bias": "sideways",
+    "score": 1,
+    "price": 4175,
+    "ema20": 4186.14,
+    "ema50": 4171.52,
+    "rsi": 44.7,
+    "n": 299,
+    "slot": 497721,
+    "at": 1791797865417
+   }
+  }
  }
 }
