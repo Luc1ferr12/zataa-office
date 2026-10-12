@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-12T12:54:04.928Z",
+ "generated_at": "2026-10-12T13:04:04.950Z",
  "today": "2026-10-12",
  "week_start": "2026-10-12",
  "campaign": {
@@ -78,7 +78,7 @@
    "title": "Data Analyst",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-10-12 10:00:19"
+   "updated_at": "2026-10-12 13:00:28"
   },
   {
    "id": "price",
@@ -102,7 +102,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-12 12:46:00"
+   "updated_at": "2026-10-12 13:01:00"
   },
   {
    "id": "tresearch",
@@ -110,7 +110,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Odds hike Fed Oktober turun setelah PCE lunak; risiko geopolitik Timur Tengah menopang emas. Data CPI 14 Okt jadi pemicu, sumber belum konsisten.",
-   "updated_at": "2026-10-12 12:46:00"
+   "updated_at": "2026-10-12 13:01:00"
   },
   {
    "id": "ttech",
@@ -118,7 +118,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Bias sideways",
-   "updated_at": "2026-10-12 12:46:00"
+   "updated_at": "2026-10-12 13:01:00"
   },
   {
    "id": "trisk",
@@ -126,7 +126,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: market sideways, tunggu arah jelas",
-   "updated_at": "2026-10-12 12:46:00"
+   "updated_at": "2026-10-12 13:01:00"
   },
   {
    "id": "texec",
@@ -403,6 +403,16 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-12 13:01:00",
+   "agent_id": "ttech",
+   "message": "M30 berubah arah: sideways → bearish"
+  },
+  {
+   "ts": "2026-10-12 13:00:28",
+   "agent_id": "analyst",
+   "message": "Update data 7 post IG 📈"
+  },
+  {
    "ts": "2026-10-12 12:31:00",
    "agent_id": "trisk",
    "message": "NO TRADE · market sideways, tunggu arah jelas"
@@ -516,16 +526,6 @@
    "ts": "2026-10-12 05:54:24",
    "agent_id": "publisher",
    "message": "Owner approve #21 (tips push rank ML) — demo Studio TikTok"
-  },
-  {
-   "ts": "2026-10-12 05:48:56",
-   "agent_id": "owner",
-   "message": "Setujui boost B1 💸"
-  },
-  {
-   "ts": "2026-10-12 05:26:18",
-   "agent_id": "publisher",
-   "message": "Posting #20 ke TikTok (private) ✅"
   }
  ],
  "chats": [
@@ -818,7 +818,7 @@
    "pending": 0,
    "scheduled": 0,
    "views": 0,
-   "likes": 1,
+   "likes": 3,
    "comments": 0,
    "shares": 0,
    "saves": 0,
@@ -836,9 +836,9 @@
      "views": 0
     },
     {
-     "title": "Road to Playoff MPL ID S18: Siapa Aman, Siapa Terancam?",
+     "title": "Top Up Diamond FF Cepat & Aman di zataa.my.id",
      "format": "feed",
-     "pillar": "esport",
+     "pillar": "promo",
      "views": 0
     }
    ]
@@ -850,7 +850,7 @@
    "pending": 0,
    "scheduled": 0,
    "views": 0,
-   "likes": 31,
+   "likes": 35,
    "comments": 0,
    "shares": 0,
    "saves": 0,
@@ -881,9 +881,14 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4166.399902,
+  "price": 4165.899902,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-12 13:01:00",
+    "decision": "NO TRADE",
+    "reason": "market sideways, tunggu arah jelas"
+   },
    {
     "ts": "2026-10-12 12:46:00",
     "decision": "NO TRADE",
@@ -908,11 +913,6 @@
     "ts": "2026-10-12 11:46:09",
     "decision": "NO TRADE",
     "reason": "market sideways, tunggu arah jelas"
-   },
-   {
-    "ts": "2026-10-12 11:31:09",
-    "decision": "NO TRADE",
-    "reason": "market sideways, tunggu arah jelas"
    }
   ],
   "trades": [],
@@ -934,7 +934,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-12 12:46:00",
+   "ts": "2026-10-12 13:01:00",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -953,7 +953,7 @@
     "bias": "sideways",
     "score": -1,
     "trigger": null,
-    "note": "sideways (skor -1) · harga 4166.20 · EMA50 H1 4171.55 · RSI M15 35"
+    "note": "sideways (skor -1) · harga 4166.30 · EMA50 H1 4171.30 · RSI M15 36"
    }
   },
   "fund": {
@@ -1037,43 +1037,43 @@
   "tf": {
    "M10": {
     "bias": null,
-    "n": 20,
-    "note": "ngumpulin data (20/60 candle)",
-    "slot": 2986349,
-    "at": 1791809460950
+    "n": 21,
+    "note": "ngumpulin data (21/60 candle)",
+    "slot": 2986350,
+    "at": 1791810060789
    },
    "M15": {
     "bias": "bearish",
     "score": -3,
-    "price": 4165.8,
-    "ema20": 4175.2,
-    "ema50": 4181.4,
-    "rsi": 34.5,
+    "price": 4165.1,
+    "ema20": 4174.24,
+    "ema50": 4180.76,
+    "rsi": 33.9,
     "n": 299,
-    "slot": 1990899,
-    "at": 1791809160769
+    "slot": 1990900,
+    "at": 1791810060794
    },
    "M30": {
-    "bias": "sideways",
-    "score": -1,
-    "price": 4164,
-    "ema20": 4180.01,
-    "ema50": 4179.95,
-    "rsi": 34.3,
+    "bias": "bearish",
+    "score": -3,
+    "price": 4165.1,
+    "ema20": 4178.59,
+    "ema50": 4179.36,
+    "rsi": 35.5,
     "n": 299,
-    "slot": 995449,
-    "at": 1791808260766
+    "slot": 995450,
+    "at": 1791810060803
    },
    "H1": {
     "bias": "sideways",
     "score": 1,
-    "price": 4169.6,
-    "ema20": 4182.9,
-    "ema50": 4171.77,
-    "rsi": 42.2,
+    "price": 4165.1,
+    "ema20": 4181.2,
+    "ema50": 4171.51,
+    "rsi": 39.8,
     "n": 299,
-    "slot": 497724,
-    "at": 1791806460781
+    "slot": 497725,
+    "at": 1791810060812
    }
   },
   "currency": "USC",
