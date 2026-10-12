@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-12T11:44:04.763Z",
+ "generated_at": "2026-10-12T11:54:04.783Z",
  "today": "2026-10-12",
  "week_start": "2026-10-12",
  "campaign": {
@@ -102,7 +102,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-12 11:31:09"
+   "updated_at": "2026-10-12 11:46:09"
   },
   {
    "id": "tresearch",
@@ -110,7 +110,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Odds hike Fed Oktober turun setelah PCE lunak; risiko geopolitik Timur Tengah menopang emas. Data CPI 14 Okt jadi pemicu, sumber belum konsisten.",
-   "updated_at": "2026-10-12 11:31:09"
+   "updated_at": "2026-10-12 11:46:09"
   },
   {
    "id": "ttech",
@@ -118,7 +118,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Bias sideways",
-   "updated_at": "2026-10-12 11:31:09"
+   "updated_at": "2026-10-12 11:46:09"
   },
   {
    "id": "trisk",
@@ -126,7 +126,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: market sideways, tunggu arah jelas",
-   "updated_at": "2026-10-12 11:31:09"
+   "updated_at": "2026-10-12 11:46:09"
   },
   {
    "id": "texec",
@@ -881,9 +881,14 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4172.700195,
+  "price": 4170.600098,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-12 11:46:09",
+    "decision": "NO TRADE",
+    "reason": "market sideways, tunggu arah jelas"
+   },
    {
     "ts": "2026-10-12 11:31:09",
     "decision": "NO TRADE",
@@ -908,11 +913,6 @@
     "ts": "2026-10-12 10:31:09",
     "decision": "NO TRADE",
     "reason": "market sideways, tunggu arah jelas"
-   },
-   {
-    "ts": "2026-10-12 10:16:09",
-    "decision": "NO TRADE",
-    "reason": "market sideways, tunggu arah jelas"
    }
   ],
   "trades": [],
@@ -934,7 +934,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-12 11:31:09",
+   "ts": "2026-10-12 11:46:09",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -953,7 +953,7 @@
     "bias": "sideways",
     "score": -1,
     "trigger": null,
-    "note": "sideways (skor -1) · harga 4172.00 · EMA50 H1 4171.86 · RSI M15 36"
+    "note": "sideways (skor -1) · harga 4172.70 · EMA50 H1 4171.89 · RSI M15 37"
    }
   },
   "fund": {
@@ -1037,21 +1037,21 @@
   "tf": {
    "M10": {
     "bias": null,
-    "n": 13,
-    "note": "ngumpulin data (13/60 candle)",
-    "slot": 2986342,
-    "at": 1791805269565
+    "n": 14,
+    "note": "ngumpulin data (14/60 candle)",
+    "slot": 2986343,
+    "at": 1791805869564
    },
    "M15": {
     "bias": "bearish",
     "score": -3,
-    "price": 4172.5,
-    "ema20": 4179.44,
-    "ema50": 4184.17,
-    "rsi": 36.6,
+    "price": 4173.3,
+    "ema20": 4178.85,
+    "ema50": 4183.74,
+    "rsi": 38.1,
     "n": 299,
-    "slot": 1990894,
-    "at": 1791804669563
+    "slot": 1990895,
+    "at": 1791805569578
    },
    "M30": {
     "bias": "sideways",
