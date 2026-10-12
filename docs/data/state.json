@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-12T09:54:04.438Z",
+ "generated_at": "2026-10-12T10:04:04.474Z",
  "today": "2026-10-12",
  "week_start": "2026-10-12",
  "campaign": {
@@ -78,7 +78,7 @@
    "title": "Data Analyst",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-10-12 07:00:24"
+   "updated_at": "2026-10-12 10:00:19"
   },
   {
    "id": "price",
@@ -86,7 +86,7 @@
    "title": "Price Watcher",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-10-12 08:00:08"
+   "updated_at": "2026-10-12 10:00:20"
   },
   {
    "id": "ob",
@@ -102,7 +102,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-12 09:45:45"
+   "updated_at": "2026-10-12 10:01:09"
   },
   {
    "id": "tresearch",
@@ -110,7 +110,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
-   "updated_at": "2026-10-12 09:45:45"
+   "updated_at": "2026-10-12 10:01:09"
   },
   {
    "id": "ttech",
@@ -118,7 +118,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Bias sideways",
-   "updated_at": "2026-10-12 09:45:45"
+   "updated_at": "2026-10-12 10:01:09"
   },
   {
    "id": "trisk",
@@ -126,7 +126,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: market sideways, tunggu arah jelas",
-   "updated_at": "2026-10-12 09:45:45"
+   "updated_at": "2026-10-12 10:01:09"
   },
   {
    "id": "texec",
@@ -403,6 +403,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-12 10:00:19",
+   "agent_id": "analyst",
+   "message": "Update data 6 post IG 📈"
+  },
+  {
    "ts": "2026-10-12 09:16:02",
    "agent_id": "trisk",
    "message": "NO TRADE · market sideways, tunggu arah jelas"
@@ -521,11 +526,6 @@
    "ts": "2026-10-12 05:14:46",
    "agent_id": "publisher",
    "message": "Kirim #20 ke Owner buat approval · revisi ke-1"
-  },
-  {
-   "ts": "2026-10-12 05:14:35",
-   "agent_id": "video",
-   "message": "Revisi #20 kelar: Logo Vitality sama G2 udah aku putihin biar kelihatan jelas di latar ungu, terus videonya udah aku render ulang."
   }
  ],
  "chats": [
@@ -818,7 +818,7 @@
    "pending": 0,
    "scheduled": 1,
    "views": 0,
-   "likes": 0,
+   "likes": 1,
    "comments": 0,
    "shares": 0,
    "saves": 0,
@@ -850,7 +850,7 @@
    "pending": 0,
    "scheduled": 0,
    "views": 0,
-   "likes": 27,
+   "likes": 31,
    "comments": 0,
    "shares": 0,
    "saves": 0,
@@ -881,9 +881,14 @@
   "paused": false,
   "balance": 10000,
   "today_pnl": 0,
-  "price": 4172.299805,
+  "price": 4173.899902,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-12 10:01:09",
+    "decision": "NO TRADE",
+    "reason": "market sideways, tunggu arah jelas"
+   },
    {
     "ts": "2026-10-12 09:45:45",
     "decision": "NO TRADE",
@@ -908,11 +913,6 @@
     "ts": "2026-10-12 08:46:01",
     "decision": "NO TRADE",
     "reason": "market sideways, tunggu arah jelas"
-   },
-   {
-    "ts": "2026-10-12 08:31:01",
-    "decision": "NO TRADE",
-    "reason": "market sideways, tunggu arah jelas"
    }
   ],
   "trades": [],
@@ -934,7 +934,7 @@
    10000
   ],
   "last": {
-   "ts": "2026-10-12 09:45:45",
+   "ts": "2026-10-12 10:01:09",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -951,9 +951,9 @@
    },
    "tech": {
     "bias": "sideways",
-    "score": -1,
+    "score": 1,
     "trigger": null,
-    "note": "sideways (skor -1) · harga 4171.70 · EMA50 H1 4171.53 · RSI M15 32"
+    "note": "sideways (skor 1) · harga 4174.50 · EMA50 H1 4171.70 · RSI M15 36"
    }
   },
   "fund": null,
@@ -1034,43 +1034,43 @@
   "tf": {
    "M10": {
     "bias": null,
-    "n": 2,
-    "note": "ngumpulin data (2/60 candle)",
-    "slot": 2986331,
-    "at": 1791798662804
+    "n": 3,
+    "note": "ngumpulin data (3/60 candle)",
+    "slot": 2986332,
+    "at": 1791799269688
    },
    "M15": {
     "bias": "bearish",
     "score": -3,
-    "price": 4172.7,
-    "ema20": 4182.86,
-    "ema50": 4186.76,
-    "rsi": 32.9,
+    "price": 4173.2,
+    "ema20": 4181.94,
+    "ema50": 4186.23,
+    "rsi": 33.8,
     "n": 299,
-    "slot": 1990887,
-    "at": 1791798345581
+    "slot": 1990888,
+    "at": 1791799269694
    },
    "M30": {
     "bias": "sideways",
     "score": -1,
-    "price": 4177.3,
-    "ema20": 4186.39,
-    "ema50": 4181.91,
-    "rsi": 41.4,
+    "price": 4173.2,
+    "ema20": 4185.13,
+    "ema50": 4181.57,
+    "rsi": 38.5,
     "n": 299,
-    "slot": 995443,
-    "at": 1791797865408
+    "slot": 995444,
+    "at": 1791799269704
    },
    "H1": {
     "bias": "sideways",
     "score": 1,
-    "price": 4175,
-    "ema20": 4186.14,
-    "ema50": 4171.52,
-    "rsi": 44.7,
+    "price": 4173.2,
+    "ema20": 4184.91,
+    "ema50": 4171.59,
+    "rsi": 43.7,
     "n": 299,
-    "slot": 497721,
-    "at": 1791797865417
+    "slot": 497722,
+    "at": 1791799269711
    }
   }
  }
