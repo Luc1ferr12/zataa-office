@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-12T04:28:43.052Z",
+ "generated_at": "2026-10-12T04:38:43.066Z",
  "today": "2026-10-12",
  "week_start": "2026-10-12",
  "campaign": {
@@ -44,9 +44,9 @@
    "id": "designer",
    "name": "Maria",
    "title": "Graphic Designer",
-   "status": "working",
-   "current_task": "Render feed MPL & tips FF",
-   "updated_at": "2026-10-12 04:28:36"
+   "status": "done",
+   "current_task": "Render feed MPL & tips FF (1:1 + 9:16)",
+   "updated_at": "2026-10-12 04:28:59"
   },
   {
    "id": "video",
@@ -61,8 +61,8 @@
    "name": "Fikri",
    "title": "Social Media Publisher",
    "status": "done",
-   "current_task": null,
-   "updated_at": "2026-10-11 14:29:03"
+   "current_task": "QA & kirim konten 6, 7 ke Owner",
+   "updated_at": "2026-10-12 04:29:05"
   },
   {
    "id": "ads",
@@ -106,7 +106,7 @@
    "game": "mlbb",
    "pillar": "esport",
    "title": "Road to Playoff MPL ID S18: Siapa Aman, Siapa Terancam?",
-   "status": "draft",
+   "status": "pending_approval",
    "asset_url": "{\"feed\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-12/6-road-to-playoff-mpl-id-s18-siapa-aman-si.jpg\"],\"story\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-12/6-road-to-playoff-mpl-id-s18-siapa-aman-si-916.jpg\"]}",
    "scheduled_at": null,
    "posted_at": null
@@ -119,7 +119,7 @@
    "game": "freefire",
    "pillar": "promo",
    "title": "Top Up Diamond FF Cepat & Aman di zataa.my.id",
-   "status": "draft",
+   "status": "pending_approval",
    "asset_url": "{\"feed\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-12/7-top-up-diamond-ff-cepat-aman-di-zataa-my.jpg\"],\"story\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-12/7-top-up-diamond-ff-cepat-aman-di-zataa-my-916.jpg\"]}",
    "scheduled_at": null,
    "posted_at": null
@@ -321,6 +321,26 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-12 04:29:06",
+   "agent_id": "publisher",
+   "message": "Konten 6 (siang) & 7 (malam) dikirim ke Telegram buat approval"
+  },
+  {
+   "ts": "2026-10-12 04:29:05",
+   "agent_id": "publisher",
+   "message": "Kirim #7 ke Owner buat approval"
+  },
+  {
+   "ts": "2026-10-12 04:29:02",
+   "agent_id": "publisher",
+   "message": "Kirim #6 ke Owner buat approval"
+  },
+  {
+   "ts": "2026-10-12 04:28:59",
+   "agent_id": "designer",
+   "message": "2 feed jadi, points news tanpa markup tebal"
+  },
+  {
    "ts": "2026-10-12 04:28:36",
    "agent_id": "copywriter",
    "message": "Hook pertanyaan buat MPL; promo FF jadi tips aman tanpa harga (zataa.my.id down)"
@@ -424,29 +444,51 @@
    "ts": "2026-10-11 14:25:50",
    "agent_id": "publisher",
    "message": "Kirim #4 ke Owner buat approval · revisi ke-2"
-  },
-  {
-   "ts": "2026-10-11 14:25:46",
-   "agent_id": "designer",
-   "message": "Revisi #4 kelar: Konten #4 sekarang pakai foto pemain G2 dengan nuansa ungu dan judul gede \"G2 2-1 T1\", tapi fotonya dari postingan resmi"
-  },
-  {
-   "ts": "2026-10-11 14:24:08",
-   "agent_id": "designer",
-   "message": "Balik ke komputer, ngerjain revisi #4"
-  },
-  {
-   "ts": "2026-10-11 14:24:08",
-   "agent_id": "owner",
-   "message": "Minta revisi #4: Kaya gini lo pake foto pemain, nuansa ungu nya tetep"
-  },
-  {
-   "ts": "2026-10-11 14:22:41",
-   "agent_id": "publisher",
-   "message": "Kirim #4 ke Owner buat approval · revisi ke-1"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-10-12 04:29:15",
+   "agent_id": "publisher",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Dua-duanya udah dikirim ke Telegram, tinggal Bos ✅ buat slot siang & malam ya!"
+  },
+  {
+   "ts": "2026-10-12 04:29:15",
+   "agent_id": "designer",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Feed MPL sama tips top up FF udah jadi. Karena harga nggak bisa dicek, promo FF-nya dibikin tips aman dulu tanpa harga."
+  },
+  {
+   "ts": "2026-10-12 04:29:15",
+   "agent_id": "researcher",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Bos, klasemen MPL udah dicek di 2 sumber: 5 tim aman, slot ke-6 rebutan ONIC/DEWA/GEEK, RRQ udah nggak bisa ngejar 6 besar. Tapi zataa.my.id nggak bisa dibuka (DNS error) dua hari ini, tolong dicek ya!"
+  },
+  {
+   "ts": "2026-10-12 04:29:06",
+   "agent_id": "researcher",
+   "to_id": "designer",
+   "kind": "santai",
+   "message": "Mar, zataa.my.id down lagi dua hari, Budi pasti pusing tuh 😅"
+  },
+  {
+   "ts": "2026-10-12 04:29:05",
+   "agent_id": "publisher",
+   "to_id": "owner",
+   "kind": "oper",
+   "message": "Bos, \"QA & kirim konten 6, 7 ke Owner\" udah aku kirim ke Telegram. Ditunggu approve-nya 🙏"
+  },
+  {
+   "ts": "2026-10-12 04:28:59",
+   "agent_id": "designer",
+   "to_id": "publisher",
+   "kind": "oper",
+   "message": "Fikri, desain \"Render feed MPL & tips FF (1:1 + 9:16)\" udah render 1080×1080. QA dulu ya sebelum ke bos"
+  },
   {
    "ts": "2026-10-12 04:28:36",
    "agent_id": "copywriter",
@@ -684,48 +726,6 @@
    "to_id": null,
    "kind": "bos",
    "message": "Gw bantu update ya clariana, t1 menang, jadi sementara masih 1-1"
-  },
-  {
-   "ts": "2026-10-11 13:14:53",
-   "agent_id": "dir",
-   "to_id": null,
-   "kind": "oper",
-   "message": "Oke tim, ada titah dari Bos. Aku bagi tugasnya ya 👇"
-  },
-  {
-   "ts": "2026-10-11 13:14:52",
-   "agent_id": "owner",
-   "to_id": null,
-   "kind": "bos",
-   "message": "Update clariana gmna ?"
-  },
-  {
-   "ts": "2026-10-11 13:01:44",
-   "agent_id": "dir",
-   "to_id": null,
-   "kind": "oper",
-   "message": "Oke tim, ada titah dari Bos. Aku bagi tugasnya ya 👇"
-  },
-  {
-   "ts": "2026-10-11 13:01:44",
-   "agent_id": "owner",
-   "to_id": null,
-   "kind": "bos",
-   "message": "Thanks updatenya raka"
-  },
-  {
-   "ts": "2026-10-11 12:54:44",
-   "agent_id": "analyst",
-   "to_id": "dir",
-   "kind": "oper",
-   "message": "Kak, laporan minggu ini udah aku kirim ke Bos. Pilar esport paling rame 📈"
-  },
-  {
-   "ts": "2026-10-11 12:53:50",
-   "agent_id": "price",
-   "to_id": null,
-   "kind": "curhat",
-   "message": "Web zataa lagi nggak bisa dibuka nih (EAI_AGAIN) 😥 aku cek lagi nanti"
   }
  ],
  "stats": {
@@ -733,7 +733,7 @@
    "week": "2026-10-12",
    "total": 14,
    "posted": 0,
-   "pending": 0,
+   "pending": 2,
    "scheduled": 0,
    "views": 0,
    "likes": 0,
