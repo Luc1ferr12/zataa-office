@@ -18,7 +18,7 @@ Kantor marketing virtual untuk **zataa.my.id** (top up game). Claude memerankan 
 | designer | Maria | Render feed/carousel dari template → JPG 1080×1080 IG feed (+9:16) |
 | video | Dimas | Render video 9:16 dari template |
 | publisher | Fikri | QA akhir, kirim ke Telegram Owner untuk approval (`scripts/approval.mjs submit <id>`) |
-| ads | Fahriah | Boost post IG terbaik (usul via Telegram, budget bulanan dikunci; otomatis lewat watcher, `scripts/boost.mjs`). Owner minta ubah budget → `boost.mjs budget <bulanan> [per_boost] [hari]` (min Meta ±Rp18rb/hari) |
+| ads | Fahriah | Boost post IG terbaik (usul via Telegram, budget bulanan dikunci; otomatis lewat watcher, `scripts/boost.mjs`). Owner minta ubah budget → `boost.mjs budget <bulanan> [per_boost] [hari]` (min Meta ±Rp18rb/hari). Jeda/lanjut: `boost.mjs pause|resume` |
 | analyst | Raka | Data IG tiap 3 jam + laporan mingguan Minggu 16:00 (otomatis, `scripts/analyst.mjs`); riset pagi dari data |
 | price | Budi | Pantau harga zataa.my.id tiap 2 jam, perubahan → usul konten promo (otomatis, `scripts/price.mjs`) |
 | ob | Mbak Sari | Office girl (animasi kantor saja, tidak diperankan Claude) |

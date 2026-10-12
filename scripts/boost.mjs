@@ -36,7 +36,8 @@ function cfg() {
     v: e.GRAPH_VERSION || 'v23.0',
   };
 }
-export const adsReady = () => { const c = cfg(); return !!(c.account && c.token && c.page && c.ig); };
+// ADS_PAUSE=1 → Fahriah libur: tidak usul & tidak pasang iklan (Owner: "boost.mjs pause|resume")
+export const adsReady = () => { const c = cfg(); return env().ADS_PAUSE !== '1' && !!(c.account && c.token && c.page && c.ig); };
 
 async function graph(path, params = {}, method = 'POST', token = cfg().token) {
   const c = cfg();
@@ -222,6 +223,12 @@ if (isMain) {
       const c = cfg();
       const a = await graph(`act_${c.account}`, { fields: 'name,currency,account_status,amount_spent,funding_source_details' }, 'GET');
       out({ akun: a.name, mata_uang: a.currency, aktif: a.account_status === 1, metode_bayar: a.funding_source_details?.display_string ?? 'BELUM ADA', page: c.page, ig: c.ig });
+    } else if (cmd === 'pause' || cmd === 'resume') {
+      setEnv('ADS_PAUSE', cmd === 'pause' ? '1' : '0');
+      const d = await db();
+      setFahriah(d, cmd === 'pause' ? 'idle' : 'done', cmd === 'pause' ? 'Free time — boost dijeda Owner' : null);
+      activity(d, cmd === 'pause' ? 'Boost dijeda sampai Owner kabarin lagi' : 'Boost aktif lagi');
+      out({ ok: true, boost: cmd === 'pause' ? 'dijeda' : 'aktif' });
     } else if (cmd === 'budget') {
       // Owner ubah setelan (lewat Telegram → Claude jalankan ini): budget <bulanan> [per_boost] [hari]
       const [, monthly, per, days] = process.argv.slice(2).map(Number);
