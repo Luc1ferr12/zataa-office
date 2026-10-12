@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-12T09:04:04.276Z",
+ "generated_at": "2026-10-12T09:14:04.312Z",
  "today": "2026-10-12",
  "week_start": "2026-10-12",
  "campaign": {
@@ -881,7 +881,7 @@
   "paused": false,
   "balance": 10000,
   "today_pnl": 0,
-  "price": 4176.299805,
+  "price": 4177.799805,
   "open": [],
   "signals": [
    {
@@ -908,8 +908,128 @@
     "ts": "2026-10-12 08:01:00",
     "decision": "NO TRADE",
     "reason": "market sideways, tunggu arah jelas"
+   },
+   {
+    "ts": "2026-10-12 07:46:00",
+    "decision": "NO TRADE",
+    "reason": "market sideways, tunggu arah jelas"
    }
   ],
-  "trades": []
+  "trades": [],
+  "stats": {
+   "n": 0,
+   "wins": 0,
+   "losses": 0,
+   "pnl": 0,
+   "week_pnl": 0,
+   "gross_win": 0,
+   "gross_loss": 0,
+   "max_loss": 0,
+   "avg_r": 0,
+   "today_n": 0,
+   "consec_loss": 0
+  },
+  "peak": 10000,
+  "curve": [
+   10000
+  ],
+  "last": {
+   "ts": "2026-10-12 09:01:01",
+   "decision": "NO TRADE",
+   "side": null,
+   "entry": null,
+   "sl": null,
+   "tp": null,
+   "lot": null,
+   "rr": null,
+   "risk_usd": null,
+   "reason": "market sideways, tunggu arah jelas",
+   "fund": {
+    "bias": 0,
+    "note": "netral (belum ada ringkasan hari ini)",
+    "blackout": null
+   },
+   "tech": {
+    "bias": "sideways",
+    "score": 1,
+    "trigger": null,
+    "note": "sideways (skor 1) · harga 4175.00 · EMA50 H1 4171.66 · RSI M15 32"
+   }
+  },
+  "fund": null,
+  "calendar": [
+   {
+    "title": "Core CPI m/m",
+    "impact": "High",
+    "at": 1791981000000,
+    "forecast": "0.2%",
+    "previous": "0.3%"
+   },
+   {
+    "title": "Core CPI y/y",
+    "impact": "High",
+    "at": 1791981000000,
+    "forecast": "2.5%",
+    "previous": "2.4%"
+   },
+   {
+    "title": "CPI m/m",
+    "impact": "High",
+    "at": 1791981000000,
+    "forecast": "0.6%",
+    "previous": "0.4%"
+   },
+   {
+    "title": "CPI y/y",
+    "impact": "High",
+    "at": 1791981000000,
+    "forecast": "3.6%",
+    "previous": "3.4%"
+   },
+   {
+    "title": "Core PPI m/m",
+    "impact": "High",
+    "at": 1792067400000,
+    "forecast": "0.3%",
+    "previous": "0.2%"
+   },
+   {
+    "title": "Core Retail Sales m/m",
+    "impact": "High",
+    "at": 1792067400000,
+    "forecast": "0.5%",
+    "previous": "1.4%"
+   },
+   {
+    "title": "PPI m/m",
+    "impact": "High",
+    "at": 1792067400000,
+    "forecast": "0.5%",
+    "previous": "0.4%"
+   },
+   {
+    "title": "Retail Sales m/m",
+    "impact": "High",
+    "at": 1792067400000,
+    "forecast": "0.3%",
+    "previous": "1.2%"
+   }
+  ],
+  "ea": {
+   "connected": false,
+   "demo": null
+  },
+  "risk": {
+   "riskPct": 1,
+   "rr": 2,
+   "dailyLossPct": 3,
+   "maxConsecLoss": 3,
+   "sessionUTC": [
+    6,
+    20
+   ],
+   "newsBlackoutMin": 45
+  },
+  "proposals": []
  }
 }
