@@ -125,7 +125,8 @@ async function launch(d, b) {
   const name = `Zataa B${b.id} #${k.id} ${k.title}`.slice(0, 120);
   const start = new Date(Date.now() + 5 * 60_000);
   const end = new Date(start.getTime() + b.days * 86400_000);
-  const camp = await graph(`${act}/campaigns`, {
+  // percobaan ulang pakai campaign (PAUSED) yang sudah dibuat, jangan numpuk campaign kosong
+  const camp = b.campaign_id ? { id: b.campaign_id } : await graph(`${act}/campaigns`, {
     name, objective: 'OUTCOME_ENGAGEMENT', status: 'PAUSED', special_ad_categories: [], is_adset_budget_sharing_enabled: false,
   });
   d.prepare('UPDATE boosts SET campaign_id = ? WHERE id = ?').run(camp.id, b.id);
@@ -135,6 +136,7 @@ async function launch(d, b) {
     billing_event: 'IMPRESSIONS', optimization_goal: 'POST_ENGAGEMENT', destination_type: 'ON_POST', bid_strategy: 'LOWEST_COST_WITHOUT_CAP',
     targeting: {
       geo_locations: { countries: ['ID'] }, age_min: 18, age_max: 34,
+      targeting_automation: { advantage_audience: 0 }, // wajib diisi sejak v23; 0 = targeting tetap persis ini
       publisher_platforms: ['instagram'], instagram_positions: k.format === 'video' ? ['stream', 'reels'] : ['stream'], // 'explore' ditolak Graph v23
     },
     status: 'ACTIVE',
