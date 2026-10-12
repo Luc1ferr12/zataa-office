@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-12T04:58:43.099Z",
+ "generated_at": "2026-10-12T04:59:48.638Z",
  "today": "2026-10-12",
  "week_start": "2026-10-12",
  "campaign": {
@@ -20,9 +20,9 @@
    "id": "dir",
    "name": "Aprista",
    "title": "Marketing Director",
-   "status": "working",
+   "status": "done",
    "current_task": "Bagi tugas: Team, carikan 1 konten video ya, untuk tambahan upload hari ",
-   "updated_at": "2026-10-12 04:47:05"
+   "updated_at": "2026-10-12 04:58:51"
   },
   {
    "id": "researcher",
@@ -95,6 +95,62 @@
    "status": "idle",
    "current_task": null,
    "updated_at": "2026-10-11 12:32:32"
+  },
+  {
+   "id": "tdir",
+   "name": "Mahendra",
+   "title": "Trading Director",
+   "status": "waiting",
+   "current_task": "Data harga belum masuk",
+   "updated_at": "2026-10-12 04:59:48"
+  },
+  {
+   "id": "tresearch",
+   "name": "Davina",
+   "title": "Research & Fundamental",
+   "status": "idle",
+   "current_task": null,
+   "updated_at": "2026-10-12 04:59:47"
+  },
+  {
+   "id": "ttech",
+   "name": "Keira",
+   "title": "Technical Analysis",
+   "status": "idle",
+   "current_task": null,
+   "updated_at": "2026-10-12 04:59:47"
+  },
+  {
+   "id": "trisk",
+   "name": "Aryaputra",
+   "title": "Decision & Risk · MQL Developer",
+   "status": "idle",
+   "current_task": null,
+   "updated_at": "2026-10-12 04:59:47"
+  },
+  {
+   "id": "texec",
+   "name": "Wiratama",
+   "title": "Execution",
+   "status": "idle",
+   "current_task": null,
+   "updated_at": "2026-10-12 04:59:47"
+  },
+  {
+   "id": "teval",
+   "name": "Jihan",
+   "title": "Evaluation & Optimization",
+   "status": "idle",
+   "current_task": null,
+   "updated_at": "2026-10-12 04:59:47"
+  },
+  {
+   "id": "treport",
+   "name": "Selena",
+   "title": "Reporting",
+   "status": "idle",
+   "current_task": null,
+   "updated_at": "2026-10-12 04:59:47"
   }
  ],
  "week_contents": [
@@ -461,6 +517,27 @@
  ],
  "chats": [
   {
+   "ts": "2026-10-12 04:58:52",
+   "agent_id": "video",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Durasinya ±38 detik, ada VO + ajakan komen prediksi juara, cocok buat pancing interaksi malam ini Bos 🔥"
+  },
+  {
+   "ts": "2026-10-12 04:58:52",
+   "agent_id": "researcher",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Isinya Upper Final Vitality vs LOUD + rematch G2 vs 100 Thieves, Grand Final Minggu 18 Okt. Udah dicek 2 sumber, logo 4 timnya lengkap."
+  },
+  {
+   "ts": "2026-10-12 04:58:52",
+   "agent_id": "publisher",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Siap Bos! Video tambahan \"Top 4 Champions Shanghai: Siapa Angkat Trofi?\" udah aku kirim ke Telegram, slot kilat, begitu ✅ langsung tayang 🙏"
+  },
+  {
    "ts": "2026-10-12 04:58:33",
    "agent_id": "video",
    "to_id": "researcher",
@@ -718,27 +795,6 @@
    "to_id": "owner",
    "kind": "oper",
    "message": "\"QA & submit konten #4\" udah lolos QA, tinggal nunggu ✅ dari Bos"
-  },
-  {
-   "ts": "2026-10-11 14:07:28",
-   "agent_id": "designer",
-   "to_id": "publisher",
-   "kind": "oper",
-   "message": "Visual \"Render konten #4 hasil VCT\" kelar! Fikri, cek typo-nya sekalian ya 🙏"
-  },
-  {
-   "ts": "2026-10-11 14:07:08",
-   "agent_id": "copywriter",
-   "to_id": "designer",
-   "kind": "oper",
-   "message": "Teks buat \"Teks konten #4 hasil Lower Round 2\" ready. Maria, giliranmu bikin cakep!"
-  },
-  {
-   "ts": "2026-10-11 14:06:56",
-   "agent_id": "researcher",
-   "to_id": "copywriter",
-   "kind": "oper",
-   "message": "Ista, bahan buat \"Hasil G2 vs T1 terverifikasi\" udah aku rangkum + sumbernya. Tinggal kamu racik captionnya ✍️"
   }
  ],
  "stats": {
@@ -787,5 +843,15 @@
     }
    ]
   }
+ },
+ "trading": {
+  "mode": "paper",
+  "paused": false,
+  "balance": 10000,
+  "today_pnl": 0,
+  "price": null,
+  "open": [],
+  "signals": [],
+  "trades": []
  }
 }
