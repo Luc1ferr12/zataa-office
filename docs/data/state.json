@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-12T05:16:49.424Z",
+ "generated_at": "2026-10-12T05:19:51.824Z",
  "today": "2026-10-12",
  "week_start": "2026-10-12",
  "campaign": {
@@ -61,8 +61,8 @@
    "name": "Fikri",
    "title": "Social Media Publisher",
    "status": "done",
-   "current_task": "undefined",
-   "updated_at": "2026-10-12 05:15:49"
+   "current_task": null,
+   "updated_at": "2026-10-12 05:18:49"
   },
   {
    "id": "ads",
@@ -175,7 +175,7 @@
    "game": "valorant",
    "pillar": "esport",
    "title": "Top 4 Champions Shanghai: Siapa Angkat Trofi?",
-   "status": "approved",
+   "status": "publish_failed",
    "asset_url": "{\"video\":\"https://luc1ferr12.github.io/zataa-office/media/2026-10-12/20-top-4-champions-shanghai-siapa-angkat-tr.mp4\",\"cover\":\"https://luc1ferr12.github.io/zataa-office/media/2026-10-12/20-top-4-champions-shanghai-siapa-angkat-tr-cover.jpg\"}",
    "scheduled_at": null,
    "posted_at": null
@@ -390,6 +390,26 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-12 05:18:49",
+   "agent_id": "publisher",
+   "message": "Gagal posting #20: TikTok: Please review our integration guidelines at https://developers.tiktok.com/doc/content-sharing-guidelines/"
+  },
+  {
+   "ts": "2026-10-12 05:17:49",
+   "agent_id": "publisher",
+   "message": "Gagal posting #20: TikTok: Please review our integration guidelines at https://developers.tiktok.com/doc/content-sharing-guidelines/"
+  },
+  {
+   "ts": "2026-10-12 05:17:46",
+   "agent_id": "publisher",
+   "message": "Gagal posting #20: TikTok: Please review our integration guidelines at https://developers.tiktok.com/doc/content-sharing-guidelines/"
+  },
+  {
+   "ts": "2026-10-12 05:17:46",
+   "agent_id": "publisher",
+   "message": "Posting #20 ke IG ✅"
+  },
+  {
    "ts": "2026-10-12 05:15:49",
    "agent_id": "owner",
    "message": "Approve konten #20 ✅"
@@ -493,29 +513,16 @@
    "ts": "2026-10-12 04:27:04",
    "agent_id": "owner",
    "message": "Approve plan mingguan ✅"
-  },
-  {
-   "ts": "2026-10-12 04:00:05",
-   "agent_id": "analyst",
-   "message": "Update data 3 post IG 📈"
-  },
-  {
-   "ts": "2026-10-12 03:53:04",
-   "agent_id": "ads",
-   "message": "Usul boost #17959544004231820 Rp20.000 ke Owner"
-  },
-  {
-   "ts": "2026-10-12 01:00:57",
-   "agent_id": "analyst",
-   "message": "Update data 3 post IG 📈"
-  },
-  {
-   "ts": "2026-10-11 23:01:19",
-   "agent_id": "dir",
-   "message": "Plan 14 slot tema 'Pekan Penentuan' dikirim ke Telegram, produksi nunggu ✅ Owner"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-10-12 05:17:46",
+   "agent_id": "publisher",
+   "to_id": null,
+   "kind": "oper",
+   "message": "\"Top 4 Champions Shanghai: Siapa Angkat Trofi?\" udah tayang di IG 🚀 Makasih semua!"
+  },
   {
    "ts": "2026-10-12 05:14:35",
    "agent_id": "video",
@@ -788,13 +795,6 @@
    "to_id": "copywriter",
    "kind": "oper",
    "message": "Ista, bahan buat \"Pantau VCT Champions LR2 selesai\" udah aku rangkum + sumbernya. Tinggal kamu racik captionnya ✍️"
-  },
-  {
-   "ts": "2026-10-11 14:07:46",
-   "agent_id": "publisher",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Konten #4 udah masuk Telegram, tinggal Bos ✅ biar langsung tayang (slot kilat)!"
   }
  ],
  "stats": {
@@ -803,7 +803,7 @@
    "total": 15,
    "posted": 1,
    "pending": 0,
-   "scheduled": 2,
+   "scheduled": 1,
    "views": 0,
    "likes": 0,
    "comments": 0,
@@ -849,7 +849,7 @@
   "paused": false,
   "balance": 10000,
   "today_pnl": 0,
-  "price": 4187.600098,
+  "price": 4189.600098,
   "open": [],
   "signals": [
    {
