@@ -158,6 +158,7 @@ async function syncPages() {
     if (!git('status', '--porcelain', '--', ...PAGES_DATA()).trim()) return;
     git('add', '--', ...PAGES_DATA());
     git('commit', '-m', 'state: update dashboard', '--', ...PAGES_DATA());
+    git('pull', '--rebase', '--autostash', '-q'); // repo juga di-push dari laptop → hindari non-fast-forward
     git('push');
     log('state.json ke-push ke GitHub Pages');
   } catch (e) { log(`push state gagal: ${String(e.stderr || e.message).trim().split('\n').pop()}`); }
