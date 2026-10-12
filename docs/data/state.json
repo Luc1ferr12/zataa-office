@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-12T06:14:11.836Z",
+ "generated_at": "2026-10-12T06:24:11.944Z",
  "today": "2026-10-12",
  "week_start": "2026-10-12",
  "campaign": {
@@ -102,7 +102,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-12 06:00:57"
+   "updated_at": "2026-10-12 06:15:58"
   },
   {
    "id": "tresearch",
@@ -110,7 +110,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
-   "updated_at": "2026-10-12 06:00:57"
+   "updated_at": "2026-10-12 06:15:58"
   },
   {
    "id": "ttech",
@@ -118,7 +118,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Bias sideways",
-   "updated_at": "2026-10-12 06:00:57"
+   "updated_at": "2026-10-12 06:15:58"
   },
   {
    "id": "trisk",
@@ -126,7 +126,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: market sideways, tunggu arah jelas",
-   "updated_at": "2026-10-12 06:00:57"
+   "updated_at": "2026-10-12 06:15:58"
   },
   {
    "id": "texec",
@@ -403,6 +403,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-12 06:15:58",
+   "agent_id": "trisk",
+   "message": "NO TRADE · market sideways, tunggu arah jelas"
+  },
+  {
    "ts": "2026-10-12 06:05:12",
    "agent_id": "publisher",
    "message": "Posting #21 ke TikTok (SELF_ONLY) ✅"
@@ -521,11 +526,6 @@
    "ts": "2026-10-12 04:29:06",
    "agent_id": "publisher",
    "message": "Konten 6 (siang) & 7 (malam) dikirim ke Telegram buat approval"
-  },
-  {
-   "ts": "2026-10-12 04:29:05",
-   "agent_id": "publisher",
-   "message": "Kirim #7 ke Owner buat approval"
   }
  ],
  "chats": [
@@ -862,9 +862,14 @@
   "paused": false,
   "balance": 10000,
   "today_pnl": 0,
-  "price": 4187.600098,
+  "price": 4185.700195,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-12 06:15:58",
+    "decision": "NO TRADE",
+    "reason": "market sideways, tunggu arah jelas"
+   },
    {
     "ts": "2026-10-12 06:00:57",
     "decision": "NO TRADE",
@@ -882,11 +887,6 @@
    },
    {
     "ts": "2026-10-12 05:15:56",
-    "decision": "NO TRADE",
-    "reason": "di luar jam sesi London–New York"
-   },
-   {
-    "ts": "2026-10-12 05:02:52",
     "decision": "NO TRADE",
     "reason": "di luar jam sesi London–New York"
    }
