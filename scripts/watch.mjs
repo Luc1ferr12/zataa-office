@@ -14,6 +14,7 @@ import { publishDue, tiktokExport, isTiktokCommand, tiktokCommand } from './publ
 import { revisionText } from './chatter.mjs';
 import { adsReady, propose, runApproved } from './boost.mjs';
 import { handleOwnerMessage, handleDecision, runFollowups, syncMonitor } from './ask.mjs';
+import { startFinanceBot } from './finance-bot.mjs';
 import { analystTick } from './analyst.mjs';
 import { priceTick } from './price.mjs';
 import { limitsTick } from './limits.mjs';
@@ -218,4 +219,5 @@ if (!process.argv.includes('--once')) {
   setInterval(tick, EVERY);
   syncPages();
   setInterval(syncPages, SYNC_EVERY);
+  startFinanceBot(log); // bot Telegram Aprista (keuangan Owner), long polling terpisah
 }
