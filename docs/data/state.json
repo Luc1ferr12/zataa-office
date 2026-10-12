@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-12T15:28:25.308Z",
+ "generated_at": "2026-10-12T15:38:25.409Z",
  "today": "2026-10-12",
  "week_start": "2026-10-12",
  "campaign": {
@@ -102,7 +102,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-12 15:16:01"
+   "updated_at": "2026-10-12 15:31:01"
   },
   {
    "id": "tresearch",
@@ -110,7 +110,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Odds hike Fed Oktober turun setelah PCE lunak; risiko geopolitik Timur Tengah menopang emas. Data CPI 14 Okt jadi pemicu, sumber belum konsisten.",
-   "updated_at": "2026-10-12 15:16:00"
+   "updated_at": "2026-10-12 15:31:00"
   },
   {
    "id": "ttech",
@@ -118,7 +118,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Bias bearish",
-   "updated_at": "2026-10-12 15:16:00"
+   "updated_at": "2026-10-12 15:31:01"
   },
   {
    "id": "trisk",
@@ -126,7 +126,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: bearish, tapi belum ada pemicu entry di area",
-   "updated_at": "2026-10-12 15:16:01"
+   "updated_at": "2026-10-12 15:31:01"
   },
   {
    "id": "texec",
@@ -411,6 +411,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-12 15:31:01",
+   "agent_id": "trisk",
+   "message": "NO TRADE · bearish, tapi belum ada pemicu entry di area"
+  },
+  {
    "ts": "2026-10-12 15:27:48",
    "agent_id": "owner",
    "message": "Chat: Lagi pada ngapain?"
@@ -529,11 +534,6 @@
    "ts": "2026-10-12 07:50:48",
    "agent_id": "ads",
    "message": "Gagal pasang boost B1: Meta: IG Explore placement is deprecated for this API version and cannot be selected, please remove "
-  },
-  {
-   "ts": "2026-10-12 07:47:36",
-   "agent_id": "ads",
-   "message": "Gagal pasang boost B1: Meta: Your ad set budget must be more than IDR36,060 or your ads may not deliver."
   }
  ],
  "chats": [
@@ -889,9 +889,14 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4168.100098,
+  "price": 4169,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-12 15:31:01",
+    "decision": "NO TRADE",
+    "reason": "bearish, tapi belum ada pemicu entry di area"
+   },
    {
     "ts": "2026-10-12 15:16:01",
     "decision": "NO TRADE",
@@ -916,11 +921,6 @@
     "ts": "2026-10-12 14:16:01",
     "decision": "NO TRADE",
     "reason": "market sideways, tunggu arah jelas"
-   },
-   {
-    "ts": "2026-10-12 14:01:01",
-    "decision": "NO TRADE",
-    "reason": "market sideways, tunggu arah jelas"
    }
   ],
   "trades": [],
@@ -942,7 +942,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-12 15:16:01",
+   "ts": "2026-10-12 15:31:01",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -961,7 +961,7 @@
     "bias": "bearish",
     "score": -2,
     "trigger": null,
-    "note": "bearish (skor -2) · harga 4171.60 · EMA50 H1 4171.36 · RSI M15 48"
+    "note": "bearish (skor -2) · harga 4168.40 · EMA50 H1 4171.23 · RSI M15 44"
    }
   },
   "fund": {
@@ -1045,32 +1045,32 @@
   "tf": {
    "M10": {
     "bias": null,
-    "n": 35,
-    "note": "ngumpulin data (35/60 candle)",
-    "slot": 2986364,
-    "at": 1791818460877
+    "n": 36,
+    "note": "ngumpulin data (36/60 candle)",
+    "slot": 2986365,
+    "at": 1791819060910
    },
    "M15": {
     "bias": "bearish",
     "score": -2,
-    "price": 4169.8,
-    "ema20": 4171.85,
-    "ema50": 4177.69,
-    "rsi": 45.2,
+    "price": 4168.9,
+    "ema20": 4171.57,
+    "ema50": 4177.34,
+    "rsi": 44.1,
     "n": 299,
-    "slot": 1990909,
-    "at": 1791818160905
+    "slot": 1990910,
+    "at": 1791819060915
    },
    "M30": {
     "bias": "bearish",
-    "score": -3,
-    "price": 4165.4,
-    "ema20": 4175.66,
-    "ema50": 4177.98,
-    "rsi": 38.8,
+    "score": -2,
+    "price": 4168.9,
+    "ema20": 4175.02,
+    "ema50": 4177.62,
+    "rsi": 42.5,
     "n": 299,
-    "slot": 995454,
-    "at": 1791817260895
+    "slot": 995455,
+    "at": 1791819060924
    },
    "H1": {
     "bias": "sideways",
