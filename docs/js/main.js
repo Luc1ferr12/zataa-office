@@ -121,6 +121,14 @@ function visitsNow() {
   return v;
 }
 
+// panel Tim: per divisi, urut sesuai alur kerja (urutan AGENTS dipakai buat kursi/kasur, jangan diubah)
+const DIVISIONS = [
+  { name: 'Pimpinan', flow: '', ids: ['owner'] },
+  { name: 'Marketing', flow: 'plan → riset → konten → publish → iklan → data', ids: ['dir', 'researcher', 'price', 'copywriter', 'designer', 'video', 'publisher', 'ads', 'analyst'] },
+  { name: 'Trading XAUUSD', flow: 'siklus tiap candle M15', ids: ['tdir', 'tresearch', 'ttech', 'trisk', 'texec', 'teval', 'treport'] },
+  { name: 'Umum', flow: '', ids: ['ob'] },
+];
+
 function tick(force = false) {
   const t = now();
   $('clock-day').textContent = t.dayName;
@@ -147,12 +155,17 @@ function tick(force = false) {
   pill.textContent = os.label;
   pill.className = `pill ${os.tone}`;
 
-  $('team-list').innerHTML = list.map(({ a, info }) => `
+  const byId = Object.fromEntries(list.map((l) => [l.a.id, l]));
+  const row = ({ a, info }) => `
     <li class="member ${selected === a.id ? 'active' : ''}" data-id="${a.id}">
       <div class="avatar" style="background:${a.avatar}">${a.name[0]}</div>
       <div class="who"><strong>${a.name} <span style="display:inline;color:var(--muted);font-weight:400">· ${a.title}</span></strong><span>${info.emoji} ${esc(info.label)}</span></div>
       <div class="emoji" title="${esc(info.mood?.label ?? '')}">${info.mood?.emoji ?? ''}</div>
-    </li>`).join('');
+    </li>`;
+  $('team-list').innerHTML = DIVISIONS.map((d) => {
+    const rows = d.ids.map((id) => byId[id]).filter(Boolean);
+    return rows.length ? `<li class="division"><span>${d.name}</span><small>${d.flow}</small></li>${rows.map(row).join('')}` : '';
+  }).join('');
   if (selected) renderInspector(selected, list.find((l) => l.a.id === selected)?.info);
   renderChat(t);
 }
