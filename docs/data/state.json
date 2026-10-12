@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-12T07:52:06.360Z",
+ "generated_at": "2026-10-12T08:02:06.457Z",
  "today": "2026-10-12",
  "week_start": "2026-10-12",
  "campaign": {
@@ -68,9 +68,9 @@
    "id": "ads",
    "name": "Fahriah",
    "title": "Ads Specialist",
-   "status": "working",
-   "current_task": "Pasang iklan boost B1",
-   "updated_at": "2026-10-12 07:52:05"
+   "status": "done",
+   "current_task": null,
+   "updated_at": "2026-10-12 07:52:16"
   },
   {
    "id": "analyst",
@@ -86,7 +86,7 @@
    "title": "Price Watcher",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-10-12 06:00:58"
+   "updated_at": "2026-10-12 08:00:08"
   },
   {
    "id": "ob",
@@ -102,7 +102,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-12 07:46:00"
+   "updated_at": "2026-10-12 08:01:00"
   },
   {
    "id": "tresearch",
@@ -110,7 +110,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
-   "updated_at": "2026-10-12 07:46:00"
+   "updated_at": "2026-10-12 08:01:00"
   },
   {
    "id": "ttech",
@@ -118,7 +118,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Bias sideways",
-   "updated_at": "2026-10-12 07:46:00"
+   "updated_at": "2026-10-12 08:01:00"
   },
   {
    "id": "trisk",
@@ -126,7 +126,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: market sideways, tunggu arah jelas",
-   "updated_at": "2026-10-12 07:46:00"
+   "updated_at": "2026-10-12 08:01:00"
   },
   {
    "id": "texec",
@@ -403,6 +403,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-12 07:52:15",
+   "agent_id": "ads",
+   "message": "Gagal pasang boost B1: Meta: Ads creative post was created by an app that is in development mode. It must be in public to c"
+  },
+  {
    "ts": "2026-10-12 07:51:30",
    "agent_id": "ads",
    "message": "Gagal pasang boost B1: Meta: To create your ad set, you need to enable or disable the Advantage audience feature. This can "
@@ -521,11 +526,6 @@
    "ts": "2026-10-12 05:02:06",
    "agent_id": "publisher",
    "message": "Posting #6 ke IG ✅"
-  },
-  {
-   "ts": "2026-10-12 04:58:33",
-   "agent_id": "publisher",
-   "message": "Kirim #20 ke Owner buat approval"
   }
  ],
  "chats": [
@@ -881,9 +881,14 @@
   "paused": false,
   "balance": 10000,
   "today_pnl": 0,
-  "price": 4183.700195,
+  "price": 4180.600098,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-12 08:01:00",
+    "decision": "NO TRADE",
+    "reason": "market sideways, tunggu arah jelas"
+   },
    {
     "ts": "2026-10-12 07:46:00",
     "decision": "NO TRADE",
@@ -901,11 +906,6 @@
    },
    {
     "ts": "2026-10-12 07:00:59",
-    "decision": "NO TRADE",
-    "reason": "market sideways, tunggu arah jelas"
-   },
-   {
-    "ts": "2026-10-12 06:45:58",
     "decision": "NO TRADE",
     "reason": "market sideways, tunggu arah jelas"
    }
