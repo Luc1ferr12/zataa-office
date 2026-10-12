@@ -4,6 +4,7 @@ import { execFileSync } from 'node:child_process';
 import { all, get, run, kv, setKv, params, mode, ROOT } from './store.mjs';
 import { quote, bars, eaFresh } from './market.mjs';
 import { chat } from '../chatter.mjs';
+import { tradingBotOn, sendTrading } from './tgbot.mjs';
 import { db as officeDb } from './store.mjs';
 
 const NAME = { tdir: 'Mahendra', tresearch: 'Davina', ttech: 'Keira', trisk: 'Aryaputra', texec: 'Wiratama', teval: 'Jihan', treport: 'Selena' };
@@ -28,8 +29,10 @@ let tg = null;
 async function send(agent, html) {
   if (process.env.TRD_SILENT === '1') { console.log(`[senyap] ${NAME[agent] ?? agent}: ${html.replace(/<[^>]+>/g, '')}`); return false; }
   try {
+    const text = `<b>${NAME[agent] ?? agent}</b>: ${html}`;
+    if (tradingBotOn()) { await sendTrading(text); return true; }   // bot khusus trading
     tg ??= await import('../approval.mjs');
-    await tg.say(`<b>${NAME[agent] ?? agent}</b>: ${html}`);
+    await tg.say(text);
     return true;
   } catch (e) { console.log(`[telegram off] ${NAME[agent] ?? agent}: ${html.replace(/<[^>]+>/g, '')}`); return false; }
 }

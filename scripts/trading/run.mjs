@@ -11,6 +11,8 @@ import { timingSafeEqual } from 'node:crypto';
 import { all, get, run, kv, setKv, kvAge, params, mode, ROOT } from './store.mjs';
 import { saveBars, marketOpen, refreshYahoo, tickSpot, eaFresh, bars, resample, TF_SEC } from './market.mjs';
 import { trend } from './strategy.mjs';
+import { pollTrading, tradingBotOn } from './tgbot.mjs';
+import { handleTrading } from './telegram.mjs';
 import { cycle, newsToday } from './cycle.mjs';
 import { monitorPaper, closeTrade, onOpened, summary, paperReport, report, setAgent, note, talk, sayAs, exportState } from './desk.mjs';
 import { backtest, loadHistory, grid, score } from './backtest.mjs';
@@ -164,6 +166,9 @@ async function tick() {
   busy = false;
 }
 
+// pesan di bot trading: "status" = "trading status", /start = bantuan
+const asTradingCmd = (text) => (/^\/?start\b/i.test(text) ? 'trading bantuan' : `trading ${text.replace(/^\/?(trading|trade|xau)\b\s*/i, '')}`);
+
 if (process.argv.includes('--once')) {
   console.log(await cycle({ force: true, log }));
   process.exit(0);
@@ -172,4 +177,9 @@ if (process.argv.includes('--once')) {
   startBridge();
   tick();
   setInterval(tick, 30_000);
+  // bot Telegram trading: semua pesan Owner di sana dianggap perintah trading ("status" = "trading status")
+  if (tradingBotOn()) {
+    log('bot Telegram trading aktif');
+    pollTrading((text) => handleTrading(asTradingCmd(text)), { getOffset: () => kv('tgOffset', 0), setOffset: (v) => setKv('tgOffset', v), log });
+  }
 }
