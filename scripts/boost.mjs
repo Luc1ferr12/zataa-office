@@ -135,7 +135,7 @@ async function launch(d, b) {
     billing_event: 'IMPRESSIONS', optimization_goal: 'POST_ENGAGEMENT', destination_type: 'ON_POST', bid_strategy: 'LOWEST_COST_WITHOUT_CAP',
     targeting: {
       geo_locations: { countries: ['ID'] }, age_min: 18, age_max: 34,
-      publisher_platforms: ['instagram'], instagram_positions: k.format === 'video' ? ['stream', 'explore', 'reels'] : ['stream', 'explore'],
+      publisher_platforms: ['instagram'], instagram_positions: k.format === 'video' ? ['stream', 'reels'] : ['stream'], // 'explore' ditolak Graph v23
     },
     status: 'ACTIVE',
   });
