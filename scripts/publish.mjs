@@ -119,7 +119,8 @@ async function tt(path, body) {
     body: JSON.stringify(body ?? {}),
   });
   const j = await r.json();
-  if (j.error?.code && j.error.code !== 'ok') throw new Error(`TikTok: ${j.error.message || j.error.code}`);
+  if (j.error?.code === 'unaudited_client_can_only_post_to_private_accounts') throw new Error('TikTok: app belum diaudit, akun TikTok harus di-set Private dulu (Pengaturan → Privasi → Akun privat)');
+  if (j.error?.code && j.error.code !== 'ok') throw new Error(`TikTok ${j.error.code}${j.error.message ? `: ${j.error.message}` : ''}`);
   return j.data;
 }
 async function postTikTok(c, A, caption) {
