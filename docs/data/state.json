@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-12T10:04:04.474Z",
+ "generated_at": "2026-10-12T10:14:04.506Z",
  "today": "2026-10-12",
  "week_start": "2026-10-12",
  "campaign": {
@@ -403,6 +403,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-12 10:06:43",
+   "agent_id": "tdir",
+   "message": "Modal paper diatur ke Rp300.000 (1676.6 USC)"
+  },
+  {
    "ts": "2026-10-12 10:00:19",
    "agent_id": "analyst",
    "message": "Update data 6 post IG 📈"
@@ -521,11 +526,6 @@
    "ts": "2026-10-12 05:15:49",
    "agent_id": "owner",
    "message": "Approve konten #20 ✅"
-  },
-  {
-   "ts": "2026-10-12 05:14:46",
-   "agent_id": "publisher",
-   "message": "Kirim #20 ke Owner buat approval · revisi ke-1"
   }
  ],
  "chats": [
@@ -879,9 +879,9 @@
  "trading": {
   "mode": "paper",
   "paused": false,
-  "balance": 10000,
+  "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4173.899902,
+  "price": 4175,
   "open": [],
   "signals": [
    {
@@ -929,9 +929,9 @@
    "today_n": 0,
    "consec_loss": 0
   },
-  "peak": 10000,
+  "peak": 1676.6,
   "curve": [
-   10000
+   1676.6
   ],
   "last": {
    "ts": "2026-10-12 10:01:09",
@@ -1034,10 +1034,10 @@
   "tf": {
    "M10": {
     "bias": null,
-    "n": 3,
-    "note": "ngumpulin data (3/60 candle)",
-    "slot": 2986332,
-    "at": 1791799269688
+    "n": 4,
+    "note": "ngumpulin data (4/60 candle)",
+    "slot": 2986333,
+    "at": 1791799869494
    },
    "M15": {
     "bias": "bearish",
@@ -1072,6 +1072,8 @@
     "slot": 497722,
     "at": 1791799269711
    }
-  }
+  },
+  "currency": "USC",
+  "usd_idr": 17893.303251
  }
 }
