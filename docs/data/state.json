@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-12T04:18:43.026Z",
+ "generated_at": "2026-10-12T04:28:43.052Z",
  "today": "2026-10-12",
  "week_start": "2026-10-12",
  "campaign": {
@@ -29,24 +29,24 @@
    "name": "Clariana",
    "title": "Researcher",
    "status": "done",
-   "current_task": "Riset tren & jadwal esport minggu ini",
-   "updated_at": "2026-10-11 23:01:14"
+   "current_task": "Riset klasemen MPL ID S18 & cek harga FF",
+   "updated_at": "2026-10-12 04:28:19"
   },
   {
    "id": "copywriter",
    "name": "Ista",
    "title": "Copywriter",
    "status": "done",
-   "current_task": "Revisi #4: Hasil Lower Round 2 VCT Champions 2026: NRG vs 100T & G2 vs T1",
-   "updated_at": "2026-10-11 14:25:46"
+   "current_task": "Teks Road to Playoff MPL & tips top up FF",
+   "updated_at": "2026-10-12 04:28:36"
   },
   {
    "id": "designer",
    "name": "Maria",
    "title": "Graphic Designer",
-   "status": "done",
-   "current_task": "Revisi #4: Hasil Lower Round 2 VCT Champions 2026: NRG vs 100T & G2 vs T1",
-   "updated_at": "2026-10-11 14:25:46"
+   "status": "working",
+   "current_task": "Render feed MPL & tips FF",
+   "updated_at": "2026-10-12 04:28:36"
   },
   {
    "id": "video",
@@ -107,7 +107,7 @@
    "pillar": "esport",
    "title": "Road to Playoff MPL ID S18: Siapa Aman, Siapa Terancam?",
    "status": "draft",
-   "asset_url": null,
+   "asset_url": "{\"feed\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-12/6-road-to-playoff-mpl-id-s18-siapa-aman-si.jpg\"],\"story\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-12/6-road-to-playoff-mpl-id-s18-siapa-aman-si-916.jpg\"]}",
    "scheduled_at": null,
    "posted_at": null
   },
@@ -120,7 +120,7 @@
    "pillar": "promo",
    "title": "Top Up Diamond FF Cepat & Aman di zataa.my.id",
    "status": "draft",
-   "asset_url": null,
+   "asset_url": "{\"feed\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-12/7-top-up-diamond-ff-cepat-aman-di-zataa-my.jpg\"],\"story\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-12/7-top-up-diamond-ff-cepat-aman-di-zataa-my-916.jpg\"]}",
    "scheduled_at": null,
    "posted_at": null
   },
@@ -321,6 +321,31 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-12 04:28:36",
+   "agent_id": "copywriter",
+   "message": "Hook pertanyaan buat MPL; promo FF jadi tips aman tanpa harga (zataa.my.id down)"
+  },
+  {
+   "ts": "2026-10-12 04:28:19",
+   "agent_id": "researcher",
+   "message": "Klasemen MPL S18 dicek 2 sumber (id-mpl.com, skor.id); zataa.my.id DNS gagal lagi"
+  },
+  {
+   "ts": "2026-10-12 04:28:19",
+   "agent_id": "researcher",
+   "message": "Nemu 4 topik baru"
+  },
+  {
+   "ts": "2026-10-12 04:28:04",
+   "agent_id": "owner",
+   "message": "Setujui boost B1 💸"
+  },
+  {
+   "ts": "2026-10-12 04:27:04",
+   "agent_id": "owner",
+   "message": "Approve plan mingguan ✅"
+  },
+  {
    "ts": "2026-10-12 04:00:05",
    "agent_id": "analyst",
    "message": "Update data 3 post IG 📈"
@@ -419,34 +444,30 @@
    "ts": "2026-10-11 14:22:41",
    "agent_id": "publisher",
    "message": "Kirim #4 ke Owner buat approval · revisi ke-1"
-  },
-  {
-   "ts": "2026-10-11 14:22:38",
-   "agent_id": "designer",
-   "message": "Revisi #4 kelar: Konten #4 belum diubah sama sekali, tinggal nunggu Owner kirim foto tim G2 Valorant biar bisa langsung dibikin ala \"Than"
-  },
-  {
-   "ts": "2026-10-11 14:21:08",
-   "agent_id": "designer",
-   "message": "Balik ke komputer, ngerjain revisi #4"
-  },
-  {
-   "ts": "2026-10-11 14:21:08",
-   "agent_id": "owner",
-   "message": "Minta revisi #4: Desainnya kaya tadi, cuma pake foto tim nya G2 sebagai pemenang"
-  },
-  {
-   "ts": "2026-10-11 14:07:33",
-   "agent_id": "publisher",
-   "message": "Kirim #4 ke Owner buat approval"
-  },
-  {
-   "ts": "2026-10-11 14:06:56",
-   "agent_id": "researcher",
-   "message": "G2 2-1 T1 FINAL (Lotus 13-11, Abyss 10-13, Ascent 13-6) — vlr.gg + thespike (match ended, Ascent decider). LR3: 100T vs G2, 16 Okt 16:00 WIB"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-10-12 04:28:36",
+   "agent_id": "copywriter",
+   "to_id": "designer",
+   "kind": "oper",
+   "message": "Maria, copy \"Teks Road to Playoff MPL & tips top up FF\" udah masuk. Headline-nya jangan dikecilin ya 😆"
+  },
+  {
+   "ts": "2026-10-12 04:28:19",
+   "agent_id": "researcher",
+   "to_id": "copywriter",
+   "kind": "oper",
+   "message": "Ista, bahan buat \"Riset klasemen MPL ID S18 & cek harga FF\" udah aku rangkum + sumbernya. Tinggal kamu racik captionnya ✍️"
+  },
+  {
+   "ts": "2026-10-12 04:27:04",
+   "agent_id": "dir",
+   "to_id": null,
+   "kind": "oper",
+   "message": "Plan minggu ini udah di-ACC Bos! Gas produksi konten hari ini 🔥"
+  },
   {
    "ts": "2026-10-12 03:53:04",
    "agent_id": "ads",
@@ -705,27 +726,6 @@
    "to_id": null,
    "kind": "curhat",
    "message": "Web zataa lagi nggak bisa dibuka nih (EAI_AGAIN) 😥 aku cek lagi nanti"
-  },
-  {
-   "ts": "2026-10-11 11:56:43",
-   "agent_id": "dir",
-   "to_id": null,
-   "kind": "oper",
-   "message": "Oke tim, ada titah dari Bos. Aku bagi tugasnya ya 👇"
-  },
-  {
-   "ts": "2026-10-11 11:56:43",
-   "agent_id": "owner",
-   "to_id": null,
-   "kind": "bos",
-   "message": "Clariana masih mantau ?"
-  },
-  {
-   "ts": "2026-10-11 11:54:42",
-   "agent_id": "publisher",
-   "to_id": null,
-   "kind": "oper",
-   "message": "\"Thank You NRG — Champions Shanghai\" udah tayang di IG 🚀 Makasih semua!"
   }
  ],
  "stats": {
