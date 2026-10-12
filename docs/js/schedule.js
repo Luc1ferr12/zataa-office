@@ -164,25 +164,25 @@ function freeTime(idx, agent, t) {
   return { act: 'free', loc, label, emoji, slot: order(loc) };
 }
 
-// waktu sholat (WITA) + wudhu 9 menit sebelumnya (dibagi 3 gelombang biar keran nggak rebutan)
+// waktu sholat (WITA) 5 menit; wudhu 5 gelombang @1 menit sebelumnya (biar keran nggak rebutan)
 const PRAYERS = [
-  { name: 'Subuh', at: at(4, 40), len: 15 },
-  { name: 'Dzuhur', at: at(12), len: 20 },
-  { name: 'Ashar', at: at(15, 15), len: 15 },
-  { name: 'Maghrib', at: at(18, 5), len: 15 },
-  { name: 'Isya', at: at(19, 15), len: 15 },
+  { name: 'Subuh', at: at(4, 40), len: 5 },
+  { name: 'Dzuhur', at: at(12), len: 5 },
+  { name: 'Ashar', at: at(15, 15), len: 5 },
+  { name: 'Maghrib', at: at(18, 5), len: 5 },
+  { name: 'Isya', at: at(19, 15), len: 5 },
 ];
 
 function prayerAt(idx, agent, t, present) {
   const { dow, minutes: m } = t;
   const jumat = dow === 5;
   const male = agent.gender === 'm';
-  // 5 gelombang wudhu @3 menit (maks 4 orang per gelombang, 4 keran) → abis wudhu duduk nunggu di musholla
+  // 5 gelombang wudhu @1 menit (maks 4 orang per gelombang, 4 keran) → abis wudhu duduk nunggu di musholla
   const wave = idx % 5;
   const wudhu = (start, label) => {
-    const w0 = start - 16 + wave * 3;
-    if (m >= w0 && m < w0 + 3) return { act: 'pray', loc: 'wudhu', slot: Math.floor(idx / 5) % 4, label: `Wudhu dulu sebelum ${label}`, emoji: '💧' };
-    if (m >= w0 + 3 && m < start) return { act: 'pray', loc: 'musholla', label: `Duduk nunggu ${label}`, emoji: '🕌', phase: 'duduk' };
+    const w0 = start - 5 + wave;
+    if (m >= w0 && m < w0 + 1) return { act: 'pray', loc: 'wudhu', slot: Math.floor(idx / 5) % 4, label: `Wudhu dulu sebelum ${label}`, emoji: '💧' };
+    if (m >= w0 + 1 && m < start) return { act: 'pray', loc: 'musholla', label: `Duduk nunggu ${label}`, emoji: '🕌', phase: 'duduk' };
     return null;
   };
   if (!present) return null;
@@ -193,12 +193,12 @@ function prayerAt(idx, agent, t, present) {
     if (m >= at(11, 45) && m < at(12, 5)) return agent.imam
       ? { act: 'pray', loc: 'mimbar', label: 'Khotbah Jumat di mimbar', emoji: '🎤' }
       : { act: 'pray', loc: 'musholla', label: 'Dengerin khotbah Jumat', emoji: '🕌', phase: 'duduk' };
-    if (m >= at(12, 5) && m < at(12, 25)) return { act: 'pray', loc: 'musholla', label: agent.imam ? 'Imam Sholat Jumat' : 'Sholat Jumat', emoji: '🕌' };
+    if (m >= at(12, 5) && m < at(12, 10)) return { act: 'pray', loc: 'musholla', label: agent.imam ? 'Imam Sholat Jumat' : 'Sholat Jumat', emoji: '🕌' };
   }
   if (jumat && !male) {
-    const w = wudhu(at(12, 25), 'Dzuhur');
+    const w = wudhu(at(12, 15), 'Dzuhur');
     if (w) return w;
-    if (m >= at(12, 25) && m < at(12, 45)) return { act: 'pray', loc: 'musholla', label: 'Sholat Dzuhur (gantian abis Jumatan)', emoji: '🕌' };
+    if (m >= at(12, 15) && m < at(12, 20)) return { act: 'pray', loc: 'musholla', label: 'Sholat Dzuhur (gantian abis Jumatan)', emoji: '🕌' };
   }
   for (const p of PRAYERS) {
     if (jumat && p.name === 'Dzuhur') continue;
@@ -330,11 +330,11 @@ export function activityAt(idx, agent, t, real, ctx = {}) {
   // makan: jam mulai & lamanya beda tiap hari; Zamiir & Aprista selalu semeja
   const seat = LUNCH_SEAT[agent.id];
   const jumat = dow === 5, male = agent.gender === 'm';
-  const lunchEnd = at(12, 45) + j(5, 25);
+  const lunchEnd = at(12, 30) + j(5, 25);
   const eat = (label, emoji) => withMood({ act: 'lunch', loc: 'cafe', slot: seatOf(idx, agent), label: agent.partner ? `${label} bareng ${agent.boss ? 'Aprista' : 'Zamiir'} 💕` : label, emoji });
-  if (jumat && male && m >= at(12, 25) && m < at(13, 5) + j(5, 15)) return eat('Makan siang abis Jumatan', '🍛');
-  if (jumat && !male && m >= at(12, 45) && m < at(13, 20) + j(5, 15)) return eat('Makan siang', '🍛');
-  if (!jumat && m >= at(12, 20) && m < lunchEnd) return eat('Makan siang', '🍛');
+  if (jumat && male && m >= at(12, 10) && m < at(12, 50) + j(5, 15)) return eat('Makan siang abis Jumatan', '🍛');
+  if (jumat && !male && m >= at(12, 20) && m < at(13) + j(5, 15)) return eat('Makan siang', '🍛');
+  if (!jumat && m >= at(12, 5) && m < lunchEnd) return eat('Makan siang', '🍛');
   if (m >= at(18, 20) && m < at(18, 50) + j(6, 15)) return eat('Makan malam', '🍜');
   if (dow === 0 && m >= at(16) && m < at(17)) return withMood({ act: 'meeting', loc: 'meeting', slot: MKT_SEAT[agent.id], label: 'Evaluasi mingguan', emoji: '📊' });
   // jaga sesi New York (Mahendra, Wiratama, Selena): balik ke meja sampai ±22:00
@@ -395,16 +395,16 @@ export function officeStatus(t, overtime = false) {
   const m = t.minutes;
   const night = m < at(4, 25) || m >= at(22, 30);
   if (night) return overtime ? { label: 'Lembur 🌙', tone: 'break' } : { label: 'Malam · tim tidur 💤', tone: 'off' };
-  if (m < at(4, 55)) return { label: 'Subuh 🕌', tone: 'break' };
+  if (m < at(4, 45)) return { label: 'Subuh 🕌', tone: 'break' };
   if (m < at(7)) return { label: 'Pagi · mandi & sarapan', tone: 'break' };
   if (t.dow === 1 && m < at(8)) return { label: 'Rapat mingguan 🗓️', tone: 'on' };
   if (m < at(8)) return { label: 'Riset pagi 🔎', tone: 'on' };
   if (t.dow !== 1 && m < at(8, 30)) return { label: 'Briefing ide 💡', tone: 'on' };
-  if (t.dow === 5 && m >= at(11, 37) && m < at(12, 45)) return { label: 'Jumatan 🕌', tone: 'break' };
-  if (m >= at(11, 52) && m < at(13)) return { label: 'Istirahat & Ibadah', tone: 'break' };
-  if (m >= at(15, 7) && m < at(15, 30)) return { label: 'Sholat Ashar', tone: 'break' };
-  if (m >= at(17, 57) && m < at(19)) return { label: 'Maghrib & Makan malam', tone: 'break' };
-  if (m >= at(19, 7) && m < at(19, 30)) return { label: 'Sholat Isya', tone: 'break' };
+  if (t.dow === 5 && m >= at(11, 40) && m < at(12, 20)) return { label: 'Jumatan 🕌', tone: 'break' };
+  if (m >= at(11, 55) && m < at(13)) return { label: 'Istirahat & Ibadah', tone: 'break' };
+  if (m >= at(15, 10) && m < at(15, 20)) return { label: 'Sholat Ashar', tone: 'break' };
+  if (m >= at(18) && m < at(19)) return { label: 'Maghrib & Makan malam', tone: 'break' };
+  if (m >= at(19, 10) && m < at(19, 20)) return { label: 'Sholat Isya', tone: 'break' };
   if (m >= at(19, 30)) return overtime ? { label: 'Lembur 🌙', tone: 'break' } : { label: 'Santai malam', tone: 'break' };
   return { label: 'Jam Kerja', tone: 'on' };
 }
