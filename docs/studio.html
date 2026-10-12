@@ -121,7 +121,7 @@ let D = null, cur = null;
 function authUrl() {
   const state = Math.random().toString(36).slice(2, 12);
   try { sessionStorage.setItem('tt_state', state); } catch (e) { /* tanpa storage tetap jalan */ }
-  return 'https://www.tiktok.com/v2/auth/authorize/?' + new URLSearchParams({ client_key: D.client_key, scope: D.scope, response_type: 'code', redirect_uri: D.redirect_uri, state });
+  return 'https://www.tiktok.com/v2/auth/authorize/?' + new URLSearchParams({ client_key: D.client_key, scope: D.scope, response_type: 'code', redirect_uri: D.redirect_uri, state, disable_auto_auth: '1' });
 }
 
 function render() {
