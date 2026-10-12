@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-12T05:09:51.899Z",
+ "generated_at": "2026-10-12T05:16:49.424Z",
  "today": "2026-10-12",
  "week_start": "2026-10-12",
  "campaign": {
@@ -36,9 +36,9 @@
    "id": "copywriter",
    "name": "Ista",
    "title": "Copywriter",
-   "status": "working",
+   "status": "done",
    "current_task": "Revisi #20: Top 4 Champions Shanghai: Siapa Angkat Trofi?",
-   "updated_at": "2026-10-12 05:02:49"
+   "updated_at": "2026-10-12 05:14:35"
   },
   {
    "id": "designer",
@@ -52,17 +52,17 @@
    "id": "video",
    "name": "Dimas",
    "title": "Video Production",
-   "status": "working",
+   "status": "done",
    "current_task": "Revisi #20: Top 4 Champions Shanghai: Siapa Angkat Trofi?",
-   "updated_at": "2026-10-12 05:02:49"
+   "updated_at": "2026-10-12 05:14:35"
   },
   {
    "id": "publisher",
    "name": "Fikri",
    "title": "Social Media Publisher",
    "status": "done",
-   "current_task": null,
-   "updated_at": "2026-10-12 05:02:06"
+   "current_task": "undefined",
+   "updated_at": "2026-10-12 05:15:49"
   },
   {
    "id": "ads",
@@ -102,7 +102,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-12 05:02:52"
+   "updated_at": "2026-10-12 05:15:56"
   },
   {
    "id": "tresearch",
@@ -110,7 +110,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
-   "updated_at": "2026-10-12 05:02:52"
+   "updated_at": "2026-10-12 05:15:56"
   },
   {
    "id": "ttech",
@@ -118,7 +118,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Bias sideways",
-   "updated_at": "2026-10-12 05:02:52"
+   "updated_at": "2026-10-12 05:15:56"
   },
   {
    "id": "trisk",
@@ -126,7 +126,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: di luar jam sesi London–New York",
-   "updated_at": "2026-10-12 05:02:52"
+   "updated_at": "2026-10-12 05:15:56"
   },
   {
    "id": "texec",
@@ -175,7 +175,7 @@
    "game": "valorant",
    "pillar": "esport",
    "title": "Top 4 Champions Shanghai: Siapa Angkat Trofi?",
-   "status": "revision",
+   "status": "approved",
    "asset_url": "{\"video\":\"https://luc1ferr12.github.io/zataa-office/media/2026-10-12/20-top-4-champions-shanghai-siapa-angkat-tr.mp4\",\"cover\":\"https://luc1ferr12.github.io/zataa-office/media/2026-10-12/20-top-4-champions-shanghai-siapa-angkat-tr-cover.jpg\"}",
    "scheduled_at": null,
    "posted_at": null
@@ -390,6 +390,21 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-12 05:15:49",
+   "agent_id": "owner",
+   "message": "Approve konten #20 ✅"
+  },
+  {
+   "ts": "2026-10-12 05:14:46",
+   "agent_id": "publisher",
+   "message": "Kirim #20 ke Owner buat approval · revisi ke-1"
+  },
+  {
+   "ts": "2026-10-12 05:14:35",
+   "agent_id": "video",
+   "message": "Revisi #20 kelar: Logo Vitality sama G2 udah aku putihin biar kelihatan jelas di latar ungu, terus videonya udah aku render ulang."
+  },
+  {
    "ts": "2026-10-12 05:02:52",
    "agent_id": "trisk",
    "message": "NO TRADE · di luar jam sesi London–New York"
@@ -498,24 +513,23 @@
    "ts": "2026-10-11 23:01:19",
    "agent_id": "dir",
    "message": "Plan 14 slot tema 'Pekan Penentuan' dikirim ke Telegram, produksi nunggu ✅ Owner"
-  },
-  {
-   "ts": "2026-10-11 23:01:15",
-   "agent_id": "dir",
-   "message": "Kirim plan minggu 2026-10-12 ke Owner (14 konten)"
-  },
-  {
-   "ts": "2026-10-11 23:01:14",
-   "agent_id": "dir",
-   "message": "Plan minggu 2026-10-12 dibuat: Pekan Penentuan: MPL ID S18 Week 9 + Final Champions Shanghai (14 konten)"
-  },
-  {
-   "ts": "2026-10-11 23:01:14",
-   "agent_id": "researcher",
-   "message": "6 topik: MPL ID S18 Week 9 penentu playoff, Champions Shanghai finals 16-18 Okt, FFWS Global Finals 6 Nov"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-10-12 05:14:35",
+   "agent_id": "video",
+   "to_id": "publisher",
+   "kind": "oper",
+   "message": "Render \"Revisi #20: Top 4 Champions Shanghai: Siapa Angkat Trofi?\" selesai, Fikri. Cek cover-nya ya"
+  },
+  {
+   "ts": "2026-10-12 05:14:35",
+   "agent_id": "copywriter",
+   "to_id": "designer",
+   "kind": "oper",
+   "message": "Maria, copy \"Revisi #20: Top 4 Champions Shanghai: Siapa Angkat Trofi?\" udah masuk. Headline-nya jangan dikecilin ya 😆"
+  },
   {
    "ts": "2026-10-12 05:02:49",
    "agent_id": "video",
@@ -781,20 +795,6 @@
    "to_id": "owner",
    "kind": "santai",
    "message": "Konten #4 udah masuk Telegram, tinggal Bos ✅ biar langsung tayang (slot kilat)!"
-  },
-  {
-   "ts": "2026-10-11 14:07:46",
-   "agent_id": "designer",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Desain hasil Lower Round 2 udah jadi, rapi 1:1 dan 9:16."
-  },
-  {
-   "ts": "2026-10-11 14:07:46",
-   "agent_id": "researcher",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Udah final Bos, G2 menang 2-1 lawan T1 (Ascent 13-6 di map 3) dan 100T tunggu mereka 16 Okt. Skornya dari vlr.gg, thespike cuma konfirmasi match-nya udah selesai."
   }
  ],
  "stats": {
@@ -803,7 +803,7 @@
    "total": 15,
    "posted": 1,
    "pending": 0,
-   "scheduled": 1,
+   "scheduled": 2,
    "views": 0,
    "likes": 0,
    "comments": 0,
@@ -849,9 +849,14 @@
   "paused": false,
   "balance": 10000,
   "today_pnl": 0,
-  "price": 4194.399902,
+  "price": 4187.600098,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-12 05:15:56",
+    "decision": "NO TRADE",
+    "reason": "di luar jam sesi London–New York"
+   },
    {
     "ts": "2026-10-12 05:02:52",
     "decision": "NO TRADE",
