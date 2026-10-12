@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-12T04:48:43.084Z",
+ "generated_at": "2026-10-12T04:58:43.099Z",
  "today": "2026-10-12",
  "week_start": "2026-10-12",
  "campaign": {
@@ -28,17 +28,17 @@
    "id": "researcher",
    "name": "Clariana",
    "title": "Researcher",
-   "status": "working",
-   "current_task": "Riset bahan video tambahan: Champions Shanghai finals weekend",
-   "updated_at": "2026-10-12 04:47:28"
+   "status": "done",
+   "current_task": "Riset Top 4 Champions Shanghai + logo 4 tim",
+   "updated_at": "2026-10-12 04:49:53"
   },
   {
    "id": "copywriter",
    "name": "Ista",
    "title": "Copywriter",
    "status": "done",
-   "current_task": "Teks Road to Playoff MPL & tips top up FF",
-   "updated_at": "2026-10-12 04:28:36"
+   "current_task": "Script video Top 4 Champions Shanghai",
+   "updated_at": "2026-10-12 04:50:06"
   },
   {
    "id": "designer",
@@ -52,17 +52,17 @@
    "id": "video",
    "name": "Dimas",
    "title": "Video Production",
-   "status": "idle",
-   "current_task": "Bukan hari video",
-   "updated_at": "2026-10-11 05:25:11"
+   "status": "done",
+   "current_task": "Render video Top 4 Champions Shanghai",
+   "updated_at": "2026-10-12 04:58:24"
   },
   {
    "id": "publisher",
    "name": "Fikri",
    "title": "Social Media Publisher",
    "status": "done",
-   "current_task": "undefined",
-   "updated_at": "2026-10-12 04:46:05"
+   "current_task": "QA & kirim video #20 ke Owner",
+   "updated_at": "2026-10-12 04:58:33"
   },
   {
    "id": "ads",
@@ -108,6 +108,19 @@
    "title": "Road to Playoff MPL ID S18: Siapa Aman, Siapa Terancam?",
    "status": "approved",
    "asset_url": "{\"feed\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-12/6-road-to-playoff-mpl-id-s18-siapa-aman-si.jpg\"],\"story\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-12/6-road-to-playoff-mpl-id-s18-siapa-aman-si-916.jpg\"]}",
+   "scheduled_at": null,
+   "posted_at": null
+  },
+  {
+   "id": 20,
+   "day": "2026-10-12",
+   "slot": "kilat",
+   "format": "video",
+   "game": "valorant",
+   "pillar": "esport",
+   "title": "Top 4 Champions Shanghai: Siapa Angkat Trofi?",
+   "status": "pending_approval",
+   "asset_url": "{\"video\":\"https://luc1ferr12.github.io/zataa-office/media/2026-10-12/20-top-4-champions-shanghai-siapa-angkat-tr.mp4\",\"cover\":\"https://luc1ferr12.github.io/zataa-office/media/2026-10-12/20-top-4-champions-shanghai-siapa-angkat-tr-cover.jpg\"}",
    "scheduled_at": null,
    "posted_at": null
   },
@@ -321,6 +334,16 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-12 04:58:33",
+   "agent_id": "publisher",
+   "message": "Kirim #20 ke Owner buat approval"
+  },
+  {
+   "ts": "2026-10-12 04:49:53",
+   "agent_id": "researcher",
+   "message": "Nemu 1 topik baru"
+  },
+  {
    "ts": "2026-10-12 04:47:05",
    "agent_id": "owner",
    "message": "Chat: Team, carikan 1 konten video ya, untuk tambahan upload hari ini"
@@ -434,19 +457,44 @@
    "ts": "2026-10-11 18:26:34",
    "agent_id": "owner",
    "message": "Chat: Lagi pada ngapain"
-  },
-  {
-   "ts": "2026-10-11 16:00:11",
-   "agent_id": "analyst",
-   "message": "Update data 3 post IG 📈"
-  },
-  {
-   "ts": "2026-10-11 14:30:08",
-   "agent_id": "owner",
-   "message": "Chat: Thanks team!"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-10-12 04:58:33",
+   "agent_id": "video",
+   "to_id": "researcher",
+   "kind": "santai",
+   "message": "Logo 4 tim Valorant akhirnya dapet juga ya Cla, tadi sempet diblok mulu 😅"
+  },
+  {
+   "ts": "2026-10-12 04:58:33",
+   "agent_id": "publisher",
+   "to_id": "owner",
+   "kind": "oper",
+   "message": "\"QA & kirim video #20 ke Owner\" udah lolos QA, tinggal nunggu ✅ dari Bos"
+  },
+  {
+   "ts": "2026-10-12 04:58:24",
+   "agent_id": "video",
+   "to_id": "publisher",
+   "kind": "oper",
+   "message": "Render \"Render video Top 4 Champions Shanghai\" selesai, Fikri. Cek cover-nya ya"
+  },
+  {
+   "ts": "2026-10-12 04:50:06",
+   "agent_id": "copywriter",
+   "to_id": "designer",
+   "kind": "oper",
+   "message": "Maria, copy \"Script video Top 4 Champions Shanghai\" udah masuk. Headline-nya jangan dikecilin ya 😆"
+  },
+  {
+   "ts": "2026-10-12 04:49:53",
+   "agent_id": "researcher",
+   "to_id": "copywriter",
+   "kind": "oper",
+   "message": "Riset \"Riset Top 4 Champions Shanghai + logo 4 tim\" beres, udah dicek 2 sumber. Ista, lanjut ya~"
+  },
   {
    "ts": "2026-10-12 04:47:05",
    "agent_id": "dir",
@@ -691,49 +739,14 @@
    "to_id": "copywriter",
    "kind": "oper",
    "message": "Ista, bahan buat \"Hasil G2 vs T1 terverifikasi\" udah aku rangkum + sumbernya. Tinggal kamu racik captionnya ✍️"
-  },
-  {
-   "ts": "2026-10-11 13:23:37",
-   "agent_id": "dir",
-   "to_id": null,
-   "kind": "oper",
-   "message": "Oke tim, ada titah dari Bos. Aku bagi tugasnya ya 👇"
-  },
-  {
-   "ts": "2026-10-11 13:23:37",
-   "agent_id": "owner",
-   "to_id": null,
-   "kind": "bos",
-   "message": "Manggil ajaa"
-  },
-  {
-   "ts": "2026-10-11 13:22:38",
-   "agent_id": "dir",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Siap Bos, ada apa? 🫡 Lagi nonton TV bareng nih. Ada yang bisa aku bantu?"
-  },
-  {
-   "ts": "2026-10-11 13:22:37",
-   "agent_id": "owner",
-   "to_id": "dir",
-   "kind": "bos",
-   "message": "Aprista sayang"
-  },
-  {
-   "ts": "2026-10-11 13:19:31",
-   "agent_id": "researcher",
-   "to_id": null,
-   "kind": "santai",
-   "message": "Makasih update-nya Bos! T1 nyamain 1-1, map 3 penentu nih, aku lembur nonton sampe kelar 🍿"
   }
  ],
  "stats": {
   "this_week": {
    "week": "2026-10-12",
-   "total": 14,
+   "total": 15,
    "posted": 0,
-   "pending": 0,
+   "pending": 1,
    "scheduled": 2,
    "views": 0,
    "likes": 0,
