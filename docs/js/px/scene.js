@@ -428,7 +428,7 @@ export function makeSpots() {
   S.meetingT = [];
   [24.9, 26.0, 27.1].forEach((x) => S.meetingT.push({ x, y: y(2), z: RZ(2, -4.2 - 0.95), rot: 0 }, { x, y: y(2), z: RZ(2, -4.2 + 0.95), rot: Math.PI }));
   S.meetingT.push({ x: 23.65, y: y(2), z: RZ(2, -4.2), rot: Math.PI / 2 }, { x: 28.35, y: y(2), z: RZ(2, -4.2), rot: -Math.PI / 2 });
-  // musholla: kiblat = mihrab di dinding belakang. Imam, 1 shaf pria (7), tabir, 1 shaf wanita (10)
+  // musholla: kiblat = mihrab di dinding belakang. Imam, 1 shaf pria (8), tabir, 1 shaf wanita (10)
   S.musholla = makeSpotsMushola();
   S.mimbar = { x: MIMBAR_X, y: y(3) + 0.9, z: RZ(3, -7.15), rot: 0 };
   S.wudhu = WUDHU_X.map((x) => ({ x, y: y(3), z: RZ(3, -6.9), rot: Math.PI }));
@@ -719,7 +719,7 @@ export function buildScene(logo) {
     B.vquad(3.9, 2.05, -28.3, y + 1.75, z(-7.84), M.tvMeet);
     pottedPlant(B, -24.7, z(-7.2), 1.3, y);
     for (const px of [-30, -28.3, -26.6]) { B.ell(px, y + 2.6, z(-4), 0.15, 0.12, 0.15, M.bulb, { cast: false }); L(px, y + 2.4, z(-4), WARM, 3.5, 0.9); }
-    // ---- R. MARKETING DIRECTOR (Aprista)
+    // ---- R. MARKETING DIRECTOR (Andre)
     B.box(2.4, 0.08, 1.0, -20.5, y + 0.77, z(-6.0), M.walnut);
     B.box(2.3, 0.72, 0.06, -20.5, y + 0.38, z(-5.52), M.walnut);
     for (const sx of [-1.12, 1.12]) B.box(0.08, 0.72, 0.9, -20.5 + sx, y + 0.38, z(-6.0), M.walnut);
@@ -1038,7 +1038,7 @@ export function buildScene(logo) {
 function makeSpotsMushola() {
   return {
     imam: { x: MIHRAB_X, z: RZ(3, -6.3) },
-    men: [0, -1, 1, -2, 2, -3, 3].map((k) => ({ x: MIHRAB_X + k * 0.8, z: RZ(3, -5.0) })),
+    men: [0, -1, 1, -2, 2, -3, 3, -4].map((k) => ({ x: MIHRAB_X + k * 0.8, z: RZ(3, -5.0) })),
     women: [0, -1, 1, -2, 2, -3, 3, -4, 4, 5].map((k) => ({ x: MIHRAB_X + k * 0.8, z: RZ(3, -2.5) })),
   };
 }

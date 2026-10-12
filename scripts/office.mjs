@@ -20,9 +20,14 @@ const STATE_PATH = join(ROOT, 'docs', 'data', 'state.json');
 const db = new DatabaseSync(DB_PATH);
 db.exec('PRAGMA foreign_keys = ON');
 db.exec(CHAT_SQL);
+// Okt 2026: Andre gantiin Aprista jadi Marketing Director (id dir), Aprista jadi sekretaris pribadi Bos (id sec)
+try {
+  db.exec("UPDATE agents SET name = 'Andre' WHERE id = 'dir' AND name = 'Aprista'");
+  db.exec("INSERT OR IGNORE INTO agents (id, name, title) VALUES ('sec', 'Aprista', 'Sekretaris Pribadi')");
+} catch { /* db belum init */ }
 // plan mingguan perlu ✅ Owner; campaign lama dianggap sudah approved
 try { db.exec("ALTER TABLE campaigns ADD COLUMN status TEXT DEFAULT 'approved'"); } catch { /* sudah ada */ }
-// ide konten tambahan dari briefing pagi (desain saja, maks 2 dipilih Aprista per hari)
+// ide konten tambahan dari briefing pagi (desain saja, maks 2 dipilih Andre per hari)
 db.exec(`CREATE TABLE IF NOT EXISTS ideas (id INTEGER PRIMARY KEY AUTOINCREMENT, day TEXT NOT NULL, agent_id TEXT NOT NULL,
   title TEXT NOT NULL, concept TEXT, game TEXT, pillar TEXT, chosen INTEGER NOT NULL DEFAULT 0,
   status TEXT NOT NULL DEFAULT 'pitched', content_id INTEGER, created_at TEXT DEFAULT (datetime('now')))`); // pitched | proposed | approved | skipped | made

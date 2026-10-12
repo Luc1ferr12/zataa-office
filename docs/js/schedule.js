@@ -6,7 +6,7 @@ import { CAP as SCENE_CAP } from './px/scene.js';
 
 // desk = nomor meja di bilik (px/scene.js DESK_LIST: 0–7 Marketing, 8–13 Trading)
 export const AGENTS = [
-  { id: 'dir',        name: 'Aprista',   avatar: '#8a5a3c', title: 'Marketing Director',     gender: 'f', partner: 'owner', team: 'mkt', lead: true },
+  { id: 'dir',        name: 'Andre',     avatar: '#2b4c7e', title: 'Marketing Director',     gender: 'm', team: 'mkt', lead: true, commute: true },
   { id: 'researcher', name: 'Clariana',  avatar: '#6b4fd8', title: 'Researcher',             gender: 'f', team: 'mkt', desk: 0 },
   { id: 'copywriter', name: 'Ista',      avatar: '#2f6b65', title: 'Copywriter',             gender: 'f', team: 'mkt', desk: 1 },
   { id: 'designer',   name: 'Maria',     avatar: '#c0668a', title: 'Graphic Designer',       gender: 'f', team: 'mkt', desk: 2 },
@@ -15,7 +15,7 @@ export const AGENTS = [
   { id: 'ads',        name: 'Fahriah',   avatar: '#0d9488', title: 'Ads Specialist',         gender: 'f', team: 'mkt', desk: 5 },
   { id: 'analyst',    name: 'Raka',      avatar: '#475569', title: 'Data Analyst',           gender: 'm', team: 'mkt', desk: 6 },
   { id: 'price',      name: 'Budi',      avatar: '#d97706', title: 'Price Watcher',          gender: 'm', team: 'mkt', desk: 7 },
-  { id: 'owner',      name: 'Zamiir',    avatar: '#5b1fd6', title: 'Owner / Boss',           gender: 'm', boss: true, imam: true, partner: 'dir' },
+  { id: 'owner',      name: 'Zamiir',    avatar: '#5b1fd6', title: 'Owner / Boss',           gender: 'm', boss: true, imam: true, partner: 'sec' },
   { id: 'ob',         name: 'Mbak Sari', avatar: '#3d7ea6', title: 'Office Girl',            gender: 'f', ob: true },
   { id: 'tdir',       name: 'Mahendra',  avatar: '#1f2a4a', title: 'Trading Director',       gender: 'm', team: 'trd', lead: true, nyShift: true },
   { id: 'tresearch',  name: 'Davina',    avatar: '#5b2a86', title: 'Research & Fundamental', gender: 'f', team: 'trd', desk: 8 },
@@ -24,6 +24,8 @@ export const AGENTS = [
   { id: 'texec',      name: 'Wiratama',  avatar: '#4c1d95', title: 'Execution',              gender: 'm', team: 'trd', desk: 11, nyShift: true },
   { id: 'teval',      name: 'Jihan',     avatar: '#8b7d6b', title: 'Evaluation & Optimization', gender: 'f', team: 'trd', desk: 12 },
   { id: 'treport',    name: 'Selena',    avatar: '#7e22ce', title: 'Reporting',              gender: 'f', team: 'trd', desk: 13, nyShift: true },
+  // Aprista: sekretaris pribadi Bos (catat keuangan), numpang komputer Bos
+  { id: 'sec',        name: 'Aprista',   avatar: '#8a5a3c', title: 'Sekretaris Pribadi',     gender: 'f', partner: 'owner', sec: true },
 ];
 // tampilan tiap orang (sprite pixel) ada di js/px/sprites.js, versi 3D di blender/toy_lib.py
 
@@ -31,21 +33,22 @@ const DOW = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
 // kapasitas tempat (dari px/scene.js) — yang nomor urutnya lewat kapasitas pilih tempat lain
 const CAP = SCENE_CAP;
 // kasur (px/scene.js S.bed): 0–9 mess cewek, 10–17 mess cowok, 18–19 king bed Zamiir & Aprista
+// Andre (commute) belum dapet kasur → pulang ke rumah tiap sore
 const BED_SLOT = {
   researcher: 0, copywriter: 1, designer: 2, ads: 3, ob: 4, tresearch: 5, ttech: 6, teval: 7, treport: 8,
   video: 10, publisher: 11, analyst: 12, price: 13, tdir: 14, texec: 15, trisk: 16,
-  dir: 18, owner: 19,
+  sec: 18, owner: 19,
 };
 const BED = (idx, agent) => BED_SLOT[agent.id] ?? idx;
-const LUNCH_SEAT = { dir: 0, owner: 1, ob: 27 }; // Zamiir & Aprista semeja (meja cafe pertama)
+const LUNCH_SEAT = { sec: 0, owner: 1, ob: 27 }; // Zamiir & Aprista semeja (meja cafe pertama)
 const seatOf = (idx, agent) => LUNCH_SEAT[agent.id] ?? 4 + idx;
 // bioskop: baris belakang kursi 16–17 = love seat Zamiir & Aprista
-const CINE_SEAT = { owner: 16, dir: 17 };
+const CINE_SEAT = { owner: 16, sec: 17 };
 const cineSeat = (idx, agent) => CINE_SEAT[agent.id] ?? [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 18, 19][idx % 18];
 // urutan mandi pagi per kamar mandi (3 shower pria, 3 shower wanita)
 const BATH_RANK = {};
 for (const g of ['m', 'f']) AGENTS.filter((a) => a.gender === g && !a.ob).forEach((a, i) => { BATH_RANK[a.id] = i; });
-const deskLoc = (agent) => (agent.boss ? 'boss' : agent.id === 'dir' ? 'dirDesk' : agent.id === 'tdir' ? 'tdirDesk' : 'desk');
+const deskLoc = (agent) => (agent.boss || agent.sec ? 'boss' : agent.id === 'dir' ? 'dirDesk' : agent.id === 'tdir' ? 'tdirDesk' : 'desk');
 const trading = (agent) => agent.team === 'trd';
 const RESEARCH = {
   dir: 'Siapin bahan briefing', researcher: 'Riset tren & berita esport', copywriter: 'Riset hook & caption viral',
@@ -54,6 +57,9 @@ const RESEARCH = {
   tdir: 'Cek status semua agent trading', tresearch: 'Baca kalender ekonomi & berita USD', ttech: 'Scan chart XAUUSD multi-timeframe',
   trisk: 'Cek limit risiko & ekuitas', texec: 'Cek koneksi EA MT5', teval: 'Evaluasi trade kemarin', treport: 'Siapin laporan pagi',
 };
+// Aprista numpang komputer Bos: gantian per 30 menit (deterministik, jadi dua-duanya sepakat siapa yang pegang PC)
+const secTurn = (t) => hash(Math.floor(t.minutes / 30) * 2.3 + (t.dayNum ?? t.dow) * 5.7) < 0.45;
+const SEC_TASK = ['Nyatet pengeluaran Bos', 'Rekap uang masuk & keluar', 'Cek tagihan bulanan Bos', 'Rapihin catatan keuangan'];
 const NY_TASK = { tdir: 'Jaga sesi New York', texec: 'Pantau order sesi New York', treport: 'Laporan sesi New York' };
 // kursi rapat: Marketing (10 kursi), Trading (8 kursi)
 const MKT_SEAT = { owner: 8, dir: 9, researcher: 0, copywriter: 1, designer: 2, video: 3, publisher: 4, ads: 5, analyst: 6, price: 7 };
@@ -94,6 +100,7 @@ function doneAt(idx, agent, dow, day = dow) {
     analyst: at(15, 40),
     price: at(14, 20),
     owner: at(15, 45),
+    sec: at(15, 30),
   }[agent.id] ?? at(15);
   return base + Math.floor(hash(day * 7.7 + idx) * 60) - 25; // tiap hari beda ±30 menit
 }
@@ -218,9 +225,9 @@ function dateAt(t) {
   if (hash(block * 1.7 + day * 3.3) > 0.7) return null;
   return hash(block * 5.1 + day) < 0.5
     ? (hash(block * 2.9 + day) < 0.5
-      ? { loc: 'bossSofa', label: 'Pacaran di ruang boss 💕', emoji: '💕', slots: { owner: 0, dir: 1 }, pose: 'phone' }
+      ? { loc: 'bossSofa', label: 'Pacaran di ruang boss 💕', emoji: '💕', slots: { owner: 0, sec: 1 }, pose: 'phone' }
       : { loc: 'cinema', label: 'Nonton berdua di bioskop mini 💕', emoji: '🍿', slots: CINE_SEAT })
-    : { loc: 'cafe', label: 'Ngedate di cafe 💕', emoji: '💕', slots: { dir: 0, owner: 1 } };
+    : { loc: 'cafe', label: 'Ngedate di cafe 💕', emoji: '💕', slots: { sec: 0, owner: 1 } };
 }
 
 // Mbak Sari (OB): bersih-bersih keliling, tapi juga ngopi, istirahat, makan, sholat, tidur
@@ -228,7 +235,7 @@ const ROOMS_CLEAN = ['cafe', 'santai', 'mkt', 'trd', 'kmW', 'kmP', 'mushola', 'w
 const ROOM_NAME = {
   cafe: 'cafe & resto', santai: 'ruang santai', mkt: 'bilik marketing', trd: 'bilik trading', kmW: 'kamar mandi cewek', kmP: 'kamar mandi cowok',
   mushola: 'musholla', wudhu: 'tempat wudhu', meetM: 'ruang meeting', meetT: 'meeting trading', boss: 'ruang boss', lobby: 'lobby', bioskop: 'bioskop mini',
-  messF: 'mess cewek', messM: 'mess cowok', king: 'kamar bos', dirRoom: 'ruang Aprista', tdirRoom: 'ruang Mahendra', teras: 'teras depan', kolam: 'pinggir kolam',
+  messF: 'mess cewek', messM: 'mess cowok', king: 'kamar bos', dirRoom: 'ruang Andre', tdirRoom: 'ruang Mahendra', teras: 'teras depan', kolam: 'pinggir kolam',
   toilet: 'toilet umum', selasar2: 'selasar lantai 2',
 };
 function obAt(idx, agent, t, withMood, prayer) {
@@ -274,8 +281,10 @@ export function activityAt(idx, agent, t, real, ctx = {}) {
   const trd = trading(agent), weekend = dow === 0 || dow === 6;
   const nyShift = trd && agent.nyShift && !weekend;
 
-  // semua tinggal di mess; Zamiir & Aprista sekamar, jadi jam tidur & bangunnya barengan
-  const bossHome = false;
+  // semua tinggal di mess; Zamiir & Aprista sekamar, jadi jam tidur & bangunnya barengan.
+  // Andre belum dapet kasur: dateng pagi, pulang ke rumah sore
+  const arrive = at(6, 40) + j(12, 15), leave = at(17, 30) + j(13, 40);
+  const bossHome = agent.commute && (m < arrive || m >= leave);
   const jj = agent.partner ? (k, span) => Math.floor(hash(day * 13.37 + 0.5 + k) * span) : j;
   const wake = at(4, 25) + jj(3, 8);
   const bed = (nyShift ? at(22, 40) : at(22)) + jj(4, nyShift ? 50 : 90);
@@ -296,6 +305,7 @@ export function activityAt(idx, agent, t, real, ctx = {}) {
   if (m < at(4, 40)) return withMood({ act: 'sleep', loc: 'bed', slot: BED(idx, agent), label: 'Melek, ngumpulin nyawa buat Subuh', emoji: '🥱' });
 
   // pagi: abis Subuh tidur lagi / santai → mandi gantian (3 shower pria, 3 shower wanita) → sarapan
+  if (agent.commute && m < at(7)) return withMood({ act: 'coffee', loc: 'cafe', slot: seatOf(idx, agent), label: 'Baru nyampe, ngopi dulu', emoji: '☕' });
   if (m < at(7)) {
     const rank = BATH_RANK[agent.id] ?? idx;
     const bath = at(5, 35) + Math.floor(rank / 3) * 13;
@@ -321,6 +331,9 @@ export function activityAt(idx, agent, t, real, ctx = {}) {
   // tim Trading: 07:00 riset masing-masing, 08:00 briefing di Meeting Trading (Mahendra mimpin alur agent)
   if (trd && m < at(8)) return withMood({ act: 'work', loc: desk, label: RESEARCH[agent.id] ?? 'Siapin analisa pagi', emoji: '🔎' });
   if (trd && m < at(8, 30)) return withMood({ act: 'meeting', loc: 'meetingT', slot: TRD_SEAT[agent.id], label: agent.id === 'tdir' ? 'Mimpin briefing trading pagi' : 'Briefing trading: rencana XAU hari ini', emoji: '📈' });
+  // Aprista: pas Bos rapat/briefing pagi, komputer Bos dia yang pakai (Bos riset pagi di PC → Aprista di sofa)
+  if (agent.sec && dow !== 1 && m < at(8)) return withMood({ act: 'free', loc: 'bossSofa', slot: 1, label: 'Nyiapin catatan keuangan di HP', emoji: '📱' });
+  if (agent.sec && m < at(8, 30)) return withMood({ act: 'work', loc: desk, label: 'Rekap keuangan Bos kemarin', emoji: '🧾' });
   // pagi kerja: Senin rapat plan mingguan; Selasa–Minggu riset sendiri lalu briefing pitching ide bareng Bos
   if (dow === 1 && m < at(8)) return withMood({ act: 'meeting', loc: 'meeting', slot: MKT_SEAT[agent.id], label: 'Rapat plan konten mingguan', emoji: '🗓️' });
   if (dow !== 1 && m < at(8)) return withMood({ act: 'work', loc: desk, label: agent.boss ? 'Cek laporan pagi' : RESEARCH[agent.id] ?? 'Riset pagi', emoji: '🔎' });
@@ -336,7 +349,7 @@ export function activityAt(idx, agent, t, real, ctx = {}) {
   if (jumat && !male && m >= at(12, 20) && m < at(13) + j(5, 15)) return eat('Makan siang', '🍛');
   if (!jumat && m >= at(12, 5) && m < lunchEnd) return eat('Makan siang', '🍛');
   if (m >= at(18, 20) && m < at(18, 50) + j(6, 15)) return eat('Makan malam', '🍜');
-  if (dow === 0 && m >= at(16) && m < at(17)) return withMood({ act: 'meeting', loc: 'meeting', slot: MKT_SEAT[agent.id], label: 'Evaluasi mingguan', emoji: '📊' });
+  if (dow === 0 && !agent.sec && m >= at(16) && m < at(17)) return withMood({ act: 'meeting', loc: 'meeting', slot: MKT_SEAT[agent.id], label: 'Evaluasi mingguan', emoji: '📊' });
   // jaga sesi New York (Mahendra, Wiratama, Selena): balik ke meja sampai ±22:00
   if (nyShift && m >= at(19, 40) && m < at(22, 10)) return withMood({ act: 'work', loc: desk, label: NY_TASK[agent.id], emoji: '🌙', overtime: true });
   // Sabtu malam: nobar bareng di bioskop mini
@@ -357,7 +370,7 @@ export function activityAt(idx, agent, t, real, ctx = {}) {
   if (!agent.boss && m >= toiletAt && m < toiletAt + 6) return withMood({ act: 'break', loc: 'toilet', slot: idx % 3, label: 'Ke kamar mandi bentar', emoji: '🚻' });
   const coffeeAt = at(9, 30) + j(10, 6 * 60); // sekali sehari antara 09:30–15:30
   if (hash(day * 3.1 + idx) < 0.7 && m >= coffeeAt && m < coffeeAt + 12 + j(11, 8)) return withMood({ act: 'coffee', loc: 'cafe', slot: seatOf(idx, agent), label: 'Ngopi bentar', emoji: '☕' });
-  const rest = agent.boss ? 'bossSofa' : agent.id === 'dir' ? 'dirSofa' : agent.id === 'tdir' ? 'tdirSofa' : idx < CAP.lounge ? 'lounge' : 'cafe';
+  const rest = agent.boss || agent.sec ? 'bossSofa' : agent.id === 'dir' ? 'dirSofa' : agent.id === 'tdir' ? 'tdirSofa' : idx < CAP.lounge ? 'lounge' : 'cafe';
   const restSlot = rest === 'lounge' ? idx : rest === 'cafe' ? seatOf(idx, agent) : 0;
   const stretchAt = at(10) + j(7, 5 * 60);
   if (!busy && hash(day * 5.3 + idx) < 0.45 && m >= stretchAt && m < stretchAt + 8) return withMood({ act: 'break', loc: rest, slot: restSlot, label: 'Rebahan bentar, pegel', emoji: '🛋️' });
@@ -370,6 +383,11 @@ export function activityAt(idx, agent, t, real, ctx = {}) {
   const sip = 20 + j(8 + hour, 30);
   if (hash(hour * 7 + idx * 13 + day * 31) < 0.3 && mm >= sip && mm < sip + 5) return { act: 'water', loc: 'counter', slot: idx % CAP.counter, label: 'Ambil minum', emoji: '🥤', mood };
 
+  // komputer Bos gantian: yang nggak pegang PC kerja dari sofa ruang boss
+  if (agent.sec) return secTurn(t)
+    ? { act: 'work', loc: desk, label: pick(SEC_TASK, hash(hour + day)), emoji: '🧾', mood }
+    : { act: 'free', loc: 'bossSofa', slot: 1, label: 'Gantian komputer, nyatet di HP', emoji: '📱', mood };
+  if (agent.boss && secTurn(t)) return { act: 'free', loc: 'bossSofa', slot: 0, label: 'Gantian komputer sama Aprista', emoji: '📱', mood };
   return { act: 'work', loc: desk, label: 'Kerja', emoji: '💻', mood };
 }
 
@@ -382,7 +400,7 @@ export function describe(agent, sched, real) {
   if (real?.status === 'working' && real.current_task) return { ...sched, label: real.current_task, emoji: '⚡' };
   if (sched.label !== 'Kerja') return sched;
   const idle = {
-    dir: 'Pantau performa konten', researcher: 'Scroll tren & berita esport', copywriter: 'Nyusun bank ide caption',
+    dir: 'Pantau performa konten', sec: 'Nyatet keuangan Bos', researcher: 'Scroll tren & berita esport', copywriter: 'Nyusun bank ide caption',
     designer: 'Rapihin aset template', video: 'Cek referensi motion', publisher: 'Cek komentar & DM', ads: 'Pantau performa post & iklan',
     analyst: 'Ngulik data insight IG', price: 'Mantau harga di web', owner: 'Review konten & cek approval',
     tdir: 'Ngatur alur agent trading', tresearch: 'Pantau berita Fed, CPI, NFP', ttech: 'Analisa trend & S/R XAUUSD',

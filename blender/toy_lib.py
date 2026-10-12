@@ -156,7 +156,7 @@ def flat(ob):
 
 # ---------------------------------------------------------------- data pegawai
 CHARS = {
-    'dir': dict(name='Aprista', g='f', skin='#f0c9a8', hair='#6b3e22', brow='#4a2a18', hair_style='wavy_long', clip='#a78bfa',
+    'sec': dict(name='Aprista', g='f', skin='#f0c9a8', hair='#6b3e22', brow='#4a2a18', hair_style='wavy_long', clip='#a78bfa',
                 top=dict(kind='tee', color='#f4f1ea'), outer=dict(kind='blazer', color='#1f2a4a'),
                 bottom=dict(kind='skirt', color='#e6d8bd', length='knee'), shoe=dict(kind='flat', color='#7a4a2e'),
                 pose=dict(head=(6, 3, 8), twist=6, lean=-2, el={1: (0.205, 0.03, 0.56)}, wr={1: (0.125, 0.012, 0.47)},

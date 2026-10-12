@@ -84,7 +84,7 @@ Owner juga kirim ${paths.length} gambar contoh/referensi: ${paths.join(', ')}. W
 
 export const say = (text) => tg('sendMessage', { chat_id: env.TELEGRAM_CHAT_ID, text, parse_mode: 'HTML', disable_web_page_preview: true });
 // nama pegawai yang ngomong selalu di depan pesan, biar Owner tahu siapa yang bales: "<b>Maria</b>: ..."
-export const NAMA = { dir: 'Aprista', researcher: 'Clariana', copywriter: 'Ista', designer: 'Maria', video: 'Dimas', publisher: 'Fikri', ads: 'Fahriah', analyst: 'Raka', price: 'Budi', ob: 'Mbak Sari',
+export const NAMA = { dir: 'Andre', sec: 'Aprista', researcher: 'Clariana', copywriter: 'Ista', designer: 'Maria', video: 'Dimas', publisher: 'Fikri', ads: 'Fahriah', analyst: 'Raka', price: 'Budi', ob: 'Mbak Sari',
   tdir: 'Mahendra', tresearch: 'Davina', ttech: 'Keira', trisk: 'Aryaputra', texec: 'Wiratama', teval: 'Jihan', treport: 'Selena' };
 export const sayAs = (agent, text) => say(`<b>${NAMA[agent] ?? agent}</b>: ${text}`);
 
@@ -152,7 +152,7 @@ export async function submitPlan() {
   for (const r of rows) (byDay[r.day] ??= []).push(r);
   const lines = Object.entries(byDay).map(([day, items]) => `<b>${DAY_SHORT[new Date(`${day}T00:00:00Z`).getUTCDay()]} ${day.slice(8)}/${day.slice(5, 7)}</b>\n${items
     .map((r) => `• ${r.slot} · ${r.format === 'video' ? '🎬' : '🖼️'} ${esc(r.game ?? '')} ${esc(r.pillar ?? '')}: ${esc(r.title)}`).join('\n')}`);
-  let text = [`🗓️ <b>PLAN MINGGU ${c.week_start}</b> (Plan C${c.id}) dari Aprista`, `Tema: <b>${esc(c.theme)}</b>`, c.goals ? `Target: ${esc(c.goals)}` : '', '', ...lines, '',
+  let text = [`🗓️ <b>PLAN MINGGU ${c.week_start}</b> (Plan C${c.id}) dari Andre`, `Tema: <b>${esc(c.theme)}</b>`, c.goals ? `Target: ${esc(c.goals)}` : '', '', ...lines, '',
     'Tekan ✅ buat mulai produksi, atau ✏️ Revisi lalu ketik catatannya (boleh reply pesan ini).'].filter((l) => l !== '').join('\n');
   if (text.length > 4000) text = `${text.slice(0, 3990)}…`;
   await tg('sendMessage', {
@@ -164,14 +164,14 @@ export async function submitPlan() {
   return { ok: true, campaign: c.id, contents: rows.length };
 }
 
-// ---------- ide briefing pagi (Selasa–Minggu): 2 ide terbaik pilihan Aprista → Owner pilih
+// ---------- ide briefing pagi (Selasa–Minggu): 2 ide terbaik pilihan Andre → Owner pilih
 export async function submitIdeas() {
   const d = await db();
   const today = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Makassar' }).format(new Date());
   const ideas = d.prepare('SELECT * FROM ideas WHERE day = ? AND chosen = 1 ORDER BY id LIMIT 2').all(today);
   if (!ideas.length) throw new Error('belum ada ide yang dipilih hari ini (office.mjs idea pick)');
   const slotOf = (i) => (i === 0 ? 'pagi 10:00' : 'sore 16:00');
-  const text = ['💡 <b>Ide konten tambahan hari ini</b> (hasil briefing, dipilih Aprista)', '',
+  const text = ['💡 <b>Ide konten tambahan hari ini</b> (hasil briefing, dipilih Andre)', '',
     ...ideas.map((x, i) => `<b>Ide ${i + 1}</b> · dari ${NAMA[x.agent_id] ?? x.agent_id} · tayang ${slotOf(i)} WIB\n<b>${esc(x.title)}</b>\n${esc(x.concept ?? '')}`), '',
     'Desain feed aja (bukan video). Pilih yang mau dibikin:'].join('\n');
   const row = ideas.map((x, i) => ({ text: `✅ Ide ${i + 1}`, callback_data: `idea:${x.id}` }));

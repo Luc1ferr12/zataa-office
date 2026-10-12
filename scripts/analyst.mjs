@@ -64,7 +64,7 @@ export async function weeklyReport() {
     '<b>Raka</b>: 📊 <b>Laporan mingguan</b>', `${rows.length} post · ❤️ ${total.likes} · 💬 ${total.comments}${total.views ? ` · 👀 ${total.views}` : ''}`, '',
     '<b>Top 3 post:</b>', ...top.map((r, i) => `${i + 1}. #${r.id} ${esc(r.title)} (❤️ ${r.likes} · 💬 ${r.comments})`), '',
     '<b>Pilar paling works:</b>', ...avg.map(([k, v]) => `• ${esc(k)}: skor rata-rata ${v.toFixed(1)}`), '',
-    `Saran: perbanyak pilar <b>${esc(avg[0][0])}</b> minggu depan. Aprista pakai ini buat evaluasi & plan Senin.`,
+    `Saran: perbanyak pilar <b>${esc(avg[0][0])}</b> minggu depan. Andre pakai ini buat evaluasi & plan Senin.`,
   ].join('\n');
   await say(text);
   chat(d, 'analyst', 'dir', `Kak, laporan minggu ini udah aku kirim ke Bos. Pilar ${avg[0][0]} paling rame 📈`, 'oper');

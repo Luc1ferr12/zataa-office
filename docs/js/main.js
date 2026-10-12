@@ -112,7 +112,7 @@ function visitsNow() {
 
 // panel Tim: per divisi, urut sesuai alur kerja (urutan AGENTS dipakai buat kursi/kasur, jangan diubah)
 const DIVISIONS = [
-  { name: 'Pimpinan', flow: '', ids: ['owner'] },
+  { name: 'Pimpinan', flow: '', ids: ['owner', 'sec'] },
   { name: 'Marketing', flow: 'plan → riset → konten → publish → iklan → data', ids: ['dir', 'researcher', 'price', 'copywriter', 'designer', 'video', 'publisher', 'ads', 'analyst'] },
   { name: 'Trading XAUUSD', flow: 'siklus tiap candle M15', ids: ['tdir', 'tresearch', 'ttech', 'trisk', 'texec', 'teval', 'treport'] },
   { name: 'Umum', flow: '', ids: ['ob'] },

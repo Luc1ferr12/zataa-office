@@ -34,7 +34,7 @@ export async function statusReport() {
 }
 
 // ---------- siapa yang dipanggil Owner → dia yang nyaut (balasan selalu "<b>Nama</b>: ...")
-const WHO = { aprista: 'dir', clariana: 'researcher', ista: 'copywriter', maria: 'designer', dimas: 'video', fikri: 'publisher', fahriah: 'ads', raka: 'analyst', budi: 'price', sari: 'ob',
+const WHO = { andre: 'dir', aprista: 'sec', clariana: 'researcher', ista: 'copywriter', maria: 'designer', dimas: 'video', fikri: 'publisher', fahriah: 'ads', raka: 'analyst', budi: 'price', sari: 'ob',
   mahendra: 'tdir', davina: 'tresearch', keira: 'ttech', aryaputra: 'trisk', arya: 'trisk', wiratama: 'texec', wira: 'texec', jihan: 'teval', selena: 'treport' };
 const NAME_RE = new RegExp(`\\b(${Object.keys(WHO).join('|')})\\b`, 'i');
 export const calledAgent = (t) => WHO[(String(t).match(NAME_RE)?.[1] ?? '').toLowerCase()] ?? null;
@@ -148,7 +148,7 @@ const SPEAKER_RE = new RegExp(`^[*_\\s]*(mbak sari|${[...Object.keys(WHO), ...Ob
 const nameOf = (n) => { const k = n.toLowerCase().replace('mbak ', ''); return NAMA[WHO[k]] ?? n; };
 export function formatReply(text, fallback = 'dir') {
   const lines = replyOf(text).split('\n').map((l) => l.trim()).filter(Boolean);
-  let who = NAMA[fallback] ?? 'Aprista';
+  let who = NAMA[fallback] ?? 'Andre';
   return lines.map((l) => {
     const m = l.match(SPEAKER_RE);
     if (m) { who = nameOf(m[1]); l = l.slice(m[0].length); }
@@ -165,7 +165,7 @@ export async function handleOwnerMessage(msg, log = console.log, photos = []) {
   if (!photos.length && isCall(msg)) return answerCall(msg);
   if (!photos.length && isSmallTalk(msg)) return smallTalk(msg);
   const d = await db();
-  // yang jawab: yang dipanggil namanya → kalau nggak ada, yang barusan ngobrol sama Owner (≤20 menit) → Aprista
+  // yang jawab: yang dipanggil namanya → kalau nggak ada, yang barusan ngobrol sama Owner (≤20 menit) → Andre
   const lead = calledAgent(msg) ?? lastSpeaker(d) ?? 'dir';
   const task = photos.length > 0 || isTask(msg);
   const history = recentTalk(d);
@@ -183,7 +183,7 @@ export async function handleOwnerMessage(msg, log = console.log, photos = []) {
 Pesan BARU Owner:\n"${msg}"
 ${lead !== 'dir' ? `Yang diajak ngomong: ${NAMA[lead]} (${lead}) — dia yang jawab duluan.\n` : ''}Bales natural & singkat, bahasa Indonesia santai ala gamer, sebagai pegawai kantor. Jangan ngarang data (harga, skor, berita, angka IG).
 Kalau pesannya ternyata butuh riset web, cek harga, data, atau bikin/ubah konten: JANGAN dikerjakan, cukup tulis persis ${ESCALATE} lalu berhenti.
-Tim marketing: Aprista (dir), Clariana (researcher), Ista (copywriter), Maria (designer), Dimas (video), Fikri (publisher), Fahriah (ads), Raka (analyst), Budi (price). Tim trading XAU: Mahendra (tdir, director), Davina (tresearch), Keira (ttech), Aryaputra (trisk), Wiratama (texec), Jihan (teval), Selena (treport) — data trading cuma dari "node scripts/trading/cli.mjs status", jangan ngarang.
+Aprista (sec) = sekretaris pribadi Bos & pacarnya, nyatet keuangan pribadi Bos (fitur catat keuangan belum jalan, jangan ngarang angka). Tim marketing: Andre (dir, Marketing Director), Clariana (researcher), Ista (copywriter), Maria (designer), Dimas (video), Fikri (publisher), Fahriah (ads), Raka (analyst), Budi (price). Tim trading XAU: Mahendra (tdir, director), Davina (tresearch), Keira (ttech), Aryaputra (trisk), Wiratama (texec), Jihan (teval), Selena (treport) — data trading cuma dari "node scripts/trading/cli.mjs status", jangan ngarang.
 Akhiri dengan baris "BALASAN:" lalu 1–2 baris, TIAP baris diawali nama pegawai: "Nama: pesan".`, 3, { model: chatModel, tools: ['Read', 'Glob', 'Grep'] });
     if (light.ok && !light.text.includes(ESCALATE)) {
       const reply = formatReply(light.text, lead);
@@ -253,7 +253,7 @@ export async function handleDecision(x, log = console.log) {
     const refs = await downloadPhotos(x.photos ?? []);
     chat(d, 'dir', null, 'Plan-nya diminta revisi sama Bos, aku benerin dulu ya 📝', 'oper');
     return team(`Owner minta REVISI plan mingguan (campaign id ${x.id}): "${x.note}"${photoNote(refs)}`,
-      'Aprista revisi plan sesuai catatan (baca office/roles/dir.md), simpan lagi dengan node scripts/office.mjs campaign <plan.json> (slot lama yang belum dikerjakan otomatis diganti), lalu kirim ulang: node scripts/approval.mjs plan. Jangan produksi konten sebelum plan di-approve.', log);
+      'Andre revisi plan sesuai catatan (baca office/roles/dir.md), simpan lagi dengan node scripts/office.mjs campaign <plan.json> (slot lama yang belum dikerjakan otomatis diganti), lalu kirim ulang: node scripts/approval.mjs plan. Jangan produksi konten sebelum plan di-approve.', log);
   }
   if (x.action === 'idea_approve') {
     const ids = String(x.note || x.id).split(',').map(Number).filter(Boolean);

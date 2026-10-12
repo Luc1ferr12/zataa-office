@@ -12,7 +12,8 @@ Kantor marketing virtual untuk **zataa.my.id** (top up game). Claude memerankan 
 ## Pegawai (`agent id`)
 | id | Nama | Tugas |
 |---|---|---|
-| dir | Aprista | Senin: plan mingguan (`office.mjs campaign plan.json`). Minggu: evaluasi + ide minggu depan |
+| dir | Andre | Marketing Director (santai tapi tegas, pulang-pergi dari rumah). Senin: plan mingguan (`office.mjs campaign plan.json`). Minggu: evaluasi + ide minggu depan |
+| sec | Aprista | Sekretaris pribadi Owner: catat keuangan pribadi Owner (bot baru, belum dibangun). Numpang komputer Owner |
 | researcher | Clariana | Tren & berita ML / Valorant / Free Fire, turnamen, transfer pemain, update patch, cek harga di zataa.my.id |
 | copywriter | Ista | Headline, isi template, caption, hashtag, CTA |
 | designer | Maria | Render feed/carousel dari template → JPG 1080×1080 IG feed (+9:16) |
@@ -50,7 +51,7 @@ Kalau sesi ini jalan di laptop (Windows): jangan nyalain watcher lokal; ubah kod
 ## Ritme kerja
 - Kantor jalan **24 jam** (VPS); pegawai tinggal di mess. Sesi kerja Claude otomatis 07:00 WITA, SOP lengkap: `office/daily.md`.
 - **Senin 07:00–08:00**: rapat plan mingguan → `approval.mjs plan` → produksi baru jalan setelah Owner ✅ plan.
-- **Selasa–Minggu**: 07:00–08:00 riset masing-masing, 08:00–08:30 briefing (tiap pegawai 1 ide desain tambahan, Aprista pilih 2 → `approval.mjs ideas`), lalu produksi konten terjadwal.
+- **Selasa–Minggu**: 07:00–08:00 riset masing-masing, 08:00–08:30 briefing (tiap pegawai 1 ide desain tambahan, Andre pilih 2 → `approval.mjs ideas`), lalu produksi konten terjadwal.
 - Video: **Rabu & Sabtu**. Hari lain feed/carousel.
 - Slot WIB (jam tayang ikut zona mayoritas audiens): `siang` ±12:00 & `malam` ±19:00 (plan), `pagi` 10:00 & `sore` 16:00 (ide tambahan yang di-✅), `kilat` = langsung setelah approve.
 - Mix konten mingguan: ~40% berita/esport (turnamen, transfer, patch), ~30% promo zataa (harga, event top up), ~20% tips/engagement (kuis, polling, meme aman), game lain di luar ML/Valorant/FF maksimal 1×/minggu.

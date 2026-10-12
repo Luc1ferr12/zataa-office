@@ -11,7 +11,7 @@ Kamu menjalankan satu hari kerja kantor marketing virtual Zataa (zataa.my.id, to
 
 ## 1A. SENIN 07:00–08:00 — rapat plan mingguan
 1. Clariana riset singkat (≤4 pencarian): tren & jadwal turnamen/patch minggu ini → `office.mjs research <file.json>`.
-2. Aprista bikin plan 14 slot sesuai `office/roles/dir.md` → `office.mjs campaign plan.json` → `node scripts/approval.mjs plan`.
+2. Andre bikin plan 14 slot sesuai `office/roles/dir.md` → `office.mjs campaign plan.json` → `node scripts/approval.mjs plan`.
 3. **STOP produksi.** Konten hari ini dikerjakan otomatis setelah Owner ✅ plan (watcher). Lanjut ke langkah 5 (penutup).
 
 ## 1B. SELASA–MINGGU 07:00–08:00 — riset masing-masing
@@ -22,8 +22,8 @@ Kamu menjalankan satu hari kerja kantor marketing virtual Zataa (zataa.my.id, to
   - Lainnya (Ista, Maria, Dimas, Fikri, Fahriah): cukup dari bahan di atas + memori, tanpa pencarian tambahan.
 
 ## 2. SELASA–MINGGU 08:00–08:30 — briefing ide
-1. Tiap pegawai (kecuali Aprista) pitching 1 ide konten tambahan, **desain feed saja** → `office.mjs idea add ideas.json` (`[{agent, title, concept, game, pillar}]`).
-2. Aprista pilih 2 terbaik → `office.mjs idea pick <id1> <id2>` → `node scripts/approval.mjs ideas`.
+1. Tiap pegawai (kecuali Andre) pitching 1 ide konten tambahan, **desain feed saja** → `office.mjs idea add ideas.json` (`[{agent, title, concept, game, pillar}]`).
+2. Andre pilih 2 terbaik → `office.mjs idea pick <id1> <id2>` → `node scripts/approval.mjs ideas`.
 3. Ide yang di-✅ Owner dibikin otomatis oleh watcher (slot pagi 10:00 & sore 16:00 WIB) — JANGAN dibikin di sesi ini.
 
 ## 3. Produksi konten terjadwal hari ini (Selasa–Minggu, kalau campaign `approved`)
@@ -34,7 +34,7 @@ Kamu menjalankan satu hari kerja kantor marketing virtual Zataa (zataa.my.id, to
 - Fikri: QA (`office/roles/publisher.md`) → `node scripts/approval.mjs submit <id>`. Posting IG otomatis oleh watcher setelah Owner ✅ — jangan posting manual.
 
 ## 4. Minggu tambahan — evaluasi (setelah langkah 3)
-- Aprista evaluasi pakai laporan Raka + `office.mjs stats`, simpan ≤3 pelajaran `office.mjs memory dir "..."`, ide tema minggu depan di ringkasan.
+- Andre evaluasi pakai laporan Raka + `office.mjs stats`, simpan ≤3 pelajaran `office.mjs memory dir "..."`, ide tema minggu depan di ringkasan.
 
 ## 5. Penutup
 - Pelajaran penting (1 kalimat) via `office.mjs memory <agent> "..."`.

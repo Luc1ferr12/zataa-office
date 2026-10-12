@@ -116,7 +116,8 @@ CREATE INDEX IF NOT EXISTS idx_mem_agent ON memories(agent_id, id);
 
 INSERT OR IGNORE INTO agents (id, name, title) VALUES
   ('owner',      'Zamiir', 'Owner / Boss'),
-  ('dir',        'Aprista',   'Marketing Director'),
+  ('dir',        'Andre',     'Marketing Director'),
+  ('sec',        'Aprista',   'Sekretaris Pribadi'),
   ('researcher', 'Clariana',  'Researcher'),
   ('copywriter', 'Ista',   'Copywriter'),
   ('designer',   'Maria',  'Graphic Designer'),

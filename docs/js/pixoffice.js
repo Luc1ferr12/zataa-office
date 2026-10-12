@@ -644,7 +644,7 @@ export class Office {
         return [C.code1, C.code2, C.code3, C.code4][Math.floor(hash2(row, X >> 2) * 4)];
       });
     }
-    // monitor director (Aprista & Mahendra)
+    // monitor director (Andre & Mahendra)
     const dirOn = (id) => { const c = this.chars.get(id); return c && !c.path.length && /Desk/.test(c.locKey); };
     surf('tvDir', 12, 5, (X, Y) => (dirOn('dir') ? ((X + Y + Math.floor(t)) % 4 === 0 ? C.code1 : Y === 0 ? C.violet : C.scrBg) : C.scrOff));
     surf('tvTdir', 12, 5, (X, Y, px) => (dirOn('tdir') ? candle(X, Y, t, 20, px) : C.scrOff));

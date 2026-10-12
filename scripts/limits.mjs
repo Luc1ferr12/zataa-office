@@ -53,8 +53,8 @@ export async function limitsTick() {
     const text = `⚠️ Bos, ${u.label.toLowerCase()} Claude udah <b>${u.pct}%</b>. Reset ${whenWita(u.resetsAt)} WITA.\n`
       + (weekly ? 'Kalau sampai 100%, kerjaan AI (sesi harian, tugas Telegram, revisi) berhenti sampai reset. Auto-post, cek harga & data IG tetap jalan.'
         : 'Kalau penuh, kerjaan AI ketunda sebentar sampai reset.');
-    await sayAs('dir', text);
-    chat(d, 'dir', 'owner', text.replace(/<\/?b>/g, ''), 'santai');
+    await sayAs('sec', text);
+    chat(d, 'sec', 'owner', text.replace(/<\/?b>/g, ''), 'santai');
     sent.push(`${u.key}:${u.pct}%`);
   }
   return sent.length ? { alert: sent } : null;
