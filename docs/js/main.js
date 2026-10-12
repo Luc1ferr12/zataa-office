@@ -128,6 +128,8 @@ const DIVISIONS = [
   { name: 'Trading XAUUSD', flow: 'siklus tiap candle M15', ids: ['tdir', 'tresearch', 'ttech', 'trisk', 'texec', 'teval', 'treport'] },
   { name: 'Umum', flow: '', ids: ['ob'] },
 ];
+// card Tim lebar penuh: kolom 1 Pimpinan + Umum, kolom 2 Marketing, kolom 3 Trading
+const TEAM_COLUMNS = [[0, 3], [1], [2]];
 
 function tick(force = false) {
   const t = now();
@@ -162,10 +164,11 @@ function tick(force = false) {
       <div class="who"><strong>${a.name} <span style="display:inline;color:var(--muted);font-weight:400">· ${a.title}</span></strong><span>${info.emoji} ${esc(info.label)}</span></div>
       <div class="emoji" title="${esc(info.mood?.label ?? '')}">${info.mood?.emoji ?? ''}</div>
     </li>`;
-  $('team-list').innerHTML = DIVISIONS.map((d) => {
+  const division = (d) => {
     const rows = d.ids.map((id) => byId[id]).filter(Boolean);
-    return rows.length ? `<li class="division"><span>${d.name}</span><small>${d.flow}</small></li>${rows.map(row).join('')}` : '';
-  }).join('');
+    return rows.length ? `<div class="division"><span>${d.name}</span><small>${d.flow}</small></div><ul>${rows.map(row).join('')}</ul>` : '';
+  };
+  $('team-list').innerHTML = TEAM_COLUMNS.map((col) => `<li class="team-col">${col.map((i) => division(DIVISIONS[i])).join('')}</li>`).join('');
   if (selected) renderInspector(selected, list.find((l) => l.a.id === selected)?.info);
   renderChat(t);
 }
