@@ -6,10 +6,11 @@
 //   node scripts/watch.mjs --once   (sekali cek, untuk tes)
 process.removeAllListeners('warning');
 import { spawn, execFileSync } from 'node:child_process';
+import { existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { poll, submit, sayAs, loadEnv, downloadPhotos, photoNote } from './approval.mjs';
-import { publishDue } from './publish.mjs';
+import { publishDue, tiktokExport, isTiktokCommand, tiktokCommand } from './publish.mjs';
 import { revisionText } from './chatter.mjs';
 import { adsReady, propose, runApproved } from './boost.mjs';
 import { handleOwnerMessage, handleDecision, runFollowups, syncMonitor } from './ask.mjs';
@@ -147,14 +148,16 @@ async function talk() {
 
 // GitHub Pages: push state.json tiap 10 menit kalau ada perubahan (status pegawai, aktivitas, chit-chat). 0 token.
 const SYNC_EVERY = 10 * 60_000;
-function syncPages() {
+const PAGES_DATA = () => ['docs/data/state.json', 'docs/data/tiktok.json'].filter((f) => existsSync(join(ROOT, f)));
+async function syncPages() {
   if (posting) return; // publish.mjs juga lagi push media, jangan tabrakan
   const git = (...a) => execFileSync('git', a, { cwd: ROOT, encoding: 'utf8', windowsHide: true, stdio: ['ignore', 'pipe', 'pipe'] });
   try {
     exportState();
-    if (!git('status', '--porcelain', '--', 'docs/data/state.json').trim()) return;
-    git('add', '--', 'docs/data/state.json');
-    git('commit', '-m', 'state: update dashboard', '--', 'docs/data/state.json');
+    if (loadEnv().TIKTOK_REFRESH_TOKEN) await tiktokExport().catch((e) => log(`studio tiktok.json gagal: ${e.message}`));
+    if (!git('status', '--porcelain', '--', ...PAGES_DATA()).trim()) return;
+    git('add', '--', ...PAGES_DATA());
+    git('commit', '-m', 'state: update dashboard', '--', ...PAGES_DATA());
     git('push');
     log('state.json ke-push ke GitHub Pages');
   } catch (e) { log(`push state gagal: ${String(e.stderr || e.message).trim().split('\n').pop()}`); }
@@ -189,7 +192,12 @@ async function tick() {
     // Owner udah mutusin → Fikri nggak nunggu approval lagi
     if (got.some((g) => ['approve', 'reject'].includes(g.action))) setAgent('publisher', 'done');
     if (got.some((g) => g.action === 'boost_skip')) setAgent('ads', 'done');
-    for (const g of got.filter((x) => x.action === 'chat' && (x.note || x.photos?.length))) inbox.push({ msg: g.note ?? '', photos: g.photos ?? [] });
+    // tombol Zataa Studio (TIKTOK LOGIN / TIKTOK POST) → langsung dikerjakan Fikri, tanpa AI
+    for (const g of got.filter((x) => x.action === 'chat' && isTiktokCommand(x.note ?? ''))) {
+      log(`perintah studio: ${g.note.split('\n')[0].slice(0, 80)}`);
+      tiktokCommand(g.note).then((r) => log(`studio beres: ${JSON.stringify(r)}`), (e) => log(`studio gagal: ${e.message}`)).finally(syncPages);
+    }
+    for (const g of got.filter((x) => x.action === 'chat' && !isTiktokCommand(x.note ?? '') && (x.note || x.photos?.length))) inbox.push({ msg: g.note ?? '', photos: g.photos ?? [] });
     for (const g of got.filter((x) => ['plan_approve', 'plan_revision', 'idea_approve', 'price_promo'].includes(x.action))) inbox.push({ decision: g });
     if (inbox.length) talk();
     exportState();

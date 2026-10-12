@@ -1,33 +1,58 @@
 <!doctype html>
-<html lang="id">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Login TikTok · Zataa Topup</title>
+<title>TikTok Login · Zataa Studio</title>
+<link rel="icon" href="assets/logo.png">
 <style>
-  :root { --bg: #ffffff; --fg: #1d1b26; --muted: #5c5870; --accent: #6d28d9; }
-  @media (prefers-color-scheme: dark) { :root { --bg: #0f0c1a; --fg: #ece9f5; --muted: #a6a0bd; --accent: #a78bfa; } }
-  body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.65 system-ui, -apple-system, "Segoe UI", sans-serif; }
-  main { max-width: 720px; margin: 0 auto; padding: 40px 16px 64px; }
-  h1 { font-size: 1.8rem; margin: 0 0 4px; }
-  h2 { font-size: 1.1rem; margin: 28px 0 6px; }
-  p, li { color: var(--fg); }
-  .muted { color: var(--muted); }
+  :root { --bg: #f7f6fb; --card: #ffffff; --fg: #1d1b26; --muted: #5c5870; --line: #e3e0ee; --accent: #6d28d9; --accent-fg: #ffffff; --ok: #047857; --bad: #b91c1c; }
+  @media (prefers-color-scheme: dark) { :root { --bg: #0f0c1a; --card: #181427; --fg: #ece9f5; --muted: #a6a0bd; --line: #2c2640; --accent: #a78bfa; --accent-fg: #160f2b; --ok: #34d399; --bad: #f87171; } }
+  body { margin: 0; background: var(--bg); color: var(--fg); font: 15px/1.6 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  main { max-width: 640px; margin: 0 auto; padding: 40px 16px 64px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 20px; }
+  h1 { font-size: 1.4rem; margin: 0 0 6px; }
+  .muted, .note { color: var(--muted); }
+  .note { font-size: .88rem; }
+  .ok { color: var(--ok); } .bad { color: var(--bad); }
+  .btn { display: inline-block; border-radius: 10px; padding: 10px 16px; font-weight: 600; background: var(--accent); color: var(--accent-fg); text-decoration: none; margin: 6px 8px 6px 0; }
+  .btn.ghost { background: transparent; color: var(--fg); border: 1px solid var(--line); }
+  code { word-break: break-all; font-size: .85rem; }
   a { color: var(--accent); }
+  [hidden] { display: none !important; }
 </style>
 </head>
 <body>
 <main>
-  <h1>Login TikTok berhasil?</h1>
-  <p class="muted">Halaman tujuan setelah izin TikTok untuk aplikasi Zataa Topup.</p>
-  <p id="s">Memeriksa…</p>
-  <p><code id="c" style="word-break:break-all"></code></p>
-  <script>
-    const q = new URLSearchParams(location.search);
-    const s = document.getElementById('s'), c = document.getElementById('c');
-    if (q.get('code')) { s.textContent = '✅ Berhasil. Salin SELURUH alamat (URL) halaman ini dari address bar, lalu kirim ke Claude.'; c.textContent = location.href; }
-    else s.textContent = q.get('error') ? '❌ Gagal: ' + (q.get('error_description') || q.get('error')) : 'Belum ada kode login di alamat ini.';
-  </script>
+  <div class="card">
+    <h1>TikTok login</h1>
+    <p id="s" class="muted">Checking…</p>
+    <div id="next" hidden>
+      <a class="btn" id="send" href="#" target="_blank" rel="noopener">Finish connecting</a>
+      <a class="btn ghost" href="studio.html">Back to Zataa Studio</a>
+      <p class="note">This opens our Telegram bot with a one-time login code. Tap <b>Send</b> there and the Zataa server links your TikTok account. Then reload Zataa Studio.</p>
+      <details><summary class="note">Manual</summary><p class="note">Page address:</p><code id="c"></code></details>
+    </div>
+  </div>
 </main>
+<script>
+  const q = new URLSearchParams(location.search);
+  const s = document.getElementById('s');
+  let expected = null;
+  try { expected = sessionStorage.getItem('tt_state'); } catch (e) { /* abaikan */ }
+  if (q.get('code') && expected && q.get('state') !== expected) {
+    s.className = 'bad'; s.textContent = 'Login check failed (state mismatch). Start again from Zataa Studio.';
+  } else if (q.get('code')) {
+    s.className = 'ok'; s.textContent = '✅ TikTok authorized Zataa Studio.';
+    document.getElementById('next').hidden = false;
+    document.getElementById('c').textContent = location.href;
+    fetch('data/tiktok.json?t=' + Date.now()).then((r) => r.json()).catch(() => ({})).then((d) => {
+      document.getElementById('send').href = 'https://t.me/' + (d.bot || 'zataofficebot') + '?text=' + encodeURIComponent('TIKTOK LOGIN ' + location.href);
+    });
+  } else {
+    s.className = q.get('error') ? 'bad' : 'muted';
+    s.textContent = q.get('error') ? '❌ Login failed: ' + (q.get('error_description') || q.get('error')) : 'No login code on this page. Start from Zataa Studio.';
+  }
+</script>
 </body>
 </html>

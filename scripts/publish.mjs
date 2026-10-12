@@ -9,7 +9,7 @@
 //   node scripts/publish.mjs tiktok-login     cetak link login TikTok (sekali saja)
 //   node scripts/publish.mjs tiktok-code <url-atau-code>   tukar code hasil login → token disimpan ke .env
 process.removeAllListeners('warning');
-import { existsSync, statSync } from 'node:fs';
+import { existsSync, statSync, writeFileSync } from 'node:fs';
 import { open } from 'node:fs/promises';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -123,7 +123,8 @@ async function tt(path, body) {
   if (j.error?.code && j.error.code !== 'ok') throw new Error(`TikTok ${j.error.code}${j.error.message ? `: ${j.error.message}` : ''}`);
   return j.data;
 }
-async function postTikTok(c, A, caption) {
+// opts dari Zataa Studio (docs/studio.html): pilihan Owner per post sesuai aturan UX Direct Post TikTok
+async function postTikTok(c, A, caption, opts = {}) {
   if (!A.video) throw new Error('TikTok cuma untuk video');
   const file = join(ROOT, A.video);
   const size = statSync(file).size;
@@ -132,9 +133,17 @@ async function postTikTok(c, A, caption) {
   const chunk = size <= 64 * MB ? size : 10 * MB;
   const count = size <= 64 * MB ? 1 : Math.floor(size / chunk);
   const info = await tt('post/publish/creator_info/query/');
-  const privacy = info.privacy_level_options?.includes('SELF_ONLY') ? 'SELF_ONLY' : info.privacy_level_options?.[0];
+  const privacy = opts.privacy ?? (info.privacy_level_options?.includes('SELF_ONLY') ? 'SELF_ONLY' : info.privacy_level_options?.[0]);
+  if (!info.privacy_level_options?.includes(privacy)) throw new Error(`TikTok: privacy ${privacy} tidak tersedia untuk akun ini`);
+  if (opts.brand_content && privacy === 'SELF_ONLY') throw new Error('TikTok: konten branded tidak boleh "Only me"');
   const { publish_id, upload_url } = await tt('post/publish/video/init/', {
-    post_info: { title: caption.slice(0, 2200), privacy_level: privacy, disable_comment: false, disable_duet: false, disable_stitch: false },
+    post_info: {
+      title: (opts.title ?? caption).slice(0, 2200), privacy_level: privacy,
+      disable_comment: info.comment_disabled || !(opts.comment ?? true),
+      disable_duet: info.duet_disabled || !(opts.duet ?? true),
+      disable_stitch: info.stitch_disabled || !(opts.stitch ?? true),
+      brand_organic_toggle: !!opts.brand_organic, brand_content_toggle: !!opts.brand_content,
+    },
     source_info: { source: 'FILE_UPLOAD', video_size: size, chunk_size: chunk, total_chunk_count: count },
   });
   const fh = await open(file, 'r');
@@ -193,7 +202,9 @@ export async function publishOne(id) {
   if (!errs.length) {
     d.prepare("UPDATE contents SET status = 'posted', posted_at = datetime('now'), updated_at = datetime('now') WHERE id = ?").run(c.id);
     failures.delete(c.id);
-    await sayAs('publisher', `🚀 #${c.id} udah tayang di ${done.join(' + ') || 'semua platform'}.${done.some((p) => p.startsWith('TikTok')) ? '\nTikTok masih private, ubah privacy di app kalau mau publik.' : ''}`).catch(() => {});
+    const studio = A.video && !targets(c).includes('tiktok') && env().TIKTOK_REFRESH_TOKEN && !c.tiktok_id
+      ? `\n🎵 Mau ke TikTok juga? Atur privasi & posting di Studio: ${studioUrl(c.id)}` : '';
+    await sayAs('publisher', `🚀 #${c.id} udah tayang di ${done.join(' + ') || 'semua platform'}.${done.some((p) => p.startsWith('TikTok')) ? '\nTikTok masih private, ubah privacy di app kalau mau publik.' : ''}${studio}`).catch(() => {});
     return { ok: true, id: c.id, posted: done };
   }
   const n = (failures.get(c.id) ?? 0) + 1;
@@ -212,6 +223,70 @@ export async function publishDue() {
   const res = [];
   for (const c of rows) if (Date.now() >= dueAt(c)) res.push(await publishOne(c.id));
   return res;
+}
+
+// ---------- Zataa Studio (docs/studio.html, GitHub Pages): halaman posting TikTok milik Owner
+// Halaman statis → baca docs/data/tiktok.json; tombolnya kirim perintah ke bot Telegram, dikerjakan watcher (tiktokCommand).
+const studioUrl = (id) => `${(env().PUBLIC_BASE_URL ?? '').replace(/\/$/, '')}/studio.html${id ? `#${id}` : ''}`;
+
+export async function tiktokExport() {
+  const e = env();
+  const d = await db();
+  let creator = null;
+  if (e.TIKTOK_REFRESH_TOKEN) {
+    const i = await tt('post/publish/creator_info/query/');
+    creator = { nickname: i.creator_nickname, username: i.creator_username, avatar: i.creator_avatar_url, privacy_level_options: i.privacy_level_options,
+      comment_disabled: i.comment_disabled, duet_disabled: i.duet_disabled, stitch_disabled: i.stitch_disabled, max_video_post_duration_sec: i.max_video_post_duration_sec };
+  }
+  const rows = d.prepare("SELECT id, day, title, caption, hashtags, asset_path, status, tiktok_id FROM contents WHERE format = 'video' AND asset_path IS NOT NULL AND status IN ('approved', 'posted', 'publish_failed') ORDER BY day DESC, id DESC LIMIT 12").all();
+  const videos = rows.map((r) => {
+    const A = JSON.parse(r.asset_path);
+    return { id: r.id, day: r.day, title: r.title, caption: [r.caption, r.hashtags].filter(Boolean).join('\n\n'), status: r.status, on_tiktok: !!r.tiktok_id,
+      video: A.video ? publicUrl(A.video) : null, cover: A.cover ? publicUrl(A.cover) : null };
+  }).filter((v) => v.video);
+  const data = { updated_at: new Date().toISOString(), bot: e.TELEGRAM_BOT_USERNAME || 'zataofficebot', client_key: e.TIKTOK_CLIENT_KEY ?? null,
+    redirect_uri: e.TIKTOK_REDIRECT_URI ?? null, scope: 'user.info.basic,video.publish,video.upload,video.list', connected: !!creator, creator, videos };
+  writeFileSync(join(ROOT, 'docs', 'data', 'tiktok.json'), JSON.stringify(data, null, 1));
+  return data;
+}
+
+// pesan Owner dari tombol Studio (lewat bot):
+//   TIKTOK LOGIN <url-atau-code>
+//   TIKTOK POST #20 privacy=PUBLIC_TO_EVERYONE comment=1 duet=0 stitch=1 own=0 branded=0\n<judul/caption>
+export const isTiktokCommand = (t) => /^TIKTOK (LOGIN|POST)\b/i.test(String(t).trim());
+export async function tiktokCommand(text) {
+  const t = String(text).trim();
+  const login = t.match(/^TIKTOK LOGIN\s+(\S+)/i);
+  if (login) {
+    const a = login[1];
+    const code = a.includes('code=') ? new URL(a).searchParams.get('code') : a;
+    await tiktokOAuth({ grant_type: 'authorization_code', code, redirect_uri: env().TIKTOK_REDIRECT_URI });
+    const x = await tiktokExport();
+    await sayAs('publisher', `🎵 TikTok tersambung: ${x.creator?.nickname ?? ''} (@${x.creator?.username ?? '?'}). Studio: ${studioUrl()}`).catch(() => {});
+    return { ok: true, login: x.creator?.username };
+  }
+  const m = t.match(/^TIKTOK POST #(\d+)([^\n]*)\n?([\s\S]*)$/i);
+  if (!m) throw new Error('format perintah TikTok tidak dikenal');
+  const kv = Object.fromEntries([...m[2].matchAll(/(\w+)=(\S+)/g)].map((x) => [x[1].toLowerCase(), x[2]]));
+  const on = (k) => kv[k] === '1';
+  const d = await db();
+  const c = d.prepare('SELECT * FROM contents WHERE id = ?').get(+m[1]);
+  if (!c?.asset_path) throw new Error(`konten #${m[1]} tidak ada / belum dirender`);
+  if (c.tiktok_id) { await sayAs('publisher', `ℹ️ #${c.id} udah pernah diposting ke TikTok.`).catch(() => {}); return { ok: true, skipped: true }; }
+  if (!kv.privacy) throw new Error('privacy belum dipilih');
+  const opts = { privacy: kv.privacy, comment: on('comment'), duet: on('duet'), stitch: on('stitch'), brand_organic: on('own'), brand_content: on('branded'), title: m[3].trim() || undefined };
+  setAgent(d, 'working', `Upload #${c.id} ke TikTok (Studio)`);
+  try {
+    const id = await postTikTok(c, JSON.parse(c.asset_path), [c.caption, c.hashtags].filter(Boolean).join('\n\n'), opts);
+    d.prepare('UPDATE contents SET tiktok_id = ? WHERE id = ?').run(String(id), c.id);
+    activity(d, 'publisher', `Posting #${c.id} ke TikTok (${opts.privacy}) ✅`);
+    await sayAs('publisher', `🎵 #${c.id} udah dikirim ke TikTok (${opts.privacy}). Butuh beberapa menit sampai muncul di profil.`).catch(() => {});
+    await tiktokExport().catch(() => {});
+    return { ok: true, id: c.id, tiktok_id: String(id) };
+  } catch (e) {
+    await sayAs('publisher', `⚠️ #${c.id} gagal ke TikTok: ${e.message.slice(0, 250)}`).catch(() => {});
+    throw e;
+  } finally { setAgent(d, 'done'); }
 }
 
 const isMain = process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1];
@@ -279,6 +354,7 @@ if (isMain) {
       const code = a?.includes('code=') ? new URL(a).searchParams.get('code') : a;
       await tiktokOAuth({ grant_type: 'authorization_code', code, redirect_uri: env().TIKTOK_REDIRECT_URI });
       out('ok: token TikTok disimpan ke .env (auto-refresh, berlaku ±1 tahun)');
-    } else out('pakai: publish.mjs due | now <id> | ig-check | tiktok-setup | tiktok-login | tiktok-code <url>');
+    } else if (cmd === 'tiktok-export') { const x = await tiktokExport(); out({ connected: x.connected, user: x.creator?.username, videos: x.videos.length }); }
+    else out('pakai: publish.mjs due | now <id> | ig-check | tiktok-setup | tiktok-login | tiktok-code <url> | tiktok-export');
   } catch (e) { out(`gagal: ${e.message}`); process.exit(1); }
 }

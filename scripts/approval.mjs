@@ -92,8 +92,10 @@ export const SLOT = { pagi: '10:00', siang: '12:00', sore: '16:00', malam: '19:0
 const slotLabel = (c) => (c.slot === 'kilat' ? 'langsung tayang' : `${SLOT[c.slot] ?? '?'} WIB`);
 // tujuan posting per format: video → IG Reels (+ TikTok private kalau sudah login), feed/carousel → IG Feed
 const tiktokOn = () => !!loadEnv().TIKTOK_REFRESH_TOKEN;
-export const targets = (c) => (c.format === 'video' && tiktokOn() ? ['ig', 'tiktok'] : ['ig']);
-export const targetLabel = (c) => (c.format === 'video' ? (tiktokOn() ? 'IG Reels + TikTok (private)' : 'IG Reels') : c.format === 'carousel' ? 'IG Feed (carousel)' : 'IG Feed');
+// TikTok default lewat Zataa Studio (Owner pilih privasi per post, aturan Direct Post); TIKTOK_MODE=auto = ikut auto-post private
+const tiktokAuto = () => tiktokOn() && loadEnv().TIKTOK_MODE === 'auto';
+export const targets = (c) => (c.format === 'video' && tiktokAuto() ? ['ig', 'tiktok'] : ['ig']);
+export const targetLabel = (c) => (c.format === 'video' ? (tiktokAuto() ? 'IG Reels + TikTok (private)' : tiktokOn() ? 'IG Reels (+ TikTok lewat Studio)' : 'IG Reels') : c.format === 'carousel' ? 'IG Feed (carousel)' : 'IG Feed');
 const DAYS = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
 
 export async function submit(id, { note = '' } = {}) {

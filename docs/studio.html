@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zataa Studio</title>
+<link rel="icon" href="assets/logo.png">
+<style>
+  :root { --bg: #f7f6fb; --card: #ffffff; --fg: #1d1b26; --muted: #5c5870; --line: #e3e0ee; --accent: #6d28d9; --accent-fg: #ffffff; --warn: #b45309; --ok: #047857; }
+  @media (prefers-color-scheme: dark) { :root { --bg: #0f0c1a; --card: #181427; --fg: #ece9f5; --muted: #a6a0bd; --line: #2c2640; --accent: #a78bfa; --accent-fg: #160f2b; --warn: #fbbf24; --ok: #34d399; } }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--fg); font: 15px/1.6 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  main { max-width: 880px; margin: 0 auto; padding: 28px 16px 64px; }
+  header { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+  header img { width: 44px; height: 44px; border-radius: 10px; }
+  h1 { font-size: 1.45rem; margin: 0; }
+  h2 { font-size: 1.05rem; margin: 0 0 10px; }
+  .muted { color: var(--muted); }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 18px; margin-bottom: 16px; }
+  .row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+  .who img { width: 40px; height: 40px; border-radius: 50%; background: var(--line); }
+  button, .btn { appearance: none; border: 0; border-radius: 10px; padding: 10px 16px; font: inherit; font-weight: 600; cursor: pointer; background: var(--accent); color: var(--accent-fg); text-decoration: none; display: inline-block; }
+  button.ghost { background: transparent; color: var(--fg); border: 1px solid var(--line); }
+  button:disabled { opacity: .45; cursor: not-allowed; }
+  .grid { display: grid; grid-template-columns: 240px 1fr; gap: 18px; }
+  @media (max-width: 680px) { .grid { grid-template-columns: 1fr; } }
+  video { width: 100%; max-height: 420px; border-radius: 12px; background: #000; }
+  label { display: block; font-weight: 600; margin: 14px 0 6px; }
+  select, textarea { width: 100%; font: inherit; color: var(--fg); background: var(--bg); border: 1px solid var(--line); border-radius: 10px; padding: 9px 10px; }
+  textarea { min-height: 110px; resize: vertical; }
+  .checks label, .sub label { display: inline-flex; gap: 6px; align-items: center; font-weight: 500; margin: 4px 18px 4px 0; }
+  .switch { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-top: 14px; }
+  .note { font-size: .88rem; color: var(--muted); margin: 6px 0 0; }
+  .warn { color: var(--warn); }
+  .ok { color: var(--ok); }
+  .list { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 4px; }
+  .pick { flex: 0 0 120px; border: 2px solid transparent; border-radius: 12px; background: var(--bg); padding: 6px; cursor: pointer; text-align: left; color: var(--fg); font-weight: 500; }
+  .pick[aria-pressed="true"] { border-color: var(--accent); }
+  .pick img { width: 100%; aspect-ratio: 9/16; object-fit: cover; border-radius: 8px; display: block; }
+  .pick span { display: block; font-size: .78rem; line-height: 1.3; margin-top: 4px; }
+  code { word-break: break-all; font-size: .85rem; }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <img src="assets/logo.png" alt="">
+    <div>
+      <h1>Zataa Studio</h1>
+      <div class="muted">Publish Zataa Topup videos (zataa.my.id) to the official TikTok account.</div>
+    </div>
+  </header>
+
+  <section class="card" id="connect">
+    <h2>1 · TikTok account</h2>
+    <div class="row who" id="who" hidden>
+      <img id="avatar" alt="">
+      <div><b id="nick"></b><div class="muted" id="uname"></div></div>
+    </div>
+    <p class="muted" id="connText">Not connected yet.</p>
+    <a class="btn" id="login" href="#">Continue with TikTok</a>
+    <p class="note">You log in on TikTok and choose what Zataa Studio may access. We only post to the account you connect.</p>
+  </section>
+
+  <section class="card" id="compose" hidden>
+    <h2>2 · Post to TikTok</h2>
+    <div class="list" id="videos"></div>
+    <p class="muted" id="noVideos" hidden>No approved videos yet.</p>
+    <div class="grid" id="editor" hidden>
+      <div>
+        <video id="preview" controls playsinline preload="metadata"></video>
+        <p class="note" id="durNote"></p>
+      </div>
+      <div>
+        <p class="note">Posting to <b id="postAs"></b></p>
+        <label for="title">Title</label>
+        <textarea id="title" maxlength="2200"></textarea>
+
+        <label for="privacy">Who can view this video</label>
+        <select id="privacy"><option value="" selected disabled>Select privacy</option></select>
+
+        <label>Allow users to</label>
+        <div class="checks">
+          <label><input type="checkbox" id="comment"> Comment</label>
+          <label><input type="checkbox" id="duet"> Duet</label>
+          <label><input type="checkbox" id="stitch"> Stitch</label>
+        </div>
+
+        <div class="switch">
+          <div><b>Disclose video content</b><div class="note">Turn on if this video promotes yourself, a third party, or both.</div></div>
+          <input type="checkbox" id="disclose" role="switch" aria-label="Disclose video content">
+        </div>
+        <div class="sub" id="discloseBox" hidden>
+          <label><input type="checkbox" id="own"> Your brand</label>
+          <label><input type="checkbox" id="branded"> Branded content</label>
+          <p class="note" id="labelNote"></p>
+        </div>
+
+        <p class="note" id="consent"></p>
+        <div class="row" style="margin-top:12px">
+          <button id="post" disabled>Post</button>
+          <span class="note" id="postHint">Select who can view this video first.</span>
+        </div>
+        <div id="sent" hidden>
+          <p class="ok"><b>Sent to Zataa server.</b> Tap <b>Send</b> in Telegram to confirm. TikTok may take a few minutes to process the video before it appears on your profile.</p>
+          <p class="note">Telegram didn't open? Send this text to <a id="botLink" href="#">our bot</a>:</p>
+          <code id="cmd"></code>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <p class="note"><a href="terms.html">Terms of Service</a> · <a href="privacy.html">Privacy Policy</a> · <a href="https://zataa.my.id">zataa.my.id</a></p>
+</main>
+<script>
+const $ = (id) => document.getElementById(id);
+const PRIV = { PUBLIC_TO_EVERYONE: 'Everyone', MUTUAL_FOLLOW_FRIENDS: 'Friends', FOLLOWER_OF_CREATOR: 'Followers', SELF_ONLY: 'Only me' };
+let D = null, cur = null;
+
+function authUrl() {
+  const state = Math.random().toString(36).slice(2, 12);
+  try { sessionStorage.setItem('tt_state', state); } catch (e) { /* tanpa storage tetap jalan */ }
+  return 'https://www.tiktok.com/v2/auth/authorize/?' + new URLSearchParams({ client_key: D.client_key, scope: D.scope, response_type: 'code', redirect_uri: D.redirect_uri, state });
+}
+
+function render() {
+  const c = D.creator;
+  $('login').onclick = (e) => { e.preventDefault(); location.href = authUrl(); };
+  if (c) {
+    $('who').hidden = false;
+    $('avatar').src = c.avatar || 'assets/logo.png';
+    $('nick').textContent = c.nickname;
+    $('uname').textContent = '@' + c.username;
+    $('connText').textContent = 'Connected. You can reconnect anytime to change permissions.';
+    $('login').textContent = 'Reconnect TikTok';
+    $('compose').hidden = false;
+    $('postAs').textContent = c.nickname + ' (@' + c.username + ')';
+  }
+  const box = $('videos');
+  box.innerHTML = '';
+  $('noVideos').hidden = D.videos.length > 0;
+  for (const v of D.videos) {
+    const b = document.createElement('button');
+    b.className = 'pick'; b.type = 'button'; b.setAttribute('aria-pressed', 'false');
+    b.innerHTML = '<img alt=""><span></span>';
+    b.querySelector('img').src = v.cover || '';
+    b.querySelector('span').textContent = '#' + v.id + ' · ' + v.title + (v.on_tiktok ? ' (on TikTok)' : '');
+    b.onclick = () => choose(v, b);
+    box.appendChild(b);
+  }
+  const want = +location.hash.slice(1);
+  const first = D.videos.find((v) => v.id === want) || D.videos.find((v) => !v.on_tiktok);
+  if (first) choose(first, box.children[D.videos.indexOf(first)]);
+}
+
+function choose(v, btn) {
+  cur = v;
+  [...$('videos').children].forEach((x) => x.setAttribute('aria-pressed', String(x === btn)));
+  $('editor').hidden = false; $('sent').hidden = true;
+  $('preview').src = v.video; $('preview').poster = v.cover || '';
+  $('title').value = v.caption || v.title;
+  const c = D.creator;
+  const sel = $('privacy');
+  sel.innerHTML = '<option value="" selected disabled>Select privacy</option>';
+  for (const p of c.privacy_level_options) { const o = document.createElement('option'); o.value = p; o.textContent = PRIV[p] || p; sel.appendChild(o); }
+  for (const [k, off] of [['comment', c.comment_disabled], ['duet', c.duet_disabled], ['stitch', c.stitch_disabled]]) { $(k).checked = false; $(k).disabled = !!off; }
+  $('disclose').checked = false; $('own').checked = false; $('branded').checked = false;
+  $('durNote').textContent = '';
+  $('preview').onloadedmetadata = () => {
+    const d = Math.round($('preview').duration), max = c.max_video_post_duration_sec;
+    $('durNote').innerHTML = max && d > max ? '<span class="warn">This video is ' + d + 's, longer than your limit of ' + max + 's.</span>' : 'Duration ' + d + 's';
+    update();
+  };
+  update();
+}
+
+function update() {
+  if (!cur) return;
+  const disclose = $('disclose').checked, own = $('own').checked, branded = $('branded').checked;
+  $('discloseBox').hidden = !disclose;
+  const self = [...$('privacy').options].find((o) => o.value === 'SELF_ONLY');
+  if (self) { self.disabled = disclose && branded; self.textContent = branded && disclose ? 'Only me (not allowed for branded content)' : 'Only me'; }
+  if (disclose && branded && $('privacy').value === 'SELF_ONLY') $('privacy').value = '';
+  $('labelNote').textContent = !disclose ? '' : branded ? 'Your video will be labeled "Paid partnership".' : own ? 'Your video will be labeled "Promotional content".' : 'Choose at least one option.';
+  $('consent').innerHTML = disclose && branded
+    ? 'By posting, you agree to TikTok\'s <a href="https://www.tiktok.com/legal/page/global/bc-policy/en" target="_blank" rel="noopener">Branded Content Policy</a> and <a href="https://www.tiktok.com/legal/page/global/music-usage-confirmation/en" target="_blank" rel="noopener">Music Usage Confirmation</a>.'
+    : 'By posting, you agree to TikTok\'s <a href="https://www.tiktok.com/legal/page/global/music-usage-confirmation/en" target="_blank" rel="noopener">Music Usage Confirmation</a>.';
+  const d = $('preview').duration, max = D.creator.max_video_post_duration_sec;
+  const why = !$('privacy').value ? 'Select who can view this video first.'
+    : disclose && !own && !branded ? 'Choose your brand, branded content, or both.'
+    : max && d > max ? 'Video is longer than allowed.'
+    : cur.on_tiktok ? 'This video is already on TikTok.' : '';
+  $('post').disabled = !!why;
+  $('postHint').textContent = why;
+}
+
+function post() {
+  const f = (k) => ($(k).checked && !$(k).disabled ? 1 : 0);
+  const disclose = $('disclose').checked;
+  const cmd = 'TIKTOK POST #' + cur.id + ' privacy=' + $('privacy').value + ' comment=' + f('comment') + ' duet=' + f('duet') + ' stitch=' + f('stitch')
+    + ' own=' + (disclose && $('own').checked ? 1 : 0) + ' branded=' + (disclose && $('branded').checked ? 1 : 0) + '\n' + $('title').value.trim();
+  const url = 'https://t.me/' + D.bot + '?text=' + encodeURIComponent(cmd);
+  $('cmd').textContent = cmd; $('botLink').href = 'https://t.me/' + D.bot;
+  $('sent').hidden = false;
+  window.open(url, '_blank', 'noopener');
+}
+
+for (const id of ['privacy', 'comment', 'duet', 'stitch', 'disclose', 'own', 'branded']) $(id).addEventListener('change', update);
+$('post').addEventListener('click', post);
+fetch('data/tiktok.json?t=' + Date.now()).then((r) => r.json()).then((j) => { D = j; render(); })
+  .catch(() => { $('connText').textContent = 'Could not load studio data. Try again in a minute.'; });
+</script>
+</body>
+</html>
