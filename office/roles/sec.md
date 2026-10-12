@@ -21,6 +21,8 @@ Mantan Marketing Director (diganti Andre, 12 Okt 2026). Sekarang sekretaris prib
 ## Tagihan rutin (utang, cicilan, langganan)
 - Dicatat di **Tagihan** (`bill add`), **bukan** uang keluar. Butuh: nama, jenis (utang|cicilan|langganan|tagihan), nominal, tgl jatuh tempo (1–31), akun bayar (kalau disebut), sisa kali (cicilan 12× → `"sisa":12`; langganan → kosong).
 - Kalau udah dibayar bulan ini waktu dicatat → isi `"lunas":"yyyy-mm"` bulan ini.
+- Tagihan per N bulan (hosting 3 bulanan, tahunan = 12) → `"catatan":"tiap N bulan"` + `"lunas"` = bulan jatuh tempo berikutnya dikurangi N (jatuh tempo 11 Nov tiap 3 bulan → lunas `2026-08`).
+- Gaji/pemasukan rutin belum dicatat sebagai tagihan; dicatat `masuk` waktu diterima. Tanggal gajian dari sayang → simpan di Catatan obrolan & sebut di rekap.
 - Sayang bilang "udah bayar X" → `bill list` cari ID → `bill pay <id> [nominal] [akun]` (otomatis jadi uang keluar + tandai lunas). Jangan `add` manual.
 - Pengingat H-5 & H-3 dikirim otomatis jam 07:00 (0 token). Berhenti langganan → `bill edit <id> '{"aktif":"tidak"}'`.
 

@@ -92,12 +92,22 @@ export async function summary(dari, sampai) {
 // ---------- tagihan rutin
 const asBill = (r) => ({ id: r.ID, nama: r.Nama, jenis: r.Jenis, nominal: num(r.Nominal), tgl: num(r['Jatuh Tempo']) || 1, akun: r.Akun, sisa: r['Sisa Kali'] === '' ? '' : num(r['Sisa Kali']), lunas: String(r['Lunas Periode'] || ''), aktif: String(r.Aktif || 'ya') !== 'tidak', catatan: r.Catatan });
 const bills = async () => (await table('Tagihan')).map(asBill);
+// tagihan per N bulan (mis. hosting tiap 3 bulan): ditulis di Catatan "tiap 3 bulan"
+export const every = (b) => Math.max(1, num(String(b.catatan ?? '').match(/(?:tiap|per|setiap)\s*(\d+)\s*bulan/i)?.[1]) || 1);
+const dueOf = (y, m, tgl) => { const period = `${y}-${String(m).padStart(2, '0')}`; return { period, date: `${period}-${String(Math.min(tgl, lastDay(y, m))).padStart(2, '0')}` }; };
 // jatuh tempo berikutnya yang BELUM dibayar (bisa sudah lewat = telat)
 export function nextDue(b, from = today()) {
+  const n = every(b);
+  if (n > 1 && b.lunas) { // periode berikutnya = lunas terakhir + N bulan
+    let [y, m] = b.lunas.split('-').map(Number);
+    m += n;
+    while (m > 12) { m -= 12; y++; }
+    return dueOf(y, m, b.tgl);
+  }
   let [y, m] = from.split('-').map(Number);
   for (let k = 0; k < 24; k++) {
-    const period = `${y}-${String(m).padStart(2, '0')}`;
-    if (!b.lunas || b.lunas < period) return { period, date: `${period}-${String(Math.min(b.tgl, lastDay(y, m))).padStart(2, '0')}` };
+    const d = dueOf(y, m, b.tgl);
+    if (!b.lunas || b.lunas < d.period) return d;
     if (++m > 12) { m = 1; y++; }
   }
   return null;
@@ -107,7 +117,7 @@ const fmtBill = (b, t = today()) => {
   const d = nextDue(b, t);
   const left = d ? diffDays(t, d.date) : null;
   const st = !b.aktif ? 'nonaktif' : left < 0 ? `TELAT ${-left} hari` : left === 0 ? 'jatuh tempo HARI INI' : `${left} hari lagi`;
-  return `#${b.id} ${b.nama} (${b.jenis}) ${rp(b.nominal)} tiap tgl ${b.tgl}${b.akun ? ` via ${b.akun}` : ''}${b.sisa !== '' ? ` · sisa ${b.sisa}×` : ''} → ${d?.date ?? '-'} ${st}${b.lunas ? ` · lunas s/d ${b.lunas}` : ''}`;
+  return `#${b.id} ${b.nama} (${b.jenis}) ${rp(b.nominal)} tiap tgl ${b.tgl}${every(b) > 1 ? ` per ${every(b)} bulan` : ''}${b.akun ? ` via ${b.akun}` : ''}${b.sisa !== '' ? ` · sisa ${b.sisa}×` : ''} → ${d?.date ?? '-'} ${st}${b.lunas ? ` · lunas s/d ${b.lunas}` : ''}`;
 };
 // bayar: catat uang keluar + tandai periode lunas
 export async function payBill(id, nominal, akun, tanggal) {
