@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-12T05:00:48.680Z",
+ "generated_at": "2026-10-12T05:09:51.899Z",
  "today": "2026-10-12",
  "week_start": "2026-10-12",
  "campaign": {
@@ -36,9 +36,9 @@
    "id": "copywriter",
    "name": "Ista",
    "title": "Copywriter",
-   "status": "done",
-   "current_task": "Script video Top 4 Champions Shanghai",
-   "updated_at": "2026-10-12 04:50:06"
+   "status": "working",
+   "current_task": "Revisi #20: Top 4 Champions Shanghai: Siapa Angkat Trofi?",
+   "updated_at": "2026-10-12 05:02:49"
   },
   {
    "id": "designer",
@@ -52,17 +52,17 @@
    "id": "video",
    "name": "Dimas",
    "title": "Video Production",
-   "status": "done",
-   "current_task": "Render video Top 4 Champions Shanghai",
-   "updated_at": "2026-10-12 04:58:24"
+   "status": "working",
+   "current_task": "Revisi #20: Top 4 Champions Shanghai: Siapa Angkat Trofi?",
+   "updated_at": "2026-10-12 05:02:49"
   },
   {
    "id": "publisher",
    "name": "Fikri",
    "title": "Social Media Publisher",
    "status": "done",
-   "current_task": "QA & kirim video #20 ke Owner",
-   "updated_at": "2026-10-12 04:58:33"
+   "current_task": null,
+   "updated_at": "2026-10-12 05:02:06"
   },
   {
    "id": "ads",
@@ -100,33 +100,33 @@
    "id": "tdir",
    "name": "Mahendra",
    "title": "Trading Director",
-   "status": "waiting",
-   "current_task": "Data harga belum masuk",
-   "updated_at": "2026-10-12 05:00:48"
+   "status": "done",
+   "current_task": "Siklus beres: NO TRADE",
+   "updated_at": "2026-10-12 05:02:52"
   },
   {
    "id": "tresearch",
    "name": "Davina",
    "title": "Research & Fundamental",
-   "status": "idle",
-   "current_task": null,
-   "updated_at": "2026-10-12 04:59:47"
+   "status": "done",
+   "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
+   "updated_at": "2026-10-12 05:02:52"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
-   "status": "idle",
-   "current_task": null,
-   "updated_at": "2026-10-12 04:59:47"
+   "status": "done",
+   "current_task": "Bias sideways",
+   "updated_at": "2026-10-12 05:02:52"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
-   "status": "idle",
-   "current_task": null,
-   "updated_at": "2026-10-12 04:59:47"
+   "status": "done",
+   "current_task": "NO TRADE: di luar jam sesi London–New York",
+   "updated_at": "2026-10-12 05:02:52"
   },
   {
    "id": "texec",
@@ -162,10 +162,10 @@
    "game": "mlbb",
    "pillar": "esport",
    "title": "Road to Playoff MPL ID S18: Siapa Aman, Siapa Terancam?",
-   "status": "approved",
+   "status": "posted",
    "asset_url": "{\"feed\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-12/6-road-to-playoff-mpl-id-s18-siapa-aman-si.jpg\"],\"story\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-12/6-road-to-playoff-mpl-id-s18-siapa-aman-si-916.jpg\"]}",
    "scheduled_at": null,
-   "posted_at": null
+   "posted_at": "2026-10-12 05:02:06"
   },
   {
    "id": 20,
@@ -175,7 +175,7 @@
    "game": "valorant",
    "pillar": "esport",
    "title": "Top 4 Champions Shanghai: Siapa Angkat Trofi?",
-   "status": "pending_approval",
+   "status": "revision",
    "asset_url": "{\"video\":\"https://luc1ferr12.github.io/zataa-office/media/2026-10-12/20-top-4-champions-shanghai-siapa-angkat-tr.mp4\",\"cover\":\"https://luc1ferr12.github.io/zataa-office/media/2026-10-12/20-top-4-champions-shanghai-siapa-angkat-tr-cover.jpg\"}",
    "scheduled_at": null,
    "posted_at": null
@@ -390,6 +390,26 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-12 05:02:52",
+   "agent_id": "trisk",
+   "message": "NO TRADE · di luar jam sesi London–New York"
+  },
+  {
+   "ts": "2026-10-12 05:02:49",
+   "agent_id": "video",
+   "message": "Balik ke komputer, ngerjain revisi #20"
+  },
+  {
+   "ts": "2026-10-12 05:02:49",
+   "agent_id": "owner",
+   "message": "Minta revisi #20: yang Vitality sama G2 belum ada logo tim nya, tambahin logo tim. Selain ini, overall uda oke"
+  },
+  {
+   "ts": "2026-10-12 05:02:06",
+   "agent_id": "publisher",
+   "message": "Posting #6 ke IG ✅"
+  },
+  {
    "ts": "2026-10-12 04:58:33",
    "agent_id": "publisher",
    "message": "Kirim #20 ke Owner buat approval"
@@ -493,29 +513,23 @@
    "ts": "2026-10-11 23:01:14",
    "agent_id": "researcher",
    "message": "6 topik: MPL ID S18 Week 9 penentu playoff, Champions Shanghai finals 16-18 Okt, FFWS Global Finals 6 Nov"
-  },
-  {
-   "ts": "2026-10-11 23:01:14",
-   "agent_id": "researcher",
-   "message": "Nemu 6 topik baru"
-  },
-  {
-   "ts": "2026-10-11 22:00:49",
-   "agent_id": "analyst",
-   "message": "Update data 3 post IG 📈"
-  },
-  {
-   "ts": "2026-10-11 19:00:11",
-   "agent_id": "analyst",
-   "message": "Update data 3 post IG 📈"
-  },
-  {
-   "ts": "2026-10-11 18:26:34",
-   "agent_id": "owner",
-   "message": "Chat: Lagi pada ngapain"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-10-12 05:02:49",
+   "agent_id": "video",
+   "to_id": null,
+   "kind": "curhat",
+   "message": "Siap, revisi dikerjain! Bos-nya teliti banget 😅"
+  },
+  {
+   "ts": "2026-10-12 05:02:06",
+   "agent_id": "publisher",
+   "to_id": null,
+   "kind": "oper",
+   "message": "\"Road to Playoff MPL ID S18: Siapa Aman, Siapa Tera\" udah tayang di IG 🚀 Makasih semua!"
+  },
   {
    "ts": "2026-10-12 04:58:52",
    "agent_id": "video",
@@ -781,29 +795,15 @@
    "to_id": "owner",
    "kind": "santai",
    "message": "Udah final Bos, G2 menang 2-1 lawan T1 (Ascent 13-6 di map 3) dan 100T tunggu mereka 16 Okt. Skornya dari vlr.gg, thespike cuma konfirmasi match-nya udah selesai."
-  },
-  {
-   "ts": "2026-10-11 14:07:33",
-   "agent_id": "researcher",
-   "to_id": null,
-   "kind": "santai",
-   "message": "Untung G2 bangkit di Ascent, kalau nggak bisa lembur lagi nungguin map 4 yang nggak ada 😂"
-  },
-  {
-   "ts": "2026-10-11 14:07:33",
-   "agent_id": "publisher",
-   "to_id": "owner",
-   "kind": "oper",
-   "message": "\"QA & submit konten #4\" udah lolos QA, tinggal nunggu ✅ dari Bos"
   }
  ],
  "stats": {
   "this_week": {
    "week": "2026-10-12",
    "total": 15,
-   "posted": 0,
-   "pending": 1,
-   "scheduled": 2,
+   "posted": 1,
+   "pending": 0,
+   "scheduled": 1,
    "views": 0,
    "likes": 0,
    "comments": 0,
@@ -849,9 +849,15 @@
   "paused": false,
   "balance": 10000,
   "today_pnl": 0,
-  "price": null,
+  "price": 4194.399902,
   "open": [],
-  "signals": [],
+  "signals": [
+   {
+    "ts": "2026-10-12 05:02:52",
+    "decision": "NO TRADE",
+    "reason": "di luar jam sesi London–New York"
+   }
+  ],
   "trades": []
  }
 }
