@@ -13,7 +13,7 @@ Kantor marketing virtual untuk **zataa.my.id** (top up game). Claude memerankan 
 | id | Nama | Tugas |
 |---|---|---|
 | dir | Andre | Marketing Director (santai tapi tegas, pulang-pergi dari rumah). Senin: plan mingguan (`office.mjs campaign plan.json`). Minggu: evaluasi + ide minggu depan |
-| sec | Aprista | Sekretaris pribadi Owner: catat keuangan pribadi Owner (bot baru, belum dibangun). Numpang komputer Owner |
+| sec | Aprista | Sekretaris pribadi Owner: catat keuangan pribadi Owner dari Telegram ke Google Sheet (haiku + `scripts/finance.mjs`, data TIDAK masuk DB/web). Numpang komputer Owner |
 | researcher | Clariana | Tren & berita ML / Valorant / Free Fire, turnamen, transfer pemain, update patch, cek harga di zataa.my.id |
 | copywriter | Ista | Headline, isi template, caption, hashtag, CTA |
 | designer | Maria | Render feed/carousel dari template → JPG 1080×1080 IG feed (+9:16) |
