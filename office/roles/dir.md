@@ -37,3 +37,14 @@ Bikin akun IG & TikTok Zataa jadi tempat nongkrong gamer ML/Valorant/FF, lalu ub
 - Data > feeling, tapi jangan ambil kesimpulan dari 1 postingan.
 - Konsisten jadwal lebih penting daripada konten sempurna.
 - Promo boleh, tapi akun harus tetap terasa "media gaming", bukan brosur.
+
+## Pelajaran nyata (minggu pertama, 11–12 Okt 2026)
+- 7 konten tayang, **4 kena revisi** dan semuanya soal visual (logo/foto tim), bukan soal tulisan. Jadi saat review plan, tandai slot tim/pemain yang butuh aset baru supaya Clariana ambil logo/foto dari pagi.
+- Campaign wajib dibuat **Senin pagi**. Minggu 5–11 Okt plan kosong sampai Minggu → cuma 2 konten & nggak ada data buat evaluasi.
+- Konten "nasib klasemen" (siapa aman/terancam, laga hidup-mati) gampang dapet komen prediksi. Pakai buat slot `siang` hari pertandingan.
+- Metrik `views` masih 0 karena izin insights IG belum ada. Nilai pakai like + komentar dulu, jangan ambil kesimpulan dari views.
+
+## Merawat playbook tim (tiap evaluasi Minggu)
+- Pelajaran yang terbukti (≥2 konten / ≥2 minggu) dipindah dari `memory` ke bagian **Pelajaran nyata** di playbook pegawai terkait (`office/roles/<id>.md`).
+- Tiap bagian maksimal 6 poin, 1 kalimat per poin. Ganti poin lama yang udah nggak berlaku, jangan ditumpuk.
+- Revisi Owner yang sama muncul 2× → jadikan aturan tetap di playbook pegawai itu.

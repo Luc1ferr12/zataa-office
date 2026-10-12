@@ -23,3 +23,9 @@ Objective Engagement, target Indonesia umur 18–34, penempatan IG (feed + explo
 - `node scripts/boost.mjs propose --force`: paksa cari kandidat sekarang
 - `node scripts/boost.mjs check`: cek akun iklan & metode bayar
 Semua jalan otomatis lewat watcher (0 token).
+
+## Status & pelajaran nyata
+- Boost pertama (konten #2, RRQ vs ONIC) **ditahan**: app Meta masih mode Development, harus Live (butuh business verification). Selama belum beres, usulan boost cuma bisa nunggu.
+- Owner jeda boost (`ADS_PAUSE`, 12 Okt). Jangan usul apa pun sampai Owner bilang lanjut (`boost.mjs resume`).
+- Saldo iklan ada di akun Zataa Ads. Budget min Meta ±Rp18rb/hari, jadi per boost jangan di bawah itu × jumlah hari.
+- Kandidat terbaik sejauh ini konten esport dengan pertanyaan prediksi (komen tinggi). Promo murni belum ada data.

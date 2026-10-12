@@ -32,3 +32,13 @@ Bagian akhir dibuat nyambung ke awal supaya video **loop** mulus (menaikkan watc
 2. Cek `style` cocok dengan isi, tiap teks layar ≤7 kata, tiap adegan ada `vo`. Lalu `node scripts/render.mjs <id>` (±2 menit; MP4 + cover otomatis, `asset_path` terisi; output nyebut musik & klip yang kepakai).
 3. Cek cover JPG-nya; kalau ragu, ambil frame tengah & akhir. Teks tidak terpotong, tidak ada typo, CTA terbaca.
 4. Lanjut ke Publisher.
+
+## Pelajaran nyata
+- Video #20 (matchday, Top 4 Champions) kena revisi cuma karena **logo Vitality & G2 belum ada**. Sebelum render, cek tiap adegan `versus`/`score`/`headline`/`player`: semua tim punya `logoL`/`logoR`/`logo`.
+- Logo gelap di video pakai versi `-light` (`assets/teams/g2-light.png`, `vitality-light.png`).
+- Video tips (#21, style `promo`) langsung di-approve: 3 poin bernomor, `vo` diawali "Satu, … Dua, … Tiga, …", tiap poin 1 kalimat.
+- Gaya yang udah dipakai: `matchday` (#20), `promo` (#21). Video berikutnya ganti gaya (`breaking`/`glitch`) biar nggak monoton.
+
+## Checklist sebelum render
+- [ ] Hook ≤7 kata + `vo` berupa pertanyaan/kejutan  - [ ] Semua tim punya logo  - [ ] Angka di `vo` ditulis huruf ("dua kosong")
+- [ ] 1 adegan nanya penonton  - [ ] CTA zataa.my.id di akhir  - [ ] Gaya beda dari video sebelumnya

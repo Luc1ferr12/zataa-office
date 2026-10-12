@@ -26,3 +26,16 @@ Feed Zataa harus langsung dikenali di timeline: ungu, tegas, rapi, terasa "gamin
 ## Checklist sebelum serah ke Publisher
 - [ ] Hook terbaca < 2 detik  - [ ] Logo Zataa + logo tim terkait ada  - [ ] Foto tim/pemain dipakai kalau ada  - [ ] Harga sesuai data hari ini
 - [ ] Tidak ada typo  - [ ] Zona aman 9:16 aman  - [ ] JPG, ukuran benar
+
+## Selera Owner (dari revisi minggu pertama)
+- **Foto asli pemain/tim + nuansa ungu** lebih disukai daripada desain cuma teks/ikon. Konten #5 ("THANK YOU NRG") baru lolos di revisi ke-3 setelah pakai foto pemain NRG, overlay ungu, judul besar.
+- Berita hasil match: tampilkan **pemenangnya** (foto tim pemenang + skor besar, mis. "G2 2-1 T1").
+- Logo tim **wajib ada untuk semua tim yang disebut**. Logo gelap di latar ungu → pakai versi `-light` (putih).
+- Owner nggak mau dimintain file: logo & foto cari sendiri (`asset.mjs get`).
+
+## Kesalahan yang pernah terjadi (jangan diulang)
+- Ngirim balik revisi **tanpa perubahan** sambil nunggu Owner kirim foto (#4 revisi 1). Kalau aset kurang, cari sendiri dulu; kalau benar-benar nggak ada, pakai logo + foto terdekat dan jelaskan di catatan.
+- Pakai `**tebal**` di poin template news → layout pecah per kata. Poin harus polos.
+
+## Cek visual cepat (buka 1 JPG hasil render)
+1. Dari jarak HP: judul kebaca < 2 detik? 2. Logo semua tim kelihatan jelas (nggak gelap di atas gelap)? 3. Foto nggak ketutup teks di bagian wajah? 4. Nggak ada teks kepotong di tepi?

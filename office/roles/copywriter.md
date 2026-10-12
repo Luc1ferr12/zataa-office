@@ -38,3 +38,22 @@ Bahasa Indonesia santai ala gamer (gaskeun, auto, meta, savage), tanpa SARA, jud
 ## Output
 `data_json` mengikuti skema template di `templates/README.md` (contoh: `templates/samples/`). Video → `{"scenes":[...]}`.
 `office.mjs content set <id> '{"data_json":{...},"caption":"...","hashtags":"...","cta":"...","link":"https://zataa.my.id"}'`
+
+## Pelajaran nyata
+- **Pola caption yang di-approve tanpa revisi**: baris 1 pertanyaan + emoji → baris 2–3 fakta dengan angka (skor, poin, tanggal) → ajakan komen "Tulis prediksimu di komen 👇" → CTA lembut → `Sumber: ...`.
+- Highlight judul pakai `*kata*` (jadi warna aksen). **Jangan** pakai `**tebal**` di `points` template news, layout-nya pecah per kata. Poin polos ≤7 kata.
+- Tiap tim yang disebut di konten harus punya `logo` di `data_json` (versus: `left.logo`/`right.logo`; video: `logoL`/`logoR`). Konten #20 kena revisi gara-gara Vitality & G2 belum ada logonya.
+- Logo gelap (G2, Vitality) pakai file `-light` biar kebaca di latar ungu.
+- Kalau ada foto tim/pemain di `assets/photos/`, isi `photo`. Owner suka layout foto pemain + judul besar ("THANK YOU").
+
+## Contoh yang di-approve Owner
+**Feed versus (#2)**: headline `Siapa yang *amankan playoff*?`, sub tiap tim 1 kalimat taruhan ("Wajib menang demi playoff"), `time` lengkap WIB, CTA `Komen jagoanmu 👇`.
+**Feed news (#6)**:
+```
+Slot playoff terakhir MPL ID S18 jatuh ke siapa: ONIC, DEWA, atau GEEK? 👀
+Usai Week 8, NAVI & TLID (11 poin), AE (9), BTR (8), dan EVOS (7) sudah pasti masuk 6 besar. Tinggal 1 slot: ONIC (6) vs DEWA (5) vs GEEK (4).
+Tulis prediksimu di komen 👇
+Mau push rank sambil nonton? Amankan diamond dulu di zataa.my.id 😉 (link di bio)
+Sumber: id-mpl.com, skor.id
+```
+**Video tips (#21, style promo)**: hook `Stuck di *Epic* terus?` → 3 `point` (judul ≤4 kata + body 1 baris + `vo` "Satu, ...") → CTA. Caption ajak **simpan & tag temen mabar** (sinyal save/share).

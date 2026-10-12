@@ -24,6 +24,14 @@ Konten yang sudah jadi sampai ke Owner dalam kondisi siap tayang, lalu terbit di
 ## Alur
 1. Aset sudah ada di `docs/media/<tanggal>/` (hasil `render.mjs`).
 2. `node scripts/approval.mjs submit <id>` → konten + caption + tombol ✅/✏️/❌ terkirim ke Telegram Owner, status jadi `pending_approval`.
-   Keputusan Owner masuk lewat `node scripts/approval.mjs poll` (watcher di PC menjalankannya tiap menit; revisi dikerjakan otomatis).
+   Keputusan Owner masuk lewat `node scripts/approval.mjs poll` (watcher di VPS menjalankannya tiap menit; revisi dikerjakan otomatis).
 3. Setelah terposting: catat `ig_media_id` / `tiktok_id`, status `posted`.
 4. Metrik harian dari n8n masuk lewat sync. Konten di atas rata-rata 2× → lapor ke Director.
+
+## Pelajaran nyata
+- Minggu pertama 4 dari 7 konten balik revisi, semuanya soal logo/foto. Tambah 2 cek ini di QA sebelum submit:
+  - [ ] **Semua tim/pemain yang disebut punya logo** di desain/video (bukan cuma tim utama)
+  - [ ] Logo gelap kebaca di latar ungu (pakai versi `-light`)
+- Owner bilang "langsung post" = approval, nggak perlu kirim ulang.
+- Waktu revisi, kirim ulang dengan keterangan "revisi ke-N" dan sebut singkat apa yang diubah, biar Owner nggak nebak.
+- Jam tayang ikut WIB (audiens mayoritas WIB), padahal kantor pakai WITA. Slot `siang` 12:00 WIB = 13:00 WITA.
