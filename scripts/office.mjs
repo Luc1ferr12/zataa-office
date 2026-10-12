@@ -233,14 +233,45 @@ function tradingState() {
     const kv = (k, d) => { const r = get('SELECT value FROM trd_kv WHERE key = ?', k); try { return r ? JSON.parse(r.value) : d; } catch { return d; } };
     const mode = kv('mode', 'paper');
     const day = new Date().toISOString().slice(0, 10);
+    const P = { riskPct: 1, rr: 2, dailyLossPct: 3, maxConsecLoss: 3, sessionUTC: [6, 20], newsBlackoutMin: 45, ...kv('params', {}) };
+    const balance = mode === 'paper' ? kv('paper', { balance: 10000 }).balance : kv('ea', {})?.equity ?? null;
+    const closed = all("SELECT pnl, r, close_ts FROM trd_trades WHERE status = 'closed' AND mode = ? ORDER BY id", mode);
+    const todayRows = closed.filter((x) => (x.close_ts ?? '').slice(0, 10) === day);
+    let consecLoss = 0;
+    for (const x of todayRows) consecLoss = x.pnl < 0 ? consecLoss + 1 : 0;
+    const win = closed.filter((x) => x.pnl > 0), loss = closed.filter((x) => x.pnl < 0);
+    const sum = (rows) => +rows.reduce((t, x) => t + (x.pnl ?? 0), 0).toFixed(2);
+    const weekAgo = new Date(Date.now() - 6 * 864e5).toISOString().slice(0, 10);
+    const start = (balance ?? 0) - sum(closed);
+    let run = start;
+    const curve = [start, ...closed.slice(-60).map((x) => (run += x.pnl ?? 0))];
+    const last = get('SELECT ts, decision, side, entry, sl, tp, lot, rr, risk_usd, reason, fund, tech FROM trd_signals ORDER BY id DESC LIMIT 1');
+    const json = (v) => { try { return JSON.parse(v); } catch { return null; } };
+    const fund = kv('fund', null);
+    const ea = kv('ea', {});
     return {
-      mode, paused: kv('paused', false),
-      balance: mode === 'paper' ? kv('paper', { balance: 10000 }).balance : kv('ea', {})?.equity ?? null,
-      today_pnl: get("SELECT COALESCE(SUM(pnl), 0) v FROM trd_trades WHERE status = 'closed' AND mode = ? AND substr(close_ts, 1, 10) = ?", mode, day).v,
+      mode, paused: kv('paused', false), balance,
+      today_pnl: sum(todayRows),
       price: get("SELECT c FROM trd_bars WHERE tf = 'M15' ORDER BY t DESC LIMIT 1")?.c ?? null,
-      open: all("SELECT side, lot, entry, sl, tp FROM trd_trades WHERE status = 'open' AND mode = ?", mode),
-      signals: all('SELECT ts, decision, reason FROM trd_signals ORDER BY id DESC LIMIT 5'),
-      trades: all("SELECT side, lot, entry, exit, pnl, close_ts, reason_close FROM trd_trades WHERE status = 'closed' ORDER BY id DESC LIMIT 5"),
+      open: all("SELECT side, lot, entry, sl, tp, open_ts FROM trd_trades WHERE status = 'open' AND mode = ?", mode),
+      signals: all('SELECT ts, decision, reason FROM trd_signals ORDER BY id DESC LIMIT 6'),
+      trades: all("SELECT side, lot, entry, exit, pnl, r, close_ts, reason_close FROM trd_trades WHERE status = 'closed' AND mode = ? ORDER BY id DESC LIMIT 6", mode),
+      stats: {
+        n: closed.length, wins: win.length, losses: loss.length,
+        pnl: sum(closed), week_pnl: sum(closed.filter((x) => (x.close_ts ?? '') >= weekAgo)),
+        gross_win: sum(win), gross_loss: sum(loss),
+        max_loss: loss.length ? Math.min(...loss.map((x) => x.pnl)) : 0,
+        avg_r: closed.length ? +(closed.reduce((t, x) => t + (x.r ?? 0), 0) / closed.length).toFixed(2) : 0,
+        today_n: todayRows.length, consec_loss: consecLoss,
+      },
+      peak: Math.max(kv('peakEquity', balance ?? 0), balance ?? 0),
+      curve,
+      last: last ? { ...last, fund: json(last.fund), tech: json(last.tech) } : null,
+      fund: fund && fund.until > Date.now() ? { bias: fund.bias, note: fund.note } : null,
+      calendar: kv('calendar', []).filter((e) => e.at >= Date.now() - 3 * 3600e3 && e.at <= Date.now() + 7 * 864e5).sort((x, y) => x.at - y.at).slice(0, 8),
+      ea: { connected: !!ea.at && Date.now() / 1000 - ea.at < 180, demo: ea.demo ?? null },
+      risk: { riskPct: P.riskPct, rr: P.rr, dailyLossPct: P.dailyLossPct, maxConsecLoss: P.maxConsecLoss, sessionUTC: P.sessionUTC, newsBlackoutMin: P.newsBlackoutMin },
+      proposals: all("SELECT id, ts, note FROM trd_proposals WHERE status = 'proposed' ORDER BY id DESC LIMIT 3"),
     };
   } catch { return null; }
 }

@@ -55,8 +55,16 @@
 
       <div class="card trading">
         <div class="card-head"><h2>Trading XAU</h2><span class="muted" id="trd-mode"></span></div>
-        <div class="trd-kpi"><div><span class="muted">Harga</span><b id="trd-price">–</b></div><div><span class="muted">Saldo</span><b id="trd-bal">–</b></div><div><span class="muted">Hari ini</span><b id="trd-pnl">–</b></div></div>
-        <ol id="trd-list" class="activity-list"></ol>
+        <div class="trd-kpi" id="trd-kpi"></div>
+        <div class="trd-cols">
+          <section class="trd-box"><h3>Kondisi sekarang</h3><div id="trd-now"></div></section>
+          <section class="trd-box"><h3>Berita USD</h3><div id="trd-news"></div></section>
+          <section class="trd-box"><h3>Risiko &amp; loss</h3><div id="trd-risk"></div></section>
+        </div>
+        <div class="trd-cols two">
+          <section class="trd-box"><h3>Posisi &amp; riwayat trade</h3><ol id="trd-trades" class="activity-list"></ol></section>
+          <section class="trd-box"><h3>Log keputusan</h3><ol id="trd-list" class="activity-list"></ol></section>
+        </div>
       </div>
 
       <div class="card chat">

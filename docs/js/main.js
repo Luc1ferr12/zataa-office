@@ -64,18 +64,7 @@ function renderDashboard() {
     ? acts.map((a) => `<li><time>${fmtTs(a.ts)}</time><b>${esc(NAMES[a.agent_id] ?? '')}</b> ${esc(a.message)}</li>`).join('')
     : '<li class="muted">Belum ada aktivitas. Kantor buka tiap hari 07:00–21:00 WITA.</li>';
 
-  // tim Trading XAUUSD
-  const tr = s?.trading;
-  $('trd-mode').textContent = tr ? `mode ${tr.mode}${tr.paused ? ' · dijeda' : ''}` : 'belum jalan';
-  $('trd-price').textContent = tr?.price ? tr.price.toFixed(2) : '–';
-  $('trd-bal').textContent = tr?.balance != null ? `$${Number(tr.balance).toLocaleString('id-ID', { maximumFractionDigits: 2 })}` : '–';
-  $('trd-pnl').textContent = tr ? `${tr.today_pnl >= 0 ? '+' : '−'}$${Math.abs(tr.today_pnl).toFixed(2)}` : '–';
-  const rows = [
-    ...(tr?.open ?? []).map((o) => `<li><b>${o.side.toUpperCase()} ${o.lot}</b> kebuka @ ${o.entry} · SL ${o.sl} · TP ${o.tp}</li>`),
-    ...(tr?.trades ?? []).map((x) => `<li><time>${fmtTs(x.close_ts)}</time><b>${x.side.toUpperCase()} ${x.lot}</b> ${x.pnl >= 0 ? '✅' : '🔻'} ${x.pnl >= 0 ? '+' : '−'}$${Math.abs(x.pnl).toFixed(2)} (${esc(x.reason_close)})</li>`),
-    ...(tr?.signals ?? []).slice(0, 3).map((x) => `<li><time>${fmtTs(x.ts)}</time><b>${esc(x.decision)}</b> ${esc(x.reason)}</li>`),
-  ];
-  $('trd-list').innerHTML = rows.length ? rows.join('') : '<li class="muted">Tim trading belum mulai analisa.</li>';
+  renderTrading(s?.trading);
 
   office?.setCampaign(s?.campaign?.theme, st.pending ?? 0);
   lastChatKey = null;
@@ -171,6 +160,109 @@ function tick(force = false) {
   $('team-list').innerHTML = TEAM_COLUMNS.map((col) => `<li class="team-col">${col.map((i) => division(DIVISIONS[i])).join('')}</li>`).join('');
   if (selected) renderInspector(selected, list.find((l) => l.a.id === selected)?.info);
   renderChat(t);
+}
+
+// ---------- card Trading XAU (data dari tradingState() di scripts/office.mjs; sesi & dampak berita dihitung live)
+const usd = (v, sign = false) => v == null ? '–' : `${sign ? (v >= 0 ? '+' : '−') : v < 0 ? '−' : ''}$${Math.abs(v).toLocaleString('id-ID', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+const tone = (v) => (v > 0 ? 'up' : v < 0 ? 'down' : '');
+const witaHM = (ms) => new Date(ms).toLocaleTimeString('id-ID', { timeZone: 'Asia/Makassar', hour: '2-digit', minute: '2-digit' });
+const witaDay = (ms) => new Date(ms).toLocaleDateString('id-ID', { timeZone: 'Asia/Makassar', weekday: 'short' });
+const kvRow = (k, v, cls = '') => `<div class="kv"><span>${k}</span><b class="${cls}">${v}</b></div>`;
+// sama dengan marketOpen() di scripts/trading/market.mjs
+function goldMarketOpen(d = new Date()) {
+  const day = d.getUTCDay(), h = d.getUTCHours() + d.getUTCMinutes() / 60;
+  if (day === 6) return false;
+  if (day === 0) return h >= 22;
+  if (day === 5 && h >= 21) return false;
+  return !(h >= 21 && h < 22);
+}
+function sparkline(pts) {
+  if (!pts || pts.length < 2) return '<div class="muted spark-empty">Grafik saldo muncul setelah ada trade tertutup.</div>';
+  const w = 240, h = 46, lo = Math.min(...pts), hi = Math.max(...pts), span = hi - lo || 1;
+  const xy = pts.map((v, i) => `${(i / (pts.length - 1) * w).toFixed(1)},${(h - 3 - (v - lo) / span * (h - 6)).toFixed(1)}`).join(' ');
+  const col = pts.at(-1) >= pts[0] ? 'var(--ok)' : '#f87171';
+  return `<svg class="spark" viewBox="0 0 ${w} ${h}" preserveAspectRatio="none" aria-label="Kurva saldo"><polyline points="${xy}" fill="none" stroke="${col}" stroke-width="2" vector-effect="non-scaling-stroke"/></svg>`;
+}
+function renderTrading(tr) {
+  $('trd-mode').textContent = tr ? `mode ${tr.mode}${tr.paused ? ' · dijeda' : ''}` : 'belum jalan';
+  if (!tr) {
+    $('trd-kpi').innerHTML = '';
+    for (const id of ['trd-now', 'trd-news', 'trd-risk']) $(id).innerHTML = '<div class="muted">–</div>';
+    $('trd-trades').innerHTML = $('trd-list').innerHTML = '';
+    return;
+  }
+  const st = tr.stats ?? {}, rk = tr.risk ?? {}, now = Date.now();
+  const open = tr.open ?? [];
+
+  // angka utama
+  const winRate = st.n ? Math.round(st.wins / st.n * 100) : null;
+  const dd = tr.peak && tr.balance != null ? Math.max(0, (tr.peak - tr.balance) / tr.peak * 100) : 0;
+  const tile = (k, v, sub = '', cls = '') => `<div><span class="muted">${k}</span><b class="${cls}">${v}</b>${sub ? `<small class="muted">${sub}</small>` : ''}</div>`;
+  $('trd-kpi').innerHTML = [
+    tile('Harga XAUUSD', tr.price ? tr.price.toFixed(2) : '–', tr.ea?.connected ? 'dari EA MT5' : 'dari Yahoo'),
+    tile('Saldo', usd(tr.balance), tr.mode === 'paper' ? 'simulasi' : tr.ea?.demo ? 'akun demo' : 'akun real'),
+    tile('Hari ini', usd(tr.today_pnl, true), `${st.today_n ?? 0} trade`, tone(tr.today_pnl)),
+    tile('7 hari', usd(st.week_pnl, true), `total ${usd(st.pnl ?? 0, true)}`, tone(st.week_pnl)),
+    tile('Win rate', winRate == null ? '–' : `${winRate}%`, `${st.wins ?? 0} menang · ${st.losses ?? 0} kalah`),
+    tile('Drawdown', `${dd.toFixed(1)}%`, `puncak ${usd(tr.peak)}`, dd >= 5 ? 'down' : ''),
+  ].join('');
+
+  // kondisi sekarang: masuk atau nggak, dan kenapa
+  const L = tr.last, t = L?.tech ?? {};
+  const [s0, s1] = rk.sessionUTC ?? [6, 20], hUtc = new Date().getUTCHours();
+  const sessionOn = hUtc >= s0 && hUtc < s1, mkt = goldMarketOpen();
+  const sesTxt = `${witaHM(Date.UTC(2000, 0, 1, s0))}–${witaHM(Date.UTC(2000, 0, 1, s1))}`;
+  const verdict = open.length
+    ? `<div class="verdict in">📈 Lagi pegang posisi ${open[0].side.toUpperCase()} ${open[0].lot} lot<small>Entry ${open[0].entry} · SL ${open[0].sl} · TP ${open[0].tp}</small></div>`
+    : !L ? '<div class="verdict">Belum ada analisa</div>'
+      : L.decision !== 'NO TRADE' ? `<div class="verdict in">✅ Masuk ${L.decision} ${L.lot} lot · RR 1:${L.rr}<small>${esc(L.reason)}</small></div>`
+        : `<div class="verdict out">⛔ Nggak masuk<small>${esc(L.reason)}</small></div>`;
+  const biasIcon = { bullish: '🟢', bearish: '🔴', sideways: '⚪' }[t.bias] ?? '';
+  $('trd-now').innerHTML = verdict
+    + kvRow('Teknikal (Keira)', t.bias ? `${biasIcon} ${t.bias} · skor ${Math.abs(t.score ?? 0)}/3` : '–')
+    + kvRow('Fundamental (Davina)', esc(tr.fund?.note ?? 'netral, pantau kalender'))
+    + kvRow('Pasar emas', mkt ? 'buka' : 'tutup', mkt ? 'up' : 'down')
+    + kvRow(`Sesi London–NY (${sesTxt} WITA)`, sessionOn ? 'jalan' : 'di luar sesi', sessionOn ? 'up' : '')
+    + kvRow('EA MT5', tr.ea?.connected ? `tersambung${tr.ea.demo ? ' (demo)' : ''}` : 'belum tersambung', tr.ea?.connected ? 'up' : '')
+    + kvRow('Analisa terakhir', L ? `${fmtTs(L.ts)} WITA` : '–');
+
+  // berita: lagi terdampak (dalam ±menit blackout rilis High) atau aman
+  const win = (rk.newsBlackoutMin ?? 45) * 60000;
+  const cal = tr.calendar ?? [];
+  const hit = cal.find((e) => e.impact === 'High' && Math.abs(e.at - now) <= win);
+  const next = cal.find((e) => e.impact === 'High' && e.at > now);
+  const banner = hit
+    ? `<div class="verdict out">⚠️ Lagi terdampak berita: ${esc(hit.title)}<small>Rilis ${witaDay(hit.at)} ${witaHM(hit.at)} WITA · entry ditahan sampai ${witaHM(hit.at + win)} WITA</small></div>`
+    : `<div class="verdict in">🛡️ Aman dari berita<small>${next ? `Berikutnya: ${esc(next.title)} · ${witaDay(next.at)} ${witaHM(next.at)} WITA (entry ditahan ±${rk.newsBlackoutMin ?? 45} menit)` : 'Nggak ada rilis USD berdampak tinggi lagi minggu ini'}</small></div>`;
+  $('trd-news').innerHTML = banner + (cal.length
+    ? `<ul class="news">${cal.map((e) => `<li class="${e.at < now - win ? 'past' : ''}${e === hit ? ' hit' : ''}"><time>${witaDay(e.at)} ${witaHM(e.at)}</time><i class="imp ${e.impact === 'High' ? 'hi' : 'md'}" title="${e.impact}"></i><span>${esc(e.title)}${e.forecast || e.previous ? `<small>prakiraan ${esc(e.forecast || '–')} · sebelumnya ${esc(e.previous || '–')}</small>` : ''}</span></li>`).join('')}</ul>`
+    : '<div class="muted">Kalender kosong.</div>');
+
+  // risiko & loss
+  const eq = tr.balance ?? 0, lossCap = eq * (rk.dailyLossPct ?? 3) / 100;
+  const lossToday = Math.max(0, -(tr.today_pnl ?? 0));
+  const pct = lossCap ? Math.min(100, lossToday / lossCap * 100) : 0;
+  const pf = st.gross_loss ? (st.gross_win / Math.abs(st.gross_loss)).toFixed(2) : st.gross_win ? '∞' : '–';
+  $('trd-risk').innerHTML = kvRow(`Rugi hari ini (batas ${rk.dailyLossPct ?? 3}%)`, `${usd(lossToday)} / ${usd(lossCap)}`, lossToday ? 'down' : '')
+    + `<div class="bar"><i style="width:${pct}%"></i></div>`
+    + kvRow('Kalah beruntun hari ini', `${st.consec_loss ?? 0} / ${rk.maxConsecLoss ?? 3}`, st.consec_loss ? 'down' : '')
+    + kvRow('Total loss', usd(st.gross_loss ?? 0), st.gross_loss ? 'down' : '')
+    + kvRow('Loss terbesar', usd(st.max_loss ?? 0), st.max_loss ? 'down' : '')
+    + kvRow('Profit factor · rata-rata', `${pf} · ${st.n ? `${st.avg_r >= 0 ? '+' : ''}${st.avg_r}R` : '–'}`)
+    + kvRow('Risiko per trade', `${rk.riskPct ?? 1}% (≈${usd(eq * (rk.riskPct ?? 1) / 100)}) · RR 1:${rk.rr ?? 2}`)
+    + ((tr.proposals ?? []).length ? kvRow('Usulan Jihan nunggu ACC', tr.proposals.map((x) => `#${x.id}`).join(', ')) : '')
+    + sparkline(tr.curve);
+
+  // posisi terbuka (floating dari harga terakhir, 1 lot = 100 oz) + riwayat
+  const fl = (o) => (tr.price ? (tr.price - o.entry) * (o.side === 'buy' ? 1 : -1) * o.lot * 100 : null);
+  const rows = [
+    ...open.map((o) => `<li><b>${o.side.toUpperCase()} ${o.lot}</b> kebuka @ ${o.entry} · SL ${o.sl} · TP ${o.tp} · floating <b class="${tone(fl(o))}">${usd(fl(o), true)}</b></li>`),
+    ...(tr.trades ?? []).map((x) => `<li><time>${fmtTs(x.close_ts)}</time><b>${x.side.toUpperCase()} ${x.lot}</b> ${x.entry} → ${x.exit} <b class="${tone(x.pnl)}">${usd(x.pnl, true)}</b>${x.r != null ? ` (${x.r >= 0 ? '+' : ''}${(+x.r).toFixed(1)}R)` : ''} · ${esc(x.reason_close)}</li>`),
+  ];
+  $('trd-trades').innerHTML = rows.length ? rows.join('') : '<li class="muted">Belum ada trade. Aryaputra baru masuk kalau semua syarat lolos.</li>';
+  $('trd-list').innerHTML = (tr.signals ?? []).length
+    ? tr.signals.map((x) => `<li><time>${fmtTs(x.ts)}</time><b>${esc(x.decision)}</b> ${esc(x.reason)}</li>`).join('')
+    : '<li class="muted">Tim trading belum mulai analisa.</li>';
 }
 
 function renderInspector(id, info) {
