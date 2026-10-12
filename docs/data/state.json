@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-12T04:38:43.066Z",
+ "generated_at": "2026-10-12T04:48:43.084Z",
  "today": "2026-10-12",
  "week_start": "2026-10-12",
  "campaign": {
@@ -20,17 +20,17 @@
    "id": "dir",
    "name": "Aprista",
    "title": "Marketing Director",
-   "status": "done",
-   "current_task": "Plan mingguan 12-18 Okt dikirim ke Owner",
-   "updated_at": "2026-10-11 23:01:19"
+   "status": "working",
+   "current_task": "Bagi tugas: Team, carikan 1 konten video ya, untuk tambahan upload hari ",
+   "updated_at": "2026-10-12 04:47:05"
   },
   {
    "id": "researcher",
    "name": "Clariana",
    "title": "Researcher",
-   "status": "done",
-   "current_task": "Riset klasemen MPL ID S18 & cek harga FF",
-   "updated_at": "2026-10-12 04:28:19"
+   "status": "working",
+   "current_task": "Riset bahan video tambahan: Champions Shanghai finals weekend",
+   "updated_at": "2026-10-12 04:47:28"
   },
   {
    "id": "copywriter",
@@ -61,8 +61,8 @@
    "name": "Fikri",
    "title": "Social Media Publisher",
    "status": "done",
-   "current_task": "QA & kirim konten 6, 7 ke Owner",
-   "updated_at": "2026-10-12 04:29:05"
+   "current_task": "undefined",
+   "updated_at": "2026-10-12 04:46:05"
   },
   {
    "id": "ads",
@@ -106,7 +106,7 @@
    "game": "mlbb",
    "pillar": "esport",
    "title": "Road to Playoff MPL ID S18: Siapa Aman, Siapa Terancam?",
-   "status": "pending_approval",
+   "status": "approved",
    "asset_url": "{\"feed\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-12/6-road-to-playoff-mpl-id-s18-siapa-aman-si.jpg\"],\"story\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-12/6-road-to-playoff-mpl-id-s18-siapa-aman-si-916.jpg\"]}",
    "scheduled_at": null,
    "posted_at": null
@@ -119,7 +119,7 @@
    "game": "freefire",
    "pillar": "promo",
    "title": "Top Up Diamond FF Cepat & Aman di zataa.my.id",
-   "status": "pending_approval",
+   "status": "approved",
    "asset_url": "{\"feed\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-12/7-top-up-diamond-ff-cepat-aman-di-zataa-my.jpg\"],\"story\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-12/7-top-up-diamond-ff-cepat-aman-di-zataa-my-916.jpg\"]}",
    "scheduled_at": null,
    "posted_at": null
@@ -321,6 +321,21 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-12 04:47:05",
+   "agent_id": "owner",
+   "message": "Chat: Team, carikan 1 konten video ya, untuk tambahan upload hari ini"
+  },
+  {
+   "ts": "2026-10-12 04:46:05",
+   "agent_id": "owner",
+   "message": "Approve konten #7 ✅"
+  },
+  {
+   "ts": "2026-10-12 04:45:05",
+   "agent_id": "owner",
+   "message": "Approve konten #6 ✅"
+  },
+  {
    "ts": "2026-10-12 04:29:06",
    "agent_id": "publisher",
    "message": "Konten 6 (siang) & 7 (malam) dikirim ke Telegram buat approval"
@@ -429,24 +444,23 @@
    "ts": "2026-10-11 14:30:08",
    "agent_id": "owner",
    "message": "Chat: Thanks team!"
-  },
-  {
-   "ts": "2026-10-11 14:29:03",
-   "agent_id": "publisher",
-   "message": "Posting #4 ke IG ✅"
-  },
-  {
-   "ts": "2026-10-11 14:27:08",
-   "agent_id": "owner",
-   "message": "Approve konten #4 ✅"
-  },
-  {
-   "ts": "2026-10-11 14:25:50",
-   "agent_id": "publisher",
-   "message": "Kirim #4 ke Owner buat approval · revisi ke-2"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-10-12 04:47:05",
+   "agent_id": "dir",
+   "to_id": null,
+   "kind": "oper",
+   "message": "Oke tim, ada titah dari Bos. Aku bagi tugasnya ya 👇"
+  },
+  {
+   "ts": "2026-10-12 04:47:05",
+   "agent_id": "owner",
+   "to_id": "publisher",
+   "kind": "bos",
+   "message": "Team, carikan 1 konten video ya, untuk tambahan upload hari ini"
+  },
   {
    "ts": "2026-10-12 04:29:15",
    "agent_id": "publisher",
@@ -712,20 +726,6 @@
    "to_id": null,
    "kind": "santai",
    "message": "Makasih update-nya Bos! T1 nyamain 1-1, map 3 penentu nih, aku lembur nonton sampe kelar 🍿"
-  },
-  {
-   "ts": "2026-10-11 13:18:53",
-   "agent_id": "dir",
-   "to_id": null,
-   "kind": "oper",
-   "message": "Oke tim, ada titah dari Bos. Aku bagi tugasnya ya 👇"
-  },
-  {
-   "ts": "2026-10-11 13:18:53",
-   "agent_id": "owner",
-   "to_id": null,
-   "kind": "bos",
-   "message": "Gw bantu update ya clariana, t1 menang, jadi sementara masih 1-1"
   }
  ],
  "stats": {
@@ -733,8 +733,8 @@
    "week": "2026-10-12",
    "total": 14,
    "posted": 0,
-   "pending": 2,
-   "scheduled": 0,
+   "pending": 0,
+   "scheduled": 2,
    "views": 0,
    "likes": 0,
    "comments": 0,
