@@ -12,7 +12,7 @@ import { all, get, run, kv, setKv, kvAge, params, mode, ROOT } from './store.mjs
 import { saveBars, marketOpen, refreshYahoo, tickSpot, eaFresh, bars, resample, TF_SEC } from './market.mjs';
 import { trend } from './strategy.mjs';
 import { cycle, newsToday } from './cycle.mjs';
-import { monitorPaper, closeTrade, onOpened, summary, report, setAgent, note, talk, sayAs, exportState } from './desk.mjs';
+import { monitorPaper, closeTrade, onOpened, summary, paperReport, report, setAgent, note, talk, sayAs, exportState } from './desk.mjs';
 import { backtest, loadHistory, grid, score } from './backtest.mjs';
 import { readFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
@@ -158,7 +158,7 @@ async function tick() {
       await sayAs('tresearch', `☀️ Pagi Bos. Mode trading: <b>${mode()}</b>.${n ? `\nBerita USD penting hari ini:\n${n}` : '\nHari ini nggak ada rilis USD berdampak tinggi.'}`);
     });
     if (hm === '22:30' && !['Sat', 'Sun'].includes(w.weekday)) await once('dailyDone', () => summary(1));
-    if (hm === '08:00' && w.weekday === 'Sat') await once('weeklyDone', async () => { await summary(7); await weeklyEvaluation(); });
+    if (hm === '08:00' && w.weekday === 'Sat') await once('weeklyDone', async () => { await (mode() === 'paper' ? paperReport() : summary(7)); await weeklyEvaluation(); });
   } catch (e) { log(`tick: ${e.stack || e.message}`); }
   busy = false;
 }
