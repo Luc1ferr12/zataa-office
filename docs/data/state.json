@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-12T10:44:04.598Z",
+ "generated_at": "2026-10-12T10:54:04.624Z",
  "today": "2026-10-12",
  "week_start": "2026-10-12",
  "campaign": {
@@ -102,7 +102,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-12 10:31:09"
+   "updated_at": "2026-10-12 10:46:09"
   },
   {
    "id": "tresearch",
@@ -110,7 +110,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
-   "updated_at": "2026-10-12 10:31:09"
+   "updated_at": "2026-10-12 10:46:09"
   },
   {
    "id": "ttech",
@@ -118,7 +118,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Bias sideways",
-   "updated_at": "2026-10-12 10:31:09"
+   "updated_at": "2026-10-12 10:46:09"
   },
   {
    "id": "trisk",
@@ -126,7 +126,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: market sideways, tunggu arah jelas",
-   "updated_at": "2026-10-12 10:31:09"
+   "updated_at": "2026-10-12 10:46:09"
   },
   {
    "id": "texec",
@@ -403,6 +403,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-12 10:52:17",
+   "agent_id": "owner",
+   "message": "Chat: Web zataa.my.id uda bisa di akses ya"
+  },
+  {
    "ts": "2026-10-12 10:16:09",
    "agent_id": "trisk",
    "message": "NO TRADE · market sideways, tunggu arah jelas"
@@ -521,14 +526,30 @@
    "ts": "2026-10-12 05:17:46",
    "agent_id": "publisher",
    "message": "Gagal posting #20: TikTok: Please review our integration guidelines at https://developers.tiktok.com/doc/content-sharing-guidelines/"
-  },
-  {
-   "ts": "2026-10-12 05:17:46",
-   "agent_id": "publisher",
-   "message": "Posting #20 ke IG ✅"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-10-12 10:52:23",
+   "agent_id": "price",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Oke Bos, nanti saya cek harga di zataa.my.id lagi sesuai jadwal pantau."
+  },
+  {
+   "ts": "2026-10-12 10:52:23",
+   "agent_id": "dir",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Siap Bos, mantap berarti udah bisa diakses ya. Tim lanjut pantau dan kabarin kalau ada yang perlu dicek."
+  },
+  {
+   "ts": "2026-10-12 10:52:17",
+   "agent_id": "owner",
+   "to_id": "dir",
+   "kind": "bos",
+   "message": "Web zataa.my.id uda bisa di akses ya"
+  },
   {
    "ts": "2026-10-12 05:57:14",
    "agent_id": "publisher",
@@ -787,27 +808,6 @@
    "to_id": "publisher",
    "kind": "oper",
    "message": "Fikri, desain \"Revisi #4: Hasil Lower Round 2 VCT Champions 2026: NRG vs 10\" udah render 1080×1080. QA dulu ya sebelum ke bos"
-  },
-  {
-   "ts": "2026-10-11 14:25:46",
-   "agent_id": "copywriter",
-   "to_id": "designer",
-   "kind": "oper",
-   "message": "Maria, copy \"Revisi #4: Hasil Lower Round 2 VCT Champions 2026: NRG vs 10\" udah masuk. Headline-nya jangan dikecilin ya 😆"
-  },
-  {
-   "ts": "2026-10-11 14:24:08",
-   "agent_id": "designer",
-   "to_id": null,
-   "kind": "curhat",
-   "message": "Siap, revisi dikerjain! Bos-nya teliti banget 😅"
-  },
-  {
-   "ts": "2026-10-11 14:22:38",
-   "agent_id": "designer",
-   "to_id": "publisher",
-   "kind": "oper",
-   "message": "Fikri, desain \"Revisi #4: Hasil Lower Round 2 VCT Champions 2026: NRG vs 10\" udah render 1080×1080. QA dulu ya sebelum ke bos"
   }
  ],
  "stats": {
@@ -881,9 +881,14 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4179.100098,
+  "price": 4178.5,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-12 10:46:09",
+    "decision": "NO TRADE",
+    "reason": "market sideways, tunggu arah jelas"
+   },
    {
     "ts": "2026-10-12 10:31:09",
     "decision": "NO TRADE",
@@ -908,11 +913,6 @@
     "ts": "2026-10-12 09:31:02",
     "decision": "NO TRADE",
     "reason": "market sideways, tunggu arah jelas"
-   },
-   {
-    "ts": "2026-10-12 09:16:02",
-    "decision": "NO TRADE",
-    "reason": "market sideways, tunggu arah jelas"
    }
   ],
   "trades": [],
@@ -934,7 +934,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-12 10:31:09",
+   "ts": "2026-10-12 10:46:09",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -953,7 +953,7 @@
     "bias": "sideways",
     "score": 1,
     "trigger": null,
-    "note": "sideways (skor 1) · harga 4180.50 · EMA50 H1 4171.94 · RSI M15 46"
+    "note": "sideways (skor 1) · harga 4180.00 · EMA50 H1 4171.92 · RSI M15 46"
    }
   },
   "fund": null,
@@ -1034,21 +1034,21 @@
   "tf": {
    "M10": {
     "bias": null,
-    "n": 7,
-    "note": "ngumpulin data (7/60 candle)",
-    "slot": 2986336,
-    "at": 1791801669522
+    "n": 8,
+    "note": "ngumpulin data (8/60 candle)",
+    "slot": 2986337,
+    "at": 1791802269685
    },
    "M15": {
     "bias": "bearish",
     "score": -3,
-    "price": 4180.1,
-    "ema20": 4181.16,
-    "ema50": 4185.56,
-    "rsi": 45.9,
+    "price": 4179.9,
+    "ema20": 4181.04,
+    "ema50": 4185.34,
+    "rsi": 45.6,
     "n": 299,
-    "slot": 1990890,
-    "at": 1791801069510
+    "slot": 1990891,
+    "at": 1791801969557
    },
    "M30": {
     "bias": "sideways",
