@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-12T03:48:42.945Z",
+ "generated_at": "2026-10-12T03:58:42.967Z",
  "today": "2026-10-12",
  "week_start": "2026-10-12",
  "campaign": {
@@ -68,9 +68,9 @@
    "id": "ads",
    "name": "Fahriah",
    "title": "Ads Specialist",
-   "status": "idle",
-   "current_task": null,
-   "updated_at": "2026-10-11 08:02:10"
+   "status": "waiting",
+   "current_task": "Usulan boost B1 (#17959544004231820)",
+   "updated_at": "2026-10-12 03:53:04"
   },
   {
    "id": "analyst",
@@ -321,6 +321,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-12 03:53:04",
+   "agent_id": "ads",
+   "message": "Usul boost #17959544004231820 Rp20.000 ke Owner"
+  },
+  {
    "ts": "2026-10-12 01:00:57",
    "agent_id": "analyst",
    "message": "Update data 3 post IG 📈"
@@ -439,14 +444,16 @@
    "ts": "2026-10-11 13:23:37",
    "agent_id": "owner",
    "message": "Chat: Manggil ajaa"
-  },
-  {
-   "ts": "2026-10-11 13:22:37",
-   "agent_id": "owner",
-   "message": "Chat: Aprista sayang"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-10-12 03:53:04",
+   "agent_id": "ads",
+   "to_id": "publisher",
+   "kind": "oper",
+   "message": "Fik, post \"RRQ vs ONIC: Laga Hidup-Mati Zona Playof\" rame nih (❤️ 2). Aku usulin boost ke Bos ya 💸"
+  },
   {
    "ts": "2026-10-12 02:00:59",
    "agent_id": "price",
@@ -719,13 +726,6 @@
    "to_id": null,
    "kind": "oper",
    "message": "\"Thank You NRG — Champions Shanghai\" udah tayang di IG 🚀 Makasih semua!"
-  },
-  {
-   "ts": "2026-10-11 11:51:54",
-   "agent_id": "designer",
-   "to_id": "publisher",
-   "kind": "oper",
-   "message": "Fikri, desain \"Revisi #5: Thank You NRG — Champions Shanghai\" udah render 1080×1080. QA dulu ya sebelum ke bos"
   }
  ],
  "stats": {
