@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-12T10:54:04.624Z",
+ "generated_at": "2026-10-12T11:04:04.647Z",
  "today": "2026-10-12",
  "week_start": "2026-10-12",
  "campaign": {
@@ -102,15 +102,15 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-12 10:46:09"
+   "updated_at": "2026-10-12 11:01:31"
   },
   {
    "id": "tresearch",
    "name": "Davina",
    "title": "Research & Fundamental",
    "status": "done",
-   "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
-   "updated_at": "2026-10-12 10:46:09"
+   "current_task": "Fundamental: Odds hike Fed Oktober turun setelah PCE lunak; risiko geopolitik Timur Tengah menopang emas. Data CPI 14 Okt jadi pemicu, sumber belum konsisten.",
+   "updated_at": "2026-10-12 11:01:31"
   },
   {
    "id": "ttech",
@@ -118,7 +118,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Bias sideways",
-   "updated_at": "2026-10-12 10:46:09"
+   "updated_at": "2026-10-12 11:01:31"
   },
   {
    "id": "trisk",
@@ -126,7 +126,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: market sideways, tunggu arah jelas",
-   "updated_at": "2026-10-12 10:46:09"
+   "updated_at": "2026-10-12 11:01:31"
   },
   {
    "id": "texec",
@@ -881,9 +881,14 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4178.5,
+  "price": 4176.100098,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-12 11:01:31",
+    "decision": "NO TRADE",
+    "reason": "market sideways, tunggu arah jelas"
+   },
    {
     "ts": "2026-10-12 10:46:09",
     "decision": "NO TRADE",
@@ -908,11 +913,6 @@
     "ts": "2026-10-12 09:45:45",
     "decision": "NO TRADE",
     "reason": "market sideways, tunggu arah jelas"
-   },
-   {
-    "ts": "2026-10-12 09:31:02",
-    "decision": "NO TRADE",
-    "reason": "market sideways, tunggu arah jelas"
    }
   ],
   "trades": [],
@@ -934,7 +934,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-12 10:46:09",
+   "ts": "2026-10-12 11:01:31",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -945,18 +945,21 @@
    "risk_usd": null,
    "reason": "market sideways, tunggu arah jelas",
    "fund": {
-    "bias": 0,
-    "note": "netral (belum ada ringkasan hari ini)",
+    "bias": 0.1,
+    "note": "Odds hike Fed Oktober turun setelah PCE lunak; risiko geopolitik Timur Tengah menopang emas. Data CPI 14 Okt jadi pemicu, sumber belum konsisten.",
     "blackout": null
    },
    "tech": {
     "bias": "sideways",
     "score": 1,
     "trigger": null,
-    "note": "sideways (skor 1) · harga 4180.00 · EMA50 H1 4171.92 · RSI M15 46"
+    "note": "sideways (skor 1) · harga 4178.40 · EMA50 H1 4172.12 · RSI M15 44"
    }
   },
-  "fund": null,
+  "fund": {
+   "bias": 0.1,
+   "note": "Odds hike Fed Oktober turun setelah PCE lunak; risiko geopolitik Timur Tengah menopang emas. Data CPI 14 Okt jadi pemicu, sumber belum konsisten."
+  },
   "calendar": [
    {
     "title": "Core CPI m/m",
@@ -1034,43 +1037,43 @@
   "tf": {
    "M10": {
     "bias": null,
-    "n": 8,
-    "note": "ngumpulin data (8/60 candle)",
-    "slot": 2986337,
-    "at": 1791802269685
+    "n": 9,
+    "note": "ngumpulin data (9/60 candle)",
+    "slot": 2986338,
+    "at": 1791802869720
    },
    "M15": {
     "bias": "bearish",
     "score": -3,
-    "price": 4179.9,
-    "ema20": 4181.04,
-    "ema50": 4185.34,
-    "rsi": 45.6,
+    "price": 4178.5,
+    "ema20": 4180.8,
+    "ema50": 4185.07,
+    "rsi": 43.7,
     "n": 299,
-    "slot": 1990891,
-    "at": 1791801969557
+    "slot": 1990892,
+    "at": 1791802869725
    },
    "M30": {
     "bias": "sideways",
     "score": -1,
-    "price": 4180.1,
-    "ema20": 4184.65,
-    "ema50": 4181.51,
-    "rsi": 45.4,
+    "price": 4178.5,
+    "ema20": 4184.07,
+    "ema50": 4181.39,
+    "rsi": 44.2,
     "n": 299,
-    "slot": 995445,
-    "at": 1791801069521
+    "slot": 995446,
+    "at": 1791802869735
    },
    "H1": {
     "bias": "sideways",
     "score": 1,
-    "price": 4173.2,
-    "ema20": 4184.91,
-    "ema50": 4171.59,
-    "rsi": 43.7,
+    "price": 4178.5,
+    "ema20": 4184.3,
+    "ema50": 4171.86,
+    "rsi": 47.7,
     "n": 299,
-    "slot": 497722,
-    "at": 1791799269711
+    "slot": 497723,
+    "at": 1791802869742
    }
   },
   "currency": "USC",
