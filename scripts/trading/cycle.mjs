@@ -1,7 +1,7 @@
 // Mahendra (Trading Director): mengatur alur semua agent dalam satu siklus analisa XAUUSD.
 // Alur: Supervisor → Research (Davina) → Technical (Keira) → Decision & Risk (Aryaputra) → Execution (Wiratama) → Evaluation (Jihan) → Reporting (Selena)
 import { run, get, kv, setKv, kvAge, params, mode, paused } from './store.mjs';
-import { bars, refreshYahoo, marketOpen, quote, eaFresh } from './market.mjs';
+import { bars, refreshYahoo, marketOpen, quote, eaFresh, spotFresh } from './market.mjs';
 import { refreshCalendar, fundamental, aiSentiment, upcoming } from './research.mjs';
 import { technical, decide } from './strategy.mjs';
 import { setAgent, note, talk, account, openTrades, today, execute, report, exportState } from './desk.mjs';
@@ -16,7 +16,8 @@ export async function cycle({ force = false, log = console.log } = {}) {
   setAgent('tdir', 'working', 'Mulai siklus analisa XAUUSD');
   // ---- data harga: EA kalau tersambung, kalau tidak Yahoo
   if (!eaFresh()) {
-    try { await refreshYahoo(); } catch (e) { log(`data harga gagal: ${e.message}`); setAgent('tdir', 'waiting', 'Data harga belum masuk'); return { skip: 'no data' }; }
+    if (!spotFresh()) try { await refreshYahoo(); } catch (e) { log(`yahoo: ${e.message}`); }
+    if (bars('H1', 300).length < p.emaSlow + 5) { setAgent('tdir', 'waiting', 'Data harga belum cukup'); return { skip: 'no data' }; }
   }
   // ---- 2. Research (Davina): kalender & sentimen
   setAgent('tresearch', 'working', 'Cek kalender ekonomi & berita USD');

@@ -9,7 +9,7 @@ process.removeAllListeners('warning');
 import { createServer } from 'node:http';
 import { timingSafeEqual } from 'node:crypto';
 import { all, get, run, kv, setKv, kvAge, params, mode, ROOT } from './store.mjs';
-import { saveBars, marketOpen, refreshYahoo } from './market.mjs';
+import { saveBars, marketOpen, refreshYahoo, tickSpot, eaFresh } from './market.mjs';
 import { cycle, newsToday } from './cycle.mjs';
 import { monitorPaper, closeTrade, onOpened, summary, report, setAgent, note, talk, sayAs } from './desk.mjs';
 import { backtest, loadHistory, grid, score } from './backtest.mjs';
@@ -117,6 +117,7 @@ async function tick() {
   if (busy) return;
   busy = true;
   try {
+    if (!eaFresh()) { try { await tickSpot(); } catch (e) { if (kvAge('spotErr') > 30) { setKv('spotErr', 1); log(`harga spot: ${e.message}`); } } }
     await monitorPaper();
     const w = wita(), hm = `${w.hour}:${w.minute}`, slot = Math.floor(Date.now() / 900000);
     // siklus tiap candle M15 tutup (+40 dtk biar candle sudah final)
