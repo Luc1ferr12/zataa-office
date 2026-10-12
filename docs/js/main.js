@@ -174,12 +174,14 @@ const witaHM = (ms) => new Date(ms).toLocaleTimeString('id-ID', { timeZone: 'Asi
 const witaDay = (ms) => new Date(ms).toLocaleDateString('id-ID', { timeZone: 'Asia/Makassar', weekday: 'short' });
 const kvRow = (k, v, cls = '') => `<div class="kv"><span>${k}</span><b class="${cls}">${v}</b></div>`;
 // sama dengan marketOpen() di scripts/trading/market.mjs
+const NY_FMT = new Intl.DateTimeFormat('en-US', { timeZone: 'America/New_York', weekday: 'short', hour: '2-digit', minute: '2-digit', hourCycle: 'h23' });
 function goldMarketOpen(d = new Date()) {
-  const day = d.getUTCDay(), h = d.getUTCHours() + d.getUTCMinutes() / 60;
+  const p = Object.fromEntries(NY_FMT.formatToParts(d).map((x) => [x.type, x.value]));
+  const day = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].indexOf(p.weekday), h = +p.hour + +p.minute / 60;
   if (day === 6) return false;
-  if (day === 0) return h >= 22;
-  if (day === 5 && h >= 21) return false;
-  return !(h >= 21 && h < 22);
+  if (day === 0) return h >= 18;
+  if (day === 5 && h >= 17) return false;
+  return !(h >= 17 && h < 18);
 }
 function sparkline(pts) {
   if (!pts || pts.length < 2) return '<div class="muted spark-empty">Grafik saldo muncul setelah ada trade tertutup.</div>';

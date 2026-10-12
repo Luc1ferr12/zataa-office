@@ -96,11 +96,16 @@ export function quote() {
   return { bid: last.c - 0.15, ask: last.c + 0.15, spread: 0.3, src: 'yahoo' };
 }
 
-// jam pasar emas (UTC): Minggu 22:00 – Jumat 21:00, jeda harian 21:00–22:00
+// jam pasar emas ikut waktu New York (otomatis ikut daylight saving AS):
+// Minggu 18:00 – Jumat 17:00 ET, jeda harian 17:00–18:00 ET
+// = musim panas AS: buka Senin 06:00, jeda 05:00–06:00, tutup Sabtu 05:00 WITA; musim dingin: semua +1 jam
+const NY = new Intl.DateTimeFormat('en-US', { timeZone: 'America/New_York', weekday: 'short', hour: '2-digit', minute: '2-digit', hourCycle: 'h23' });
+const DOW = { Sun: 0, Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6 };
 export function marketOpen(d = new Date()) {
-  const day = d.getUTCDay(), h = d.getUTCHours() + d.getUTCMinutes() / 60;
+  const p = Object.fromEntries(NY.formatToParts(d).map((x) => [x.type, x.value]));
+  const day = DOW[p.weekday], h = +p.hour + +p.minute / 60;
   if (day === 6) return false;
-  if (day === 0) return h >= 22;
-  if (day === 5 && h >= 21) return false;
-  return !(h >= 21 && h < 22);
+  if (day === 0) return h >= 18;
+  if (day === 5 && h >= 17) return false;
+  return !(h >= 17 && h < 18);
 }

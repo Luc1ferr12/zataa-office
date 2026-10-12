@@ -67,7 +67,7 @@ export const DEFAULT_PARAMS = {
   dailyLossPct: 3,       // berhenti hari ini kalau rugi ≥ ini
   maxConsecLoss: 3,      // berhenti hari ini setelah kalah beruntun segini
   maxSpread: 0.8,        // USD
-  sessionUTC: [6, 20],   // jam trading (UTC): London + New York
+  sessionUTC: [6, 20],   // jam trading (UTC): London + New York. Sengaja tetap UTC (nggak ikut DST) biar backtest & live konsisten; = 14:00–04:00 WITA
   newsBlackoutMin: 45,   // tidak entry ±menit dari rilis berita USD berdampak tinggi
   maxLot: 1.0, minLot: 0.01, lotStep: 0.01, contract: 100,   // 1 lot XAU = 100 oz
   ddAlertPct: 5,         // peringatan drawdown dari puncak ekuitas

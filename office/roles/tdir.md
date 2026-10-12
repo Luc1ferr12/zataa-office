@@ -9,9 +9,15 @@ Supervisor → Research (Davina) → Technical (Keira) → Decision & Risk (Arya
 Tambahan: arah per timeframe M10/M15/M30/M60 dicek tiap candle tutup (`run.mjs` → `checkTrends`), cuma pantauan, belum jadi syarat entry.
 
 ## Jam pasar emas (WITA)
-- Buka Senin 06:00 → tutup Sabtu 05:00. Jeda harian **05:00–06:00 WITA**. Sabtu–Minggu nggak ada siklus.
-- Sesi trading yang diizinkan: London–New York **14:00–04:00 WITA** (06–20 UTC). Di luar itu NO TRADE.
-- Jam rilis berita AS geser +1 jam WITA waktu AS keluar dari daylight saving (mulai 1 Nov 2026): CPI/NFP 20:30 → 21:30 WITA.
+Kode ikut waktu New York (`marketOpen()` di `market.mjs`), jadi otomatis geser waktu AS ganti jam (DST):
+| | Musim panas AS (s.d. 31 Okt 2026, mulai lagi ±Mar) | Musim dingin AS (mulai 1 Nov 2026) |
+|---|---|---|
+| Buka | Senin 06:00 | Senin 07:00 |
+| Jeda harian | 05:00–06:00 | 06:00–07:00 |
+| Tutup | Sabtu 05:00 | Sabtu 06:00 |
+- Sabtu–Minggu nggak ada siklus.
+- Sesi trading yang diizinkan: London–New York **14:00–04:00 WITA** (06–20 UTC), sengaja tetap (nggak ikut DST) biar backtest & live konsisten. Di luar itu NO TRADE.
+- Jam rilis berita AS juga geser +1 jam WITA di musim dingin: CPI/NFP 20:30 → 21:30 WITA (kalender ForexFactory udah otomatis).
 
 ## Mode & akun
 - `paper` (sekarang) → `demo` → `live` (hanya Owner, `mode live` + `live KONFIRMASI` dalam 10 menit).
