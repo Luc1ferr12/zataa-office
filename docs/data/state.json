@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-12T05:43:52.411Z",
+ "generated_at": "2026-10-12T05:53:52.415Z",
  "today": "2026-10-12",
  "week_start": "2026-10-12",
  "campaign": {
@@ -52,9 +52,9 @@
    "id": "video",
    "name": "Dimas",
    "title": "Video Production",
-   "status": "working",
+   "status": "done",
    "current_task": "Render video #21 tips push rank ML",
-   "updated_at": "2026-10-12 05:42:15"
+   "updated_at": "2026-10-12 05:50:07"
   },
   {
    "id": "publisher",
@@ -102,7 +102,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-12 05:30:57"
+   "updated_at": "2026-10-12 05:45:57"
   },
   {
    "id": "tresearch",
@@ -110,7 +110,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
-   "updated_at": "2026-10-12 05:30:56"
+   "updated_at": "2026-10-12 05:45:57"
   },
   {
    "id": "ttech",
@@ -118,7 +118,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Bias sideways",
-   "updated_at": "2026-10-12 05:30:57"
+   "updated_at": "2026-10-12 05:45:57"
   },
   {
    "id": "trisk",
@@ -126,7 +126,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: di luar jam sesi London–New York",
-   "updated_at": "2026-10-12 05:30:57"
+   "updated_at": "2026-10-12 05:45:57"
   },
   {
    "id": "texec",
@@ -189,7 +189,7 @@
    "pillar": "tips",
    "title": "3 Tips Push Rank ML Biar Nggak Stuck",
    "status": "draft",
-   "asset_url": null,
+   "asset_url": "{\"video\":\"https://luc1ferr12.github.io/zataa-office/media/2026-10-12/21-3-tips-push-rank-ml-biar-nggak-stuck.mp4\",\"cover\":\"https://luc1ferr12.github.io/zataa-office/media/2026-10-12/21-3-tips-push-rank-ml-biar-nggak-stuck-cover.jpg\"}",
    "scheduled_at": null,
    "posted_at": null
   },
@@ -403,6 +403,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-12 05:48:56",
+   "agent_id": "owner",
+   "message": "Setujui boost B1 💸"
+  },
+  {
    "ts": "2026-10-12 05:26:18",
    "agent_id": "publisher",
    "message": "Posting #20 ke TikTok (private) ✅"
@@ -521,14 +526,16 @@
    "ts": "2026-10-12 04:28:19",
    "agent_id": "researcher",
    "message": "Nemu 4 topik baru"
-  },
-  {
-   "ts": "2026-10-12 04:28:04",
-   "agent_id": "owner",
-   "message": "Setujui boost B1 💸"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-10-12 05:50:07",
+   "agent_id": "video",
+   "to_id": "publisher",
+   "kind": "oper",
+   "message": "Fikri, video \"Render video #21 tips push rank ML\" udah render 9:16. Musiknya aman kok"
+  },
   {
    "ts": "2026-10-12 05:26:18",
    "agent_id": "publisher",
@@ -801,13 +808,6 @@
    "to_id": "designer",
    "kind": "oper",
    "message": "Maria, copy \"Revisi #4: Hasil Lower Round 2 VCT Champions 2026: NRG vs 10\" udah masuk. Headline-nya jangan dikecilin ya 😆"
-  },
-  {
-   "ts": "2026-10-11 14:21:08",
-   "agent_id": "designer",
-   "to_id": null,
-   "kind": "curhat",
-   "message": "Yah revisi… oke deh, aku balik ke meja dulu 💻"
   }
  ],
  "stats": {
@@ -862,9 +862,14 @@
   "paused": false,
   "balance": 10000,
   "today_pnl": 0,
-  "price": 4188.700195,
+  "price": 4191.399902,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-12 05:45:57",
+    "decision": "NO TRADE",
+    "reason": "di luar jam sesi London–New York"
+   },
    {
     "ts": "2026-10-12 05:30:57",
     "decision": "NO TRADE",
