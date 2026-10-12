@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-12T05:23:20.733Z",
+ "generated_at": "2026-10-12T05:33:23.909Z",
  "today": "2026-10-12",
  "week_start": "2026-10-12",
  "campaign": {
@@ -62,7 +62,7 @@
    "title": "Social Media Publisher",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-10-12 05:18:49"
+   "updated_at": "2026-10-12 05:26:18"
   },
   {
    "id": "ads",
@@ -102,7 +102,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-12 05:15:56"
+   "updated_at": "2026-10-12 05:30:57"
   },
   {
    "id": "tresearch",
@@ -110,7 +110,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
-   "updated_at": "2026-10-12 05:15:56"
+   "updated_at": "2026-10-12 05:30:56"
   },
   {
    "id": "ttech",
@@ -118,7 +118,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Bias sideways",
-   "updated_at": "2026-10-12 05:15:56"
+   "updated_at": "2026-10-12 05:30:57"
   },
   {
    "id": "trisk",
@@ -126,7 +126,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: di luar jam sesi London–New York",
-   "updated_at": "2026-10-12 05:15:56"
+   "updated_at": "2026-10-12 05:30:57"
   },
   {
    "id": "texec",
@@ -175,10 +175,10 @@
    "game": "valorant",
    "pillar": "esport",
    "title": "Top 4 Champions Shanghai: Siapa Angkat Trofi?",
-   "status": "publish_failed",
+   "status": "posted",
    "asset_url": "{\"video\":\"https://luc1ferr12.github.io/zataa-office/media/2026-10-12/20-top-4-champions-shanghai-siapa-angkat-tr.mp4\",\"cover\":\"https://luc1ferr12.github.io/zataa-office/media/2026-10-12/20-top-4-champions-shanghai-siapa-angkat-tr-cover.jpg\"}",
    "scheduled_at": null,
-   "posted_at": null
+   "posted_at": "2026-10-12 05:26:18"
   },
   {
    "id": 7,
@@ -390,6 +390,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-12 05:26:18",
+   "agent_id": "publisher",
+   "message": "Posting #20 ke TikTok (private) ✅"
+  },
+  {
    "ts": "2026-10-12 05:18:49",
    "agent_id": "publisher",
    "message": "Gagal posting #20: TikTok: Please review our integration guidelines at https://developers.tiktok.com/doc/content-sharing-guidelines/"
@@ -508,14 +513,16 @@
    "ts": "2026-10-12 04:28:04",
    "agent_id": "owner",
    "message": "Setujui boost B1 💸"
-  },
-  {
-   "ts": "2026-10-12 04:27:04",
-   "agent_id": "owner",
-   "message": "Approve plan mingguan ✅"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-10-12 05:26:18",
+   "agent_id": "publisher",
+   "to_id": null,
+   "kind": "oper",
+   "message": "\"Top 4 Champions Shanghai: Siapa Angkat Trofi?\" udah tayang di TikTok (private) 🚀 Makasih semua!"
+  },
   {
    "ts": "2026-10-12 05:17:46",
    "agent_id": "publisher",
@@ -788,20 +795,13 @@
    "to_id": null,
    "kind": "curhat",
    "message": "Yah revisi… oke deh, aku balik ke meja dulu 💻"
-  },
-  {
-   "ts": "2026-10-11 14:13:59",
-   "agent_id": "researcher",
-   "to_id": "copywriter",
-   "kind": "oper",
-   "message": "Ista, bahan buat \"Pantau VCT Champions LR2 selesai\" udah aku rangkum + sumbernya. Tinggal kamu racik captionnya ✍️"
   }
  ],
  "stats": {
   "this_week": {
    "week": "2026-10-12",
    "total": 15,
-   "posted": 1,
+   "posted": 2,
    "pending": 0,
    "scheduled": 1,
    "views": 0,
@@ -849,9 +849,14 @@
   "paused": false,
   "balance": 10000,
   "today_pnl": 0,
-  "price": 4186.700195,
+  "price": 4181,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-12 05:30:57",
+    "decision": "NO TRADE",
+    "reason": "di luar jam sesi London–New York"
+   },
    {
     "ts": "2026-10-12 05:15:56",
     "decision": "NO TRADE",
