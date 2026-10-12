@@ -272,6 +272,7 @@ function tradingState() {
       ea: { connected: !!ea.at && Date.now() / 1000 - ea.at < 180, demo: ea.demo ?? null },
       risk: { riskPct: P.riskPct, rr: P.rr, dailyLossPct: P.dailyLossPct, maxConsecLoss: P.maxConsecLoss, sessionUTC: P.sessionUTC, newsBlackoutMin: P.newsBlackoutMin },
       proposals: all("SELECT id, ts, note FROM trd_proposals WHERE status = 'proposed' ORDER BY id DESC LIMIT 3"),
+      tf: kv('tfTrend', {}),
     };
   } catch { return null; }
 }

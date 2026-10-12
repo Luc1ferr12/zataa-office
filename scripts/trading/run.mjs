@@ -9,9 +9,10 @@ process.removeAllListeners('warning');
 import { createServer } from 'node:http';
 import { timingSafeEqual } from 'node:crypto';
 import { all, get, run, kv, setKv, kvAge, params, mode, ROOT } from './store.mjs';
-import { saveBars, marketOpen, refreshYahoo, tickSpot, eaFresh } from './market.mjs';
+import { saveBars, marketOpen, refreshYahoo, tickSpot, eaFresh, bars, resample, TF_SEC } from './market.mjs';
+import { trend } from './strategy.mjs';
 import { cycle, newsToday } from './cycle.mjs';
-import { monitorPaper, closeTrade, onOpened, summary, report, setAgent, note, talk, sayAs } from './desk.mjs';
+import { monitorPaper, closeTrade, onOpened, summary, report, setAgent, note, talk, sayAs, exportState } from './desk.mjs';
 import { backtest, loadHistory, grid, score } from './backtest.mjs';
 import { readFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
@@ -41,7 +42,7 @@ async function onSync(d) {
   const prev = kv('ea', {});
   setKv('ea', { login: d.login, server: d.server, demo: !!d.demo, balance: d.balance, equity: d.equity, bid: d.bid, ask: d.ask, positions: d.positions?.length ?? 0, at: Date.now() / 1000 });
   if (!prev.at) await report(`🔌 EA MT5 tersambung (${d.demo ? 'akun DEMO' : 'akun REAL'} ${esc(d.server)}). Mode sistem: <b>${mode()}</b>.`);
-  for (const [tf, rows] of Object.entries(d.bars ?? {})) if (['M15', 'H1', 'H4'].includes(tf)) saveBars(tf, rows.map(([t, o, h, l, c, v]) => ({ t, o, h, l, c, v })), 'ea');
+  for (const [tf, rows] of Object.entries(d.bars ?? {})) if (['M10', 'M15', 'M30', 'H1', 'H4'].includes(tf)) saveBars(tf, rows.map(([t, o, h, l, c, v]) => ({ t, o, h, l, c, v })), 'ea');
   // deal penutupan dari MT5 → tutup trade di catatan
   for (const x of d.deals ?? []) {
     if (x.entry !== 'out') continue;
@@ -110,6 +111,31 @@ export async function weeklyEvaluation() {
   await sayAs('teval', msg);
 }
 
+// ---------------------------------------------------------------- arah per timeframe (Keira)
+// dicek tiap candle tutup: M10 tiap 10 menit, M15 tiap 15, M30 tiap 30, H1 tiap 60. Cuma pantauan, bukan pemicu entry.
+const TREND_TF = ['M10', 'M15', 'M30', 'H1'];
+const closedBars = (tf) => {
+  const sec = TF_SEC[tf], now = Date.now() / 1000;
+  // M30 kalau riwayatnya belum cukup: rakit dari M15
+  let b = bars(tf, 300);
+  if (tf === 'M30' && b.length < 60) b = resample(bars('M15', 600), sec).slice(-300);
+  return b.filter((x) => x.t + sec <= now);
+};
+function checkTrends() {
+  const all = kv('tfTrend', {});
+  let changed = false;
+  for (const tf of TREND_TF) {
+    const sec = TF_SEC[tf] * 1000, slot = Math.floor(Date.now() / sec);
+    if (all[tf]?.slot === slot || Date.now() % sec < 40000) continue;
+    const r = { ...trend(closedBars(tf)), slot, at: Date.now() };
+    const prev = all[tf]?.bias;
+    if (prev && r.bias && prev !== r.bias) note('ttech', `${tf === 'H1' ? 'M60' : tf} berubah arah: ${prev} → ${r.bias}`);
+    all[tf] = r;
+    changed = true;
+  }
+  if (changed) { setKv('tfTrend', all); exportState(); }
+}
+
 // ---------------------------------------------------------------- jadwal
 const wita = () => Object.fromEntries(new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Makassar', weekday: 'short', hour: '2-digit', minute: '2-digit', hourCycle: 'h23' }).formatToParts(new Date()).map((x) => [x.type, x.value]));
 let busy = false;
@@ -119,6 +145,7 @@ async function tick() {
   try {
     if (!eaFresh()) { try { await tickSpot(); } catch (e) { if (kvAge('spotErr') > 30) { setKv('spotErr', 1); log(`harga spot: ${e.message}`); } } }
     await monitorPaper();
+    if (marketOpen()) checkTrends();
     const w = wita(), hm = `${w.hour}:${w.minute}`, slot = Math.floor(Date.now() / 900000);
     // siklus tiap candle M15 tutup (+40 dtk biar candle sudah final)
     if (kv('lastSlot', 0) !== slot && (Date.now() % 900000) > 40000) {

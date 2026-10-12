@@ -3,6 +3,16 @@
 //   Aryaputra decide(): gabung fundamental + teknikal → BUY / SELL / NO TRADE, hitung entry, SL, TP, lot, RR, tolak kalau risiko lewat batas
 import { ema, rsi, atr, structure, levels, engulf, swings, last } from './ta.mjs';
 
+// arah per timeframe (M10/M15/M30/H1): harga vs EMA20, EMA20 vs EMA50, struktur swing → skor −3…+3
+export const TREND_MIN_BARS = 60;
+export function trend(b) {
+  if (b.length < TREND_MIN_BARS) return { bias: null, n: b.length, note: `ngumpulin data (${b.length}/${TREND_MIN_BARS} candle)` };
+  const c = b.map((x) => x.c), e20 = last(ema(c, 20)), e50 = last(ema(c, 50)), price = last(c);
+  const score = Math.sign(price - e20) + Math.sign(e20 - e50) + structure(b, 2);
+  const bias = score >= 2 ? 'bullish' : score <= -2 ? 'bearish' : 'sideways';
+  return { bias, score, price: +price.toFixed(2), ema20: +e20.toFixed(2), ema50: +e50.toFixed(2), rsi: +last(rsi(c, 14)).toFixed(1), n: b.length };
+}
+
 export function technical(m15, h1, h4, p) {
   if (m15.length < 60 || h1.length < p.emaSlow + 5 || h4.length < p.emaFast + 5) return { bias: 'sideways', score: 0, ok: false, note: 'data candle belum cukup' };
   const c15 = m15.map((b) => b.c), c1 = h1.map((b) => b.c), c4 = h4.map((b) => b.c);

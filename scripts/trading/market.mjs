@@ -2,7 +2,7 @@
 // Candle disimpan di trd_bars: { t (detik UTC, awal candle), o, h, l, c, v }.
 import { all, run, db, kv, setKv as setKvLocal } from './store.mjs';
 
-export const TF_SEC = { M15: 900, H1: 3600, H4: 14400, D1: 86400 };
+export const TF_SEC = { M10: 600, M15: 900, M30: 1800, H1: 3600, H4: 14400, D1: 86400 };
 
 export function saveBars(tf, rows, src) {
   const st = db.prepare('INSERT INTO trd_bars (tf, t, o, h, l, c, v, src) VALUES (?, ?, ?, ?, ?, ?, ?, ?) ON CONFLICT(tf, t) DO UPDATE SET o=excluded.o, h=excluded.h, l=excluded.l, c=excluded.c, v=excluded.v, src=excluded.src');
@@ -27,7 +27,7 @@ const shift = (b, d) => ({ ...b, o: b.o + d, h: b.h + d, l: b.l + d, c: b.c + d 
 export const eaFresh = () => (Date.now() / 1000 - (kv('ea', {})?.at ?? 0)) < 180;
 export const spotFresh = () => (Date.now() / 1000 - (kv('spot', {})?.at ?? 0)) < 300;
 
-// harga spot XAU (gratis, tanpa key) → candle M15/H1/H4 sumber 'spot'
+// harga spot XAU (gratis, tanpa key) → candle M10/M15/M30/H1/H4 sumber 'spot'
 export async function tickSpot() {
   const r = await fetch('https://api.gold-api.com/price/XAU', { headers: { 'User-Agent': 'Mozilla/5.0' }, signal: AbortSignal.timeout(15000) });
   if (!r.ok) throw new Error(`gold-api ${r.status}`);
@@ -80,6 +80,8 @@ export async function refreshYahoo({ long = false } = {}) {
   const h1 = await yahoo('60m', long ? '730d' : '1mo');
   saveBars('H1', h1.rows, 'yahoo');
   saveBars('H4', resample(h1.rows, TF_SEC.H4), 'yahoo');
+  saveBars('M30', resample(m15.rows, TF_SEC.M30), 'yahoo');
+  try { saveBars('M10', resample((await yahoo('5m', '5d')).rows, TF_SEC.M10), 'yahoo'); } catch { /* M10 cukup dari spot/EA */ }
   return { price: m15.price, m15: m15.rows.length, h1: h1.rows.length };
 }
 

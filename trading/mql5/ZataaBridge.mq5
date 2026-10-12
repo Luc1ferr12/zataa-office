@@ -122,7 +122,7 @@ void Sync()
       ",\"symbol\":\"" + _Symbol + "\",\"balance\":" + Num(AccountInfoDouble(ACCOUNT_BALANCE)) + ",\"equity\":" + Num(AccountInfoDouble(ACCOUNT_EQUITY)) +
       ",\"margin_free\":" + Num(AccountInfoDouble(ACCOUNT_MARGIN_FREE)) + ",\"bid\":" + Num(tk.bid) + ",\"ask\":" + Num(tk.ask) +
       ",\"time\":" + IntegerToString((long)tk.time) + ",\"positions\":" + Positions() + ",\"deals\":" + Deals() +
-      ",\"bars\":{\"M15\":" + Bars(PERIOD_M15, n) + ",\"H1\":" + Bars(PERIOD_H1, n) + ",\"H4\":" + Bars(PERIOD_H4, n) + "}}";
+      ",\"bars\":{\"M10\":" + Bars(PERIOD_M10, n) + ",\"M15\":" + Bars(PERIOD_M15, n) + ",\"M30\":" + Bars(PERIOD_M30, n) + ",\"H1\":" + Bars(PERIOD_H1, n) + ",\"H4\":" + Bars(PERIOD_H4, n) + "}}";
    string reply;
    if(!Post("/ea/sync", json, reply)) return;
    g_first = false;

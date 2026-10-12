@@ -207,6 +207,18 @@ function renderTrading(tr) {
     tile('Drawdown', `${dd.toFixed(1)}%`, `puncak ${usd(tr.peak)}`, dd >= 5 ? 'down' : ''),
   ].join('');
 
+  // arah per timeframe: dicek tiap candle tutup (M10 tiap 10 menit … M60 tiap jam)
+  const TF = [['M10', 'M10', 10], ['M15', 'M15', 15], ['M30', 'M30', 30], ['H1', 'M60', 60]];
+  const biasTxt = { bullish: '🟢 Bullish', bearish: '🔴 Bearish', sideways: '⚪ Sideways' };
+  $('trd-tf').innerHTML = TF.map(([key, label, min]) => {
+    const x = tr.tf?.[key];
+    const next = x?.at ? Math.floor(x.at / (min * 60000)) * min * 60000 + min * 60000 + 40000 : null;
+    return `<div class="tf ${x?.bias ?? 'none'}"><span class="muted">${label} <small>· cek tiap ${min} mnt</small></span>
+      <b>${x?.bias ? biasTxt[x.bias] : '⏳ Belum ada'}</b>
+      <small class="muted">${x?.bias ? `skor ${x.score > 0 ? '+' : ''}${x.score}/3 · RSI ${x.rsi}` : esc(x?.note ?? 'nunggu cek pertama')}</small>
+      <small class="muted">${x?.at ? `dicek ${witaHM(x.at)} · berikutnya ${witaHM(next)}` : ''}</small></div>`;
+  }).join('');
+
   // kondisi sekarang: masuk atau nggak, dan kenapa
   const L = tr.last, t = L?.tech ?? {};
   const [s0, s1] = rk.sessionUTC ?? [6, 20], hUtc = new Date().getUTCHours();
