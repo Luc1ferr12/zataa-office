@@ -163,7 +163,12 @@ function tick(force = false) {
 }
 
 // ---------- card Trading XAU (data dari tradingState() di scripts/office.mjs; sesi & dampak berita dihitung live)
-const usd = (v, sign = false) => v == null ? '–' : `${sign ? (v >= 0 ? '+' : '−') : v < 0 ? '−' : ''}$${Math.abs(v).toLocaleString('id-ID', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+let CUR = 'USD';   // akun cent → USC (1 USC = $0,01)
+const usd = (v, sign = false) => {
+  if (v == null) return '–';
+  const s = sign ? (v >= 0 ? '+' : '−') : v < 0 ? '−' : '', a = Math.abs(v).toLocaleString('id-ID', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  return CUR === 'USC' ? `${s}${a} USC` : `${s}$${a}`;
+};
 const tone = (v) => (v > 0 ? 'up' : v < 0 ? 'down' : '');
 const witaHM = (ms) => new Date(ms).toLocaleTimeString('id-ID', { timeZone: 'Asia/Makassar', hour: '2-digit', minute: '2-digit' });
 const witaDay = (ms) => new Date(ms).toLocaleDateString('id-ID', { timeZone: 'Asia/Makassar', weekday: 'short' });
@@ -191,6 +196,8 @@ function renderTrading(tr) {
     $('trd-trades').innerHTML = $('trd-list').innerHTML = '';
     return;
   }
+  CUR = tr.currency ?? 'USD';
+  const idr = (v) => `≈ Rp${Math.round((CUR === 'USC' ? v / 100 : v) * (tr.usd_idr ?? 16500)).toLocaleString('id-ID')}`;
   const st = tr.stats ?? {}, rk = tr.risk ?? {}, now = Date.now();
   const open = tr.open ?? [];
 
@@ -200,8 +207,8 @@ function renderTrading(tr) {
   const tile = (k, v, sub = '', cls = '') => `<div><span class="muted">${k}</span><b class="${cls}">${v}</b>${sub ? `<small class="muted">${sub}</small>` : ''}</div>`;
   $('trd-kpi').innerHTML = [
     tile('Harga XAUUSD', tr.price ? tr.price.toFixed(2) : '–', tr.ea?.connected ? 'dari EA MT5' : 'dari Yahoo'),
-    tile('Saldo', usd(tr.balance), tr.mode === 'paper' ? 'simulasi' : tr.ea?.demo ? 'akun demo' : 'akun real'),
-    tile('Hari ini', usd(tr.today_pnl, true), `${st.today_n ?? 0} trade`, tone(tr.today_pnl)),
+    tile('Saldo', usd(tr.balance), `${idr(tr.balance ?? 0)} · ${tr.mode === 'paper' ? 'simulasi' : tr.ea?.demo ? 'akun demo' : 'akun real'}`),
+    tile('Hari ini', usd(tr.today_pnl, true), `${idr(tr.today_pnl ?? 0)} · ${st.today_n ?? 0} trade`, tone(tr.today_pnl)),
     tile('7 hari', usd(st.week_pnl, true), `total ${usd(st.pnl ?? 0, true)}`, tone(st.week_pnl)),
     tile('Win rate', winRate == null ? '–' : `${winRate}%`, `${st.wins ?? 0} menang · ${st.losses ?? 0} kalah`),
     tile('Drawdown', `${dd.toFixed(1)}%`, `puncak ${usd(tr.peak)}`, dd >= 5 ? 'down' : ''),

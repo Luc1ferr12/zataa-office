@@ -273,6 +273,7 @@ function tradingState() {
       risk: { riskPct: P.riskPct, rr: P.rr, dailyLossPct: P.dailyLossPct, maxConsecLoss: P.maxConsecLoss, sessionUTC: P.sessionUTC, newsBlackoutMin: P.newsBlackoutMin },
       proposals: all("SELECT id, ts, note FROM trd_proposals WHERE status = 'proposed' ORDER BY id DESC LIMIT 3"),
       tf: kv('tfTrend', {}),
+      currency: kv('currency', 'USD'), usd_idr: kv('usdIdr', 16500),
     };
   } catch { return null; }
 }

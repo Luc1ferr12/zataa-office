@@ -1,6 +1,6 @@
 // Mahendra (Trading Director): mengatur alur semua agent dalam satu siklus analisa XAUUSD.
 // Alur: Supervisor → Research (Davina) → Technical (Keira) → Decision & Risk (Aryaputra) → Execution (Wiratama) → Evaluation (Jihan) → Reporting (Selena)
-import { run, get, kv, setKv, kvAge, params, mode, paused } from './store.mjs';
+import { run, get, kv, setKv, kvAge, params, mode, paused, money } from './store.mjs';
 import { bars, refreshYahoo, marketOpen, quote, eaFresh, spotFresh } from './market.mjs';
 import { refreshCalendar, fundamental, aiSentiment, upcoming } from './research.mjs';
 import { technical, decide } from './strategy.mjs';
@@ -67,7 +67,7 @@ async function alerts(acc, p) {
   const dd = (peak - acc.equity) / peak * 100;
   if (dd >= p.ddAlertPct && kvAge('alertDd') > 360) {
     setKv('alertDd', 1);
-    await report(`⚠️ <b>Drawdown ${dd.toFixed(1)}%</b> dari puncak ekuitas ($${peak.toFixed(2)} → $${acc.equity.toFixed(2)}). Mahendra cek alur, Aryaputra perketat risiko.`);
+    await report(`⚠️ <b>Drawdown ${dd.toFixed(1)}%</b> dari puncak ekuitas (${money(peak)} → ${money(acc.equity)}). Mahendra cek alur, Aryaputra perketat risiko.`);
   }
 }
 

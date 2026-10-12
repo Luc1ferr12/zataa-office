@@ -73,6 +73,25 @@ export const DEFAULT_PARAMS = {
   ddAlertPct: 5,         // peringatan drawdown dari puncak ekuitas
 };
 export const params = () => ({ ...DEFAULT_PARAMS, ...kv('params', {}) });
+
+// mata uang akun. Paper disamakan dengan akun real Owner (akun cent: USC, 1 USC = $0,01).
+// Rumus P/L tetap gerak harga × lot × 100, di akun cent hasilnya otomatis dalam USC.
+export const currency = () => kv('currency', 'USD');
+export function money(v, sign = false) {
+  const s = sign ? (v >= 0 ? '+' : '−') : v < 0 ? '−' : '', a = Math.abs(v ?? 0);
+  return currency() === 'USC' ? `${s}${a.toLocaleString('id-ID', { maximumFractionDigits: 2 })} USC` : `${s}$${a.toFixed(2)}`;
+}
+// kurs USD→IDR (gratis, tanpa key); disimpan biar dashboard & laporan bisa nampilin rupiah
+export async function usdIdr() {
+  try {
+    const r = await fetch('https://open.er-api.com/v6/latest/USD', { signal: AbortSignal.timeout(15000) });
+    const v = (await r.json())?.rates?.IDR;
+    if (v > 1000) { setKv('usdIdr', v); return v; }
+  } catch { /* pakai simpanan */ }
+  return kv('usdIdr', 16500);
+}
+// nilai saldo dalam rupiah
+export const toIdr = (v, rate = kv('usdIdr', 16500)) => (currency() === 'USC' ? v / 100 : v) * rate;
 // mode: paper (simulasi di server, harga asli) | demo (EA MT5 akun demo) | live (akun asli — hanya kalau Owner aktifkan)
 export const mode = () => kv('mode', 'paper');
 export const paused = () => !!kv('paused', false);

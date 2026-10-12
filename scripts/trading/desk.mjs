@@ -1,7 +1,7 @@
 // Meja tim Trading: akun (paper / EA), eksekusi order (Wiratama), evaluasi tiap trade (Jihan), laporan Telegram (Selena),
 // plus status pegawai di kantor virtual (dashboard & obrolan oper kerjaan).
 import { execFileSync } from 'node:child_process';
-import { all, get, run, kv, setKv, params, mode, ROOT } from './store.mjs';
+import { all, get, run, kv, setKv, params, mode, ROOT, money, currency, usdIdr, toIdr } from './store.mjs';
 import { quote, bars, eaFresh } from './market.mjs';
 import { chat } from '../chatter.mjs';
 import { tradingBotOn, sendTrading } from './tgbot.mjs';
@@ -9,7 +9,7 @@ import { db as officeDb } from './store.mjs';
 
 const NAME = { tdir: 'Mahendra', tresearch: 'Davina', ttech: 'Keira', trisk: 'Aryaputra', texec: 'Wiratama', teval: 'Jihan', treport: 'Selena' };
 const esc = (s) => String(s ?? '').replace(/[&<>]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' })[c]);
-const usd = (v) => `${v >= 0 ? '+' : '−'}$${Math.abs(v).toFixed(2)}`;
+const usd = (v) => money(v, true);
 
 // ---------------------------------------------------------------- kantor virtual
 export function setAgent(id, status, task = null) {
@@ -138,27 +138,20 @@ export async function summary(days = 1) {
   const net = rows.reduce((s, r) => s + r.pnl, 0), wins = rows.filter((r) => r.pnl > 0).length;
   const acc = account();
   const label = days === 1 ? 'harian' : 'mingguan';
-  await report(`📊 <b>Laporan ${label} XAUUSD</b> (${acc.mode})\nTrade: ${rows.length} (menang ${wins}, kalah ${rows.length - wins})\nHasil bersih: <b>${usd(net)}</b>\nEkuitas: $${acc.equity.toFixed(2)}\nAnalisa: ${sigs?.n ?? 0}× (no trade ${sigs?.skip ?? 0}×)`);
+  await report(`📊 <b>Laporan ${label} XAUUSD</b> (${acc.mode})\nTrade: ${rows.length} (menang ${wins}, kalah ${rows.length - wins})\nHasil bersih: <b>${usd(net)}</b>\nEkuitas: ${money(acc.equity)}\nAnalisa: ${sigs?.n ?? 0}× (no trade ${sigs?.skip ?? 0}×)`);
 }
 
 // ---------------------------------------------------------------- laporan lengkap paper + kelayakan akun real (Selena, Sabtu 08:00)
-// Modal real Owner dalam rupiah (TRD_LIVE_IDR, default Rp300rb). Hasil paper ($10rb) diterjemahkan ke modal itu pakai persen & R.
+// Paper pakai modal yang sama dengan akun real Owner (perintah "modal <rupiah>"), jadi angkanya langsung bisa dibandingkan.
 const LIVE_READY = { minTrades: 10, minPf: 1.3, maxDdPct: 10 };
-async function usdIdr() {
-  try {
-    const r = await fetch('https://open.er-api.com/v6/latest/USD', { signal: AbortSignal.timeout(15000) });
-    const v = (await r.json())?.rates?.IDR;
-    if (v > 1000) return v;
-  } catch { /* pakai cadangan */ }
-  return 16500;
-}
 const rp = (v) => `${v < 0 ? '−' : ''}Rp${Math.round(Math.abs(v)).toLocaleString('id-ID')}`;
 export async function paperReport(days = 7) {
-  const p = params();
+  const p = params(), rate = await usdIdr();
   const from = new Date(Date.now() - days * 86400000).toISOString().slice(0, 19).replace('T', ' ');
   const rows = all("SELECT * FROM trd_trades WHERE status = 'closed' AND mode = 'paper' AND close_ts >= ? ORDER BY id", from);
-  const sigs = get("SELECT COUNT(*) n, SUM(decision = 'NO TRADE') skip, MIN(ts) a FROM trd_signals WHERE ts >= ?", from);
+  const sigs = get("SELECT COUNT(*) n, SUM(decision = 'NO TRADE') skip FROM trd_signals WHERE ts >= ?", from);
   const why = all("SELECT reason, COUNT(*) n FROM trd_signals WHERE decision = 'NO TRADE' AND ts >= ? GROUP BY reason ORDER BY n DESC LIMIT 3", from);
+  const tooSmall = get("SELECT COUNT(*) n FROM trd_signals WHERE ts >= ? AND reason LIKE 'lot minimum%'", from)?.n ?? 0;
   const n = rows.length, win = rows.filter((r) => r.pnl > 0), loss = rows.filter((r) => r.pnl < 0);
   const net = rows.reduce((s, r) => s + r.pnl, 0), gw = win.reduce((s, r) => s + r.pnl, 0), gl = -loss.reduce((s, r) => s + r.pnl, 0);
   const pf = gl ? gw / gl : gw ? Infinity : 0, sumR = rows.reduce((s, r) => s + (r.r ?? 0), 0);
@@ -168,11 +161,8 @@ export async function paperReport(days = 7) {
   for (const r of rows) { eq += r.pnl; peak = Math.max(peak, eq); dd = Math.max(dd, (peak - eq) / peak * 100); streak = r.pnl < 0 ? streak + 1 : 0; worstStreak = Math.max(worstStreak, streak); }
   const ret = start ? net / start * 100 : 0;
   const best = rows.reduce((b, r) => (!b || r.pnl > b.pnl ? r : b), null), worst = rows.reduce((b, r) => (!b || r.pnl < b.pnl ? r : b), null);
-  // terjemahan ke modal real
-  const idr = +(process.env.TRD_LIVE_IDR || 300000), rate = await usdIdr(), modalUsd = idr / rate;
-  const avgSl = n ? rows.reduce((s, r) => s + Math.abs(r.entry - r.sl), 0) / n : (p.minSl + p.maxSl) / 4;
-  const minLotRisk = avgSl * p.minLot * p.contract;            // rugi 0,01 lot kalau kena SL (akun USD standar)
-  const stdPct = minLotRisk / modalUsd * 100, centPct = minLotRisk / (modalUsd * 100) * 100;
+  // lot minimum vs modal: berapa SL maksimal yang masih muat di risiko per trade
+  const riskAmt = start * p.riskPct / 100, maxSlFit = riskAmt / (p.minLot * p.contract);
   const checks = [
     [n >= LIVE_READY.minTrades, `Jumlah trade ≥ ${LIVE_READY.minTrades} (sekarang ${n})`],
     [n > 0 && pf >= LIVE_READY.minPf, `Profit factor ≥ ${LIVE_READY.minPf} (sekarang ${pf === Infinity ? '∞' : pf.toFixed(2)})`],
@@ -183,30 +173,39 @@ export async function paperReport(days = 7) {
   const ready = checks.every(([ok]) => ok);
   const msg = [
     `📋 <b>Laporan lengkap paper XAUUSD</b> (${days} hari terakhir)`,
+    `Modal: ${money(start)} ≈ ${rp(toIdr(start, rate))} (kurs ${rp(rate)}/USD), sama dengan modal akun real`,
     '',
     `<b>Analisa</b>: ${sigs?.n ?? 0} siklus, NO TRADE ${sigs?.skip ?? 0}×`,
     ...why.map((w) => `  • ${esc(w.reason)} (${w.n}×)`),
     '',
     `<b>Trade</b>: ${n} (menang ${win.length}, kalah ${loss.length}${n ? `, win rate ${Math.round(win.length / n * 100)}%` : ''})`,
-    `Hasil bersih: <b>${usd(net)}</b> (${ret >= 0 ? '+' : ''}${ret.toFixed(2)}% dari $${start.toFixed(0)}) · ${sumR >= 0 ? '+' : ''}${sumR.toFixed(1)}R`,
+    `Hasil bersih: <b>${usd(net)}</b> ≈ <b>${rp(toIdr(net, rate))}</b> (${ret >= 0 ? '+' : ''}${ret.toFixed(2)}%) · ${sumR >= 0 ? '+' : ''}${sumR.toFixed(1)}R`,
+    `Saldo akhir: ${money(bal)} ≈ ${rp(toIdr(bal, rate))}`,
     `Profit factor: ${n ? (pf === Infinity ? '∞' : pf.toFixed(2)) : '–'} · total profit ${usd(gw)} · total loss ${usd(-gl)}`,
     `Drawdown maks: ${dd.toFixed(1)}% · kalah beruntun terpanjang: ${worstStreak}×`,
     best ? `Terbaik: ${best.side.toUpperCase()} ${usd(best.pnl)} (${(best.r ?? 0).toFixed(1)}R) · Terburuk: ${worst.side.toUpperCase()} ${usd(worst.pnl)} (${(worst.r ?? 0).toFixed(1)}R)` : null,
-    '',
-    `<b>Kalau pakai modal ${rp(idr)}</b> (kurs ${rp(rate)}/USD ≈ $${modalUsd.toFixed(2)}), risiko ${p.riskPct}%/trade:`,
-    `Hasil minggu ini setara ≈ <b>${rp(idr * ret / 100)}</b> (${ret >= 0 ? '+' : ''}${ret.toFixed(2)}%)`,
-    `Lot minimum 0,01 dengan SL rata-rata $${avgSl.toFixed(1)} = rugi ≈ ${rp(minLotRisk * rate)} per kena SL:`,
-    `  • Akun USD standar: ${stdPct.toFixed(0)}% modal per trade ${stdPct > p.riskPct * 2 ? '❌ terlalu besar, Aryaputra bakal nolak semua entry' : '✅'}`,
-    `  • Akun <b>cent</b> (saldo jadi ±${Math.round(modalUsd * 100)} USC): ${centPct.toFixed(1)}% modal per trade ${centPct <= p.riskPct * 2 ? '✅ cocok' : '⚠️ masih besar'}`,
+    `Risiko ${p.riskPct}%/trade = ${money(riskAmt)} → dengan lot minimum 0,01, SL maksimal ±$${maxSlFit.toFixed(1)}. Entry yang batal karena SL kelebaran: ${tooSmall}×`,
     '',
     `<b>Kelayakan akun real</b>:`,
     ...checks.map(([ok, t]) => `${ok ? '✅' : '❌'} ${t}`),
     ready
-      ? `\n🟢 <b>Paper LAYAK lanjut ke akun real</b>. Saran: akun cent, sambungkan EA, lalu kirim <b>trading mode live</b> + konfirmasi. Mode nggak pindah sendiri.`
+      ? `\n🟢 <b>Paper LAYAK lanjut ke akun real</b>. Saran: akun cent, sambungkan EA, lalu kirim <b>mode live</b> + konfirmasi. Mode nggak pindah sendiri.`
       : `\n🟡 <b>Belum layak ke akun real</b>. Paper lanjut minggu depan biar datanya cukup (atau coba mode demo dulu).`,
   ].filter((l) => l !== null).join('\n');
   note('treport', `Laporan lengkap paper: ${ready ? 'LAYAK ke akun real' : 'belum layak ke akun real'}`);
   talk('treport', 'tdir', ready ? 'Paper minggu ini lolos semua syarat, udah kulaporin ke Bos 👍' : 'Paper belum lolos syarat live, udah kulaporin ke Bos');
   await report(msg);
   return { ready, n, pf, dd, ret };
+}
+
+// atur modal paper = modal akun real Owner (akun cent). Hanya kalau nggak ada posisi paper kebuka.
+export async function setPaperCapital(idr) {
+  if (all("SELECT id FROM trd_trades WHERE mode = 'paper' AND status = 'open'").length) throw new Error('masih ada posisi paper kebuka');
+  const rate = await usdIdr(), start = Math.round(idr / rate * 100 * 100) / 100;   // USC
+  setKv('currency', 'USC');
+  setKv('paper', { balance: start, start, idr, since: new Date().toISOString() });
+  setKv('peakEquity', start);
+  setKv('liveIdr', idr);
+  exportState(true);
+  return { start, rate };
 }

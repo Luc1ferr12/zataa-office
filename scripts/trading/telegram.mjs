@@ -1,8 +1,8 @@
 // Perintah Owner untuk tim Trading lewat Telegram (0 token, tanpa AI). Dipanggil dari scripts/ask.mjs.
 //   trading status | trading jeda | trading lanjut | trading mode paper|demo|live | trading live KONFIRMASI
 //   trading terapkan <id> | trading tolak <id> | trading tutup semua | trading backtest
-import { all, get, run, kv, setKv, params, mode } from './store.mjs';
-import { account, openTrades, today, sayAs, closeTrade, note, talk } from './desk.mjs';
+import { all, get, run, kv, setKv, params, mode, money, toIdr } from './store.mjs';
+import { account, openTrades, today, sayAs, closeTrade, note, talk, setPaperCapital } from './desk.mjs';
 import { quote, eaFresh } from './market.mjs';
 
 export const isTradingCommand = (t) => /^\/?(trading|trade|xau)\b/i.test(String(t).trim());
@@ -29,6 +29,18 @@ export async function handleTrading(msg) {
     note('tdir', 'Owner mengaktifkan mode LIVE');
     return sayAs('tdir', '🟢 Mode <b>LIVE</b> aktif. Mahendra & Aryaputra jaga risikonya ketat. Kirim <b>trading jeda</b> kapan aja buat berhenti.');
   }
+  if ((m = t.match(/^modal\s+(?:rp\.?\s*)?([\d.,]+)\s*(rb|ribu|k|jt|juta)?/))) {
+    if (mode() !== 'paper') return sayAs('tdir', 'Modal cuma bisa diatur di mode paper. Di demo/live modal ikut saldo akun MT5.');
+    let idr = +m[1].replace(/[.,]/g, '');
+    if (/^(rb|ribu|k)$/.test(m[2] ?? '')) idr *= 1000;
+    if (/^(jt|juta)$/.test(m[2] ?? '')) idr *= 1e6;
+    if (!(idr >= 50000)) return sayAs('tdir', 'Modalnya minimal Rp50.000 ya Bos. Contoh: <b>modal 300000</b> atau <b>modal 300rb</b>.');
+    try {
+      const { start, rate } = await setPaperCapital(idr);
+      note('tdir', `Modal paper diatur ke Rp${idr.toLocaleString('id-ID')} (${start} USC)`);
+      return sayAs('tdir', `💰 Modal paper sekarang <b>Rp${idr.toLocaleString('id-ID')}</b> = <b>${start.toLocaleString('id-ID')} USC</b> (akun cent, kurs Rp${Math.round(rate).toLocaleString('id-ID')}/USD). Hitungan lot & risiko sekarang sama persis dengan akun real nanti.`);
+    } catch (e) { return sayAs('tdir', `Belum bisa ganti modal: ${esc(e.message)}.`); }
+  }
   if ((m = t.match(/^(terapkan|apply|acc)\s+#?(\d+)/))) {
     const pr = get("SELECT * FROM trd_proposals WHERE id = ? AND status = 'proposed'", +m[2]);
     if (!pr) return sayAs('trisk', `Usulan #${m[2]} nggak ketemu / udah diproses.`);
@@ -54,7 +66,7 @@ export async function handleTrading(msg) {
     }
     return sayAs('texec', `Siap, ${open.length} posisi aku tutup sekarang 🫡`);
   }
-  return sayAs('tdir', 'Perintah trading: <b>status</b>, <b>jeda</b>, <b>lanjut</b>, <b>mode paper|demo|live</b>, <b>terapkan &lt;id&gt;</b>, <b>tolak &lt;id&gt;</b>, <b>tutup semua</b>.');
+  return sayAs('tdir', 'Perintah trading: <b>status</b>, <b>jeda</b>, <b>lanjut</b>, <b>mode paper|demo|live</b>, <b>terapkan &lt;id&gt;</b>, <b>tolak &lt;id&gt;</b>, <b>tutup semua</b>, <b>modal &lt;rupiah&gt;</b> (paper).');
 }
 
 async function status() {
@@ -63,7 +75,7 @@ async function status() {
   const pend = all("SELECT id FROM trd_proposals WHERE status = 'proposed'").map((r) => `#${r.id}`);
   const lines = [
     `📊 <b>Trading XAUUSD</b> · mode <b>${mode()}</b>${kv('paused', false) ? ' · ⏸️ dijeda' : ''}`,
-    `Ekuitas $${acc.equity.toFixed(2)} · hari ini ${day.pnl >= 0 ? '+' : ''}$${day.pnl.toFixed(2)} (${day.trades} trade)`,
+    `Ekuitas ${money(acc.equity)} ≈ Rp${Math.round(toIdr(acc.equity)).toLocaleString('id-ID')} · hari ini ${money(day.pnl, true)} (${day.trades} trade)`,
     `Posisi kebuka: ${open.length ? open.map((o) => `${o.side.toUpperCase()} ${o.lot} @ ${o.entry}`).join(', ') : '-'}`,
     `EA MT5: ${eaFresh() ? 'tersambung ✅' : 'belum tersambung'}`,
     last ? `Analisa terakhir: <b>${last.decision}</b> · ${esc(last.reason)}` : 'Belum ada analisa.',

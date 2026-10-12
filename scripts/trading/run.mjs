@@ -97,8 +97,9 @@ export async function weeklyEvaluation() {
   const { m15, h1 } = loadHistory();
   const cur = params();
   const strip = ({ list, ...s }) => s;
-  const now = strip(backtest(m15, h1, cur));
-  const rows = grid(cur).map((q) => ({ q, s: strip(backtest(m15, h1, q)) })).map((r) => ({ ...r, sc: score(r.s) })).sort((a, b) => b.sc - a.sc);
+  const eq0 = { equity0: kv('paper', {})?.start ?? 10000 };   // modal sama dengan paper/akun real
+  const now = strip(backtest(m15, h1, cur, eq0));
+  const rows = grid(cur).map((q) => ({ q, s: strip(backtest(m15, h1, q, eq0)) })).map((r) => ({ ...r, sc: score(r.s) })).sort((a, b) => b.sc - a.sc);
   const best = rows[0];
   setAgent('teval', 'done', 'Evaluasi mingguan beres');
   const fmt = (s) => `${s.trades} trade · WR ${s.winrate}% · PF ${s.profitFactor} · net ${s.netPct}% · DD ${s.maxDdPct}%`;
