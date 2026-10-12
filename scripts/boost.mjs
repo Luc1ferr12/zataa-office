@@ -7,7 +7,7 @@
 //   node scripts/boost.mjs check        cek token iklan & akun iklan
 process.removeAllListeners('warning');
 import { fileURLToPath } from 'node:url';
-import { loadEnv, db, tg } from './approval.mjs';
+import { loadEnv, setEnv, db, tg } from './approval.mjs';
 import { chat } from './chatter.mjs';
 
 // jangan pernah bocorkan token ke log/Telegram (pesan error Meta kadang memuatnya)
@@ -184,6 +184,19 @@ if (isMain) {
       const c = cfg();
       const a = await graph(`act_${c.account}`, { fields: 'name,currency,account_status,amount_spent,funding_source_details' }, 'GET');
       out({ akun: a.name, mata_uang: a.currency, aktif: a.account_status === 1, metode_bayar: a.funding_source_details?.display_string ?? 'BELUM ADA', page: c.page, ig: c.ig });
-    } else out('pakai: boost.mjs propose [--force] | run | status | check');
+    } else if (cmd === 'budget') {
+      // Owner ubah setelan (lewat Telegram → Claude jalankan ini): budget <bulanan> [per_boost] [hari]
+      const [, monthly, per, days] = process.argv.slice(2).map(Number);
+      if (!monthly && !per && !days) { const c = cfg(); out({ bulanan: c.budget, per_boost: c.per, hari: c.days }); }
+      else {
+        const MIN_PER_DAY = 18100; // batas minimal Meta ±IDR 18.030/hari (ditolak di bawah ini, Okt 2026)
+        const c = cfg();
+        const nb = monthly || c.budget, np = per || c.per, nd = days || c.days;
+        if (np / nd < MIN_PER_DAY) throw new Error(`Rp${np} untuk ${nd} hari di bawah minimal Meta (±${rp(MIN_PER_DAY)}/hari)`);
+        if (np > nb) throw new Error('budget per boost lebih besar dari budget bulanan');
+        setEnv('ADS_MONTHLY_BUDGET', nb); setEnv('ADS_PER_BOOST', np); setEnv('ADS_DAYS', nd);
+        out({ ok: true, bulanan: nb, per_boost: np, hari: nd, boost_per_bulan: Math.floor(nb / np) });
+      }
+    } else out('pakai: boost.mjs propose [--force] | run | status | check | budget [bulanan] [per_boost] [hari]');
   } catch (e) { out(`gagal: ${e.message}`); process.exit(1); }
 }
