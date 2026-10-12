@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-12T09:14:04.312Z",
+ "generated_at": "2026-10-12T09:24:04.343Z",
  "today": "2026-10-12",
  "week_start": "2026-10-12",
  "campaign": {
@@ -102,7 +102,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-12 09:01:01"
+   "updated_at": "2026-10-12 09:16:02"
   },
   {
    "id": "tresearch",
@@ -110,7 +110,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
-   "updated_at": "2026-10-12 09:01:01"
+   "updated_at": "2026-10-12 09:16:02"
   },
   {
    "id": "ttech",
@@ -118,7 +118,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Bias sideways",
-   "updated_at": "2026-10-12 09:01:01"
+   "updated_at": "2026-10-12 09:16:02"
   },
   {
    "id": "trisk",
@@ -126,7 +126,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: market sideways, tunggu arah jelas",
-   "updated_at": "2026-10-12 09:01:01"
+   "updated_at": "2026-10-12 09:16:02"
   },
   {
    "id": "texec",
@@ -403,6 +403,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-12 09:16:02",
+   "agent_id": "trisk",
+   "message": "NO TRADE · market sideways, tunggu arah jelas"
+  },
+  {
    "ts": "2026-10-12 08:24:03",
    "agent_id": "ads",
    "message": "Boost dijeda sampai Owner kabarin lagi"
@@ -521,11 +526,6 @@
    "ts": "2026-10-12 05:14:35",
    "agent_id": "video",
    "message": "Revisi #20 kelar: Logo Vitality sama G2 udah aku putihin biar kelihatan jelas di latar ungu, terus videonya udah aku render ulang."
-  },
-  {
-   "ts": "2026-10-12 05:02:52",
-   "agent_id": "trisk",
-   "message": "NO TRADE · di luar jam sesi London–New York"
   }
  ],
  "chats": [
@@ -881,9 +881,14 @@
   "paused": false,
   "balance": 10000,
   "today_pnl": 0,
-  "price": 4177.799805,
+  "price": 4178.600098,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-12 09:16:02",
+    "decision": "NO TRADE",
+    "reason": "market sideways, tunggu arah jelas"
+   },
    {
     "ts": "2026-10-12 09:01:01",
     "decision": "NO TRADE",
@@ -908,11 +913,6 @@
     "ts": "2026-10-12 08:01:00",
     "decision": "NO TRADE",
     "reason": "market sideways, tunggu arah jelas"
-   },
-   {
-    "ts": "2026-10-12 07:46:00",
-    "decision": "NO TRADE",
-    "reason": "market sideways, tunggu arah jelas"
    }
   ],
   "trades": [],
@@ -934,7 +934,7 @@
    10000
   ],
   "last": {
-   "ts": "2026-10-12 09:01:01",
+   "ts": "2026-10-12 09:16:02",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -953,7 +953,7 @@
     "bias": "sideways",
     "score": 1,
     "trigger": null,
-    "note": "sideways (skor 1) · harga 4175.00 · EMA50 H1 4171.66 · RSI M15 32"
+    "note": "sideways (skor 1) · harga 4179.50 · EMA50 H1 4171.84 · RSI M15 41"
    }
   },
   "fund": null,
