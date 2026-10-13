@@ -50,7 +50,7 @@ try {
     const base = (env.PUBLIC_BASE_URL ?? '').replace(/\\/$/, '');
     const f = ${JSON.stringify(files)};
     const urls = base ? JSON.stringify({ video: base + '/media/${c.day}/' + f.video, cover: base + '/media/${c.day}/' + f.cover }) : null;
-    db.prepare("UPDATE contents SET asset_path = ?, asset_url = COALESCE(?, asset_url), template = 'video', updated_at = datetime('now') WHERE id = ?").run(${JSON.stringify(JSON.stringify(paths))}, urls, ${c.id});`);
+    db.prepare("UPDATE contents SET asset_path = ?, asset_url = COALESCE(?, asset_url), template = 'video', data_json = json_remove(data_json, '$._laptop'), updated_at = datetime('now') WHERE id = ?").run(${JSON.stringify(JSON.stringify(paths))}, urls, ${c.id});`);
 
   const out = { ok: true, id: c.id, ...paths, duration: res.duration, music: res.music, bg: res.bg, vo: res.vo };
   if (flag === '--submit') {

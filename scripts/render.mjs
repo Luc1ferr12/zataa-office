@@ -256,8 +256,10 @@ if (a1 === 'try') {
   const template = c.format === 'video' ? 'video' : c.template ?? (c.format === 'carousel' ? 'carousel' : null);
   const voice = template === 'video' ? JSON.parse(c.data_json).voice : null;
   if (voice && voice !== 'gadis' && !omniPython()) { // suara OmniVoice hanya di laptop Owner (VPS tanpa GPU)
-    out(`konten ${c.id} pakai suara "${voice}" → render di laptop: node scripts/render-laptop.mjs ${c.id} --submit (atau hapus "voice" untuk pakai Gadis)`);
-    process.exit(2);
+    // tandai antre: scripts/laptop-worker.mjs di laptop ambil, render, upload, lalu submit ke Owner
+    db.prepare("UPDATE contents SET data_json = json_set(data_json, '$._laptop', 1), asset_path = NULL, updated_at = datetime('now') WHERE id = ?").run(c.id);
+    out(`konten ${c.id} pakai suara "${voice}" → masuk antrean render laptop (otomatis render + kirim ke Owner saat laptop nyala). Jangan submit manual.`);
+    process.exit(0);
   }
   if (!template) { out(`konten ${a1} belum punya template`); process.exit(1); }
   const slug = String(c.title).toLowerCase().normalize('NFD').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 40);
