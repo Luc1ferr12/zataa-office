@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-13T19:57:18.767Z",
+ "generated_at": "2026-10-13T20:07:18.769Z",
  "today": "2026-10-14",
  "week_start": "2026-10-12",
  "campaign": {
@@ -102,7 +102,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-13 19:46:02"
+   "updated_at": "2026-10-13 20:01:02"
   },
   {
    "id": "tresearch",
@@ -110,7 +110,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: CPI headline panas (0.6% vs 0.4%), core 0.2% sejuk. Berita 24 jam minim; DXY & risiko Fed hike menekan, geopolitik menopang.",
-   "updated_at": "2026-10-13 19:46:02"
+   "updated_at": "2026-10-13 20:01:02"
   },
   {
    "id": "ttech",
@@ -118,15 +118,15 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Bias bearish",
-   "updated_at": "2026-10-13 19:46:02"
+   "updated_at": "2026-10-13 20:01:02"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: bearish, tapi belum ada pemicu entry di area",
-   "updated_at": "2026-10-13 19:46:02"
+   "current_task": "NO TRADE: di luar jam sesi London–New York",
+   "updated_at": "2026-10-13 20:01:02"
   },
   {
    "id": "texec",
@@ -902,9 +902,14 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4165.899902,
+  "price": 4164.299805,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-13 20:01:02",
+    "decision": "NO TRADE",
+    "reason": "di luar jam sesi London–New York"
+   },
    {
     "ts": "2026-10-13 19:46:02",
     "decision": "NO TRADE",
@@ -929,11 +934,6 @@
     "ts": "2026-10-13 18:46:02",
     "decision": "NO TRADE",
     "reason": "bearish, tapi belum ada pemicu entry di area"
-   },
-   {
-    "ts": "2026-10-13 18:31:02",
-    "decision": "NO TRADE",
-    "reason": "bearish, tapi belum ada pemicu entry di area"
    }
   ],
   "trades": [],
@@ -955,7 +955,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-13 19:46:02",
+   "ts": "2026-10-13 20:01:02",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -964,7 +964,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "bearish, tapi belum ada pemicu entry di area",
+   "reason": "di luar jam sesi London–New York",
    "fund": {
     "bias": -0.2,
     "note": "CPI headline panas (0.6% vs 0.4%), core 0.2% sejuk. Berita 24 jam minim; DXY & risiko Fed hike menekan, geopolitik menopang.",
@@ -974,7 +974,7 @@
     "bias": "bearish",
     "score": -3,
     "trigger": null,
-    "note": "bearish (skor -3) · harga 4165.60 · EMA50 H1 4172.96 · RSI M15 50"
+    "note": "bearish (skor -3) · harga 4164.60 · EMA50 H1 4172.64 · RSI M15 48"
    }
   },
   "fund": {
@@ -1059,46 +1059,46 @@
    "M10": {
     "bias": "sideways",
     "score": 1,
-    "price": 4166.3,
-    "ema20": 4162.93,
-    "ema50": 4167.37,
-    "rsi": 55,
-    "n": 206,
-    "slot": 2986535,
-    "at": 1791921062104
+    "price": 4165.6,
+    "ema20": 4163.19,
+    "ema50": 4167.3,
+    "rsi": 53.6,
+    "n": 207,
+    "slot": 2986536,
+    "at": 1791921662129
    },
    "M15": {
     "bias": "sideways",
     "score": -1,
-    "price": 4166.8,
-    "ema20": 4164.04,
-    "ema50": 4170.39,
-    "rsi": 51.3,
+    "price": 4165.6,
+    "ema20": 4164.19,
+    "ema50": 4170.2,
+    "rsi": 49.7,
     "n": 299,
-    "slot": 1991023,
-    "at": 1791920762107
+    "slot": 1991024,
+    "at": 1791921662134
    },
    "M30": {
     "bias": "bearish",
     "score": -2,
-    "price": 4166.4,
-    "ema20": 4168.29,
-    "ema50": 4173.16,
-    "rsi": 46.5,
-    "n": 68,
-    "slot": 995511,
-    "at": 1791919862384
+    "price": 4165.6,
+    "ema20": 4168.03,
+    "ema50": 4172.86,
+    "rsi": 45.9,
+    "n": 69,
+    "slot": 995512,
+    "at": 1791921662135
    },
    "H1": {
     "bias": "bearish",
-    "score": -2,
-    "price": 4164.6,
-    "ema20": 4172.51,
-    "ema50": 4173.26,
-    "rsi": 44.1,
+    "score": -3,
+    "price": 4165.6,
+    "ema20": 4171.85,
+    "ema50": 4172.96,
+    "rsi": 44.8,
     "n": 299,
-    "slot": 497755,
-    "at": 1791918062079
+    "slot": 497756,
+    "at": 1791921662142
    }
   },
   "currency": "USC",
