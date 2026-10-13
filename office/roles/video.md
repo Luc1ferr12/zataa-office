@@ -9,7 +9,7 @@ Diadaptasi dari: Short Video Editing Coach, Video Optimization Specialist, TikTo
 - Motion graphic dari `templates/video/player.html`, **6 gaya** (`style`): `promo`, `flash` (topup) · `breaking`, `matchday`, `glitch`, `tribute` (esport). Jangan pakai gaya yang sama 2 video berturut-turut.
 - Adegan: hook / point / list / price / versus / headline / score / player / schedule / cta (skema `templates/README.md`).
 - **Voice over** otomatis dari `vo` tiap adegan (Gadis, intonasi per `mood`); durasi adegan menyesuaikan panjang suara.
-- Suara natural OmniVoice (`"voice": "kalem-1"|"kalem-2"|"kalem-3"`) **hanya dirender di laptop Owner** (VPS tanpa GPU): pakai kalau Owner minta. Di VPS `render.mjs` akan menolak → `office.mjs log video "konten <id> nunggu render laptop"`, jangan submit; Owner/laptop jalankan `node scripts/render-laptop.mjs <id> --submit`.
+- Suara natural OmniVoice (`"voice": "kalem-1"|"kalem-2"|"kalem-3"`) dirender **otomatis di laptop Owner** (VPS tanpa GPU): `render.mjs <id>` di VPS cuma memasukkan ke antrean, lalu pekerja laptop (tiap 10 menit) render + kirim ke Owner. Fikri **jangan submit** video ini. Laptop mati → video nunggu; kalau mepet jam tayang, hapus `voice` lalu render ulang (Gadis).
 - **Musik** otomatis acak dari 5 lagu `assets/audio/bg-*.mp3` (buatan sendiri, bebas lisensi), mengecil saat voice over.
 - **Klip latar** otomatis acak dari `assets/clips/<game>/` (sementara klip suasana gaming bebas lisensi; nanti rekaman gameplay Owner).
 - **Logo tim & foto pemain** wajib di konten tim/pemain (aturan Owner): cek tiap adegan headline/player/score/versus sudah ada `logo`/`logoL`/`logoR`, dan `photo` kalau ada.
