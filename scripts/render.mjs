@@ -5,7 +5,7 @@
 // Template feed: promo | news | versus | tips | quiz | carousel     Video: video (data.scenes, lihat templates/README.md)
 import { createServer } from 'node:http';
 import { readFile, mkdir, writeFile } from 'node:fs/promises';
-import { readFileSync, existsSync, readdirSync, mkdtempSync, rmSync, statSync, createReadStream } from 'node:fs';
+import { readFileSync, existsSync, readdirSync, mkdtempSync, rmSync, statSync, writeFileSync, createReadStream } from 'node:fs';
 import { spawn, spawnSync } from 'node:child_process';
 import { tmpdir, homedir } from 'node:os';
 import { join, extname, normalize, dirname, relative } from 'node:path';
@@ -88,7 +88,34 @@ const mediaDur = (file) => {
   const m = [...(r.stderr ?? '').matchAll(/time=(\d+):(\d+):([\d.]+)/g)].pop();
   return m ? +m[1] * 3600 + +m[2] * 60 + +m[3] : 0;
 };
-async function voiceOver(scenes, style, dir) {
+// data.voice = nama profil di assets/voices/ → OmniVoice (lebih natural, butuh venv + GPU disarankan); kosong = Gadis
+const OMNI_SPEED = { hype: 1.12, promo: 1.08, tanya: 1.0, info: 1.04, santai: 0.97, haru: 0.9 };
+function omniPython() {
+  const c = [process.env.OMNIVOICE_PY, 'D:/.venv-omnivoice/Scripts/python.exe', join(homedir(), '.venv-omnivoice', 'bin', 'python')];
+  return c.find((p) => p && existsSync(p));
+}
+async function voiceOverOmni(scenes, style, dir, voice) {
+  const py = omniPython();
+  if (!py) throw new Error('OmniVoice belum terinstal (set OMNIVOICE_PY ke python venv-nya)');
+  const items = [], idx = [];
+  scenes.forEach((s, i) => {
+    if (!s.vo) return;
+    idx.push(i);
+    items.push({ text: s.vo.replace(/zataa\.my\.id/gi, 'Zataa'), speed: OMNI_SPEED[moodOf(s, style)] ?? 1.04, out: join(dir, `vo-${i}.wav`) });
+  });
+  const job = join(dir, 'vo-job.json');
+  writeFileSync(job, JSON.stringify({ voice, items }));
+  const r = spawnSync(py, ['-I', join(ROOT, 'scripts', 'voice.py'), 'say', job], { encoding: 'utf8', env: { ...process.env, PYTHONIOENCODING: 'utf-8', ...(!process.env.HF_HOME && existsSync('D:/.hf-cache') ? { HF_HOME: 'D:/.hf-cache' } : {}) } });
+  if (r.status !== 0) throw new Error(`voice over OmniVoice gagal: ${(r.stderr || r.error?.message || '').slice(-300)}`);
+  const res = scenes.map(() => null);
+  idx.forEach((i, k) => { res[i] = { file: items[k].out, dur: mediaDur(items[k].out) }; });
+  return res;
+}
+async function voiceOver(scenes, style, dir, voice) {
+  if (voice && voice !== 'gadis') {
+    if (omniPython()) return voiceOverOmni(scenes, style, dir, voice);
+    console.error(`OmniVoice tidak ada di mesin ini → voice over pakai Gadis (bukan ${voice})`);
+  }
   const [bin, pre] = ttsCmd();
   const res = [];
   for (let i = 0; i < scenes.length; i++) {
@@ -136,7 +163,7 @@ async function renderVideo(ctx, data, dir, base) {
     const scenes = [...(data.scenes ?? [])];
     const anyVo = scenes.some((s) => s.vo);
     if (!scenes.some((s) => s.t === 'cta')) scenes.push({ t: 'cta', ...(anyVo ? { vo: 'Top up sekarang, cuma di Zataa!' } : {}) });
-    const vo = anyVo ? await voiceOver(scenes, data.style, tmp) : [];
+    const vo = anyVo ? await voiceOver(scenes, data.style, tmp, data.voice) : [];
     if (anyVo) { // adegan minimal sepanjang suaranya
       scenes.forEach((s, i) => { if (vo[i]) s.dur = Math.max(s.dur ?? 0, vo[i].dur + 0.55); });
       data.fixed = true;
@@ -227,6 +254,11 @@ if (a1 === 'try') {
   if (!c) { out(`konten ${a1} tidak ada`); process.exit(1); }
   if (!c.data_json) { out(`konten ${a1} belum punya data_json (tugas Copywriter)`); process.exit(1); }
   const template = c.format === 'video' ? 'video' : c.template ?? (c.format === 'carousel' ? 'carousel' : null);
+  const voice = template === 'video' ? JSON.parse(c.data_json).voice : null;
+  if (voice && voice !== 'gadis' && !omniPython()) { // suara OmniVoice hanya di laptop Owner (VPS tanpa GPU)
+    out(`konten ${c.id} pakai suara "${voice}" → render di laptop: node scripts/render-laptop.mjs ${c.id} --submit (atau hapus "voice" untuk pakai Gadis)`);
+    process.exit(2);
+  }
   if (!template) { out(`konten ${a1} belum punya template`); process.exit(1); }
   const slug = String(c.title).toLowerCase().normalize('NFD').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 40);
   const rel = join('docs', 'media', c.day);

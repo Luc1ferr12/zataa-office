@@ -45,5 +45,6 @@ Hasil feed/carousel: JPG 1080×1080 (IG, 1:1) + `-916.jpg` 1080×1920 (TikTok). 
 
 Logo & foto (aturan Owner, wajib untuk tim/pemain): `headline`/`player` → `logo` (path / array, mis. transfer `["assets/teams/rrq.png","assets/teams/onic.png"]`); `score`/`versus` → `logoL`, `logoR`; adegan apa pun → `photo` (foto full di belakang, teks turun ke bawah).
 Tiap adegan juga boleh: `dur` (atur manual), `vo` (voice over Gadis, 1 kalimat ≤14 kata), `mood` (`hype` / `promo` / `tanya` / `info` / `santai` / `haru`; kosong = otomatis).
+- `voice`: kosong = Gadis (Edge TTS) · `kalem-1` (rendah, hangat) / `kalem-2` (tengah) / `kalem-3` (dewasa) → OmniVoice, lebih natural. **Hanya render di laptop**: `node scripts/render-laptop.mjs <id> [--submit]` (VPS menolak `render.mjs <id>`). Profil baru: `python scripts/voice.py design <nama> "female, young adult, moderate pitch" "<kalimat>"`.
 - `music`: kosong = acak dari `assets/audio/bg-*.mp3` (5 lagu buatan `scripts/music.mjs`, bebas lisensi; tribute dapat lagu kalem) · nama file · `"none"`.
 - `bg`: kosong = acak dari `assets/clips/<game>/` (gameplay Owner) → kalau kosong klip suasana: `mobile/`+`arena/` (ML, FF), `pc/`+`arena/` (Valorant) · path repo · `"none"`.
