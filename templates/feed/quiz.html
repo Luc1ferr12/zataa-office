@@ -8,14 +8,21 @@
   .opt { display: grid; grid-template-columns: 70px 1fr; gap: 20px; align-items: center; padding: 24px 26px; }
   .opt i { font: 800 40px/70px Sora; font-style: normal; text-align: center; width: 70px; height: 70px; border-radius: 18px; color: var(--ink); background: var(--accent); }
   .opt span { font: 700 34px/1.2 Inter; }
+  .opt.has-logo { grid-template-columns: 70px 84px 1fr; }
+  .opt img { width: 84px; height: 84px; object-fit: contain; filter: drop-shadow(0 6px 16px #000b); }
 </style></head>
 <body><div id="root"></div>
 <script type="module">
-import { setup, shell, kicker, md, fit, ready } from '../shared/brand.js';
-// data: { game, kicker: KUIS|POLLING, headline, sub, options:[2–4], cta, footnote }
+import { setup, shell, kicker, md, esc, fit, ready } from '../shared/brand.js';
+// data: { game, kicker: KUIS|POLLING, headline, sub, options:[2–4 teks | {text, logo}], cta, footnote }
+// logo = path logo tim (mis. assets/teams/onic.png) → tampil di samping opsi
 window.render = async (d, size) => {
   const g = setup(d, size);
-  const opts = (d.options ?? []).slice(0, 4).map((o, i) => `<div class="card opt"><i>${'ABCD'[i]}</i><span>${md(o)}</span></div>`).join('');
+  const opts = (d.options ?? []).slice(0, 4).map((o, i) => {
+    const { text, logo } = typeof o === 'string' ? { text: o } : o;
+    const img = logo ? `<img src="/${esc(logo.replace(/^\/+/, ''))}" alt="">` : '';
+    return `<div class="card opt${logo ? ' has-logo' : ''}"><i>${'ABCD'[i]}</i>${img}<span>${md(text)}</span></div>`;
+  }).join('');
   document.getElementById('root').innerHTML = shell({ cta: 'Jawab di komentar 👇', ...d }, g, `
     <div class="grow"><h1 class="h1">${md(d.headline)}</h1>${d.sub ? `<p class="sub">${md(d.sub)}</p>` : ''}<div class="opts">${opts}</div></div>`,
     { kicker: kicker(d.kicker ?? 'KUIS', 'alt') });

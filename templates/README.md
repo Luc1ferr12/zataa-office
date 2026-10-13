@@ -21,8 +21,8 @@ Hasil feed/carousel: JPG 1080×1080 (IG, 1:1) + `-916.jpg` 1080×1920 (TikTok). 
 | `news` | `label: BERITA\|RUMOR\|PATCH\|TRANSFER\|ESPORT, date, headline, sub, points:[≤3], source, photo?, pre?` — `photo` = path foto (mis. `assets/photos/x.jpg`) → layout foto bernuansa ungu + judul besar (points tidak tampil), `pre` = teks kecil di atas judul. `logo` = path / array logo tim (tampil di atas judul). Aturan Owner: konten tim/pemain selalu pakai logo, foto kalau ada |
 | `versus` | `event, headline, left:{name, sub, short?, logo?}, right:{…sama}, time` — `logo` = path file (mis. `assets/teams/rrq.png`), tidak ada → lambang inisial `short` |
 | `tips` | `kicker, headline, items:[{title, desc}] (3–5)` |
-| `quiz` | `kicker: KUIS\|POLLING, headline, sub?, options:[2–4]` |
-| `carousel` | `slides:[{kind:"hook", headline, sub} · {kind:"point", title, body, n?} · {kind:"cta", headline, sub}]` (5–7 slide) |
+| `quiz` | `kicker: KUIS\|POLLING, headline, sub?, options:[2–4 teks \| {text, logo}]` — opsi tim pakai `{text, logo}` |
+| `carousel` | `slides:[{kind:"hook", headline, sub, logo?} · {kind:"point", title, body, n?, logo?} · {kind:"cta", headline, sub}]` (5–7 slide) — `logo` = path / array logo tim di atas judul |
 
 ## Video (`format: video`, template otomatis `video`)
 `data_json = { game, gameName?, style, ticker?, duration?, music?, bg?, scenes:[...] }` — contoh tiap gaya: `templates/samples/video-<style>.json`.
