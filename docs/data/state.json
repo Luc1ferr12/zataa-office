@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-13T09:15:38.349Z",
+ "generated_at": "2026-10-13T09:25:38.350Z",
  "today": "2026-10-13",
  "week_start": "2026-10-12",
  "campaign": {
@@ -102,15 +102,15 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-13 09:01:01"
+   "updated_at": "2026-10-13 09:16:01"
   },
   {
    "id": "tresearch",
    "name": "Davina",
    "title": "Research & Fundamental",
    "status": "done",
-   "current_task": "Fundamental: Odds Fed naik turun setelah data AS lunak; tensi Timur Tengah dukung emas, yield & DXY kuat menahan. Berita 13 Okt belum ada.",
-   "updated_at": "2026-10-13 09:01:01"
+   "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
+   "updated_at": "2026-10-13 09:16:01"
   },
   {
    "id": "ttech",
@@ -118,7 +118,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Bias bullish",
-   "updated_at": "2026-10-13 09:01:01"
+   "updated_at": "2026-10-13 09:16:01"
   },
   {
    "id": "trisk",
@@ -126,7 +126,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: bullish, tapi belum ada pemicu entry di area",
-   "updated_at": "2026-10-13 09:01:01"
+   "updated_at": "2026-10-13 09:16:01"
   },
   {
    "id": "texec",
@@ -424,6 +424,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-13 09:16:01",
+   "agent_id": "trisk",
+   "message": "NO TRADE · bullish, tapi belum ada pemicu entry di area"
+  },
+  {
    "ts": "2026-10-13 09:01:01",
    "agent_id": "ttech",
    "message": "M15 berubah arah: bullish → sideways"
@@ -542,11 +547,6 @@
    "ts": "2026-10-13 05:16:01",
    "agent_id": "trisk",
    "message": "NO TRADE · di luar jam sesi London–New York"
-  },
-  {
-   "ts": "2026-10-13 05:02:17",
-   "agent_id": "publisher",
-   "message": "Posting #8 ke IG ✅"
   }
  ],
  "chats": [
@@ -902,9 +902,14 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4187.799805,
+  "price": 4186.100098,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-13 09:16:01",
+    "decision": "NO TRADE",
+    "reason": "bullish, tapi belum ada pemicu entry di area"
+   },
    {
     "ts": "2026-10-13 09:01:01",
     "decision": "NO TRADE",
@@ -929,11 +934,6 @@
     "ts": "2026-10-13 08:01:01",
     "decision": "NO TRADE",
     "reason": "bullish, tapi belum ada pemicu entry di area"
-   },
-   {
-    "ts": "2026-10-13 07:46:01",
-    "decision": "NO TRADE",
-    "reason": "bullish, tapi belum ada pemicu entry di area"
    }
   ],
   "trades": [],
@@ -955,7 +955,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-13 09:01:01",
+   "ts": "2026-10-13 09:16:01",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -966,15 +966,15 @@
    "risk_usd": null,
    "reason": "bullish, tapi belum ada pemicu entry di area",
    "fund": {
-    "bias": 0.15,
-    "note": "Odds Fed naik turun setelah data AS lunak; tensi Timur Tengah dukung emas, yield & DXY kuat menahan. Berita 13 Okt belum ada.",
+    "bias": 0,
+    "note": "netral (belum ada ringkasan hari ini)",
     "blackout": null
    },
    "tech": {
     "bias": "bullish",
     "score": 2,
     "trigger": null,
-    "note": "bullish (skor 2) · harga 4187.50 · EMA50 H1 4175.65 · RSI M15 51"
+    "note": "bullish (skor 2) · harga 4187.80 · EMA50 H1 4175.66 · RSI M15 51"
    }
   },
   "fund": null,
@@ -1056,24 +1056,24 @@
    "M10": {
     "bias": "sideways",
     "score": 0,
-    "price": 4189.5,
-    "ema20": 4189.98,
-    "ema50": 4185.83,
-    "rsi": 50.4,
-    "n": 142,
-    "slot": 2986471,
-    "at": 1791882661671
+    "price": 4185.5,
+    "ema20": 4189.55,
+    "ema50": 4185.82,
+    "rsi": 44.3,
+    "n": 143,
+    "slot": 2986472,
+    "at": 1791883261675
    },
    "M15": {
     "bias": "sideways",
     "score": 0,
-    "price": 4188.3,
-    "ema20": 4188.59,
-    "ema50": 4182.83,
-    "rsi": 51.9,
+    "price": 4187.1,
+    "ema20": 4188.44,
+    "ema50": 4182.99,
+    "rsi": 50.2,
     "n": 299,
-    "slot": 1990980,
-    "at": 1791882061674
+    "slot": 1990981,
+    "at": 1791882961744
    },
    "M30": {
     "bias": "bullish",
