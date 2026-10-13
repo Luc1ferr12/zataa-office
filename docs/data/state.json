@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-13T20:47:18.785Z",
+ "generated_at": "2026-10-13T20:57:18.786Z",
  "today": "2026-10-14",
  "week_start": "2026-10-12",
  "campaign": {
@@ -424,6 +424,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-13 20:51:02",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: sideways → bearish"
+  },
+  {
    "ts": "2026-10-13 20:31:02",
    "agent_id": "trisk",
    "message": "NO TRADE · di luar jam sesi London–New York"
@@ -542,11 +547,6 @@
    "ts": "2026-10-13 13:31:01",
    "agent_id": "ttech",
    "message": "M30 berubah arah: sideways → bullish"
-  },
-  {
-   "ts": "2026-10-13 13:31:01",
-   "agent_id": "ttech",
-   "message": "M15 berubah arah: sideways → bullish"
   }
  ],
  "chats": [
@@ -902,7 +902,7 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4159.600098,
+  "price": 4161.299805,
   "open": [],
   "signals": [
    {
@@ -1057,15 +1057,15 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "sideways",
-    "score": -1,
-    "price": 4159,
-    "ema20": 4162.49,
-    "ema50": 4166.4,
-    "rsi": 41.7,
-    "n": 211,
-    "slot": 2986540,
-    "at": 1791924062135
+    "bias": "bearish",
+    "score": -2,
+    "price": 4160,
+    "ema20": 4162.26,
+    "ema50": 4166.15,
+    "rsi": 44,
+    "n": 212,
+    "slot": 2986541,
+    "at": 1791924662157
    },
    "M15": {
     "bias": "bearish",
