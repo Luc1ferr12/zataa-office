@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-13T17:37:18.677Z",
+ "generated_at": "2026-10-13T17:47:18.678Z",
  "today": "2026-10-14",
  "week_start": "2026-10-12",
  "campaign": {
@@ -102,7 +102,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-13 17:31:02"
+   "updated_at": "2026-10-13 17:46:02"
   },
   {
    "id": "tresearch",
@@ -110,23 +110,23 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: CPI headline panas (0.6% vs 0.4%), core 0.2% sejuk. Berita 24 jam minim; DXY & risiko Fed hike menekan, geopolitik menopang.",
-   "updated_at": "2026-10-13 17:31:02"
+   "updated_at": "2026-10-13 17:46:02"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Bias bearish, pemicu SELL",
-   "updated_at": "2026-10-13 17:31:02"
+   "current_task": "Bias bearish",
+   "updated_at": "2026-10-13 17:46:02"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: support 4151.1 terlalu dekat buat target",
-   "updated_at": "2026-10-13 17:31:02"
+   "current_task": "NO TRADE: bearish, tapi belum ada pemicu entry di area",
+   "updated_at": "2026-10-13 17:46:02"
   },
   {
    "id": "texec",
@@ -902,9 +902,14 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4156.200195,
+  "price": 4155.399902,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-13 17:46:02",
+    "decision": "NO TRADE",
+    "reason": "bearish, tapi belum ada pemicu entry di area"
+   },
    {
     "ts": "2026-10-13 17:31:02",
     "decision": "NO TRADE",
@@ -929,11 +934,6 @@
     "ts": "2026-10-13 16:31:02",
     "decision": "NO TRADE",
     "reason": "bearish, tapi belum ada pemicu entry di area"
-   },
-   {
-    "ts": "2026-10-13 16:16:02",
-    "decision": "NO TRADE",
-    "reason": "bearish, tapi belum ada pemicu entry di area"
    }
   ],
   "trades": [],
@@ -955,7 +955,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-13 17:31:02",
+   "ts": "2026-10-13 17:46:02",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -964,7 +964,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "support 4151.1 terlalu dekat buat target",
+   "reason": "bearish, tapi belum ada pemicu entry di area",
    "fund": {
     "bias": -0.2,
     "note": "CPI headline panas (0.6% vs 0.4%), core 0.2% sejuk. Berita 24 jam minim; DXY & risiko Fed hike menekan, geopolitik menopang.",
@@ -973,8 +973,8 @@
    "tech": {
     "bias": "bearish",
     "score": -3,
-    "trigger": "sell",
-    "note": "bearish (skor -3) · harga 4154.30 · EMA50 H1 4173.80 · RSI M15 31 · pemicu SELL"
+    "trigger": null,
+    "note": "bearish (skor -3) · harga 4156.80 · EMA50 H1 4173.90 · RSI M15 33"
    }
   },
   "fund": {
@@ -1059,24 +1059,24 @@
    "M10": {
     "bias": "bearish",
     "score": -3,
-    "price": 4157.9,
-    "ema20": 4162.7,
-    "ema50": 4171.31,
-    "rsi": 35.6,
-    "n": 192,
-    "slot": 2986521,
-    "at": 1791912662037
+    "price": 4157.2,
+    "ema20": 4162.17,
+    "ema50": 4170.76,
+    "rsi": 34.7,
+    "n": 193,
+    "slot": 2986522,
+    "at": 1791913262187
    },
    "M15": {
     "bias": "bearish",
     "score": -3,
-    "price": 4157.9,
-    "ema20": 4166.38,
-    "ema50": 4174.1,
-    "rsi": 34.1,
+    "price": 4157.2,
+    "ema20": 4165.51,
+    "ema50": 4173.44,
+    "rsi": 33.5,
     "n": 299,
-    "slot": 1991014,
-    "at": 1791912662043
+    "slot": 1991015,
+    "at": 1791913562035
    },
    "M30": {
     "bias": "bearish",
