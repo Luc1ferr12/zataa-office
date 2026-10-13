@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-13T05:25:38.272Z",
+ "generated_at": "2026-10-13T05:35:38.274Z",
  "today": "2026-10-13",
  "week_start": "2026-10-12",
  "campaign": {
@@ -102,7 +102,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-13 05:16:01"
+   "updated_at": "2026-10-13 05:31:01"
   },
   {
    "id": "tresearch",
@@ -110,7 +110,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Odds Fed naik turun setelah data AS lunak; tensi Timur Tengah dukung emas, yield & DXY kuat menahan. Berita 13 Okt belum ada.",
-   "updated_at": "2026-10-13 05:16:01"
+   "updated_at": "2026-10-13 05:31:01"
   },
   {
    "id": "ttech",
@@ -118,7 +118,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Bias sideways",
-   "updated_at": "2026-10-13 05:16:01"
+   "updated_at": "2026-10-13 05:31:01"
   },
   {
    "id": "trisk",
@@ -126,7 +126,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: di luar jam sesi London–New York",
-   "updated_at": "2026-10-13 05:16:01"
+   "updated_at": "2026-10-13 05:31:01"
   },
   {
    "id": "texec",
@@ -902,9 +902,14 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4197.200195,
+  "price": 4195.399902,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-13 05:31:01",
+    "decision": "NO TRADE",
+    "reason": "di luar jam sesi London–New York"
+   },
    {
     "ts": "2026-10-13 05:16:01",
     "decision": "NO TRADE",
@@ -929,11 +934,6 @@
     "ts": "2026-10-13 04:16:01",
     "decision": "NO TRADE",
     "reason": "di luar jam sesi London–New York"
-   },
-   {
-    "ts": "2026-10-13 04:01:01",
-    "decision": "NO TRADE",
-    "reason": "di luar jam sesi London–New York"
    }
   ],
   "trades": [],
@@ -955,7 +955,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-13 05:16:01",
+   "ts": "2026-10-13 05:31:01",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -974,7 +974,7 @@
     "bias": "sideways",
     "score": 0,
     "trigger": null,
-    "note": "sideways (skor 0) · harga 4199.00 · EMA50 H1 4173.46 · RSI M15 75"
+    "note": "sideways (skor 0) · harga 4195.20 · EMA50 H1 4173.31 · RSI M15 68"
    }
   },
   "fund": {
@@ -1059,35 +1059,35 @@
    "M10": {
     "bias": "sideways",
     "score": 1,
-    "price": 4200.9,
-    "ema20": 4186.74,
-    "ema50": 4178.52,
-    "rsi": 73.6,
-    "n": 119,
-    "slot": 2986448,
-    "at": 1791868861502
+    "price": 4196.1,
+    "ema20": 4187.63,
+    "ema50": 4179.21,
+    "rsi": 65,
+    "n": 120,
+    "slot": 2986449,
+    "at": 1791869461517
    },
    "M15": {
     "bias": "sideways",
     "score": 1,
-    "price": 4199.2,
-    "ema20": 4182.17,
-    "ema50": 4176.36,
-    "rsi": 75.2,
+    "price": 4196.1,
+    "ema20": 4183.49,
+    "ema50": 4177.14,
+    "rsi": 69.7,
     "n": 299,
-    "slot": 1990965,
-    "at": 1791868561493
+    "slot": 1990966,
+    "at": 1791869461522
    },
    "M30": {
     "bias": "sideways",
     "score": 1,
     "price": 4196.1,
-    "ema20": 4176.71,
-    "ema50": 4175.23,
+    "ema20": 4178.55,
+    "ema50": 4176.05,
     "rsi": 69.2,
     "n": 299,
-    "slot": 995482,
-    "at": 1791867661501
+    "slot": 995483,
+    "at": 1791869461532
    },
    "H1": {
     "bias": "bullish",
