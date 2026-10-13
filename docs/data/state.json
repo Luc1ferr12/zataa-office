@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-13T00:25:38.160Z",
+ "generated_at": "2026-10-13T00:35:38.170Z",
  "today": "2026-10-13",
  "week_start": "2026-10-12",
  "campaign": {
@@ -102,7 +102,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-13 00:16:01"
+   "updated_at": "2026-10-13 00:31:01"
   },
   {
    "id": "tresearch",
@@ -110,7 +110,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Odds Fed naik turun setelah data AS lunak; tensi Timur Tengah dukung emas, yield & DXY kuat menahan. Berita 13 Okt belum ada.",
-   "updated_at": "2026-10-13 00:16:01"
+   "updated_at": "2026-10-13 00:31:01"
   },
   {
    "id": "ttech",
@@ -118,7 +118,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Bias bearish",
-   "updated_at": "2026-10-13 00:16:01"
+   "updated_at": "2026-10-13 00:31:01"
   },
   {
    "id": "trisk",
@@ -126,7 +126,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: di luar jam sesi London–New York",
-   "updated_at": "2026-10-13 00:16:01"
+   "updated_at": "2026-10-13 00:31:01"
   },
   {
    "id": "texec",
@@ -424,6 +424,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-13 00:31:01",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: sideways → bearish"
+  },
+  {
    "ts": "2026-10-13 00:16:01",
    "agent_id": "trisk",
    "message": "NO TRADE · di luar jam sesi London–New York"
@@ -542,11 +547,6 @@
    "ts": "2026-10-12 23:01:01",
    "agent_id": "ttech",
    "message": "M30 berubah arah: sideways → bearish"
-  },
-  {
-   "ts": "2026-10-12 23:01:01",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: bullish → sideways"
   }
  ],
  "chats": [
@@ -902,9 +902,14 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4167.799805,
+  "price": 4164.200195,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-13 00:31:01",
+    "decision": "NO TRADE",
+    "reason": "di luar jam sesi London–New York"
+   },
    {
     "ts": "2026-10-13 00:16:01",
     "decision": "NO TRADE",
@@ -929,11 +934,6 @@
     "ts": "2026-10-12 23:16:01",
     "decision": "NO TRADE",
     "reason": "di luar jam sesi London–New York"
-   },
-   {
-    "ts": "2026-10-12 23:01:25",
-    "decision": "NO TRADE",
-    "reason": "di luar jam sesi London–New York"
    }
   ],
   "trades": [],
@@ -955,7 +955,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-13 00:16:01",
+   "ts": "2026-10-13 00:31:01",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -974,7 +974,7 @@
     "bias": "bearish",
     "score": -2,
     "trigger": null,
-    "note": "bearish (skor -2) · harga 4163.50 · EMA50 H1 4170.74 · RSI M15 37"
+    "note": "bearish (skor -2) · harga 4165.70 · EMA50 H1 4170.83 · RSI M15 42"
    }
   },
   "fund": {
@@ -1057,37 +1057,37 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "sideways",
-    "score": 0,
-    "price": 4167.7,
-    "ema20": 4171.41,
-    "ema50": 4171.02,
-    "rsi": 41.8,
-    "n": 89,
-    "slot": 2986418,
-    "at": 1791850861270
+    "bias": "bearish",
+    "score": -2,
+    "price": 4164.6,
+    "ema20": 4170.76,
+    "ema50": 4170.77,
+    "rsi": 36.7,
+    "n": 90,
+    "slot": 2986419,
+    "at": 1791851461310
    },
    "M15": {
     "bias": "bearish",
     "score": -3,
-    "price": 4162.9,
-    "ema20": 4170.98,
-    "ema50": 4172.24,
-    "rsi": 35.8,
+    "price": 4164.6,
+    "ema20": 4170.37,
+    "ema50": 4171.94,
+    "rsi": 39.4,
     "n": 299,
-    "slot": 1990945,
-    "at": 1791850561288
+    "slot": 1990946,
+    "at": 1791851461317
    },
    "M30": {
     "bias": "sideways",
-    "score": 1,
-    "price": 4172.6,
-    "ema20": 4171.96,
-    "ema50": 4174.23,
-    "rsi": 49.8,
+    "score": -1,
+    "price": 4164.6,
+    "ema20": 4171.26,
+    "ema50": 4173.85,
+    "rsi": 40.7,
     "n": 299,
-    "slot": 995472,
-    "at": 1791849661281
+    "slot": 995473,
+    "at": 1791851461328
    },
    "H1": {
     "bias": "sideways",
