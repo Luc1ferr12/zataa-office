@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-13T10:05:38.425Z",
+ "generated_at": "2026-10-13T10:15:38.419Z",
  "today": "2026-10-13",
  "week_start": "2026-10-12",
  "campaign": {
@@ -424,6 +424,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-13 10:11:01",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: sideways → bullish"
+  },
+  {
    "ts": "2026-10-13 10:00:44",
    "agent_id": "analyst",
    "message": "Update data 9 post IG 📈"
@@ -542,11 +547,6 @@
    "ts": "2026-10-13 06:01:01",
    "agent_id": "ttech",
    "message": "M15 berubah arah: sideways → bullish"
-  },
-  {
-   "ts": "2026-10-13 05:55:44",
-   "agent_id": "owner",
-   "message": "Chat: Mantap"
   }
  ],
  "chats": [
@@ -902,7 +902,7 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4186.799805,
+  "price": 4184.5,
   "open": [],
   "signals": [
    {
@@ -1054,15 +1054,15 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "sideways",
-    "score": 0,
-    "price": 4187.1,
-    "ema20": 4188.18,
-    "ema50": 4185.75,
-    "rsi": 48.2,
-    "n": 147,
-    "slot": 2986476,
-    "at": 1791885661700
+    "bias": "bullish",
+    "score": 2,
+    "price": 4190,
+    "ema20": 4188.36,
+    "ema50": 4185.91,
+    "rsi": 53.3,
+    "n": 148,
+    "slot": 2986477,
+    "at": 1791886261709
    },
    "M15": {
     "bias": "sideways",
