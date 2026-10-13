@@ -18,6 +18,7 @@ import { startFinanceBot } from './finance-bot.mjs';
 import { analystTick } from './analyst.mjs';
 import { priceTick } from './price.mjs';
 import { limitsTick } from './limits.mjs';
+import { laptopFallback } from './laptop-fallback.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const EVERY = 60_000;
@@ -83,10 +84,15 @@ Akhiri jawaban dengan SATU kalimat ringkas (bahasa santai) tentang apa yang diub
     const summary = r.text.split('\n').filter(Boolean).pop() ?? '';
     setAgent(maker, 'done', task);
     note(maker, `Revisi #${x.id} kelar: ${summary.slice(0, 120)}`);
+    let queued = false; // video suara OmniVoice → laptop yang render & kirim (atau fallback Gadis di VPS)
+    try { queued = JSON.parse(JSON.parse(office('content', 'get', String(x.id))).data_json ?? '{}')._laptop != null; } catch { /* abaikan */ }
+    if (queued) await sayAs('video', `🎙️ Revisi #${x.id} kelar, videonya dirender di laptop (suara natural) lalu dikirim otomatis.`).catch(() => {});
+    else {
     setAgent('publisher', 'working', `QA & kirim ulang #${x.id}`);
     exportState();
     try { await submit(x.id, { note: `Hasil revisi: ${summary}` }); log(`#${x.id} dikirim ulang`); setAgent('publisher', 'waiting', `#${x.id} ${title}`); }
     catch (e) { log(`submit gagal: ${e.message}`); setAgent('publisher', 'done'); await sayAs('publisher', `⚠️ Revisi #${x.id} selesai tapi gagal dikirim: ${e.message}`).catch(() => {}); }
+    }
   }
   exportState();
   busy.delete(x.id);
@@ -187,6 +193,7 @@ async function tick() {
   ads();
   talk();
   staff();
+  laptopFallback(log).catch((e) => log(`fallback laptop gagal: ${e.message}`));
   try {
     const got = await poll();
     if (!got.length) return;

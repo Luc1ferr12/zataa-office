@@ -25,6 +25,10 @@ const c = JSON.parse(onVps(`${DB} console.log(JSON.stringify(db.prepare('SELECT 
 if (!c) throw new Error(`konten ${id} tidak ada di VPS`);
 if (c.format !== 'video' || !c.data_json) throw new Error(`konten ${id} bukan video atau belum punya data_json`);
 
+// klaim antrean (_laptop 1 → 2) supaya fallback Gadis di VPS tidak ikut jalan; manual (tanpa antrean) tetap boleh
+const queued = JSON.parse(c.data_json)._laptop != null;
+if (queued) onVps(`${DB} db.prepare("UPDATE contents SET data_json = json_set(data_json, '$._laptop', 2), updated_at = datetime('now') WHERE id = ? AND json_extract(data_json, '$._laptop') = 1").run(${c.id});`);
+
 const tmp = mkdtempSync(join(tmpdir(), 'zataa-laptop-'));
 try {
   writeFileSync(join(tmp, 'data.json'), c.data_json);
@@ -32,9 +36,9 @@ try {
   if (r.status !== 0) throw new Error(`render gagal: ${r.stdout.slice(-300)}`);
   const res = JSON.parse(r.stdout.trim().split('\n').pop());
 
-  // nama file sama persis dengan render.mjs <id>
+  // nama file = render.mjs <id> + '-ov' (tidak menimpa hasil fallback Gadis)
   const slug = String(c.title).toLowerCase().normalize('NFD').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 40);
-  const base = `${c.id}-${slug}`;
+  const base = `${c.id}-${slug}-ov`;
   const files = { video: `${base}.mp4`, cover: `${base}-cover.jpg` };
   renameSync(join(tmp, res.video), join(tmp, files.video));
   renameSync(join(tmp, res.cover), join(tmp, files.cover));
@@ -45,12 +49,14 @@ try {
   if (up.status !== 0) throw new Error('upload ke VPS gagal');
 
   const paths = { video: `${rel}/${files.video}`, cover: `${rel}/${files.cover}` };
-  onVps(`${DB} import { readFileSync, existsSync } from 'node:fs';
+  if (onVps(`${DB} import { readFileSync, existsSync } from 'node:fs';
     const env = existsSync('.env') ? Object.fromEntries(readFileSync('.env', 'utf8').split(/\\r?\\n/).filter((l) => l.includes('=') && !l.startsWith('#')).map((l) => [l.slice(0, l.indexOf('=')).trim(), l.slice(l.indexOf('=') + 1).trim()])) : {};
     const base = (env.PUBLIC_BASE_URL ?? '').replace(/\\/$/, '');
     const f = ${JSON.stringify(files)};
     const urls = base ? JSON.stringify({ video: base + '/media/${c.day}/' + f.video, cover: base + '/media/${c.day}/' + f.cover }) : null;
-    db.prepare("UPDATE contents SET asset_path = ?, asset_url = COALESCE(?, asset_url), template = 'video', data_json = json_remove(data_json, '$._laptop'), updated_at = datetime('now') WHERE id = ?").run(${JSON.stringify(JSON.stringify(paths))}, urls, ${c.id});`);
+    db.prepare("UPDATE contents SET asset_path = ?, asset_url = COALESCE(?, asset_url), template = 'video', data_json = json_remove(data_json, '$._laptop'), updated_at = datetime('now') WHERE id = ?${queued ? " AND json_extract(data_json, '$._laptop') IS NOT NULL" : ''}").run(${JSON.stringify(JSON.stringify(paths))}, urls, ${c.id}).changes || console.log('TAKEN');`) === 'TAKEN') {
+    throw new Error('sudah diambil alih VPS (fallback Gadis), hasil laptop tidak dipakai');
+  }
 
   const out = { ok: true, id: c.id, ...paths, duration: res.duration, music: res.music, bg: res.bg, vo: res.vo };
   if (flag === '--submit') {
