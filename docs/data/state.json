@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-13T23:07:18.900Z",
+ "generated_at": "2026-10-13T23:17:18.880Z",
  "today": "2026-10-14",
  "week_start": "2026-10-12",
  "campaign": {
@@ -52,17 +52,17 @@
    "id": "video",
    "name": "Dimas",
    "title": "Video Production",
-   "status": "working",
+   "status": "done",
    "current_task": "Render video preview Week 9 #10",
-   "updated_at": "2026-10-13 23:03:05"
+   "updated_at": "2026-10-13 23:14:04"
   },
   {
    "id": "publisher",
    "name": "Fikri",
    "title": "Social Media Publisher",
    "status": "done",
-   "current_task": null,
-   "updated_at": "2026-10-13 12:01:01"
+   "current_task": "QA & submit #10",
+   "updated_at": "2026-10-13 23:14:12"
   },
   {
    "id": "ads",
@@ -102,7 +102,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-13 23:01:22"
+   "updated_at": "2026-10-13 23:16:02"
   },
   {
    "id": "tresearch",
@@ -110,7 +110,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: CPI m/m fc 0.6% (prev 0.4%) panas, Fed hawkish 4%, DXY ~102; NFP lemah 29K tahan. Blackout CPI 20:30 WITA.",
-   "updated_at": "2026-10-13 23:01:22"
+   "updated_at": "2026-10-13 23:16:02"
   },
   {
    "id": "ttech",
@@ -118,7 +118,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Bias bearish",
-   "updated_at": "2026-10-13 23:01:22"
+   "updated_at": "2026-10-13 23:16:02"
   },
   {
    "id": "trisk",
@@ -126,7 +126,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: di luar jam sesi London–New York",
-   "updated_at": "2026-10-13 23:01:22"
+   "updated_at": "2026-10-13 23:16:02"
   },
   {
    "id": "texec",
@@ -261,8 +261,8 @@
    "game": "mlbb",
    "pillar": "esport",
    "title": "Preview Week 9 MPL ID S18: Pekan Hidup-Mati Siapa?",
-   "status": "draft",
-   "asset_url": null,
+   "status": "pending_approval",
+   "asset_url": "{\"video\":\"https://luc1ferr12.github.io/zataa-office/media/2026-10-14/10-preview-week-9-mpl-id-s18-pekan-hidup-ma.mp4\",\"cover\":\"https://luc1ferr12.github.io/zataa-office/media/2026-10-14/10-preview-week-9-mpl-id-s18-pekan-hidup-ma-cover.jpg\"}",
    "scheduled_at": null,
    "posted_at": null
   },
@@ -274,7 +274,7 @@
    "game": "valorant",
    "pillar": "promo",
    "title": "Isi VP Dulu Sebelum Nonton Final Champions — Top Up di zataa.my.id",
-   "status": "draft",
+   "status": "pending_approval",
    "asset_url": "{\"feed\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-14/11-isi-vp-dulu-sebelum-nonton-final-champio.jpg\"],\"story\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-14/11-isi-vp-dulu-sebelum-nonton-final-champio-916.jpg\"]}",
    "scheduled_at": null,
    "posted_at": null
@@ -424,6 +424,41 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-13 23:14:12",
+   "agent_id": "publisher",
+   "message": "#10 video preview Week 9 terkirim ke Owner"
+  },
+  {
+   "ts": "2026-10-13 23:14:12",
+   "agent_id": "publisher",
+   "message": "Kirim #10 ke Owner buat approval"
+  },
+  {
+   "ts": "2026-10-13 23:14:04",
+   "agent_id": "video",
+   "message": "Video #10 jadi 39,9 dtk, matchday + logo ONIC/DEWA/GEEK/NAVI/TLID"
+  },
+  {
+   "ts": "2026-10-13 23:13:26",
+   "agent_id": "analyst",
+   "message": "Engagement pekan ini rendah: like 0-2/post, views belum terbaca API"
+  },
+  {
+   "ts": "2026-10-13 23:13:14",
+   "agent_id": "publisher",
+   "message": "#11 promo VP lolos QA, terkirim ke Owner"
+  },
+  {
+   "ts": "2026-10-13 23:13:14",
+   "agent_id": "publisher",
+   "message": "Kirim #11 ke Owner buat approval"
+  },
+  {
+   "ts": "2026-10-13 23:11:02",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: sideways → bearish"
+  },
+  {
    "ts": "2026-10-13 23:03:00",
    "agent_id": "copywriter",
    "message": "Script video preview Week 9 + promo VP dengan harga 14 Okt"
@@ -512,44 +547,37 @@
    "ts": "2026-10-13 19:31:02",
    "agent_id": "ttech",
    "message": "M15 berubah arah: bearish → sideways"
-  },
-  {
-   "ts": "2026-10-13 19:16:02",
-   "agent_id": "ttech",
-   "message": "M15 berubah arah: sideways → bearish"
-  },
-  {
-   "ts": "2026-10-13 19:01:02",
-   "agent_id": "ttech",
-   "message": "M15 berubah arah: bearish → sideways"
-  },
-  {
-   "ts": "2026-10-13 19:00:20",
-   "agent_id": "analyst",
-   "message": "Update data 0 post IG 📈"
-  },
-  {
-   "ts": "2026-10-13 18:51:02",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: bearish → sideways"
-  },
-  {
-   "ts": "2026-10-13 18:41:02",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: sideways → bearish"
-  },
-  {
-   "ts": "2026-10-13 18:31:02",
-   "agent_id": "trisk",
-   "message": "NO TRADE · bearish, tapi belum ada pemicu entry di area"
-  },
-  {
-   "ts": "2026-10-13 18:11:02",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: bearish → sideways"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-10-13 23:14:12",
+   "agent_id": "publisher",
+   "to_id": "owner",
+   "kind": "oper",
+   "message": "Bos, \"QA & submit #10\" udah aku kirim ke Telegram. Ditunggu approve-nya 🙏"
+  },
+  {
+   "ts": "2026-10-13 23:14:04",
+   "agent_id": "video",
+   "to_id": "publisher",
+   "kind": "oper",
+   "message": "Fikri, video \"Render video preview Week 9 #10\" udah render 9:16. Musiknya aman kok"
+  },
+  {
+   "ts": "2026-10-13 23:13:26",
+   "agent_id": "analyst",
+   "to_id": "copywriter",
+   "kind": "santai",
+   "message": "Ista, like kita masih seret nih. Caption pancing komen lebih galak ya hari ini 😅"
+  },
+  {
+   "ts": "2026-10-13 23:13:14",
+   "agent_id": "publisher",
+   "to_id": "owner",
+   "kind": "oper",
+   "message": "Bos, \"QA & submit #11\" udah aku kirim ke Telegram. Ditunggu approve-nya 🙏"
+  },
   {
    "ts": "2026-10-13 23:03:05",
    "agent_id": "designer",
@@ -801,34 +829,6 @@
    "to_id": null,
    "kind": "oper",
    "message": "Oke tim, ada titah dari Bos. Aku bagi tugasnya ya 👇"
-  },
-  {
-   "ts": "2026-10-12 13:55:25",
-   "agent_id": "owner",
-   "to_id": "dir",
-   "kind": "bos",
-   "message": "MPL sama valorant champion hari ini lagi gada jadwal main ya ?"
-  },
-  {
-   "ts": "2026-10-12 12:00:44",
-   "agent_id": "publisher",
-   "to_id": null,
-   "kind": "oper",
-   "message": "\"Top Up Diamond FF Cepat & Aman di zataa.my.id\" udah tayang di IG 🚀 Makasih semua!"
-  },
-  {
-   "ts": "2026-10-12 10:52:23",
-   "agent_id": "price",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Oke Bos, nanti saya cek harga di zataa.my.id lagi sesuai jadwal pantau."
-  },
-  {
-   "ts": "2026-10-12 10:52:23",
-   "agent_id": "dir",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Siap Bos, mantap berarti udah bisa diakses ya. Tim lanjut pantau dan kabarin kalau ada yang perlu dicek."
   }
  ],
  "stats": {
@@ -836,7 +836,7 @@
    "week": "2026-10-12",
    "total": 17,
    "posted": 7,
-   "pending": 0,
+   "pending": 2,
    "scheduled": 0,
    "views": 0,
    "likes": 19,
@@ -902,9 +902,14 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4161.799805,
+  "price": 4159,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-13 23:16:02",
+    "decision": "NO TRADE",
+    "reason": "di luar jam sesi London–New York"
+   },
    {
     "ts": "2026-10-13 23:01:22",
     "decision": "NO TRADE",
@@ -929,11 +934,6 @@
     "ts": "2026-10-13 22:01:02",
     "decision": "NO TRADE",
     "reason": "di luar jam sesi London–New York"
-   },
-   {
-    "ts": "2026-10-13 20:46:02",
-    "decision": "NO TRADE",
-    "reason": "di luar jam sesi London–New York"
    }
   ],
   "trades": [],
@@ -955,7 +955,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-13 23:01:22",
+   "ts": "2026-10-13 23:16:02",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -974,7 +974,7 @@
     "bias": "bearish",
     "score": -3,
     "trigger": null,
-    "note": "bearish (skor -3) · harga 4162.40 · EMA50 H1 4171.38 · RSI M15 47"
+    "note": "bearish (skor -3) · harga 4158.90 · EMA50 H1 4171.24 · RSI M15 41"
    }
   },
   "fund": {
@@ -1057,26 +1057,26 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "sideways",
-    "score": 0,
-    "price": 4162.4,
-    "ema20": 4162.08,
-    "ema50": 4164.47,
-    "rsi": 50.2,
-    "n": 225,
-    "slot": 2986554,
-    "at": 1791932462257
+    "bias": "bearish",
+    "score": -2,
+    "price": 4159.5,
+    "ema20": 4161.84,
+    "ema50": 4164.28,
+    "rsi": 41.6,
+    "n": 226,
+    "slot": 2986555,
+    "at": 1791933062269
    },
    "M15": {
     "bias": "bearish",
     "score": -2,
-    "price": 4162.4,
-    "ema20": 4162.51,
-    "ema50": 4166.99,
-    "rsi": 47.5,
+    "price": 4158.6,
+    "ema20": 4162.14,
+    "ema50": 4166.66,
+    "rsi": 40.1,
     "n": 299,
-    "slot": 1991036,
-    "at": 1791932462263
+    "slot": 1991037,
+    "at": 1791933362299
    },
    "M30": {
     "bias": "bearish",
