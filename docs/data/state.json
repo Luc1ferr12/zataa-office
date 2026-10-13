@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-10-13T15:55:38.509Z",
- "today": "2026-10-13",
+ "generated_at": "2026-10-13T16:05:38.506Z",
+ "today": "2026-10-14",
  "week_start": "2026-10-12",
  "campaign": {
   "week_start": "2026-10-12",
@@ -78,7 +78,7 @@
    "title": "Data Analyst",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-10-13 13:00:45"
+   "updated_at": "2026-10-13 16:00:40"
   },
   {
    "id": "price",
@@ -102,7 +102,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-13 15:46:02"
+   "updated_at": "2026-10-13 16:01:02"
   },
   {
    "id": "tresearch",
@@ -110,23 +110,23 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: CPI headline panas (0.6% vs 0.4%), core 0.2% sejuk. Berita 24 jam minim; DXY & risiko Fed hike menekan, geopolitik menopang.",
-   "updated_at": "2026-10-13 15:46:02"
+   "updated_at": "2026-10-13 16:01:02"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Bias sideways",
-   "updated_at": "2026-10-13 15:46:02"
+   "current_task": "Bias bearish",
+   "updated_at": "2026-10-13 16:01:02"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: market sideways, tunggu arah jelas",
-   "updated_at": "2026-10-13 15:46:02"
+   "current_task": "NO TRADE: bearish, tapi belum ada pemicu entry di area",
+   "updated_at": "2026-10-13 16:01:02"
   },
   {
    "id": "texec",
@@ -388,41 +388,51 @@
   {
    "agent_id": "copywriter",
    "type": "copy",
-   "title": "Champions Shanghai: Americas Kuasai Playoff, Tuan Rumah China Habis?",
+   "title": "Preview Week 9 MPL ID S18: Pekan Hidup-Mati Siapa?",
    "status": "todo"
   },
   {
-   "agent_id": "designer",
-   "type": "design",
-   "title": "Champions Shanghai: Americas Kuasai Playoff, Tuan Rumah China Habis?",
+   "agent_id": "video",
+   "type": "video",
+   "title": "Preview Week 9 MPL ID S18: Pekan Hidup-Mati Siapa?",
    "status": "todo"
   },
   {
    "agent_id": "publisher",
    "type": "publish",
-   "title": "Champions Shanghai: Americas Kuasai Playoff, Tuan Rumah China Habis?",
+   "title": "Preview Week 9 MPL ID S18: Pekan Hidup-Mati Siapa?",
    "status": "todo"
   },
   {
    "agent_id": "copywriter",
    "type": "copy",
-   "title": "Polling: Tim Mana yang Pasti Lolos Playoff MPL ID S18?",
+   "title": "Isi VP Dulu Sebelum Nonton Final Champions — Top Up di zataa.my.id",
    "status": "todo"
   },
   {
    "agent_id": "designer",
    "type": "design",
-   "title": "Polling: Tim Mana yang Pasti Lolos Playoff MPL ID S18?",
+   "title": "Isi VP Dulu Sebelum Nonton Final Champions — Top Up di zataa.my.id",
    "status": "todo"
   },
   {
    "agent_id": "publisher",
    "type": "publish",
-   "title": "Polling: Tim Mana yang Pasti Lolos Playoff MPL ID S18?",
+   "title": "Isi VP Dulu Sebelum Nonton Final Champions — Top Up di zataa.my.id",
    "status": "todo"
   }
  ],
  "activity": [
+  {
+   "ts": "2026-10-13 16:01:02",
+   "agent_id": "ttech",
+   "message": "M30 berubah arah: sideways → bearish"
+  },
+  {
+   "ts": "2026-10-13 16:00:40",
+   "agent_id": "analyst",
+   "message": "Update data 0 post IG 📈"
+  },
   {
    "ts": "2026-10-13 15:31:02",
    "agent_id": "trisk",
@@ -537,16 +547,6 @@
    "ts": "2026-10-13 11:31:02",
    "agent_id": "trisk",
    "message": "NO TRADE · bullish, tapi belum ada pemicu entry di area"
-  },
-  {
-   "ts": "2026-10-13 11:31:01",
-   "agent_id": "ttech",
-   "message": "M30 berubah arah: sideways → bullish"
-  },
-  {
-   "ts": "2026-10-13 10:31:01",
-   "agent_id": "ttech",
-   "message": "M30 berubah arah: bullish → sideways"
   }
  ],
  "chats": [
@@ -902,9 +902,14 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4160.299805,
+  "price": 4157.799805,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-13 16:01:02",
+    "decision": "NO TRADE",
+    "reason": "bearish, tapi belum ada pemicu entry di area"
+   },
    {
     "ts": "2026-10-13 15:46:02",
     "decision": "NO TRADE",
@@ -929,11 +934,6 @@
     "ts": "2026-10-13 14:46:01",
     "decision": "NO TRADE",
     "reason": "market sideways, tunggu arah jelas"
-   },
-   {
-    "ts": "2026-10-13 14:31:02",
-    "decision": "NO TRADE",
-    "reason": "market sideways, tunggu arah jelas"
    }
   ],
   "trades": [],
@@ -955,7 +955,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-13 15:46:02",
+   "ts": "2026-10-13 16:01:02",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -964,17 +964,17 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "market sideways, tunggu arah jelas",
+   "reason": "bearish, tapi belum ada pemicu entry di area",
    "fund": {
     "bias": -0.2,
     "note": "CPI headline panas (0.6% vs 0.4%), core 0.2% sejuk. Berita 24 jam minim; DXY & risiko Fed hike menekan, geopolitik menopang.",
     "blackout": null
    },
    "tech": {
-    "bias": "sideways",
-    "score": -1,
+    "bias": "bearish",
+    "score": -3,
     "trigger": null,
-    "note": "sideways (skor -1) · harga 4161.40 · EMA50 H1 4175.49 · RSI M15 30"
+    "note": "bearish (skor -3) · harga 4160.20 · EMA50 H1 4174.83 · RSI M15 29"
    }
   },
   "fund": {
@@ -1059,46 +1059,46 @@
    "M10": {
     "bias": "bearish",
     "score": -3,
-    "price": 4160.2,
-    "ema20": 4171.48,
-    "ema50": 4177.99,
-    "rsi": 28,
-    "n": 182,
-    "slot": 2986511,
-    "at": 1791906662118
+    "price": 4159.9,
+    "ema20": 4170.38,
+    "ema50": 4177.28,
+    "rsi": 27.7,
+    "n": 183,
+    "slot": 2986512,
+    "at": 1791907262100
    },
    "M15": {
     "bias": "bearish",
     "score": -3,
-    "price": 4161.2,
-    "ema20": 4174.98,
-    "ema50": 4179.29,
-    "rsi": 29.3,
+    "price": 4159.9,
+    "ema20": 4173.55,
+    "ema50": 4178.53,
+    "rsi": 28.3,
     "n": 299,
-    "slot": 1991007,
-    "at": 1791906361963
+    "slot": 1991008,
+    "at": 1791907262105
    },
    "M30": {
-    "bias": "sideways",
-    "score": 0,
-    "price": 4161.4,
-    "ema20": 4179.05,
-    "ema50": 4178.46,
-    "rsi": 34.2,
-    "n": 60,
-    "slot": 995503,
-    "at": 1791905461942
+    "bias": "bearish",
+    "score": -2,
+    "price": 4159.9,
+    "ema20": 4177.23,
+    "ema50": 4177.73,
+    "rsi": 33.3,
+    "n": 61,
+    "slot": 995504,
+    "at": 1791907262106
    },
    "H1": {
     "bias": "sideways",
     "score": 0,
-    "price": 4169.5,
-    "ema20": 4180.04,
-    "ema50": 4176.06,
-    "rsi": 42.2,
+    "price": 4159.9,
+    "ema20": 4178.12,
+    "ema50": 4175.43,
+    "rsi": 36.8,
     "n": 299,
-    "slot": 497751,
-    "at": 1791903661937
+    "slot": 497752,
+    "at": 1791907262114
    }
   },
   "currency": "USC",
