@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-13T03:55:38.228Z",
+ "generated_at": "2026-10-13T04:05:38.237Z",
  "today": "2026-10-13",
  "week_start": "2026-10-12",
  "campaign": {
@@ -21,8 +21,8 @@
    "name": "Andre",
    "title": "Marketing Director",
    "status": "done",
-   "current_task": null,
-   "updated_at": "2026-10-12 23:06:36"
+   "current_task": "Bagi tugas: Jam brapa kontenya upload ?",
+   "updated_at": "2026-10-13 03:58:54"
   },
   {
    "id": "researcher",
@@ -78,7 +78,7 @@
    "title": "Data Analyst",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-10-13 01:00:42"
+   "updated_at": "2026-10-13 04:00:44"
   },
   {
    "id": "price",
@@ -86,7 +86,7 @@
    "title": "Price Watcher",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-10-13 02:00:38"
+   "updated_at": "2026-10-13 04:00:44"
   },
   {
    "id": "ob",
@@ -102,7 +102,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-13 03:46:01"
+   "updated_at": "2026-10-13 04:01:01"
   },
   {
    "id": "tresearch",
@@ -110,7 +110,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Odds Fed naik turun setelah data AS lunak; tensi Timur Tengah dukung emas, yield & DXY kuat menahan. Berita 13 Okt belum ada.",
-   "updated_at": "2026-10-13 03:46:01"
+   "updated_at": "2026-10-13 04:01:01"
   },
   {
    "id": "ttech",
@@ -118,7 +118,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Bias sideways",
-   "updated_at": "2026-10-13 03:46:01"
+   "updated_at": "2026-10-13 04:01:01"
   },
   {
    "id": "trisk",
@@ -126,7 +126,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: di luar jam sesi London–New York",
-   "updated_at": "2026-10-13 03:46:01"
+   "updated_at": "2026-10-13 04:01:01"
   },
   {
    "id": "texec",
@@ -424,6 +424,21 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-13 04:00:44",
+   "agent_id": "analyst",
+   "message": "Update data 7 post IG 📈"
+  },
+  {
+   "ts": "2026-10-13 04:00:38",
+   "agent_id": "owner",
+   "message": "Chat: 👌👌"
+  },
+  {
+   "ts": "2026-10-13 03:58:38",
+   "agent_id": "owner",
+   "message": "Chat: Jam brapa kontenya upload ?"
+  },
+  {
    "ts": "2026-10-13 03:16:01",
    "agent_id": "trisk",
    "message": "NO TRADE · di luar jam sesi London–New York"
@@ -532,24 +547,51 @@
    "ts": "2026-10-12 23:44:38",
    "agent_id": "owner",
    "message": "Approve 1 ide konten tambahan 💡"
-  },
-  {
-   "ts": "2026-10-12 23:31:01",
-   "agent_id": "ttech",
-   "message": "M30 berubah arah: bearish → sideways"
-  },
-  {
-   "ts": "2026-10-12 23:21:01",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: sideways → bullish"
-  },
-  {
-   "ts": "2026-10-12 23:06:32",
-   "agent_id": "publisher",
-   "message": "QA lolos: #8 carousel Champions (7 slide) & #9 polling MPL, semua tim ada logo, terkirim ke Owner"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-10-13 04:00:38",
+   "agent_id": "dir",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Siap Bos! 🫡"
+  },
+  {
+   "ts": "2026-10-13 04:00:38",
+   "agent_id": "owner",
+   "to_id": "dir",
+   "kind": "bos",
+   "message": "👌👌"
+  },
+  {
+   "ts": "2026-10-13 03:58:55",
+   "agent_id": "publisher",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Malamnya jam 19:00 WIB (20:00 WITA) giliran polling MPL ID: ONIC, DEWA, atau GEEK yang rebut slot playoff. Dua-duanya udah di-approve, tinggal tayang aja 👍"
+  },
+  {
+   "ts": "2026-10-13 03:58:55",
+   "agent_id": "publisher",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Siang ini jam 12:00 WIB (13:00 WITA) carousel Valorant Champions Shanghai yang naik duluan, Bos, kira-kira sejam lagi 🔥"
+  },
+  {
+   "ts": "2026-10-13 03:58:38",
+   "agent_id": "dir",
+   "to_id": null,
+   "kind": "oper",
+   "message": "Oke tim, ada titah dari Bos. Aku bagi tugasnya ya 👇"
+  },
+  {
+   "ts": "2026-10-13 03:58:38",
+   "agent_id": "owner",
+   "to_id": "dir",
+   "kind": "bos",
+   "message": "Jam brapa kontenya upload ?"
+  },
   {
    "ts": "2026-10-12 23:46:34",
    "agent_id": "publisher",
@@ -787,48 +829,6 @@
    "to_id": null,
    "kind": "oper",
    "message": "\"Road to Playoff MPL ID S18: Siapa Aman, Siapa Tera\" udah tayang di IG 🚀 Makasih semua!"
-  },
-  {
-   "ts": "2026-10-12 04:58:52",
-   "agent_id": "video",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Durasinya ±38 detik, ada VO + ajakan komen prediksi juara, cocok buat pancing interaksi malam ini Bos 🔥"
-  },
-  {
-   "ts": "2026-10-12 04:58:52",
-   "agent_id": "researcher",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Isinya Upper Final Vitality vs LOUD + rematch G2 vs 100 Thieves, Grand Final Minggu 18 Okt. Udah dicek 2 sumber, logo 4 timnya lengkap."
-  },
-  {
-   "ts": "2026-10-12 04:58:52",
-   "agent_id": "publisher",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Siap Bos! Video tambahan \"Top 4 Champions Shanghai: Siapa Angkat Trofi?\" udah aku kirim ke Telegram, slot kilat, begitu ✅ langsung tayang 🙏"
-  },
-  {
-   "ts": "2026-10-12 04:58:33",
-   "agent_id": "video",
-   "to_id": "researcher",
-   "kind": "santai",
-   "message": "Logo 4 tim Valorant akhirnya dapet juga ya Cla, tadi sempet diblok mulu 😅"
-  },
-  {
-   "ts": "2026-10-12 04:58:33",
-   "agent_id": "publisher",
-   "to_id": "owner",
-   "kind": "oper",
-   "message": "\"QA & kirim video #20 ke Owner\" udah lolos QA, tinggal nunggu ✅ dari Bos"
-  },
-  {
-   "ts": "2026-10-12 04:58:24",
-   "agent_id": "video",
-   "to_id": "publisher",
-   "kind": "oper",
-   "message": "Render \"Render video Top 4 Champions Shanghai\" selesai, Fikri. Cek cover-nya ya"
   }
  ],
  "stats": {
@@ -839,7 +839,7 @@
    "pending": 0,
    "scheduled": 3,
    "views": 0,
-   "likes": 11,
+   "likes": 13,
    "comments": 0,
    "shares": 0,
    "saves": 0,
@@ -871,7 +871,7 @@
    "pending": 0,
    "scheduled": 0,
    "views": 0,
-   "likes": 51,
+   "likes": 55,
    "comments": 0,
    "shares": 0,
    "saves": 0,
@@ -902,9 +902,14 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4185.899902,
+  "price": 4189.899902,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-13 04:01:01",
+    "decision": "NO TRADE",
+    "reason": "di luar jam sesi London–New York"
+   },
    {
     "ts": "2026-10-13 03:46:01",
     "decision": "NO TRADE",
@@ -929,11 +934,6 @@
     "ts": "2026-10-13 02:46:01",
     "decision": "NO TRADE",
     "reason": "di luar jam sesi London–New York"
-   },
-   {
-    "ts": "2026-10-13 02:31:01",
-    "decision": "NO TRADE",
-    "reason": "di luar jam sesi London–New York"
    }
   ],
   "trades": [],
@@ -955,7 +955,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-13 03:46:01",
+   "ts": "2026-10-13 04:01:01",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -972,9 +972,9 @@
    },
    "tech": {
     "bias": "sideways",
-    "score": 1,
+    "score": 0,
     "trigger": null,
-    "note": "sideways (skor 1) · harga 4183.70 · EMA50 H1 4171.27 · RSI M15 64"
+    "note": "sideways (skor 0) · harga 4189.40 · EMA50 H1 4172.15 · RSI M15 69"
    }
   },
   "fund": {
@@ -1059,46 +1059,46 @@
    "M10": {
     "bias": "sideways",
     "score": 1,
-    "price": 4185.5,
-    "ema20": 4174.07,
-    "ema50": 4171.44,
-    "rsi": 63.3,
-    "n": 110,
-    "slot": 2986439,
-    "at": 1791863461439
+    "price": 4188.2,
+    "ema20": 4175.42,
+    "ema50": 4172.1,
+    "rsi": 65.3,
+    "n": 111,
+    "slot": 2986440,
+    "at": 1791864061445
    },
    "M15": {
     "bias": "sideways",
     "score": 1,
-    "price": 4183.2,
-    "ema20": 4172.44,
-    "ema50": 4171.69,
-    "rsi": 63.9,
+    "price": 4188.2,
+    "ema20": 4173.94,
+    "ema50": 4172.34,
+    "rsi": 67.8,
     "n": 299,
-    "slot": 1990959,
-    "at": 1791863161437
+    "slot": 1990960,
+    "at": 1791864061450
    },
    "M30": {
     "bias": "sideways",
     "score": -1,
-    "price": 4182.9,
-    "ema20": 4171.24,
-    "ema50": 4173.08,
-    "rsi": 60.8,
+    "price": 4188.2,
+    "ema20": 4172.86,
+    "ema50": 4173.67,
+    "rsi": 64.4,
     "n": 299,
-    "slot": 995479,
-    "at": 1791862261444
+    "slot": 995480,
+    "at": 1791864061459
    },
    "H1": {
     "bias": "bullish",
-    "score": 3,
-    "price": 4181,
-    "ema20": 4172.74,
-    "ema50": 4170.77,
-    "rsi": 55,
+    "score": 2,
+    "price": 4188.2,
+    "ema20": 4174.22,
+    "ema50": 4171.45,
+    "rsi": 58.9,
     "n": 299,
-    "slot": 497739,
-    "at": 1791860461434
+    "slot": 497740,
+    "at": 1791864061466
    }
   },
   "currency": "USC",
