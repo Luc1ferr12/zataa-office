@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-13T08:59:38.284Z",
+ "generated_at": "2026-10-13T09:05:38.343Z",
  "today": "2026-10-13",
  "week_start": "2026-10-12",
  "campaign": {
@@ -62,7 +62,7 @@
    "title": "Social Media Publisher",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-10-13 05:02:17"
+   "updated_at": "2026-10-13 09:01:01"
   },
   {
    "id": "ads",
@@ -102,7 +102,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-13 08:46:01"
+   "updated_at": "2026-10-13 09:01:01"
   },
   {
    "id": "tresearch",
@@ -110,7 +110,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Odds Fed naik turun setelah data AS lunak; tensi Timur Tengah dukung emas, yield & DXY kuat menahan. Berita 13 Okt belum ada.",
-   "updated_at": "2026-10-13 08:46:01"
+   "updated_at": "2026-10-13 09:01:01"
   },
   {
    "id": "ttech",
@@ -118,7 +118,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Bias bullish",
-   "updated_at": "2026-10-13 08:46:01"
+   "updated_at": "2026-10-13 09:01:01"
   },
   {
    "id": "trisk",
@@ -126,7 +126,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: bullish, tapi belum ada pemicu entry di area",
-   "updated_at": "2026-10-13 08:46:01"
+   "updated_at": "2026-10-13 09:01:01"
   },
   {
    "id": "texec",
@@ -235,10 +235,10 @@
    "game": "valorant",
    "pillar": "esport",
    "title": "Head-to-Head: Vitality vs LOUD — Balas Dendam atau Ulang Sejarah?",
-   "status": "approved",
+   "status": "posted",
    "asset_url": "{\"feed\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-13/22-head-to-head-vitality-vs-loud-balas-dend.jpg\"],\"story\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-13/22-head-to-head-vitality-vs-loud-balas-dend-916.jpg\"]}",
    "scheduled_at": null,
-   "posted_at": null
+   "posted_at": "2026-10-13 09:01:01"
   },
   {
    "id": 9,
@@ -424,6 +424,21 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-13 09:01:01",
+   "agent_id": "ttech",
+   "message": "M15 berubah arah: bullish → sideways"
+  },
+  {
+   "ts": "2026-10-13 09:01:01",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: bullish → sideways"
+  },
+  {
+   "ts": "2026-10-13 09:01:01",
+   "agent_id": "publisher",
+   "message": "Posting #22 ke IG ✅"
+  },
+  {
    "ts": "2026-10-13 08:51:01",
    "agent_id": "ttech",
    "message": "M10 berubah arah: sideways → bullish"
@@ -532,24 +547,16 @@
    "ts": "2026-10-13 05:02:17",
    "agent_id": "publisher",
    "message": "Posting #8 ke IG ✅"
-  },
-  {
-   "ts": "2026-10-13 04:16:01",
-   "agent_id": "trisk",
-   "message": "NO TRADE · di luar jam sesi London–New York"
-  },
-  {
-   "ts": "2026-10-13 04:00:44",
-   "agent_id": "analyst",
-   "message": "Update data 7 post IG 📈"
-  },
-  {
-   "ts": "2026-10-13 04:00:38",
-   "agent_id": "owner",
-   "message": "Chat: 👌👌"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-10-13 09:01:01",
+   "agent_id": "publisher",
+   "to_id": null,
+   "kind": "oper",
+   "message": "\"Head-to-Head: Vitality vs LOUD — Balas Dendam atau\" udah tayang di IG 🚀 Makasih semua!"
+  },
   {
    "ts": "2026-10-13 05:55:44",
    "agent_id": "dir",
@@ -822,22 +829,15 @@
    "to_id": null,
    "kind": "oper",
    "message": "\"Top 4 Champions Shanghai: Siapa Angkat Trofi?\" udah tayang di IG 🚀 Makasih semua!"
-  },
-  {
-   "ts": "2026-10-12 05:14:35",
-   "agent_id": "video",
-   "to_id": "publisher",
-   "kind": "oper",
-   "message": "Render \"Revisi #20: Top 4 Champions Shanghai: Siapa Angkat Trofi?\" selesai, Fikri. Cek cover-nya ya"
   }
  ],
  "stats": {
   "this_week": {
    "week": "2026-10-12",
    "total": 17,
-   "posted": 5,
+   "posted": 6,
    "pending": 0,
-   "scheduled": 2,
+   "scheduled": 1,
    "views": 0,
    "likes": 15,
    "comments": 0,
@@ -902,9 +902,14 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4188.299805,
+  "price": 4189.299805,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-13 09:01:01",
+    "decision": "NO TRADE",
+    "reason": "bullish, tapi belum ada pemicu entry di area"
+   },
    {
     "ts": "2026-10-13 08:46:01",
     "decision": "NO TRADE",
@@ -929,11 +934,6 @@
     "ts": "2026-10-13 07:46:01",
     "decision": "NO TRADE",
     "reason": "bullish, tapi belum ada pemicu entry di area"
-   },
-   {
-    "ts": "2026-10-13 07:31:01",
-    "decision": "NO TRADE",
-    "reason": "bullish, tapi belum ada pemicu entry di area"
    }
   ],
   "trades": [],
@@ -955,7 +955,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-13 08:46:01",
+   "ts": "2026-10-13 09:01:01",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -974,13 +974,10 @@
     "bias": "bullish",
     "score": 2,
     "trigger": null,
-    "note": "bullish (skor 2) · harga 4188.70 · EMA50 H1 4175.18 · RSI M15 52"
+    "note": "bullish (skor 2) · harga 4187.50 · EMA50 H1 4175.65 · RSI M15 51"
    }
   },
-  "fund": {
-   "bias": 0.15,
-   "note": "Odds Fed naik turun setelah data AS lunak; tensi Timur Tengah dukung emas, yield & DXY kuat menahan. Berita 13 Okt belum ada."
-  },
+  "fund": null,
   "calendar": [
    {
     "title": "Core CPI m/m",
@@ -1057,48 +1054,48 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "bullish",
-    "score": 3,
-    "price": 4190.6,
-    "ema20": 4190.21,
-    "ema50": 4185.57,
-    "rsi": 52.2,
-    "n": 140,
-    "slot": 2986469,
-    "at": 1791881461659
+    "bias": "sideways",
+    "score": 0,
+    "price": 4188.3,
+    "ema20": 4190.03,
+    "ema50": 4185.68,
+    "rsi": 48.5,
+    "n": 141,
+    "slot": 2986470,
+    "at": 1791882061666
    },
    "M15": {
-    "bias": "bullish",
-    "score": 2,
-    "price": 4189.7,
-    "ema20": 4188.62,
-    "ema50": 4182.6,
-    "rsi": 53.9,
+    "bias": "sideways",
+    "score": 0,
+    "price": 4188.3,
+    "ema20": 4188.59,
+    "ema50": 4182.83,
+    "rsi": 51.9,
     "n": 299,
-    "slot": 1990979,
-    "at": 1791881161647
+    "slot": 1990980,
+    "at": 1791882061674
    },
    "M30": {
     "bias": "bullish",
     "score": 2,
-    "price": 4192.4,
-    "ema20": 4184.34,
-    "ema50": 4179.32,
-    "rsi": 61,
+    "price": 4188.3,
+    "ema20": 4184.72,
+    "ema50": 4179.67,
+    "rsi": 56,
     "n": 299,
-    "slot": 995489,
-    "at": 1791880261664
+    "slot": 995490,
+    "at": 1791882061686
    },
    "H1": {
     "bias": "bullish",
-    "score": 2,
-    "price": 4190.1,
-    "ema20": 4180.34,
-    "ema50": 4174.62,
-    "rsi": 58,
+    "score": 3,
+    "price": 4188.3,
+    "ema20": 4181.1,
+    "ema50": 4175.16,
+    "rsi": 56.5,
     "n": 299,
-    "slot": 497744,
-    "at": 1791878461647
+    "slot": 497745,
+    "at": 1791882061693
    }
   },
   "currency": "USC",
