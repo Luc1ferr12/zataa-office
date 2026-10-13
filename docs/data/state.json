@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-13T05:55:38.285Z",
+ "generated_at": "2026-10-13T06:05:38.285Z",
  "today": "2026-10-13",
  "week_start": "2026-10-12",
  "campaign": {
@@ -86,7 +86,7 @@
    "title": "Price Watcher",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-10-13 04:00:44"
+   "updated_at": "2026-10-13 06:00:38"
   },
   {
    "id": "ob",
@@ -102,7 +102,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-13 05:46:01"
+   "updated_at": "2026-10-13 06:01:01"
   },
   {
    "id": "tresearch",
@@ -110,7 +110,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Odds Fed naik turun setelah data AS lunak; tensi Timur Tengah dukung emas, yield & DXY kuat menahan. Berita 13 Okt belum ada.",
-   "updated_at": "2026-10-13 05:46:01"
+   "updated_at": "2026-10-13 06:01:01"
   },
   {
    "id": "ttech",
@@ -118,15 +118,15 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Bias sideways",
-   "updated_at": "2026-10-13 05:46:01"
+   "updated_at": "2026-10-13 06:01:01"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: di luar jam sesi London–New York",
-   "updated_at": "2026-10-13 05:46:01"
+   "current_task": "NO TRADE: market sideways, tunggu arah jelas",
+   "updated_at": "2026-10-13 06:01:01"
   },
   {
    "id": "texec",
@@ -424,6 +424,16 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-13 06:01:01",
+   "agent_id": "ttech",
+   "message": "M15 berubah arah: sideways → bullish"
+  },
+  {
+   "ts": "2026-10-13 05:55:44",
+   "agent_id": "owner",
+   "message": "Chat: Mantap"
+  },
+  {
    "ts": "2026-10-13 05:16:01",
    "agent_id": "trisk",
    "message": "NO TRADE · di luar jam sesi London–New York"
@@ -537,19 +547,23 @@
    "ts": "2026-10-12 23:46:24",
    "agent_id": "publisher",
    "message": "Konten #22 H2H Vitality vs LOUD dikirim ke Owner (slot sore)"
-  },
-  {
-   "ts": "2026-10-12 23:46:24",
-   "agent_id": "publisher",
-   "message": "Kirim #22 ke Owner buat approval"
-  },
-  {
-   "ts": "2026-10-12 23:45:55",
-   "agent_id": "researcher",
-   "message": "Nemu 1 topik baru"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-10-13 05:55:44",
+   "agent_id": "dir",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Siap Bos! 🫡"
+  },
+  {
+   "ts": "2026-10-13 05:55:44",
+   "agent_id": "owner",
+   "to_id": "dir",
+   "kind": "bos",
+   "message": "Mantap"
+  },
   {
    "ts": "2026-10-13 05:02:17",
    "agent_id": "publisher",
@@ -815,20 +829,6 @@
    "to_id": "publisher",
    "kind": "oper",
    "message": "Render \"Revisi #20: Top 4 Champions Shanghai: Siapa Angkat Trofi?\" selesai, Fikri. Cek cover-nya ya"
-  },
-  {
-   "ts": "2026-10-12 05:14:35",
-   "agent_id": "copywriter",
-   "to_id": "designer",
-   "kind": "oper",
-   "message": "Maria, copy \"Revisi #20: Top 4 Champions Shanghai: Siapa Angkat Trofi?\" udah masuk. Headline-nya jangan dikecilin ya 😆"
-  },
-  {
-   "ts": "2026-10-12 05:02:49",
-   "agent_id": "video",
-   "to_id": null,
-   "kind": "curhat",
-   "message": "Siap, revisi dikerjain! Bos-nya teliti banget 😅"
   }
  ],
  "stats": {
@@ -902,9 +902,14 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4193.100098,
+  "price": 4193.200195,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-13 06:01:01",
+    "decision": "NO TRADE",
+    "reason": "market sideways, tunggu arah jelas"
+   },
    {
     "ts": "2026-10-13 05:46:01",
     "decision": "NO TRADE",
@@ -929,11 +934,6 @@
     "ts": "2026-10-13 04:46:01",
     "decision": "NO TRADE",
     "reason": "di luar jam sesi London–New York"
-   },
-   {
-    "ts": "2026-10-13 04:31:01",
-    "decision": "NO TRADE",
-    "reason": "di luar jam sesi London–New York"
    }
   ],
   "trades": [],
@@ -955,7 +955,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-13 05:46:01",
+   "ts": "2026-10-13 06:01:01",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -964,7 +964,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "di luar jam sesi London–New York",
+   "reason": "market sideways, tunggu arah jelas",
    "fund": {
     "bias": 0.15,
     "note": "Odds Fed naik turun setelah data AS lunak; tensi Timur Tengah dukung emas, yield & DXY kuat menahan. Berita 13 Okt belum ada.",
@@ -974,7 +974,7 @@
     "bias": "sideways",
     "score": 0,
     "trigger": null,
-    "note": "sideways (skor 0) · harga 4192.10 · EMA50 H1 4173.19 · RSI M15 63"
+    "note": "sideways (skor 0) · harga 4193.80 · EMA50 H1 4174.06 · RSI M15 65"
    }
   },
   "fund": {
@@ -1059,46 +1059,46 @@
    "M10": {
     "bias": "sideways",
     "score": 1,
-    "price": 4192.9,
-    "ema20": 4188.81,
-    "ema50": 4180.36,
-    "rsi": 59.7,
-    "n": 122,
-    "slot": 2986451,
-    "at": 1791870661537
+    "price": 4193.8,
+    "ema20": 4189.28,
+    "ema50": 4180.89,
+    "rsi": 60.7,
+    "n": 123,
+    "slot": 2986452,
+    "at": 1791871261531
    },
    "M15": {
-    "bias": "sideways",
-    "score": 1,
-    "price": 4192.5,
-    "ema20": 4184.35,
-    "ema50": 4177.74,
-    "rsi": 63.8,
+    "bias": "bullish",
+    "score": 2,
+    "price": 4193.8,
+    "ema20": 4185.25,
+    "ema50": 4178.37,
+    "rsi": 64.9,
     "n": 299,
-    "slot": 1990967,
-    "at": 1791870361536
+    "slot": 1990968,
+    "at": 1791871261536
    },
    "M30": {
     "bias": "sideways",
     "score": 1,
-    "price": 4196.1,
-    "ema20": 4178.55,
-    "ema50": 4176.05,
-    "rsi": 69.2,
+    "price": 4193.8,
+    "ema20": 4180,
+    "ema50": 4176.75,
+    "rsi": 66.1,
     "n": 299,
-    "slot": 995483,
-    "at": 1791869461532
+    "slot": 995484,
+    "at": 1791871261551
    },
    "H1": {
     "bias": "bullish",
     "score": 2,
-    "price": 4196.1,
-    "ema20": 4176.3,
-    "ema50": 4172.42,
-    "rsi": 62.7,
+    "price": 4193.8,
+    "ema20": 4177.97,
+    "ema50": 4173.25,
+    "rsi": 60.9,
     "n": 299,
-    "slot": 497741,
-    "at": 1791867661508
+    "slot": 497742,
+    "at": 1791871261558
    }
   },
   "currency": "USC",
