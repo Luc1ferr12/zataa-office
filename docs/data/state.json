@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-13T01:25:38.179Z",
+ "generated_at": "2026-10-13T01:35:38.181Z",
  "today": "2026-10-13",
  "week_start": "2026-10-12",
  "campaign": {
@@ -102,7 +102,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-13 01:16:01"
+   "updated_at": "2026-10-13 01:31:01"
   },
   {
    "id": "tresearch",
@@ -110,7 +110,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Odds Fed naik turun setelah data AS lunak; tensi Timur Tengah dukung emas, yield & DXY kuat menahan. Berita 13 Okt belum ada.",
-   "updated_at": "2026-10-13 01:16:01"
+   "updated_at": "2026-10-13 01:31:01"
   },
   {
    "id": "ttech",
@@ -118,7 +118,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Bias sideways",
-   "updated_at": "2026-10-13 01:16:01"
+   "updated_at": "2026-10-13 01:31:01"
   },
   {
    "id": "trisk",
@@ -126,7 +126,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: di luar jam sesi London–New York",
-   "updated_at": "2026-10-13 01:16:01"
+   "updated_at": "2026-10-13 01:31:01"
   },
   {
    "id": "texec",
@@ -424,6 +424,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-13 01:31:01",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: sideways → bearish"
+  },
+  {
    "ts": "2026-10-13 01:21:01",
    "agent_id": "ttech",
    "message": "M10 berubah arah: bearish → sideways"
@@ -542,11 +547,6 @@
    "ts": "2026-10-12 23:02:22",
    "agent_id": "analyst",
    "message": "Data 12 Okt: 4 post, total 2 like, views 0 di semua post (cek izin insights API)"
-  },
-  {
-   "ts": "2026-10-12 23:02:11",
-   "agent_id": "price",
-   "message": "zataa.my.id sudah bisa dibuka lagi, tapi angka harga nggak tampil di halaman depan; promo tetap tanpa angka"
   }
  ],
  "chats": [
@@ -902,9 +902,14 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4157.299805,
+  "price": 4158.100098,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-13 01:31:01",
+    "decision": "NO TRADE",
+    "reason": "di luar jam sesi London–New York"
+   },
    {
     "ts": "2026-10-13 01:16:01",
     "decision": "NO TRADE",
@@ -929,11 +934,6 @@
     "ts": "2026-10-13 00:16:01",
     "decision": "NO TRADE",
     "reason": "di luar jam sesi London–New York"
-   },
-   {
-    "ts": "2026-10-13 00:01:01",
-    "decision": "NO TRADE",
-    "reason": "di luar jam sesi London–New York"
    }
   ],
   "trades": [],
@@ -955,7 +955,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-13 01:16:01",
+   "ts": "2026-10-13 01:31:01",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -974,7 +974,7 @@
     "bias": "sideways",
     "score": -1,
     "trigger": null,
-    "note": "sideways (skor -1) · harga 4168.40 · EMA50 H1 4170.41 · RSI M15 49"
+    "note": "sideways (skor -1) · harga 4157.80 · EMA50 H1 4169.99 · RSI M15 38"
    }
   },
   "fund": {
@@ -1057,37 +1057,37 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "sideways",
-    "score": -1,
-    "price": 4170.7,
-    "ema20": 4168.3,
-    "ema50": 4169.61,
-    "rsi": 52.7,
-    "n": 95,
-    "slot": 2986424,
-    "at": 1791854461316
+    "bias": "bearish",
+    "score": -3,
+    "price": 4158.4,
+    "ema20": 4167.36,
+    "ema50": 4169.17,
+    "rsi": 38.8,
+    "n": 96,
+    "slot": 2986425,
+    "at": 1791855061323
    },
    "M15": {
     "bias": "bearish",
     "score": -3,
-    "price": 4167.3,
-    "ema20": 4168.39,
-    "ema50": 4170.89,
-    "rsi": 47.8,
+    "price": 4158.4,
+    "ema20": 4167.44,
+    "ema50": 4170.4,
+    "rsi": 38.8,
     "n": 299,
-    "slot": 1990949,
-    "at": 1791854161334
+    "slot": 1990950,
+    "at": 1791855061330
    },
    "M30": {
     "bias": "bearish",
     "score": -2,
-    "price": 4157,
-    "ema20": 4169.9,
-    "ema50": 4173.19,
-    "rsi": 34.3,
+    "price": 4158.4,
+    "ema20": 4168.81,
+    "ema50": 4172.61,
+    "rsi": 36.3,
     "n": 299,
-    "slot": 995474,
-    "at": 1791853261339
+    "slot": 995475,
+    "at": 1791855061338
    },
    "H1": {
     "bias": "sideways",
