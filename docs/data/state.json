@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-13T19:07:18.741Z",
+ "generated_at": "2026-10-13T19:17:18.747Z",
  "today": "2026-10-14",
  "week_start": "2026-10-12",
  "campaign": {
@@ -102,7 +102,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-13 19:01:02"
+   "updated_at": "2026-10-13 19:16:02"
   },
   {
    "id": "tresearch",
@@ -110,7 +110,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: CPI headline panas (0.6% vs 0.4%), core 0.2% sejuk. Berita 24 jam minim; DXY & risiko Fed hike menekan, geopolitik menopang.",
-   "updated_at": "2026-10-13 19:01:02"
+   "updated_at": "2026-10-13 19:16:02"
   },
   {
    "id": "ttech",
@@ -118,7 +118,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Bias bearish",
-   "updated_at": "2026-10-13 19:01:02"
+   "updated_at": "2026-10-13 19:16:02"
   },
   {
    "id": "trisk",
@@ -126,7 +126,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: bearish, tapi belum ada pemicu entry di area",
-   "updated_at": "2026-10-13 19:01:02"
+   "updated_at": "2026-10-13 19:16:02"
   },
   {
    "id": "texec",
@@ -424,6 +424,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-13 19:16:02",
+   "agent_id": "ttech",
+   "message": "M15 berubah arah: sideways → bearish"
+  },
+  {
    "ts": "2026-10-13 19:01:02",
    "agent_id": "ttech",
    "message": "M15 berubah arah: bearish → sideways"
@@ -542,11 +547,6 @@
    "ts": "2026-10-13 13:01:01",
    "agent_id": "ttech",
    "message": "M15 berubah arah: bullish → sideways"
-  },
-  {
-   "ts": "2026-10-13 13:00:45",
-   "agent_id": "analyst",
-   "message": "Update data 10 post IG 📈"
   }
  ],
  "chats": [
@@ -902,9 +902,14 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4164.299805,
+  "price": 4164,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-13 19:16:02",
+    "decision": "NO TRADE",
+    "reason": "bearish, tapi belum ada pemicu entry di area"
+   },
    {
     "ts": "2026-10-13 19:01:02",
     "decision": "NO TRADE",
@@ -929,11 +934,6 @@
     "ts": "2026-10-13 18:01:02",
     "decision": "NO TRADE",
     "reason": "bearish, tapi belum ada pemicu entry di area"
-   },
-   {
-    "ts": "2026-10-13 17:46:02",
-    "decision": "NO TRADE",
-    "reason": "bearish, tapi belum ada pemicu entry di area"
    }
   ],
   "trades": [],
@@ -955,7 +955,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-13 19:01:02",
+   "ts": "2026-10-13 19:16:02",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -974,7 +974,7 @@
     "bias": "bearish",
     "score": -3,
     "trigger": null,
-    "note": "bearish (skor -3) · harga 4164.40 · EMA50 H1 4172.92 · RSI M15 48"
+    "note": "bearish (skor -3) · harga 4163.90 · EMA50 H1 4172.90 · RSI M15 48"
    }
   },
   "fund": {
@@ -1059,24 +1059,24 @@
    "M10": {
     "bias": "sideways",
     "score": -1,
-    "price": 4164.6,
-    "ema20": 4161.11,
-    "ema50": 4167.75,
-    "rsi": 52.9,
-    "n": 201,
-    "slot": 2986530,
-    "at": 1791918062064
+    "price": 4164.8,
+    "ema20": 4161.46,
+    "ema50": 4167.63,
+    "rsi": 53.1,
+    "n": 202,
+    "slot": 2986531,
+    "at": 1791918662085
    },
    "M15": {
-    "bias": "sideways",
-    "score": -1,
-    "price": 4164.6,
-    "ema20": 4163.51,
-    "ema50": 4171.02,
-    "rsi": 48.4,
+    "bias": "bearish",
+    "score": -3,
+    "price": 4163.1,
+    "ema20": 4163.47,
+    "ema50": 4170.71,
+    "rsi": 46.7,
     "n": 299,
-    "slot": 1991020,
-    "at": 1791918062069
+    "slot": 1991021,
+    "at": 1791918962082
    },
    "M30": {
     "bias": "bearish",
