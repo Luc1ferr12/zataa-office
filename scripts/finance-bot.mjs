@@ -113,9 +113,15 @@ export async function startFinanceBot(log = console.log) {
   log('bot keuangan Aprista jalan');
   setInterval(() => runJobs(log), 60_000);
   runJobs(log);
+  let fails = 0;
   for (;;) {
     let ups = [];
-    try { ups = await api('getUpdates', { offset, timeout: 50, allowed_updates: ['message'] }); } catch (e) { log(`bot keuangan: ${e.message}`); await new Promise((r) => setTimeout(r, 15_000)); continue; }
+    // long poll sesekali putus (mis. pas git push dashboard) → sambung lagi cepat; baru dicatat kalau gagal beruntun
+    try { ups = await api('getUpdates', { offset, timeout: 50, allowed_updates: ['message'] }); fails = 0; } catch (e) {
+      if (++fails >= 3) log(`bot keuangan: ${e.message}${e.cause ? ` (${e.cause.code ?? e.cause.message})` : ''} ×${fails}`);
+      await new Promise((r) => setTimeout(r, fails < 3 ? 2_000 : 15_000));
+      continue;
+    }
     const batch = new Map();
     for (const u of ups) {
       offset = u.update_id + 1;
