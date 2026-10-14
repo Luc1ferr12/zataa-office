@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-14T00:47:18.924Z",
+ "generated_at": "2026-10-14T00:57:18.925Z",
  "today": "2026-10-14",
  "week_start": "2026-10-12",
  "campaign": {
@@ -450,6 +450,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-14 00:51:02",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: sideways → bearish"
+  },
+  {
    "ts": "2026-10-14 00:21:19",
    "agent_id": "owner",
    "message": "Approve konten #24 ✅"
@@ -568,11 +573,6 @@
    "ts": "2026-10-13 23:02:32",
    "agent_id": "dir",
    "message": "Kirim 2 ide briefing ke Owner"
-  },
-  {
-   "ts": "2026-10-13 23:02:31",
-   "agent_id": "dir",
-   "message": "Pilih 2 ide terbaik dari briefing"
   }
  ],
  "chats": [
@@ -928,7 +928,7 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4157.5,
+  "price": 4159.100098,
   "open": [],
   "signals": [
    {
@@ -1083,15 +1083,15 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "sideways",
-    "score": 0,
-    "price": 4161.5,
-    "ema20": 4160.94,
-    "ema50": 4162.99,
-    "rsi": 50.8,
-    "n": 235,
-    "slot": 2986564,
-    "at": 1791938462343
+    "bias": "bearish",
+    "score": -2,
+    "price": 4158.1,
+    "ema20": 4160.67,
+    "ema50": 4162.8,
+    "rsi": 43.1,
+    "n": 236,
+    "slot": 2986565,
+    "at": 1791939062349
    },
    "M15": {
     "bias": "sideways",
