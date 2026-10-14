@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-14T03:19:19.294Z",
+ "generated_at": "2026-10-14T03:27:18.982Z",
  "today": "2026-10-14",
  "week_start": "2026-10-12",
  "campaign": {
@@ -21,8 +21,8 @@
    "name": "Andre",
    "title": "Marketing Director",
    "status": "done",
-   "current_task": "Briefing: pilih 2 ide",
-   "updated_at": "2026-10-13 23:02:32"
+   "current_task": "Bagi tugas: Coba lagi posting #23",
+   "updated_at": "2026-10-14 03:20:02"
   },
   {
    "id": "researcher",
@@ -61,8 +61,8 @@
    "name": "Fikri",
    "title": "Social Media Publisher",
    "status": "done",
-   "current_task": null,
-   "updated_at": "2026-10-14 03:03:22"
+   "current_task": "Posting ulang #23 NAVI vs TLID",
+   "updated_at": "2026-10-14 03:19:59"
   },
   {
    "id": "ads",
@@ -261,10 +261,10 @@
    "game": "mlbb",
    "pillar": "esport",
    "title": "Duel Puncak: NAVI vs TLID Sama-Sama 11 Poin",
-   "status": "publish_failed",
+   "status": "posted",
    "asset_url": "{\"feed\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-14/23-duel-puncak-navi-vs-tlid-sama-sama-11-po.jpg\"],\"story\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-14/23-duel-puncak-navi-vs-tlid-sama-sama-11-po-916.jpg\"]}",
    "scheduled_at": null,
-   "posted_at": null
+   "posted_at": "2026-10-14 03:19:56"
   },
   {
    "id": 10,
@@ -450,6 +450,16 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-14 03:19:59",
+   "agent_id": "publisher",
+   "message": "#23 NAVI vs TLID berhasil tayang di IG setelah retry"
+  },
+  {
+   "ts": "2026-10-14 03:19:56",
+   "agent_id": "publisher",
+   "message": "Posting #23 ke IG ✅"
+  },
+  {
    "ts": "2026-10-14 03:19:19",
    "agent_id": "owner",
    "message": "Chat: Coba lagi posting #23"
@@ -563,19 +573,44 @@
    "ts": "2026-10-14 00:16:19",
    "agent_id": "owner",
    "message": "Approve konten #10 ✅"
-  },
-  {
-   "ts": "2026-10-14 00:16:02",
-   "agent_id": "trisk",
-   "message": "NO TRADE · di luar jam sesi London–New York"
-  },
-  {
-   "ts": "2026-10-14 00:11:02",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: bearish → sideways"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-10-14 03:20:03",
+   "agent_id": "publisher",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Tadi sempat gagal, pas dicoba lagi lancar. Tinggal ditunggu komen prediksinya 👀"
+  },
+  {
+   "ts": "2026-10-14 03:20:03",
+   "agent_id": "publisher",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Siap Bos, #23 NAVI vs TLID udah aku posting ulang dan sekarang udah tayang di IG ✅"
+  },
+  {
+   "ts": "2026-10-14 03:19:56",
+   "agent_id": "publisher",
+   "to_id": null,
+   "kind": "oper",
+   "message": "\"Duel Puncak: NAVI vs TLID Sama-Sama 11 Poin\" udah tayang di IG 🚀 Makasih semua!"
+  },
+  {
+   "ts": "2026-10-14 03:19:19",
+   "agent_id": "dir",
+   "to_id": null,
+   "kind": "oper",
+   "message": "Oke tim, ada titah dari Bos. Aku bagi tugasnya ya 👇"
+  },
+  {
+   "ts": "2026-10-14 03:19:19",
+   "agent_id": "owner",
+   "to_id": "dir",
+   "kind": "bos",
+   "message": "Coba lagi posting #23"
+  },
   {
    "ts": "2026-10-14 00:18:43",
    "agent_id": "publisher",
@@ -820,48 +855,13 @@
    "to_id": "designer",
    "kind": "oper",
    "message": "Teks buat \"Teks feed H2H Vitality vs LOUD\" ready. Maria, giliranmu bikin cakep!"
-  },
-  {
-   "ts": "2026-10-12 23:45:55",
-   "agent_id": "researcher",
-   "to_id": "copywriter",
-   "kind": "oper",
-   "message": "Riset \"Verifikasi fakta Vitality vs LOUD\" beres, udah dicek 2 sumber. Ista, lanjut ya~"
-  },
-  {
-   "ts": "2026-10-12 23:44:38",
-   "agent_id": "dir",
-   "to_id": null,
-   "kind": "oper",
-   "message": "Bos ACC 1 ide tambahan! \"Head-to-Head: Vitality vs LOUD — Balas Dendam atau Ulang Sejarah?\" 🎉"
-  },
-  {
-   "ts": "2026-10-12 23:06:32",
-   "agent_id": "researcher",
-   "to_id": "designer",
-   "kind": "santai",
-   "message": "Akhirnya nemu logo resmi semua tim MPL di id-mpl.com, udah aku simpen ya Mar, nggak usah ngubek Liquipedia lagi 😆"
-  },
-  {
-   "ts": "2026-10-12 23:06:32",
-   "agent_id": "publisher",
-   "to_id": "owner",
-   "kind": "oper",
-   "message": "\"QA & kirim #8 dan #9 ke Owner\" udah lolos QA, tinggal nunggu ✅ dari Bos"
-  },
-  {
-   "ts": "2026-10-12 23:06:09",
-   "agent_id": "designer",
-   "to_id": "publisher",
-   "kind": "oper",
-   "message": "Visual \"Render #8 carousel & #9 polling\" kelar! Fikri, cek typo-nya sekalian ya 🙏"
   }
  ],
  "stats": {
   "this_week": {
    "week": "2026-10-12",
    "total": 19,
-   "posted": 7,
+   "posted": 8,
    "pending": 0,
    "scheduled": 3,
    "views": 0,
@@ -928,7 +928,7 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4169.5,
+  "price": 4168,
   "open": [],
   "signals": [
    {
@@ -1084,14 +1084,14 @@
   "tf": {
    "M10": {
     "bias": "sideways",
-    "score": -1,
-    "price": 4162.8,
-    "ema20": 4160.3,
-    "ema50": 4161.3,
-    "rsi": 53.3,
-    "n": 250,
-    "slot": 2986579,
-    "at": 1791947462438
+    "score": 0,
+    "price": 4169.6,
+    "ema20": 4161.18,
+    "ema50": 4161.63,
+    "rsi": 60.2,
+    "n": 251,
+    "slot": 2986580,
+    "at": 1791948062462
    },
    "M15": {
     "bias": "sideways",
