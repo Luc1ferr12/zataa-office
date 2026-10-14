@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-14T11:17:19.152Z",
+ "generated_at": "2026-10-14T11:27:19.149Z",
  "today": "2026-10-14",
  "week_start": "2026-10-12",
  "campaign": {
@@ -21,8 +21,8 @@
    "name": "Andre",
    "title": "Marketing Director",
    "status": "done",
-   "current_task": "Bagi tugas: Kalo gitu yg #10 itu up ulang aja biar aku tinggal bikin pub",
-   "updated_at": "2026-10-14 10:45:57"
+   "current_task": "Bagi tugas: Okee sip fikri. Terus tanggal berapa lagi ada jadwal upload ",
+   "updated_at": "2026-10-14 11:25:38"
   },
   {
    "id": "researcher",
@@ -450,6 +450,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-14 11:25:19",
+   "agent_id": "owner",
+   "message": "Chat: Okee sip fikri. Terus tanggal berapa lagi ada jadwal upload video ?"
+  },
+  {
    "ts": "2026-10-14 10:45:54",
    "agent_id": "publisher",
    "message": "#10 Preview Week 9 MPL naik ke TikTok (private), IG tidak diulang"
@@ -568,14 +573,37 @@
    "ts": "2026-10-14 05:01:04",
    "agent_id": "publisher",
    "message": "Posting #10 ke IG ✅"
-  },
-  {
-   "ts": "2026-10-14 05:01:02",
-   "agent_id": "ttech",
-   "message": "M60 berubah arah: bearish → sideways"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-10-14 11:25:39",
+   "agent_id": "publisher",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Habis itu Rabu 21 Okt, kan video rutin tiap Rabu & Sabtu. Begitu Bos approve, langsung naik ke IG Reels + TikTok (private dulu), nanti aku kabarin ya 🙏"
+  },
+  {
+   "ts": "2026-10-14 11:25:39",
+   "agent_id": "publisher",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Video berikutnya Sabtu 17 Okt siang (±12:00 WIB) Bos, isinya hasil Upper Final & jalan menuju Grand Final Champions Shanghai 🎬"
+  },
+  {
+   "ts": "2026-10-14 11:25:19",
+   "agent_id": "dir",
+   "to_id": null,
+   "kind": "oper",
+   "message": "Oke tim, ada titah dari Bos. Aku bagi tugasnya ya 👇"
+  },
+  {
+   "ts": "2026-10-14 11:25:19",
+   "agent_id": "owner",
+   "to_id": "publisher",
+   "kind": "bos",
+   "message": "Okee sip fikri. Terus tanggal berapa lagi ada jadwal upload video ?"
+  },
   {
    "ts": "2026-10-14 10:45:57",
    "agent_id": "publisher",
@@ -827,34 +855,6 @@
    "to_id": "researcher",
    "kind": "oper",
    "message": "Clariana, plan minggu ini udah aku taruh ya. Fokus \"Briefing: pilih 2 ide\". Tolong cariin bahan beritanya 🙏"
-  },
-  {
-   "ts": "2026-10-13 23:02:06",
-   "agent_id": "researcher",
-   "to_id": "copywriter",
-   "kind": "oper",
-   "message": "Riset \"Riset esport pagi: MPL Week 9 & Champions\" beres, udah dicek 2 sumber. Ista, lanjut ya~"
-  },
-  {
-   "ts": "2026-10-13 12:01:01",
-   "agent_id": "publisher",
-   "to_id": null,
-   "kind": "oper",
-   "message": "\"Polling: Tim Mana yang Pasti Lolos Playoff MPL ID \" udah tayang di IG 🚀 Makasih semua!"
-  },
-  {
-   "ts": "2026-10-13 09:01:01",
-   "agent_id": "publisher",
-   "to_id": null,
-   "kind": "oper",
-   "message": "\"Head-to-Head: Vitality vs LOUD — Balas Dendam atau\" udah tayang di IG 🚀 Makasih semua!"
-  },
-  {
-   "ts": "2026-10-13 05:55:44",
-   "agent_id": "dir",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Siap Bos! 🫡"
   }
  ],
  "stats": {
@@ -928,7 +928,7 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4139.5,
+  "price": 4141.299805,
   "open": [],
   "signals": [
    {
@@ -1085,13 +1085,13 @@
    "M10": {
     "bias": "bearish",
     "score": -3,
-    "price": 4138.2,
-    "ema20": 4145.52,
-    "ema50": 4150.78,
-    "rsi": 36.4,
-    "n": 298,
-    "slot": 2986627,
-    "at": 1791976262821
+    "price": 4143.6,
+    "ema20": 4145.34,
+    "ema50": 4150.5,
+    "rsi": 45.5,
+    "n": 299,
+    "slot": 2986628,
+    "at": 1791976862830
    },
    "M15": {
     "bias": "bearish",
