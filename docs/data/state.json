@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-14T19:27:19.323Z",
+ "generated_at": "2026-10-14T19:37:19.320Z",
  "today": "2026-10-15",
  "week_start": "2026-10-12",
  "campaign": {
@@ -102,7 +102,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-14 19:16:03"
+   "updated_at": "2026-10-14 19:31:03"
   },
   {
    "id": "tresearch",
@@ -110,7 +110,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Fed sudah naik Sept & hike Des makin dekat; DXY dekat high 18 bulan; CPI headline panas (0.6% m/m), core 0.2% cenderung jinak. Emas tertekan.",
-   "updated_at": "2026-10-14 19:16:03"
+   "updated_at": "2026-10-14 19:31:03"
   },
   {
    "id": "ttech",
@@ -118,7 +118,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Bias bearish",
-   "updated_at": "2026-10-14 19:16:03"
+   "updated_at": "2026-10-14 19:31:03"
   },
   {
    "id": "trisk",
@@ -126,7 +126,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: bearish, tapi belum ada pemicu entry di area",
-   "updated_at": "2026-10-14 19:16:03"
+   "updated_at": "2026-10-14 19:31:03"
   },
   {
    "id": "texec",
@@ -450,6 +450,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-14 19:31:03",
+   "agent_id": "trisk",
+   "message": "NO TRADE · bearish, tapi belum ada pemicu entry di area"
+  },
+  {
    "ts": "2026-10-14 19:00:27",
    "agent_id": "analyst",
    "message": "Update data 14 post IG 📈"
@@ -568,11 +573,6 @@
    "ts": "2026-10-14 11:46:42",
    "agent_id": "publisher",
    "message": "Tambah pengingat akun TikTok private di pesan approval video"
-  },
-  {
-   "ts": "2026-10-14 11:46:19",
-   "agent_id": "owner",
-   "message": "Chat: Okke nanti pas minta approval gw buat kontennya, ingetin buat bikin akun tiktoknya private lagi ya, soalnya akun lagi tak public"
   }
  ],
  "chats": [
@@ -928,9 +928,14 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4104.799805,
+  "price": 4103.5,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-14 19:31:03",
+    "decision": "NO TRADE",
+    "reason": "bearish, tapi belum ada pemicu entry di area"
+   },
    {
     "ts": "2026-10-14 19:16:03",
     "decision": "NO TRADE",
@@ -955,11 +960,6 @@
     "ts": "2026-10-14 18:16:03",
     "decision": "NO TRADE",
     "reason": "bearish, tapi belum ada pemicu entry di area"
-   },
-   {
-    "ts": "2026-10-14 18:01:03",
-    "decision": "NO TRADE",
-    "reason": "bearish, tapi belum ada pemicu entry di area"
    }
   ],
   "trades": [],
@@ -981,7 +981,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-14 19:16:03",
+   "ts": "2026-10-14 19:31:03",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1000,7 +1000,7 @@
     "bias": "bearish",
     "score": -3,
     "trigger": null,
-    "note": "bearish (skor -3) · harga 4099.40 · EMA50 H1 4143.82 · RSI M15 51"
+    "note": "bearish (skor -3) · harga 4103.10 · EMA50 H1 4143.97 · RSI M15 54"
    }
   },
   "fund": {
@@ -1072,34 +1072,34 @@
     "bias": "sideways",
     "score": 0,
     "price": 4104.6,
-    "ema20": 4092.33,
-    "ema50": 4101.78,
+    "ema20": 4093.49,
+    "ema50": 4101.89,
     "rsi": 63.1,
     "n": 299,
-    "slot": 2986676,
-    "at": 1792005663196
+    "slot": 2986677,
+    "at": 1792006263210
    },
    "M15": {
     "bias": "sideways",
     "score": 0,
-    "price": 4097.8,
-    "ema20": 4094.24,
-    "ema50": 4111.1,
-    "rsi": 49.8,
+    "price": 4104.6,
+    "ema20": 4095.22,
+    "ema50": 4110.84,
+    "rsi": 55.3,
     "n": 299,
-    "slot": 1991117,
-    "at": 1792005363199
+    "slot": 1991118,
+    "at": 1792006263215
    },
    "M30": {
     "bias": "bearish",
     "score": -2,
-    "price": 4097.3,
-    "ema20": 4106.26,
-    "ema50": 4130.46,
-    "rsi": 39,
-    "n": 115,
-    "slot": 995558,
-    "at": 1792004463184
+    "price": 4104.6,
+    "ema20": 4106.1,
+    "ema50": 4129.45,
+    "rsi": 44.4,
+    "n": 116,
+    "slot": 995559,
+    "at": 1792006263215
    },
    "H1": {
     "bias": "bearish",
