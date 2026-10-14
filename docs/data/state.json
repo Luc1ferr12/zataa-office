@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-14T12:27:19.166Z",
+ "generated_at": "2026-10-14T12:37:19.166Z",
  "today": "2026-10-14",
  "week_start": "2026-10-12",
  "campaign": {
@@ -102,7 +102,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-14 12:16:02"
+   "updated_at": "2026-10-14 12:31:03"
   },
   {
    "id": "tresearch",
@@ -110,7 +110,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Waspada rilis Core CPI m/m (20.30 WITA)",
-   "updated_at": "2026-10-14 12:16:02"
+   "updated_at": "2026-10-14 12:31:02"
   },
   {
    "id": "ttech",
@@ -118,7 +118,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Bias bearish",
-   "updated_at": "2026-10-14 12:16:02"
+   "updated_at": "2026-10-14 12:31:02"
   },
   {
    "id": "trisk",
@@ -126,7 +126,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: berita berdampak tinggi: Core CPI m/m (20.30 WITA)",
-   "updated_at": "2026-10-14 12:16:02"
+   "updated_at": "2026-10-14 12:31:03"
   },
   {
    "id": "texec",
@@ -450,6 +450,16 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-14 12:31:03",
+   "agent_id": "trisk",
+   "message": "NO TRADE · berita berdampak tinggi: Core CPI m/m (20.30 WITA)"
+  },
+  {
+   "ts": "2026-10-14 12:31:02",
+   "agent_id": "ttech",
+   "message": "M30 berubah arah: bearish → sideways"
+  },
+  {
    "ts": "2026-10-14 12:16:02",
    "agent_id": "ttech",
    "message": "M15 berubah arah: bearish → sideways"
@@ -563,16 +573,6 @@
    "ts": "2026-10-14 06:16:02",
    "agent_id": "trisk",
    "message": "NO TRADE · bearish, tapi belum ada pemicu entry di area"
-  },
-  {
-   "ts": "2026-10-14 06:16:02",
-   "agent_id": "ttech",
-   "message": "M15 berubah arah: bearish → sideways"
-  },
-  {
-   "ts": "2026-10-14 06:01:02",
-   "agent_id": "ttech",
-   "message": "M60 berubah arah: sideways → bearish"
   }
  ],
  "chats": [
@@ -928,9 +928,14 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4152.799805,
+  "price": 4117,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-14 12:31:03",
+    "decision": "NO TRADE",
+    "reason": "berita berdampak tinggi: Core CPI m/m (20.30 WITA)"
+   },
    {
     "ts": "2026-10-14 12:16:02",
     "decision": "NO TRADE",
@@ -955,11 +960,6 @@
     "ts": "2026-10-14 11:16:02",
     "decision": "NO TRADE",
     "reason": "bearish, tapi belum ada pemicu entry di area"
-   },
-   {
-    "ts": "2026-10-14 11:01:22",
-    "decision": "NO TRADE",
-    "reason": "bearish, tapi belum ada pemicu entry di area"
    }
   ],
   "trades": [],
@@ -981,7 +981,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-14 12:16:02",
+   "ts": "2026-10-14 12:31:03",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1000,7 +1000,7 @@
     "bias": "bearish",
     "score": -2,
     "trigger": null,
-    "note": "bearish (skor -2) · harga 4150.80 · EMA50 H1 4163.23 · RSI M15 55"
+    "note": "bearish (skor -2) · harga 4153.80 · EMA50 H1 4163.34 · RSI M15 59"
    }
   },
   "fund": {
@@ -1085,35 +1085,35 @@
    "M10": {
     "bias": "sideways",
     "score": -1,
-    "price": 4147.2,
-    "ema20": 4144.29,
-    "ema50": 4148.84,
-    "rsi": 52.7,
+    "price": 4153.1,
+    "ema20": 4145.13,
+    "ema50": 4149.01,
+    "rsi": 59.7,
     "n": 299,
-    "slot": 2986634,
-    "at": 1791980463073
+    "slot": 2986635,
+    "at": 1791981062896
    },
    "M15": {
     "bias": "sideways",
-    "score": -1,
-    "price": 4149.5,
-    "ema20": 4145.88,
-    "ema50": 4152.02,
-    "rsi": 53,
+    "score": 0,
+    "price": 4153.1,
+    "ema20": 4146.57,
+    "ema50": 4152.06,
+    "rsi": 57.6,
     "n": 299,
-    "slot": 1991089,
-    "at": 1791980162879
+    "slot": 1991090,
+    "at": 1791981062902
    },
    "M30": {
-    "bias": "bearish",
-    "score": -3,
-    "price": 4141.9,
-    "ema20": 4149.85,
-    "ema50": 4158.35,
-    "rsi": 38.4,
-    "n": 101,
-    "slot": 995544,
-    "at": 1791979262876
+    "bias": "sideways",
+    "score": -1,
+    "price": 4153.1,
+    "ema20": 4150.16,
+    "ema50": 4158.15,
+    "rsi": 50.6,
+    "n": 102,
+    "slot": 995545,
+    "at": 1791981062903
    },
    "H1": {
     "bias": "bearish",
