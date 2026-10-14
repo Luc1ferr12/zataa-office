@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-14T11:37:19.159Z",
+ "generated_at": "2026-10-14T11:47:19.159Z",
  "today": "2026-10-14",
  "week_start": "2026-10-12",
  "campaign": {
@@ -21,8 +21,8 @@
    "name": "Andre",
    "title": "Marketing Director",
    "status": "done",
-   "current_task": "Bagi tugas: Okee sip fikri. Terus tanggal berapa lagi ada jadwal upload ",
-   "updated_at": "2026-10-14 11:25:38"
+   "current_task": "Bagi tugas: Okke nanti pas minta approval gw buat kontennya, ingetin bua",
+   "updated_at": "2026-10-14 11:46:52"
   },
   {
    "id": "researcher",
@@ -102,15 +102,15 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-14 11:31:03"
+   "updated_at": "2026-10-14 11:46:02"
   },
   {
    "id": "tresearch",
    "name": "Davina",
    "title": "Research & Fundamental",
    "status": "done",
-   "current_task": "Fundamental: Fed sudah naik Sept & hike Des makin dekat; DXY dekat high 18 bulan; CPI headline panas (0.6% m/m), core 0.2% cenderung jinak. Emas tertekan.",
-   "updated_at": "2026-10-14 11:31:02"
+   "current_task": "Waspada rilis Core CPI m/m (20.30 WITA)",
+   "updated_at": "2026-10-14 11:46:02"
   },
   {
    "id": "ttech",
@@ -118,15 +118,15 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Bias bearish",
-   "updated_at": "2026-10-14 11:31:03"
+   "updated_at": "2026-10-14 11:46:02"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: bearish, tapi belum ada pemicu entry di area",
-   "updated_at": "2026-10-14 11:31:03"
+   "current_task": "NO TRADE: berita berdampak tinggi: Core CPI m/m (20.30 WITA)",
+   "updated_at": "2026-10-14 11:46:02"
   },
   {
    "id": "texec",
@@ -450,6 +450,16 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-14 11:46:42",
+   "agent_id": "publisher",
+   "message": "Tambah pengingat akun TikTok private di pesan approval video"
+  },
+  {
+   "ts": "2026-10-14 11:46:19",
+   "agent_id": "owner",
+   "message": "Chat: Okke nanti pas minta approval gw buat kontennya, ingetin buat bikin akun tiktoknya private lagi ya, soalnya akun lagi tak public"
+  },
+  {
    "ts": "2026-10-14 11:31:03",
    "agent_id": "trisk",
    "message": "NO TRADE · bearish, tapi belum ada pemicu entry di area"
@@ -563,19 +573,37 @@
    "ts": "2026-10-14 05:31:02",
    "agent_id": "ttech",
    "message": "M15 berubah arah: sideways → bearish"
-  },
-  {
-   "ts": "2026-10-14 05:16:02",
-   "agent_id": "trisk",
-   "message": "NO TRADE · di luar jam sesi London–New York"
-  },
-  {
-   "ts": "2026-10-14 05:11:02",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: bullish → sideways"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-10-14 11:46:52",
+   "agent_id": "publisher",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Soalnya kalau akunnya masih publik pas Bos approve, upload TikTok-nya gagal. Habis tayang Bos bisa balikin ke publik lagi."
+  },
+  {
+   "ts": "2026-10-14 11:46:52",
+   "agent_id": "publisher",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Siap Bos, udah aku catet! Mulai video Sabtu 17 Okt, tiap pesan approval yang ke TikTok ada pengingat ⚠️ buat set akun TikTok ke Private dulu sebelum Approve 🙏"
+  },
+  {
+   "ts": "2026-10-14 11:46:19",
+   "agent_id": "dir",
+   "to_id": null,
+   "kind": "oper",
+   "message": "Oke tim, ada titah dari Bos. Aku bagi tugasnya ya 👇"
+  },
+  {
+   "ts": "2026-10-14 11:46:19",
+   "agent_id": "owner",
+   "to_id": "dir",
+   "kind": "bos",
+   "message": "Okke nanti pas minta approval gw buat kontennya, ingetin buat bikin akun tiktoknya private lagi ya, soalnya akun lagi tak public"
+  },
   {
    "ts": "2026-10-14 11:25:39",
    "agent_id": "publisher",
@@ -827,34 +855,6 @@
    "to_id": "copywriter",
    "kind": "santai",
    "message": "Ista, like kita masih seret nih. Caption pancing komen lebih galak ya hari ini 😅"
-  },
-  {
-   "ts": "2026-10-13 23:13:14",
-   "agent_id": "publisher",
-   "to_id": "owner",
-   "kind": "oper",
-   "message": "Bos, \"QA & submit #11\" udah aku kirim ke Telegram. Ditunggu approve-nya 🙏"
-  },
-  {
-   "ts": "2026-10-13 23:03:05",
-   "agent_id": "designer",
-   "to_id": "publisher",
-   "kind": "oper",
-   "message": "Visual \"Render feed promo VP #11\" kelar! Fikri, cek typo-nya sekalian ya 🙏"
-  },
-  {
-   "ts": "2026-10-13 23:03:00",
-   "agent_id": "copywriter",
-   "to_id": "designer",
-   "kind": "oper",
-   "message": "Teks buat \"Isi konten #10 & #11\" ready. Maria, giliranmu bikin cakep!"
-  },
-  {
-   "ts": "2026-10-13 23:02:32",
-   "agent_id": "dir",
-   "to_id": "researcher",
-   "kind": "oper",
-   "message": "Clariana, plan minggu ini udah aku taruh ya. Fokus \"Briefing: pilih 2 ide\". Tolong cariin bahan beritanya 🙏"
   }
  ],
  "stats": {
@@ -928,9 +928,14 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4140.899902,
+  "price": 4140.600098,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-14 11:46:02",
+    "decision": "NO TRADE",
+    "reason": "berita berdampak tinggi: Core CPI m/m (20.30 WITA)"
+   },
    {
     "ts": "2026-10-14 11:31:03",
     "decision": "NO TRADE",
@@ -955,11 +960,6 @@
     "ts": "2026-10-14 10:31:02",
     "decision": "NO TRADE",
     "reason": "bearish, tapi belum ada pemicu entry di area"
-   },
-   {
-    "ts": "2026-10-14 10:16:02",
-    "decision": "NO TRADE",
-    "reason": "bearish, tapi belum ada pemicu entry di area"
    }
   ],
   "trades": [],
@@ -981,7 +981,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-14 11:31:03",
+   "ts": "2026-10-14 11:46:02",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -990,17 +990,17 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "bearish, tapi belum ada pemicu entry di area",
+   "reason": "berita berdampak tinggi: Core CPI m/m (20.30 WITA)",
    "fund": {
     "bias": -0.4,
     "note": "Fed sudah naik Sept & hike Des makin dekat; DXY dekat high 18 bulan; CPI headline panas (0.6% m/m), core 0.2% cenderung jinak. Emas tertekan.",
-    "blackout": null
+    "blackout": "Core CPI m/m (20.30 WITA)"
    },
    "tech": {
     "bias": "bearish",
     "score": -2,
     "trigger": null,
-    "note": "bearish (skor -2) · harga 4140.20 · EMA50 H1 4163.67 · RSI M15 36"
+    "note": "bearish (skor -2) · harga 4140.60 · EMA50 H1 4163.68 · RSI M15 37"
    }
   },
   "fund": {
@@ -1085,24 +1085,24 @@
    "M10": {
     "bias": "bearish",
     "score": -3,
-    "price": 4139.7,
-    "ema20": 4144.8,
-    "ema50": 4150.07,
-    "rsi": 41,
+    "price": 4141,
+    "ema20": 4144.44,
+    "ema50": 4149.72,
+    "rsi": 43,
     "n": 299,
-    "slot": 2986629,
-    "at": 1791977462846
+    "slot": 2986630,
+    "at": 1791978062848
    },
    "M15": {
     "bias": "bearish",
     "score": -3,
-    "price": 4139.7,
-    "ema20": 4146.5,
-    "ema50": 4153.05,
-    "rsi": 35.4,
+    "price": 4140,
+    "ema20": 4145.88,
+    "ema50": 4152.54,
+    "rsi": 36,
     "n": 299,
-    "slot": 1991086,
-    "at": 1791977462852
+    "slot": 1991087,
+    "at": 1791978362866
    },
    "M30": {
     "bias": "bearish",
