@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-14T18:57:19.296Z",
+ "generated_at": "2026-10-14T19:07:19.325Z",
  "today": "2026-10-15",
  "week_start": "2026-10-12",
  "campaign": {
@@ -78,7 +78,7 @@
    "title": "Data Analyst",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-10-14 16:00:32"
+   "updated_at": "2026-10-14 19:00:27"
   },
   {
    "id": "price",
@@ -102,7 +102,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-14 18:46:03"
+   "updated_at": "2026-10-14 19:01:03"
   },
   {
    "id": "tresearch",
@@ -110,7 +110,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Fed sudah naik Sept & hike Des makin dekat; DXY dekat high 18 bulan; CPI headline panas (0.6% m/m), core 0.2% cenderung jinak. Emas tertekan.",
-   "updated_at": "2026-10-14 18:46:03"
+   "updated_at": "2026-10-14 19:01:03"
   },
   {
    "id": "ttech",
@@ -118,7 +118,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Bias bearish",
-   "updated_at": "2026-10-14 18:46:03"
+   "updated_at": "2026-10-14 19:01:03"
   },
   {
    "id": "trisk",
@@ -126,7 +126,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: bearish, tapi belum ada pemicu entry di area",
-   "updated_at": "2026-10-14 18:46:03"
+   "updated_at": "2026-10-14 19:01:03"
   },
   {
    "id": "texec",
@@ -450,6 +450,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-14 19:00:27",
+   "agent_id": "analyst",
+   "message": "Update data 14 post IG 📈"
+  },
+  {
    "ts": "2026-10-14 18:31:03",
    "agent_id": "trisk",
    "message": "NO TRADE · bearish, tapi belum ada pemicu entry di area"
@@ -568,11 +573,6 @@
    "ts": "2026-10-14 11:46:19",
    "agent_id": "owner",
    "message": "Chat: Okke nanti pas minta approval gw buat kontennya, ingetin buat bikin akun tiktoknya private lagi ya, soalnya akun lagi tak public"
-  },
-  {
-   "ts": "2026-10-14 11:31:03",
-   "agent_id": "trisk",
-   "message": "NO TRADE · bearish, tapi belum ada pemicu entry di area"
   }
  ],
  "chats": [
@@ -865,7 +865,7 @@
    "pending": 0,
    "scheduled": 0,
    "views": 0,
-   "likes": 72,
+   "likes": 83,
    "comments": 0,
    "shares": 0,
    "saves": 0,
@@ -897,7 +897,7 @@
    "pending": 0,
    "scheduled": 0,
    "views": 0,
-   "likes": 97,
+   "likes": 103,
    "comments": 0,
    "shares": 0,
    "saves": 0,
@@ -928,9 +928,14 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4096.399902,
+  "price": 4094.199951,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-14 19:01:03",
+    "decision": "NO TRADE",
+    "reason": "bearish, tapi belum ada pemicu entry di area"
+   },
    {
     "ts": "2026-10-14 18:46:03",
     "decision": "NO TRADE",
@@ -955,11 +960,6 @@
     "ts": "2026-10-14 17:46:03",
     "decision": "NO TRADE",
     "reason": "bearish, tapi belum ada pemicu entry di area"
-   },
-   {
-    "ts": "2026-10-14 17:31:03",
-    "decision": "NO TRADE",
-    "reason": "bearish, tapi belum ada pemicu entry di area"
    }
   ],
   "trades": [],
@@ -981,7 +981,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-14 18:46:03",
+   "ts": "2026-10-14 19:01:03",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1000,7 +1000,7 @@
     "bias": "bearish",
     "score": -3,
     "trigger": null,
-    "note": "bearish (skor -3) · harga 4094.50 · EMA50 H1 4145.53 · RSI M15 47"
+    "note": "bearish (skor -3) · harga 4097.70 · EMA50 H1 4143.76 · RSI M15 50"
    }
   },
   "fund": {
@@ -1071,46 +1071,46 @@
    "M10": {
     "bias": "sideways",
     "score": 0,
-    "price": 4094.9,
-    "ema20": 4089.87,
-    "ema50": 4102.11,
-    "rsi": 53.8,
+    "price": 4097.3,
+    "ema20": 4090.57,
+    "ema50": 4101.92,
+    "rsi": 56.6,
     "n": 299,
-    "slot": 2986673,
-    "at": 1792003863152
+    "slot": 2986674,
+    "at": 1792004463178
    },
    "M15": {
     "bias": "sideways",
     "score": 0,
-    "price": 4095,
-    "ema20": 4093.5,
-    "ema50": 4112.22,
-    "rsi": 47.5,
+    "price": 4097.3,
+    "ema20": 4093.86,
+    "ema50": 4111.64,
+    "rsi": 49.4,
     "n": 299,
-    "slot": 1991115,
-    "at": 1792003563159
+    "slot": 1991116,
+    "at": 1792004463183
    },
    "M30": {
     "bias": "bearish",
     "score": -2,
-    "price": 4095.1,
-    "ema20": 4107.2,
-    "ema50": 4131.82,
-    "rsi": 37.2,
-    "n": 114,
-    "slot": 995557,
-    "at": 1792002663360
+    "price": 4097.3,
+    "ema20": 4106.26,
+    "ema50": 4130.46,
+    "rsi": 39,
+    "n": 115,
+    "slot": 995558,
+    "at": 1792004463184
    },
    "H1": {
     "bias": "bearish",
     "score": -3,
-    "price": 4085,
-    "ema20": 4124.97,
-    "ema50": 4147.61,
-    "rsi": 21.9,
+    "price": 4097.3,
+    "ema20": 4122.33,
+    "ema50": 4145.64,
+    "rsi": 31.7,
     "n": 299,
-    "slot": 497778,
-    "at": 1792000863343
+    "slot": 497779,
+    "at": 1792004463191
    }
   },
   "currency": "USC",
