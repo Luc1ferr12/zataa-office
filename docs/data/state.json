@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-14T19:57:19.433Z",
+ "generated_at": "2026-10-14T20:07:19.391Z",
  "today": "2026-10-15",
  "week_start": "2026-10-12",
  "campaign": {
@@ -102,7 +102,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-14 19:46:03"
+   "updated_at": "2026-10-14 20:01:03"
   },
   {
    "id": "tresearch",
@@ -110,7 +110,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Fed sudah naik Sept & hike Des makin dekat; DXY dekat high 18 bulan; CPI headline panas (0.6% m/m), core 0.2% cenderung jinak. Emas tertekan.",
-   "updated_at": "2026-10-14 19:46:03"
+   "updated_at": "2026-10-14 20:01:03"
   },
   {
    "id": "ttech",
@@ -118,15 +118,15 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Bias bearish",
-   "updated_at": "2026-10-14 19:46:03"
+   "updated_at": "2026-10-14 20:01:03"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: bearish, tapi belum ada pemicu entry di area",
-   "updated_at": "2026-10-14 19:46:03"
+   "current_task": "NO TRADE: di luar jam sesi London–New York",
+   "updated_at": "2026-10-14 20:01:03"
   },
   {
    "id": "texec",
@@ -928,9 +928,14 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4102.100098,
+  "price": 4101.200195,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-14 20:01:03",
+    "decision": "NO TRADE",
+    "reason": "di luar jam sesi London–New York"
+   },
    {
     "ts": "2026-10-14 19:46:03",
     "decision": "NO TRADE",
@@ -955,11 +960,6 @@
     "ts": "2026-10-14 18:46:03",
     "decision": "NO TRADE",
     "reason": "bearish, tapi belum ada pemicu entry di area"
-   },
-   {
-    "ts": "2026-10-14 18:31:03",
-    "decision": "NO TRADE",
-    "reason": "bearish, tapi belum ada pemicu entry di area"
    }
   ],
   "trades": [],
@@ -981,7 +981,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-14 19:46:03",
+   "ts": "2026-10-14 20:01:03",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -990,7 +990,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "bearish, tapi belum ada pemicu entry di area",
+   "reason": "di luar jam sesi London–New York",
    "fund": {
     "bias": -0.4,
     "note": "Fed sudah naik Sept & hike Des makin dekat; DXY dekat high 18 bulan; CPI headline panas (0.6% m/m), core 0.2% cenderung jinak. Emas tertekan.",
@@ -1000,7 +1000,7 @@
     "bias": "bearish",
     "score": -3,
     "trigger": null,
-    "note": "bearish (skor -3) · harga 4101.40 · EMA50 H1 4143.90 · RSI M15 52"
+    "note": "bearish (skor -3) · harga 4102.90 · EMA50 H1 4142.33 · RSI M15 54"
    }
   },
   "fund": {
@@ -1071,46 +1071,46 @@
    "M10": {
     "bias": "sideways",
     "score": 1,
-    "price": 4102.8,
-    "ema20": 4095.06,
-    "ema50": 4101.91,
-    "rsi": 59.8,
+    "price": 4102.4,
+    "ema20": 4095.76,
+    "ema50": 4101.93,
+    "rsi": 59.2,
     "n": 299,
-    "slot": 2986679,
-    "at": 1792007463411
+    "slot": 2986680,
+    "at": 1792008063237
    },
    "M15": {
     "bias": "sideways",
-    "score": 0,
-    "price": 4102,
-    "ema20": 4095.87,
-    "ema50": 4110.49,
-    "rsi": 52.9,
+    "score": 1,
+    "price": 4102.4,
+    "ema20": 4096.49,
+    "ema50": 4110.18,
+    "rsi": 53.3,
     "n": 299,
-    "slot": 1991119,
-    "at": 1792007163215
+    "slot": 1991120,
+    "at": 1792008063244
    },
    "M30": {
     "bias": "bearish",
     "score": -2,
-    "price": 4104.6,
-    "ema20": 4106.1,
-    "ema50": 4129.45,
-    "rsi": 44.4,
-    "n": 116,
-    "slot": 995559,
-    "at": 1792006263215
+    "price": 4102.4,
+    "ema20": 4105.75,
+    "ema50": 4128.39,
+    "rsi": 43.2,
+    "n": 117,
+    "slot": 995560,
+    "at": 1792008063244
    },
    "H1": {
     "bias": "bearish",
     "score": -3,
-    "price": 4097.3,
-    "ema20": 4122.33,
-    "ema50": 4145.64,
-    "rsi": 31.7,
+    "price": 4102.4,
+    "ema20": 4120.43,
+    "ema50": 4143.94,
+    "rsi": 35.3,
     "n": 299,
-    "slot": 497779,
-    "at": 1792004463191
+    "slot": 497780,
+    "at": 1792008063251
    }
   },
   "currency": "USC",
