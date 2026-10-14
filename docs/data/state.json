@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-14T00:07:18.878Z",
+ "generated_at": "2026-10-14T00:17:18.880Z",
  "today": "2026-10-14",
  "week_start": "2026-10-12",
  "campaign": {
@@ -28,9 +28,9 @@
    "id": "researcher",
    "name": "Clariana",
    "title": "Researcher",
-   "status": "done",
-   "current_task": "Riset esport pagi: MPL Week 9 & Champions",
-   "updated_at": "2026-10-13 23:02:06"
+   "status": "working",
+   "current_task": "Cek data ide NAVI-TLID & tier Champions",
+   "updated_at": "2026-10-14 00:16:29"
   },
   {
    "id": "copywriter",
@@ -61,8 +61,8 @@
    "name": "Fikri",
    "title": "Social Media Publisher",
    "status": "done",
-   "current_task": "QA & submit #10",
-   "updated_at": "2026-10-13 23:14:12"
+   "current_task": "undefined",
+   "updated_at": "2026-10-14 00:16:19"
   },
   {
    "id": "ads",
@@ -102,7 +102,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-14 00:01:02"
+   "updated_at": "2026-10-14 00:16:02"
   },
   {
    "id": "tresearch",
@@ -110,7 +110,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: CPI m/m fc 0.6% (prev 0.4%) panas, Fed hawkish 4%, DXY ~102; NFP lemah 29K tahan. Blackout CPI 20:30 WITA.",
-   "updated_at": "2026-10-14 00:01:02"
+   "updated_at": "2026-10-14 00:16:02"
   },
   {
    "id": "ttech",
@@ -118,7 +118,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Bias bearish",
-   "updated_at": "2026-10-14 00:01:02"
+   "updated_at": "2026-10-14 00:16:02"
   },
   {
    "id": "trisk",
@@ -126,7 +126,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: di luar jam sesi London–New York",
-   "updated_at": "2026-10-14 00:01:02"
+   "updated_at": "2026-10-14 00:16:02"
   },
   {
    "id": "texec",
@@ -261,7 +261,7 @@
    "game": "mlbb",
    "pillar": "esport",
    "title": "Preview Week 9 MPL ID S18: Pekan Hidup-Mati Siapa?",
-   "status": "pending_approval",
+   "status": "approved",
    "asset_url": "{\"video\":\"https://luc1ferr12.github.io/zataa-office/media/2026-10-14/10-preview-week-9-mpl-id-s18-pekan-hidup-ma.mp4\",\"cover\":\"https://luc1ferr12.github.io/zataa-office/media/2026-10-14/10-preview-week-9-mpl-id-s18-pekan-hidup-ma-cover.jpg\"}",
    "scheduled_at": null,
    "posted_at": null
@@ -424,6 +424,26 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-14 00:16:19",
+   "agent_id": "owner",
+   "message": "Approve 2 ide konten tambahan 💡"
+  },
+  {
+   "ts": "2026-10-14 00:16:19",
+   "agent_id": "owner",
+   "message": "Approve konten #10 ✅"
+  },
+  {
+   "ts": "2026-10-14 00:16:02",
+   "agent_id": "trisk",
+   "message": "NO TRADE · di luar jam sesi London–New York"
+  },
+  {
+   "ts": "2026-10-14 00:11:02",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: bearish → sideways"
+  },
+  {
    "ts": "2026-10-13 23:51:02",
    "agent_id": "ttech",
    "message": "M10 berubah arah: sideways → bearish"
@@ -527,29 +547,16 @@
    "ts": "2026-10-13 22:11:02",
    "agent_id": "ttech",
    "message": "M10 berubah arah: bearish → sideways"
-  },
-  {
-   "ts": "2026-10-13 22:01:02",
-   "agent_id": "trisk",
-   "message": "NO TRADE · di luar jam sesi London–New York"
-  },
-  {
-   "ts": "2026-10-13 22:00:20",
-   "agent_id": "analyst",
-   "message": "Update data 0 post IG 📈"
-  },
-  {
-   "ts": "2026-10-13 20:51:02",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: sideways → bearish"
-  },
-  {
-   "ts": "2026-10-13 20:31:02",
-   "agent_id": "trisk",
-   "message": "NO TRADE · di luar jam sesi London–New York"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-10-14 00:16:19",
+   "agent_id": "dir",
+   "to_id": null,
+   "kind": "oper",
+   "message": "Bos ACC 2 ide tambahan! \"Duel Puncak: NAVI vs TLID Sama-Sama 11 Poin\" & \"Tier List Fans: Siapa Juara Champions Shanghai?\" 🎉"
+  },
   {
    "ts": "2026-10-13 23:14:12",
    "agent_id": "publisher",
@@ -822,13 +829,6 @@
    "to_id": "copywriter",
    "kind": "oper",
    "message": "Ista, bahan buat \"Cek jadwal MPL & Champions hari ini\" udah aku rangkum + sumbernya. Tinggal kamu racik captionnya ✍️"
-  },
-  {
-   "ts": "2026-10-12 13:55:25",
-   "agent_id": "dir",
-   "to_id": null,
-   "kind": "oper",
-   "message": "Oke tim, ada titah dari Bos. Aku bagi tugasnya ya 👇"
   }
  ],
  "stats": {
@@ -836,8 +836,8 @@
    "week": "2026-10-12",
    "total": 17,
    "posted": 7,
-   "pending": 2,
-   "scheduled": 0,
+   "pending": 1,
+   "scheduled": 1,
    "views": 0,
    "likes": 19,
    "comments": 0,
@@ -902,9 +902,14 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4159.899902,
+  "price": 4163.100098,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-14 00:16:02",
+    "decision": "NO TRADE",
+    "reason": "di luar jam sesi London–New York"
+   },
    {
     "ts": "2026-10-14 00:01:02",
     "decision": "NO TRADE",
@@ -929,11 +934,6 @@
     "ts": "2026-10-13 23:01:22",
     "decision": "NO TRADE",
     "reason": "di luar jam sesi London–New York"
-   },
-   {
-    "ts": "2026-10-13 22:46:02",
-    "decision": "NO TRADE",
-    "reason": "di luar jam sesi London–New York"
    }
   ],
   "trades": [],
@@ -955,7 +955,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-14 00:01:02",
+   "ts": "2026-10-14 00:16:02",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -974,7 +974,7 @@
     "bias": "bearish",
     "score": -3,
     "trigger": null,
-    "note": "bearish (skor -3) · harga 4156.40 · EMA50 H1 4170.56 · RSI M15 37"
+    "note": "bearish (skor -3) · harga 4164.00 · EMA50 H1 4170.86 · RSI M15 54"
    }
   },
   "fund": {
@@ -1057,26 +1057,26 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "bearish",
-    "score": -2,
-    "price": 4156.2,
-    "ema20": 4160.11,
-    "ema50": 4163.05,
-    "rsi": 34.8,
-    "n": 231,
-    "slot": 2986560,
-    "at": 1791936062582
+    "bias": "sideways",
+    "score": 0,
+    "price": 4164,
+    "ema20": 4160.48,
+    "ema50": 4163.09,
+    "rsi": 57.3,
+    "n": 232,
+    "slot": 2986561,
+    "at": 1791936662325
    },
    "M15": {
     "bias": "sideways",
-    "score": -1,
-    "price": 4156.2,
-    "ema20": 4160.77,
-    "ema50": 4165.55,
-    "rsi": 36,
+    "score": 1,
+    "price": 4163.3,
+    "ema20": 4161.01,
+    "ema50": 4165.46,
+    "rsi": 52.7,
     "n": 299,
-    "slot": 1991040,
-    "at": 1791936062587
+    "slot": 1991041,
+    "at": 1791936962320
    },
    "M30": {
     "bias": "bearish",
