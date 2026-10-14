@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-14T09:07:19.112Z",
+ "generated_at": "2026-10-14T09:17:19.120Z",
  "today": "2026-10-14",
  "week_start": "2026-10-12",
  "campaign": {
@@ -102,15 +102,15 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-14 09:01:02"
+   "updated_at": "2026-10-14 09:16:03"
   },
   {
    "id": "tresearch",
    "name": "Davina",
    "title": "Research & Fundamental",
    "status": "done",
-   "current_task": "Fundamental: CPI m/m fc 0.6% (prev 0.4%) panas, Fed hawkish 4%, DXY ~102; NFP lemah 29K tahan. Blackout CPI 20:30 WITA.",
-   "updated_at": "2026-10-14 09:01:02"
+   "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
+   "updated_at": "2026-10-14 09:16:02"
   },
   {
    "id": "ttech",
@@ -118,7 +118,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Bias bearish",
-   "updated_at": "2026-10-14 09:01:02"
+   "updated_at": "2026-10-14 09:16:03"
   },
   {
    "id": "trisk",
@@ -126,7 +126,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: bearish, tapi belum ada pemicu entry di area",
-   "updated_at": "2026-10-14 09:01:02"
+   "updated_at": "2026-10-14 09:16:03"
   },
   {
    "id": "texec",
@@ -450,6 +450,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-14 09:16:03",
+   "agent_id": "trisk",
+   "message": "NO TRADE · bearish, tapi belum ada pemicu entry di area"
+  },
+  {
    "ts": "2026-10-14 09:00:40",
    "agent_id": "publisher",
    "message": "Posting #24 ke IG ✅"
@@ -568,11 +573,6 @@
    "ts": "2026-10-14 04:16:02",
    "agent_id": "ttech",
    "message": "M15 berubah arah: sideways → bearish"
-  },
-  {
-   "ts": "2026-10-14 04:01:02",
-   "agent_id": "ttech",
-   "message": "M60 berubah arah: sideways → bearish"
   }
  ],
  "chats": [
@@ -928,9 +928,14 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4144,
+  "price": 4146.399902,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-14 09:16:03",
+    "decision": "NO TRADE",
+    "reason": "bearish, tapi belum ada pemicu entry di area"
+   },
    {
     "ts": "2026-10-14 09:01:02",
     "decision": "NO TRADE",
@@ -955,11 +960,6 @@
     "ts": "2026-10-14 08:01:02",
     "decision": "NO TRADE",
     "reason": "bearish, tapi belum ada pemicu entry di area"
-   },
-   {
-    "ts": "2026-10-14 07:46:02",
-    "decision": "NO TRADE",
-    "reason": "bearish, tapi belum ada pemicu entry di area"
    }
   ],
   "trades": [],
@@ -981,7 +981,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-14 09:01:02",
+   "ts": "2026-10-14 09:16:03",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -992,15 +992,15 @@
    "risk_usd": null,
    "reason": "bearish, tapi belum ada pemicu entry di area",
    "fund": {
-    "bias": -0.35,
-    "note": "CPI m/m fc 0.6% (prev 0.4%) panas, Fed hawkish 4%, DXY ~102; NFP lemah 29K tahan. Blackout CPI 20:30 WITA.",
+    "bias": 0,
+    "note": "netral (belum ada ringkasan hari ini)",
     "blackout": null
    },
    "tech": {
     "bias": "bearish",
     "score": -2,
     "trigger": null,
-    "note": "bearish (skor -2) · harga 4144.40 · EMA50 H1 4165.49 · RSI M15 39"
+    "note": "bearish (skor -2) · harga 4145.20 · EMA50 H1 4165.52 · RSI M15 40"
    }
   },
   "fund": null,
@@ -1082,24 +1082,24 @@
    "M10": {
     "bias": "bearish",
     "score": -3,
-    "price": 4142.8,
-    "ema20": 4151.38,
-    "ema50": 4155.73,
-    "rsi": 37.2,
-    "n": 285,
-    "slot": 2986614,
-    "at": 1791968462713
+    "price": 4142.3,
+    "ema20": 4150.51,
+    "ema50": 4155.21,
+    "rsi": 36.7,
+    "n": 286,
+    "slot": 2986615,
+    "at": 1791969062915
    },
    "M15": {
     "bias": "bearish",
     "score": -3,
-    "price": 4142.8,
-    "ema20": 4153.08,
-    "ema50": 4158.03,
-    "rsi": 36.7,
+    "price": 4144.9,
+    "ema20": 4152.3,
+    "ema50": 4157.51,
+    "rsi": 39.6,
     "n": 299,
-    "slot": 1991076,
-    "at": 1791968462719
+    "slot": 1991077,
+    "at": 1791969362915
    },
    "M30": {
     "bias": "bearish",
