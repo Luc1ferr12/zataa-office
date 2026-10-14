@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-14T08:07:19.082Z",
+ "generated_at": "2026-10-14T08:17:19.091Z",
  "today": "2026-10-14",
  "week_start": "2026-10-12",
  "campaign": {
@@ -102,7 +102,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-14 08:01:02"
+   "updated_at": "2026-10-14 08:16:02"
   },
   {
    "id": "tresearch",
@@ -110,7 +110,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: CPI m/m fc 0.6% (prev 0.4%) panas, Fed hawkish 4%, DXY ~102; NFP lemah 29K tahan. Blackout CPI 20:30 WITA.",
-   "updated_at": "2026-10-14 08:01:02"
+   "updated_at": "2026-10-14 08:16:02"
   },
   {
    "id": "ttech",
@@ -118,7 +118,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Bias bearish",
-   "updated_at": "2026-10-14 08:01:02"
+   "updated_at": "2026-10-14 08:16:02"
   },
   {
    "id": "trisk",
@@ -126,7 +126,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: bearish, tapi belum ada pemicu entry di area",
-   "updated_at": "2026-10-14 08:01:02"
+   "updated_at": "2026-10-14 08:16:02"
   },
   {
    "id": "texec",
@@ -450,6 +450,16 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-14 08:16:02",
+   "agent_id": "trisk",
+   "message": "NO TRADE · bearish, tapi belum ada pemicu entry di area"
+  },
+  {
+   "ts": "2026-10-14 08:11:02",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: bearish → sideways"
+  },
+  {
    "ts": "2026-10-14 07:16:02",
    "agent_id": "trisk",
    "message": "NO TRADE · bearish, tapi belum ada pemicu entry di area"
@@ -563,16 +573,6 @@
    "ts": "2026-10-14 03:41:02",
    "agent_id": "ttech",
    "message": "M10 berubah arah: sideways → bullish"
-  },
-  {
-   "ts": "2026-10-14 03:19:59",
-   "agent_id": "publisher",
-   "message": "#23 NAVI vs TLID berhasil tayang di IG setelah retry"
-  },
-  {
-   "ts": "2026-10-14 03:19:56",
-   "agent_id": "publisher",
-   "message": "Posting #23 ke IG ✅"
   }
  ],
  "chats": [
@@ -928,9 +928,14 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4151.899902,
+  "price": 4155.700195,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-14 08:16:02",
+    "decision": "NO TRADE",
+    "reason": "bearish, tapi belum ada pemicu entry di area"
+   },
    {
     "ts": "2026-10-14 08:01:02",
     "decision": "NO TRADE",
@@ -955,11 +960,6 @@
     "ts": "2026-10-14 07:01:02",
     "decision": "NO TRADE",
     "reason": "bearish, tapi belum ada pemicu entry di area"
-   },
-   {
-    "ts": "2026-10-14 06:46:02",
-    "decision": "NO TRADE",
-    "reason": "bearish, tapi belum ada pemicu entry di area"
    }
   ],
   "trades": [],
@@ -981,7 +981,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-14 08:01:02",
+   "ts": "2026-10-14 08:16:02",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1000,7 +1000,7 @@
     "bias": "bearish",
     "score": -2,
     "trigger": null,
-    "note": "bearish (skor -2) · harga 4150.50 · EMA50 H1 4166.65 · RSI M15 43"
+    "note": "bearish (skor -2) · harga 4154.20 · EMA50 H1 4166.80 · RSI M15 47"
    }
   },
   "fund": {
@@ -1083,26 +1083,26 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "bearish",
-    "score": -3,
-    "price": 4150.9,
-    "ema20": 4153.5,
-    "ema50": 4157.48,
-    "rsi": 44.6,
-    "n": 279,
-    "slot": 2986608,
-    "at": 1791964862652
+    "bias": "sideways",
+    "score": -1,
+    "price": 4154.3,
+    "ema20": 4153.58,
+    "ema50": 4157.36,
+    "rsi": 49.3,
+    "n": 280,
+    "slot": 2986609,
+    "at": 1791965462800
    },
    "M15": {
     "bias": "bearish",
     "score": -3,
-    "price": 4150.9,
-    "ema20": 4155.48,
-    "ema50": 4159.68,
-    "rsi": 43.3,
+    "price": 4154,
+    "ema20": 4155.34,
+    "ema50": 4159.46,
+    "rsi": 47.1,
     "n": 299,
-    "slot": 1991072,
-    "at": 1791964862658
+    "slot": 1991073,
+    "at": 1791965762867
    },
    "M30": {
     "bias": "bearish",
