@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-14T20:27:19.394Z",
+ "generated_at": "2026-10-14T20:37:19.394Z",
  "today": "2026-10-15",
  "week_start": "2026-10-12",
  "campaign": {
@@ -102,7 +102,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-14 20:16:03"
+   "updated_at": "2026-10-14 20:31:03"
   },
   {
    "id": "tresearch",
@@ -110,7 +110,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Fed sudah naik Sept & hike Des makin dekat; DXY dekat high 18 bulan; CPI headline panas (0.6% m/m), core 0.2% cenderung jinak. Emas tertekan.",
-   "updated_at": "2026-10-14 20:16:03"
+   "updated_at": "2026-10-14 20:31:03"
   },
   {
    "id": "ttech",
@@ -118,7 +118,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Bias bearish",
-   "updated_at": "2026-10-14 20:16:03"
+   "updated_at": "2026-10-14 20:31:03"
   },
   {
    "id": "trisk",
@@ -126,7 +126,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: di luar jam sesi London–New York",
-   "updated_at": "2026-10-14 20:16:03"
+   "updated_at": "2026-10-14 20:31:03"
   },
   {
    "id": "texec",
@@ -450,6 +450,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-14 20:31:03",
+   "agent_id": "trisk",
+   "message": "NO TRADE · di luar jam sesi London–New York"
+  },
+  {
    "ts": "2026-10-14 19:31:03",
    "agent_id": "trisk",
    "message": "NO TRADE · bearish, tapi belum ada pemicu entry di area"
@@ -568,11 +573,6 @@
    "ts": "2026-10-14 12:00:41",
    "agent_id": "publisher",
    "message": "Posting #11 ke IG ✅"
-  },
-  {
-   "ts": "2026-10-14 11:46:42",
-   "agent_id": "publisher",
-   "message": "Tambah pengingat akun TikTok private di pesan approval video"
   }
  ],
  "chats": [
@@ -928,9 +928,14 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4102,
+  "price": 4101.100098,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-14 20:31:03",
+    "decision": "NO TRADE",
+    "reason": "di luar jam sesi London–New York"
+   },
    {
     "ts": "2026-10-14 20:16:03",
     "decision": "NO TRADE",
@@ -955,11 +960,6 @@
     "ts": "2026-10-14 19:16:03",
     "decision": "NO TRADE",
     "reason": "bearish, tapi belum ada pemicu entry di area"
-   },
-   {
-    "ts": "2026-10-14 19:01:03",
-    "decision": "NO TRADE",
-    "reason": "bearish, tapi belum ada pemicu entry di area"
    }
   ],
   "trades": [],
@@ -981,7 +981,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-14 20:16:03",
+   "ts": "2026-10-14 20:31:03",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1000,7 +1000,7 @@
     "bias": "bearish",
     "score": -3,
     "trigger": null,
-    "note": "bearish (skor -3) · harga 4100.70 · EMA50 H1 4142.25 · RSI M15 52"
+    "note": "bearish (skor -3) · harga 4101.40 · EMA50 H1 4142.27 · RSI M15 52"
    }
   },
   "fund": {
@@ -1070,36 +1070,36 @@
   "tf": {
    "M10": {
     "bias": "sideways",
-    "score": 1,
-    "price": 4100.7,
-    "ema20": 4096.79,
-    "ema50": 4101.89,
-    "rsi": 56.3,
+    "score": 0,
+    "price": 4101.3,
+    "ema20": 4097.22,
+    "ema50": 4101.87,
+    "rsi": 57.1,
     "n": 299,
-    "slot": 2986682,
-    "at": 1792009263261
+    "slot": 2986683,
+    "at": 1792009863261
    },
    "M15": {
     "bias": "sideways",
     "score": 1,
     "price": 4101.3,
-    "ema20": 4096.95,
-    "ema50": 4109.83,
+    "ema20": 4097.36,
+    "ema50": 4109.49,
     "rsi": 52.2,
     "n": 299,
-    "slot": 1991121,
-    "at": 1792008963250
+    "slot": 1991122,
+    "at": 1792009863266
    },
    "M30": {
     "bias": "bearish",
-    "score": -2,
-    "price": 4102.4,
-    "ema20": 4105.75,
-    "ema50": 4128.39,
-    "rsi": 43.2,
-    "n": 117,
-    "slot": 995560,
-    "at": 1792008063244
+    "score": -3,
+    "price": 4101.3,
+    "ema20": 4105.33,
+    "ema50": 4127.33,
+    "rsi": 42.5,
+    "n": 118,
+    "slot": 995561,
+    "at": 1792009863266
    },
    "H1": {
     "bias": "bearish",
