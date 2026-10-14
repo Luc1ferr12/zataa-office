@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-14T11:27:19.149Z",
+ "generated_at": "2026-10-14T11:37:19.159Z",
  "today": "2026-10-14",
  "week_start": "2026-10-12",
  "campaign": {
@@ -102,7 +102,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-14 11:16:02"
+   "updated_at": "2026-10-14 11:31:03"
   },
   {
    "id": "tresearch",
@@ -110,7 +110,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Fed sudah naik Sept & hike Des makin dekat; DXY dekat high 18 bulan; CPI headline panas (0.6% m/m), core 0.2% cenderung jinak. Emas tertekan.",
-   "updated_at": "2026-10-14 11:16:02"
+   "updated_at": "2026-10-14 11:31:02"
   },
   {
    "id": "ttech",
@@ -118,7 +118,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Bias bearish",
-   "updated_at": "2026-10-14 11:16:02"
+   "updated_at": "2026-10-14 11:31:03"
   },
   {
    "id": "trisk",
@@ -126,7 +126,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: bearish, tapi belum ada pemicu entry di area",
-   "updated_at": "2026-10-14 11:16:02"
+   "updated_at": "2026-10-14 11:31:03"
   },
   {
    "id": "texec",
@@ -450,6 +450,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-14 11:31:03",
+   "agent_id": "trisk",
+   "message": "NO TRADE · bearish, tapi belum ada pemicu entry di area"
+  },
+  {
    "ts": "2026-10-14 11:25:19",
    "agent_id": "owner",
    "message": "Chat: Okee sip fikri. Terus tanggal berapa lagi ada jadwal upload video ?"
@@ -568,11 +573,6 @@
    "ts": "2026-10-14 05:11:02",
    "agent_id": "ttech",
    "message": "M10 berubah arah: bullish → sideways"
-  },
-  {
-   "ts": "2026-10-14 05:01:04",
-   "agent_id": "publisher",
-   "message": "Posting #10 ke IG ✅"
   }
  ],
  "chats": [
@@ -928,9 +928,14 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4141.299805,
+  "price": 4140.899902,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-14 11:31:03",
+    "decision": "NO TRADE",
+    "reason": "bearish, tapi belum ada pemicu entry di area"
+   },
    {
     "ts": "2026-10-14 11:16:02",
     "decision": "NO TRADE",
@@ -955,11 +960,6 @@
     "ts": "2026-10-14 10:16:02",
     "decision": "NO TRADE",
     "reason": "bearish, tapi belum ada pemicu entry di area"
-   },
-   {
-    "ts": "2026-10-14 10:01:02",
-    "decision": "NO TRADE",
-    "reason": "bearish, tapi belum ada pemicu entry di area"
    }
   ],
   "trades": [],
@@ -981,7 +981,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-14 11:16:02",
+   "ts": "2026-10-14 11:31:03",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1000,7 +1000,7 @@
     "bias": "bearish",
     "score": -2,
     "trigger": null,
-    "note": "bearish (skor -2) · harga 4140.00 · EMA50 H1 4163.66 · RSI M15 36"
+    "note": "bearish (skor -2) · harga 4140.20 · EMA50 H1 4163.67 · RSI M15 36"
    }
   },
   "fund": {
@@ -1085,35 +1085,35 @@
    "M10": {
     "bias": "bearish",
     "score": -3,
-    "price": 4143.6,
-    "ema20": 4145.34,
-    "ema50": 4150.5,
-    "rsi": 45.5,
+    "price": 4139.7,
+    "ema20": 4144.8,
+    "ema50": 4150.07,
+    "rsi": 41,
     "n": 299,
-    "slot": 2986628,
-    "at": 1791976862830
+    "slot": 2986629,
+    "at": 1791977462846
    },
    "M15": {
     "bias": "bearish",
     "score": -3,
-    "price": 4139.9,
-    "ema20": 4147.21,
-    "ema50": 4153.6,
-    "rsi": 35.6,
+    "price": 4139.7,
+    "ema20": 4146.5,
+    "ema50": 4153.05,
+    "rsi": 35.4,
     "n": 299,
-    "slot": 1991085,
-    "at": 1791976562830
+    "slot": 1991086,
+    "at": 1791977462852
    },
    "M30": {
     "bias": "bearish",
     "score": -3,
-    "price": 4143.4,
-    "ema20": 4151.85,
-    "ema50": 4159.81,
-    "rsi": 38.3,
-    "n": 99,
-    "slot": 995542,
-    "at": 1791975662820
+    "price": 4139.7,
+    "ema20": 4150.69,
+    "ema50": 4159.02,
+    "rsi": 35.5,
+    "n": 100,
+    "slot": 995543,
+    "at": 1791977462853
    },
    "H1": {
     "bias": "bearish",
