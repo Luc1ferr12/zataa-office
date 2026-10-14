@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-14T01:37:18.947Z",
+ "generated_at": "2026-10-14T01:47:18.951Z",
  "today": "2026-10-14",
  "week_start": "2026-10-12",
  "campaign": {
@@ -102,7 +102,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-14 01:31:02"
+   "updated_at": "2026-10-14 01:46:02"
   },
   {
    "id": "tresearch",
@@ -110,7 +110,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: CPI m/m fc 0.6% (prev 0.4%) panas, Fed hawkish 4%, DXY ~102; NFP lemah 29K tahan. Blackout CPI 20:30 WITA.",
-   "updated_at": "2026-10-14 01:31:02"
+   "updated_at": "2026-10-14 01:46:02"
   },
   {
    "id": "ttech",
@@ -118,7 +118,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Bias bearish",
-   "updated_at": "2026-10-14 01:31:02"
+   "updated_at": "2026-10-14 01:46:02"
   },
   {
    "id": "trisk",
@@ -126,7 +126,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: di luar jam sesi London–New York",
-   "updated_at": "2026-10-14 01:31:02"
+   "updated_at": "2026-10-14 01:46:02"
   },
   {
    "id": "texec",
@@ -450,6 +450,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-14 01:41:02",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: sideways → bearish"
+  },
+  {
    "ts": "2026-10-14 01:31:02",
    "agent_id": "ttech",
    "message": "M30 berubah arah: bearish → sideways"
@@ -568,11 +573,6 @@
    "ts": "2026-10-13 23:13:14",
    "agent_id": "publisher",
    "message": "#11 promo VP lolos QA, terkirim ke Owner"
-  },
-  {
-   "ts": "2026-10-13 23:13:14",
-   "agent_id": "publisher",
-   "message": "Kirim #11 ke Owner buat approval"
   }
  ],
  "chats": [
@@ -928,9 +928,14 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4156.5,
+  "price": 4147.5,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-14 01:46:02",
+    "decision": "NO TRADE",
+    "reason": "di luar jam sesi London–New York"
+   },
    {
     "ts": "2026-10-14 01:31:02",
     "decision": "NO TRADE",
@@ -955,11 +960,6 @@
     "ts": "2026-10-14 00:31:02",
     "decision": "NO TRADE",
     "reason": "di luar jam sesi London–New York"
-   },
-   {
-    "ts": "2026-10-14 00:16:02",
-    "decision": "NO TRADE",
-    "reason": "di luar jam sesi London–New York"
    }
   ],
   "trades": [],
@@ -981,7 +981,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-14 01:31:02",
+   "ts": "2026-10-14 01:46:02",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1000,7 +1000,7 @@
     "bias": "bearish",
     "score": -3,
     "trigger": null,
-    "note": "bearish (skor -3) · harga 4165.80 · EMA50 H1 4170.46 · RSI M15 56"
+    "note": "bearish (skor -3) · harga 4147.20 · EMA50 H1 4169.73 · RSI M15 36"
    }
   },
   "fund": {
@@ -1083,26 +1083,26 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "sideways",
-    "score": 0,
-    "price": 4163.6,
-    "ema20": 4159.75,
-    "ema50": 4162.07,
-    "rsi": 55.1,
-    "n": 240,
-    "slot": 2986569,
-    "at": 1791941462487
+    "bias": "bearish",
+    "score": -2,
+    "price": 4148.8,
+    "ema20": 4158.71,
+    "ema50": 4161.55,
+    "rsi": 38.2,
+    "n": 241,
+    "slot": 2986570,
+    "at": 1791942062390
    },
    "M15": {
     "bias": "sideways",
-    "score": 1,
-    "price": 4163.6,
-    "ema20": 4160.29,
-    "ema50": 4164.32,
-    "rsi": 53.5,
+    "score": -1,
+    "price": 4149.6,
+    "ema20": 4159.27,
+    "ema50": 4163.74,
+    "rsi": 38.4,
     "n": 299,
-    "slot": 1991046,
-    "at": 1791941462496
+    "slot": 1991047,
+    "at": 1791942362389
    },
    "M30": {
     "bias": "sideways",
