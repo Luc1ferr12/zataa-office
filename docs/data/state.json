@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-14T21:57:19.397Z",
+ "generated_at": "2026-10-14T22:07:19.404Z",
  "today": "2026-10-15",
  "week_start": "2026-10-12",
  "campaign": {
@@ -78,7 +78,7 @@
    "title": "Data Analyst",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-10-14 19:00:27"
+   "updated_at": "2026-10-14 22:00:26"
   },
   {
    "id": "price",
@@ -102,15 +102,15 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-14 20:46:03"
+   "updated_at": "2026-10-14 22:01:03"
   },
   {
    "id": "tresearch",
    "name": "Davina",
    "title": "Research & Fundamental",
    "status": "done",
-   "current_task": "Fundamental: Fed sudah naik Sept & hike Des makin dekat; DXY dekat high 18 bulan; CPI headline panas (0.6% m/m), core 0.2% cenderung jinak. Emas tertekan.",
-   "updated_at": "2026-10-14 20:46:03"
+   "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
+   "updated_at": "2026-10-14 22:01:03"
   },
   {
    "id": "ttech",
@@ -118,7 +118,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Bias bearish",
-   "updated_at": "2026-10-14 20:46:03"
+   "updated_at": "2026-10-14 22:01:03"
   },
   {
    "id": "trisk",
@@ -126,7 +126,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: di luar jam sesi London–New York",
-   "updated_at": "2026-10-14 20:46:03"
+   "updated_at": "2026-10-14 22:01:03"
   },
   {
    "id": "texec",
@@ -450,6 +450,21 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-14 22:01:03",
+   "agent_id": "trisk",
+   "message": "NO TRADE · di luar jam sesi London–New York"
+  },
+  {
+   "ts": "2026-10-14 22:01:03",
+   "agent_id": "ttech",
+   "message": "M30 berubah arah: bearish → sideways"
+  },
+  {
+   "ts": "2026-10-14 22:00:26",
+   "agent_id": "analyst",
+   "message": "Update data 14 post IG 📈"
+  },
+  {
    "ts": "2026-10-14 20:31:03",
    "agent_id": "trisk",
    "message": "NO TRADE · di luar jam sesi London–New York"
@@ -558,21 +573,6 @@
    "ts": "2026-10-14 12:31:02",
    "agent_id": "ttech",
    "message": "M30 berubah arah: bearish → sideways"
-  },
-  {
-   "ts": "2026-10-14 12:16:02",
-   "agent_id": "ttech",
-   "message": "M15 berubah arah: bearish → sideways"
-  },
-  {
-   "ts": "2026-10-14 12:11:02",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: bearish → sideways"
-  },
-  {
-   "ts": "2026-10-14 12:00:41",
-   "agent_id": "publisher",
-   "message": "Posting #11 ke IG ✅"
   }
  ],
  "chats": [
@@ -865,7 +865,7 @@
    "pending": 0,
    "scheduled": 0,
    "views": 0,
-   "likes": 83,
+   "likes": 94,
    "comments": 0,
    "shares": 0,
    "saves": 0,
@@ -897,7 +897,7 @@
    "pending": 0,
    "scheduled": 0,
    "views": 0,
-   "likes": 103,
+   "likes": 109,
    "comments": 0,
    "shares": 0,
    "saves": 0,
@@ -928,9 +928,14 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4106.5,
+  "price": 4104.5,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-14 22:01:03",
+    "decision": "NO TRADE",
+    "reason": "di luar jam sesi London–New York"
+   },
    {
     "ts": "2026-10-14 20:46:03",
     "decision": "NO TRADE",
@@ -955,11 +960,6 @@
     "ts": "2026-10-14 19:46:03",
     "decision": "NO TRADE",
     "reason": "bearish, tapi belum ada pemicu entry di area"
-   },
-   {
-    "ts": "2026-10-14 19:31:03",
-    "decision": "NO TRADE",
-    "reason": "bearish, tapi belum ada pemicu entry di area"
    }
   ],
   "trades": [],
@@ -981,7 +981,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-14 20:46:03",
+   "ts": "2026-10-14 22:01:03",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -992,15 +992,15 @@
    "risk_usd": null,
    "reason": "di luar jam sesi London–New York",
    "fund": {
-    "bias": -0.4,
-    "note": "Fed sudah naik Sept & hike Des makin dekat; DXY dekat high 18 bulan; CPI headline panas (0.6% m/m), core 0.2% cenderung jinak. Emas tertekan.",
+    "bias": 0,
+    "note": "netral (belum ada ringkasan hari ini)",
     "blackout": null
    },
    "tech": {
     "bias": "bearish",
     "score": -3,
     "trigger": null,
-    "note": "bearish (skor -3) · harga 4098.20 · EMA50 H1 4142.15 · RSI M15 49"
+    "note": "bearish (skor -3) · harga 4107.40 · EMA50 H1 4139.74 · RSI M15 58"
    }
   },
   "fund": null,
@@ -1067,47 +1067,47 @@
   "tf": {
    "M10": {
     "bias": "sideways",
-    "score": 0,
-    "price": 4101.1,
-    "ema20": 4097.89,
-    "ema50": 4101.8,
-    "rsi": 56.6,
+    "score": -1,
+    "price": 4106.5,
+    "ema20": 4102.22,
+    "ema50": 4102.94,
+    "rsi": 63.8,
     "n": 299,
-    "slot": 2986685,
-    "at": 1792011063252
+    "slot": 2986692,
+    "at": 1792015263313
    },
    "M15": {
     "bias": "sideways",
     "score": 1,
-    "price": 4099.2,
-    "ema20": 4097.54,
-    "ema50": 4109.09,
-    "rsi": 49.9,
+    "price": 4106.5,
+    "ema20": 4101.06,
+    "ema50": 4108.62,
+    "rsi": 57,
     "n": 299,
-    "slot": 1991123,
-    "at": 1792010763266
+    "slot": 1991128,
+    "at": 1792015263318
    },
    "M30": {
-    "bias": "bearish",
-    "score": -3,
-    "price": 4101.3,
-    "ema20": 4105.33,
-    "ema50": 4127.33,
-    "rsi": 42.5,
-    "n": 118,
-    "slot": 995561,
-    "at": 1792009863266
+    "bias": "sideways",
+    "score": 0,
+    "price": 4106.5,
+    "ema20": 4105.62,
+    "ema50": 4124.97,
+    "rsi": 46.6,
+    "n": 121,
+    "slot": 995564,
+    "at": 1792015263319
    },
    "H1": {
     "bias": "bearish",
     "score": -3,
-    "price": 4102.4,
-    "ema20": 4120.43,
-    "ema50": 4143.94,
-    "rsi": 35.3,
+    "price": 4106.5,
+    "ema20": 4117.9,
+    "ema50": 4141.06,
+    "rsi": 38.1,
     "n": 299,
-    "slot": 497780,
-    "at": 1792008063251
+    "slot": 497782,
+    "at": 1792015263327
    }
   },
   "currency": "USC",
