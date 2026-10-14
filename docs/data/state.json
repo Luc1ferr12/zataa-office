@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-14T06:37:19.053Z",
+ "generated_at": "2026-10-14T06:47:19.063Z",
  "today": "2026-10-14",
  "week_start": "2026-10-12",
  "campaign": {
@@ -102,7 +102,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-14 06:31:02"
+   "updated_at": "2026-10-14 06:46:02"
   },
   {
    "id": "tresearch",
@@ -110,7 +110,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: CPI m/m fc 0.6% (prev 0.4%) panas, Fed hawkish 4%, DXY ~102; NFP lemah 29K tahan. Blackout CPI 20:30 WITA.",
-   "updated_at": "2026-10-14 06:31:02"
+   "updated_at": "2026-10-14 06:46:02"
   },
   {
    "id": "ttech",
@@ -118,7 +118,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Bias bearish",
-   "updated_at": "2026-10-14 06:31:02"
+   "updated_at": "2026-10-14 06:46:02"
   },
   {
    "id": "trisk",
@@ -126,7 +126,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: bearish, tapi belum ada pemicu entry di area",
-   "updated_at": "2026-10-14 06:31:02"
+   "updated_at": "2026-10-14 06:46:02"
   },
   {
    "id": "texec",
@@ -928,9 +928,14 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4156.100098,
+  "price": 4152.5,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-14 06:46:02",
+    "decision": "NO TRADE",
+    "reason": "bearish, tapi belum ada pemicu entry di area"
+   },
    {
     "ts": "2026-10-14 06:31:02",
     "decision": "NO TRADE",
@@ -955,11 +960,6 @@
     "ts": "2026-10-14 05:31:02",
     "decision": "NO TRADE",
     "reason": "di luar jam sesi London–New York"
-   },
-   {
-    "ts": "2026-10-14 05:16:02",
-    "decision": "NO TRADE",
-    "reason": "di luar jam sesi London–New York"
    }
   ],
   "trades": [],
@@ -981,7 +981,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-14 06:31:02",
+   "ts": "2026-10-14 06:46:02",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1000,7 +1000,7 @@
     "bias": "bearish",
     "score": -2,
     "trigger": null,
-    "note": "bearish (skor -2) · harga 4154.00 · EMA50 H1 4168.20 · RSI M15 44"
+    "note": "bearish (skor -2) · harga 4153.40 · EMA50 H1 4168.18 · RSI M15 43"
    }
   },
   "fund": {
@@ -1085,24 +1085,24 @@
    "M10": {
     "bias": "bearish",
     "score": -3,
-    "price": 4155.2,
-    "ema20": 4159.75,
-    "ema50": 4161.02,
-    "rsi": 44.4,
-    "n": 270,
-    "slot": 2986599,
-    "at": 1791959462663
+    "price": 4154.4,
+    "ema20": 4159.24,
+    "ema50": 4160.76,
+    "rsi": 43.6,
+    "n": 271,
+    "slot": 2986600,
+    "at": 1791960062806
    },
    "M15": {
     "bias": "bearish",
-    "score": -2,
-    "price": 4155.2,
-    "ema20": 4160.38,
-    "ema50": 4162.42,
-    "rsi": 44.6,
+    "score": -3,
+    "price": 4153.1,
+    "ema20": 4159.69,
+    "ema50": 4162.06,
+    "rsi": 42.9,
     "n": 299,
-    "slot": 1991066,
-    "at": 1791959462668
+    "slot": 1991067,
+    "at": 1791960362602
    },
    "M30": {
     "bias": "bearish",
