@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-14T13:57:19.205Z",
+ "generated_at": "2026-10-14T14:07:19.204Z",
  "today": "2026-10-14",
  "week_start": "2026-10-12",
  "campaign": {
@@ -102,7 +102,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-14 13:46:03"
+   "updated_at": "2026-10-14 14:01:03"
   },
   {
    "id": "tresearch",
@@ -110,7 +110,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Fed sudah naik Sept & hike Des makin dekat; DXY dekat high 18 bulan; CPI headline panas (0.6% m/m), core 0.2% cenderung jinak. Emas tertekan.",
-   "updated_at": "2026-10-14 13:46:02"
+   "updated_at": "2026-10-14 14:01:03"
   },
   {
    "id": "ttech",
@@ -118,7 +118,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Bias bearish",
-   "updated_at": "2026-10-14 13:46:03"
+   "updated_at": "2026-10-14 14:01:03"
   },
   {
    "id": "trisk",
@@ -126,7 +126,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: bearish, tapi belum ada pemicu entry di area",
-   "updated_at": "2026-10-14 13:46:03"
+   "updated_at": "2026-10-14 14:01:03"
   },
   {
    "id": "texec",
@@ -450,6 +450,21 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-14 14:06:19",
+   "agent_id": "owner",
+   "message": "Chat: Boleh"
+  },
+  {
+   "ts": "2026-10-14 14:05:19",
+   "agent_id": "owner",
+   "message": "Chat: Siapapun, bisa ngasi gw link website kantor ?"
+  },
+  {
+   "ts": "2026-10-14 14:01:02",
+   "agent_id": "ttech",
+   "message": "M15 berubah arah: sideways → bearish"
+  },
+  {
    "ts": "2026-10-14 13:31:03",
    "agent_id": "trisk",
    "message": "NO TRADE · bearish, tapi belum ada pemicu entry di area"
@@ -558,24 +573,44 @@
    "ts": "2026-10-14 10:00:26",
    "agent_id": "analyst",
    "message": "Update data 13 post IG 📈"
-  },
-  {
-   "ts": "2026-10-14 09:16:03",
-   "agent_id": "trisk",
-   "message": "NO TRADE · bearish, tapi belum ada pemicu entry di area"
-  },
-  {
-   "ts": "2026-10-14 09:00:40",
-   "agent_id": "publisher",
-   "message": "Posting #24 ke IG ✅"
-  },
-  {
-   "ts": "2026-10-14 08:31:02",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: sideways → bearish"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-10-14 14:06:27",
+   "agent_id": "dir",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Siap Bos, aku tanyain ke tim sekarang ya. Begitu ada link dashboard-nya langsung aku kabarin di sini 🙏"
+  },
+  {
+   "ts": "2026-10-14 14:06:19",
+   "agent_id": "owner",
+   "to_id": "dir",
+   "kind": "bos",
+   "message": "Boleh"
+  },
+  {
+   "ts": "2026-10-14 14:05:28",
+   "agent_id": "dir",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Kalau yang dimaksud dashboard kantor (data IG, dll), aku belum pegang link pastinya di sini, Bos. Mau aku tanyain ke tim dulu?"
+  },
+  {
+   "ts": "2026-10-14 14:05:28",
+   "agent_id": "copywriter",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Website toko kita zataa.my.id ya Bos 🎮"
+  },
+  {
+   "ts": "2026-10-14 14:05:19",
+   "agent_id": "owner",
+   "to_id": "dir",
+   "kind": "bos",
+   "message": "Siapapun, bisa ngasi gw link website kantor ?"
+  },
   {
    "ts": "2026-10-14 12:00:41",
    "agent_id": "publisher",
@@ -820,41 +855,6 @@
    "to_id": "publisher",
    "kind": "oper",
    "message": "Fikri, desain \"Render feed #23 & #24\" udah render 1080×1080. QA dulu ya sebelum ke bos"
-  },
-  {
-   "ts": "2026-10-14 00:17:54",
-   "agent_id": "copywriter",
-   "to_id": "designer",
-   "kind": "oper",
-   "message": "Teks buat \"Teks feed NAVI vs TLID & tier list Champions\" ready. Maria, giliranmu bikin cakep!"
-  },
-  {
-   "ts": "2026-10-14 00:17:35",
-   "agent_id": "researcher",
-   "to_id": "copywriter",
-   "kind": "oper",
-   "message": "Ista, bahan buat \"Data NAVI-TLID & 4 tim Champions\" udah aku rangkum + sumbernya. Tinggal kamu racik captionnya ✍️"
-  },
-  {
-   "ts": "2026-10-14 00:16:19",
-   "agent_id": "dir",
-   "to_id": null,
-   "kind": "oper",
-   "message": "Bos ACC 2 ide tambahan! \"Duel Puncak: NAVI vs TLID Sama-Sama 11 Poin\" & \"Tier List Fans: Siapa Juara Champions Shanghai?\" 🎉"
-  },
-  {
-   "ts": "2026-10-13 23:14:12",
-   "agent_id": "publisher",
-   "to_id": "owner",
-   "kind": "oper",
-   "message": "Bos, \"QA & submit #10\" udah aku kirim ke Telegram. Ditunggu approve-nya 🙏"
-  },
-  {
-   "ts": "2026-10-13 23:14:04",
-   "agent_id": "video",
-   "to_id": "publisher",
-   "kind": "oper",
-   "message": "Fikri, video \"Render video preview Week 9 #10\" udah render 9:16. Musiknya aman kok"
   }
  ],
  "stats": {
@@ -928,9 +928,14 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4094.800049,
+  "price": 4090.800049,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-14 14:01:03",
+    "decision": "NO TRADE",
+    "reason": "bearish, tapi belum ada pemicu entry di area"
+   },
    {
     "ts": "2026-10-14 13:46:03",
     "decision": "NO TRADE",
@@ -955,11 +960,6 @@
     "ts": "2026-10-14 12:46:03",
     "decision": "NO TRADE",
     "reason": "berita berdampak tinggi: Core CPI m/m (20.30 WITA)"
-   },
-   {
-    "ts": "2026-10-14 12:31:03",
-    "decision": "NO TRADE",
-    "reason": "berita berdampak tinggi: Core CPI m/m (20.30 WITA)"
    }
   ],
   "trades": [],
@@ -981,7 +981,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-14 13:46:03",
+   "ts": "2026-10-14 14:01:03",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1000,7 +1000,7 @@
     "bias": "bearish",
     "score": -2,
     "trigger": null,
-    "note": "bearish (skor -2) · harga 4105.10 · EMA50 H1 4158.94 · RSI M15 37"
+    "note": "bearish (skor -2) · harga 4089.30 · EMA50 H1 4155.66 · RSI M15 31"
    }
   },
   "fund": {
@@ -1084,47 +1084,47 @@
   "tf": {
    "M10": {
     "bias": "bearish",
-    "score": -2,
-    "price": 4101.3,
-    "ema20": 4118.91,
-    "ema50": 4134.97,
-    "rsi": 35.1,
+    "score": -3,
+    "price": 4090.7,
+    "ema20": 4116.22,
+    "ema50": 4133.23,
+    "rsi": 30.9,
     "n": 299,
-    "slot": 2986643,
-    "at": 1791985863012
+    "slot": 2986644,
+    "at": 1791986462950
    },
    "M15": {
-    "bias": "sideways",
-    "score": -1,
-    "price": 4101.1,
-    "ema20": 4125.55,
-    "ema50": 4141.35,
-    "rsi": 34.4,
+    "bias": "bearish",
+    "score": -2,
+    "price": 4090.7,
+    "ema20": 4122.23,
+    "ema50": 4139.36,
+    "rsi": 31,
     "n": 299,
-    "slot": 1991095,
-    "at": 1791985562963
+    "slot": 1991096,
+    "at": 1791986462956
    },
    "M30": {
     "bias": "bearish",
     "score": -2,
-    "price": 4089.8,
-    "ema20": 4139.87,
-    "ema50": 4153.18,
-    "rsi": 22.8,
-    "n": 104,
-    "slot": 995547,
-    "at": 1791984662976
+    "price": 4090.7,
+    "ema20": 4135.19,
+    "ema50": 4150.73,
+    "rsi": 23.5,
+    "n": 105,
+    "slot": 995548,
+    "at": 1791986462959
    },
    "H1": {
     "bias": "bearish",
     "score": -2,
-    "price": 4097.4,
-    "ema20": 4150.07,
-    "ema50": 4161.13,
-    "rsi": 21,
+    "price": 4090.7,
+    "ema20": 4144.42,
+    "ema50": 4158.37,
+    "rsi": 19.6,
     "n": 299,
-    "slot": 497773,
-    "at": 1791982863086
+    "slot": 497774,
+    "at": 1791986462967
    }
   },
   "currency": "USC",
