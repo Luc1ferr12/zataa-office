@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-14T08:59:19.052Z",
+ "generated_at": "2026-10-14T09:07:19.112Z",
  "today": "2026-10-14",
  "week_start": "2026-10-12",
  "campaign": {
@@ -62,7 +62,7 @@
    "title": "Social Media Publisher",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-10-14 05:01:04"
+   "updated_at": "2026-10-14 09:00:40"
   },
   {
    "id": "ads",
@@ -102,7 +102,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-14 08:46:02"
+   "updated_at": "2026-10-14 09:01:02"
   },
   {
    "id": "tresearch",
@@ -110,7 +110,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: CPI m/m fc 0.6% (prev 0.4%) panas, Fed hawkish 4%, DXY ~102; NFP lemah 29K tahan. Blackout CPI 20:30 WITA.",
-   "updated_at": "2026-10-14 08:46:02"
+   "updated_at": "2026-10-14 09:01:02"
   },
   {
    "id": "ttech",
@@ -118,7 +118,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Bias bearish",
-   "updated_at": "2026-10-14 08:46:02"
+   "updated_at": "2026-10-14 09:01:02"
   },
   {
    "id": "trisk",
@@ -126,7 +126,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: bearish, tapi belum ada pemicu entry di area",
-   "updated_at": "2026-10-14 08:46:02"
+   "updated_at": "2026-10-14 09:01:02"
   },
   {
    "id": "texec",
@@ -287,10 +287,10 @@
    "game": "valorant",
    "pillar": "engagement",
    "title": "Tier List Fans: Siapa Juara Champions Shanghai?",
-   "status": "approved",
+   "status": "posted",
    "asset_url": "{\"feed\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-14/24-tier-list-fans-siapa-juara-champions-sha.jpg\"],\"story\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-14/24-tier-list-fans-siapa-juara-champions-sha-916.jpg\"]}",
    "scheduled_at": null,
-   "posted_at": null
+   "posted_at": "2026-10-14 09:00:40"
   },
   {
    "id": 11,
@@ -450,6 +450,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-14 09:00:40",
+   "agent_id": "publisher",
+   "message": "Posting #24 ke IG ✅"
+  },
+  {
    "ts": "2026-10-14 08:31:02",
    "agent_id": "ttech",
    "message": "M10 berubah arah: sideways → bearish"
@@ -568,14 +573,16 @@
    "ts": "2026-10-14 04:01:02",
    "agent_id": "ttech",
    "message": "M60 berubah arah: sideways → bearish"
-  },
-  {
-   "ts": "2026-10-14 04:00:26",
-   "agent_id": "analyst",
-   "message": "Update data 11 post IG 📈"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-10-14 09:00:40",
+   "agent_id": "publisher",
+   "to_id": null,
+   "kind": "oper",
+   "message": "\"Tier List Fans: Siapa Juara Champions Shanghai?\" udah tayang di IG 🚀 Makasih semua!"
+  },
   {
    "ts": "2026-10-14 05:01:04",
    "agent_id": "publisher",
@@ -848,22 +855,15 @@
    "to_id": "owner",
    "kind": "oper",
    "message": "Bos, \"QA & kirim konten #22\" udah aku kirim ke Telegram. Ditunggu approve-nya 🙏"
-  },
-  {
-   "ts": "2026-10-12 23:46:17",
-   "agent_id": "designer",
-   "to_id": "publisher",
-   "kind": "oper",
-   "message": "Visual \"Render feed versus Vitality vs LOUD\" kelar! Fikri, cek typo-nya sekalian ya 🙏"
   }
  ],
  "stats": {
   "this_week": {
    "week": "2026-10-12",
    "total": 19,
-   "posted": 9,
+   "posted": 10,
    "pending": 0,
-   "scheduled": 2,
+   "scheduled": 1,
    "views": 0,
    "likes": 39,
    "comments": 0,
@@ -928,9 +928,14 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4143.5,
+  "price": 4144,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-14 09:01:02",
+    "decision": "NO TRADE",
+    "reason": "bearish, tapi belum ada pemicu entry di area"
+   },
    {
     "ts": "2026-10-14 08:46:02",
     "decision": "NO TRADE",
@@ -955,11 +960,6 @@
     "ts": "2026-10-14 07:46:02",
     "decision": "NO TRADE",
     "reason": "bearish, tapi belum ada pemicu entry di area"
-   },
-   {
-    "ts": "2026-10-14 07:31:02",
-    "decision": "NO TRADE",
-    "reason": "bearish, tapi belum ada pemicu entry di area"
    }
   ],
   "trades": [],
@@ -981,7 +981,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-14 08:46:02",
+   "ts": "2026-10-14 09:01:02",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1000,13 +1000,10 @@
     "bias": "bearish",
     "score": -2,
     "trigger": null,
-    "note": "bearish (skor -2) · harga 4145.30 · EMA50 H1 4166.45 · RSI M15 39"
+    "note": "bearish (skor -2) · harga 4144.40 · EMA50 H1 4165.49 · RSI M15 39"
    }
   },
-  "fund": {
-   "bias": -0.35,
-   "note": "CPI m/m fc 0.6% (prev 0.4%) panas, Fed hawkish 4%, DXY ~102; NFP lemah 29K tahan. Blackout CPI 20:30 WITA."
-  },
+  "fund": null,
   "calendar": [
    {
     "title": "Core CPI m/m",
@@ -1085,46 +1082,46 @@
    "M10": {
     "bias": "bearish",
     "score": -3,
-    "price": 4145,
-    "ema20": 4152.28,
-    "ema50": 4156.26,
-    "rsi": 39.3,
-    "n": 284,
-    "slot": 2986613,
-    "at": 1791967862703
+    "price": 4142.8,
+    "ema20": 4151.38,
+    "ema50": 4155.73,
+    "rsi": 37.2,
+    "n": 285,
+    "slot": 2986614,
+    "at": 1791968462713
    },
    "M15": {
     "bias": "bearish",
     "score": -3,
-    "price": 4146,
-    "ema20": 4154.17,
-    "ema50": 4158.65,
-    "rsi": 39.4,
+    "price": 4142.8,
+    "ema20": 4153.08,
+    "ema50": 4158.03,
+    "rsi": 36.7,
     "n": 299,
-    "slot": 1991075,
-    "at": 1791967562718
+    "slot": 1991076,
+    "at": 1791968462719
    },
    "M30": {
     "bias": "bearish",
     "score": -3,
-    "price": 4152,
-    "ema20": 4157.41,
-    "ema50": 4163.47,
-    "rsi": 43.1,
-    "n": 94,
-    "slot": 995537,
-    "at": 1791966662691
+    "price": 4142.8,
+    "ema20": 4156.02,
+    "ema50": 4162.66,
+    "rsi": 36.6,
+    "n": 95,
+    "slot": 995538,
+    "at": 1791968462719
    },
    "H1": {
     "bias": "bearish",
     "score": -2,
-    "price": 4150.9,
-    "ema20": 4161.79,
-    "ema50": 4167.31,
-    "rsi": 40.5,
+    "price": 4142.8,
+    "ema20": 4159.98,
+    "ema50": 4166.35,
+    "rsi": 36.2,
     "n": 299,
-    "slot": 497768,
-    "at": 1791964862665
+    "slot": 497769,
+    "at": 1791968462726
    }
   },
   "currency": "USC",
