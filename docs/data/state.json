@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-14T06:07:19.048Z",
+ "generated_at": "2026-10-14T06:17:19.049Z",
  "today": "2026-10-14",
  "week_start": "2026-10-12",
  "campaign": {
@@ -102,7 +102,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-14 06:01:02"
+   "updated_at": "2026-10-14 06:16:02"
   },
   {
    "id": "tresearch",
@@ -110,7 +110,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: CPI m/m fc 0.6% (prev 0.4%) panas, Fed hawkish 4%, DXY ~102; NFP lemah 29K tahan. Blackout CPI 20:30 WITA.",
-   "updated_at": "2026-10-14 06:01:02"
+   "updated_at": "2026-10-14 06:16:02"
   },
   {
    "id": "ttech",
@@ -118,7 +118,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Bias bearish",
-   "updated_at": "2026-10-14 06:01:02"
+   "updated_at": "2026-10-14 06:16:02"
   },
   {
    "id": "trisk",
@@ -126,7 +126,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: bearish, tapi belum ada pemicu entry di area",
-   "updated_at": "2026-10-14 06:01:02"
+   "updated_at": "2026-10-14 06:16:02"
   },
   {
    "id": "texec",
@@ -450,6 +450,16 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-14 06:16:02",
+   "agent_id": "trisk",
+   "message": "NO TRADE · bearish, tapi belum ada pemicu entry di area"
+  },
+  {
+   "ts": "2026-10-14 06:16:02",
+   "agent_id": "ttech",
+   "message": "M15 berubah arah: bearish → sideways"
+  },
+  {
    "ts": "2026-10-14 06:01:02",
    "agent_id": "ttech",
    "message": "M60 berubah arah: sideways → bearish"
@@ -561,16 +571,6 @@
   },
   {
    "ts": "2026-10-14 03:03:22",
-   "agent_id": "publisher",
-   "message": "Gagal posting #23: IG: API access blocked."
-  },
-  {
-   "ts": "2026-10-14 03:02:22",
-   "agent_id": "publisher",
-   "message": "Gagal posting #23: IG: API access blocked."
-  },
-  {
-   "ts": "2026-10-14 03:01:19",
    "agent_id": "publisher",
    "message": "Gagal posting #23: IG: API access blocked."
   }
@@ -928,9 +928,14 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4150.700195,
+  "price": 4161.299805,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-14 06:16:02",
+    "decision": "NO TRADE",
+    "reason": "bearish, tapi belum ada pemicu entry di area"
+   },
    {
     "ts": "2026-10-14 06:01:02",
     "decision": "NO TRADE",
@@ -955,11 +960,6 @@
     "ts": "2026-10-14 05:01:02",
     "decision": "NO TRADE",
     "reason": "di luar jam sesi London–New York"
-   },
-   {
-    "ts": "2026-10-14 04:46:02",
-    "decision": "NO TRADE",
-    "reason": "di luar jam sesi London–New York"
    }
   ],
   "trades": [],
@@ -981,7 +981,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-14 06:01:02",
+   "ts": "2026-10-14 06:16:02",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1000,7 +1000,7 @@
     "bias": "bearish",
     "score": -2,
     "trigger": null,
-    "note": "bearish (skor -2) · harga 4149.70 · EMA50 H1 4168.04 · RSI M15 37"
+    "note": "bearish (skor -2) · harga 4163.60 · EMA50 H1 4168.58 · RSI M15 52"
    }
   },
   "fund": {
@@ -1085,24 +1085,24 @@
    "M10": {
     "bias": "bearish",
     "score": -3,
-    "price": 4151.5,
-    "ema20": 4160.74,
-    "ema50": 4161.54,
-    "rsi": 38.5,
-    "n": 267,
-    "slot": 2986596,
-    "at": 1791957662567
+    "price": 4155.8,
+    "ema20": 4160.27,
+    "ema50": 4161.31,
+    "rsi": 44.3,
+    "n": 268,
+    "slot": 2986597,
+    "at": 1791958262586
    },
    "M15": {
-    "bias": "bearish",
-    "score": -2,
-    "price": 4151.5,
-    "ema20": 4160.91,
-    "ema50": 4162.78,
-    "rsi": 38.9,
+    "bias": "sideways",
+    "score": 0,
+    "price": 4161.1,
+    "ema20": 4160.93,
+    "ema50": 4162.72,
+    "rsi": 49.9,
     "n": 299,
-    "slot": 1991064,
-    "at": 1791957662572
+    "slot": 1991065,
+    "at": 1791958562584
    },
    "M30": {
     "bias": "bearish",
