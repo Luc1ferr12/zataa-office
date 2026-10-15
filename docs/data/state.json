@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-15T04:27:19.512Z",
+ "generated_at": "2026-10-15T04:37:19.511Z",
  "today": "2026-10-15",
  "week_start": "2026-10-12",
  "campaign": {
@@ -102,7 +102,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-15 04:16:03"
+   "updated_at": "2026-10-15 04:31:03"
   },
   {
    "id": "tresearch",
@@ -110,7 +110,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Berita 24 jam tidak terverifikasi (hasil pencarian lama). PCE lebih rendah & NFP lemah mendukung emas; risiko hike Warsh & DXY kuat menekan. Netral.",
-   "updated_at": "2026-10-15 04:16:03"
+   "updated_at": "2026-10-15 04:31:03"
   },
   {
    "id": "ttech",
@@ -118,7 +118,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Bias bearish",
-   "updated_at": "2026-10-15 04:16:03"
+   "updated_at": "2026-10-15 04:31:03"
   },
   {
    "id": "trisk",
@@ -126,7 +126,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: di luar jam sesi London–New York",
-   "updated_at": "2026-10-15 04:16:03"
+   "updated_at": "2026-10-15 04:31:03"
   },
   {
    "id": "texec",
@@ -463,6 +463,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-15 04:31:03",
+   "agent_id": "ttech",
+   "message": "M30 berubah arah: sideways → bullish"
+  },
+  {
    "ts": "2026-10-15 04:16:03",
    "agent_id": "trisk",
    "message": "NO TRADE · di luar jam sesi London–New York"
@@ -581,11 +586,6 @@
    "ts": "2026-10-14 23:03:30",
    "agent_id": "publisher",
    "message": "Kirim #12 ke Owner buat approval"
-  },
-  {
-   "ts": "2026-10-14 23:02:48",
-   "agent_id": "dir",
-   "message": "Pilih ide 23 Tebak Skor Jumat (engagement) dan 22 Weekly Diamond Pass (promo), beda pilar dari jadwal hari ini"
   }
  ],
  "chats": [
@@ -941,9 +941,14 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4146,
+  "price": 4147.700195,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-15 04:31:03",
+    "decision": "NO TRADE",
+    "reason": "di luar jam sesi London–New York"
+   },
    {
     "ts": "2026-10-15 04:16:03",
     "decision": "NO TRADE",
@@ -968,11 +973,6 @@
     "ts": "2026-10-15 03:16:03",
     "decision": "NO TRADE",
     "reason": "di luar jam sesi London–New York"
-   },
-   {
-    "ts": "2026-10-15 03:01:03",
-    "decision": "NO TRADE",
-    "reason": "di luar jam sesi London–New York"
    }
   ],
   "trades": [],
@@ -994,7 +994,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-15 04:16:03",
+   "ts": "2026-10-15 04:31:03",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1013,7 +1013,7 @@
     "bias": "bearish",
     "score": -3,
     "trigger": null,
-    "note": "bearish (skor -3) · harga 4143.10 · EMA50 H1 4140.09 · RSI M15 57"
+    "note": "bearish (skor -3) · harga 4147.60 · EMA50 H1 4140.27 · RSI M15 60"
    }
   },
   "fund": {
@@ -1084,35 +1084,35 @@
    "M10": {
     "bias": "bullish",
     "score": 3,
-    "price": 4147.1,
-    "ema20": 4144.34,
-    "ema50": 4131.42,
-    "rsi": 56.6,
+    "price": 4147.2,
+    "ema20": 4144.61,
+    "ema50": 4132.04,
+    "rsi": 56.7,
     "n": 299,
-    "slot": 2986730,
-    "at": 1792038063582
+    "slot": 2986731,
+    "at": 1792038663620
    },
    "M15": {
     "bias": "bullish",
     "score": 3,
-    "price": 4144.2,
-    "ema20": 4138.9,
-    "ema50": 4126.66,
-    "rsi": 58.1,
+    "price": 4147.2,
+    "ema20": 4139.69,
+    "ema50": 4127.47,
+    "rsi": 60,
     "n": 299,
-    "slot": 1991153,
-    "at": 1792037763603
+    "slot": 1991154,
+    "at": 1792038663626
    },
    "M30": {
-    "bias": "sideways",
-    "score": 1,
-    "price": 4146,
-    "ema20": 4128.34,
-    "ema50": 4128.82,
-    "rsi": 62.7,
-    "n": 133,
-    "slot": 995576,
-    "at": 1792036863586
+    "bias": "bullish",
+    "score": 3,
+    "price": 4147.2,
+    "ema20": 4130.13,
+    "ema50": 4129.54,
+    "rsi": 63.2,
+    "n": 134,
+    "slot": 995577,
+    "at": 1792038663626
    },
    "H1": {
     "bias": "sideways",
