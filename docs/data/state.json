@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-15T09:07:19.597Z",
+ "generated_at": "2026-10-15T09:17:19.604Z",
  "today": "2026-10-15",
  "week_start": "2026-10-12",
  "campaign": {
@@ -102,15 +102,15 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-15 09:01:03"
+   "updated_at": "2026-10-15 09:16:03"
   },
   {
    "id": "tresearch",
    "name": "Davina",
    "title": "Research & Fundamental",
    "status": "done",
-   "current_task": "Fundamental: Berita 24 jam tidak terverifikasi (hasil pencarian lama). PCE lebih rendah & NFP lemah mendukung emas; risiko hike Warsh & DXY kuat menekan. Netral.",
-   "updated_at": "2026-10-15 09:01:03"
+   "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
+   "updated_at": "2026-10-15 09:16:03"
   },
   {
    "id": "ttech",
@@ -118,7 +118,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Bias sideways",
-   "updated_at": "2026-10-15 09:01:03"
+   "updated_at": "2026-10-15 09:16:03"
   },
   {
    "id": "trisk",
@@ -126,7 +126,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: market sideways, tunggu arah jelas",
-   "updated_at": "2026-10-15 09:01:03"
+   "updated_at": "2026-10-15 09:16:03"
   },
   {
    "id": "texec",
@@ -463,6 +463,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-15 09:16:03",
+   "agent_id": "trisk",
+   "message": "NO TRADE · market sideways, tunggu arah jelas"
+  },
+  {
    "ts": "2026-10-15 09:01:03",
    "agent_id": "ttech",
    "message": "M15 berubah arah: sideways → bullish"
@@ -581,11 +586,6 @@
    "ts": "2026-10-15 00:16:12",
    "agent_id": "researcher",
    "message": "Harga 15 Okt zataa.my.id: WDP Rp30.826, x2 Rp61.653, x3 Rp92.479, x5 Rp154.133"
-  },
-  {
-   "ts": "2026-10-15 00:16:03",
-   "agent_id": "trisk",
-   "message": "NO TRADE · di luar jam sesi London–New York"
   }
  ],
  "chats": [
@@ -941,9 +941,14 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4155.100098,
+  "price": 4157.100098,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-15 09:16:03",
+    "decision": "NO TRADE",
+    "reason": "market sideways, tunggu arah jelas"
+   },
    {
     "ts": "2026-10-15 09:01:03",
     "decision": "NO TRADE",
@@ -968,11 +973,6 @@
     "ts": "2026-10-15 08:01:03",
     "decision": "NO TRADE",
     "reason": "bearish, tapi belum ada pemicu entry di area"
-   },
-   {
-    "ts": "2026-10-15 07:46:03",
-    "decision": "NO TRADE",
-    "reason": "bearish, tapi belum ada pemicu entry di area"
    }
   ],
   "trades": [],
@@ -994,7 +994,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-15 09:01:03",
+   "ts": "2026-10-15 09:16:03",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1005,15 +1005,15 @@
    "risk_usd": null,
    "reason": "market sideways, tunggu arah jelas",
    "fund": {
-    "bias": 0.1,
-    "note": "Berita 24 jam tidak terverifikasi (hasil pencarian lama). PCE lebih rendah & NFP lemah mendukung emas; risiko hike Warsh & DXY kuat menekan. Netral.",
+    "bias": 0,
+    "note": "netral (belum ada ringkasan hari ini)",
     "blackout": null
    },
    "tech": {
     "bias": "sideways",
     "score": -1,
     "trigger": null,
-    "note": "sideways (skor -1) · harga 4152.40 · EMA50 H1 4141.27 · RSI M15 60"
+    "note": "sideways (skor -1) · harga 4158.80 · EMA50 H1 4141.52 · RSI M15 65"
    }
   },
   "fund": null,
@@ -1080,25 +1080,25 @@
   "tf": {
    "M10": {
     "bias": "bullish",
-    "score": 2,
-    "price": 4152.4,
-    "ema20": 4147.57,
-    "ema50": 4141.14,
-    "rsi": 59.1,
+    "score": 3,
+    "price": 4156.2,
+    "ema20": 4148.39,
+    "ema50": 4141.73,
+    "rsi": 63.2,
     "n": 299,
-    "slot": 2986758,
-    "at": 1792054863798
+    "slot": 2986759,
+    "at": 1792055463807
    },
    "M15": {
     "bias": "bullish",
     "score": 2,
-    "price": 4152.4,
-    "ema20": 4145.49,
-    "ema50": 4136.67,
-    "rsi": 60.3,
+    "price": 4157.3,
+    "ema20": 4146.62,
+    "ema50": 4137.48,
+    "rsi": 64.3,
     "n": 299,
-    "slot": 1991172,
-    "at": 1792054863802
+    "slot": 1991173,
+    "at": 1792055763803
    },
    "M30": {
     "bias": "bullish",
