@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-15T11:59:19.604Z",
+ "generated_at": "2026-10-15T12:07:19.662Z",
  "today": "2026-10-15",
  "week_start": "2026-10-12",
  "campaign": {
@@ -62,7 +62,7 @@
    "title": "Social Media Publisher",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-10-15 09:00:42"
+   "updated_at": "2026-10-15 12:00:41"
   },
   {
    "id": "ads",
@@ -86,7 +86,7 @@
    "title": "Price Watcher",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-10-15 10:00:31"
+   "updated_at": "2026-10-15 12:00:23"
   },
   {
    "id": "ob",
@@ -102,7 +102,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-15 11:46:04"
+   "updated_at": "2026-10-15 12:01:04"
   },
   {
    "id": "tresearch",
@@ -110,15 +110,15 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Waspada rilis Core PPI m/m (20.30 WITA)",
-   "updated_at": "2026-10-15 11:46:03"
+   "updated_at": "2026-10-15 12:01:04"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Bias sideways",
-   "updated_at": "2026-10-15 11:46:04"
+   "current_task": "Bias bearish",
+   "updated_at": "2026-10-15 12:01:04"
   },
   {
    "id": "trisk",
@@ -126,7 +126,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: berita berdampak tinggi: Core PPI m/m (20.30 WITA)",
-   "updated_at": "2026-10-15 11:46:04"
+   "updated_at": "2026-10-15 12:01:04"
   },
   {
    "id": "texec",
@@ -339,10 +339,10 @@
    "game": "freefire",
    "pillar": "esport",
    "title": "24 Tim, 4 Weekend: Road to FFWS Global Finals Bangkok 6 Nov",
-   "status": "approved",
+   "status": "posted",
    "asset_url": "{\"feed\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-15/13-24-tim-4-weekend-road-to-ffws-global-fin.jpg\"],\"story\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-15/13-24-tim-4-weekend-road-to-ffws-global-fin-916.jpg\"]}",
    "scheduled_at": null,
-   "posted_at": null
+   "posted_at": "2026-10-15 12:00:41"
   },
   {
    "id": 14,
@@ -463,6 +463,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-15 12:00:41",
+   "agent_id": "publisher",
+   "message": "Posting #13 ke IG ✅"
+  },
+  {
    "ts": "2026-10-15 11:46:03",
    "agent_id": "ttech",
    "message": "M15 berubah arah: bullish → sideways"
@@ -581,14 +586,16 @@
    "ts": "2026-10-15 01:16:03",
    "agent_id": "trisk",
    "message": "NO TRADE · di luar jam sesi London–New York"
-  },
-  {
-   "ts": "2026-10-15 01:01:03",
-   "agent_id": "ttech",
-   "message": "M60 berubah arah: bearish → sideways"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-10-15 12:00:41",
+   "agent_id": "publisher",
+   "to_id": null,
+   "kind": "oper",
+   "message": "\"24 Tim, 4 Weekend: Road to FFWS Global Finals Bang\" udah tayang di IG 🚀 Makasih semua!"
+  },
   {
    "ts": "2026-10-15 09:00:42",
    "agent_id": "publisher",
@@ -861,22 +868,15 @@
    "to_id": "owner",
    "kind": "santai",
    "message": "Nanti tiap video tayang aku kabarin, Bos tinggal ubah ke publik dari app TikTok ya 🙏"
-  },
-  {
-   "ts": "2026-10-14 10:38:01",
-   "agent_id": "publisher",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Siap Bos, udah aku aktifin! Mulai sekarang tiap video yang Bos approve otomatis naik ke IG Reels + TikTok (masuk private dulu)."
   }
  ],
  "stats": {
   "this_week": {
    "week": "2026-10-12",
    "total": 20,
-   "posted": 13,
+   "posted": 14,
    "pending": 0,
-   "scheduled": 1,
+   "scheduled": 0,
    "views": 0,
    "likes": 138,
    "comments": 0,
@@ -941,9 +941,14 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4148.600098,
+  "price": 4147.299805,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-15 12:01:04",
+    "decision": "NO TRADE",
+    "reason": "berita berdampak tinggi: Core PPI m/m (20.30 WITA)"
+   },
    {
     "ts": "2026-10-15 11:46:04",
     "decision": "NO TRADE",
@@ -968,11 +973,6 @@
     "ts": "2026-10-15 10:46:04",
     "decision": "NO TRADE",
     "reason": "market sideways, tunggu arah jelas"
-   },
-   {
-    "ts": "2026-10-15 10:31:04",
-    "decision": "NO TRADE",
-    "reason": "market sideways, tunggu arah jelas"
    }
   ],
   "trades": [],
@@ -994,7 +994,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-15 11:46:04",
+   "ts": "2026-10-15 12:01:04",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1010,10 +1010,10 @@
     "blackout": "Core PPI m/m (20.30 WITA)"
    },
    "tech": {
-    "bias": "sideways",
-    "score": -1,
+    "bias": "bearish",
+    "score": -2,
     "trigger": null,
-    "note": "sideways (skor -1) · harga 4151.70 · EMA50 H1 4142.44 · RSI M15 51"
+    "note": "bearish (skor -2) · harga 4146.00 · EMA50 H1 4142.44 · RSI M15 44"
    }
   },
   "fund": {
@@ -1084,46 +1084,46 @@
    "M10": {
     "bias": "sideways",
     "score": 0,
-    "price": 4152.2,
-    "ema20": 4154.5,
-    "ema50": 4148.63,
-    "rsi": 48,
+    "price": 4148.1,
+    "ema20": 4153.89,
+    "ema50": 4148.61,
+    "rsi": 41.7,
     "n": 299,
-    "slot": 2986775,
-    "at": 1792065064087
+    "slot": 2986776,
+    "at": 1792065664090
    },
    "M15": {
     "bias": "sideways",
     "score": 0,
-    "price": 4151.5,
-    "ema20": 4152.88,
-    "ema50": 4143.85,
-    "rsi": 51,
+    "price": 4148.1,
+    "ema20": 4152.43,
+    "ema50": 4144.02,
+    "rsi": 46.8,
     "n": 299,
-    "slot": 1991183,
-    "at": 1792064763921
+    "slot": 1991184,
+    "at": 1792065664095
    },
    "M30": {
     "bias": "sideways",
     "score": 1,
-    "price": 4158,
-    "ema20": 4146.66,
-    "ema50": 4138.58,
-    "rsi": 63.2,
-    "n": 148,
-    "slot": 995591,
-    "at": 1792063863912
+    "price": 4148.1,
+    "ema20": 4146.79,
+    "ema50": 4138.95,
+    "rsi": 53.8,
+    "n": 149,
+    "slot": 995592,
+    "at": 1792065664096
    },
    "H1": {
     "bias": "sideways",
-    "score": 1,
-    "price": 4155.5,
-    "ema20": 4138.09,
-    "ema50": 4142.06,
-    "rsi": 59.8,
+    "score": 0,
+    "price": 4148.1,
+    "ema20": 4139.04,
+    "ema50": 4142.3,
+    "rsi": 55.3,
     "n": 299,
-    "slot": 497795,
-    "at": 1792062063887
+    "slot": 497796,
+    "at": 1792065664104
    }
   },
   "currency": "USC",
