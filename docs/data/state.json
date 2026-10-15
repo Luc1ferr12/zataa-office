@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-15T14:27:19.714Z",
+ "generated_at": "2026-10-15T14:37:19.713Z",
  "today": "2026-10-15",
  "week_start": "2026-10-12",
  "campaign": {
@@ -102,7 +102,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-15 14:16:04"
+   "updated_at": "2026-10-15 14:31:04"
   },
   {
    "id": "tresearch",
@@ -110,7 +110,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Fed tahan 3.50-3.75%, dot plot hawkish & inflasi ~3.4%+; data Okt belum terkonfirmasi, pasar pricing hike. Bias lemah ke bawah.",
-   "updated_at": "2026-10-15 14:16:04"
+   "updated_at": "2026-10-15 14:31:04"
   },
   {
    "id": "ttech",
@@ -118,7 +118,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Bias bearish",
-   "updated_at": "2026-10-15 14:16:04"
+   "updated_at": "2026-10-15 14:31:04"
   },
   {
    "id": "trisk",
@@ -126,7 +126,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: bearish, tapi belum ada pemicu entry di area",
-   "updated_at": "2026-10-15 14:16:04"
+   "updated_at": "2026-10-15 14:31:04"
   },
   {
    "id": "texec",
@@ -463,6 +463,21 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-15 14:31:04",
+   "agent_id": "trisk",
+   "message": "NO TRADE · bearish, tapi belum ada pemicu entry di area"
+  },
+  {
+   "ts": "2026-10-15 14:31:04",
+   "agent_id": "ttech",
+   "message": "M15 berubah arah: sideways → bullish"
+  },
+  {
+   "ts": "2026-10-15 14:31:04",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: sideways → bullish"
+  },
+  {
    "ts": "2026-10-15 14:16:04",
    "agent_id": "ttech",
    "message": "M15 berubah arah: bullish → sideways"
@@ -571,21 +586,6 @@
    "ts": "2026-10-15 07:00:28",
    "agent_id": "analyst",
    "message": "Update data 15 post IG 📈"
-  },
-  {
-   "ts": "2026-10-15 06:16:03",
-   "agent_id": "trisk",
-   "message": "NO TRADE · bearish, tapi belum ada pemicu entry di area"
-  },
-  {
-   "ts": "2026-10-15 05:46:03",
-   "agent_id": "ttech",
-   "message": "M15 berubah arah: bullish → sideways"
-  },
-  {
-   "ts": "2026-10-15 05:31:03",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: bullish → sideways"
   }
  ],
  "chats": [
@@ -941,9 +941,14 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4159.399902,
+  "price": 4160.399902,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-15 14:31:04",
+    "decision": "NO TRADE",
+    "reason": "bearish, tapi belum ada pemicu entry di area"
+   },
    {
     "ts": "2026-10-15 14:16:04",
     "decision": "NO TRADE",
@@ -968,11 +973,6 @@
     "ts": "2026-10-15 13:16:04",
     "decision": "NO TRADE",
     "reason": "bearish, tapi belum ada pemicu entry di area"
-   },
-   {
-    "ts": "2026-10-15 13:01:04",
-    "decision": "NO TRADE",
-    "reason": "berita berdampak tinggi: Core PPI m/m (20.30 WITA)"
    }
   ],
   "trades": [],
@@ -994,7 +994,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-15 14:16:04",
+   "ts": "2026-10-15 14:31:04",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1013,7 +1013,7 @@
     "bias": "bearish",
     "score": -2,
     "trigger": null,
-    "note": "bearish (skor -2) · harga 4149.50 · EMA50 H1 4143.56 · RSI M15 46"
+    "note": "bearish (skor -2) · harga 4157.80 · EMA50 H1 4143.89 · RSI M15 55"
    }
   },
   "fund": {
@@ -1082,37 +1082,37 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "sideways",
-    "score": 0,
-    "price": 4147.7,
-    "ema20": 4154.54,
-    "ema50": 4151.13,
-    "rsi": 44.3,
+    "bias": "bullish",
+    "score": 2,
+    "price": 4161.6,
+    "ema20": 4155.21,
+    "ema50": 4151.54,
+    "rsi": 55.4,
     "n": 299,
-    "slot": 2986790,
-    "at": 1792074064031
+    "slot": 2986791,
+    "at": 1792074664037
    },
    "M15": {
-    "bias": "sideways",
-    "score": 0,
-    "price": 4148,
-    "ema20": 4153.56,
-    "ema50": 4147.09,
-    "rsi": 44.4,
+    "bias": "bullish",
+    "score": 2,
+    "price": 4161.6,
+    "ema20": 4154.33,
+    "ema50": 4147.66,
+    "rsi": 58.8,
     "n": 299,
-    "slot": 1991193,
-    "at": 1792073764024
+    "slot": 1991194,
+    "at": 1792074664045
    },
    "M30": {
     "bias": "bullish",
-    "score": 2,
-    "price": 4159.6,
-    "ema20": 4149.64,
-    "ema50": 4141.35,
-    "rsi": 61.7,
-    "n": 153,
-    "slot": 995596,
-    "at": 1792072864013
+    "score": 3,
+    "price": 4161.6,
+    "ema20": 4150.78,
+    "ema50": 4142.15,
+    "rsi": 63,
+    "n": 154,
+    "slot": 995597,
+    "at": 1792074664047
    },
    "H1": {
     "bias": "sideways",
