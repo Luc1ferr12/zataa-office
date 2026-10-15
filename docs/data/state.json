@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-15T10:57:19.640Z",
+ "generated_at": "2026-10-15T11:07:19.638Z",
  "today": "2026-10-15",
  "week_start": "2026-10-12",
  "campaign": {
@@ -102,15 +102,15 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-15 10:46:04"
+   "updated_at": "2026-10-15 11:01:27"
   },
   {
    "id": "tresearch",
    "name": "Davina",
    "title": "Research & Fundamental",
    "status": "done",
-   "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
-   "updated_at": "2026-10-15 10:46:04"
+   "current_task": "Fundamental: Fed tahan 3.50-3.75%, dot plot hawkish & inflasi ~3.4%+; data Okt belum terkonfirmasi, pasar pricing hike. Bias lemah ke bawah.",
+   "updated_at": "2026-10-15 11:01:27"
   },
   {
    "id": "ttech",
@@ -118,7 +118,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Bias sideways",
-   "updated_at": "2026-10-15 10:46:04"
+   "updated_at": "2026-10-15 11:01:27"
   },
   {
    "id": "trisk",
@@ -126,7 +126,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: market sideways, tunggu arah jelas",
-   "updated_at": "2026-10-15 10:46:04"
+   "updated_at": "2026-10-15 11:01:27"
   },
   {
    "id": "texec",
@@ -463,6 +463,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-15 11:01:03",
+   "agent_id": "ttech",
+   "message": "M30 berubah arah: bullish → sideways"
+  },
+  {
    "ts": "2026-10-15 10:16:03",
    "agent_id": "trisk",
    "message": "NO TRADE · market sideways, tunggu arah jelas"
@@ -581,11 +586,6 @@
    "ts": "2026-10-15 00:19:19",
    "agent_id": "owner",
    "message": "Approve konten #25 ✅"
-  },
-  {
-   "ts": "2026-10-15 00:16:41",
-   "agent_id": "publisher",
-   "message": "Kirim #25 ke Owner buat approval"
   }
  ],
  "chats": [
@@ -941,9 +941,14 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4155.700195,
+  "price": 4160.100098,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-15 11:01:27",
+    "decision": "NO TRADE",
+    "reason": "market sideways, tunggu arah jelas"
+   },
    {
     "ts": "2026-10-15 10:46:04",
     "decision": "NO TRADE",
@@ -968,11 +973,6 @@
     "ts": "2026-10-15 09:46:03",
     "decision": "NO TRADE",
     "reason": "market sideways, tunggu arah jelas"
-   },
-   {
-    "ts": "2026-10-15 09:31:03",
-    "decision": "NO TRADE",
-    "reason": "market sideways, tunggu arah jelas"
    }
   ],
   "trades": [],
@@ -994,7 +994,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-15 10:46:04",
+   "ts": "2026-10-15 11:01:27",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1005,18 +1005,21 @@
    "risk_usd": null,
    "reason": "market sideways, tunggu arah jelas",
    "fund": {
-    "bias": 0,
-    "note": "netral (belum ada ringkasan hari ini)",
+    "bias": -0.3,
+    "note": "Fed tahan 3.50-3.75%, dot plot hawkish & inflasi ~3.4%+; data Okt belum terkonfirmasi, pasar pricing hike. Bias lemah ke bawah.",
     "blackout": null
    },
    "tech": {
     "bias": "sideways",
     "score": -1,
     "trigger": null,
-    "note": "sideways (skor -1) · harga 4153.90 · EMA50 H1 4142.00 · RSI M15 57"
+    "note": "sideways (skor -1) · harga 4156.00 · EMA50 H1 4142.61 · RSI M15 59"
    }
   },
-  "fund": null,
+  "fund": {
+   "bias": -0.3,
+   "note": "Fed tahan 3.50-3.75%, dot plot hawkish & inflasi ~3.4%+; data Okt belum terkonfirmasi, pasar pricing hike. Bias lemah ke bawah."
+  },
   "calendar": [
    {
     "title": "Core PPI m/m",
@@ -1081,46 +1084,46 @@
    "M10": {
     "bias": "bullish",
     "score": 3,
-    "price": 4154.5,
-    "ema20": 4153.46,
-    "ema50": 4146.65,
-    "rsi": 54.5,
+    "price": 4155.5,
+    "ema20": 4153.65,
+    "ema50": 4147,
+    "rsi": 56.1,
     "n": 299,
-    "slot": 2986769,
-    "at": 1792061464070
+    "slot": 2986770,
+    "at": 1792062063873
    },
    "M15": {
     "bias": "bullish",
     "score": 3,
-    "price": 4154.6,
-    "ema20": 4151.43,
-    "ema50": 4141.75,
-    "rsi": 57.7,
+    "price": 4155.5,
+    "ema20": 4151.82,
+    "ema50": 4142.29,
+    "rsi": 58.8,
     "n": 299,
-    "slot": 1991179,
-    "at": 1792061164060
+    "slot": 1991180,
+    "at": 1792062063877
    },
    "M30": {
-    "bias": "bullish",
-    "score": 2,
-    "price": 4155.3,
-    "ema20": 4144.41,
-    "ema50": 4137.06,
-    "rsi": 61.5,
-    "n": 146,
-    "slot": 995589,
-    "at": 1792060264061
+    "bias": "sideways",
+    "score": 1,
+    "price": 4155.5,
+    "ema20": 4145.46,
+    "ema50": 4137.78,
+    "rsi": 61.6,
+    "n": 147,
+    "slot": 995590,
+    "at": 1792062063878
    },
    "H1": {
     "bias": "sideways",
     "score": 1,
-    "price": 4158.7,
-    "ema20": 4136.26,
-    "ema50": 4141.51,
-    "rsi": 61.8,
+    "price": 4155.5,
+    "ema20": 4138.09,
+    "ema50": 4142.06,
+    "rsi": 59.8,
     "n": 299,
-    "slot": 497794,
-    "at": 1792058463710
+    "slot": 497795,
+    "at": 1792062063887
    }
   },
   "currency": "USC",
