@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-15T14:57:19.719Z",
+ "generated_at": "2026-10-15T15:07:19.722Z",
  "today": "2026-10-15",
  "week_start": "2026-10-12",
  "campaign": {
@@ -102,7 +102,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-15 14:46:04"
+   "updated_at": "2026-10-15 15:01:04"
   },
   {
    "id": "tresearch",
@@ -110,7 +110,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Fed tahan 3.50-3.75%, dot plot hawkish & inflasi ~3.4%+; data Okt belum terkonfirmasi, pasar pricing hike. Bias lemah ke bawah.",
-   "updated_at": "2026-10-15 14:46:04"
+   "updated_at": "2026-10-15 15:01:04"
   },
   {
    "id": "ttech",
@@ -118,7 +118,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Bias bearish",
-   "updated_at": "2026-10-15 14:46:04"
+   "updated_at": "2026-10-15 15:01:04"
   },
   {
    "id": "trisk",
@@ -126,7 +126,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: bearish, tapi belum ada pemicu entry di area",
-   "updated_at": "2026-10-15 14:46:04"
+   "updated_at": "2026-10-15 15:01:04"
   },
   {
    "id": "texec",
@@ -463,6 +463,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-15 15:01:04",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: sideways → bullish"
+  },
+  {
    "ts": "2026-10-15 14:51:04",
    "agent_id": "ttech",
    "message": "M10 berubah arah: bullish → sideways"
@@ -579,11 +584,6 @@
   },
   {
    "ts": "2026-10-15 08:16:03",
-   "agent_id": "trisk",
-   "message": "NO TRADE · bearish, tapi belum ada pemicu entry di area"
-  },
-  {
-   "ts": "2026-10-15 07:16:03",
    "agent_id": "trisk",
    "message": "NO TRADE · bearish, tapi belum ada pemicu entry di area"
   }
@@ -941,9 +941,14 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4159.799805,
+  "price": 4154.899902,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-15 15:01:04",
+    "decision": "NO TRADE",
+    "reason": "bearish, tapi belum ada pemicu entry di area"
+   },
    {
     "ts": "2026-10-15 14:46:04",
     "decision": "NO TRADE",
@@ -968,11 +973,6 @@
     "ts": "2026-10-15 13:46:04",
     "decision": "NO TRADE",
     "reason": "bearish, tapi belum ada pemicu entry di area"
-   },
-   {
-    "ts": "2026-10-15 13:31:04",
-    "decision": "NO TRADE",
-    "reason": "bearish, tapi belum ada pemicu entry di area"
    }
   ],
   "trades": [],
@@ -994,7 +994,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-15 14:46:04",
+   "ts": "2026-10-15 15:01:04",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1013,7 +1013,7 @@
     "bias": "bearish",
     "score": -2,
     "trigger": null,
-    "note": "bearish (skor -2) · harga 4158.10 · EMA50 H1 4143.90 · RSI M15 55"
+    "note": "bearish (skor -2) · harga 4158.70 · EMA50 H1 4144.53 · RSI M15 55"
    }
   },
   "fund": {
@@ -1082,48 +1082,48 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "sideways",
-    "score": 1,
-    "price": 4155.1,
-    "ema20": 4155.85,
-    "ema50": 4152.1,
-    "rsi": 49.9,
+    "bias": "bullish",
+    "score": 3,
+    "price": 4159.5,
+    "ema20": 4156.2,
+    "ema50": 4152.39,
+    "rsi": 53.2,
     "n": 299,
-    "slot": 2986793,
-    "at": 1792075864059
+    "slot": 2986794,
+    "at": 1792076464083
    },
    "M15": {
     "bias": "bullish",
-    "score": 2,
-    "price": 4158.2,
-    "ema20": 4154.7,
-    "ema50": 4148.07,
-    "rsi": 55,
+    "score": 3,
+    "price": 4159.5,
+    "ema20": 4155.15,
+    "ema50": 4148.52,
+    "rsi": 56.2,
     "n": 299,
-    "slot": 1991195,
-    "at": 1792075564044
+    "slot": 1991196,
+    "at": 1792076464089
    },
    "M30": {
     "bias": "bullish",
     "score": 3,
-    "price": 4161.6,
-    "ema20": 4150.78,
-    "ema50": 4142.15,
-    "rsi": 63,
-    "n": 154,
-    "slot": 995597,
-    "at": 1792074664047
+    "price": 4159.5,
+    "ema20": 4151.61,
+    "ema50": 4142.83,
+    "rsi": 60.6,
+    "n": 155,
+    "slot": 995598,
+    "at": 1792076464089
    },
    "H1": {
     "bias": "sideways",
     "score": 0,
-    "price": 4159.6,
-    "ema20": 4142.06,
-    "ema50": 4143.32,
+    "price": 4159.5,
+    "ema20": 4143.73,
+    "ema50": 4143.96,
     "rsi": 60.5,
     "n": 299,
-    "slot": 497798,
-    "at": 1792072864022
+    "slot": 497799,
+    "at": 1792076464097
    }
   },
   "currency": "USC",
