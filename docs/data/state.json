@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-15T05:57:19.538Z",
+ "generated_at": "2026-10-15T06:07:19.534Z",
  "today": "2026-10-15",
  "week_start": "2026-10-12",
  "campaign": {
@@ -86,7 +86,7 @@
    "title": "Price Watcher",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-10-15 04:00:32"
+   "updated_at": "2026-10-15 06:00:19"
   },
   {
    "id": "ob",
@@ -102,7 +102,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-15 05:46:03"
+   "updated_at": "2026-10-15 06:01:03"
   },
   {
    "id": "tresearch",
@@ -110,7 +110,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Berita 24 jam tidak terverifikasi (hasil pencarian lama). PCE lebih rendah & NFP lemah mendukung emas; risiko hike Warsh & DXY kuat menekan. Netral.",
-   "updated_at": "2026-10-15 05:46:03"
+   "updated_at": "2026-10-15 06:01:03"
   },
   {
    "id": "ttech",
@@ -118,15 +118,15 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Bias bearish",
-   "updated_at": "2026-10-15 05:46:03"
+   "updated_at": "2026-10-15 06:01:03"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: di luar jam sesi London–New York",
-   "updated_at": "2026-10-15 05:46:03"
+   "current_task": "NO TRADE: bearish, tapi belum ada pemicu entry di area",
+   "updated_at": "2026-10-15 06:01:03"
   },
   {
    "id": "texec",
@@ -941,9 +941,14 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4140.899902,
+  "price": 4137.5,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-15 06:01:03",
+    "decision": "NO TRADE",
+    "reason": "bearish, tapi belum ada pemicu entry di area"
+   },
    {
     "ts": "2026-10-15 05:46:03",
     "decision": "NO TRADE",
@@ -968,11 +973,6 @@
     "ts": "2026-10-15 04:46:03",
     "decision": "NO TRADE",
     "reason": "di luar jam sesi London–New York"
-   },
-   {
-    "ts": "2026-10-15 04:31:03",
-    "decision": "NO TRADE",
-    "reason": "di luar jam sesi London–New York"
    }
   ],
   "trades": [],
@@ -994,7 +994,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-15 05:46:03",
+   "ts": "2026-10-15 06:01:03",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1003,7 +1003,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "di luar jam sesi London–New York",
+   "reason": "bearish, tapi belum ada pemicu entry di area",
    "fund": {
     "bias": 0.1,
     "note": "Berita 24 jam tidak terverifikasi (hasil pencarian lama). PCE lebih rendah & NFP lemah mendukung emas; risiko hike Warsh & DXY kuat menekan. Netral.",
@@ -1011,9 +1011,9 @@
    },
    "tech": {
     "bias": "bearish",
-    "score": -3,
+    "score": -2,
     "trigger": null,
-    "note": "bearish (skor -3) · harga 4142.00 · EMA50 H1 4140.34 · RSI M15 54"
+    "note": "bearish (skor -2) · harga 4139.60 · EMA50 H1 4140.20 · RSI M15 51"
    }
   },
   "fund": {
@@ -1083,47 +1083,47 @@
   "tf": {
    "M10": {
     "bias": "sideways",
-    "score": 0,
-    "price": 4141,
-    "ema20": 4144.65,
-    "ema50": 4135.61,
-    "rsi": 47.4,
+    "score": -1,
+    "price": 4139.2,
+    "ema20": 4144.13,
+    "ema50": 4135.75,
+    "rsi": 45.1,
     "n": 299,
-    "slot": 2986739,
-    "at": 1792043463658
+    "slot": 2986740,
+    "at": 1792044063676
    },
    "M15": {
     "bias": "sideways",
     "score": 0,
-    "price": 4140.9,
-    "ema20": 4141.74,
-    "ema50": 4130.66,
-    "rsi": 52.8,
+    "price": 4139.2,
+    "ema20": 4141.5,
+    "ema50": 4131,
+    "rsi": 51,
     "n": 299,
-    "slot": 1991159,
-    "at": 1792043163667
+    "slot": 1991160,
+    "at": 1792044063681
    },
    "M30": {
     "bias": "bullish",
     "score": 3,
-    "price": 4144.1,
-    "ema20": 4132.98,
-    "ema50": 4130.79,
-    "rsi": 60.4,
-    "n": 136,
-    "slot": 995579,
-    "at": 1792042263822
+    "price": 4139.2,
+    "ema20": 4133.57,
+    "ema50": 4131.12,
+    "rsi": 56.3,
+    "n": 137,
+    "slot": 995580,
+    "at": 1792044063682
    },
    "H1": {
     "bias": "sideways",
-    "score": 0,
-    "price": 4147.7,
-    "ema20": 4128.76,
-    "ema50": 4140.27,
-    "rsi": 58.3,
+    "score": 1,
+    "price": 4139.2,
+    "ema20": 4129.75,
+    "ema50": 4140.23,
+    "rsi": 53.8,
     "n": 299,
-    "slot": 497789,
-    "at": 1792040463637
+    "slot": 497790,
+    "at": 1792044063688
    }
   },
   "currency": "USC",
