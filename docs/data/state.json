@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-15T18:57:19.800Z",
+ "generated_at": "2026-10-15T19:07:19.805Z",
  "today": "2026-10-16",
  "week_start": "2026-10-12",
  "campaign": {
@@ -78,7 +78,7 @@
    "title": "Data Analyst",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-10-15 16:00:31"
+   "updated_at": "2026-10-15 19:00:29"
   },
   {
    "id": "price",
@@ -102,7 +102,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-15 18:46:04"
+   "updated_at": "2026-10-15 19:01:04"
   },
   {
    "id": "tresearch",
@@ -110,7 +110,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Fed tahan 3.50-3.75%, dot plot hawkish & inflasi ~3.4%+; data Okt belum terkonfirmasi, pasar pricing hike. Bias lemah ke bawah.",
-   "updated_at": "2026-10-15 18:46:04"
+   "updated_at": "2026-10-15 19:01:04"
   },
   {
    "id": "ttech",
@@ -118,7 +118,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Bias sideways",
-   "updated_at": "2026-10-15 18:46:04"
+   "updated_at": "2026-10-15 19:01:04"
   },
   {
    "id": "trisk",
@@ -126,7 +126,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: market sideways, tunggu arah jelas",
-   "updated_at": "2026-10-15 18:46:04"
+   "updated_at": "2026-10-15 19:01:04"
   },
   {
    "id": "texec",
@@ -463,6 +463,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-15 19:00:29",
+   "agent_id": "analyst",
+   "message": "Update data 17 post IG 📈"
+  },
+  {
    "ts": "2026-10-15 18:31:04",
    "agent_id": "trisk",
    "message": "NO TRADE · market sideways, tunggu arah jelas"
@@ -581,11 +586,6 @@
    "ts": "2026-10-15 14:16:04",
    "agent_id": "ttech",
    "message": "M15 berubah arah: bullish → sideways"
-  },
-  {
-   "ts": "2026-10-15 14:11:04",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: bullish → sideways"
   }
  ],
  "chats": [
@@ -878,7 +878,7 @@
    "pending": 0,
    "scheduled": 0,
    "views": 0,
-   "likes": 160,
+   "likes": 171,
    "comments": 0,
    "shares": 0,
    "saves": 0,
@@ -910,7 +910,7 @@
    "pending": 0,
    "scheduled": 0,
    "views": 0,
-   "likes": 145,
+   "likes": 151,
    "comments": 0,
    "shares": 0,
    "saves": 0,
@@ -941,9 +941,14 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4159.799805,
+  "price": 4160.899902,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-15 19:01:04",
+    "decision": "NO TRADE",
+    "reason": "market sideways, tunggu arah jelas"
+   },
    {
     "ts": "2026-10-15 18:46:04",
     "decision": "NO TRADE",
@@ -968,11 +973,6 @@
     "ts": "2026-10-15 17:46:04",
     "decision": "NO TRADE",
     "reason": "market sideways, tunggu arah jelas"
-   },
-   {
-    "ts": "2026-10-15 17:31:04",
-    "decision": "NO TRADE",
-    "reason": "market sideways, tunggu arah jelas"
    }
   ],
   "trades": [],
@@ -994,7 +994,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-15 18:46:04",
+   "ts": "2026-10-15 19:01:04",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1013,7 +1013,7 @@
     "bias": "sideways",
     "score": -1,
     "trigger": null,
-    "note": "sideways (skor -1) · harga 4158.40 · EMA50 H1 4145.35 · RSI M15 57"
+    "note": "sideways (skor -1) · harga 4158.80 · EMA50 H1 4145.89 · RSI M15 57"
    }
   },
   "fund": {
@@ -1049,46 +1049,46 @@
    "M10": {
     "bias": "bullish",
     "score": 2,
-    "price": 4159,
-    "ema20": 4154.59,
-    "ema50": 4153.01,
-    "rsi": 57.6,
+    "price": 4158.5,
+    "ema20": 4154.96,
+    "ema50": 4153.22,
+    "rsi": 56.7,
     "n": 299,
-    "slot": 2986817,
-    "at": 1792090264252
+    "slot": 2986818,
+    "at": 1792090864267
    },
    "M15": {
     "bias": "bullish",
     "score": 2,
     "price": 4158.5,
-    "ema20": 4154.06,
-    "ema50": 4150.63,
+    "ema20": 4154.48,
+    "ema50": 4150.93,
     "rsi": 56.7,
     "n": 299,
-    "slot": 1991211,
-    "at": 1792089964434
+    "slot": 1991212,
+    "at": 1792090864271
    },
    "M30": {
     "bias": "bullish",
     "score": 2,
-    "price": 4159.3,
-    "ema20": 4152.54,
-    "ema50": 4145.39,
-    "rsi": 59,
-    "n": 162,
-    "slot": 995605,
-    "at": 1792089064234
+    "price": 4158.5,
+    "ema20": 4153.11,
+    "ema50": 4145.9,
+    "rsi": 58,
+    "n": 163,
+    "slot": 995606,
+    "at": 1792090864272
    },
    "H1": {
     "bias": "bullish",
     "score": 3,
-    "price": 4154.6,
-    "ema20": 4145.79,
-    "ema50": 4144.82,
-    "rsi": 56.6,
+    "price": 4158.5,
+    "ema20": 4147,
+    "ema50": 4145.36,
+    "rsi": 58.6,
     "n": 299,
-    "slot": 497802,
-    "at": 1792087264228
+    "slot": 497803,
+    "at": 1792090864279
    }
   },
   "currency": "USC",
