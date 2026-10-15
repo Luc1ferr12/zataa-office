@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-15T22:37:19.888Z",
+ "generated_at": "2026-10-15T22:47:19.891Z",
  "today": "2026-10-16",
  "week_start": "2026-10-12",
  "campaign": {
@@ -102,7 +102,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-15 22:31:04"
+   "updated_at": "2026-10-15 22:46:04"
   },
   {
    "id": "tresearch",
@@ -110,7 +110,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
-   "updated_at": "2026-10-15 22:31:04"
+   "updated_at": "2026-10-15 22:46:04"
   },
   {
    "id": "ttech",
@@ -118,7 +118,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Bias sideways",
-   "updated_at": "2026-10-15 22:31:04"
+   "updated_at": "2026-10-15 22:46:04"
   },
   {
    "id": "trisk",
@@ -126,7 +126,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: di luar jam sesi London–New York",
-   "updated_at": "2026-10-15 22:31:04"
+   "updated_at": "2026-10-15 22:46:04"
   },
   {
    "id": "texec",
@@ -941,9 +941,14 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4168.299805,
+  "price": 4167.700195,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-15 22:46:04",
+    "decision": "NO TRADE",
+    "reason": "di luar jam sesi London–New York"
+   },
    {
     "ts": "2026-10-15 22:31:04",
     "decision": "NO TRADE",
@@ -968,11 +973,6 @@
     "ts": "2026-10-15 20:31:04",
     "decision": "NO TRADE",
     "reason": "di luar jam sesi London–New York"
-   },
-   {
-    "ts": "2026-10-15 20:16:04",
-    "decision": "NO TRADE",
-    "reason": "di luar jam sesi London–New York"
    }
   ],
   "trades": [],
@@ -994,7 +994,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-15 22:31:04",
+   "ts": "2026-10-15 22:46:04",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1013,7 +1013,7 @@
     "bias": "sideways",
     "score": 1,
     "trigger": null,
-    "note": "sideways (skor 1) · harga 4168.90 · EMA50 H1 4149.32 · RSI M15 57"
+    "note": "sideways (skor 1) · harga 4167.90 · EMA50 H1 4149.28 · RSI M15 56"
    }
   },
   "fund": null,
@@ -1045,25 +1045,25 @@
   "tf": {
    "M10": {
     "bias": "sideways",
-    "score": 1,
-    "price": 4168.6,
-    "ema20": 4168.84,
-    "ema50": 4162.98,
-    "rsi": 53.7,
+    "score": 0,
+    "price": 4168.1,
+    "ema20": 4168.77,
+    "ema50": 4163.18,
+    "rsi": 52.3,
     "n": 299,
-    "slot": 2986839,
-    "at": 1792103464413
+    "slot": 2986840,
+    "at": 1792104064419
    },
    "M15": {
     "bias": "bullish",
-    "score": 3,
-    "price": 4168.6,
-    "ema20": 4166.88,
-    "ema50": 4159.4,
-    "rsi": 57,
+    "score": 2,
+    "price": 4167.9,
+    "ema20": 4166.97,
+    "ema50": 4159.73,
+    "rsi": 55.5,
     "n": 299,
-    "slot": 1991226,
-    "at": 1792103464419
+    "slot": 1991227,
+    "at": 1792104364428
    },
    "M30": {
     "bias": "bullish",
