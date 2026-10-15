@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-15T08:59:19.539Z",
+ "generated_at": "2026-10-15T09:07:19.597Z",
  "today": "2026-10-15",
  "week_start": "2026-10-12",
  "campaign": {
@@ -62,7 +62,7 @@
    "title": "Social Media Publisher",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-10-15 05:02:04"
+   "updated_at": "2026-10-15 09:00:42"
   },
   {
    "id": "ads",
@@ -102,7 +102,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-15 08:46:03"
+   "updated_at": "2026-10-15 09:01:03"
   },
   {
    "id": "tresearch",
@@ -110,23 +110,23 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Berita 24 jam tidak terverifikasi (hasil pencarian lama). PCE lebih rendah & NFP lemah mendukung emas; risiko hike Warsh & DXY kuat menekan. Netral.",
-   "updated_at": "2026-10-15 08:46:03"
+   "updated_at": "2026-10-15 09:01:03"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Bias bearish",
-   "updated_at": "2026-10-15 08:46:03"
+   "current_task": "Bias sideways",
+   "updated_at": "2026-10-15 09:01:03"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: bearish, tapi belum ada pemicu entry di area",
-   "updated_at": "2026-10-15 08:46:03"
+   "current_task": "NO TRADE: market sideways, tunggu arah jelas",
+   "updated_at": "2026-10-15 09:01:03"
   },
   {
    "id": "texec",
@@ -326,10 +326,10 @@
    "game": "mlbb",
    "pillar": "promo",
    "title": "Weekly Diamond Pass buat Push Rank Akhir Season",
-   "status": "approved",
+   "status": "posted",
    "asset_url": "{\"feed\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-15/25-weekly-diamond-pass-buat-push-rank-akhir.jpg\"],\"story\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-15/25-weekly-diamond-pass-buat-push-rank-akhir-916.jpg\"]}",
    "scheduled_at": null,
-   "posted_at": null
+   "posted_at": "2026-10-15 09:00:42"
   },
   {
    "id": 13,
@@ -463,6 +463,16 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-15 09:01:03",
+   "agent_id": "ttech",
+   "message": "M15 berubah arah: sideways → bullish"
+  },
+  {
+   "ts": "2026-10-15 09:00:42",
+   "agent_id": "publisher",
+   "message": "Posting #25 ke IG ✅"
+  },
+  {
    "ts": "2026-10-15 08:51:03",
    "agent_id": "ttech",
    "message": "M10 berubah arah: sideways → bullish"
@@ -576,19 +586,16 @@
    "ts": "2026-10-15 00:16:03",
    "agent_id": "trisk",
    "message": "NO TRADE · di luar jam sesi London–New York"
-  },
-  {
-   "ts": "2026-10-15 00:15:19",
-   "agent_id": "owner",
-   "message": "Approve konten #12 ✅"
-  },
-  {
-   "ts": "2026-10-15 00:15:19",
-   "agent_id": "owner",
-   "message": "Approve 1 ide konten tambahan 💡"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-10-15 09:00:42",
+   "agent_id": "publisher",
+   "to_id": null,
+   "kind": "oper",
+   "message": "\"Weekly Diamond Pass buat Push Rank Akhir Season\" udah tayang di IG 🚀 Makasih semua!"
+  },
   {
    "ts": "2026-10-15 05:02:04",
    "agent_id": "publisher",
@@ -861,22 +868,15 @@
    "to_id": "owner",
    "kind": "santai",
    "message": "Siap Bos, udah aku aktifin! Mulai sekarang tiap video yang Bos approve otomatis naik ke IG Reels + TikTok (masuk private dulu)."
-  },
-  {
-   "ts": "2026-10-14 10:37:25",
-   "agent_id": "dir",
-   "to_id": null,
-   "kind": "oper",
-   "message": "Oke tim, ada titah dari Bos. Aku bagi tugasnya ya 👇"
   }
  ],
  "stats": {
   "this_week": {
    "week": "2026-10-12",
    "total": 20,
-   "posted": 12,
+   "posted": 13,
    "pending": 0,
-   "scheduled": 2,
+   "scheduled": 1,
    "views": 0,
    "likes": 127,
    "comments": 0,
@@ -941,9 +941,14 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4152.899902,
+  "price": 4155.100098,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-15 09:01:03",
+    "decision": "NO TRADE",
+    "reason": "market sideways, tunggu arah jelas"
+   },
    {
     "ts": "2026-10-15 08:46:03",
     "decision": "NO TRADE",
@@ -968,11 +973,6 @@
     "ts": "2026-10-15 07:46:03",
     "decision": "NO TRADE",
     "reason": "bearish, tapi belum ada pemicu entry di area"
-   },
-   {
-    "ts": "2026-10-15 07:31:03",
-    "decision": "NO TRADE",
-    "reason": "bearish, tapi belum ada pemicu entry di area"
    }
   ],
   "trades": [],
@@ -994,7 +994,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-15 08:46:03",
+   "ts": "2026-10-15 09:01:03",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1003,23 +1003,20 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "bearish, tapi belum ada pemicu entry di area",
+   "reason": "market sideways, tunggu arah jelas",
    "fund": {
     "bias": 0.1,
     "note": "Berita 24 jam tidak terverifikasi (hasil pencarian lama). PCE lebih rendah & NFP lemah mendukung emas; risiko hike Warsh & DXY kuat menekan. Netral.",
     "blackout": null
    },
    "tech": {
-    "bias": "bearish",
-    "score": -2,
+    "bias": "sideways",
+    "score": -1,
     "trigger": null,
-    "note": "bearish (skor -2) · harga 4151.50 · EMA50 H1 4140.78 · RSI M15 59"
+    "note": "sideways (skor -1) · harga 4152.40 · EMA50 H1 4141.27 · RSI M15 60"
    }
   },
-  "fund": {
-   "bias": 0.1,
-   "note": "Berita 24 jam tidak terverifikasi (hasil pencarian lama). PCE lebih rendah & NFP lemah mendukung emas; risiko hike Warsh & DXY kuat menekan. Netral."
-  },
+  "fund": null,
   "calendar": [
    {
     "title": "Core PPI m/m",
@@ -1084,46 +1081,46 @@
    "M10": {
     "bias": "bullish",
     "score": 2,
-    "price": 4153.4,
-    "ema20": 4147.06,
-    "ema50": 4140.68,
-    "rsi": 60.8,
+    "price": 4152.4,
+    "ema20": 4147.57,
+    "ema50": 4141.14,
+    "rsi": 59.1,
     "n": 299,
-    "slot": 2986757,
-    "at": 1792054263781
+    "slot": 2986758,
+    "at": 1792054863798
    },
    "M15": {
-    "bias": "sideways",
-    "score": 1,
-    "price": 4151.7,
-    "ema20": 4144.76,
-    "ema50": 4136.03,
-    "rsi": 59.7,
+    "bias": "bullish",
+    "score": 2,
+    "price": 4152.4,
+    "ema20": 4145.49,
+    "ema50": 4136.67,
+    "rsi": 60.3,
     "n": 299,
-    "slot": 1991171,
-    "at": 1792053963781
+    "slot": 1991172,
+    "at": 1792054863802
    },
    "M30": {
     "bias": "bullish",
     "score": 2,
-    "price": 4156.6,
-    "ema20": 4138.28,
-    "ema50": 4133.64,
-    "rsi": 66.4,
-    "n": 142,
-    "slot": 995585,
-    "at": 1792053063787
+    "price": 4152.4,
+    "ema20": 4139.63,
+    "ema50": 4134.37,
+    "rsi": 62.4,
+    "n": 143,
+    "slot": 995586,
+    "at": 1792054863804
    },
    "H1": {
     "bias": "sideways",
     "score": 1,
-    "price": 4146.2,
-    "ema20": 4131.95,
-    "ema50": 4140.34,
-    "rsi": 56.7,
+    "price": 4152.4,
+    "ema20": 4133.89,
+    "ema50": 4140.81,
+    "rsi": 59.3,
     "n": 299,
-    "slot": 497792,
-    "at": 1792051263751
+    "slot": 497793,
+    "at": 1792054863812
    }
   },
   "currency": "USC",
