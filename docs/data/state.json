@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-15T03:57:19.505Z",
+ "generated_at": "2026-10-15T04:07:19.515Z",
  "today": "2026-10-15",
  "week_start": "2026-10-12",
  "campaign": {
@@ -78,7 +78,7 @@
    "title": "Data Analyst",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-10-15 01:00:31"
+   "updated_at": "2026-10-15 04:00:31"
   },
   {
    "id": "price",
@@ -86,7 +86,7 @@
    "title": "Price Watcher",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-10-15 02:00:19"
+   "updated_at": "2026-10-15 04:00:32"
   },
   {
    "id": "ob",
@@ -102,7 +102,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-15 03:46:03"
+   "updated_at": "2026-10-15 04:01:03"
   },
   {
    "id": "tresearch",
@@ -110,7 +110,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Berita 24 jam tidak terverifikasi (hasil pencarian lama). PCE lebih rendah & NFP lemah mendukung emas; risiko hike Warsh & DXY kuat menekan. Netral.",
-   "updated_at": "2026-10-15 03:46:03"
+   "updated_at": "2026-10-15 04:01:03"
   },
   {
    "id": "ttech",
@@ -118,7 +118,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Bias bearish",
-   "updated_at": "2026-10-15 03:46:03"
+   "updated_at": "2026-10-15 04:01:03"
   },
   {
    "id": "trisk",
@@ -126,7 +126,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: di luar jam sesi London–New York",
-   "updated_at": "2026-10-15 03:46:03"
+   "updated_at": "2026-10-15 04:01:03"
   },
   {
    "id": "texec",
@@ -463,6 +463,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-15 04:00:31",
+   "agent_id": "analyst",
+   "message": "Update data 14 post IG 📈"
+  },
+  {
    "ts": "2026-10-15 03:16:03",
    "agent_id": "trisk",
    "message": "NO TRADE · di luar jam sesi London–New York"
@@ -581,11 +586,6 @@
    "ts": "2026-10-14 23:02:45",
    "agent_id": "dir",
    "message": "Kirim 2 ide briefing ke Owner"
-  },
-  {
-   "ts": "2026-10-14 23:02:45",
-   "agent_id": "dir",
-   "message": "Pilih 2 ide terbaik dari briefing"
   }
  ],
  "chats": [
@@ -878,7 +878,7 @@
    "pending": 0,
    "scheduled": 3,
    "views": 0,
-   "likes": 105,
+   "likes": 116,
    "comments": 0,
    "shares": 0,
    "saves": 0,
@@ -910,7 +910,7 @@
    "pending": 0,
    "scheduled": 0,
    "views": 0,
-   "likes": 115,
+   "likes": 121,
    "comments": 0,
    "shares": 0,
    "saves": 0,
@@ -941,9 +941,14 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4146.5,
+  "price": 4145.600098,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-15 04:01:03",
+    "decision": "NO TRADE",
+    "reason": "di luar jam sesi London–New York"
+   },
    {
     "ts": "2026-10-15 03:46:03",
     "decision": "NO TRADE",
@@ -968,11 +973,6 @@
     "ts": "2026-10-15 02:46:03",
     "decision": "NO TRADE",
     "reason": "di luar jam sesi London–New York"
-   },
-   {
-    "ts": "2026-10-15 02:31:03",
-    "decision": "NO TRADE",
-    "reason": "di luar jam sesi London–New York"
    }
   ],
   "trades": [],
@@ -994,7 +994,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-15 03:46:03",
+   "ts": "2026-10-15 04:01:03",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1013,7 +1013,7 @@
     "bias": "bearish",
     "score": -3,
     "trigger": null,
-    "note": "bearish (skor -3) · harga 4152.30 · EMA50 H1 4140.21 · RSI M15 66"
+    "note": "bearish (skor -3) · harga 4146.80 · EMA50 H1 4140.23 · RSI M15 60"
    }
   },
   "fund": {
@@ -1084,46 +1084,46 @@
    "M10": {
     "bias": "bullish",
     "score": 3,
-    "price": 4147.7,
-    "ema20": 4143.75,
-    "ema50": 4129.56,
-    "rsi": 57.5,
+    "price": 4146,
+    "ema20": 4143.96,
+    "ema50": 4130.2,
+    "rsi": 55.8,
     "n": 299,
-    "slot": 2986727,
-    "at": 1792036263578
+    "slot": 2986728,
+    "at": 1792036863579
    },
    "M15": {
     "bias": "bullish",
     "score": 3,
-    "price": 4152.1,
-    "ema20": 4137.54,
-    "ema50": 4125.13,
-    "rsi": 65.4,
+    "price": 4146,
+    "ema20": 4138.35,
+    "ema50": 4125.95,
+    "rsi": 59.7,
     "n": 299,
-    "slot": 1991151,
-    "at": 1792035963585
+    "slot": 1991152,
+    "at": 1792036863585
    },
    "M30": {
     "bias": "sideways",
     "score": 1,
-    "price": 4149.3,
-    "ema20": 4126.48,
-    "ema50": 4128.11,
-    "rsi": 65.2,
-    "n": 132,
-    "slot": 995575,
-    "at": 1792035063562
+    "price": 4146,
+    "ema20": 4128.34,
+    "ema50": 4128.82,
+    "rsi": 62.7,
+    "n": 133,
+    "slot": 995576,
+    "at": 1792036863586
    },
    "H1": {
     "bias": "sideways",
     "score": 0,
-    "price": 4160.6,
-    "ema20": 4124.74,
-    "ema50": 4139.72,
-    "rsi": 65.9,
+    "price": 4146,
+    "ema20": 4126.77,
+    "ema50": 4139.97,
+    "rsi": 57.6,
     "n": 299,
-    "slot": 497787,
-    "at": 1792033263751
+    "slot": 497788,
+    "at": 1792036863593
    }
   },
   "currency": "USC",
