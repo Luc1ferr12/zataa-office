@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-15T00:57:19.442Z",
+ "generated_at": "2026-10-15T01:07:19.452Z",
  "today": "2026-10-15",
  "week_start": "2026-10-12",
  "campaign": {
@@ -77,8 +77,8 @@
    "name": "Raka",
    "title": "Data Analyst",
    "status": "done",
-   "current_task": "Rekap metrik kemarin",
-   "updated_at": "2026-10-14 23:02:23"
+   "current_task": null,
+   "updated_at": "2026-10-15 01:00:31"
   },
   {
    "id": "price",
@@ -102,7 +102,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-15 00:46:03"
+   "updated_at": "2026-10-15 01:01:03"
   },
   {
    "id": "tresearch",
@@ -110,7 +110,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Berita 24 jam tidak terverifikasi (hasil pencarian lama). PCE lebih rendah & NFP lemah mendukung emas; risiko hike Warsh & DXY kuat menekan. Netral.",
-   "updated_at": "2026-10-15 00:46:03"
+   "updated_at": "2026-10-15 01:01:03"
   },
   {
    "id": "ttech",
@@ -118,7 +118,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Bias bearish",
-   "updated_at": "2026-10-15 00:46:03"
+   "updated_at": "2026-10-15 01:01:03"
   },
   {
    "id": "trisk",
@@ -126,7 +126,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: di luar jam sesi London–New York",
-   "updated_at": "2026-10-15 00:46:03"
+   "updated_at": "2026-10-15 01:01:03"
   },
   {
    "id": "texec",
@@ -463,6 +463,16 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-15 01:01:03",
+   "agent_id": "ttech",
+   "message": "M60 berubah arah: bearish → sideways"
+  },
+  {
+   "ts": "2026-10-15 01:00:31",
+   "agent_id": "analyst",
+   "message": "Update data 14 post IG 📈"
+  },
+  {
    "ts": "2026-10-15 00:46:03",
    "agent_id": "ttech",
    "message": "M15 berubah arah: sideways → bullish"
@@ -576,16 +586,6 @@
    "ts": "2026-10-14 23:02:23",
    "agent_id": "researcher",
    "message": "7 item riset: FFWS Global Finals (24 tim, BTR/RRQ Kazu/ONIC), jadwal Week 9 MPL, Champions 16 Okt"
-  },
-  {
-   "ts": "2026-10-14 23:02:23",
-   "agent_id": "researcher",
-   "message": "Nemu 7 topik baru"
-  },
-  {
-   "ts": "2026-10-14 23:01:21",
-   "agent_id": "trisk",
-   "message": "NO TRADE · di luar jam sesi London–New York"
   }
  ],
  "chats": [
@@ -878,7 +878,7 @@
    "pending": 0,
    "scheduled": 3,
    "views": 0,
-   "likes": 94,
+   "likes": 105,
    "comments": 0,
    "shares": 0,
    "saves": 0,
@@ -910,7 +910,7 @@
    "pending": 0,
    "scheduled": 0,
    "views": 0,
-   "likes": 109,
+   "likes": 115,
    "comments": 0,
    "shares": 0,
    "saves": 0,
@@ -941,9 +941,14 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4140.600098,
+  "price": 4147.299805,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-15 01:01:03",
+    "decision": "NO TRADE",
+    "reason": "di luar jam sesi London–New York"
+   },
    {
     "ts": "2026-10-15 00:46:03",
     "decision": "NO TRADE",
@@ -968,11 +973,6 @@
     "ts": "2026-10-14 23:46:03",
     "decision": "NO TRADE",
     "reason": "di luar jam sesi London–New York"
-   },
-   {
-    "ts": "2026-10-14 23:31:03",
-    "decision": "NO TRADE",
-    "reason": "di luar jam sesi London–New York"
    }
   ],
   "trades": [],
@@ -994,7 +994,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-15 00:46:03",
+   "ts": "2026-10-15 01:01:03",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1013,7 +1013,7 @@
     "bias": "bearish",
     "score": -3,
     "trigger": null,
-    "note": "bearish (skor -3) · harga 4144.90 · EMA50 H1 4138.95 · RSI M15 79"
+    "note": "bearish (skor -3) · harga 4140.70 · EMA50 H1 4138.83 · RSI M15 74"
    }
   },
   "fund": {
@@ -1084,46 +1084,46 @@
    "M10": {
     "bias": "bullish",
     "score": 3,
-    "price": 4142.6,
-    "ema20": 4117.8,
-    "ema50": 4110.16,
-    "rsi": 83,
+    "price": 4140,
+    "ema20": 4119.91,
+    "ema50": 4111.33,
+    "rsi": 78.3,
     "n": 299,
-    "slot": 2986709,
-    "at": 1792025463446
+    "slot": 2986710,
+    "at": 1792026063444
    },
    "M15": {
     "bias": "bullish",
     "score": 2,
-    "price": 4144.4,
-    "ema20": 4113.24,
-    "ema50": 4111.6,
-    "rsi": 79,
+    "price": 4140,
+    "ema20": 4115.79,
+    "ema50": 4112.72,
+    "rsi": 73.4,
     "n": 299,
-    "slot": 1991139,
-    "at": 1792025163438
+    "slot": 1991140,
+    "at": 1792026063450
    },
    "M30": {
     "bias": "sideways",
     "score": 0,
-    "price": 4140.3,
-    "ema20": 4109.62,
-    "ema50": 4123.13,
-    "rsi": 68,
-    "n": 126,
-    "slot": 995569,
-    "at": 1792024263435
+    "price": 4140,
+    "ema20": 4112.51,
+    "ema50": 4123.79,
+    "rsi": 67.7,
+    "n": 127,
+    "slot": 995570,
+    "at": 1792026063450
    },
    "H1": {
-    "bias": "bearish",
-    "score": -3,
-    "price": 4113.4,
-    "ema20": 4116.56,
-    "ema50": 4138.71,
-    "rsi": 43.3,
+    "bias": "sideways",
+    "score": -1,
+    "price": 4140,
+    "ema20": 4118.8,
+    "ema50": 4138.76,
+    "rsi": 58,
     "n": 299,
-    "slot": 497784,
-    "at": 1792022463605
+    "slot": 497785,
+    "at": 1792026063457
    }
   },
   "currency": "USC",
