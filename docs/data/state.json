@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-15T09:57:19.616Z",
+ "generated_at": "2026-10-15T10:07:19.612Z",
  "today": "2026-10-15",
  "week_start": "2026-10-12",
  "campaign": {
@@ -78,7 +78,7 @@
    "title": "Data Analyst",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-10-15 07:00:28"
+   "updated_at": "2026-10-15 10:00:31"
   },
   {
    "id": "price",
@@ -86,7 +86,7 @@
    "title": "Price Watcher",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-10-15 08:00:20"
+   "updated_at": "2026-10-15 10:00:31"
   },
   {
    "id": "ob",
@@ -102,7 +102,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-15 09:46:03"
+   "updated_at": "2026-10-15 10:01:03"
   },
   {
    "id": "tresearch",
@@ -110,7 +110,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
-   "updated_at": "2026-10-15 09:46:03"
+   "updated_at": "2026-10-15 10:01:03"
   },
   {
    "id": "ttech",
@@ -118,7 +118,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Bias sideways",
-   "updated_at": "2026-10-15 09:46:03"
+   "updated_at": "2026-10-15 10:01:03"
   },
   {
    "id": "trisk",
@@ -126,7 +126,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: market sideways, tunggu arah jelas",
-   "updated_at": "2026-10-15 09:46:03"
+   "updated_at": "2026-10-15 10:01:03"
   },
   {
    "id": "texec",
@@ -463,6 +463,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-15 10:00:31",
+   "agent_id": "analyst",
+   "message": "Update data 16 post IG 📈"
+  },
+  {
    "ts": "2026-10-15 09:16:03",
    "agent_id": "trisk",
    "message": "NO TRADE · market sideways, tunggu arah jelas"
@@ -581,11 +586,6 @@
    "ts": "2026-10-15 00:16:19",
    "agent_id": "owner",
    "message": "Approve konten #13 ✅"
-  },
-  {
-   "ts": "2026-10-15 00:16:12",
-   "agent_id": "researcher",
-   "message": "Harga 15 Okt zataa.my.id: WDP Rp30.826, x2 Rp61.653, x3 Rp92.479, x5 Rp154.133"
   }
  ],
  "chats": [
@@ -878,11 +878,17 @@
    "pending": 0,
    "scheduled": 1,
    "views": 0,
-   "likes": 127,
+   "likes": 138,
    "comments": 0,
    "shares": 0,
    "saves": 0,
    "top": [
+    {
+     "title": "Weekly Diamond Pass buat Push Rank Akhir Season",
+     "format": "feed",
+     "pillar": "promo",
+     "views": 0
+    },
     {
      "title": "Tier List Fans: Siapa Juara Champions Shanghai?",
      "format": "feed",
@@ -891,12 +897,6 @@
     },
     {
      "title": "Duel Puncak: NAVI vs TLID Sama-Sama 11 Poin",
-     "format": "feed",
-     "pillar": "esport",
-     "views": 0
-    },
-    {
-     "title": "Head-to-Head: Vitality vs LOUD — Balas Dendam atau Ulang Sejarah?",
      "format": "feed",
      "pillar": "esport",
      "views": 0
@@ -910,7 +910,7 @@
    "pending": 0,
    "scheduled": 0,
    "views": 0,
-   "likes": 127,
+   "likes": 133,
    "comments": 0,
    "shares": 0,
    "saves": 0,
@@ -941,9 +941,14 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4160.200195,
+  "price": 4158.399902,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-15 10:01:03",
+    "decision": "NO TRADE",
+    "reason": "market sideways, tunggu arah jelas"
+   },
    {
     "ts": "2026-10-15 09:46:03",
     "decision": "NO TRADE",
@@ -968,11 +973,6 @@
     "ts": "2026-10-15 08:46:03",
     "decision": "NO TRADE",
     "reason": "bearish, tapi belum ada pemicu entry di area"
-   },
-   {
-    "ts": "2026-10-15 08:31:03",
-    "decision": "NO TRADE",
-    "reason": "bearish, tapi belum ada pemicu entry di area"
    }
   ],
   "trades": [],
@@ -994,7 +994,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-15 09:46:03",
+   "ts": "2026-10-15 10:01:03",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1013,7 +1013,7 @@
     "bias": "sideways",
     "score": -1,
     "trigger": null,
-    "note": "sideways (skor -1) · harga 4159.20 · EMA50 H1 4141.53 · RSI M15 65"
+    "note": "sideways (skor -1) · harga 4158.10 · EMA50 H1 4142.17 · RSI M15 63"
    }
   },
   "fund": null,
@@ -1081,46 +1081,46 @@
    "M10": {
     "bias": "bullish",
     "score": 3,
-    "price": 4155.3,
-    "ema20": 4151.58,
-    "ema50": 4144.15,
-    "rsi": 58,
+    "price": 4158.7,
+    "ema20": 4152.26,
+    "ema50": 4144.73,
+    "rsi": 61.7,
     "n": 299,
-    "slot": 2986763,
-    "at": 1792057863829
+    "slot": 2986764,
+    "at": 1792058463698
    },
    "M15": {
     "bias": "bullish",
     "score": 3,
-    "price": 4159.8,
-    "ema20": 4149.09,
-    "ema50": 4139.23,
-    "rsi": 65.4,
+    "price": 4158.7,
+    "ema20": 4150,
+    "ema50": 4139.99,
+    "rsi": 63.8,
     "n": 299,
-    "slot": 1991175,
-    "at": 1792057563826
+    "slot": 1991176,
+    "at": 1792058463702
    },
    "M30": {
     "bias": "bullish",
     "score": 2,
-    "price": 4160.7,
-    "ema20": 4141.63,
-    "ema50": 4135.4,
-    "rsi": 66.6,
-    "n": 144,
-    "slot": 995587,
-    "at": 1792056663815
+    "price": 4158.7,
+    "ema20": 4143.26,
+    "ema50": 4136.32,
+    "rsi": 64.7,
+    "n": 145,
+    "slot": 995588,
+    "at": 1792058463703
    },
    "H1": {
     "bias": "sideways",
     "score": 1,
-    "price": 4152.4,
-    "ema20": 4133.89,
-    "ema50": 4140.81,
-    "rsi": 59.3,
+    "price": 4158.7,
+    "ema20": 4136.26,
+    "ema50": 4141.51,
+    "rsi": 61.8,
     "n": 299,
-    "slot": 497793,
-    "at": 1792054863812
+    "slot": 497794,
+    "at": 1792058463710
    }
   },
   "currency": "USC",
