@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-16T02:39:33.659Z",
+ "generated_at": "2026-10-16T02:49:33.668Z",
  "today": "2026-10-16",
  "week_start": "2026-10-12",
  "campaign": {
@@ -102,15 +102,15 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-16 02:31:04"
+   "updated_at": "2026-10-16 02:46:04"
   },
   {
    "id": "tresearch",
    "name": "Davina",
    "title": "Research & Fundamental",
    "status": "done",
-   "current_task": "Fundamental: NFP Sep meleset (29rb vs 84rb), USD melemah; tapi Fed condong hawkish & peluang hike Des. Emas ~4.150, support 4.065-4.100",
-   "updated_at": "2026-10-16 02:31:04"
+   "current_task": "Waspada rilis Fed Chairman Warsh Speaks (11.30 WITA)",
+   "updated_at": "2026-10-16 02:46:04"
   },
   {
    "id": "ttech",
@@ -118,7 +118,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Bias sideways",
-   "updated_at": "2026-10-16 02:31:04"
+   "updated_at": "2026-10-16 02:46:04"
   },
   {
    "id": "trisk",
@@ -126,7 +126,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: di luar jam sesi London–New York",
-   "updated_at": "2026-10-16 02:31:04"
+   "updated_at": "2026-10-16 02:46:04"
   },
   {
    "id": "texec",
@@ -1015,9 +1015,14 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4165.600098,
+  "price": 4167.200195,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-16 02:46:04",
+    "decision": "NO TRADE",
+    "reason": "di luar jam sesi London–New York"
+   },
    {
     "ts": "2026-10-16 02:31:04",
     "decision": "NO TRADE",
@@ -1042,11 +1047,6 @@
     "ts": "2026-10-16 01:31:04",
     "decision": "NO TRADE",
     "reason": "di luar jam sesi London–New York"
-   },
-   {
-    "ts": "2026-10-16 01:16:04",
-    "decision": "NO TRADE",
-    "reason": "di luar jam sesi London–New York"
    }
   ],
   "trades": [],
@@ -1068,7 +1068,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-16 02:31:04",
+   "ts": "2026-10-16 02:46:04",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1081,13 +1081,13 @@
    "fund": {
     "bias": 0.2,
     "note": "NFP Sep meleset (29rb vs 84rb), USD melemah; tapi Fed condong hawkish & peluang hike Des. Emas ~4.150, support 4.065-4.100",
-    "blackout": null
+    "blackout": "Fed Chairman Warsh Speaks (11.30 WITA)"
    },
    "tech": {
     "bias": "sideways",
     "score": 1,
     "trigger": null,
-    "note": "sideways (skor 1) · harga 4163.10 · EMA50 H1 4150.47 · RSI M15 55"
+    "note": "sideways (skor 1) · harga 4163.90 · EMA50 H1 4150.50 · RSI M15 56"
    }
   },
   "fund": {
@@ -1123,24 +1123,24 @@
    "M10": {
     "bias": "sideways",
     "score": -1,
-    "price": 4163.1,
-    "ema20": 4157.89,
-    "ema50": 4159.66,
-    "rsi": 57.9,
+    "price": 4166,
+    "ema20": 4158.66,
+    "ema50": 4159.91,
+    "rsi": 62,
     "n": 299,
-    "slot": 2986863,
-    "at": 1792117864614
+    "slot": 2986864,
+    "at": 1792118464585
    },
    "M15": {
     "bias": "sideways",
     "score": 1,
-    "price": 4163.1,
-    "ema20": 4159.42,
-    "ema50": 4158.78,
-    "rsi": 54.8,
+    "price": 4162.7,
+    "ema20": 4159.73,
+    "ema50": 4158.93,
+    "rsi": 54.1,
     "n": 299,
-    "slot": 1991242,
-    "at": 1792117864620
+    "slot": 1991243,
+    "at": 1792118764588
    },
    "M30": {
     "bias": "bullish",
