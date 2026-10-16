@@ -21,5 +21,5 @@
 
 ## Yang masih perlu dibangun
 1. ~~Template video Shorts~~ ✅ (`templates/shorts/player.html`, `scripts/shorts.mjs`, musik `scripts/shorts-music.mjs`).
-2. Upload YouTube Data API (OAuth dari akun channel Owner) + jadwal tayang.
+2. ~~Sambung YouTube~~ ✅ channel **Zataa Story (@zataastory)**, `node scripts/youtube.mjs whoami | upload <mp4> <meta.json>` (VPS). Upload lewat API masih **Private** sampai project lolos audit YouTube API. Sisa: alur ✅ Owner di @zataashortbot → upload otomatis + jadwal tayang.
 3. Data views/retention dari YouTube Analytics untuk laporan Minggu.
