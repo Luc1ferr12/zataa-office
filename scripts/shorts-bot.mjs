@@ -26,7 +26,7 @@ const STATE = join(ROOT, 'tmp', 'shorts-bot.json');
 const DAYS = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
 const SLOT_WIB = '18:00'; // default; jam tayang per Shorts (hasil riset harian Kirana) di data_json._jam
 const jamOf = (c) => { try { return JSON.parse(c.data_json ?? '{}')._jam ?? SLOT_WIB; } catch { return SLOT_WIB; } };
-const JAM = /^([01]d|2[0-3]):[0-5]d$/;
+const JAM = /^([01]\d|2[0-3]):[0-5]\d$/;
 const esc = (s) => String(s ?? '').replace(/[&<>]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' })[c]);
 const out = (o) => console.log(typeof o === 'string' ? o : JSON.stringify(o));
 const state = () => { try { return JSON.parse(readFileSync(STATE, 'utf8')); } catch { return {}; } };
