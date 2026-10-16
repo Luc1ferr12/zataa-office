@@ -22,7 +22,7 @@ Isian bertanda **[OWNER]** harus diisi Owner sendiri (data pribadi). Jawaban tek
 
 ## Bagian 3 — Model bisnis
 - Aktivitas terkait YouTube (min. 100 karakter):
-  > Zataa runs the YouTube channel "Zataa Story" (@zataastory), which publishes short educational videos (YouTube Shorts) about historical and archaeological mysteries in Indonesian. Each video cites its sources and only uses public-domain or openly licensed images that are credited in the description. Our API client is an internal tool used only by the channel owner to upload the videos he has approved to his own channel, with the visibility he chooses, and to read his own channel statistics for a weekly report. We do not access any other channel or any viewer data.
+  > Zataa runs the YouTube channel "Zataa Story" (@zataastory), which publishes short educational videos (YouTube Shorts) about historical and archaeological mysteries in Indonesian. Each video cites its sources and only uses public-domain or openly licensed images that are credited in the description. Our API client is an internal tool used only by the channel owner to upload the videos the owner has approved to the owner's own channel, with the visibility the owner chooses, and to read the channel's own statistics for a weekly report. We do not access any other channel or any viewer data.
 - Audiens target: **Pengguna Internal**
 - Monetisasi: **Layanan gratis (kami tidak membebankan biaya kepada pengguna)**
 - Iklan di/dalam konten YouTube: **Tidak berlaku**
