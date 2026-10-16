@@ -11,7 +11,7 @@
 //   node scripts/shorts-bot.mjs upload <id>           upload manual sekarang (Owner sudah ✅; normalnya otomatis di jam tayang)
 //   ❌ Tolak → Claude CLI bikin Shorts pengganti (topik lain, hari & jam sama)
 //   node scripts/shorts-bot.mjs say <agent> "<teks>"  pesan dari pegawai YouTube
-//   node scripts/shorts-bot.mjs report                laporan harian sekarang (otomatis tiap 21:00 WITA)
+//   node scripts/shorts-bot.mjs report [--dry]        laporan harian sekarang (otomatis tiap 21:00 WITA; --dry = cetak saja, tidak dikirim)
 //   .env: SHORTS_BOT_TOKEN, SHORTS_OWNER_ID (+ YT_* untuk upload)
 process.removeAllListeners('warning');
 import { join, dirname, basename } from 'node:path';
@@ -304,7 +304,7 @@ async function statusText() {
 const REPORT_MIN = 21 * 60;
 const num = (n) => (n == null ? '?' : Number(n).toLocaleString('id-ID'));
 const plus = (n) => (n == null ? '' : ` (${n >= 0 ? '+' : ''}${num(n)})`);
-export async function dailyReport() {
+export async function dailyReport({ dry = false } = {}) {
   const r = await run(['scripts/youtube.mjs', 'stats'], 3);
   if (!r.ok) throw new Error((r.err || r.out).split('\n').pop().slice(0, 200));
   const st = JSON.parse(r.out.split('\n').pop());
@@ -325,6 +325,7 @@ export async function dailyReport() {
     ...rows.slice(0, 5).map((v, i) => `${i + 1}. ${esc(v.title.slice(0, 45))} · 👁️ ${num(v.views)}${plus(v.dv)} · 👍 ${num(v.likes)}${v.privacy !== 'public' ? ` · <i>${v.privacy}</i>` : ''}`),
     prev ? `\n<i>(angka dalam kurung = kenaikan sejak laporan ${prev.date.slice(8)}/${prev.date.slice(5, 7)})</i>` : '\n<i>Laporan pertama, kenaikan harian mulai muncul besok.</i>',
   ].filter((l) => l !== undefined);
+  if (dry) return lines.join('\n');
   await sayAs('ypublish', lines.join('\n'));
   patchState((s) => { s.snap = { date: t.date, subs: st.subscribers, views, likes: st.likes, videos: Object.fromEntries(st.list.map((v) => [v.id, { v: v.views, l: v.likes }])) }; s.reportDate = t.date; });
   return { ok: true, subscribers: st.subscribers, views, likes: st.likes };
@@ -500,7 +501,7 @@ if (isMain) {
       if (!r.already) { await sayAs('ypublish', `✅ Udah ke-upload!\n${remindText(c)}`, { reply_markup: PUB_BTN(+a) }); patchState((s) => { (s.remind ??= {})[+a] = { n: 0, at: Date.now() }; }); }
       out(r);
     } else if (cmd === 'say') { await sayAs(a, esc(b)); out('ok'); }
-    else if (cmd === 'report') out(await dailyReport());
+    else if (cmd === 'report') out(await dailyReport({ dry: a === '--dry' }));
     else out('pakai: shorts-bot.mjs new <file.json> | get <id> | set <id> <json|file> | list [dari] | queue <id> | submit <id> | upload <id> | say <agent> "<teks>"');
   } catch (e) { out(`gagal: ${e.message}`); process.exit(1); }
 }
