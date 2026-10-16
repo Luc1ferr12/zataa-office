@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-16T10:16:55.858Z",
+ "generated_at": "2026-10-16T10:26:55.917Z",
  "today": "2026-10-16",
  "week_start": "2026-10-12",
  "campaign": {
@@ -601,6 +601,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-16 10:21:04",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: sideways → bullish"
+  },
+  {
    "ts": "2026-10-16 10:16:04",
    "agent_id": "ttech",
    "message": "M15 berubah arah: sideways → bullish"
@@ -719,11 +724,6 @@
    "ts": "2026-10-16 05:51:04",
    "agent_id": "ttech",
    "message": "M10 berubah arah: bullish → sideways"
-  },
-  {
-   "ts": "2026-10-16 05:30:23",
-   "agent_id": "ydir",
-   "message": "Antrean weekend: Sabtu Antikythera, Minggu Gunung Padang"
   }
  ],
  "chats": [
@@ -1079,7 +1079,7 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4182.600098,
+  "price": 4184.5,
   "open": [],
   "signals": [
    {
@@ -1174,15 +1174,15 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "sideways",
-    "score": 1,
-    "price": 4179,
-    "ema20": 4182.85,
-    "ema50": 4177.94,
-    "rsi": 46,
+    "bias": "bullish",
+    "score": 3,
+    "price": 4184.7,
+    "ema20": 4183.03,
+    "ema50": 4178.2,
+    "rsi": 53.5,
     "n": 299,
-    "slot": 2986909,
-    "at": 1792145464896
+    "slot": 2986910,
+    "at": 1792146064885
    },
    "M15": {
     "bias": "bullish",
