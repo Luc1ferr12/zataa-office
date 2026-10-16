@@ -34,7 +34,7 @@ Feed Zataa harus langsung dikenali di timeline: ungu, tegas, rapi, terasa "gamin
 - Owner nggak mau dimintain file: logo & foto cari sendiri (`asset.mjs get`).
 
 ## Kesalahan yang pernah terjadi (jangan diulang)
-- **Framing MPL (catatan Owner):** tim MPL ngejar **kemenangan seri (Bo3)**, bukan ngumpulin poin. Narasi, headline, VO, dan grafis harus ngomong "menang seri / rekor W-L / butuh 1 kemenangan lagi", bukan "kejar poin / sama-sama 11 poin / selisih 1 poin". Tabel klasemen pakai kolom W-L match + Net Game, bukan "Poin". Detail: `office/esport.md`.
+- **Framing MPL (catatan Owner):** klasemen MPL pakai **Match Point (MP)**: 1 MP = menang 1 seri Bo3. Selalu sebut **"Match Point"** (atau "MP"), jangan "poin" polos (kesannya poin per game), dan jangan "kemenangan" (kaku). Contoh: "sama-sama 11 Match Point", "ONIC butuh 1 Match Point lagi", "beda 1 MP". Tabel klasemen pakai kolom MP + W-L + Net Game, bukan "Poin". Detail: `office/esport.md`.
 - Ngirim balik revisi **tanpa perubahan** sambil nunggu Owner kirim foto (#4 revisi 1). Kalau aset kurang, cari sendiri dulu; kalau benar-benar nggak ada, pakai logo + foto terdekat dan jelaskan di catatan.
 - Pakai `**tebal**` di poin template news → layout pecah per kata. Poin harus polos.
 

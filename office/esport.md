@@ -10,7 +10,7 @@ Sumber: [id-mpl.com](https://id-mpl.com/en) (resmi), [Liquipedia](https://liquip
 **Regular season (14 Agu – 18 Okt 2026)**
 - Double round robin: tiap tim ketemu tim lain 2×.
 - **Semua match Bo3** (best of three: menang 2 game duluan = menang match).
-- Klasemen dihitung dari **match, bukan game**: menang 1 match (seri Bo3) = **1 match point**, kalah = 0. Jadi "11 poin" artinya **11 kali menang match**, bukan 11 game.
+- Klasemen dihitung dari **match, bukan game**: menang 1 match (seri Bo3) = **1 Match Point (MP)**, kalah = 0. Jadi "11 Match Point" artinya **11 kali menang seri**, bukan 11 game.
 - Urutan tiebreak: **1) jumlah match menang → 2) net game win** (selisih game menang − kalah) **→ 3) head-to-head**.
 - Contoh benar: NAVI 12-3 (match) · game 25-10 · net game +15.
 - **6 besar lolos playoff**, peringkat 7–9 selesai.
@@ -22,15 +22,15 @@ Sumber: [id-mpl.com](https://id-mpl.com/en) (resmi), [Liquipedia](https://liquip
 - **Juara & runner-up mewakili Indonesia di M8 World Championship (Türkiye).**
 
 ## Framing (catatan Owner, 16 Okt)
-**Framing MPL (catatan Owner):** tim MPL ngejar **kemenangan seri (Bo3)**, bukan ngumpulin poin. Narasi, headline, VO, dan grafis harus ngomong "menang seri / rekor W-L / butuh 1 kemenangan lagi", bukan "kejar poin / sama-sama 11 poin / selisih 1 poin".
-- Contoh benar: "NAVI & TLID sama-sama **11 kemenangan**, NAVI unggul net game" · "ONIC butuh **menang 1 seri lagi** buat amankan 6 besar" · "Seri **Bo3** penentu: siapa menang 2 game duluan".
-- Contoh salah: "NAVI & TLID sama-sama 11 poin" · "ONIC kejar poin" · "beda 1 poin".
-- Grafis klasemen: kolom utama **W-L match** (mis. 12-3) + kolom **Net Game**; jangan kolom "Poin".
+**Framing MPL (catatan Owner):** klasemen MPL pakai **Match Point (MP)**: 1 MP = menang 1 seri Bo3. Selalu sebut **"Match Point"** (atau "MP"), jangan "poin" polos (kesannya poin per game), dan jangan "kemenangan" (kaku). Contoh: "sama-sama 11 Match Point", "ONIC butuh 1 Match Point lagi", "beda 1 MP".
+- Contoh benar: "NAVI & TLID sama-sama **11 Match Point**, NAVI unggul net game" · "ONIC butuh **1 Match Point lagi** buat amankan 6 besar" · "Seri **Bo3** penentu: siapa menang 2 game duluan".
+- Contoh salah: "sama-sama 11 poin" · "ONIC kejar poin" · "beda 1 poin" (poin polos) · "11 kemenangan" (kaku).
+- Grafis klasemen: kolom **MP** (Match Point) + **W-L** (mis. 12-3) + **Net Game**; jangan kolom "Poin".
 
 ## Istilah: pakai yang benar
 | Tulis | Jangan tulis | Kenapa |
 |---|---|---|
-| "11 kemenangan" / "rekor 11-3" / "11 match point" | "11 poin" saja | "poin" bikin orang kira poin per game |
+| "11 Match Point" / "11 MP" / "rekor 11-3" | "11 poin" polos, "11 kemenangan" | "poin" polos dikira per game; "kemenangan" kaku (catatan Owner) |
 | "menang 2-1" (skor game dalam 1 match Bo3) | "menang 2 poin" | skor Bo3 = jumlah game |
 | "net game +14" / "selisih game +14" | "selisih poin +14" | tiebreak pakai game, bukan poin |
 | "Bo3 / Bo5 / Bo7" (sebut di preview & jadwal) | — | penonton peduli seri pendek/panjang |
@@ -42,7 +42,7 @@ Sumber: [id-mpl.com](https://id-mpl.com/en) (resmi), [Liquipedia](https://liquip
 1. Angka klasemen/skor diambil **hari itu** dari id-mpl.com (resmi), dicek silang ke 1 sumber lain (Liquipedia/portal esport). Tulis "per [tanggal/Week]" di footnote.
 2. Sebut format laganya (Bo3/Bo5/Bo7) di preview, jadwal, dan hasil.
 3. Klasemen = match menang dulu, baru net game. Jangan ranking pakai game.
-4. Skenario lolos/gugur: hitung dulu sisa match tiap tim (maks match point = sekarang + sisa match). Kalau belum pasti secara matematis, tulis "berpeluang", bukan "pasti/aman".
+4. Skenario lolos/gugur: hitung dulu sisa match tiap tim (maks Match Point = MP sekarang + sisa match). Kalau belum pasti secara matematis, tulis "berpeluang", bukan "pasti/aman".
 5. Jam pakai WIB. Rumor transfer tetap ditulis "RUMOR".
 
 ## Liga lain (isi saat dipakai, format beda dari MPL!)

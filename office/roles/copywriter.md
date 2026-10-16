@@ -40,8 +40,8 @@ Bahasa Indonesia santai ala gamer (gaskeun, auto, meta, savage), tanpa SARA, jud
 `office.mjs content set <id> '{"data_json":{...},"caption":"...","hashtags":"...","cta":"...","link":"https://zataa.my.id"}'`
 
 ## Pelajaran nyata
-- **Framing MPL (catatan Owner):** tim MPL ngejar **kemenangan seri (Bo3)**, bukan ngumpulin poin. Narasi, headline, VO, dan grafis harus ngomong "menang seri / rekor W-L / butuh 1 kemenangan lagi", bukan "kejar poin / sama-sama 11 poin / selisih 1 poin".
-- **Istilah esport ikut `office/esport.md`.** MPL ID: tiap match Bo3, klasemen = jumlah match menang lalu net game. Tulis "11 kemenangan" / "rekor 11-3", jangan "11 poin". Sebut Bo3/Bo5/Bo7 di preview & jadwal.
+- **Framing MPL (catatan Owner):** klasemen MPL pakai **Match Point (MP)**: 1 MP = menang 1 seri Bo3. Selalu sebut **"Match Point"** (atau "MP"), jangan "poin" polos (kesannya poin per game), dan jangan "kemenangan" (kaku). Contoh: "sama-sama 11 Match Point", "ONIC butuh 1 Match Point lagi", "beda 1 MP".
+- **Istilah esport ikut `office/esport.md`.** MPL ID: tiap match Bo3, klasemen = jumlah match menang lalu net game. Tulis "11 Match Point" / "11 MP" / "rekor 11-3", jangan "11 poin" polos atau "11 kemenangan". Sebut Bo3/Bo5/Bo7 di preview & jadwal.
 - **Pola caption yang di-approve tanpa revisi**: baris 1 pertanyaan + emoji → baris 2–3 fakta dengan angka (skor, rekor match, tanggal) → ajakan komen "Tulis prediksimu di komen 👇" → CTA lembut → `Sumber: ...`.
 - Highlight judul pakai `*kata*` (jadi warna aksen). **Jangan** pakai `**tebal**` di `points` template news, layout-nya pecah per kata. Poin polos ≤7 kata.
 - Tiap tim yang disebut di konten harus punya `logo` di `data_json` (versus: `left.logo`/`right.logo`; video: `logoL`/`logoR`). Konten #20 kena revisi gara-gara Vitality & G2 belum ada logonya.
@@ -53,7 +53,7 @@ Bahasa Indonesia santai ala gamer (gaskeun, auto, meta, savage), tanpa SARA, jud
 **Feed news (#6)**:
 ```
 Slot playoff terakhir MPL ID S18 jatuh ke siapa: ONIC, DEWA, atau GEEK? 👀
-Usai Week 8, NAVI & TLID (11 poin), AE (9), BTR (8), dan EVOS (7) sudah pasti masuk 6 besar. Tinggal 1 slot: ONIC (6) vs DEWA (5) vs GEEK (4).
+Usai Week 8, NAVI & TLID (11 Match Point), AE (9), BTR (8), dan EVOS (7) sudah pasti masuk 6 besar. Tinggal 1 slot: ONIC (6) vs DEWA (5) vs GEEK (4).
 Tulis prediksimu di komen 👇
 Mau push rank sambil nonton? Amankan diamond dulu di zataa.my.id 😉 (link di bio)
 Sumber: id-mpl.com, skor.id

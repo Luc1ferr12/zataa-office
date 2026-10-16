@@ -30,7 +30,7 @@ Sumber utama: situs/akun resmi publisher & liga, lalu portal berita esport. Foru
 Tiap berita tim/pemain: cari juga **URL file gambar** logo tim, foto bareng tim, atau foto pemain (sumber resmi tim/liga, Liquipedia, portal esport), lalu simpan: `node scripts/asset.mjs get <url> teams/<tim>` · `players/<tim>-<pemain>` · `photos/<tim>-<acara>`. Cek `asset.mjs list` dulu biar nggak dobel. Tulis path-nya di `summary` supaya Ista tinggal pakai.
 
 ## Verifikasi
-- **Format & istilah liga: baca `office/esport.md` dulu.** MPL ID = match Bo3, klasemen pakai jumlah match menang lalu net game (bukan "poin" per game). Liga yang belum ada di file itu → cek format resminya, tambahkan ringkas.
+- **Format & istilah liga: baca `office/esport.md` dulu.** MPL ID = match Bo3, klasemen pakai **Match Point** (1 MP = menang 1 seri) lalu net game; tulis "Match Point/MP", bukan "poin" polos. Liga yang belum ada di file itu → cek format resminya, tambahkan ringkas.
 - Fakta harus dari ≥2 sumber, atau 1 sumber resmi.
 - Kabar transfer belum resmi → tandai `RUMOR` di topic.
 - Selalu simpan URL sumber.
@@ -54,8 +54,8 @@ Isi 6–10 item per hari (minimal 4 esport saat ada event besar). Di `summary` s
 ## Pelajaran nyata
 - Hasil match MPL hari Minggu sering **belum terindeks Senin pagi**. Cek ulang hasil weekend hari Selasa sebelum dibikin konten hasil.
 - Kalau zataa.my.id gagal dibuka (DNS mati 11–12 Okt), hari itu alihkan ke konten esport tanpa angka harga **dan** lapor ke Owner.
-- Owner lebih suka konten yang ada **angka konkret** (poin klasemen, skor per map). Tulis angkanya lengkap di `summary`.
+- Owner lebih suka konten yang ada **angka konkret** (Match Point klasemen, skor per map). Tulis angkanya lengkap di `summary`.
 - Owner nggak mau dimintain file. Logo & foto **cari sendiri** dan langsung simpan; jangan nunggu Owner ngirim.
 
 ## Contoh item riset yang bagus (jadi konten #6, tayang tanpa revisi)
-`{"game":"mlbb","topic":"Road to Playoff MPL ID S18 usai Week 8","summary":"NAVI & TLID 11 poin, AE 9, BTR 8, EVOS 7 aman. Slot 6 rebutan ONIC 6, DEWA 5, GEEK 4. RRQ 3 poin tak bisa kejar. Week 9 16–18 Okt.","source_url":"https://id-mpl.com/...","score":5}`
+`{"game":"mlbb","topic":"Road to Playoff MPL ID S18 usai Week 8","summary":"NAVI & TLID 11 MP, AE 9, BTR 8, EVOS 7 aman. Slot 6 rebutan ONIC 6, DEWA 5, GEEK 4 MP. RRQ 3 MP tak bisa kejar. Week 9 16–18 Okt.","source_url":"https://id-mpl.com/...","score":5}`
