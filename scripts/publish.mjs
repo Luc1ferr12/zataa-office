@@ -8,14 +8,15 @@
 //   node scripts/publish.mjs ig-page-token    ganti User token (sudah di-extend) → Page token permanen
 //   node scripts/publish.mjs tiktok-login     cetak link login TikTok (sekali saja)
 //   node scripts/publish.mjs tiktok-code <url-atau-code>   tukar code hasil login → token disimpan ke .env
-//   node scripts/publish.mjs tiktok-draft <id|file.mp4>     kirim video ke inbox TikTok sebagai draf (Owner posting dari app)
+//   node scripts/publish.mjs tiktok-draft <id|file.mp4>     kirim video ke inbox TikTok sebagai draf (sandbox: notifikasi tidak muncul, belum dipakai)
+//   node scripts/publish.mjs tiktok-manual <id>             kirim file video + caption TikTok ke Telegram Owner (default setelah IG tayang)
 process.removeAllListeners('warning');
 import { existsSync, statSync, writeFileSync } from 'node:fs';
 import { open } from 'node:fs/promises';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execFileSync } from 'node:child_process';
-import { loadEnv, setEnv, sayAs, SLOT, targets } from './approval.mjs';
+import { loadEnv, setEnv, sayAs, SLOT, targets, tg } from './approval.mjs';
 import { chat } from './chatter.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -193,6 +194,20 @@ async function postTikTok(c, A, caption, opts = {}) {
   return publish_id; // masih diproses TikTok, biasanya tetap muncul di profil
 }
 
+// ---------- TikTok manual (default): app untuk akun sendiri tidak bisa lolos audit TikTok, jadi Fikri kirim file video +
+// caption ke Telegram Owner begitu IG tayang; Owner upload sendiri dari HP lalu balas "udah tiktok #id" (dicatat di ask.mjs).
+const htmlEsc = (s) => String(s ?? '').replace(/[&<>]/g, (ch) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' })[ch]);
+export async function sendTikTokManual(c, A) {
+  const chat_id = env().TELEGRAM_CHAT_ID;
+  const caption = [c.caption, c.hashtags].filter(Boolean).join('\n\n');
+  await tg('sendVideo', { chat_id, caption: `<b>Fikri</b>: 🎵 Video #${c.id} buat TikTok, Bos. Simpan videonya lalu upload dari app TikTok 👇`, parse_mode: 'HTML', supports_streaming: true, width: 1080, height: 1920 },
+    { video: join(ROOT, A.video), ...(A.cover && existsSync(join(ROOT, A.cover)) ? { thumbnail: join(ROOT, A.cover) } : {}) });
+  await tg('sendMessage', { chat_id, parse_mode: 'HTML', text: `<b>Fikri</b>: Caption TikTok #${c.id} (tap buat salin):\n\n<code>${htmlEsc(caption.slice(0, 2200))}</code>\n\nKalau udah diposting, balas: <b>udah tiktok #${c.id}</b>` });
+  const d = await db();
+  d.prepare("UPDATE contents SET data_json = json_set(COALESCE(data_json, '{}'), '$._tt_manual', 1) WHERE id = ?").run(c.id);
+  activity(d, 'publisher', `Kirim video #${c.id} ke Owner buat diupload manual ke TikTok`);
+}
+
 // ---------- jadwal: slot WIB (UTC+7)
 const dueAt = (c) => (c.slot === 'kilat' ? 0 : new Date(`${c.day}T${SLOT[c.slot] ?? '12:00'}:00+07:00`).getTime());
 const failures = new Map(); // id → jumlah gagal (di memori watcher)
@@ -229,9 +244,8 @@ export async function publishOne(id) {
   if (!errs.length) {
     d.prepare("UPDATE contents SET status = 'posted', posted_at = datetime('now'), updated_at = datetime('now') WHERE id = ?").run(c.id);
     failures.delete(c.id);
-    const studio = A.video && !targets(c).includes('tiktok') && env().TIKTOK_REFRESH_TOKEN && !c.tiktok_id
-      ? `\n🎵 Mau ke TikTok juga? Atur privasi & posting di Studio: ${studioUrl(c.id)}` : '';
-    await sayAs('publisher', `🚀 #${c.id} udah tayang di ${done.join(' + ') || 'semua platform'}.${done.some((p) => p.startsWith('TikTok')) ? '\nTikTok masih private, ubah privacy di app kalau mau publik.' : ''}${studio}`).catch(() => {});
+    await sayAs('publisher', `🚀 #${c.id} udah tayang di ${done.join(' + ') || 'semua platform'}.${done.some((p) => p.startsWith('TikTok')) ? '\nTikTok masih private, ubah privacy di app kalau mau publik.' : ''}`).catch(() => {});
+    if (A.video && !targets(c).includes('tiktok') && !c.tiktok_id) await sendTikTokManual(c, A).catch((e) => sayAs('publisher', `⚠️ Gagal kirim video #${c.id} buat TikTok: ${e.message}`).catch(() => {}));
     return { ok: true, id: c.id, posted: done };
   }
   const n = (failures.get(c.id) ?? 0) + 1;
@@ -385,6 +399,10 @@ if (isMain) {
       let A = { video: a };
       if (/^\d+$/.test(a)) { const c = (await db()).prepare('SELECT asset_path FROM contents WHERE id = ?').get(+a); if (!c?.asset_path) throw new Error(`konten ${a} belum dirender`); A = JSON.parse(c.asset_path); }
       out(await draftTikTok(A));
+    } else if (cmd === 'tiktok-manual') {
+      const c = (await db()).prepare('SELECT * FROM contents WHERE id = ?').get(+a);
+      if (!c?.asset_path || !JSON.parse(c.asset_path).video) throw new Error(`konten ${a} bukan video / belum dirender`);
+      await sendTikTokManual(c, JSON.parse(c.asset_path)); out('ok');
     } else if (cmd === 'tiktok-export') { const x = await tiktokExport(); out({ connected: x.connected, user: x.creator?.username, videos: x.videos.length }); }
     else out('pakai: publish.mjs due | now <id> | ig-check | tiktok-setup | tiktok-login | tiktok-code <url> | tiktok-export');
   } catch (e) { out(`gagal: ${e.message}`); process.exit(1); }

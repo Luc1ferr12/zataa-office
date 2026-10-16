@@ -159,6 +159,16 @@ export function formatReply(text, fallback = 'dir') {
 
 export async function handleOwnerMessage(msg, log = console.log, photos = []) {
   if (!photos.length && isTradingCommand(msg)) { await handleTrading(msg); return { kind: 'trading' }; }
+  const ttDone = !photos.length && msg.match(/\b(udah|sudah|dah)\b.*\btik\s?tok\b.*?#?(\d+)/i);
+  if (ttDone) { // Owner sudah upload manual ke TikTok (videonya dikirim Fikri lewat publish.mjs sendTikTokManual)
+    const d = await db();
+    const c = d.prepare('SELECT id, title FROM contents WHERE id = ?').get(+ttDone[2]);
+    if (!c) { await sayAs('publisher', `Konten #${ttDone[2]} nggak ketemu, Bos 🤔`); return { kind: 'tiktok' }; }
+    d.prepare("UPDATE contents SET tiktok_id = COALESCE(tiktok_id, 'manual'), updated_at = datetime('now') WHERE id = ?").run(c.id);
+    d.prepare('INSERT INTO activity (agent_id, message) VALUES (?, ?)').run('publisher', `#${c.id} udah diupload Owner ke TikTok 🎵`);
+    await sayAs('publisher', `Mantap Bos, #${c.id} "${esc(c.title)}" dicatat udah tayang di TikTok 🎵`);
+    return { kind: 'tiktok' };
+  }
   if (!photos.length && isStatusQuestion(msg)) {
     await say(await statusReport());
     return { kind: 'status' };
