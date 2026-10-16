@@ -40,7 +40,8 @@ Bahasa Indonesia santai ala gamer (gaskeun, auto, meta, savage), tanpa SARA, jud
 `office.mjs content set <id> '{"data_json":{...},"caption":"...","hashtags":"...","cta":"...","link":"https://zataa.my.id"}'`
 
 ## Pelajaran nyata
-- **Pola caption yang di-approve tanpa revisi**: baris 1 pertanyaan + emoji → baris 2–3 fakta dengan angka (skor, poin, tanggal) → ajakan komen "Tulis prediksimu di komen 👇" → CTA lembut → `Sumber: ...`.
+- **Istilah esport ikut `office/esport.md`.** MPL ID: tiap match Bo3, klasemen = jumlah match menang lalu net game. Tulis "11 kemenangan" / "rekor 11-3", jangan "11 poin". Sebut Bo3/Bo5/Bo7 di preview & jadwal.
+- **Pola caption yang di-approve tanpa revisi**: baris 1 pertanyaan + emoji → baris 2–3 fakta dengan angka (skor, rekor match, tanggal) → ajakan komen "Tulis prediksimu di komen 👇" → CTA lembut → `Sumber: ...`.
 - Highlight judul pakai `*kata*` (jadi warna aksen). **Jangan** pakai `**tebal**` di `points` template news, layout-nya pecah per kata. Poin polos ≤7 kata.
 - Tiap tim yang disebut di konten harus punya `logo` di `data_json` (versus: `left.logo`/`right.logo`; video: `logoL`/`logoR`). Konten #20 kena revisi gara-gara Vitality & G2 belum ada logonya.
 - Logo gelap (G2, Vitality) pakai file `-light` biar kebaca di latar ungu.

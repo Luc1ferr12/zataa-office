@@ -30,6 +30,7 @@ Sumber utama: situs/akun resmi publisher & liga, lalu portal berita esport. Foru
 Tiap berita tim/pemain: cari juga **URL file gambar** logo tim, foto bareng tim, atau foto pemain (sumber resmi tim/liga, Liquipedia, portal esport), lalu simpan: `node scripts/asset.mjs get <url> teams/<tim>` · `players/<tim>-<pemain>` · `photos/<tim>-<acara>`. Cek `asset.mjs list` dulu biar nggak dobel. Tulis path-nya di `summary` supaya Ista tinggal pakai.
 
 ## Verifikasi
+- **Format & istilah liga: baca `office/esport.md` dulu.** MPL ID = match Bo3, klasemen pakai jumlah match menang lalu net game (bukan "poin" per game). Liga yang belum ada di file itu → cek format resminya, tambahkan ringkas.
 - Fakta harus dari ≥2 sumber, atau 1 sumber resmi.
 - Kabar transfer belum resmi → tandai `RUMOR` di topic.
 - Selalu simpan URL sumber.
