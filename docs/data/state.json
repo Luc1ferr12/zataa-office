@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-16T15:20:35.803Z",
+ "generated_at": "2026-10-16T15:30:35.801Z",
  "today": "2026-10-16",
  "week_start": "2026-10-12",
  "campaign": {
@@ -37,16 +37,16 @@
    "name": "Ista",
    "title": "Copywriter",
    "status": "done",
-   "current_task": "Teks feed 100T singkirkan G2",
-   "updated_at": "2026-10-16 13:57:18"
+   "current_task": "Revisi #31: 100T singkirkan G2, lolos Lower Final Champions Shanghai",
+   "updated_at": "2026-10-16 15:22:45"
   },
   {
    "id": "designer",
    "name": "Maria",
    "title": "Graphic Designer",
-   "status": "working",
-   "current_task": "Render feed 100T singkirkan G2",
-   "updated_at": "2026-10-16 13:57:18"
+   "status": "done",
+   "current_task": "Revisi #31: 100T singkirkan G2, lolos Lower Final Champions Shanghai",
+   "updated_at": "2026-10-16 15:22:45"
   },
   {
    "id": "video",
@@ -60,9 +60,9 @@
    "id": "publisher",
    "name": "Fikri",
    "title": "Social Media Publisher",
-   "status": "done",
-   "current_task": "QA & kirim #31 100T vs G2",
-   "updated_at": "2026-10-16 15:17:01"
+   "status": "waiting",
+   "current_task": "#31 100T singkirkan G2, lolos Lower Final Champions Shanghai",
+   "updated_at": "2026-10-16 15:22:51"
   },
   {
    "id": "ads",
@@ -452,12 +452,12 @@
    "id": 31,
    "day": "2026-10-16",
    "slot": "kilat",
-   "format": "feed",
+   "format": "carousel",
    "game": "valorant",
    "pillar": "esport",
    "title": "100T singkirkan G2, lolos Lower Final Champions Shanghai",
    "status": "pending_approval",
-   "asset_url": "{\"feed\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-16/31-100t-singkirkan-g2-lolos-lower-final-cha.jpg\"],\"story\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-16/31-100t-singkirkan-g2-lolos-lower-final-cha-916.jpg\"]}",
+   "asset_url": "{\"feed\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-16/31-100t-singkirkan-g2-lolos-lower-final-cha-1.jpg\",\"https://luc1ferr12.github.io/zataa-office/media/2026-10-16/31-100t-singkirkan-g2-lolos-lower-final-cha-2.jpg\",\"https://luc1ferr12.github.io/zataa-office/media/2026-10-16/31-100t-singkirkan-g2-lolos-lower-final-cha-3.jpg\",\"https://luc1ferr12.github.io/zataa-office/media/2026-10-16/31-100t-singkirkan-g2-lolos-lower-final-cha-4.jpg\",\"https://luc1ferr12.github.io/zataa-office/media/2026-10-16/31-100t-singkirkan-g2-lolos-lower-final-cha-5.jpg\",\"https://luc1ferr12.github.io/zataa-office/media/2026-10-16/31-100t-singkirkan-g2-lolos-lower-final-cha-6.jpg\"],\"story\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-16/31-100t-singkirkan-g2-lolos-lower-final-cha-1-916.jpg\",\"https://luc1ferr12.github.io/zataa-office/media/2026-10-16/31-100t-singkirkan-g2-lolos-lower-final-cha-2-916.jpg\",\"https://luc1ferr12.github.io/zataa-office/media/2026-10-16/31-100t-singkirkan-g2-lolos-lower-final-cha-3-916.jpg\",\"https://luc1ferr12.github.io/zataa-office/media/2026-10-16/31-100t-singkirkan-g2-lolos-lower-final-cha-4-916.jpg\",\"https://luc1ferr12.github.io/zataa-office/media/2026-10-16/31-100t-singkirkan-g2-lolos-lower-final-cha-5-916.jpg\",\"https://luc1ferr12.github.io/zataa-office/media/2026-10-16/31-100t-singkirkan-g2-lolos-lower-final-cha-6-916.jpg\"]}",
    "scheduled_at": null,
    "posted_at": null,
    "channel": null
@@ -615,6 +615,26 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-16 15:22:51",
+   "agent_id": "publisher",
+   "message": "Kirim #31 ke Owner buat approval · revisi ke-1"
+  },
+  {
+   "ts": "2026-10-16 15:22:45",
+   "agent_id": "designer",
+   "message": "Revisi #31 kelar: Intinya #31 udah jadi carousel 6 slide yang dibuka ucapan selamat buat 100T, cuma foto pemainnya masih nunggu link karen"
+  },
+  {
+   "ts": "2026-10-16 15:20:42",
+   "agent_id": "designer",
+   "message": "Balik ke komputer, ngerjain revisi #31"
+  },
+  {
+   "ts": "2026-10-16 15:20:42",
+   "agent_id": "owner",
+   "message": "Minta revisi #31: Buatin carousel, pertama ucapin selamat dulu ke 100T pake foto pemain nya 100t. Baru next halaman selanjutnya ngikutin, coba buat aja dulu"
+  },
+  {
    "ts": "2026-10-16 15:17:01",
    "agent_id": "publisher",
    "message": "Kirim #31 (100T singkirkan G2) ke Owner setelah limit reset"
@@ -718,29 +738,30 @@
    "ts": "2026-10-16 12:01:04",
    "agent_id": "ttech",
    "message": "M30 berubah arah: bullish → sideways"
-  },
-  {
-   "ts": "2026-10-16 11:55:18",
-   "agent_id": "publisher",
-   "message": "Kirim video #21 ke Owner buat diupload manual ke TikTok"
-  },
-  {
-   "ts": "2026-10-16 11:46:05",
-   "agent_id": "trisk",
-   "message": "NO TRADE · market sideways, tunggu arah jelas"
-  },
-  {
-   "ts": "2026-10-16 11:46:04",
-   "agent_id": "ttech",
-   "message": "M15 berubah arah: bullish → sideways"
-  },
-  {
-   "ts": "2026-10-16 11:41:04",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: bullish → sideways"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-10-16 15:22:45",
+   "agent_id": "designer",
+   "to_id": "publisher",
+   "kind": "oper",
+   "message": "Visual \"Revisi #31: 100T singkirkan G2, lolos Lower Final Champions \" kelar! Fikri, cek typo-nya sekalian ya 🙏"
+  },
+  {
+   "ts": "2026-10-16 15:22:45",
+   "agent_id": "copywriter",
+   "to_id": "designer",
+   "kind": "oper",
+   "message": "Teks buat \"Revisi #31: 100T singkirkan G2, lolos Lower Final Champions \" ready. Maria, giliranmu bikin cakep!"
+  },
+  {
+   "ts": "2026-10-16 15:20:42",
+   "agent_id": "designer",
+   "to_id": null,
+   "kind": "curhat",
+   "message": "Siap, revisi dikerjain! Bos-nya teliti banget 😅"
+  },
   {
    "ts": "2026-10-16 15:17:09",
    "agent_id": "publisher",
@@ -999,27 +1020,6 @@
    "to_id": "designer",
    "kind": "oper",
    "message": "Teks buat \"Teks jadwal Week 9 & polling NAVI/TLID\" ready. Maria, giliranmu bikin cakep!"
-  },
-  {
-   "ts": "2026-10-15 23:30:39",
-   "agent_id": "researcher",
-   "to_id": "copywriter",
-   "kind": "oper",
-   "message": "Ista, bahan buat \"Jadwal Week 9 & poin NAVI–TLID dicek ulang\" udah aku rangkum + sumbernya. Tinggal kamu racik captionnya ✍️"
-  },
-  {
-   "ts": "2026-10-15 23:29:20",
-   "agent_id": "dir",
-   "to_id": null,
-   "kind": "oper",
-   "message": "Bos ACC 2 ide tambahan! \"Kartu Jadwal Lengkap Week 9 MPL ID (16–18 Okt)\" & \"Komen 1 Kata: Siapa Juara Reguler, NAVI atau TLID?\" 🎉"
-  },
-  {
-   "ts": "2026-10-15 23:04:42",
-   "agent_id": "analyst",
-   "to_id": null,
-   "kind": "santai",
-   "message": "14 post, komentar masih nol semua. Hari ini kita pancing pakai pertanyaan 1 kata ya 🙏"
   }
  ],
  "stats": {
@@ -1093,7 +1093,7 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4181.100098,
+  "price": 4176.899902,
   "open": [],
   "signals": [
    {
@@ -1192,14 +1192,14 @@
   "tf": {
    "M10": {
     "bias": "sideways",
-    "score": 1,
-    "price": 4184.3,
-    "ema20": 4182.07,
-    "ema50": 4179.47,
-    "rsi": 52.9,
+    "score": -1,
+    "price": 4181.9,
+    "ema20": 4182.05,
+    "ema50": 4179.57,
+    "rsi": 50.6,
     "n": 299,
-    "slot": 2986939,
-    "at": 1792163465110
+    "slot": 2986940,
+    "at": 1792164065256
    },
    "M15": {
     "bias": "sideways",
