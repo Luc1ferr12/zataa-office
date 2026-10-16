@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-16T12:22:45.368Z",
+ "generated_at": "2026-10-16T12:32:45.436Z",
  "today": "2026-10-16",
  "week_start": "2026-10-12",
  "campaign": {
@@ -102,7 +102,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-16 12:16:05"
+   "updated_at": "2026-10-16 12:31:05"
   },
   {
    "id": "tresearch",
@@ -110,7 +110,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Tak ada berita 24 jam terbaru di hasil cari. Data terakhir: DXY dekat 18 bulan tinggi, inflasi lengket, pasar masih buka peluang Fed naik. Bias tipis negatif.",
-   "updated_at": "2026-10-16 12:16:05"
+   "updated_at": "2026-10-16 12:31:05"
   },
   {
    "id": "ttech",
@@ -118,7 +118,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Bias sideways",
-   "updated_at": "2026-10-16 12:16:05"
+   "updated_at": "2026-10-16 12:31:05"
   },
   {
    "id": "trisk",
@@ -126,7 +126,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: market sideways, tunggu arah jelas",
-   "updated_at": "2026-10-16 12:16:05"
+   "updated_at": "2026-10-16 12:31:05"
   },
   {
    "id": "texec",
@@ -601,6 +601,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-16 12:31:04",
+   "agent_id": "ttech",
+   "message": "M30 berubah arah: sideways → bullish"
+  },
+  {
    "ts": "2026-10-16 12:01:04",
    "agent_id": "ttech",
    "message": "M30 berubah arah: bullish → sideways"
@@ -719,11 +724,6 @@
    "ts": "2026-10-16 07:19:58",
    "agent_id": "ypublish",
    "message": "Upload Shorts #30 ke Zataa Story (Private), nunggu Owner ubah ke Publik"
-  },
-  {
-   "ts": "2026-10-16 07:19:41",
-   "agent_id": "owner",
-   "message": "Approve Shorts #30 ✅"
   }
  ],
  "chats": [
@@ -1079,9 +1079,14 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4179.5,
+  "price": 4180.600098,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-16 12:31:05",
+    "decision": "NO TRADE",
+    "reason": "market sideways, tunggu arah jelas"
+   },
    {
     "ts": "2026-10-16 12:16:05",
     "decision": "NO TRADE",
@@ -1106,11 +1111,6 @@
     "ts": "2026-10-16 11:16:04",
     "decision": "NO TRADE",
     "reason": "market sideways, tunggu arah jelas"
-   },
-   {
-    "ts": "2026-10-16 11:01:30",
-    "decision": "NO TRADE",
-    "reason": "market sideways, tunggu arah jelas"
    }
   ],
   "trades": [],
@@ -1132,7 +1132,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-16 12:16:05",
+   "ts": "2026-10-16 12:31:05",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1151,7 +1151,7 @@
     "bias": "sideways",
     "score": 1,
     "trigger": null,
-    "note": "sideways (skor 1) · harga 4175.20 · EMA50 H1 4160.37 · RSI M15 46"
+    "note": "sideways (skor 1) · harga 4177.20 · EMA50 H1 4160.45 · RSI M15 48"
    }
   },
   "fund": {
@@ -1179,35 +1179,35 @@
    "M10": {
     "bias": "sideways",
     "score": -1,
-    "price": 4176.1,
-    "ema20": 4179.4,
-    "ema50": 4178.25,
-    "rsi": 44.7,
+    "price": 4177.9,
+    "ema20": 4179.26,
+    "ema50": 4178.24,
+    "rsi": 47.5,
     "n": 299,
-    "slot": 2986922,
-    "at": 1792153264975
+    "slot": 2986923,
+    "at": 1792153864987
    },
    "M15": {
     "bias": "sideways",
     "score": 0,
-    "price": 4175.7,
-    "ema20": 4179.8,
-    "ema50": 4175.66,
-    "rsi": 46.5,
+    "price": 4177.9,
+    "ema20": 4179.62,
+    "ema50": 4175.75,
+    "rsi": 48.8,
     "n": 299,
-    "slot": 1991281,
-    "at": 1792152964983
+    "slot": 1991282,
+    "at": 1792153864993
    },
    "M30": {
-    "bias": "sideways",
-    "score": 1,
-    "price": 4172.9,
-    "ema20": 4177.56,
-    "ema50": 4167.99,
-    "rsi": 48.3,
-    "n": 197,
-    "slot": 995640,
-    "at": 1792152064974
+    "bias": "bullish",
+    "score": 3,
+    "price": 4177.9,
+    "ema20": 4177.59,
+    "ema50": 4168.38,
+    "rsi": 51.7,
+    "n": 198,
+    "slot": 995641,
+    "at": 1792153864993
    },
    "H1": {
     "bias": "bullish",
