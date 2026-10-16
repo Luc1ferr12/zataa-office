@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zataa Story Uploader</title>
+<style>
+  :root { --bg: #ffffff; --fg: #1d1b26; --muted: #5c5870; --accent: #6d28d9; --line: #e4e1ee; --card: #f7f5fc; }
+  @media (prefers-color-scheme: dark) { :root { --bg: #0f0c1a; --fg: #ece9f5; --muted: #a6a0bd; --accent: #a78bfa; --line: #2a2540; --card: #181428; } }
+  body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.65 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  main { max-width: 760px; margin: 0 auto; padding: 40px 16px 64px; }
+  h1 { font-size: 2rem; margin: 0 0 4px; }
+  h2 { font-size: 1.15rem; margin: 32px 0 8px; }
+  .muted { color: var(--muted); }
+  a { color: var(--accent); overflow-wrap: anywhere; }
+  ol li { margin: 6px 0; }
+  .badge { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--line); background: var(--card); border-radius: 8px; padding: 6px 12px; font-size: .9rem; }
+  nav.legal { border-top: 1px solid var(--line); margin-top: 40px; padding-top: 16px; display: flex; flex-wrap: wrap; gap: 8px 20px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Zataa Story Uploader</h1>
+  <p class="muted">Internal publishing tool for the YouTube channel <a href="https://www.youtube.com/@zataastory">Zataa Story</a> · by Zataa (<a href="https://zataa.my.id">zataa.my.id</a>)</p>
+  <p><span class="badge">Uses YouTube API Services</span></p>
+
+  <p>Zataa Story publishes short history and archaeology mysteries as YouTube Shorts. This tool helps the channel owner produce and publish them. It is used only by the owner of the Zataa Story channel; it is not offered to the public.</p>
+
+  <h2>How it works</h2>
+  <ol>
+    <li>The Zataa team prepares a Short: script with cited sources, openly licensed images (credited in the description), narration and subtitles.</li>
+    <li>The channel owner receives the finished video in a private Telegram bot and chooses <b>Approve</b>, <b>Revise</b> or <b>Reject</b>, and the visibility (<b>public</b>, <b>unlisted</b> or <b>private</b>).</li>
+    <li>Only after approval, the tool uploads the video to the owner's channel with the YouTube Data API (<code>videos.insert</code>) at the scheduled time, using the title, description and visibility the owner approved.</li>
+    <li>The tool reads the channel's own statistics (YouTube Data API and YouTube Analytics API) to send the owner a weekly performance summary.</li>
+  </ol>
+
+  <h2>YouTube API Services</h2>
+  <p>This tool uses YouTube API Services. By using it you agree to the <a href="https://www.youtube.com/t/terms">YouTube Terms of Service</a>. See also the <a href="http://www.google.com/policies/privacy">Google Privacy Policy</a>. Access can be revoked at any time at <a href="https://security.google.com/settings/security/permissions">Google security settings</a>.</p>
+
+  <nav class="legal" aria-label="Legal">
+    <a href="youtube-privacy.html">Privacy Policy</a>
+    <a href="youtube-terms.html">Terms of Use</a>
+    <a href="https://www.youtube.com/t/terms">YouTube Terms of Service</a>
+    <a href="http://www.google.com/policies/privacy">Google Privacy Policy</a>
+  </nav>
+</main>
+</body>
+</html>
