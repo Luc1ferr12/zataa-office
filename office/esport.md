@@ -21,6 +21,12 @@ Sumber: [id-mpl.com](https://id-mpl.com/en) (resmi), [Liquipedia](https://liquip
 - Jadwal: R1 Rab 4 Nov · R2 Kam 5 Nov · Lower Semi & Upper Final Jum 6 Nov · Lower Final Sab 7 Nov · Grand Final Min 8 Nov (jam per id-mpl.com, cek ulang mendekati hari H).
 - **Juara & runner-up mewakili Indonesia di M8 World Championship (Türkiye).**
 
+## Framing (catatan Owner, 16 Okt)
+**Framing MPL (catatan Owner):** tim MPL ngejar **kemenangan seri (Bo3)**, bukan ngumpulin poin. Narasi, headline, VO, dan grafis harus ngomong "menang seri / rekor W-L / butuh 1 kemenangan lagi", bukan "kejar poin / sama-sama 11 poin / selisih 1 poin".
+- Contoh benar: "NAVI & TLID sama-sama **11 kemenangan**, NAVI unggul net game" · "ONIC butuh **menang 1 seri lagi** buat amankan 6 besar" · "Seri **Bo3** penentu: siapa menang 2 game duluan".
+- Contoh salah: "NAVI & TLID sama-sama 11 poin" · "ONIC kejar poin" · "beda 1 poin".
+- Grafis klasemen: kolom utama **W-L match** (mis. 12-3) + kolom **Net Game**; jangan kolom "Poin".
+
 ## Istilah: pakai yang benar
 | Tulis | Jangan tulis | Kenapa |
 |---|---|---|

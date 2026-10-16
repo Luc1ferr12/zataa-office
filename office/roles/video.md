@@ -35,6 +35,7 @@ Bagian akhir dibuat nyambung ke awal supaya video **loop** mulus (menaikkan watc
 4. Lanjut ke Publisher.
 
 ## Pelajaran nyata
+- **Framing MPL (catatan Owner):** tim MPL ngejar **kemenangan seri (Bo3)**, bukan ngumpulin poin. Narasi, headline, VO, dan grafis harus ngomong "menang seri / rekor W-L / butuh 1 kemenangan lagi", bukan "kejar poin / sama-sama 11 poin / selisih 1 poin". Detail: `office/esport.md`.
 - Video #20 (matchday, Top 4 Champions) kena revisi cuma karena **logo Vitality & G2 belum ada**. Sebelum render, cek tiap adegan `versus`/`score`/`headline`/`player`: semua tim punya `logoL`/`logoR`/`logo`.
 - Logo gelap di video pakai versi `-light` (`assets/teams/g2-light.png`, `vitality-light.png`).
 - Video tips (#21, style `promo`) langsung di-approve: 3 poin bernomor, `vo` diawali "Satu, … Dua, … Tiga, …", tiap poin 1 kalimat.

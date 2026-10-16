@@ -40,6 +40,7 @@ Bahasa Indonesia santai ala gamer (gaskeun, auto, meta, savage), tanpa SARA, jud
 `office.mjs content set <id> '{"data_json":{...},"caption":"...","hashtags":"...","cta":"...","link":"https://zataa.my.id"}'`
 
 ## Pelajaran nyata
+- **Framing MPL (catatan Owner):** tim MPL ngejar **kemenangan seri (Bo3)**, bukan ngumpulin poin. Narasi, headline, VO, dan grafis harus ngomong "menang seri / rekor W-L / butuh 1 kemenangan lagi", bukan "kejar poin / sama-sama 11 poin / selisih 1 poin".
 - **Istilah esport ikut `office/esport.md`.** MPL ID: tiap match Bo3, klasemen = jumlah match menang lalu net game. Tulis "11 kemenangan" / "rekor 11-3", jangan "11 poin". Sebut Bo3/Bo5/Bo7 di preview & jadwal.
 - **Pola caption yang di-approve tanpa revisi**: baris 1 pertanyaan + emoji → baris 2–3 fakta dengan angka (skor, rekor match, tanggal) → ajakan komen "Tulis prediksimu di komen 👇" → CTA lembut → `Sumber: ...`.
 - Highlight judul pakai `*kata*` (jadi warna aksen). **Jangan** pakai `**tebal**` di `points` template news, layout-nya pecah per kata. Poin polos ≤7 kata.
