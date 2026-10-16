@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-16T14:30:35.801Z",
+ "generated_at": "2026-10-16T14:40:35.797Z",
  "today": "2026-10-16",
  "week_start": "2026-10-12",
  "campaign": {
@@ -102,7 +102,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-16 14:16:05"
+   "updated_at": "2026-10-16 14:31:05"
   },
   {
    "id": "tresearch",
@@ -110,7 +110,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Tak ada berita 24 jam terbaru di hasil cari. Data terakhir: DXY dekat 18 bulan tinggi, inflasi lengket, pasar masih buka peluang Fed naik. Bias tipis negatif.",
-   "updated_at": "2026-10-16 14:16:05"
+   "updated_at": "2026-10-16 14:31:05"
   },
   {
    "id": "ttech",
@@ -118,7 +118,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Bias sideways",
-   "updated_at": "2026-10-16 14:16:05"
+   "updated_at": "2026-10-16 14:31:05"
   },
   {
    "id": "trisk",
@@ -126,7 +126,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: market sideways, tunggu arah jelas",
-   "updated_at": "2026-10-16 14:16:05"
+   "updated_at": "2026-10-16 14:31:05"
   },
   {
    "id": "texec",
@@ -742,6 +742,13 @@
  ],
  "chats": [
   {
+   "ts": "2026-10-16 14:35:36",
+   "agent_id": "sec",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "⚠️ Bos, limit sesi (5 jam) Claude udah 100%. Reset Jumat, 16 Okt, 23.10 WITA.\nKalau penuh, kerjaan AI ketunda sebentar sampai reset."
+  },
+  {
    "ts": "2026-10-16 14:24:36",
    "agent_id": "sec",
    "to_id": "owner",
@@ -1013,13 +1020,6 @@
    "to_id": "owner",
    "kind": "santai",
    "message": "Bos, feed promo Weekly Diamond Pass Rp30.826 udah jadi, nyambung sama carousel tips push rank siang tadi 🔥"
-  },
-  {
-   "ts": "2026-10-15 00:16:41",
-   "agent_id": "designer",
-   "to_id": "copywriter",
-   "kind": "santai",
-   "message": "Ista, headline 'Diamond habis pas push rank?' relate banget, aku sendiri ngalamin semalem 😂"
   }
  ],
  "stats": {
@@ -1093,9 +1093,14 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4198.200195,
+  "price": 4188.600098,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-16 14:31:05",
+    "decision": "NO TRADE",
+    "reason": "market sideways, tunggu arah jelas"
+   },
    {
     "ts": "2026-10-16 14:16:05",
     "decision": "NO TRADE",
@@ -1120,11 +1125,6 @@
     "ts": "2026-10-16 13:16:05",
     "decision": "NO TRADE",
     "reason": "market sideways, tunggu arah jelas"
-   },
-   {
-    "ts": "2026-10-16 13:01:05",
-    "decision": "NO TRADE",
-    "reason": "market sideways, tunggu arah jelas"
    }
   ],
   "trades": [],
@@ -1146,7 +1146,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-16 14:16:05",
+   "ts": "2026-10-16 14:31:05",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1165,7 +1165,7 @@
     "bias": "sideways",
     "score": 1,
     "trigger": null,
-    "note": "sideways (skor 1) · harga 4190.50 · EMA50 H1 4162.18 · RSI M15 59"
+    "note": "sideways (skor 1) · harga 4198.20 · EMA50 H1 4162.48 · RSI M15 62"
    }
   },
   "fund": {
@@ -1193,35 +1193,35 @@
    "M10": {
     "bias": "sideways",
     "score": 1,
-    "price": 4190.6,
-    "ema20": 4177.76,
-    "ema50": 4177.34,
-    "rsi": 62.4,
+    "price": 4199.5,
+    "ema20": 4179.83,
+    "ema50": 4178.21,
+    "rsi": 68,
     "n": 299,
-    "slot": 2986934,
-    "at": 1792160465246
+    "slot": 2986935,
+    "at": 1792161065068
    },
    "M15": {
     "bias": "sideways",
     "score": 1,
-    "price": 4189.5,
-    "ema20": 4178.03,
-    "ema50": 4175.72,
-    "rsi": 58.1,
+    "price": 4199.5,
+    "ema20": 4180.08,
+    "ema50": 4176.65,
+    "rsi": 63.2,
     "n": 299,
-    "slot": 1991289,
-    "at": 1792160165251
+    "slot": 1991290,
+    "at": 1792161065073
    },
    "M30": {
     "bias": "bullish",
-    "score": 3,
-    "price": 4186,
-    "ema20": 4175.91,
-    "ema50": 4168.64,
-    "rsi": 56,
-    "n": 201,
-    "slot": 995644,
-    "at": 1792159265218
+    "score": 2,
+    "price": 4199.5,
+    "ema20": 4178.16,
+    "ema50": 4169.85,
+    "rsi": 61.4,
+    "n": 202,
+    "slot": 995645,
+    "at": 1792161065073
    },
    "H1": {
     "bias": "bullish",
