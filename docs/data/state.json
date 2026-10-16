@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-16T14:10:35.768Z",
+ "generated_at": "2026-10-16T14:20:35.814Z",
  "today": "2026-10-16",
  "week_start": "2026-10-12",
  "campaign": {
@@ -102,7 +102,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-16 14:01:05"
+   "updated_at": "2026-10-16 14:16:05"
   },
   {
    "id": "tresearch",
@@ -110,7 +110,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Tak ada berita 24 jam terbaru di hasil cari. Data terakhir: DXY dekat 18 bulan tinggi, inflasi lengket, pasar masih buka peluang Fed naik. Bias tipis negatif.",
-   "updated_at": "2026-10-16 14:01:05"
+   "updated_at": "2026-10-16 14:16:05"
   },
   {
    "id": "ttech",
@@ -118,7 +118,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Bias sideways",
-   "updated_at": "2026-10-16 14:01:05"
+   "updated_at": "2026-10-16 14:16:05"
   },
   {
    "id": "trisk",
@@ -126,7 +126,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: market sideways, tunggu arah jelas",
-   "updated_at": "2026-10-16 14:01:05"
+   "updated_at": "2026-10-16 14:16:05"
   },
   {
    "id": "texec",
@@ -615,6 +615,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-16 14:12:35",
+   "agent_id": "owner",
+   "message": "Chat: Okkee, kalo uda abis reset, lgsung kerjain"
+  },
+  {
    "ts": "2026-10-16 14:01:05",
    "agent_id": "ttech",
    "message": "M60 berubah arah: sideways → bullish"
@@ -733,14 +738,23 @@
    "ts": "2026-10-16 11:01:05",
    "agent_id": "ttech",
    "message": "M15 berubah arah: bullish → sideways"
-  },
-  {
-   "ts": "2026-10-16 10:51:05",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: bullish → sideways"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-10-16 14:13:36",
+   "agent_id": "sec",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "⚠️ Bos, limit sesi (5 jam) Claude udah 100%. Reset Jumat, 16 Okt, 23.10 WITA.\nKalau penuh, kerjaan AI ketunda sebentar sampai reset."
+  },
+  {
+   "ts": "2026-10-16 14:12:36",
+   "agent_id": "owner",
+   "to_id": "sec",
+   "kind": "bos",
+   "message": "Okkee, kalo uda abis reset, lgsung kerjain"
+  },
   {
    "ts": "2026-10-16 14:03:36",
    "agent_id": "sec",
@@ -1006,20 +1020,6 @@
    "to_id": "publisher",
    "kind": "oper",
    "message": "Visual \"Render feed promo WDP #25\" kelar! Fikri, cek typo-nya sekalian ya 🙏"
-  },
-  {
-   "ts": "2026-10-15 00:16:29",
-   "agent_id": "copywriter",
-   "to_id": "designer",
-   "kind": "oper",
-   "message": "Maria, copy \"Teks feed promo Weekly Diamond Pass #25\" udah masuk. Headline-nya jangan dikecilin ya 😆"
-  },
-  {
-   "ts": "2026-10-15 00:16:12",
-   "agent_id": "researcher",
-   "to_id": "copywriter",
-   "kind": "oper",
-   "message": "Ista, bahan buat \"Cek harga Weekly Diamond Pass di zataa.my.id\" udah aku rangkum + sumbernya. Tinggal kamu racik captionnya ✍️"
   }
  ],
  "stats": {
@@ -1093,9 +1093,14 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4187.399902,
+  "price": 4192.100098,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-16 14:16:05",
+    "decision": "NO TRADE",
+    "reason": "market sideways, tunggu arah jelas"
+   },
    {
     "ts": "2026-10-16 14:01:05",
     "decision": "NO TRADE",
@@ -1120,11 +1125,6 @@
     "ts": "2026-10-16 13:01:05",
     "decision": "NO TRADE",
     "reason": "market sideways, tunggu arah jelas"
-   },
-   {
-    "ts": "2026-10-16 12:46:05",
-    "decision": "NO TRADE",
-    "reason": "market sideways, tunggu arah jelas"
    }
   ],
   "trades": [],
@@ -1146,7 +1146,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-16 14:01:05",
+   "ts": "2026-10-16 14:16:05",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1165,7 +1165,7 @@
     "bias": "sideways",
     "score": 1,
     "trigger": null,
-    "note": "sideways (skor 1) · harga 4186.50 · EMA50 H1 4162.02 · RSI M15 56"
+    "note": "sideways (skor 1) · harga 4190.50 · EMA50 H1 4162.18 · RSI M15 59"
    }
   },
   "fund": {
@@ -1193,24 +1193,24 @@
    "M10": {
     "bias": "sideways",
     "score": -1,
-    "price": 4186,
-    "ema20": 4175.29,
-    "ema50": 4176.38,
-    "rsi": 59.1,
+    "price": 4187,
+    "ema20": 4176.4,
+    "ema50": 4176.8,
+    "rsi": 59.8,
     "n": 299,
-    "slot": 2986932,
-    "at": 1792159265212
+    "slot": 2986933,
+    "at": 1792159865232
    },
    "M15": {
     "bias": "sideways",
     "score": 1,
-    "price": 4186,
-    "ema20": 4176.82,
-    "ema50": 4175.16,
-    "rsi": 56.1,
+    "price": 4189.5,
+    "ema20": 4178.03,
+    "ema50": 4175.72,
+    "rsi": 58.1,
     "n": 299,
-    "slot": 1991288,
-    "at": 1792159265217
+    "slot": 1991289,
+    "at": 1792160165251
    },
    "M30": {
     "bias": "bullish",
