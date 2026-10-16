@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-16T06:30:23.954Z",
+ "generated_at": "2026-10-16T06:40:23.962Z",
  "today": "2026-10-16",
  "week_start": "2026-10-12",
  "campaign": {
@@ -102,7 +102,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-16 06:16:04"
+   "updated_at": "2026-10-16 06:31:05"
   },
   {
    "id": "tresearch",
@@ -110,7 +110,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: NFP Sep meleset (29rb vs 84rb), USD melemah; tapi Fed condong hawkish & peluang hike Des. Emas ~4.150, support 4.065-4.100",
-   "updated_at": "2026-10-16 06:16:04"
+   "updated_at": "2026-10-16 06:31:05"
   },
   {
    "id": "ttech",
@@ -118,7 +118,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Bias sideways",
-   "updated_at": "2026-10-16 06:16:04"
+   "updated_at": "2026-10-16 06:31:05"
   },
   {
    "id": "trisk",
@@ -126,7 +126,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: market sideways, tunggu arah jelas",
-   "updated_at": "2026-10-16 06:16:04"
+   "updated_at": "2026-10-16 06:31:05"
   },
   {
    "id": "texec",
@@ -601,6 +601,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-16 06:31:05",
+   "agent_id": "trisk",
+   "message": "NO TRADE · market sideways, tunggu arah jelas"
+  },
+  {
    "ts": "2026-10-16 06:21:04",
    "agent_id": "ttech",
    "message": "M10 berubah arah: bullish → sideways"
@@ -719,11 +724,6 @@
    "ts": "2026-10-16 02:57:08",
    "agent_id": "ypublish",
    "message": "Kirim Shorts #28 ke Owner buat approval"
-  },
-  {
-   "ts": "2026-10-16 02:53:31",
-   "agent_id": "yvideo",
-   "message": "Shorts #28 \"[UJI] Batu 800 Ton di Baalbek\" masuk antrean render laptop (OmniVoice)"
   }
  ],
  "chats": [
@@ -1079,9 +1079,14 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4176,
+  "price": 4178.700195,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-16 06:31:05",
+    "decision": "NO TRADE",
+    "reason": "market sideways, tunggu arah jelas"
+   },
    {
     "ts": "2026-10-16 06:16:04",
     "decision": "NO TRADE",
@@ -1106,11 +1111,6 @@
     "ts": "2026-10-16 05:16:05",
     "decision": "NO TRADE",
     "reason": "di luar jam sesi London–New York"
-   },
-   {
-    "ts": "2026-10-16 05:01:04",
-    "decision": "NO TRADE",
-    "reason": "di luar jam sesi London–New York"
    }
   ],
   "trades": [],
@@ -1132,7 +1132,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-16 06:16:04",
+   "ts": "2026-10-16 06:31:05",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1151,7 +1151,7 @@
     "bias": "sideways",
     "score": 1,
     "trigger": null,
-    "note": "sideways (skor 1) · harga 4170.60 · EMA50 H1 4154.80 · RSI M15 51"
+    "note": "sideways (skor 1) · harga 4177.20 · EMA50 H1 4155.06 · RSI M15 57"
    }
   },
   "fund": {
@@ -1178,36 +1178,36 @@
   "tf": {
    "M10": {
     "bias": "sideways",
-    "score": 0,
-    "price": 4172.6,
-    "ema20": 4173.06,
-    "ema50": 4168.74,
-    "rsi": 51,
+    "score": 1,
+    "price": 4176,
+    "ema20": 4173.34,
+    "ema50": 4169.03,
+    "rsi": 55.2,
     "n": 299,
-    "slot": 2986886,
-    "at": 1792131664718
+    "slot": 2986887,
+    "at": 1792132265031
    },
    "M15": {
     "bias": "bullish",
     "score": 3,
-    "price": 4172.2,
-    "ema20": 4171.06,
-    "ema50": 4165.79,
-    "rsi": 52.6,
+    "price": 4176,
+    "ema20": 4171.53,
+    "ema50": 4166.19,
+    "rsi": 56,
     "n": 299,
-    "slot": 1991257,
-    "at": 1792131364719
+    "slot": 1991258,
+    "at": 1792132265037
    },
    "M30": {
     "bias": "bullish",
     "score": 3,
-    "price": 4176.4,
-    "ema20": 4168.36,
-    "ema50": 4159.36,
-    "rsi": 58.3,
-    "n": 185,
-    "slot": 995628,
-    "at": 1792130464714
+    "price": 4176,
+    "ema20": 4169.09,
+    "ema50": 4160.01,
+    "rsi": 57.9,
+    "n": 186,
+    "slot": 995629,
+    "at": 1792132265037
    },
    "H1": {
     "bias": "bullish",
