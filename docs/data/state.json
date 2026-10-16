@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-16T07:57:00.535Z",
+ "generated_at": "2026-10-16T08:07:00.539Z",
  "today": "2026-10-16",
  "week_start": "2026-10-12",
  "campaign": {
@@ -86,7 +86,7 @@
    "title": "Price Watcher",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-10-16 06:00:30"
+   "updated_at": "2026-10-16 08:00:00"
   },
   {
    "id": "ob",
@@ -102,7 +102,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-16 07:46:04"
+   "updated_at": "2026-10-16 08:01:04"
   },
   {
    "id": "tresearch",
@@ -110,7 +110,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: NFP Sep meleset (29rb vs 84rb), USD melemah; tapi Fed condong hawkish & peluang hike Des. Emas ~4.150, support 4.065-4.100",
-   "updated_at": "2026-10-16 07:46:04"
+   "updated_at": "2026-10-16 08:01:04"
   },
   {
    "id": "ttech",
@@ -118,7 +118,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Bias sideways",
-   "updated_at": "2026-10-16 07:46:04"
+   "updated_at": "2026-10-16 08:01:04"
   },
   {
    "id": "trisk",
@@ -126,7 +126,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: market sideways, tunggu arah jelas",
-   "updated_at": "2026-10-16 07:46:04"
+   "updated_at": "2026-10-16 08:01:04"
   },
   {
    "id": "texec",
@@ -1079,9 +1079,14 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4187.5,
+  "price": 4182.5,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-16 08:01:04",
+    "decision": "NO TRADE",
+    "reason": "market sideways, tunggu arah jelas"
+   },
    {
     "ts": "2026-10-16 07:46:04",
     "decision": "NO TRADE",
@@ -1106,11 +1111,6 @@
     "ts": "2026-10-16 06:46:04",
     "decision": "NO TRADE",
     "reason": "market sideways, tunggu arah jelas"
-   },
-   {
-    "ts": "2026-10-16 06:31:05",
-    "decision": "NO TRADE",
-    "reason": "market sideways, tunggu arah jelas"
    }
   ],
   "trades": [],
@@ -1132,7 +1132,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-16 07:46:04",
+   "ts": "2026-10-16 08:01:04",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1151,7 +1151,7 @@
     "bias": "sideways",
     "score": 1,
     "trigger": null,
-    "note": "sideways (skor 1) · harga 4184.90 · EMA50 H1 4156.26 · RSI M15 60"
+    "note": "sideways (skor 1) · harga 4188.20 · EMA50 H1 4157.67 · RSI M15 62"
    }
   },
   "fund": {
@@ -1179,46 +1179,46 @@
    "M10": {
     "bias": "bullish",
     "score": 2,
-    "price": 4185.3,
-    "ema20": 4179.31,
-    "ema50": 4173.06,
-    "rsi": 61.4,
+    "price": 4189,
+    "ema20": 4180.23,
+    "ema50": 4173.69,
+    "rsi": 65.2,
     "n": 299,
-    "slot": 2986895,
-    "at": 1792137064803
+    "slot": 2986896,
+    "at": 1792137664801
    },
    "M15": {
     "bias": "bullish",
     "score": 2,
-    "price": 4184.3,
-    "ema20": 4176.46,
-    "ema50": 4169.39,
-    "rsi": 59.7,
+    "price": 4189,
+    "ema20": 4177.66,
+    "ema50": 4170.16,
+    "rsi": 63.1,
     "n": 299,
-    "slot": 1991263,
-    "at": 1792136764777
+    "slot": 1991264,
+    "at": 1792137664805
    },
    "M30": {
     "bias": "bullish",
     "score": 3,
-    "price": 4189.1,
-    "ema20": 4171.77,
-    "ema50": 4161.83,
-    "rsi": 66,
-    "n": 188,
-    "slot": 995631,
-    "at": 1792135864795
+    "price": 4189,
+    "ema20": 4173.41,
+    "ema50": 4162.9,
+    "rsi": 65.9,
+    "n": 189,
+    "slot": 995632,
+    "at": 1792137664806
    },
    "H1": {
     "bias": "bullish",
     "score": 3,
-    "price": 4178,
-    "ema20": 4164.23,
-    "ema50": 4155.09,
-    "rsi": 60.5,
+    "price": 4189,
+    "ema20": 4166.59,
+    "ema50": 4156.42,
+    "rsi": 65.1,
     "n": 299,
-    "slot": 497815,
-    "at": 1792134064757
+    "slot": 497816,
+    "at": 1792137664814
    }
   },
   "currency": "USC",
