@@ -45,17 +45,28 @@ function renderDashboard() {
   $('campaign-theme').textContent = s?.campaign?.theme ? `Tema: ${s.campaign.theme}` : 'Belum ada campaign';
   $('updated-at').textContent = s?.generated_at ? `update ${new Date(s.generated_at).toLocaleString('id-ID', { timeZone: 'Asia/Makassar', hour: '2-digit', minute: '2-digit', day: 'numeric', month: 'short' })}` : '';
 
-  // jadwal minggu
+  // jadwal minggu: Marketing (IG/TikTok) & YouTube Shorts (channel 'youtube')
   const week = s?.week_start ?? null;
   const days = ['Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab', 'Min'];
+  const isYT = (c) => c.channel === 'youtube';
   $('week-grid').innerHTML = days.map((d, i) => {
     const date = week ? addDays(week, i) : null;
-    const items = (s?.week_contents ?? []).filter((c) => c.day === date);
+    const items = (s?.week_contents ?? []).filter((c) => c.day === date && !isYT(c));
     const chips = items.length
         ? items.map((c) => `<div class="chip ${c.format === 'video' ? 'video' : ''} s-${c.status}" title="${esc(STATUS[c.status] ?? c.status)}">
             <b>${esc(c.slot)} · ${c.format === 'video' ? '🎬 video' : c.format === 'carousel' ? '🖼️ carousel' : '🖼️ feed'}${c.game ? ' · ' + esc(GAME[c.game] ?? c.game) : ''}</b>${esc(c.title)}</div>`).join('')
         : '<p class="empty">—</p>';
     return `<div class="day ${date === s?.today ? 'today' : ''}"><h3>${d}<small>${date ? date.slice(8) : ''}</small></h3>${chips}</div>`;
+  }).join('');
+  // Shorts: Senin–Selasa libur, Rabu–Minggu 1 slot (kosong = belum ada konten)
+  $('week-grid-yt').innerHTML = days.map((d, i) => {
+    const date = week ? addDays(week, i) : null;
+    const off = i < 2;
+    const items = (s?.week_contents ?? []).filter((c) => c.day === date && isYT(c));
+    const chips = off ? '<p class="empty">Libur</p>'
+      : items.length ? items.map((c) => `<div class="chip yt s-${c.status}" title="${esc(STATUS[c.status] ?? c.status)}"><b>18:00 · 🎬 shorts</b>${esc(c.title)}</div>`).join('')
+        : '<div class="chip slot"><b>18:00 · 🎬 shorts</b>Belum ada konten</div>';
+    return `<div class="day ${off ? 'off' : ''} ${date === s?.today ? 'today' : ''}"><h3>${d}<small>${date ? date.slice(8) : ''}</small></h3>${chips}</div>`;
   }).join('');
 
   // aktivitas

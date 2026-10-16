@@ -59,6 +59,10 @@ main { padding: 20px 24px 40px; max-width: 1440px; margin: 0 auto; display: grid
 /* baris 1: jadwal & tim sama tinggi; baris 2: aktivitas & chit-chat sama tinggi (list di dalamnya scroll) */
 .week, .activity, .chat { display: flex; flex-direction: column; }
 .week .week-grid { flex: 1; }
+.week .week-grid.short { flex: none; }
+.week-sub { margin: 4px 0 8px; font: 600 11px Sora, sans-serif; text-transform: uppercase; letter-spacing: 0.06em; color: var(--brand-2); display: flex; gap: 8px; align-items: baseline; }
+.week-sub.yt { margin-top: 16px; color: #f87171; }
+.week-sub small { color: var(--muted); font-weight: 500; text-transform: none; letter-spacing: 0; font-size: 11px; }
 .activity-list, .chat-list { height: 300px; max-height: none; }
 .week { grid-area: week; } .team { grid-area: team; } .activity { grid-area: activity; } .chat { grid-area: chat; } .trading { grid-area: trading; }
 .chat-list { list-style: none; margin: 0; padding: 0 4px 0 0; display: flex; flex-direction: column; gap: 10px; overflow: auto; }
@@ -83,23 +87,27 @@ main { padding: 20px 24px 40px; max-width: 1440px; margin: 0 auto; display: grid
 .chip { border-radius: 8px; padding: 6px 7px; font-size: 11.5px; line-height: 1.3; background: #ffffff0a; border-left: 3px solid var(--brand-2); }
 .chip b { display: block; font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); font-weight: 600; }
 .chip.video { border-left-color: #f472b6; }
+.chip.yt { border-left-color: #ef4444; }
+.chip.slot { background: transparent; border: 1px dashed var(--line); border-left: 3px dashed #ef444499; color: var(--muted); }
+.week-grid.short .day { min-height: 0; }
+.day.off { opacity: 0.55; }
 .chip.s-posted { border-left-color: var(--ok); }
 .chip.s-pending_approval { border-left-color: var(--warn); }
 .chip.s-revision, .chip.s-failed, .chip.s-rejected { border-left-color: #f87171; }
 .empty { color: var(--muted); font-size: 12px; margin: auto 0; text-align: center; }
 
 .team-list, .activity-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
-.team-list { grid-template-columns: minmax(220px, 0.7fr) 1fr 1fr; gap: 10px 22px; align-items: start; }
-.team-col { display: grid; gap: 6px; min-width: 0; }
+.team-list { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px 22px; align-items: start; }
+.team-col { display: grid; grid-template-columns: minmax(0, 1fr); gap: 6px; min-width: 0; }
 .team-col ul { list-style: none; margin: 0 0 8px; padding: 0; display: grid; gap: 4px; }
-.team-list .division { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; padding: 0 8px 4px; border-bottom: 1px solid var(--line); }
-.team-list .division span { font: 600 11px Sora, sans-serif; text-transform: uppercase; letter-spacing: 0.06em; color: var(--brand-2); }
-.team-list .division small { min-width: 0; color: var(--muted); font-size: 10.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.team-list .division { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 2px 8px; padding: 0 8px 4px; border-bottom: 1px solid var(--line); }
+.team-list .division span { flex-shrink: 0; white-space: nowrap; font: 600 11px Sora, sans-serif; text-transform: uppercase; letter-spacing: 0.06em; color: var(--brand-2); }
+.team-list .division small { min-width: 0; color: var(--muted); font-size: 10.5px; line-height: 1.35; }
 .member { display: grid; grid-template-columns: 34px 1fr auto; gap: 10px; align-items: center; padding: 7px 8px; border-radius: 10px; cursor: pointer; }
 .member:hover, .member.active { background: var(--panel-2); }
 .avatar { width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; font: 700 13px Sora, sans-serif; color: #fff; }
 .member .who { min-width: 0; }
-.member .who strong { display: block; font-size: 13.5px; }
+.member .who strong { display: block; font-size: 13.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .member .who span { color: var(--muted); font-size: 12px; display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .member .emoji { font-size: 18px; }
 .activity-list { overflow: auto; align-content: start; }
