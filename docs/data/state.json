@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-16T08:59:00.516Z",
+ "generated_at": "2026-10-16T09:07:00.570Z",
  "today": "2026-10-16",
  "week_start": "2026-10-12",
  "campaign": {
@@ -62,7 +62,7 @@
    "title": "Social Media Publisher",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-10-16 05:00:26"
+   "updated_at": "2026-10-16 09:00:22"
   },
   {
    "id": "ads",
@@ -102,7 +102,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-16 08:46:04"
+   "updated_at": "2026-10-16 09:01:04"
   },
   {
    "id": "tresearch",
@@ -110,7 +110,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: NFP Sep meleset (29rb vs 84rb), USD melemah; tapi Fed condong hawkish & peluang hike Des. Emas ~4.150, support 4.065-4.100",
-   "updated_at": "2026-10-16 08:46:04"
+   "updated_at": "2026-10-16 09:01:04"
   },
   {
    "id": "ttech",
@@ -118,7 +118,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Bias sideways",
-   "updated_at": "2026-10-16 08:46:04"
+   "updated_at": "2026-10-16 09:01:04"
   },
   {
    "id": "trisk",
@@ -126,7 +126,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: market sideways, tunggu arah jelas",
-   "updated_at": "2026-10-16 08:46:04"
+   "updated_at": "2026-10-16 09:01:04"
   },
   {
    "id": "texec",
@@ -456,10 +456,10 @@
    "game": "mlbb",
    "pillar": "engagement",
    "title": "Komen 1 Kata: Siapa Juara Reguler, NAVI atau TLID?",
-   "status": "approved",
+   "status": "posted",
    "asset_url": "{\"feed\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-16/27-komen-1-kata-siapa-juara-reguler-navi-at.jpg\"],\"story\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-16/27-komen-1-kata-siapa-juara-reguler-navi-at-916.jpg\"]}",
    "scheduled_at": null,
-   "posted_at": null,
+   "posted_at": "2026-10-16 09:00:22",
    "channel": null
   },
   {
@@ -601,6 +601,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-16 09:00:22",
+   "agent_id": "publisher",
+   "message": "Posting #27 ke IG ✅"
+  },
+  {
    "ts": "2026-10-16 08:46:04",
    "agent_id": "trisk",
    "message": "NO TRADE · market sideways, tunggu arah jelas"
@@ -719,14 +724,16 @@
    "ts": "2026-10-16 05:00:26",
    "agent_id": "publisher",
    "message": "Posting #14 ke IG ✅"
-  },
-  {
-   "ts": "2026-10-16 04:16:04",
-   "agent_id": "trisk",
-   "message": "NO TRADE · di luar jam sesi London–New York"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-10-16 09:00:22",
+   "agent_id": "publisher",
+   "to_id": null,
+   "kind": "oper",
+   "message": "\"Komen 1 Kata: Siapa Juara Reguler, NAVI atau TLID?\" udah tayang di IG 🚀 Makasih semua!"
+  },
   {
    "ts": "2026-10-16 05:00:26",
    "agent_id": "publisher",
@@ -999,22 +1006,15 @@
    "to_id": "owner",
    "kind": "santai",
    "message": "Siap Bos, aku tanyain ke tim sekarang ya. Begitu ada link dashboard-nya langsung aku kabarin di sini 🙏"
-  },
-  {
-   "ts": "2026-10-14 14:06:19",
-   "agent_id": "owner",
-   "to_id": "dir",
-   "kind": "bos",
-   "message": "Boleh"
   }
  ],
  "stats": {
   "this_week": {
    "week": "2026-10-12",
    "total": 22,
-   "posted": 17,
+   "posted": 18,
    "pending": 0,
-   "scheduled": 1,
+   "scheduled": 0,
    "views": 0,
    "likes": 218,
    "comments": 0,
@@ -1079,9 +1079,14 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4188.399902,
+  "price": 4187.899902,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-16 09:01:04",
+    "decision": "NO TRADE",
+    "reason": "market sideways, tunggu arah jelas"
+   },
    {
     "ts": "2026-10-16 08:46:04",
     "decision": "NO TRADE",
@@ -1106,11 +1111,6 @@
     "ts": "2026-10-16 07:46:04",
     "decision": "NO TRADE",
     "reason": "market sideways, tunggu arah jelas"
-   },
-   {
-    "ts": "2026-10-16 07:31:04",
-    "decision": "NO TRADE",
-    "reason": "market sideways, tunggu arah jelas"
    }
   ],
   "trades": [],
@@ -1132,7 +1132,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-16 08:46:04",
+   "ts": "2026-10-16 09:01:04",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1151,13 +1151,10 @@
     "bias": "sideways",
     "score": 1,
     "trigger": null,
-    "note": "sideways (skor 1) · harga 4186.20 · EMA50 H1 4157.59 · RSI M15 59"
+    "note": "sideways (skor 1) · harga 4190.20 · EMA50 H1 4159.00 · RSI M15 62"
    }
   },
-  "fund": {
-   "bias": 0.2,
-   "note": "NFP Sep meleset (29rb vs 84rb), USD melemah; tapi Fed condong hawkish & peluang hike Des. Emas ~4.150, support 4.065-4.100"
-  },
+  "fund": null,
   "calendar": [],
   "ea": {
    "connected": false,
@@ -1179,46 +1176,46 @@
    "M10": {
     "bias": "bullish",
     "score": 3,
-    "price": 4184.8,
-    "ema20": 4181.45,
-    "ema50": 4175.42,
-    "rsi": 56.6,
+    "price": 4189.8,
+    "ema20": 4182.25,
+    "ema50": 4175.98,
+    "rsi": 61.7,
     "n": 299,
-    "slot": 2986901,
-    "at": 1792140664828
+    "slot": 2986902,
+    "at": 1792141264841
    },
    "M15": {
     "bias": "bullish",
-    "score": 2,
-    "price": 4186.5,
-    "ema20": 4179.42,
-    "ema50": 4171.76,
-    "rsi": 58.9,
+    "score": 3,
+    "price": 4189.8,
+    "ema20": 4180.41,
+    "ema50": 4172.47,
+    "rsi": 61.3,
     "n": 299,
-    "slot": 1991267,
-    "at": 1792140364823
+    "slot": 1991268,
+    "at": 1792141264846
    },
    "M30": {
     "bias": "bullish",
     "score": 3,
-    "price": 4185.1,
-    "ema20": 4174.52,
-    "ema50": 4163.77,
-    "rsi": 61.8,
-    "n": 190,
-    "slot": 995633,
-    "at": 1792139464994
+    "price": 4189.8,
+    "ema20": 4175.98,
+    "ema50": 4164.79,
+    "rsi": 64.7,
+    "n": 191,
+    "slot": 995634,
+    "at": 1792141264847
    },
    "H1": {
     "bias": "bullish",
     "score": 3,
-    "price": 4189,
-    "ema20": 4166.59,
-    "ema50": 4156.42,
-    "rsi": 65.1,
+    "price": 4189.8,
+    "ema20": 4168.8,
+    "ema50": 4157.73,
+    "rsi": 65.4,
     "n": 299,
-    "slot": 497816,
-    "at": 1792137664814
+    "slot": 497817,
+    "at": 1792141264854
    }
   },
   "currency": "USC",
