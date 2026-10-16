@@ -38,6 +38,6 @@
 - Jangan pakai pola yang sama persis tiap video (hook, struktur, gaya VO harus bervariasi).
 
 ## Yang masih perlu dibangun
-0. **Video panjang 5–10 menit** (bahas full satu topik sejarah/mitologi) begitu channel tembus **±500 subscriber** (keinginan Owner 16 Okt). Laporan harian Kirana otomatis kasih tanda saat angka itu tercapai → Bagas susun rencana format & jadwal, minta ✅ Owner.
+0. **Video panjang 5–10 menit** (bahas full satu topik sejarah/mitologi) begitu channel tembus **±500 subscriber** (keinginan Owner 16 Okt). **Video panjang itu TAMBAHAN — Shorts 5/minggu tetap jalan seperti biasa**, jadi jadwal & jatah token disusun untuk dua-duanya. Laporan harian Kirana otomatis kasih tanda saat angka itu tercapai → Bagas susun rencana format & jadwal, minta ✅ Owner.
 1. Data views/retention dari YouTube Analytics untuk laporan Minggu (Kirana).
 2. Upload Publik/terjadwal otomatis setelah project YouTube API lolos audit (sementara Owner ubah ke Publik manual).

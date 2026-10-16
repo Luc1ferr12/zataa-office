@@ -38,7 +38,7 @@ Kantor marketing virtual untuk **zataa.my.id** (top up game). Claude memerankan 
 | ypublish | Kirana | ✅ Owner di @zataashortbot, judul/deskripsi/SEO, upload YouTube (Private → ingatkan Publik), laporan harian 21:00 WITA (subs/views/likes) |
 
 ## Tim YouTube Shorts (sejarah misteri kuno + mitologi Yunani)
-Divisi terpisah dari Marketing, ruang di Lt.2 (bilik + R. Manajer), meeting di Lt.4. 5 Shorts/minggu Rabu–Minggu (2 mitologi Yunani + 3 sejarah misteri; jam tayang dari riset harian Kirana), Senin–Selasa libur. Target berikutnya: **±500 subscriber → mulai video panjang 5–10 menit** (sejarah/mitologi full). SOP: `office/youtube.md`.
+Divisi terpisah dari Marketing, ruang di Lt.2 (bilik + R. Manajer), meeting di Lt.4. 5 Shorts/minggu Rabu–Minggu (2 mitologi Yunani + 3 sejarah misteri; jam tayang dari riset harian Kirana), Senin–Selasa libur. Target berikutnya: **±500 subscriber → tambah video panjang 5–10 menit** (sejarah/mitologi full); Shorts tetap jalan bareng. SOP: `office/youtube.md`.
 Alur: sesi harian `node scripts/shorts-bot.mjs new <file.json>` (DB `channel: 'youtube'`) → render OmniVoice otomatis di laptop (`laptop-worker.mjs` → `shorts-laptop.mjs`) → Kirana kirim ke Owner di bot @zataashortbot (`scripts/shorts-bot.mjs`, di watcher; `SHORTS_BOT_TOKEN`, `SHORTS_OWNER_ID`) → Owner ✅ Approve / ✏️ Revisi / ❌ Tolak (❌ = tim bikin pengganti) → upload YouTube otomatis di jam tayang, **selalu Private** → bot WAJIB ingatkan Owner ubah ke Publik; baru `posted` setelah Owner konfirmasi. Semua urusan Shorts lewat bot itu, bukan bot kantor.
 
 ## Tim Trading (XAUUSD saja)
