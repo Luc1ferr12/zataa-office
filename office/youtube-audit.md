@@ -2,6 +2,7 @@
 
 Formulir: https://support.google.com/youtube/contact/yt_api_form (login sebagai pemilik project Google Cloud).
 Tujuan: project **zataa-shorts** (nomor **566338684407**) lolos audit → upload lewat API boleh langsung Publik.
+**Status: formulir DIKIRIM 16 Okt 2026** (konfirmasi "Terima kasih telah mengirimkan Formulir Layanan YouTube API"); hasil dikirim ke zataatopup@gmail.com.
 Status OAuth (dicek 16 Okt 2026): **In production**, External, 1/100 user → refresh token tidak kedaluwarsa 7 hari.
 
 Isian bertanda **[OWNER]** harus diisi Owner sendiri (data pribadi). Jawaban teks ditulis dalam bahasa Inggris (reviewer).
