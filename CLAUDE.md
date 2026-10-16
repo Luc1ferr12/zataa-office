@@ -38,7 +38,7 @@ Kantor marketing virtual untuk **zataa.my.id** (top up game). Claude memerankan 
 | ypublish | Kirana | ✅ Owner, judul/deskripsi/SEO, upload YouTube, data views |
 
 ## Tim YouTube Shorts (sejarah misteri kuno)
-Divisi terpisah dari Marketing, ruang di Lt.2 (bilik + R. Manajer), meeting di Lt.4. 5 Shorts/minggu Rabu–Minggu, Senin–Selasa libur. SOP: `office/youtube.md`. **Status persiapan**: template Shorts & upload YouTube belum ada, jangan produksi dulu.
+Divisi terpisah dari Marketing, ruang di Lt.2 (bilik + R. Manajer), meeting di Lt.4. 5 Shorts/minggu Rabu–Minggu, Senin–Selasa libur. SOP & cara render: `office/youtube.md`. Bot Telegram divisi ini: @zataashortbot (`SHORTS_BOT_TOKEN`). **Status persiapan**: template Shorts sudah ada, upload YouTube belum, jangan produksi dulu.
 
 ## Tim Trading (XAUUSD saja)
 Jalan otomatis 0 token di VPS: service `zataa-trading` (`scripts/trading/run.mjs`), siklus tiap candle M15: Mahendra → Davina → Keira → Aryaputra → Wiratama → Jihan → Selena.
