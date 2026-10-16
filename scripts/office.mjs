@@ -24,6 +24,9 @@ db.exec(CHAT_SQL);
 try {
   db.exec("UPDATE agents SET name = 'Andre' WHERE id = 'dir' AND name = 'Aprista'");
   db.exec("INSERT OR IGNORE INTO agents (id, name, title) VALUES ('sec', 'Aprista', 'Sekretaris Pribadi')");
+  // Okt 2026: divisi YouTube Shorts (sejarah misteri kuno)
+  db.exec(`INSERT OR IGNORE INTO agents (id, name, title) VALUES ('ydir', 'Bagas', 'Manajer YouTube'), ('yresearch', 'Nadhira', 'Riset Sejarah & Tren'),
+    ('yscript', 'Laras', 'Scriptwriter & Fact Checker'), ('yvisual', 'Galih', 'Visual & Creative'), ('yvideo', 'Yoga', 'Video Producer'), ('ypublish', 'Kirana', 'Publisher, SEO & Growth')`);
 } catch { /* db belum init */ }
 // plan mingguan perlu ✅ Owner; campaign lama dianggap sudah approved
 try { db.exec("ALTER TABLE campaigns ADD COLUMN status TEXT DEFAULT 'approved'"); } catch { /* sudah ada */ }

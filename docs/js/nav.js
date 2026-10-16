@@ -1,6 +1,6 @@
 // Peta jalan kantor v2 (terasering 4 tingkat): titik-titik selasar, pintu, tangga (graph) + lokasi tiap aktivitas.
 // Karakter selalu berjalan lewat graph ini — lewat selasar, naik tangga, masuk pintu, ke kolam — tidak pernah teleport.
-import { ROOM, ROOMDEF, RF, RZ, LY, FRONT, CORR_SPAN, STAIR, GAZEBO, GAZEBO2, POOL, AISLE } from './px/scene.js';
+import { ROOM, ROOMDEF, RF, RZ, LY, FRONT, CORR_SPAN, STAIR, stairAt, GAZEBO, GAZEBO2, POOL, MGR_ROOM, mgrX, MEET } from './px/scene.js';
 import { AGENTS } from './schedule.js';
 
 // vektor 3D kecil (pengganti THREE.Vector3)
@@ -23,7 +23,7 @@ const yOf = (t) => LY[t - 1];
 const EXTRA_X = { 1: [0.8, 6.4, -2.2], 2: [], 3: [25.5], 4: [19] };
 for (let t = 1; t <= 4; t++) {
   const [a, b] = CORR_SPAN[t - 1];
-  const xs = new Set([a + 0.6, b - 0.6, 0, ...EXTRA_X[t]]);
+  const xs = new Set([a + 0.6, b - 0.6, 0, ...EXTRA_X[t], stairAt(t), ...(t > 1 ? [stairAt(t - 1)] : [])]);
   for (const [id] of ROOMDEF[t]) if (!id.startsWith('tangga')) xs.add(+ROOM[id].door.toFixed(2));
   const sorted = [...xs].sort((p, q) => p - q);
   sorted.forEach((x, i) => {
@@ -38,11 +38,12 @@ for (let t = 1; t <= 4; t++) {
     EDGES.push([`C${t}:${+r.door.toFixed(2)}`, `R:${id}`]);
   }
 }
-// tangga: bawah (di sel tangga) → atas (tepi depan selasar tingkat berikutnya)
+// tangga: bawah (di sel tangga) → atas (tepi depan selasar tingkat berikutnya); 2→3 ada di pojok kiri Lt.2
 for (let t = 1; t <= 3; t++) {
-  N[`ST${t}b`] = [0, yOf(t), RZ(t, STAIR.lz0 + 0.3)];
-  N[`ST${t}t`] = [0, yOf(t + 1), FRONT[t] - 0.15];
-  EDGES.push([t === 1 ? 'R:lobby' : `C${t}:0`, `ST${t}b`], [`ST${t}b`, `ST${t}t`], [`ST${t}t`, `C${t + 1}:0`]);
+  const sx = stairAt(t);
+  N[`ST${t}b`] = [sx, yOf(t), RZ(t, STAIR.lz0 + 0.3)];
+  N[`ST${t}t`] = [sx, yOf(t + 1), FRONT[t] - 0.15];
+  EDGES.push([t === 1 ? 'R:lobby' : `C${t}:${sx}`, `ST${t}b`], [`ST${t}b`, `ST${t}t`], [`ST${t}t`, `C${t + 1}:${sx}`]);
 }
 // halaman depan: jalan utama, taman + gazebo, dek kolam, gerbang
 Object.assign(N, {
@@ -119,9 +120,10 @@ export function locationFor(spots, agent, idx, loc, info) {
     case 'visit': {
       // berdiri di samping meja teman (oper kerjaan), menghadap mejanya
       const ta = AGENTS.find((a) => a.id === info?.target);
-      if (ta?.desk == null) {   // nyamperin director/boss: berdiri di depan mejanya
-        const s = ta?.boss ? spots.bossDesk : ta?.id === 'tdir' ? spots.tdirDesk : spots.dirDesk;
-        const room = ta?.boss ? 'boss' : ta?.id === 'tdir' ? 'tdirRoom' : 'dirRoom';
+      if (ta?.desk == null) {   // nyamperin manajer/boss: berdiri di depan mejanya
+        const mgr = MGR_ROOM[ta?.id] ? ta.id : 'dir';
+        const s = ta?.boss ? spots.bossDesk : spots[`${mgr}Desk`];
+        const room = ta?.boss ? 'boss' : MGR_ROOM[mgr];
         return { pos: V(s.x, s.y, s.z + 1.9), rot: Math.PI, pose: 'stand', anchor: `R:${room}`, approach: [] };
       }
       const d = spots.desk[ta.desk];
@@ -129,30 +131,28 @@ export function locationFor(spots, agent, idx, loc, info) {
       const approach = d.row === 'A' ? [V(d.side, y, RZ(2, -1.4)), V(d.side, y, d.aisle), V(x, y, d.aisle)] : [V(x, y, d.aisle)];
       return { pos: V(x, y, d.z + 0.15), rot: d.rot, pose: 'stand', anchor: `R:${d.room}`, approach };
     }
-    case 'dirDesk': case 'tdirDesk': case 'boss': {
-      const room = key === 'dirDesk' ? 'dirRoom' : key === 'tdirDesk' ? 'tdirRoom' : 'boss';
+    case 'dirDesk': case 'tdirDesk': case 'ydirDesk': case 'boss': {
+      const mgr = key.replace('Desk', '');
+      const room = key === 'boss' ? 'boss' : MGR_ROOM[mgr];
       const s = key === 'boss' ? spots.bossDesk : spots[key];
       const r = ROOM[room], back = RZ(r.L, -7.35);
-      const sideX = key === 'boss' ? 10.6 : key === 'dirDesk' ? -18.6 : 21.0;
+      const sideX = key === 'boss' ? 10.6 : mgrX(mgr) + 1.9;
       return { pos: P(s), rot: s.rot, pose: 'type', anchor: `R:${room}`, approach: [V(sideX, s.y, RZ(r.L, -2.4)), V(sideX, s.y, back), V(s.x, s.y, back)] };
     }
-    case 'bossSofa': case 'dirSofa': case 'tdirSofa': {
+    case 'bossSofa': case 'dirSofa': case 'tdirSofa': case 'ydirSofa': {
       const list = spots[key];
       const s = list[(info?.slot ?? 0) % list.length];
-      const room = key === 'bossSofa' ? 'boss' : key === 'dirSofa' ? 'dirRoom' : 'tdirRoom';
+      const room = key === 'bossSofa' ? 'boss' : MGR_ROOM[key.replace('Sofa', '')];
       const front = key === 'bossSofa' ? RZ(4, -4.6) : s.z - 1.1;
       return { pos: P(s), rot: s.rot, pose: info?.pose ?? 'phone', anchor: `R:${room}`, approach: [V(s.x, s.y, front)] };
     }
-    case 'meeting': case 'meetingT': {
+    case 'meeting': case 'meetingT': case 'meetingY': {   // ruang meeting di Lt.4
       const list = spots[key];
       const m = list[k % list.length];
-      const room = key === 'meeting' ? 'meetM' : 'meetT';
-      const cz = key === 'meeting' ? -4.0 : -4.2;
-      const eastX = key === 'meeting' ? -24.3 : 28.7, y = m.y;
+      const { room, lz: cz, east } = MEET[key], y = m.y;
       let approach;
-      if (Math.abs(m.rot) < 0.1) approach = [V(eastX, y, RZ(2, -6.1)), V(m.x, y, RZ(2, -6.1))];          // sisi belakang meja
-      else if (Math.abs(m.rot - Math.PI) < 0.1) approach = [V(m.x, y, RZ(2, cz + 1.9))];                  // sisi depan
-      else approach = [V(m.x, y, RZ(2, cz + 1.9))];                                                        // ujung meja
+      if (Math.abs(m.rot) < 0.1) approach = [V(east, y, RZ(4, -6.1)), V(m.x, y, RZ(4, -6.1))];          // sisi belakang meja
+      else approach = [V(m.x, y, RZ(4, cz + 1.9))];                                                        // sisi depan / ujung meja
       return { pos: P(m), rot: m.rot, pose: 'talk', anchor: `R:${room}`, approach };
     }
     case 'mimbar': {

@@ -26,6 +26,13 @@ const LOOK = {
   treport:    { g: 'f', skin: '#e6bd99', hair: '#141111', style: 'long', kerja: { top: '#7c3aed', bot: '#17151d', skirt: 'short', shoe: '#111014', sleeve: 'long', inner: '#f4f2ee' } },
   texec:      { g: 'm', skin: '#d4a07a', hair: '#4a2c1a', style: 'short2', kerja: { top: '#3b1764', bot: '#17151d', shoe: '#f4f2ee', sleeve: 'long', inner: '#17151d' } },
   trisk:      { g: 'm', skin: '#c48f69', hair: '#141111', style: 'short', kerja: { top: '#17151d', bot: '#17151d', shoe: '#f4f2ee', sleeve: 'long', acc: '#7c3aed' } },
+  // tim YouTube Shorts
+  ydir:       { g: 'm', skin: '#c99470', hair: '#1b1717', style: 'short2', kerja: { top: '#991b1b', bot: '#2c3038', shoe: '#1d1d22', sleeve: 'long', inner: '#f4f2ee' } },
+  yresearch:  { g: 'f', skin: '#e8bc96', hair: '#3a2416', style: 'long', kerja: { top: '#c08a3e', bot: '#3a3550', skirt: 'long', shoe: '#5a3a26', sleeve: 'long' } },
+  yscript:    { g: 'f', skin: '#efc6a2', hair: '#2b211c', style: 'bob',  kerja: { top: '#7c2d12', bot: '#e6d8bd', skirt: 'short', shoe: '#3a2f2a', sleeve: 'short', collar: true } },
+  yvisual:    { g: 'm', skin: '#d4a07a', hair: '#262222', style: 'short', kerja: { top: '#4d5d2a', bot: '#2c3038', shoe: '#f4f2ee', sleeve: 'short' } },
+  yvideo:     { g: 'm', skin: '#bd8f6b', hair: '#141111', style: 'short2', kerja: { top: '#1e3a8a', bot: '#22222a', shoe: '#f4f2ee', sleeve: 'long', acc: '#f87171' } },
+  ypublish:   { g: 'f', skin: '#ecc4a0', hair: '#5a3d2e', style: 'pony', kerja: { top: '#be185d', bot: '#17151d', skirt: 'short', shoe: '#111014', sleeve: 'long', inner: '#f4f2ee' } },
 };
 // Senin: jas (cowok), kemeja sekretaris + rok pensil (cewek)
 const FORMAL_M = { top: '#1f2433', bot: '#1f2433', shoe: '#111014', sleeve: 'long', inner: '#f4f2ee', tie: '#7c3aed' };

@@ -85,7 +85,8 @@ Owner juga kirim ${paths.length} gambar contoh/referensi: ${paths.join(', ')}. W
 export const say = (text) => tg('sendMessage', { chat_id: env.TELEGRAM_CHAT_ID, text, parse_mode: 'HTML', disable_web_page_preview: true });
 // nama pegawai yang ngomong selalu di depan pesan, biar Owner tahu siapa yang bales: "<b>Maria</b>: ..."
 export const NAMA = { dir: 'Andre', sec: 'Aprista', researcher: 'Clariana', copywriter: 'Ista', designer: 'Maria', video: 'Dimas', publisher: 'Fikri', ads: 'Fahriah', analyst: 'Raka', price: 'Budi', ob: 'Mbak Sari',
-  tdir: 'Mahendra', tresearch: 'Davina', ttech: 'Keira', trisk: 'Aryaputra', texec: 'Wiratama', teval: 'Jihan', treport: 'Selena' };
+  tdir: 'Mahendra', tresearch: 'Davina', ttech: 'Keira', trisk: 'Aryaputra', texec: 'Wiratama', teval: 'Jihan', treport: 'Selena',
+  ydir: 'Bagas', yresearch: 'Nadhira', yscript: 'Laras', yvisual: 'Galih', yvideo: 'Yoga', ypublish: 'Kirana' };
 export const sayAs = (agent, text) => say(`<b>${NAMA[agent] ?? agent}</b>: ${text}`);
 
 export const SLOT = { pagi: '10:00', siang: '12:00', sore: '16:00', malam: '19:00', kilat: 'langsung' }; // WIB; pagi & sore = konten tambahan dari briefing

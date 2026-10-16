@@ -133,4 +133,10 @@ INSERT OR IGNORE INTO agents (id, name, title) VALUES
   ('trisk',      'Aryaputra', 'Decision & Risk · MQL Developer'),
   ('texec',      'Wiratama',  'Execution'),
   ('teval',      'Jihan',     'Evaluation & Optimization'),
-  ('treport',    'Selena',    'Reporting');
+  ('treport',    'Selena',    'Reporting'),
+  ('ydir',       'Bagas',     'Manajer YouTube'),
+  ('yresearch',  'Nadhira',   'Riset Sejarah & Tren'),
+  ('yscript',    'Laras',     'Scriptwriter & Fact Checker'),
+  ('yvisual',    'Galih',     'Visual & Creative'),
+  ('yvideo',     'Yoga',      'Video Producer'),
+  ('ypublish',   'Kirana',    'Publisher, SEO & Growth');

@@ -16,9 +16,17 @@ export const NEXT = {
   ads: ['owner'],
   analyst: ['dir'],
   price: ['copywriter'],
+  // tim YouTube Shorts
+  ydir: ['yresearch'],
+  yresearch: ['yscript'],
+  yscript: ['yvisual'],
+  yvisual: ['yvideo'],
+  yvideo: ['ypublish'],
+  ypublish: ['owner'],
 };
 export const NAMES = { dir: 'Andre', sec: 'Aprista', researcher: 'Clariana', copywriter: 'Ista', designer: 'Maria', video: 'Dimas', publisher: 'Fikri', ads: 'Fahriah', analyst: 'Raka', price: 'Budi', ob: 'Mbak Sari', owner: 'Bos Zamiir',
-  tdir: 'Mahendra', tresearch: 'Davina', ttech: 'Keira', trisk: 'Aryaputra', texec: 'Wiratama', teval: 'Jihan', treport: 'Selena' };
+  tdir: 'Mahendra', tresearch: 'Davina', ttech: 'Keira', trisk: 'Aryaputra', texec: 'Wiratama', teval: 'Jihan', treport: 'Selena',
+  ydir: 'Bagas', yresearch: 'Nadhira', yscript: 'Laras', yvisual: 'Galih', yvideo: 'Yoga', ypublish: 'Kirana' };
 
 const pick = (arr, seed) => arr[Math.abs(seed) % arr.length];
 const seedOf = (s) => [...String(s)].reduce((a, c) => (a * 31 + c.charCodeAt(0)) | 0, 7);
@@ -32,6 +40,12 @@ const HANDOFF = {
   publisher: ['Bos, "{task}" udah aku kirim ke Telegram. Ditunggu approve-nya 🙏', '"{task}" udah lolos QA, tinggal nunggu ✅ dari Bos'],
   ads: ['Bos, ada usulan boost buat "{task}". Cek Telegram ya 💸'],
   analyst: ['{to}, data "{task}" udah aku rangkum. Angkanya menarik nih 📈', 'Rekap "{task}" beres, {to}. Bisa buat bahan plan'],
+  ydir: ['{to}, topik Shorts hari ini: "{task}". Gali sumbernya ya, minimal 2 🏺', 'Brief Shorts "{task}" udah jadi. {to}, gas riset!'],
+  yresearch: ['{to}, bahan "{task}" udah aku rangkum + sumbernya. Mana fakta, mana teori udah aku tandain 📜', 'Riset "{task}" beres, {to}. Lanjut naskah ya'],
+  yscript: ['{to}, naskah "{task}" udah lolos cek fakta. Tinggal visualin 🎬', 'Script "{task}" ready, {to}. Hook-nya di detik pertama ya'],
+  yvisual: ['{to}, visual "{task}" udah lengkap + kredit lisensinya. Siap dirakit 🖼️', 'Aset adegan "{task}" kelar, {to}. Gas edit!'],
+  yvideo: ['{to}, Shorts "{task}" udah render 9:16 + VO. Cek judul & tag ya', 'Video "{task}" kelar, {to}. Durasinya pas di bawah 60 detik'],
+  ypublish: ['Bos, Shorts "{task}" udah aku kirim ke Telegram. Ditunggu ✅ buat upload 🙏'],
   price: ['{to}, harga buat "{task}" udah aku cek di web. Angkanya aman dipake 💰', '{to}, cek harga "{task}" kelar, jangan sampe salah angka ya'],
 };
 const REVISION = [

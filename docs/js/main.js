@@ -115,10 +115,11 @@ const DIVISIONS = [
   { name: 'Pimpinan', flow: '', ids: ['owner', 'sec'] },
   { name: 'Marketing', flow: 'plan → riset → konten → publish → iklan → data', ids: ['dir', 'researcher', 'price', 'copywriter', 'designer', 'video', 'publisher', 'ads', 'analyst'] },
   { name: 'Trading XAUUSD', flow: 'siklus tiap candle M15', ids: ['tdir', 'tresearch', 'ttech', 'trisk', 'texec', 'teval', 'treport'] },
+  { name: 'YouTube Shorts', flow: 'riset → naskah & cek fakta → visual → video → upload · Rabu–Minggu', ids: ['ydir', 'yresearch', 'yscript', 'yvisual', 'yvideo', 'ypublish'] },
   { name: 'Umum', flow: '', ids: ['ob'] },
 ];
-// card Tim lebar penuh: kolom 1 Pimpinan + Umum, kolom 2 Marketing, kolom 3 Trading
-const TEAM_COLUMNS = [[0, 3], [1], [2]];
+// card Tim lebar penuh: kolom 1 Pimpinan + YouTube + Umum, kolom 2 Marketing, kolom 3 Trading
+const TEAM_COLUMNS = [[0, 3, 4], [1], [2]];
 
 function tick(force = false) {
   const t = now();

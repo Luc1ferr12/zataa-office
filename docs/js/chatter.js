@@ -44,6 +44,14 @@ const BANK = {
     [[0, 'Spread lagi lebar banget nih'], [1, 'Tahan dulu entry-nya, tunggu normal']],
     [[0, 'Fed ngomong hawkish lagi 😬'], [1, 'Gold bisa turun, cek level 2 hari terakhir']],
   ],
+  youtube: [
+    [[0, '{b}, Göbekli Tepe umurnya beneran 11 ribu tahun?'], [1, 'Kisaran 9500 SM, ada di jurnal arkeologi. Tulis "sekitar" ya'], [0, 'Siap, jangan dibulatin lebay']],
+    [[0, 'Hook 3 detik pertama kurang nendang nih'], [1, 'Buka pakai pertanyaan aja: "Siapa yang mindahin batu 800 ton ini?"'], [0, 'Nah itu!']],
+    [[0, 'Ini fakta apa teori, {b}?'], [1, 'Teori. Kasih label "menurut sebagian peneliti" ya'], [0, 'Oke, aman dari hoaks']],
+    [[0, 'Fotonya dari Wikimedia, lisensinya CC BY-SA'], [1, 'Sip, cantumin kreditnya di deskripsi']],
+    [[0, 'Retention kemarin jeblok di detik 20'], [1, 'Bagian situ kebanyakan angka, besok dipadetin'], [0, 'Noted, max 1 angka per adegan']],
+    [[0, 'Voice-over-nya kecepetan nggak?'], [1, 'Dikit, turunin 5% biar misteriusnya kerasa 🕯️']],
+  ],
   pacaran: [
     [[0, 'Udah makan belum? Jangan kerja mulu 🥺'], [1, 'Belum, nungguin kamu dong'], [0, 'Gombal ah 🙈']],
     [[0, 'Nanti malem nonton bareng yuk'], [1, 'Boleh, tapi aku yang pilih filmnya ya'], [0, 'Asal bukan horor 😤']],
@@ -82,7 +90,7 @@ function topicOf(a1, a2) {
   if (a1.mood?.key && ['marah', 'kesel', 'capek'].includes(a1.mood.key)) return 'curhat';
   if (a1.act === 'lunch' || a2.act === 'lunch') return 'makan';
   if (a1.act === 'coffee' || a1.loc === 'cafe') return 'ngopi';
-  if (a1.act === 'work' && a2.act === 'work') return a1.a.team === 'trd' && a2.a.team === 'trd' ? 'trading' : 'kerja';
+  if (a1.act === 'work' && a2.act === 'work') return a1.a.team === 'trd' && a2.a.team === 'trd' ? 'trading' : a1.a.team === 'yt' && a2.a.team === 'yt' ? 'youtube' : 'kerja';
   if (a1.act === 'free' || a1.act === 'break') return 'santai';
   return null;
 }
@@ -120,7 +128,7 @@ export function simulatedChats(t, real = {}, dayDate = new Date()) {
       if (minute > t.minutes) return; // belum terjadi
       const [from, to] = who === 0 ? [p1.a, p2.a] : [p2.a, p1.a];
       out.push({
-        minute, from: from.id, to: to.id, kind: topic === 'curhat' ? 'curhat' : topic === 'kerja' || topic === 'trading' ? 'kerja' : topic === 'pacaran' ? 'pacaran' : 'santai',
+        minute, from: from.id, to: to.id, kind: topic === 'curhat' ? 'curhat' : ['kerja', 'trading', 'youtube'].includes(topic) ? 'kerja' : topic === 'pacaran' ? 'pacaran' : 'santai',
         message: text.replaceAll('{a}', p1.a.name).replaceAll('{b}', p2.a.name),
       });
     });

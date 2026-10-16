@@ -2,7 +2,7 @@
 // Web Worker untuk kedalaman/layar/cahaya); tiap frame cuma bagian yang kelihatan di layar yang digambar:
 // tile latar sesuai zoom, lapisan layar/air, lalu sprite pegawai yang sudah ditutup perabot di depannya.
 import { W, H, PXH, VW, proj, depthOf, pack, bayer, hash2, RES } from './px/engine.js';
-import { makeSpots, ROOMS, DESKS, FRONT, LY } from './px/scene.js';
+import { makeSpots, ROOMS, DESKS, DESK_LIST, FRONT, LY } from './px/scene.js';
 import { sprite, flamingoSprite } from './px/sprites.js';
 import { textBitmap } from './px/font.js';
 import { AGENTS } from './schedule.js';
@@ -631,10 +631,11 @@ export class Office {
     for (let i = 0; i < DESKS; i++) {
       const on = this.screens[i];
       const kind = AGENTS.find((a) => a.desk === i)?.id;
-      const trd = i >= 8;
+      const trd = DESK_LIST[i].team === 'trd', yt = DESK_LIST[i].team === 'yt';
       surf(`scr${i}`, 12, 5, (X, Y, px) => {
         if (!on) return X === 1 && Y === 1 ? C.glare : C.scrOff;
         if (trd) return candle(X, Y, t, i, px);
+        if (yt) return Y === 4 ? ((X + Math.floor(t * 3)) % 7 === 0 ? C.white : C.red) : Y < 3 ? (X > 3 && X < 8 ? C.amber : C.scrBg) : C.dim;   // timeline edit Shorts
         const side = px % 2;
         if (kind === 'designer') return (X + Y + Math.floor(t)) % 5 === 0 ? C.code3 : X > 6 ? (Y > 2 ? C.code4 : C.code2) : C.code1;
         if (kind === 'video') return Y === 4 ? ((X + Math.floor(t * 4)) % 6 === 0 ? C.white : C.code3) : Y < 3 ? (X > 2 && X < 10 ? C.dim : C.scrBg) : C.scrBg;
@@ -648,6 +649,7 @@ export class Office {
     const dirOn = (id) => { const c = this.chars.get(id); return c && !c.path.length && /Desk/.test(c.locKey); };
     surf('tvDir', 12, 5, (X, Y) => (dirOn('dir') ? ((X + Y + Math.floor(t)) % 4 === 0 ? C.code1 : Y === 0 ? C.violet : C.scrBg) : C.scrOff));
     surf('tvTdir', 12, 5, (X, Y, px) => (dirOn('tdir') ? candle(X, Y, t, 20, px) : C.scrOff));
+    surf('tvYdir', 12, 5, (X, Y) => (dirOn('ydir') ? (Y === 4 ? (X < ((t * 2) % 12) ? C.red : C.dim) : (X > 4 && X < 8 && Y < 4 ? C.amber : C.scrBg)) : C.scrOff));
     // TV ruang santai (50×19)
     const zt = (this.zt ??= textBitmap('ZATAA', 2)), sub = (this.sub ??= textBitmap('TOP UP GAME'));
     surf('tvLounge', 50, 19, (X, Y) => {
@@ -679,6 +681,15 @@ export class Office {
     surf('tvMeetT', 60, 22, (X, Y, px) => {
       if (Y < 8) return xh.on(X - 2, Y - 2) ? C.gold : C.chartBg;
       return chartPx(X, Y - 8, 60, 14, t * 0.2, 3);
+    });
+    // TV meeting YouTube (40×22): "SHORTS" + tombol play
+    const ys = (this.ys ??= textBitmap('SHORTS'));
+    surf('tvMeetY', 40, 22, (X, Y) => {
+      if (Y < 8) return ys.on(X - 2, Y - 2) ? C.white : C.red;
+      const px = X - 20, py = Y - 14;
+      if (px >= -3 && px <= 4 && Math.abs(py) <= (4 - px) * 0.6 + 0.5 && px <= 4) return C.white;
+      if (Y === 20) return X < ((t * 3) % 40) ? C.red : C.dim;
+      return C.tvBot;
     });
     // video wall harga emas di bilik trading (180×24): grafik candle berjalan + harga
     const vw = (this.vw ??= textBitmap('XAUUSD'));
