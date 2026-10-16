@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-16T13:50:35.762Z",
+ "generated_at": "2026-10-16T14:00:35.764Z",
  "today": "2026-10-16",
  "week_start": "2026-10-12",
  "campaign": {
@@ -21,8 +21,8 @@
    "name": "Andre",
    "title": "Marketing Director",
    "status": "done",
-   "current_task": "Bagi tugas: Gimana untuk konten G2 vs 100t nya ?",
-   "updated_at": "2026-10-16 13:50:02"
+   "current_task": "Bagi tugas: Yg menang 100t, tp lgsung cek lgi, kalo emng iya lgsung biki",
+   "updated_at": "2026-10-16 13:57:23"
   },
   {
    "id": "researcher",
@@ -30,23 +30,23 @@
    "title": "Researcher",
    "status": "working",
    "current_task": "Mantau: Owner tanya konten G2 vs 100T (VCT Champions Shang (cek lagi 22.19)",
-   "updated_at": "2026-10-16 13:50:02"
+   "updated_at": "2026-10-16 13:57:23"
   },
   {
    "id": "copywriter",
    "name": "Ista",
    "title": "Copywriter",
    "status": "done",
-   "current_task": "Teks jadwal Week 9 & polling NAVI/TLID",
-   "updated_at": "2026-10-15 23:30:57"
+   "current_task": "Teks feed 100T singkirkan G2",
+   "updated_at": "2026-10-16 13:57:18"
   },
   {
    "id": "designer",
    "name": "Maria",
    "title": "Graphic Designer",
-   "status": "done",
-   "current_task": "Kartu jadwal Week 9 + polling NAVI/TLID (1:1 & 9:16)",
-   "updated_at": "2026-10-15 23:31:15"
+   "status": "working",
+   "current_task": "Render feed 100T singkirkan G2",
+   "updated_at": "2026-10-16 13:57:18"
   },
   {
    "id": "video",
@@ -449,6 +449,20 @@
    "channel": null
   },
   {
+   "id": 31,
+   "day": "2026-10-16",
+   "slot": "kilat",
+   "format": "feed",
+   "game": "valorant",
+   "pillar": "esport",
+   "title": "100T singkirkan G2, lolos Lower Final Champions Shanghai",
+   "status": "draft",
+   "asset_url": "{\"feed\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-16/31-100t-singkirkan-g2-lolos-lower-final-cha.jpg\"],\"story\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-16/31-100t-singkirkan-g2-lolos-lower-final-cha-916.jpg\"]}",
+   "scheduled_at": null,
+   "posted_at": null,
+   "channel": null
+  },
+  {
    "id": 27,
    "day": "2026-10-16",
    "slot": "sore",
@@ -601,6 +615,16 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-16 13:57:16",
+   "agent_id": "researcher",
+   "message": "Nemu 1 topik baru"
+  },
+  {
+   "ts": "2026-10-16 13:55:35",
+   "agent_id": "owner",
+   "message": "Chat: Yg menang 100t, tp lgsung cek lgi, kalo emng iya lgsung bikin desainnya"
+  },
+  {
    "ts": "2026-10-16 13:49:52",
    "agent_id": "researcher",
    "message": "G2 vs 100T Lower Round 3 Champions Shanghai (Bo3, Jum 16 Okt ±16:00 WIB): skor belum terindeks di sumber, cek ulang. H2H: G2 menang 2-0 (8 Okt, Abyss 13-5, Ascent 13-11). Pemenang → Lower Final vs kalah VIT/LOUD."
@@ -714,19 +738,44 @@
    "ts": "2026-10-16 10:21:04",
    "agent_id": "ttech",
    "message": "M10 berubah arah: sideways → bullish"
-  },
-  {
-   "ts": "2026-10-16 10:16:04",
-   "agent_id": "ttech",
-   "message": "M15 berubah arah: sideways → bullish"
-  },
-  {
-   "ts": "2026-10-16 10:01:04",
-   "agent_id": "ttech",
-   "message": "M15 berubah arah: bullish → sideways"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-10-16 13:57:18",
+   "agent_id": "copywriter",
+   "to_id": "designer",
+   "kind": "oper",
+   "message": "Maria, copy \"Teks feed 100T singkirkan G2\" udah masuk. Headline-nya jangan dikecilin ya 😆"
+  },
+  {
+   "ts": "2026-10-16 13:56:58",
+   "agent_id": "researcher",
+   "to_id": "copywriter",
+   "kind": "oper",
+   "message": "Ista, bahan buat \"Cek ulang skor G2 vs 100T: 100T menang\" udah aku rangkum + sumbernya. Tinggal kamu racik captionnya ✍️"
+  },
+  {
+   "ts": "2026-10-16 13:55:36",
+   "agent_id": "dir",
+   "to_id": null,
+   "kind": "oper",
+   "message": "Oke tim, ada titah dari Bos. Aku bagi tugasnya ya 👇"
+  },
+  {
+   "ts": "2026-10-16 13:55:36",
+   "agent_id": "owner",
+   "to_id": "sec",
+   "kind": "bos",
+   "message": "Yg menang 100t, tp lgsung cek lgi, kalo emng iya lgsung bikin desainnya"
+  },
+  {
+   "ts": "2026-10-16 13:53:37",
+   "agent_id": "sec",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "⚠️ Bos, limit sesi (5 jam) Claude udah 97%. Reset Jumat, 16 Okt, 23.10 WITA.\nKalau penuh, kerjaan AI ketunda sebentar sampai reset."
+  },
   {
    "ts": "2026-10-16 13:50:03",
    "agent_id": "researcher",
@@ -971,47 +1020,12 @@
    "to_id": null,
    "kind": "oper",
    "message": "Bos ACC 1 ide tambahan! \"Weekly Diamond Pass buat Push Rank Akhir Season\" 🎉"
-  },
-  {
-   "ts": "2026-10-14 23:03:37",
-   "agent_id": "researcher",
-   "to_id": "designer",
-   "kind": "santai",
-   "message": "Mar, logo BTR yang ada tulisan Vitality-nya ternyata pas banget buat FFWS, nggak usah cari lagi 😄"
-  },
-  {
-   "ts": "2026-10-14 23:03:37",
-   "agent_id": "publisher",
-   "to_id": "owner",
-   "kind": "oper",
-   "message": "\"QA & kirim konten 12 & 13\" udah lolos QA, tinggal nunggu ✅ dari Bos"
-  },
-  {
-   "ts": "2026-10-14 23:03:23",
-   "agent_id": "designer",
-   "to_id": "publisher",
-   "kind": "oper",
-   "message": "Fikri, desain \"Render konten 12 & 13\" udah render 1080×1080. QA dulu ya sebelum ke bos"
-  },
-  {
-   "ts": "2026-10-14 23:03:13",
-   "agent_id": "copywriter",
-   "to_id": "designer",
-   "kind": "oper",
-   "message": "Maria, copy \"Isi konten 12 & 13\" udah masuk. Headline-nya jangan dikecilin ya 😆"
-  },
-  {
-   "ts": "2026-10-14 23:02:48",
-   "agent_id": "dir",
-   "to_id": "researcher",
-   "kind": "oper",
-   "message": "Clariana, plan minggu ini udah aku taruh ya. Fokus \"Briefing ide 15 Okt\". Tolong cariin bahan beritanya 🙏"
   }
  ],
  "stats": {
   "this_week": {
    "week": "2026-10-12",
-   "total": 22,
+   "total": 23,
    "posted": 18,
    "pending": 0,
    "scheduled": 0,
@@ -1079,7 +1093,7 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4180.200195,
+  "price": 4186.5,
   "open": [],
   "signals": [
    {
@@ -1179,13 +1193,13 @@
    "M10": {
     "bias": "sideways",
     "score": -1,
-    "price": 4174,
-    "ema20": 4173.67,
-    "ema50": 4175.87,
-    "rsi": 49,
+    "price": 4178.8,
+    "ema20": 4174.16,
+    "ema50": 4175.99,
+    "rsi": 53.4,
     "n": 299,
-    "slot": 2986930,
-    "at": 1792158065025
+    "slot": 2986931,
+    "at": 1792158665045
    },
    "M15": {
     "bias": "sideways",
