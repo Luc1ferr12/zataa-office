@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-16T07:30:23.982Z",
+ "generated_at": "2026-10-16T07:37:00.464Z",
  "today": "2026-10-16",
  "week_start": "2026-10-12",
  "campaign": {
@@ -102,7 +102,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-16 07:16:04"
+   "updated_at": "2026-10-16 07:31:04"
   },
   {
    "id": "tresearch",
@@ -110,7 +110,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: NFP Sep meleset (29rb vs 84rb), USD melemah; tapi Fed condong hawkish & peluang hike Des. Emas ~4.150, support 4.065-4.100",
-   "updated_at": "2026-10-16 07:16:04"
+   "updated_at": "2026-10-16 07:31:04"
   },
   {
    "id": "ttech",
@@ -118,7 +118,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Bias sideways",
-   "updated_at": "2026-10-16 07:16:04"
+   "updated_at": "2026-10-16 07:31:04"
   },
   {
    "id": "trisk",
@@ -126,7 +126,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: market sideways, tunggu arah jelas",
-   "updated_at": "2026-10-16 07:16:04"
+   "updated_at": "2026-10-16 07:31:04"
   },
   {
    "id": "texec",
@@ -512,10 +512,10 @@
    "game": "sejarah",
    "pillar": "misteri",
    "title": "Komputer 2.000 Tahun dari Dasar Laut",
-   "status": "uploaded",
+   "status": "posted",
    "asset_url": "https://youtube.com/shorts/81EExr_BX_U",
    "scheduled_at": null,
-   "posted_at": null,
+   "posted_at": "2026-10-16 07:36:28",
    "channel": "youtube"
   },
   {
@@ -554,10 +554,10 @@
    "game": "sejarah",
    "pillar": "misteri",
    "title": "Gunung Padang: Piramida 20.000 Tahun?",
-   "status": "uploaded",
+   "status": "posted",
    "asset_url": "https://youtube.com/shorts/slIbadYArcM",
    "scheduled_at": null,
-   "posted_at": null,
+   "posted_at": "2026-10-16 07:36:30",
    "channel": "youtube"
   }
  ],
@@ -600,6 +600,16 @@
   }
  ],
  "activity": [
+  {
+   "ts": "2026-10-16 07:36:30",
+   "agent_id": "ypublish",
+   "message": "Shorts #30 udah Publik di Zataa Story 🎉"
+  },
+  {
+   "ts": "2026-10-16 07:36:28",
+   "agent_id": "ypublish",
+   "message": "Shorts #29 udah Publik di Zataa Story 🎉"
+  },
   {
    "ts": "2026-10-16 07:19:58",
    "agent_id": "ypublish",
@@ -714,16 +724,6 @@
    "ts": "2026-10-16 03:31:04",
    "agent_id": "ttech",
    "message": "M15 berubah arah: sideways → bullish"
-  },
-  {
-   "ts": "2026-10-16 03:21:04",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: sideways → bullish"
-  },
-  {
-   "ts": "2026-10-16 03:16:04",
-   "agent_id": "trisk",
-   "message": "NO TRADE · di luar jam sesi London–New York"
   }
  ],
  "chats": [
@@ -1079,9 +1079,14 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4189.100098,
+  "price": 4189.700195,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-16 07:31:04",
+    "decision": "NO TRADE",
+    "reason": "market sideways, tunggu arah jelas"
+   },
    {
     "ts": "2026-10-16 07:16:04",
     "decision": "NO TRADE",
@@ -1106,11 +1111,6 @@
     "ts": "2026-10-16 06:16:04",
     "decision": "NO TRADE",
     "reason": "market sideways, tunggu arah jelas"
-   },
-   {
-    "ts": "2026-10-16 06:01:04",
-    "decision": "NO TRADE",
-    "reason": "market sideways, tunggu arah jelas"
    }
   ],
   "trades": [],
@@ -1132,7 +1132,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-16 07:16:04",
+   "ts": "2026-10-16 07:31:04",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1151,7 +1151,7 @@
     "bias": "sideways",
     "score": 1,
     "trigger": null,
-    "note": "sideways (skor 1) · harga 4185.80 · EMA50 H1 4156.30 · RSI M15 62"
+    "note": "sideways (skor 1) · harga 4188.50 · EMA50 H1 4156.40 · RSI M15 65"
    }
   },
   "fund": {
@@ -1179,35 +1179,35 @@
    "M10": {
     "bias": "bullish",
     "score": 2,
-    "price": 4187.7,
-    "ema20": 4176.64,
-    "ema50": 4171.28,
-    "rsi": 66.9,
+    "price": 4189.1,
+    "ema20": 4177.83,
+    "ema50": 4171.98,
+    "rsi": 68.1,
     "n": 299,
-    "slot": 2986892,
-    "at": 1792135264759
+    "slot": 2986893,
+    "at": 1792135864789
    },
    "M15": {
     "bias": "bullish",
     "score": 2,
-    "price": 4187.3,
-    "ema20": 4174.22,
-    "ema50": 4167.95,
-    "rsi": 64.2,
+    "price": 4189.1,
+    "ema20": 4175.64,
+    "ema50": 4168.78,
+    "rsi": 65.4,
     "n": 299,
-    "slot": 1991261,
-    "at": 1792134964759
+    "slot": 1991262,
+    "at": 1792135864795
    },
    "M30": {
     "bias": "bullish",
     "score": 3,
-    "price": 4178,
-    "ema20": 4169.94,
-    "ema50": 4160.72,
-    "rsi": 59.3,
-    "n": 187,
-    "slot": 995630,
-    "at": 1792134064750
+    "price": 4189.1,
+    "ema20": 4171.77,
+    "ema50": 4161.83,
+    "rsi": 66,
+    "n": 188,
+    "slot": 995631,
+    "at": 1792135864795
    },
    "H1": {
     "bias": "bullish",
