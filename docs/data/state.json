@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-16T10:46:55.924Z",
+ "generated_at": "2026-10-16T10:56:55.937Z",
  "today": "2026-10-16",
  "week_start": "2026-10-12",
  "campaign": {
@@ -601,6 +601,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-16 10:51:05",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: bullish → sideways"
+  },
+  {
    "ts": "2026-10-16 10:46:05",
    "agent_id": "trisk",
    "message": "NO TRADE · market sideways, tunggu arah jelas"
@@ -719,11 +724,6 @@
    "ts": "2026-10-16 05:55:13",
    "agent_id": "yvideo",
    "message": "Shorts #29 dirender di laptop (suara OmniVoice) & dikirim ke Owner"
-  },
-  {
-   "ts": "2026-10-16 05:55:11",
-   "agent_id": "ypublish",
-   "message": "Kirim Shorts #29 ke Owner buat approval"
   }
  ],
  "chats": [
@@ -1079,7 +1079,7 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4182.299805,
+  "price": 4176,
   "open": [],
   "signals": [
    {
@@ -1174,15 +1174,15 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "bullish",
-    "score": 2,
-    "price": 4184.5,
-    "ema20": 4183.39,
-    "ema50": 4178.73,
-    "rsi": 53,
+    "bias": "sideways",
+    "score": 0,
+    "price": 4181.1,
+    "ema20": 4183.17,
+    "ema50": 4178.82,
+    "rsi": 48.2,
     "n": 299,
-    "slot": 2986912,
-    "at": 1792147265076
+    "slot": 2986913,
+    "at": 1792147865112
    },
    "M15": {
     "bias": "bullish",
