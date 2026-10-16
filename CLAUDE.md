@@ -35,7 +35,7 @@ Kantor marketing virtual untuk **zataa.my.id** (top up game). Claude memerankan 
 | yscript | Laras | Naskah Shorts + cek fakta (label fakta/teori/mitos) |
 | yvisual | Galih | Visual berlisensi bebas / gambar kode / Blender |
 | yvideo | Yoga | Render Shorts 9:16 + VO OmniVoice |
-| ypublish | Kirana | ✅ Owner di @zataashortbot, judul/deskripsi/SEO, upload YouTube (Private → ingatkan Publik), data views |
+| ypublish | Kirana | ✅ Owner di @zataashortbot, judul/deskripsi/SEO, upload YouTube (Private → ingatkan Publik), laporan harian 21:00 WITA (subs/views/likes) |
 
 ## Tim YouTube Shorts (sejarah misteri kuno)
 Divisi terpisah dari Marketing, ruang di Lt.2 (bilik + R. Manajer), meeting di Lt.4. 5 Shorts/minggu Rabu–Minggu (tayang 18:00 WIB), Senin–Selasa libur. SOP: `office/youtube.md`.

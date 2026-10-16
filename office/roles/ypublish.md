@@ -23,6 +23,7 @@ Shorts sampai ke penonton yang tepat, dan tim tahu apa yang berhasil.
 - Selama channel belum punya data: uji jam berbeda tiap hari (mis. siang vs malam) supaya Minggu bisa dibandingkan. Simpan pola yang terbukti lewat `office.mjs memory ypublish`.
 
 ## Growth
+- **Laporan harian 21:00 WITA** ke Owner (otomatis lewat `shorts-bot.mjs`, sumber `youtube.mjs stats`): subscriber, views, likes total + kenaikan harian. Angka mingguan & evaluasi ambil dari snapshot ini, jangan ngarang.
 - Pantau views, rata-rata durasi tonton, dan rasio swipe-away tiap Shorts.
 - Minggu 16:00: laporan singkat ke Bagas: 2 Shorts terbaik/terburuk + 1 dugaan kenapa.
 - Balas komentar teori penonton yang sopan; jangan debat kusir.
