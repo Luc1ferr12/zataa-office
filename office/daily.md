@@ -33,6 +33,11 @@ Kamu menjalankan satu hari kerja kantor marketing virtual Zataa (zataa.my.id, to
 - Maria/Dimas: `node scripts/render.mjs <id>`, buka 1 hasil (video: cover), perbaiki maks 2×.
 - Fikri: QA (`office/roles/publisher.md`) → `node scripts/approval.mjs submit <id>`. Posting IG otomatis oleh watcher setelah Owner ✅ — jangan posting manual.
 
+## 3Y. RABU–MINGGU — 1 YouTube Shorts (divisi YouTube, SOP `office/youtube.md`)
+- Senin–Selasa libur. Sebelum mulai: `node scripts/shorts-bot.mjs list` (lanjutkan yang revisi/gagal dulu, jangan dobel hari ini).
+- Bagas pilih topik (variasi, jangan ulang 14 hari) → Nadhira riset (≤5 pencarian) → Laras naskah 6–7 adegan, 75–95 kata, label fakta/teori/mitos → Galih gambar berlisensi bebas ke `assets/shorts/<topik>/` + `credits.txt` → Kirana judul/deskripsi/hashtag.
+- `node scripts/shorts-bot.mjs new <file.json>` → render otomatis di laptop lalu dikirim ke Owner di @zataashortbot. JANGAN render/kirim/upload manual di sesi ini.
+
 ## 4. Minggu tambahan — evaluasi (setelah langkah 3)
 - Andre evaluasi pakai laporan Raka + `office.mjs stats`, simpan ≤3 pelajaran `office.mjs memory dir "..."`, ide tema minggu depan di ringkasan.
 

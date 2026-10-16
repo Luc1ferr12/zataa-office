@@ -35,10 +35,11 @@ Kantor marketing virtual untuk **zataa.my.id** (top up game). Claude memerankan 
 | yscript | Laras | Naskah Shorts + cek fakta (label fakta/teori/mitos) |
 | yvisual | Galih | Visual berlisensi bebas / gambar kode / Blender |
 | yvideo | Yoga | Render Shorts 9:16 + VO OmniVoice |
-| ypublish | Kirana | ✅ Owner, judul/deskripsi/SEO, upload YouTube, data views |
+| ypublish | Kirana | ✅ Owner di @zataashortbot, judul/deskripsi/SEO, upload YouTube (Private → ingatkan Publik), data views |
 
 ## Tim YouTube Shorts (sejarah misteri kuno)
-Divisi terpisah dari Marketing, ruang di Lt.2 (bilik + R. Manajer), meeting di Lt.4. 5 Shorts/minggu Rabu–Minggu, Senin–Selasa libur. SOP & cara render: `office/youtube.md`. Bot Telegram divisi ini: @zataashortbot (`SHORTS_BOT_TOKEN`). **Status persiapan**: template Shorts sudah ada, upload YouTube belum, jangan produksi dulu.
+Divisi terpisah dari Marketing, ruang di Lt.2 (bilik + R. Manajer), meeting di Lt.4. 5 Shorts/minggu Rabu–Minggu (tayang 18:00 WIB), Senin–Selasa libur. SOP: `office/youtube.md`.
+Alur: sesi harian `node scripts/shorts-bot.mjs new <file.json>` (DB `channel: 'youtube'`) → render OmniVoice otomatis di laptop (`laptop-worker.mjs` → `shorts-laptop.mjs`) → Kirana kirim ke Owner di bot @zataashortbot (`scripts/shorts-bot.mjs`, di watcher; `SHORTS_BOT_TOKEN`, `SHORTS_OWNER_ID`) → ✅ → upload YouTube **selalu Private** → bot WAJIB ingatkan Owner ubah ke Publik; baru `posted` setelah Owner konfirmasi. Semua urusan Shorts lewat bot itu, bukan bot kantor.
 
 ## Tim Trading (XAUUSD saja)
 Jalan otomatis 0 token di VPS: service `zataa-trading` (`scripts/trading/run.mjs`), siklus tiap candle M15: Mahendra → Davina → Keira → Aryaputra → Wiratama → Jihan → Selena.

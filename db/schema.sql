@@ -63,6 +63,8 @@ CREATE TABLE IF NOT EXISTS contents (
   ig_media_id   TEXT,
   tiktok_id     TEXT,
   sources       TEXT,                    -- URL sumber berita (wajib untuk news/esport)
+  channel       TEXT,                    -- NULL = Marketing (IG/TikTok) | youtube = Shorts (scripts/shorts-bot.mjs)
+  youtube_id    TEXT,                    -- id video YouTube (Shorts)
   created_at    TEXT NOT NULL DEFAULT (datetime('now')),
   updated_at    TEXT NOT NULL DEFAULT (datetime('now'))
 );

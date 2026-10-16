@@ -1,6 +1,19 @@
 # SOP Divisi YouTube Shorts (sejarah misteri kuno)
 
-**Status: PERSIAPAN.** Kantor, pegawai, playbook, dan **template video** sudah ada. Upload otomatis ke YouTube & alur approval lewat bot **@zataashortbot** belum jalan, jadi sesi harian jangan memproduksi Shorts dulu.
+**Status: JALAN** (sejak 16 Okt 2026). Produksi 1 Shorts/hari Rabu–Minggu lewat sesi harian; render otomatis di laptop, approval & upload lewat bot **@zataashortbot** (`scripts/shorts-bot.mjs`, jalan di watcher VPS).
+
+## Alur otomatis
+1. **Sesi harian** (Bagas → Nadhira → Laras → Galih): topik, riset, naskah, gambar di `assets/shorts/<topik>/` (+ `credits.txt`), lalu
+   `node scripts/shorts-bot.mjs new <file.json>` → konten DB `channel: 'youtube'` (format/slot `shorts`, tayang 18:00 WIB) + masuk antrean laptop (`_laptop: 1`).
+   file.json = `{ title (≤60 karakter), caption (deskripsi: ringkasan + sumber + kredit visual), hashtags ("#Shorts #sejarah …"), sources, tags?, synthetic?, day?, test?, spec: { voice, speed, tag, mood, scenes[{ img, vo, sub, place?, credit?, move? }] } }`. Path `img` relatif dari root repo.
+2. **Laptop** (Task Scheduler "Zataa Laptop Worker" tiap 10 mnt → `scripts/laptop-worker.mjs` → `scripts/shorts-laptop.mjs <id> --submit`): gambar yang belum ada diambil dari VPS, render `scripts/shorts.mjs` (OmniVoice, 40–59 dtk), hasil ke `out/shorts/` VPS. Tidak ada fallback suara VPS: laptop mati >3 jam → Yoga kabari Owner; render gagal → `_laptop: 3` + Owner dikabari.
+3. **Kirana** kirim video + judul/deskripsi ke Owner di @zataashortbot: ✅ Upload / ✏️ Revisi / ❌ Tolak. Owner bilang "langsung post/upload" = ✅.
+4. ✅ → `scripts/youtube.mjs upload` **selalu Private** (project API belum diaudit) → status `uploaded` + Kirana kirim link & **pengingat ubah ke Publik** (YouTube Studio). Diingatkan lagi di jam tayang 18:00 WIB lalu tiap pagi (maks 3×).
+5. Owner tekan **✅ Sudah Publik** (atau bilang "udah publik") → status `posted`. **Belum dianggap tayang sebelum Owner konfirmasi.**
+6. ✏️ Revisi → Claude CLI (tim YouTube) ubah lewat `shorts-bot.mjs set` → render ulang di laptop → dikirim lagi (cuma judul/deskripsi → langsung dikirim ulang tanpa render).
+- Pesan bebas Owner di @zataashortbot dijawab tim YouTube (Claude CLI); "status" = rekap tanpa AI. Urusan marketing/trading dioper ke bot kantor.
+- Status Shorts: `draft` (antre/render) → `pending_approval` → `approved` → `uploading` → `uploaded` (Private) → `posted` · `revision` · `rejected` · `upload_failed` (tombol coba lagi).
+- CLI: `shorts-bot.mjs list | get <id> | set <id> <json> | queue <id> | submit <id> | upload <id> | say <agent> "<teks>"`. Jangan pakai `render.mjs`/`approval.mjs` untuk Shorts.
 
 ## Render
 `node scripts/shorts.mjs <spec.json> [out.mp4]` (laptop: butuh OmniVoice). Contoh: `templates/samples/shorts-baalbek.json` (versi uji 30 dtk, render pakai `--test`).
@@ -9,7 +22,7 @@
 - Upload lewat API selalu **Private** → Kirana wajib ingatkan Owner di @zataashortbot untuk ubah ke Publik (aturan Owner).
 - Foto disimpan di `assets/shorts/<topik>/` + `credits.txt` (kredit masuk deskripsi YouTube).
 
-## Ritme (kalau pipeline sudah jalan)
+## Ritme
 - **5 Shorts/minggu, Rabu–Minggu** (1 per hari). Senin–Selasa tim libur.
 - 07:00–08:00 riset masing-masing → 08:00–08:30 briefing di Meeting YouTube (Lt.4) → produksi.
 - Alur: Bagas (topik) → Nadhira (riset, ≤5 pencarian web) → Laras (naskah + cek fakta) → Galih (visual berlisensi) → Yoga (render 9:16 + VO) → Kirana (✅ Owner via Telegram → upload).
@@ -21,6 +34,5 @@
 - Jangan pakai pola yang sama persis tiap video (hook, struktur, gaya VO harus bervariasi).
 
 ## Yang masih perlu dibangun
-1. ~~Template video Shorts~~ ✅ (`templates/shorts/player.html`, `scripts/shorts.mjs`, musik `scripts/shorts-music.mjs`).
-2. ~~Sambung YouTube~~ ✅ channel **Zataa Story (@zataastory)**, `node scripts/youtube.mjs whoami | upload <mp4> <meta.json>` (VPS). Upload lewat API masih **Private** sampai project lolos audit YouTube API. Sisa: alur ✅ Owner di @zataashortbot → upload otomatis + jadwal tayang.
-3. Data views/retention dari YouTube Analytics untuk laporan Minggu.
+1. Data views/retention dari YouTube Analytics untuk laporan Minggu (Kirana).
+2. Upload Publik/terjadwal otomatis setelah project YouTube API lolos audit (sementara Owner ubah ke Publik manual).

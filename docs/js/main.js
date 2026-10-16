@@ -7,6 +7,7 @@ const GAME = { mlbb: 'ML', valorant: 'Valorant', freefire: 'Free Fire', other: '
 const STATUS = {
   draft: 'Draft', pending_approval: 'Nunggu approval', revision: 'Revisi', approved: 'Approved',
   rejected: 'Ditolak', scheduled: 'Terjadwal', posted: 'Terposting', failed: 'Gagal',
+  uploading: 'Lagi upload', uploaded: 'Private, nunggu Owner ubah Publik', upload_failed: 'Upload gagal',
 };
 const NAMES = Object.fromEntries([['owner', 'Zamiir'], ...AGENTS.map((a) => [a.id, a.name])]);
 

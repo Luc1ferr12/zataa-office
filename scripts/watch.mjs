@@ -2,6 +2,7 @@
 // Watcher approval (tanpa AI, 0 token saat diam): tiap 60 dtk tarik keputusan Owner dari n8n.
 // Revisi → jalankan Claude Code CLI untuk memperbaiki + render ulang → kirim lagi ke Telegram.
 // Approved → auto-post ke IG/TikTok saat jam slot (scripts/publish.mjs). Pesan bebas Owner → scripts/ask.mjs.
+// Bot terpisah: Aprista keuangan (finance-bot.mjs) & YouTube Shorts @zataashortbot (shorts-bot.mjs).
 //   node scripts/watch.mjs          (biarkan jalan; di VPS = service systemd scripts/vps/zataa-watcher.service)
 //   node scripts/watch.mjs --once   (sekali cek, untuk tes)
 process.removeAllListeners('warning');
@@ -15,6 +16,7 @@ import { revisionText } from './chatter.mjs';
 import { adsReady, propose, runApproved } from './boost.mjs';
 import { handleOwnerMessage, handleDecision, runFollowups, syncMonitor } from './ask.mjs';
 import { startFinanceBot } from './finance-bot.mjs';
+import { startShortsBot } from './shorts-bot.mjs';
 import { analystTick } from './analyst.mjs';
 import { priceTick } from './price.mjs';
 import { limitsTick } from './limits.mjs';
@@ -227,4 +229,5 @@ if (!process.argv.includes('--once')) {
   syncPages();
   setInterval(syncPages, SYNC_EVERY);
   startFinanceBot(log); // bot Telegram Aprista (keuangan Owner), long polling terpisah
+  startShortsBot(log); // bot @zataashortbot divisi YouTube Shorts (approval → upload Private → ingatkan Publik)
 }

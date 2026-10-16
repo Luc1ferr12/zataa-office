@@ -219,7 +219,7 @@ export async function publishOne(id) {
 
 export async function publishDue() {
   const d = await db();
-  const rows = d.prepare("SELECT id, day, slot FROM contents WHERE status = 'approved' ORDER BY day, id").all();
+  const rows = d.prepare("SELECT id, day, slot FROM contents WHERE status = 'approved' AND channel IS NOT 'youtube' ORDER BY day, id").all(); // Shorts: shorts-bot.mjs
   const res = [];
   for (const c of rows) if (Date.now() >= dueAt(c)) res.push(await publishOne(c.id));
   return res;

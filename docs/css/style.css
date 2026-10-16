@@ -92,8 +92,8 @@ main { padding: 20px 24px 40px; max-width: 1440px; margin: 0 auto; display: grid
 .week-grid.short .day { min-height: 0; }
 .day.off { opacity: 0.55; }
 .chip.s-posted { border-left-color: var(--ok); }
-.chip.s-pending_approval { border-left-color: var(--warn); }
-.chip.s-revision, .chip.s-failed, .chip.s-rejected { border-left-color: #f87171; }
+.chip.s-pending_approval, .chip.s-uploaded, .chip.s-uploading { border-left-color: var(--warn); }
+.chip.s-revision, .chip.s-failed, .chip.s-rejected, .chip.s-upload_failed { border-left-color: #f87171; }
 .empty { color: var(--muted); font-size: 12px; margin: auto 0; text-align: center; }
 
 .team-list, .activity-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }

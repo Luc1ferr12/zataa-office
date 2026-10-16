@@ -1,0 +1,394 @@
+#!/usr/bin/env node
+// Divisi YouTube Shorts: bot Telegram @zataashortbot + alur konten (DB contents, channel 'youtube', format/slot 'shorts').
+// Bot jalan di dalam watcher (long polling, terpisah dari bot kantor), cuma nerima pesan & tombol dari SHORTS_OWNER_ID.
+// Alur: new (sesi harian) → antre render laptop (_laptop 1, scripts/shorts-laptop.mjs, OmniVoice) → submit (Kirana kirim video + ✅/✏️/❌)
+//       → ✅ → upload YouTube (scripts/youtube.mjs, SELALU Private) → status 'uploaded' + pengingat Owner ubah ke Publik → Owner tekan
+//       "Sudah Publik" → 'posted'. Shorts belum dianggap tayang sebelum Owner konfirmasi.
+//   node scripts/shorts-bot.mjs new <file.json>       {title, caption, hashtags, sources?, day?, test?, synthetic?, tags?, spec:{voice, mood, scenes[]}}
+//   node scripts/shorts-bot.mjs get <id> | set <id> <json|file> | list [tgl_senin]
+//   node scripts/shorts-bot.mjs queue <id>            antre render ulang di laptop
+//   node scripts/shorts-bot.mjs submit <id>           kirim ke Owner (dipanggil laptop setelah render)
+//   node scripts/shorts-bot.mjs upload <id>           upload manual (Owner sudah ✅)
+//   node scripts/shorts-bot.mjs say <agent> "<teks>"  pesan dari pegawai YouTube
+//   .env: SHORTS_BOT_TOKEN, SHORTS_OWNER_ID (+ YT_* untuk upload)
+process.removeAllListeners('warning');
+import { join, dirname, basename } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { readFileSync, writeFileSync, existsSync, mkdirSync, unlinkSync } from 'node:fs';
+import { readFile } from 'node:fs/promises';
+import { execFile } from 'node:child_process';
+import { loadEnv, NAMA } from './approval.mjs';
+import { claude, formatReply, ESCALATE, isStatusQuestion } from './ask.mjs';
+import { wita } from '../docs/js/schedule.js';
+
+const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
+const STATE = join(ROOT, 'tmp', 'shorts-bot.json');
+const DAYS = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+const SLOT_WIB = '18:00';
+const esc = (s) => String(s ?? '').replace(/[&<>]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' })[c]);
+const out = (o) => console.log(typeof o === 'string' ? o : JSON.stringify(o));
+const state = () => { try { return JSON.parse(readFileSync(STATE, 'utf8')); } catch { return {}; } };
+const saveState = (s) => { mkdirSync(dirname(STATE), { recursive: true }); writeFileSync(STATE, JSON.stringify(s)); };
+const patchState = (fn) => { const s = state(); fn(s); saveState(s); };
+
+export async function db() {
+  const { DatabaseSync } = await import('node:sqlite');
+  const d = new DatabaseSync(join(ROOT, 'db', 'office.db'));
+  for (const col of ['channel TEXT', 'youtube_id TEXT', 'revisions INTEGER NOT NULL DEFAULT 0']) {
+    try { d.exec(`ALTER TABLE contents ADD COLUMN ${col}`); } catch { /* sudah ada */ }
+  }
+  return d;
+}
+const act = (d, agent, msg) => { try { d.prepare('INSERT INTO activity (agent_id, message) VALUES (?, ?)').run(agent, msg); } catch { /* pegawai belum ada di DB lama */ } };
+const getShort = (d, id) => d.prepare("SELECT * FROM contents WHERE id = ? AND channel = 'youtube'").get(id);
+const dataOf = (c) => { try { return JSON.parse(c.data_json ?? '{}'); } catch { return {}; } };
+
+// ---------- Telegram (bot @zataashortbot)
+async function api(method, params = {}, files = {}) {
+  const token = loadEnv().SHORTS_BOT_TOKEN;
+  if (!token) throw new Error('SHORTS_BOT_TOKEN kosong di .env');
+  let body, headers = {};
+  if (Object.keys(files).length) {
+    body = new FormData();
+    for (const [k, v] of Object.entries(params)) body.append(k, typeof v === 'object' ? JSON.stringify(v) : String(v));
+    for (const [k, p] of Object.entries(files)) body.append(k, new Blob([await readFile(p)]), basename(p));
+  } else {
+    body = JSON.stringify(params);
+    headers = { 'Content-Type': 'application/json' };
+  }
+  const r = await fetch(`https://api.telegram.org/bot${token}/${method}`, { method: 'POST', body, headers });
+  const j = await r.json();
+  if (!j.ok) throw new Error(`Telegram ${method}: ${j.description}`);
+  return j.result;
+}
+const owner = () => loadEnv().SHORTS_OWNER_ID;
+const send = (text, extra = {}) => api('sendMessage', { chat_id: owner(), text, parse_mode: 'HTML', disable_web_page_preview: true, ...extra });
+// nama pegawai YouTube selalu di depan: "<b>Kirana</b>: ..."
+export const sayAs = (agent, text, extra) => send(`<b>${NAMA[agent] ?? agent}</b>: ${text}`, extra);
+
+// ---------- konten Shorts
+const head = (c) => {
+  const hari = DAYS[new Date(`${c.day}T00:00:00Z`).getUTCDay()];
+  return `🎬 <b>Shorts #${c.id}</b> · ${hari} ${c.day.slice(8)}/${c.day.slice(5, 7)} · ${SLOT_WIB} WIB${c.revisions ? ` · revisi ke-${c.revisions}` : ''}`;
+};
+const description = (c) => [c.caption, c.hashtags].filter(Boolean).join('\n\n');
+
+export async function newShort(p) {
+  if (!p.title || !p.spec?.scenes?.length) throw new Error('butuh title + spec.scenes');
+  for (const s of p.spec.scenes) if (!s.img || !s.vo || !s.sub) throw new Error('tiap adegan butuh img, vo, sub');
+  const missing = p.spec.scenes.map((s) => s.img).filter((f) => !existsSync(join(ROOT, f)));
+  if (missing.length) throw new Error(`gambar tidak ada (path relatif dari root repo): ${missing.join(', ')}`);
+  const d = await db();
+  const data = { ...p.spec, ...(p.tags ? { tags: p.tags } : {}), ...(p.synthetic ? { synthetic: true } : {}), ...(p.test ? { _test: 1 } : {}), _laptop: 1 };
+  const today = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Makassar' }).format(new Date());
+  const r = d.prepare("INSERT INTO contents (channel, day, slot, format, game, pillar, title, data_json, caption, hashtags, sources, template) VALUES ('youtube', ?, 'shorts', 'shorts', 'sejarah', 'misteri', ?, ?, ?, ?, ?, 'shorts')")
+    .run(p.day ?? today, String(p.title).slice(0, 100), JSON.stringify(data), p.caption ?? '', p.hashtags ?? '#Shorts #sejarah', p.sources ?? null);
+  const id = Number(r.lastInsertRowid);
+  act(d, 'yvideo', `Shorts #${id} "${p.title}" masuk antrean render laptop (OmniVoice)`);
+  return { ok: true, id, queued: 'laptop' };
+}
+
+export async function queue(id) {
+  const d = await db();
+  const c = getShort(d, id);
+  if (!c) throw new Error(`Shorts #${id} tidak ada`);
+  d.prepare("UPDATE contents SET data_json = json_remove(json_set(data_json, '$._laptop', 1), '$._err'), asset_path = NULL, updated_at = datetime('now') WHERE id = ?").run(id);
+  patchState((s) => { delete (s.notified ??= {})[`wait${id}`]; delete s.notified[`err${id}`]; });
+  return { ok: true, id, queued: 'laptop' };
+}
+
+const BUTTONS = (id) => ({ inline_keyboard: [[{ text: '✅ Upload', callback_data: `yok:${id}` }, { text: '✏️ Revisi', callback_data: `yrev:${id}` }, { text: '❌ Tolak', callback_data: `yno:${id}` }]] });
+export async function submit(id, { note = '' } = {}) {
+  const d = await db();
+  const c = getShort(d, id);
+  if (!c) throw new Error(`Shorts #${id} tidak ada`);
+  if (!c.asset_path) throw new Error(`Shorts #${id} belum dirender (antre laptop)`);
+  const A = JSON.parse(c.asset_path);
+  const data = dataOf(c);
+  await api('sendVideo', { chat_id: owner(), caption: head(c), parse_mode: 'HTML', supports_streaming: true, width: 1080, height: 1920, ...(data.duration ? { duration: Math.round(data.duration) } : {}) },
+    { video: join(ROOT, A.video), ...(A.cover && existsSync(join(ROOT, A.cover)) ? { thumbnail: join(ROOT, A.cover) } : {}) });
+  let text = [
+    `<b>${NAMA.ypublish}</b>: Bos, Shorts ini siap upload ke <b>Zataa Story</b> 👇`, '', head(c),
+    data.duration ? `⏱️ ${Math.round(data.duration)} dtk · mood ${esc(data.mood ?? 'misteri')}${data._test ? ' · <i>uji coba</i>' : ''}` : '',
+    note ? `🔁 <i>${esc(note)}</i>` : '', '',
+    `<b>Judul:</b> ${esc(c.title)}`, '', `<b>Deskripsi:</b>\n${esc(description(c) || '-')}`,
+    c.sources ? `\n<b>Sumber:</b> ${esc(c.sources)}` : '', '',
+    '✅ = langsung di-upload (masuk <b>Private</b> dulu, nanti aku ingetin ubah ke Publik). ✏️ Revisi lalu ketik catatannya (boleh reply pesan ini).',
+  ].filter((l, i, a) => l !== '' || a[i - 1] !== '').join('\n');
+  if (text.length > 4000) text = `${text.slice(0, 3990)}…`;
+  const m = await send(text, { reply_markup: BUTTONS(c.id) });
+  patchState((s) => { (s.msgs ??= {})[m.message_id] = c.id; s.msgs = Object.fromEntries(Object.entries(s.msgs).slice(-40)); });
+  d.prepare("UPDATE contents SET status = 'pending_approval', updated_at = datetime('now') WHERE id = ?").run(c.id);
+  act(d, 'ypublish', `Kirim Shorts #${c.id} ke Owner buat approval`);
+  return { ok: true, id: c.id, status: 'pending_approval' };
+}
+
+const remindText = (c) => `🔒 Shorts <b>#${c.id}</b> "${esc(c.title)}" masih <b>Private</b> di Zataa Story.
+🔗 https://youtube.com/shorts/${c.youtube_id}
+Bos, tolong ubah jadi <b>Publik</b> sendiri ya (jadwal tayang ${SLOT_WIB} WIB): YouTube Studio → Konten → video ini → Visibilitas → Publik.
+✏️ Studio: https://studio.youtube.com/video/${c.youtube_id}/edit
+Kalau udah publik, tekan tombol di bawah biar tim catat udah tayang.`;
+const PUB_BTN = (id) => ({ inline_keyboard: [[{ text: '✅ Sudah Publik', callback_data: `ypub:${id}` }]] });
+
+const run = (args, minutes = 20) => new Promise((ok) => execFile(process.execPath, args, { cwd: ROOT, timeout: minutes * 60_000, maxBuffer: 1 << 22 }, (e, so, se) => ok({ ok: !e, out: String(so).trim(), err: String(se || e?.message || '').trim() })));
+
+// upload YouTube (SELALU Private, aturan Owner) → simpan id → ingatkan Owner ubah ke Publik
+export async function upload(id) {
+  const d = await db();
+  const c = getShort(d, id);
+  if (!c) throw new Error(`Shorts #${id} tidak ada`);
+  if (c.youtube_id) return { ok: true, id, youtube_id: c.youtube_id, already: true };
+  if (!c.asset_path) throw new Error(`Shorts #${id} belum dirender`);
+  const data = dataOf(c);
+  const meta = { title: c.title, description: description(c), tags: data.tags ?? (c.hashtags ?? '').split(/\s+/).filter((t) => t.startsWith('#')).map((t) => t.slice(1)), synthetic: !!data.synthetic, privacy: 'private' };
+  const metaPath = join(ROOT, 'tmp', `shorts-meta-${id}.json`);
+  mkdirSync(dirname(metaPath), { recursive: true });
+  writeFileSync(metaPath, JSON.stringify(meta));
+  d.prepare("UPDATE contents SET status = 'uploading', updated_at = datetime('now') WHERE id = ?").run(id);
+  const r = await run(['scripts/youtube.mjs', 'upload', join(ROOT, JSON.parse(c.asset_path).video), metaPath]);
+  try { unlinkSync(metaPath); } catch { /* abaikan */ }
+  let res = null;
+  try { res = JSON.parse(r.out.split('\n').pop()); } catch { /* bukan JSON */ }
+  if (!r.ok || !res?.id) {
+    d.prepare("UPDATE contents SET status = 'upload_failed', updated_at = datetime('now') WHERE id = ?").run(id);
+    act(d, 'ypublish', `Upload Shorts #${id} gagal`);
+    throw new Error((r.err || r.out).split('\n').pop().slice(0, 300));
+  }
+  d.prepare("UPDATE contents SET status = 'uploaded', youtube_id = ?, asset_url = ?, updated_at = datetime('now') WHERE id = ?").run(res.id, res.url, id);
+  act(d, 'ypublish', `Upload Shorts #${id} ke Zataa Story (Private), nunggu Owner ubah ke Publik`);
+  return { ok: true, id, youtube_id: res.id, url: res.url, privacy: res.privacy };
+}
+
+async function approveAndUpload(id, log) {
+  const d = await db();
+  const c = getShort(d, id);
+  if (!c) return sayAs('ypublish', `Shorts #${id} nggak ketemu, Bos 🤔`);
+  if (c.youtube_id) return sayAs('ypublish', `Shorts #${id} udah ke-upload kok: https://youtube.com/shorts/${c.youtube_id}`, { reply_markup: PUB_BTN(id) });
+  if (!['pending_approval', 'upload_failed', 'approved'].includes(c.status)) return sayAs('ypublish', `Shorts #${id} statusnya "${esc(c.status)}", belum bisa di-upload.`);
+  d.prepare("UPDATE contents SET status = 'approved', updated_at = datetime('now') WHERE id = ?").run(id);
+  act(d, 'owner', `Approve Shorts #${id} ✅`);
+  await sayAs('ypublish', `Siap Bos! ⏫ Shorts #${id} lagi aku upload ke Zataa Story…`).catch(() => {});
+  try {
+    const r = await upload(id);
+    log(`shorts #${id} ke-upload: ${r.url}`);
+    await sayAs('ypublish', `✅ Udah ke-upload!\n${remindText(getShort(d, id))}`, { reply_markup: PUB_BTN(id) });
+    patchState((s) => { (s.remind ??= {})[id] = { n: 0, at: Date.now() }; });
+  } catch (e) {
+    log(`shorts #${id} upload gagal: ${e.message}`);
+    await sayAs('ypublish', `⚠️ Upload Shorts #${id} gagal: ${esc(e.message)}`, { reply_markup: { inline_keyboard: [[{ text: '🔁 Coba upload lagi', callback_data: `yok:${id}` }]] } });
+  }
+}
+
+async function markPublic(id) {
+  const d = await db();
+  const c = getShort(d, id);
+  if (!c?.youtube_id) return sayAs('ypublish', `Shorts #${id} belum di-upload, Bos.`);
+  if (c.status !== 'posted') {
+    d.prepare("UPDATE contents SET status = 'posted', posted_at = datetime('now'), updated_at = datetime('now') WHERE id = ?").run(id);
+    act(d, 'ypublish', `Shorts #${id} udah Publik di Zataa Story 🎉`);
+  }
+  patchState((s) => { delete (s.remind ??= {})[id]; });
+  return sayAs('ypublish', `Mantap Bos, Shorts #${id} dicatat udah tayang 🎉 Nanti aku pantau views-nya.\n🔗 https://youtube.com/shorts/${c.youtube_id}`);
+}
+
+// revisi: Claude CLI (tim YouTube) ubah naskah/visual/judul → render ulang di laptop (atau langsung kirim kalau cuma judul/deskripsi)
+const NO_RENDER = '[[TANPA_RENDER]]';
+async function revise(id, note, log) {
+  const d = await db();
+  const c = getShort(d, id);
+  if (!c) return;
+  d.prepare("UPDATE contents SET status = 'revision', owner_note = ?, revisions = revisions + 1, updated_at = datetime('now') WHERE id = ?").run(note, id);
+  act(d, 'owner', `Minta revisi Shorts #${id}: ${note}`);
+  await sayAs('yscript', `🛠️ Siap Bos, revisi Shorts #${id} lagi dikerjain…`).catch(() => {});
+  const r = await claude(`Kamu tim YouTube Shorts Zataa Story (sejarah misteri kuno) di folder ini. Owner minta REVISI Shorts #${id}:
+"${note}"
+
+Langkah:
+1. Baca office/youtube.md, lalu playbook yang kepakai: office/roles/yscript.md (naskah), yvisual.md (gambar), ypublish.md (judul/deskripsi).
+2. node scripts/shorts-bot.mjs get ${id}
+3. Ubah seperlunya (tulis JSON ke file sementara di tmp/ lalu: node scripts/shorts-bot.mjs set ${id} <file.json>; kunci: title, caption, hashtags, sources, data_json = spec render lengkap { voice, speed, tag, mood, scenes[{img, vo, sub, place?, credit?, move?}] }).
+   Path img relatif dari root repo (mis. assets/shorts/<topik>/s1.jpg). Durasi 40–59 dtk (6–7 adegan, 75–95 kata narasi). Aturan fakta/teori/mitos & kredit visual tetap berlaku.
+4. JANGAN render (render OmniVoice jalan otomatis di laptop), jangan kirim Telegram, jangan ubah konten lain.
+Kalau yang diubah cuma judul/deskripsi/hashtag (naskah & gambar tetap), tulis persis ${NO_RENDER} di baris terakhir sebelum ringkasan.
+Akhiri dengan SATU kalimat ringkas (santai) tentang apa yang diubah.`, 20);
+  if (!r.ok) {
+    log(`revisi shorts #${id} gagal: ${r.text.slice(0, 200)}`);
+    return sayAs('yscript', `⚠️ Revisi Shorts #${id} belum bisa dikerjain otomatis (${esc(r.text.slice(0, 150))}). Dilanjut di sesi harian.`).catch(() => {});
+  }
+  const summary = r.text.split('\n').filter((l) => l.trim() && !l.includes(NO_RENDER)).pop() ?? '';
+  act(d, 'yscript', `Revisi Shorts #${id} kelar: ${summary.slice(0, 120)}`);
+  if (r.text.includes(NO_RENDER) && getShort(d, id).asset_path) {
+    await submit(id, { note: `Hasil revisi: ${summary}` }).catch((e) => sayAs('ypublish', `⚠️ Gagal kirim ulang #${id}: ${esc(e.message)}`));
+  } else {
+    await queue(id);
+    await sayAs('yvideo', `🎙️ Revisi #${id} kelar (${esc(summary.slice(0, 200))}). Videonya dirender ulang di laptop (suara OmniVoice), nanti Kirana kirim lagi ke sini.`).catch(() => {});
+  }
+  log(`revisi shorts #${id} beres`);
+}
+
+async function reject(id) {
+  const d = await db();
+  d.prepare("UPDATE contents SET status = 'rejected', updated_at = datetime('now') WHERE id = ? AND channel = 'youtube'").run(id);
+  act(d, 'owner', `Tolak Shorts #${id}`);
+  return sayAs('ydir', `Oke Bos, Shorts #${id} nggak dipakai. Aku catat buat evaluasi tim 👍`);
+}
+
+async function statusText() {
+  const d = await db();
+  const rows = d.prepare("SELECT id, day, title, status, youtube_id, json_extract(data_json, '$._laptop') lap FROM contents WHERE channel = 'youtube' AND day >= date('now', '-7 days') ORDER BY day, id").all();
+  const ST = { draft: 'draft', revision: 'revisi', pending_approval: 'nunggu ✅ Bos', approved: 'mau di-upload', uploading: 'lagi upload', uploaded: 'Private, nunggu Bos ubah Publik', upload_failed: 'upload gagal', posted: 'tayang', rejected: 'ditolak' };
+  const lap = { 1: '⏳ antre render laptop', 2: '🎙️ lagi dirender di laptop', 3: '⚠️ render gagal' };
+  if (!rows.length) return `<b>${NAMA.ydir}</b>: Belum ada Shorts minggu ini, Bos. Produksi Rabu–Minggu, 1 per hari (tayang ${SLOT_WIB} WIB).`;
+  return `<b>${NAMA.ydir}</b>: Rekap Shorts 7 hari terakhir:\n${rows.map((r) => `• #${r.id} ${r.day.slice(8)}/${r.day.slice(5, 7)} ${esc(r.title)} — ${lap[r.lap] ?? ST[r.status] ?? r.status}`).join('\n')}`;
+}
+
+// pesan bebas Owner → Claude CLI sebagai tim YouTube
+async function talk(msg, log) {
+  const r = await claude(`Kamu tim YouTube Shorts "Zataa Story" (sejarah misteri kuno) di folder ini, ngobrol dengan Owner (Bos Zamiir) lewat bot Telegram @zataashortbot.
+Pesan Owner: "${msg}"
+Tim: Bagas (ydir, Manajer YouTube), Nadhira (yresearch, riset), Laras (yscript, naskah + cek fakta), Galih (yvisual, visual berlisensi), Yoga (yvideo, render + VO), Kirana (ypublish, upload & SEO).
+SOP & cara kerja: office/youtube.md (baca kalau perlu). Data Shorts: node scripts/shorts-bot.mjs list. Jangan ngarang angka views.
+Tugas (mis. bikin Shorts baru / ganti topik): kerjakan sesuai office/youtube.md (new → render otomatis di laptop → Kirana kirim ke sini). Jangan kirim Telegram sendiri.
+Urusan marketing top up / IG / trading / keuangan → tulis persis ${ESCALATE} lalu berhenti.
+Akhiri dengan baris "BALASAN:" lalu 1–3 baris, TIAP baris diawali nama pegawai: "Nama: pesan". Santai, sopan.`, 25);
+  if (r.ok && r.text.includes(ESCALATE)) return sayAs('ydir', 'Itu urusan kantor marketing/trading, Bos 🙏 Kirim ke bot Zataa Office ya. Di sini khusus YouTube Shorts.');
+  if (!r.ok) { log(`bot shorts: claude gagal ${r.text.slice(0, 200)}`); return sayAs('ydir', '⚠️ Maaf Bos, lagi error. Coba lagi bentar ya.'); }
+  return send(formatReply(r.text, 'ydir'));
+}
+
+// ---------- jadwal (0 token, tiap menit): pengingat Publik + jaga antrean laptop
+async function runJobs(log) {
+  const d = await db();
+  const s = state();
+  const notified = (s.notified ??= {});
+  const remind = (s.remind ??= {});
+  const t = wita(new Date());
+  // klaim laptop macet >60 mnt (laptop mati di tengah render) → antre lagi
+  d.prepare("UPDATE contents SET data_json = json_set(data_json, '$._laptop', 1) WHERE channel = 'youtube' AND json_extract(data_json, '$._laptop') = 2 AND updated_at < datetime('now', '-60 minutes')").run();
+  for (const c of d.prepare("SELECT id, title, updated_at, json_extract(data_json, '$._laptop') lap, json_extract(data_json, '$._err') err FROM contents WHERE channel = 'youtube' AND status IN ('draft', 'revision') AND json_extract(data_json, '$._laptop') IN (1, 3)").all()) {
+    if (c.lap === 3 && !notified[`err${c.id}`]) {
+      notified[`err${c.id}`] = 1;
+      await sayAs('yvideo', `⚠️ Render Shorts #${c.id} "${esc(c.title)}" di laptop gagal: ${esc(String(c.err ?? '').slice(0, 300))}\nNanti dibenerin tim di sesi berikutnya, atau balas di sini kalau mau ubah sesuatu.`).catch(() => {});
+      log(`shorts #${c.id}: render laptop gagal, Owner dikabari`);
+    }
+    if (c.lap === 1 && !notified[`wait${c.id}`] && new Date(`${c.updated_at.replace(' ', 'T')}Z`) < Date.now() - 3 * 3600e3) {
+      notified[`wait${c.id}`] = 1;
+      await sayAs('yvideo', `💻 Shorts #${c.id} "${esc(c.title)}" udah 3 jam nunggu laptop nyala buat render suara OmniVoice, Bos. Begitu laptop on, otomatis aku render & kirim ke sini.`).catch(() => {});
+    }
+  }
+  // Private → Publik: ingatkan lagi di jam tayang (18:00 WIB = 19:00 WITA) lalu tiap pagi 09:00 WITA, maks 3×
+  for (const c of d.prepare("SELECT * FROM contents WHERE channel = 'youtube' AND status = 'uploaded' AND youtube_id IS NOT NULL").all()) {
+    const r = (remind[c.id] ??= { n: 0 });
+    const slotDue = r.n === 0 && Date.now() >= Math.max(new Date(`${c.day}T${SLOT_WIB}:00+07:00`).getTime(), (r.at ?? 0) + 2 * 3600e3);
+    const morningDue = r.n > 0 && r.n < 3 && r.last !== t.date && t.minutes >= 9 * 60 && t.minutes < 12 * 60;
+    if (!slotDue && !morningDue) continue;
+    r.n += 1; r.last = t.date;
+    await sayAs('ypublish', `⏰ Pengingat ${r.n}/3\n${remindText(c)}`, { reply_markup: PUB_BTN(c.id) }).catch(() => {});
+    log(`shorts #${c.id}: pengingat Publik ${r.n}/3`);
+  }
+  saveState({ ...state(), notified, remind });
+}
+
+// antrean kerja panjang (upload/revisi/obrolan Claude) satu per satu, polling tetap jalan
+let chain = Promise.resolve();
+const later = (fn, log) => { chain = chain.then(fn).catch((e) => log(`bot shorts: ${e.message}`)); };
+
+export async function startShortsBot(log = console.log) {
+  const env = loadEnv();
+  if (!env.SHORTS_BOT_TOKEN || !env.SHORTS_OWNER_ID) return log('bot shorts: SHORTS_BOT_TOKEN/SHORTS_OWNER_ID kosong, dilewati');
+  await db(); // pastikan kolom channel/youtube_id ada
+  let offset = 0, fails = 0;
+  log('bot YouTube Shorts (@zataashortbot) jalan');
+  setInterval(() => runJobs(log).catch((e) => log(`bot shorts jobs: ${e.message}`)), 60_000);
+  for (;;) {
+    let ups = [];
+    try { ups = await api('getUpdates', { offset, timeout: 50, allowed_updates: ['message', 'callback_query'] }); fails = 0; } catch (e) {
+      if (++fails >= 3) log(`bot shorts: ${e.message}${e.cause ? ` (${e.cause.code ?? e.cause.message})` : ''} ×${fails}`);
+      await new Promise((r) => setTimeout(r, fails < 3 ? 2_000 : 15_000));
+      continue;
+    }
+    for (const u of ups) {
+      offset = u.update_id + 1;
+      try { await handle(u, log); } catch (e) { log(`bot shorts gagal: ${e.message}`); }
+    }
+  }
+}
+
+async function handle(u, log) {
+  const me = String(owner());
+  if (u.callback_query) {
+    const q = u.callback_query;
+    if (String(q.from.id) !== me) return;
+    const [kind, sid] = String(q.data).split(':');
+    const id = +sid;
+    await api('answerCallbackQuery', { callback_query_id: q.id }).catch(() => {});
+    const clear = () => api('editMessageReplyMarkup', { chat_id: q.message.chat.id, message_id: q.message.message_id, reply_markup: { inline_keyboard: [] } }).catch(() => {});
+    if (kind === 'yok') { await clear(); later(() => approveAndUpload(id, log), log); }
+    else if (kind === 'yno') { await clear(); await reject(id); }
+    else if (kind === 'ypub') { await clear(); await markPublic(id); }
+    else if (kind === 'yrev') {
+      patchState((s) => { s.awaitRev = id; });
+      await sayAs('yscript', `✏️ Ketik catatan revisi buat Shorts #${id} ya, Bos (naskah, gambar, judul, apa aja).`, { reply_markup: { force_reply: true } });
+    }
+    return;
+  }
+  const m = u.message;
+  if (!m || String(m.chat.id) !== me) return; // selain Owner: abaikan
+  const text = (m.text ?? m.caption ?? '').trim();
+  if (!text) return;
+  const s = state();
+  const replyId = s.msgs?.[m.reply_to_message?.message_id];
+  if (/^\/start\b/.test(text)) return sayAs('ydir', `Halo Bos 👋 Ini bot tim YouTube Shorts <b>Zataa Story</b>. Tiap Rabu–Minggu Kirana kirim Shorts ke sini buat di-✅. Setelah ✅ langsung di-upload (Private dulu), nanti diingetin ubah ke Publik. Ketik "status" buat rekap.`);
+  if (s.awaitRev || replyId) {
+    const id = s.awaitRev ?? replyId;
+    patchState((x) => { delete x.awaitRev; });
+    return later(() => revise(id, text, log), log);
+  }
+  if (isStatusQuestion(text) || /^\/?(status|rekap)$/i.test(text)) return send(await statusText());
+  const d = await db();
+  if (/\blangsung\s+(post|posting|upload|tayang)/i.test(text)) { // "langsung post" = approval
+    const p = d.prepare("SELECT id FROM contents WHERE channel = 'youtube' AND status IN ('pending_approval', 'upload_failed') ORDER BY id DESC").all();
+    const pick = (text.match(/#?(\d+)/)?.[1] && p.find((r) => r.id === +text.match(/#?(\d+)/)[1])) || (p.length === 1 ? p[0] : null);
+    if (pick) return later(() => approveAndUpload(pick.id, log), log);
+  }
+  if (/\b(udah|sudah|dah)\b.*\bpubli[ck]/i.test(text)) {
+    const p = d.prepare("SELECT id FROM contents WHERE channel = 'youtube' AND status = 'uploaded' ORDER BY id").all();
+    const pick = (text.match(/#(\d+)/)?.[1] && p.find((r) => r.id === +text.match(/#(\d+)/)[1])) || (p.length === 1 ? p[0] : null);
+    if (pick) return markPublic(pick.id);
+  }
+  await api('sendChatAction', { chat_id: me, action: 'typing' }).catch(() => {});
+  later(() => talk(text, log), log);
+}
+
+// ---------- CLI
+const isMain = process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1];
+if (isMain) {
+  const [cmd, a, b] = process.argv.slice(2);
+  const json = (x) => JSON.parse(existsSync(x) ? readFileSync(x, 'utf8') : x);
+  try {
+    if (cmd === 'new') out(await newShort(json(a)));
+    else if (cmd === 'get') out((await db()).prepare("SELECT * FROM contents WHERE id = ? AND channel = 'youtube'").get(+a) ?? null);
+    else if (cmd === 'set') {
+      const d = await db();
+      if (!getShort(d, +a)) throw new Error(`Shorts #${a} tidak ada`);
+      // data_json baru = spec render; tanda internal (_test, _laptop, durasi) dibawa dari yang lama
+      const keep = Object.fromEntries(Object.entries(dataOf(getShort(d, +a))).filter(([k]) => k.startsWith('_') || k === 'duration'));
+      for (const [k, v] of Object.entries(json(b))) {
+        if (!['title', 'caption', 'hashtags', 'sources', 'data_json', 'day', 'status'].includes(k)) continue;
+        const val = k === 'data_json' ? JSON.stringify({ ...(typeof v === 'string' ? JSON.parse(v) : v), ...keep }) : v;
+        d.prepare(`UPDATE contents SET ${k} = ?, updated_at = datetime('now') WHERE id = ?`).run(val, +a);
+      }
+      out('ok');
+    } else if (cmd === 'list') {
+      out((await db()).prepare("SELECT id, day, title, status, youtube_id, json_extract(data_json, '$._laptop') laptop FROM contents WHERE channel = 'youtube' AND day >= ? ORDER BY day, id").all(a ?? new Date(Date.now() - 14 * 864e5).toISOString().slice(0, 10)));
+    } else if (cmd === 'queue') out(await queue(+a));
+    else if (cmd === 'submit') out(await submit(+a));
+    else if (cmd === 'upload') {
+      const r = await upload(+a);
+      const c = getShort(await db(), +a);
+      if (!r.already) { await sayAs('ypublish', `✅ Udah ke-upload!\n${remindText(c)}`, { reply_markup: PUB_BTN(+a) }); patchState((s) => { (s.remind ??= {})[+a] = { n: 0, at: Date.now() }; }); }
+      out(r);
+    } else if (cmd === 'say') { await sayAs(a, esc(b)); out('ok'); }
+    else out('pakai: shorts-bot.mjs new <file.json> | get <id> | set <id> <json|file> | list [dari] | queue <id> | submit <id> | upload <id> | say <agent> "<teks>"');
+  } catch (e) { out(`gagal: ${e.message}`); process.exit(1); }
+}

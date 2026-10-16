@@ -1,7 +1,8 @@
-// Pekerja laptop: ambil antrean video bersuara OmniVoice dari VPS → render-laptop.mjs <id> --submit.
+// Pekerja laptop: ambil antrean video bersuara OmniVoice dari VPS → render-laptop.mjs <id> --submit (video Marketing)
+// atau shorts-laptop.mjs <id> --submit (YouTube Shorts, channel 'youtube').
 // Dijalankan Task Scheduler Windows tiap 10 menit (scripts/laptop-worker.vbs, tanpa jendela).
 //   node scripts/laptop-worker.mjs           # 1 putaran
-// Antrean = video draft/revision yang ditandai render.mjs VPS (data_json._laptop = 1).
+// Antrean = konten draft/revision bertanda data_json._laptop = 1 (video: render.mjs VPS, Shorts: shorts-bot.mjs new/queue).
 import { spawnSync } from 'node:child_process';
 import { openSync, closeSync, unlinkSync, statSync, appendFileSync, mkdirSync } from 'node:fs';
 import { tmpdir } from 'node:os';
@@ -21,15 +22,18 @@ let fd;
 try { fd = openSync(LOCK, 'wx'); } catch { process.exit(0); }
 try {
   const q = vps('node --no-warnings --input-type=module -', `const { DatabaseSync } = await import('node:sqlite'); const db = new DatabaseSync('db/office.db');
-    console.log(JSON.stringify(db.prepare("SELECT id FROM contents WHERE format = 'video' AND status IN ('draft', 'revision') AND json_extract(data_json, '$._laptop') = 1 ORDER BY day, id").all().map((r) => r.id)));`);
+    let yt = ''; try { db.prepare('SELECT channel FROM contents LIMIT 1').get(); yt = "OR channel = 'youtube'"; } catch {}
+    console.log(JSON.stringify(db.prepare("SELECT id, format FROM contents WHERE (format = 'video' " + yt + ") AND status IN ('draft', 'revision') AND json_extract(data_json, '$._laptop') = 1 ORDER BY day, id").all()));`);
   if (q.status !== 0) { log(`VPS tidak terjangkau: ${(q.stderr || '').trim().slice(-150)}`); process.exit(0); }
-  for (const id of JSON.parse(q.stdout.trim() || '[]')) {
-    log(`render #${id}`);
-    const r = spawnSync(process.execPath, [join(ROOT, 'scripts', 'render-laptop.mjs'), String(id), '--submit'], { encoding: 'utf8' });
+  for (const { id, format } of JSON.parse(q.stdout.trim() || '[]')) {
+    const shorts = format === 'shorts';
+    log(`render ${shorts ? 'shorts ' : ''}#${id}`);
+    const r = spawnSync(process.execPath, [join(ROOT, 'scripts', shorts ? 'shorts-laptop.mjs' : 'render-laptop.mjs'), String(id), '--submit'], { encoding: 'utf8' });
     const ok = r.status === 0;
     log(ok ? `selesai #${id}: ${r.stdout.trim().slice(-300)}` : `gagal #${id}: ${(r.stderr || r.stdout).trim().slice(-300)}`);
-    const msg = ok ? `Video #${id} dirender di laptop (suara OmniVoice) & dikirim ke Owner` : `Render laptop video #${id} gagal, cek logs/laptop-worker.log di laptop`;
-    vps(`node scripts/office.mjs log video ${JSON.stringify(msg)}`);
+    const what = shorts ? 'Shorts' : 'video';
+    const msg = ok ? `${what} #${id} dirender di laptop (suara OmniVoice) & dikirim ke Owner` : `Render laptop ${what} #${id} gagal, cek logs/laptop-worker.log di laptop`;
+    vps(`node scripts/office.mjs log ${shorts ? 'yvideo' : 'video'} ${JSON.stringify(msg)}`);
   }
 } finally {
   closeSync(fd);
