@@ -8,6 +8,7 @@
 //   node scripts/publish.mjs ig-page-token    ganti User token (sudah di-extend) → Page token permanen
 //   node scripts/publish.mjs tiktok-login     cetak link login TikTok (sekali saja)
 //   node scripts/publish.mjs tiktok-code <url-atau-code>   tukar code hasil login → token disimpan ke .env
+//   node scripts/publish.mjs tiktok-draft <id|file.mp4>     kirim video ke inbox TikTok sebagai draf (Owner posting dari app)
 process.removeAllListeners('warning');
 import { existsSync, statSync, writeFileSync } from 'node:fs';
 import { open } from 'node:fs/promises';
@@ -124,14 +125,50 @@ async function tt(path, body) {
   return j.data;
 }
 // opts dari Zataa Studio (docs/studio.html): pilihan Owner per post sesuai aturan UX Direct Post TikTok
+// aturan chunk TikTok: ≤64MB boleh 1 chunk; selebihnya potong 10MB, sisa digabung ke chunk terakhir
+function ttChunks(file) {
+  const size = statSync(file).size;
+  const MB = 1024 * 1024;
+  const chunk = size <= 64 * MB ? size : 10 * MB;
+  return { size, chunk, count: size <= 64 * MB ? 1 : Math.floor(size / chunk) };
+}
+async function ttUpload(file, upload_url, { size, chunk, count }) {
+  const fh = await open(file, 'r');
+  try {
+    for (let i = 0; i < count; i++) {
+      const start = i * chunk;
+      const end = i === count - 1 ? size - 1 : start + chunk - 1;
+      const buf = Buffer.alloc(end - start + 1);
+      await fh.read(buf, 0, buf.length, start);
+      const r = await fetch(upload_url, { method: 'PUT', body: buf, headers: { 'Content-Type': 'video/mp4', 'Content-Range': `bytes ${start}-${end}/${size}` } });
+      if (!r.ok && r.status !== 206) throw new Error(`TikTok upload chunk ${i + 1}/${count}: HTTP ${r.status}`);
+    }
+  } finally { await fh.close(); }
+}
+
+// Draf ke inbox TikTok (scope video.upload): video masuk notifikasi inbox di app TikTok, Owner sendiri yang edit & posting
+// (privasi dipilih Owner di app). Dipakai karena app untuk akun sendiri tidak bisa lolos audit Direct Post TikTok.
+export async function draftTikTok(A) {
+  if (!A.video) throw new Error('TikTok cuma untuk video');
+  const file = join(ROOT, A.video);
+  const sz = ttChunks(file);
+  const { publish_id, upload_url } = await tt('post/publish/inbox/video/init/', {
+    source_info: { source: 'FILE_UPLOAD', video_size: sz.size, chunk_size: sz.chunk, total_chunk_count: sz.count },
+  });
+  await ttUpload(file, upload_url, sz);
+  for (let i = 0; i < 30; i++) {
+    const s = await tt('post/publish/status/fetch/', { publish_id });
+    if (s.status === 'SEND_TO_USER_INBOX' || s.status === 'PUBLISH_COMPLETE') return { publish_id, status: s.status };
+    if (s.status === 'FAILED') throw new Error(`TikTok draf gagal: ${s.fail_reason}`);
+    await sleep(10_000);
+  }
+  return { publish_id, status: 'PROCESSING' };
+}
+
 async function postTikTok(c, A, caption, opts = {}) {
   if (!A.video) throw new Error('TikTok cuma untuk video');
   const file = join(ROOT, A.video);
-  const size = statSync(file).size;
-  const MB = 1024 * 1024;
-  // aturan chunk TikTok: ≤64MB boleh 1 chunk; selebihnya potong 10MB, sisa digabung ke chunk terakhir
-  const chunk = size <= 64 * MB ? size : 10 * MB;
-  const count = size <= 64 * MB ? 1 : Math.floor(size / chunk);
+  const { size, chunk, count } = ttChunks(file);
   const info = await tt('post/publish/creator_info/query/');
   const privacy = opts.privacy ?? (info.privacy_level_options?.includes('SELF_ONLY') ? 'SELF_ONLY' : info.privacy_level_options?.[0]);
   if (!info.privacy_level_options?.includes(privacy)) throw new Error(`TikTok: privacy ${privacy} tidak tersedia untuk akun ini`);
@@ -146,17 +183,7 @@ async function postTikTok(c, A, caption, opts = {}) {
     },
     source_info: { source: 'FILE_UPLOAD', video_size: size, chunk_size: chunk, total_chunk_count: count },
   });
-  const fh = await open(file, 'r');
-  try {
-    for (let i = 0; i < count; i++) {
-      const start = i * chunk;
-      const end = i === count - 1 ? size - 1 : start + chunk - 1;
-      const buf = Buffer.alloc(end - start + 1);
-      await fh.read(buf, 0, buf.length, start);
-      const r = await fetch(upload_url, { method: 'PUT', body: buf, headers: { 'Content-Type': 'video/mp4', 'Content-Range': `bytes ${start}-${end}/${size}` } });
-      if (!r.ok && r.status !== 206) throw new Error(`TikTok upload chunk ${i + 1}/${count}: HTTP ${r.status}`);
-    }
-  } finally { await fh.close(); }
+  await ttUpload(file, upload_url, { size, chunk, count });
   for (let i = 0; i < 60; i++) {
     const s = await tt('post/publish/status/fetch/', { publish_id });
     if (s.status === 'PUBLISH_COMPLETE') return s.publicaly_available_post_id?.[0] ?? publish_id;
@@ -354,6 +381,10 @@ if (isMain) {
       const code = a?.includes('code=') ? new URL(a).searchParams.get('code') : a;
       await tiktokOAuth({ grant_type: 'authorization_code', code, redirect_uri: env().TIKTOK_REDIRECT_URI });
       out('ok: token TikTok disimpan ke .env (auto-refresh, berlaku ±1 tahun)');
+    } else if (cmd === 'tiktok-draft') { // a = id konten (pakai video render-nya) atau path mp4
+      let A = { video: a };
+      if (/^\d+$/.test(a)) { const c = (await db()).prepare('SELECT asset_path FROM contents WHERE id = ?').get(+a); if (!c?.asset_path) throw new Error(`konten ${a} belum dirender`); A = JSON.parse(c.asset_path); }
+      out(await draftTikTok(A));
     } else if (cmd === 'tiktok-export') { const x = await tiktokExport(); out({ connected: x.connected, user: x.creator?.username, videos: x.videos.length }); }
     else out('pakai: publish.mjs due | now <id> | ig-check | tiktok-setup | tiktok-login | tiktok-code <url> | tiktok-export');
   } catch (e) { out(`gagal: ${e.message}`); process.exit(1); }
