@@ -27,6 +27,10 @@ const STATE = join(ROOT, 'tmp', 'shorts-bot.json');
 const DAYS = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
 const SLOT_WIB = '18:00'; // default; jam tayang per Shorts (hasil riset harian Kirana) di data_json._jam
 const jamOf = (c) => { try { return JSON.parse(c.data_json ?? '{}')._jam ?? SLOT_WIB; } catch { return SLOT_WIB; } };
+// visibilitas pilihan Owner (data_json._privacy). Sebelum project API lolos audit YouTube semua upload tetap terkunci Private;
+// setelah lolos, set YT_AUDITED=1 di .env → default Publik.
+const PRIV = { public: 'Publik', unlisted: 'Unlisted', private: 'Private' };
+const privOf = (c) => { try { const p = JSON.parse(c.data_json ?? '{}')._privacy; if (PRIV[p]) return p; } catch { /* default */ } return loadEnv().YT_AUDITED === '1' ? 'public' : 'private'; };
 const JAM = /^([01]\d|2[0-3]):[0-5]\d$/;
 const esc = (s) => String(s ?? '').replace(/[&<>]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' })[c]);
 const out = (o) => console.log(typeof o === 'string' ? o : JSON.stringify(o));
@@ -115,6 +119,7 @@ export async function submit(id, { note = '' } = {}) {
     `<b>${NAMA.ypublish}</b>: Bos, Shorts ini siap upload ke <b>Zataa Story</b> 👇`, '', head(c),
     data.duration ? `⏱️ ${Math.round(data.duration)} dtk · mood ${esc(data.mood ?? 'misteri')}${data._test ? ' · <i>uji coba</i>' : ''}` : '',
     note ? `🔁 <i>${esc(note)}</i>` : '', '',
+    `👁️ Visibilitas: <b>${PRIV[privOf(c)]}</b> (ganti: ketik "publik #${c.id}" / "unlisted #${c.id}" / "private #${c.id}")`,
     `<b>Judul:</b> ${esc(c.title)}`, '', `<b>Deskripsi:</b>\n${esc(description(c) || '-')}`,
     c.sources ? `\n<b>Sumber:</b> ${esc(c.sources)}` : '', '',
     `✅ = di-upload otomatis pas jam tayang (${jamOf(c)} WIB, masuk <b>Private</b> dulu, nanti aku ingetin ubah ke Publik). ✏️ Revisi lalu ketik catatannya (boleh reply pesan ini). ❌ = tim bikin konten pengganti.`,
@@ -144,7 +149,7 @@ export async function upload(id) {
   if (c.youtube_id) return { ok: true, id, youtube_id: c.youtube_id, already: true };
   if (!c.asset_path) throw new Error(`Shorts #${id} belum dirender`);
   const data = dataOf(c);
-  const meta = { title: c.title, description: description(c), tags: data.tags ?? (c.hashtags ?? '').split(/\s+/).filter((t) => t.startsWith('#')).map((t) => t.slice(1)), synthetic: !!data.synthetic, privacy: 'private' };
+  const meta = { title: c.title, description: description(c), tags: data.tags ?? (c.hashtags ?? '').split(/\s+/).filter((t) => t.startsWith('#')).map((t) => t.slice(1)), synthetic: !!data.synthetic, privacy: privOf(c) };
   const metaPath = join(ROOT, 'tmp', `shorts-meta-${id}.json`);
   mkdirSync(dirname(metaPath), { recursive: true });
   writeFileSync(metaPath, JSON.stringify(meta));
@@ -189,8 +194,15 @@ async function doUpload(id, log) {
   try {
     const r = await upload(id);
     log(`shorts #${id} ke-upload: ${r.url}`);
-    await sayAs('ypublish', `✅ Udah ke-upload!\n${remindText(getShort(d, id))}`, { reply_markup: PUB_BTN(id) });
-    patchState((s) => { (s.remind ??= {})[id] = { n: 0, at: Date.now() }; });
+    if (r.privacy === 'public') { // lolos audit: langsung tayang, nggak perlu diingetin
+      d.prepare("UPDATE contents SET status = 'posted', posted_at = datetime('now'), updated_at = datetime('now') WHERE id = ?").run(id);
+      await sayAs('ypublish', `🎉 Shorts #${id} udah tayang Publik di Zataa Story!\n🔗 ${r.url}`);
+    } else if (r.privacy === 'unlisted' || (r.privacy === 'private' && privOf(getShort(d, id)) === 'private' && loadEnv().YT_AUDITED === '1')) {
+      await sayAs('ypublish', `✅ Shorts #${id} ke-upload sebagai <b>${PRIV[r.privacy]}</b> sesuai pilihan Bos.\n🔗 ${r.url}`);
+    } else {
+      await sayAs('ypublish', `✅ Udah ke-upload!\n${remindText(getShort(d, id))}`, { reply_markup: PUB_BTN(id) });
+      patchState((s) => { (s.remind ??= {})[id] = { n: 0, at: Date.now() }; });
+    }
   } catch (e) {
     log(`shorts #${id} upload gagal: ${e.message}`);
     await sayAs('ypublish', `⚠️ Upload Shorts #${id} gagal: ${esc(e.message)}`, { reply_markup: { inline_keyboard: [[{ text: '🔁 Coba upload lagi', callback_data: `yok:${id}` }]] } });
@@ -399,6 +411,14 @@ async function handle(u, log) {
     const p = d.prepare("SELECT id FROM contents WHERE channel = 'youtube' AND status IN ('pending_approval', 'upload_failed') ORDER BY id DESC").all();
     const pick = (text.match(/#?(\d+)/)?.[1] && p.find((r) => r.id === +text.match(/#?(\d+)/)[1])) || (p.length === 1 ? p[0] : null);
     if (pick) return later(() => approve(pick.id, log, { now: true }), log);
+  }
+  const vis = text.match(/^(publik|public|unlisted|private|privat)\s*#?(\d+)?$/i);
+  if (vis) { // pilih visibilitas Shorts (default: yang lagi nunggu ✅ / jam tayang)
+    const p = { publik: 'public', public: 'public', unlisted: 'unlisted', private: 'private', privat: 'private' }[vis[1].toLowerCase()];
+    const c = vis[2] ? getShort(d, +vis[2]) : d.prepare("SELECT * FROM contents WHERE channel = 'youtube' AND status IN ('pending_approval', 'approved') ORDER BY day, id LIMIT 1").get();
+    if (!c || c.youtube_id) return sayAs('ypublish', c ? `Shorts #${c.id} udah ke-upload, ubah visibilitasnya di YouTube Studio ya Bos.` : 'Nggak ada Shorts yang nunggu upload, Bos.');
+    d.prepare("UPDATE contents SET data_json = json_set(data_json, '$._privacy', ?), updated_at = datetime('now') WHERE id = ?").run(p, c.id);
+    return sayAs('ypublish', `Siap, Shorts #${c.id} nanti di-upload sebagai <b>${PRIV[p]}</b>.${loadEnv().YT_AUDITED === '1' ? '' : ' (Selama project API belum lolos audit YouTube, hasil upload tetap terkunci Private.)'}`);
   }
   if (/\b(udah|sudah|dah)\b.*\bpubli[ck]/i.test(text)) {
     const p = d.prepare("SELECT id FROM contents WHERE channel = 'youtube' AND status = 'uploaded' ORDER BY id").all();
