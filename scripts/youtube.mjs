@@ -2,6 +2,7 @@
 // YouTube Data API untuk divisi Shorts (Kirana). Kredensial di .env: YT_CLIENT_ID, YT_CLIENT_SECRET, YT_REFRESH_TOKEN.
 //   node scripts/youtube.mjs auth                      izin sekali dari akun channel (buka link di browser, laptop) → cetak refresh token
 //   node scripts/youtube.mjs whoami                    cek channel yang tersambung
+//   node scripts/youtube.mjs stats                     statistik channel + per video (subs, views, likes) dalam JSON
 //   node scripts/youtube.mjs upload <mp4> <meta.json>  upload Shorts (meta: { title, description, tags[], synthetic?, privacy? })
 // Catatan: project API yang belum diaudit YouTube → video yang di-upload lewat API otomatis Private (Owner ubah ke Publik di YouTube Studio).
 import { createServer } from 'node:http';
@@ -43,6 +44,28 @@ if (cmd === 'auth') {
   const r = await fetch('https://www.googleapis.com/youtube/v3/channels?part=snippet,statistics&mine=true', { headers: { Authorization: `Bearer ${await token()}` } });
   const c = (await r.json()).items?.[0];
   console.log(c ? JSON.stringify({ id: c.id, title: c.snippet.title, handle: c.snippet.customUrl, subscribers: c.statistics.subscriberCount, videos: c.statistics.videoCount }) : 'tidak ada channel di akun ini');
+} else if (cmd === 'stats') {
+  // statistik channel + semua video di playlist upload (termasuk Private, pakai token pemilik) → laporan harian Kirana
+  const H = { headers: { Authorization: `Bearer ${await token()}` } };
+  const get = async (u) => { const r = await fetch(`https://www.googleapis.com/youtube/v3/${u}`, H); const j = await r.json(); if (j.error) throw new Error(j.error.message); return j; };
+  const c = (await get('channels?part=statistics,contentDetails&mine=true')).items?.[0];
+  if (!c) throw new Error('tidak ada channel di akun ini');
+  const ids = [];
+  let page = '';
+  do {
+    const p = await get(`playlistItems?part=contentDetails&maxResults=50&playlistId=${c.contentDetails.relatedPlaylists.uploads}${page ? `&pageToken=${page}` : ''}`);
+    ids.push(...p.items.map((i) => i.contentDetails.videoId));
+    page = p.nextPageToken;
+  } while (page && ids.length < 500);
+  const videos = [];
+  for (let i = 0; i < ids.length; i += 50) {
+    const v = await get(`videos?part=snippet,statistics,status&id=${ids.slice(i, i + 50).join(',')}`);
+    videos.push(...v.items.map((x) => ({ id: x.id, title: x.snippet.title, published: x.snippet.publishedAt, privacy: x.status.privacyStatus,
+      views: +(x.statistics.viewCount ?? 0), likes: +(x.statistics.likeCount ?? 0), comments: +(x.statistics.commentCount ?? 0) })));
+  }
+  const s = c.statistics;
+  console.log(JSON.stringify({ subscribers: s.hiddenSubscriberCount ? null : +s.subscriberCount, views: +s.viewCount, videos: +s.videoCount,
+    likes: videos.reduce((a, v) => a + v.likes, 0), list: videos }));
 } else if (cmd === 'upload') {
   if (!a1 || !existsSync(a1)) { console.error('pakai: upload <file.mp4> <meta.json>'); process.exit(1); }
   const meta = a2 ? JSON.parse(readFileSync(a2, 'utf8')) : {};
@@ -61,5 +84,5 @@ if (cmd === 'auth') {
   if (!v.id) throw new Error(`upload gagal: ${JSON.stringify(v).slice(0, 300)}`);
   console.log(JSON.stringify({ ok: true, id: v.id, url: `https://youtube.com/shorts/${v.id}`, privacy: v.status?.privacyStatus }));
 } else {
-  console.error('pakai: youtube.mjs auth | whoami | upload <mp4> <meta.json>');
+  console.error('pakai: youtube.mjs auth | whoami | stats | upload <mp4> <meta.json>');
 }
