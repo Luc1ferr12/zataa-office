@@ -7,12 +7,13 @@
    `node scripts/shorts-bot.mjs new <file.json>` → konten DB `channel: 'youtube'` (format/slot `shorts`, jam tayang dari riset harian Kirana, default 18:00 WIB) + masuk antrean laptop (`_laptop: 1`).
    file.json = `{ title (≤60 karakter), caption (deskripsi: ringkasan + sumber + kredit visual), hashtags ("#Shorts #sejarah …"), sources, tags?, synthetic?, day?, jam? ("HH:MM" WIB), test?, spec: { voice, speed, tag, mood, scenes[{ img, vo, sub, place?, credit?, move? }] } }`. Path `img` relatif dari root repo.
 2. **Laptop** (Task Scheduler "Zataa Laptop Worker" tiap 10 mnt → `scripts/laptop-worker.mjs` → `scripts/shorts-laptop.mjs <id> --submit`): gambar yang belum ada diambil dari VPS, render `scripts/shorts.mjs` (OmniVoice, 40–59 dtk), hasil ke `out/shorts/` VPS. Tidak ada fallback suara VPS: laptop mati >3 jam → Yoga kabari Owner; render gagal → `_laptop: 3` + Owner dikabari.
-3. **Kirana** kirim video + judul/deskripsi ke Owner di @zataashortbot: ✅ Upload / ✏️ Revisi / ❌ Tolak. Owner bilang "langsung post/upload" = ✅.
-4. ✅ → `scripts/youtube.mjs upload` **selalu Private** (project API belum diaudit) → status `uploaded` + Kirana kirim link & **pengingat ubah ke Publik** (YouTube Studio). Diingatkan lagi di jam tayang (`jam`) lalu tiap pagi (maks 3×).
+3. **Kirana** kirim video + judul/deskripsi ke Owner di @zataashortbot: ✅ Approve / ✏️ Revisi / ❌ Tolak (aturan Owner: tidak ada tombol upload). Owner bilang "langsung post/upload" = ✅ + upload saat itu juga.
+4. ✅ → status `approved`, bot **upload otomatis di jam tayang** (`jam`; sudah lewat jam → langsung). Upload lewat `scripts/youtube.mjs upload` **selalu Private** (project API belum diaudit) → status `uploaded` + Kirana kirim link & **pengingat ubah ke Publik** (YouTube Studio). Diingatkan lagi di jam tayang (`jam`) lalu tiap pagi (maks 3×).
 5. Owner tekan **✅ Sudah Publik** (atau bilang "udah publik") → status `posted`. **Belum dianggap tayang sebelum Owner konfirmasi.**
-6. ✏️ Revisi → Claude CLI (tim YouTube) ubah lewat `shorts-bot.mjs set` → render ulang di laptop → dikirim lagi (cuma judul/deskripsi → langsung dikirim ulang tanpa render).
+6. ❌ Tolak → Claude CLI (tim YouTube) langsung bikin **Shorts pengganti** topik lain untuk hari & jam yang sama → render laptop → dikirim lagi.
+7. ✏️ Revisi → Claude CLI (tim YouTube) ubah lewat `shorts-bot.mjs set` → render ulang di laptop → dikirim lagi (cuma judul/deskripsi → langsung dikirim ulang tanpa render).
 - Pesan bebas Owner di @zataashortbot dijawab tim YouTube (Claude CLI); "status" = rekap tanpa AI. Urusan marketing/trading dioper ke bot kantor.
-- Status Shorts: `draft` (antre/render) → `pending_approval` → `approved` → `uploading` → `uploaded` (Private) → `posted` · `revision` · `rejected` · `upload_failed` (tombol coba lagi).
+- Status Shorts: `draft` (antre/render) → `pending_approval` → `approved` (nunggu jam tayang) → `uploading` → `uploaded` (Private) → `posted` · `revision` · `rejected` · `upload_failed` (tombol coba lagi).
 - CLI: `shorts-bot.mjs list | get <id> | set <id> <json> | queue <id> | submit <id> | upload <id> | say <agent> "<teks>"`. Jangan pakai `render.mjs`/`approval.mjs` untuk Shorts.
 
 ## Render

@@ -2,13 +2,14 @@
 // Divisi YouTube Shorts: bot Telegram @zataashortbot + alur konten (DB contents, channel 'youtube', format/slot 'shorts').
 // Bot jalan di dalam watcher (long polling, terpisah dari bot kantor), cuma nerima pesan & tombol dari SHORTS_OWNER_ID.
 // Alur: new (sesi harian) → antre render laptop (_laptop 1, scripts/shorts-laptop.mjs, OmniVoice) → submit (Kirana kirim video + ✅/✏️/❌)
-//       → ✅ → upload YouTube (scripts/youtube.mjs, SELALU Private) → status 'uploaded' + pengingat Owner ubah ke Publik → Owner tekan
+//       → ✅ → tunggu jam tayang (_jam) → upload YouTube (scripts/youtube.mjs, SELALU Private) → status 'uploaded' + pengingat Owner ubah ke Publik → Owner tekan
 //       "Sudah Publik" → 'posted'. Shorts belum dianggap tayang sebelum Owner konfirmasi.
 //   node scripts/shorts-bot.mjs new <file.json>       {title, caption, hashtags, sources?, day?, jam? (HH:MM WIB), test?, synthetic?, tags?, spec:{voice, mood, scenes[]}}
 //   node scripts/shorts-bot.mjs get <id> | set <id> <json|file> (+ jam) | list [tgl_senin]
 //   node scripts/shorts-bot.mjs queue <id>            antre render ulang di laptop
 //   node scripts/shorts-bot.mjs submit <id>           kirim ke Owner (dipanggil laptop setelah render)
-//   node scripts/shorts-bot.mjs upload <id>           upload manual (Owner sudah ✅)
+//   node scripts/shorts-bot.mjs upload <id>           upload manual sekarang (Owner sudah ✅; normalnya otomatis di jam tayang)
+//   ❌ Tolak → Claude CLI bikin Shorts pengganti (topik lain, hari & jam sama)
 //   node scripts/shorts-bot.mjs say <agent> "<teks>"  pesan dari pegawai YouTube
 //   .env: SHORTS_BOT_TOKEN, SHORTS_OWNER_ID (+ YT_* untuk upload)
 process.removeAllListeners('warning');
@@ -100,7 +101,7 @@ export async function queue(id) {
   return { ok: true, id, queued: 'laptop' };
 }
 
-const BUTTONS = (id) => ({ inline_keyboard: [[{ text: '✅ Upload', callback_data: `yok:${id}` }, { text: '✏️ Revisi', callback_data: `yrev:${id}` }, { text: '❌ Tolak', callback_data: `yno:${id}` }]] });
+const BUTTONS = (id) => ({ inline_keyboard: [[{ text: '✅ Approve', callback_data: `yok:${id}` }, { text: '✏️ Revisi', callback_data: `yrev:${id}` }, { text: '❌ Tolak', callback_data: `yno:${id}` }]] });
 export async function submit(id, { note = '' } = {}) {
   const d = await db();
   const c = getShort(d, id);
@@ -116,7 +117,7 @@ export async function submit(id, { note = '' } = {}) {
     note ? `🔁 <i>${esc(note)}</i>` : '', '',
     `<b>Judul:</b> ${esc(c.title)}`, '', `<b>Deskripsi:</b>\n${esc(description(c) || '-')}`,
     c.sources ? `\n<b>Sumber:</b> ${esc(c.sources)}` : '', '',
-    '✅ = langsung di-upload (masuk <b>Private</b> dulu, nanti aku ingetin ubah ke Publik). ✏️ Revisi lalu ketik catatannya (boleh reply pesan ini).',
+    `✅ = di-upload otomatis pas jam tayang (${jamOf(c)} WIB, masuk <b>Private</b> dulu, nanti aku ingetin ubah ke Publik). ✏️ Revisi lalu ketik catatannya (boleh reply pesan ini). ❌ = tim bikin konten pengganti.`,
   ].filter((l, i, a) => l !== '' || a[i - 1] !== '').join('\n');
   if (text.length > 4000) text = `${text.slice(0, 3990)}…`;
   const m = await send(text, { reply_markup: BUTTONS(c.id) });
@@ -162,15 +163,29 @@ export async function upload(id) {
   return { ok: true, id, youtube_id: res.id, url: res.url, privacy: res.privacy };
 }
 
-async function approveAndUpload(id, log) {
+// jam tayang (WIB) Shorts dalam ms; upload otomatis begitu lewat jam ini
+const slotAt = (c) => new Date(`${c.day}T${jamOf(c)}:00+07:00`).getTime();
+
+// ✅ Owner → status 'approved', upload otomatis di jam tayang (runJobs). Sudah lewat jam / "langsung upload" → upload sekarang.
+async function approve(id, log, { now = false } = {}) {
   const d = await db();
   const c = getShort(d, id);
   if (!c) return sayAs('ypublish', `Shorts #${id} nggak ketemu, Bos 🤔`);
   if (c.youtube_id) return sayAs('ypublish', `Shorts #${id} udah ke-upload kok: https://youtube.com/shorts/${c.youtube_id}`, { reply_markup: PUB_BTN(id) });
-  if (!['pending_approval', 'upload_failed', 'approved'].includes(c.status)) return sayAs('ypublish', `Shorts #${id} statusnya "${esc(c.status)}", belum bisa di-upload.`);
+  if (!['pending_approval', 'upload_failed', 'approved'].includes(c.status)) return sayAs('ypublish', `Shorts #${id} statusnya "${esc(c.status)}", belum bisa di-approve.`);
   d.prepare("UPDATE contents SET status = 'approved', updated_at = datetime('now') WHERE id = ?").run(id);
   act(d, 'owner', `Approve Shorts #${id} ✅`);
-  await sayAs('ypublish', `Siap Bos! ⏫ Shorts #${id} lagi aku upload ke Zataa Story…`).catch(() => {});
+  if (now || c.status === 'upload_failed' || Date.now() >= slotAt(c)) return doUpload(id, log);
+  const hari = DAYS[new Date(`${c.day}T00:00:00Z`).getUTCDay()];
+  return sayAs('ypublish', `Siap Bos! ✅ Shorts #${id} dijadwalkan upload <b>${hari} ${c.day.slice(8)}/${c.day.slice(5, 7)} jam ${jamOf(c)} WIB</b>. Begitu ke-upload aku kabarin + ingetin ubah ke Publik.`);
+}
+
+const uploading = new Set();
+async function doUpload(id, log) {
+  if (uploading.has(id)) return;
+  uploading.add(id);
+  const d = await db();
+  await sayAs('ypublish', `⏫ Shorts #${id} lagi aku upload ke Zataa Story…`).catch(() => {});
   try {
     const r = await upload(id);
     log(`shorts #${id} ke-upload: ${r.url}`);
@@ -179,7 +194,7 @@ async function approveAndUpload(id, log) {
   } catch (e) {
     log(`shorts #${id} upload gagal: ${e.message}`);
     await sayAs('ypublish', `⚠️ Upload Shorts #${id} gagal: ${esc(e.message)}`, { reply_markup: { inline_keyboard: [[{ text: '🔁 Coba upload lagi', callback_data: `yok:${id}` }]] } });
-  }
+  } finally { uploading.delete(id); }
 }
 
 async function markPublic(id) {
@@ -229,17 +244,44 @@ Akhiri dengan SATU kalimat ringkas (santai) tentang apa yang diubah.`, 20);
   log(`revisi shorts #${id} beres`);
 }
 
-async function reject(id) {
+// ❌ Owner → tolak + tim bikin Shorts pengganti (topik lain) untuk hari & jam tayang yang sama
+async function reject(id, log) {
   const d = await db();
+  const c = getShort(d, id);
+  if (!c) return;
   d.prepare("UPDATE contents SET status = 'rejected', updated_at = datetime('now') WHERE id = ? AND channel = 'youtube'").run(id);
   act(d, 'owner', `Tolak Shorts #${id}`);
-  return sayAs('ydir', `Oke Bos, Shorts #${id} nggak dipakai. Aku catat buat evaluasi tim 👍`);
+  await sayAs('ydir', `Oke Bos, Shorts #${id} "${esc(c.title)}" nggak dipakai. Tim langsung bikin konten pengganti dengan topik lain 🔄`).catch(() => {});
+  later(() => replace(c, log), log);
+}
+
+async function replace(old, log) {
+  const today = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Makassar' }).format(new Date());
+  const day = old.day > today ? old.day : today;
+  const r = await claude(`Kamu tim YouTube Shorts Zataa Story (sejarah misteri kuno) di folder ini. Owner MENOLAK Shorts #${old.id} "${old.title}". Bikin Shorts PENGGANTI dengan topik lain.
+
+Langkah:
+1. Baca office/youtube.md lalu playbook office/roles/ydir.md, yresearch.md, yscript.md, yvisual.md, ypublish.md.
+2. node scripts/shorts-bot.mjs list → topik baru JANGAN sama/mirip dengan "${old.title}" atau Shorts 14 hari terakhir.
+3. Riset (≤5 pencarian web), naskah 6–7 adegan 75–95 kata narasi (label fakta/teori/mitos, ≥2 sumber), gambar berlisensi bebas (Wikimedia Commons dll.).
+   Unduh gambar pakai node (fetch dengan header User-Agent) ke assets/shorts/<topik>/s1.jpg dst + credits.txt. Cek tiap gambar sesuai isinya.
+4. Tulis JSON ke tmp/ lalu: node scripts/shorts-bot.mjs new <file.json> dengan "day": "${day}" dan "jam": "${jamOf(old)}".
+5. JANGAN render (otomatis di laptop), jangan kirim Telegram, jangan ubah konten lain.
+Akhiri dengan SATU kalimat ringkas (santai): topik penggantinya apa.`, 30);
+  if (!r.ok) {
+    log(`pengganti shorts #${old.id} gagal: ${r.text.slice(0, 200)}`);
+    return sayAs('ydir', `⚠️ Konten pengganti #${old.id} belum bisa dibikin otomatis (${esc(r.text.slice(0, 150))}). Dilanjut di sesi harian.`).catch(() => {});
+  }
+  const summary = r.text.split('\n').filter((l) => l.trim()).pop() ?? '';
+  act(await db(), 'ydir', `Pengganti Shorts #${old.id}: ${summary.slice(0, 120)}`);
+  await sayAs('ydir', `🎬 Pengganti #${old.id} siap: ${esc(summary.slice(0, 200))}\nLagi dirender di laptop, nanti Kirana kirim ke sini buat di-✅.`).catch(() => {});
+  log(`pengganti shorts #${old.id} beres`);
 }
 
 async function statusText() {
   const d = await db();
   const rows = d.prepare("SELECT id, day, title, status, youtube_id, json_extract(data_json, '$._laptop') lap FROM contents WHERE channel = 'youtube' AND day >= date('now', '-7 days') ORDER BY day, id").all();
-  const ST = { draft: 'draft', revision: 'revisi', pending_approval: 'nunggu ✅ Bos', approved: 'mau di-upload', uploading: 'lagi upload', uploaded: 'Private, nunggu Bos ubah Publik', upload_failed: 'upload gagal', posted: 'tayang', rejected: 'ditolak' };
+  const ST = { draft: 'draft', revision: 'revisi', pending_approval: 'nunggu ✅ Bos', approved: '✅, nunggu jam tayang', uploading: 'lagi upload', uploaded: 'Private, nunggu Bos ubah Publik', upload_failed: 'upload gagal', posted: 'tayang', rejected: 'ditolak' };
   const lap = { 1: '⏳ antre render laptop', 2: '🎙️ lagi dirender di laptop', 3: '⚠️ render gagal' };
   if (!rows.length) return `<b>${NAMA.ydir}</b>: Belum ada Shorts minggu ini, Bos. Produksi Rabu–Minggu, 1 per hari (jam tayang dicek tiap hari).`;
   return `<b>${NAMA.ydir}</b>: Rekap Shorts 7 hari terakhir:\n${rows.map((r) => `• #${r.id} ${r.day.slice(8)}/${r.day.slice(5, 7)} ${esc(r.title)} — ${lap[r.lap] ?? ST[r.status] ?? r.status}`).join('\n')}`;
@@ -278,6 +320,10 @@ async function runJobs(log) {
       notified[`wait${c.id}`] = 1;
       await sayAs('yvideo', `💻 Shorts #${c.id} "${esc(c.title)}" udah 3 jam nunggu laptop nyala buat render suara OmniVoice, Bos. Begitu laptop on, otomatis aku render & kirim ke sini.`).catch(() => {});
     }
+  }
+  // sudah di-✅ Owner → upload begitu masuk jam tayang
+  for (const c of d.prepare("SELECT * FROM contents WHERE channel = 'youtube' AND status = 'approved' AND youtube_id IS NULL").all()) {
+    if (Date.now() >= slotAt(c) && !uploading.has(c.id)) { uploading.add(c.id); later(() => { uploading.delete(c.id); return doUpload(c.id, log); }, log); }
   }
   // Private → Publik: ingatkan lagi di jam tayang (_jam, default 18:00 WIB) lalu tiap pagi 09:00 WITA, maks 3×
   for (const c of d.prepare("SELECT * FROM contents WHERE channel = 'youtube' AND status = 'uploaded' AND youtube_id IS NOT NULL").all()) {
@@ -326,8 +372,8 @@ async function handle(u, log) {
     const id = +sid;
     await api('answerCallbackQuery', { callback_query_id: q.id }).catch(() => {});
     const clear = () => api('editMessageReplyMarkup', { chat_id: q.message.chat.id, message_id: q.message.message_id, reply_markup: { inline_keyboard: [] } }).catch(() => {});
-    if (kind === 'yok') { await clear(); later(() => approveAndUpload(id, log), log); }
-    else if (kind === 'yno') { await clear(); await reject(id); }
+    if (kind === 'yok') { await clear(); later(() => approve(id, log), log); }
+    else if (kind === 'yno') { await clear(); await reject(id, log); }
     else if (kind === 'ypub') { await clear(); await markPublic(id); }
     else if (kind === 'yrev') {
       patchState((s) => { s.awaitRev = id; });
@@ -341,7 +387,7 @@ async function handle(u, log) {
   if (!text) return;
   const s = state();
   const replyId = s.msgs?.[m.reply_to_message?.message_id];
-  if (/^\/start\b/.test(text)) return sayAs('ydir', `Halo Bos 👋 Ini bot tim YouTube Shorts <b>Zataa Story</b>. Tiap Rabu–Minggu Kirana kirim Shorts ke sini buat di-✅. Setelah ✅ langsung di-upload (Private dulu), nanti diingetin ubah ke Publik. Ketik "status" buat rekap.`);
+  if (/^\/start\b/.test(text)) return sayAs('ydir', `Halo Bos 👋 Ini bot tim YouTube Shorts <b>Zataa Story</b>. Tiap Rabu–Minggu Kirana kirim Shorts ke sini buat di-✅. Tombolnya ✅ Approve / ✏️ Revisi / ❌ Tolak. Setelah ✅, video di-upload otomatis pas jam tayang (Private dulu, nanti diingetin ubah ke Publik). ❌ = tim bikin konten pengganti. Ketik "status" buat rekap.`);
   if (s.awaitRev || replyId) {
     const id = s.awaitRev ?? replyId;
     patchState((x) => { delete x.awaitRev; });
@@ -352,7 +398,7 @@ async function handle(u, log) {
   if (/\blangsung\s+(post|posting|upload|tayang)/i.test(text)) { // "langsung post" = approval
     const p = d.prepare("SELECT id FROM contents WHERE channel = 'youtube' AND status IN ('pending_approval', 'upload_failed') ORDER BY id DESC").all();
     const pick = (text.match(/#?(\d+)/)?.[1] && p.find((r) => r.id === +text.match(/#?(\d+)/)[1])) || (p.length === 1 ? p[0] : null);
-    if (pick) return later(() => approveAndUpload(pick.id, log), log);
+    if (pick) return later(() => approve(pick.id, log, { now: true }), log);
   }
   if (/\b(udah|sudah|dah)\b.*\bpubli[ck]/i.test(text)) {
     const p = d.prepare("SELECT id FROM contents WHERE channel = 'youtube' AND status = 'uploaded' ORDER BY id").all();

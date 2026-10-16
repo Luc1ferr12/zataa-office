@@ -39,7 +39,7 @@ Kantor marketing virtual untuk **zataa.my.id** (top up game). Claude memerankan 
 
 ## Tim YouTube Shorts (sejarah misteri kuno)
 Divisi terpisah dari Marketing, ruang di Lt.2 (bilik + R. Manajer), meeting di Lt.4. 5 Shorts/minggu Rabu–Minggu (tayang 18:00 WIB), Senin–Selasa libur. SOP: `office/youtube.md`.
-Alur: sesi harian `node scripts/shorts-bot.mjs new <file.json>` (DB `channel: 'youtube'`) → render OmniVoice otomatis di laptop (`laptop-worker.mjs` → `shorts-laptop.mjs`) → Kirana kirim ke Owner di bot @zataashortbot (`scripts/shorts-bot.mjs`, di watcher; `SHORTS_BOT_TOKEN`, `SHORTS_OWNER_ID`) → ✅ → upload YouTube **selalu Private** → bot WAJIB ingatkan Owner ubah ke Publik; baru `posted` setelah Owner konfirmasi. Semua urusan Shorts lewat bot itu, bukan bot kantor.
+Alur: sesi harian `node scripts/shorts-bot.mjs new <file.json>` (DB `channel: 'youtube'`) → render OmniVoice otomatis di laptop (`laptop-worker.mjs` → `shorts-laptop.mjs`) → Kirana kirim ke Owner di bot @zataashortbot (`scripts/shorts-bot.mjs`, di watcher; `SHORTS_BOT_TOKEN`, `SHORTS_OWNER_ID`) → Owner ✅ Approve / ✏️ Revisi / ❌ Tolak (❌ = tim bikin pengganti) → upload YouTube otomatis di jam tayang, **selalu Private** → bot WAJIB ingatkan Owner ubah ke Publik; baru `posted` setelah Owner konfirmasi. Semua urusan Shorts lewat bot itu, bukan bot kantor.
 
 ## Tim Trading (XAUUSD saja)
 Jalan otomatis 0 token di VPS: service `zataa-trading` (`scripts/trading/run.mjs`), siklus tiap candle M15: Mahendra → Davina → Keira → Aryaputra → Wiratama → Jihan → Selena.
