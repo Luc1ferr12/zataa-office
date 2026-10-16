@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-16T16:00:35.815Z",
+ "generated_at": "2026-10-16T16:10:35.813Z",
  "today": "2026-10-17",
  "week_start": "2026-10-12",
  "campaign": {
@@ -76,9 +76,9 @@
    "id": "analyst",
    "name": "Raka",
    "title": "Data Analyst",
-   "status": "working",
-   "current_task": "Narik data insight 21 post IG",
-   "updated_at": "2026-10-16 16:00:35"
+   "status": "done",
+   "current_task": null,
+   "updated_at": "2026-10-16 16:00:55"
   },
   {
    "id": "price",
@@ -102,7 +102,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-16 15:46:05"
+   "updated_at": "2026-10-16 16:01:05"
   },
   {
    "id": "tresearch",
@@ -110,23 +110,23 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Tak ada berita 24 jam terbaru di hasil cari. Data terakhir: DXY dekat 18 bulan tinggi, inflasi lengket, pasar masih buka peluang Fed naik. Bias tipis negatif.",
-   "updated_at": "2026-10-16 15:46:05"
+   "updated_at": "2026-10-16 16:01:05"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Bias sideways",
-   "updated_at": "2026-10-16 15:46:05"
+   "current_task": "Bias bullish",
+   "updated_at": "2026-10-16 16:01:05"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: market sideways, tunggu arah jelas",
-   "updated_at": "2026-10-16 15:46:05"
+   "current_task": "NO TRADE: bullish, tapi belum ada pemicu entry di area",
+   "updated_at": "2026-10-16 16:01:05"
   },
   {
    "id": "texec",
@@ -615,6 +615,16 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-16 16:01:05",
+   "agent_id": "ttech",
+   "message": "M60 berubah arah: bullish → sideways"
+  },
+  {
+   "ts": "2026-10-16 16:00:55",
+   "agent_id": "analyst",
+   "message": "Update data 21 post IG 📈"
+  },
+  {
    "ts": "2026-10-16 15:46:05",
    "agent_id": "trisk",
    "message": "NO TRADE · market sideways, tunggu arah jelas"
@@ -728,16 +738,6 @@
    "ts": "2026-10-16 13:01:05",
    "agent_id": "ttech",
    "message": "M10 berubah arah: sideways → bearish"
-  },
-  {
-   "ts": "2026-10-16 13:01:00",
-   "agent_id": "analyst",
-   "message": "Update data 21 post IG 📈"
-  },
-  {
-   "ts": "2026-10-16 12:46:05",
-   "agent_id": "trisk",
-   "message": "NO TRADE · market sideways, tunggu arah jelas"
   }
  ],
  "chats": [
@@ -1030,7 +1030,7 @@
    "pending": 1,
    "scheduled": 0,
    "views": 0,
-   "likes": 242,
+   "likes": 254,
    "comments": 0,
    "shares": 0,
    "saves": 0,
@@ -1062,7 +1062,7 @@
    "pending": 0,
    "scheduled": 0,
    "views": 0,
-   "likes": 187,
+   "likes": 193,
    "comments": 0,
    "shares": 0,
    "saves": 0,
@@ -1093,9 +1093,14 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4168.799805,
+  "price": 4165.799805,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-16 16:01:05",
+    "decision": "NO TRADE",
+    "reason": "bullish, tapi belum ada pemicu entry di area"
+   },
    {
     "ts": "2026-10-16 15:46:05",
     "decision": "NO TRADE",
@@ -1120,11 +1125,6 @@
     "ts": "2026-10-16 14:46:05",
     "decision": "NO TRADE",
     "reason": "market sideways, tunggu arah jelas"
-   },
-   {
-    "ts": "2026-10-16 14:31:05",
-    "decision": "NO TRADE",
-    "reason": "market sideways, tunggu arah jelas"
    }
   ],
   "trades": [],
@@ -1146,7 +1146,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-16 15:46:05",
+   "ts": "2026-10-16 16:01:05",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1155,17 +1155,17 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "market sideways, tunggu arah jelas",
+   "reason": "bullish, tapi belum ada pemicu entry di area",
    "fund": {
     "bias": -0.1,
     "note": "Tak ada berita 24 jam terbaru di hasil cari. Data terakhir: DXY dekat 18 bulan tinggi, inflasi lengket, pasar masih buka peluang Fed naik. Bias tipis negatif.",
     "blackout": null
    },
    "tech": {
-    "bias": "sideways",
-    "score": 1,
+    "bias": "bullish",
+    "score": 3,
     "trigger": null,
-    "note": "sideways (skor 1) · harga 4174.70 · EMA50 H1 4162.47 · RSI M15 46"
+    "note": "bullish (skor 3) · harga 4168.80 · EMA50 H1 4162.55 · RSI M15 43"
    }
   },
   "fund": {
@@ -1193,46 +1193,46 @@
    "M10": {
     "bias": "sideways",
     "score": -1,
-    "price": 4176.5,
-    "ema20": 4180.71,
-    "ema50": 4179.26,
-    "rsi": 45.9,
+    "price": 4170.2,
+    "ema20": 4179.71,
+    "ema50": 4178.9,
+    "rsi": 40.6,
     "n": 299,
-    "slot": 2986943,
-    "at": 1792165865146
+    "slot": 2986944,
+    "at": 1792166465152
    },
    "M15": {
     "bias": "sideways",
     "score": -1,
-    "price": 4177.6,
-    "ema20": 4180.83,
-    "ema50": 4177.69,
-    "rsi": 48.1,
+    "price": 4170.2,
+    "ema20": 4179.82,
+    "ema50": 4177.4,
+    "rsi": 43.6,
     "n": 299,
-    "slot": 1991295,
-    "at": 1792165565135
+    "slot": 1991296,
+    "at": 1792166465156
    },
    "M30": {
     "bias": "sideways",
     "score": 0,
-    "price": 4176.5,
-    "ema20": 4178.62,
-    "ema50": 4170.7,
-    "rsi": 49.8,
-    "n": 204,
-    "slot": 995647,
-    "at": 1792164665329
+    "price": 4170.2,
+    "ema20": 4177.82,
+    "ema50": 4170.68,
+    "rsi": 47.1,
+    "n": 205,
+    "slot": 995648,
+    "at": 1792166465157
    },
    "H1": {
-    "bias": "bullish",
-    "score": 3,
-    "price": 4185.4,
-    "ema20": 4172.93,
-    "ema50": 4161.98,
-    "rsi": 59.2,
+    "bias": "sideways",
+    "score": 0,
+    "price": 4170.2,
+    "ema20": 4172.67,
+    "ema50": 4162.3,
+    "rsi": 50.5,
     "n": 299,
-    "slot": 497823,
-    "at": 1792162865118
+    "slot": 497824,
+    "at": 1792166465164
    }
   },
   "currency": "USC",
