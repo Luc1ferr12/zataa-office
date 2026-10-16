@@ -5,6 +5,7 @@ Diadaptasi dari: Visual Storyteller, Image Prompt Engineer (agency-agents, MIT).
 Tiap adegan naskah punya visual yang **nyata dan boleh dipakai**, plus suasana misterius yang konsisten.
 
 ## Sumber visual (urut prioritas, semua gratis)
+- Mitologi Yunani: patung, vas/keramik bergambar, relief, dan lukisan klasik (abad ≤19) dari museum open access (The Met, Louvre via Wikimedia, British Museum CC, Rijksmuseum) atau Wikimedia Commons (karya lama = public domain). Hindari ilustrasi modern/fan art & gambar dari game/film.
 1. **Foto asli situs/artefak** dengan lisensi bebas: Wikimedia Commons (Public Domain / CC BY / CC BY-SA), museum open access (The Met, Smithsonian, Rijksmuseum: CC0), NASA (public domain). Catat judul, pembuat, dan lisensi tiap file buat kredit di deskripsi.
 2. **Peta, garis waktu, diagram** digambar sendiri lewat kode (SVG/HTML template), jadi bebas hak cipta.
 3. **Rekonstruksi 3D** di Blender (laptop) untuk adegan yang nggak ada fotonya, misalnya situs saat masih utuh. Kalau hasilnya kelihatan realistis, kasih tahu Kirana supaya centang label konten sintetis di YouTube.

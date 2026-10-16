@@ -1,4 +1,4 @@
-# SOP Divisi YouTube Shorts (sejarah misteri kuno)
+# SOP Divisi YouTube Shorts (sejarah misteri kuno + mitologi Yunani)
 
 **Status: JALAN** (sejak 16 Okt 2026). Produksi 1 Shorts/hari Rabu–Minggu lewat sesi harian; render otomatis di laptop, approval & upload lewat bot **@zataashortbot** (`scripts/shorts-bot.mjs`, jalan di watcher VPS).
 
@@ -24,6 +24,7 @@
 - Foto disimpan di `assets/shorts/<topik>/` + `credits.txt` (kredit masuk deskripsi YouTube).
 
 ## Ritme
+- **Isi (permintaan Owner 16 Okt):** 5 Shorts/minggu = **2 mitologi Yunani kuno** (dewa-dewi, Titan, pahlawan, monster) + **3 sejarah misteri**. Mitologi tetap diberi label "mitos/kisah kepercayaan" dan sumber teks kuno.
 - **5 Shorts/minggu, Rabu–Minggu** (1 per hari). Senin–Selasa tim libur.
 - 07:00–08:00 riset masing-masing → 08:00–08:30 briefing di Meeting YouTube (Lt.4) → produksi.
 - **Riset jam tayang tiap hari** (Kirana, aturan Owner): data YouTube Studio channel sendiri > hasil Shorts kita per jam > maks 2 pencarian web studi terbaru. Hasil → `jam` di Shorts hari itu + 1 kalimat alasan (`office.mjs log ypublish`). Channel belum punya data → uji jam berbeda, bandingkan tiap Minggu.
@@ -37,5 +38,6 @@
 - Jangan pakai pola yang sama persis tiap video (hook, struktur, gaya VO harus bervariasi).
 
 ## Yang masih perlu dibangun
+0. **Video panjang 5–10 menit** (bahas full satu topik sejarah/mitologi) begitu channel tembus **±500 subscriber** (keinginan Owner 16 Okt). Laporan harian Kirana otomatis kasih tanda saat angka itu tercapai → Bagas susun rencana format & jadwal, minta ✅ Owner.
 1. Data views/retention dari YouTube Analytics untuk laporan Minggu (Kirana).
 2. Upload Publik/terjadwal otomatis setelah project YouTube API lolos audit (sementara Owner ubah ke Publik manual).

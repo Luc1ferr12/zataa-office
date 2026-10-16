@@ -27,4 +27,5 @@ Total ±110–150 kata, bahasa Indonesia santai tapi misterius. VO ditulis per a
 - Tiap klaim punya ≥2 sumber, atau 1 sumber primer (jurnal/museum/situs resmi).
 - Angka dan tanggal pakai "sekitar" kalau sumbernya beda-beda; sebut rentangnya.
 - Teori ditulis "menurut sebagian peneliti…", mitos ditulis "konon…". Jangan dibikin terdengar pasti.
+- **Mitologi Yunani**: boleh diceritakan seru seperti dongeng, tapi jelas itu kisah kepercayaan Yunani kuno ("menurut mitos Yunani…", "dalam Theogonia karya Hesiod…"). Kalau ada beberapa versi, sebut "ada versi lain…". Bisa dikaitkan ke fakta sejarah (kuil, artefak, kota nyata) dengan label FAKTA terpisah.
 - Daftar sumber ikut dioper ke Kirana buat deskripsi video.

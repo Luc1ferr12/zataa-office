@@ -231,7 +231,7 @@ async function revise(id, note, log) {
   d.prepare("UPDATE contents SET status = 'revision', owner_note = ?, revisions = revisions + 1, updated_at = datetime('now') WHERE id = ?").run(note, id);
   act(d, 'owner', `Minta revisi Shorts #${id}: ${note}`);
   await sayAs('yscript', `🛠️ Siap Bos, revisi Shorts #${id} lagi dikerjain…`).catch(() => {});
-  const r = await claude(`Kamu tim YouTube Shorts Zataa Story (sejarah misteri kuno) di folder ini. Owner minta REVISI Shorts #${id}:
+  const r = await claude(`Kamu tim YouTube Shorts Zataa Story (sejarah misteri kuno + mitologi Yunani) di folder ini. Owner minta REVISI Shorts #${id}:
 "${note}"
 
 Langkah:
@@ -271,7 +271,7 @@ async function reject(id, log) {
 async function replace(old, log) {
   const today = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Makassar' }).format(new Date());
   const day = old.day > today ? old.day : today;
-  const r = await claude(`Kamu tim YouTube Shorts Zataa Story (sejarah misteri kuno) di folder ini. Owner MENOLAK Shorts #${old.id} "${old.title}". Bikin Shorts PENGGANTI dengan topik lain.
+  const r = await claude(`Kamu tim YouTube Shorts Zataa Story (sejarah misteri kuno + mitologi Yunani) di folder ini. Owner MENOLAK Shorts #${old.id} "${old.title}". Bikin Shorts PENGGANTI dengan topik lain.
 
 Langkah:
 1. Baca office/youtube.md lalu playbook office/roles/ydir.md, yresearch.md, yscript.md, yvisual.md, ypublish.md.
@@ -302,6 +302,7 @@ async function statusText() {
 
 // ---------- laporan harian Kirana (21:00 WITA, 0 token): subscriber, views, likes + kenaikan sejak laporan kemarin
 const REPORT_MIN = 21 * 60;
+const LONGFORM_SUBS = 500; // target Owner: mulai video panjang 5–10 menit (office/youtube.md)
 const num = (n) => (n == null ? '?' : Number(n).toLocaleString('id-ID'));
 const plus = (n) => (n == null ? '' : ` (${n >= 0 ? '+' : ''}${num(n)})`);
 export async function dailyReport({ dry = false } = {}) {
@@ -323,17 +324,18 @@ export async function dailyReport({ dry = false } = {}) {
     `👍 Likes: <b>${num(st.likes)}</b>${prev ? plus(st.likes - prev.likes) : ''}`,
     `🎬 Video tayang: ${st.list.filter((v) => v.privacy === 'public').length}`, '',
     ...rows.slice(0, 5).map((v, i) => `${i + 1}. ${esc(v.title.slice(0, 45))} · 👁️ ${num(v.views)}${plus(v.dv)} · 👍 ${num(v.likes)}${v.privacy !== 'public' ? ` · <i>${v.privacy}</i>` : ''}`),
+    ...(st.subscribers >= LONGFORM_SUBS && !state().longform ? [`\n🎉 <b>Tembus ${num(LONGFORM_SUBS)} subscriber!</b> Sesuai rencana Bos, waktunya mulai video panjang 5–10 menit. Bagas siapin rencananya ya.`] : []),
     prev ? `\n<i>(angka dalam kurung = kenaikan sejak laporan ${prev.date.slice(8)}/${prev.date.slice(5, 7)})</i>` : '\n<i>Laporan pertama, kenaikan harian mulai muncul besok.</i>',
   ].filter((l) => l !== undefined);
   if (dry) return lines.join('\n');
   await sayAs('ypublish', lines.join('\n'));
-  patchState((s) => { s.snap = { date: t.date, subs: st.subscribers, views, likes: st.likes, videos: Object.fromEntries(st.list.map((v) => [v.id, { v: v.views, l: v.likes }])) }; s.reportDate = t.date; });
+  patchState((s) => { s.snap = { date: t.date, subs: st.subscribers, views, likes: st.likes, videos: Object.fromEntries(st.list.map((v) => [v.id, { v: v.views, l: v.likes }])) }; s.reportDate = t.date; if (st.subscribers >= LONGFORM_SUBS) s.longform = s.longform ?? t.date; });
   return { ok: true, subscribers: st.subscribers, views, likes: st.likes };
 }
 
 // pesan bebas Owner → Claude CLI sebagai tim YouTube
 async function talk(msg, log) {
-  const r = await claude(`Kamu tim YouTube Shorts "Zataa Story" (sejarah misteri kuno) di folder ini, ngobrol dengan Owner (Bos Zamiir) lewat bot Telegram @zataashortbot.
+  const r = await claude(`Kamu tim YouTube Shorts "Zataa Story" (sejarah misteri kuno + mitologi Yunani) di folder ini, ngobrol dengan Owner (Bos Zamiir) lewat bot Telegram @zataashortbot.
 Pesan Owner: "${msg}"
 Tim: Bagas (ydir, Manajer YouTube), Nadhira (yresearch, riset), Laras (yscript, naskah + cek fakta), Galih (yvisual, visual berlisensi), Yoga (yvideo, render + VO), Kirana (ypublish, upload & SEO).
 SOP & cara kerja: office/youtube.md (baca kalau perlu). Data Shorts: node scripts/shorts-bot.mjs list. Jangan ngarang angka views.

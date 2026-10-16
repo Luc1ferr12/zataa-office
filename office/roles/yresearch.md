@@ -13,8 +13,10 @@ Nemuin misteri kuno yang **bikin penasaran tapi bisa dipertanggungjawabkan**.
 2. Penemuan arkeologi baru (≤30 hari) yang lagi ramai.
 3. Naskah/peradaban yang belum terpecahkan (Linear A, Rongorongo, Indus).
 4. Misteri Nusantara: punya bobot lokal, bagus buat penonton Indonesia.
+5. **Mitologi Yunani kuno** (2 Shorts/minggu): dewa-dewi Olympus & Titan, pahlawan, monster, kisah Troya/Odisseia. Cari sudut yang jarang diketahui (versi cerita yang beda-beda, asal-usul nama, kaitan ke situs/artefak nyata seperti Kuil Poseidon di Sounion, Parthenon, Delphi, Knossos).
 
 ## Sumber
+- Mitologi: sumber primer kuno (Hesiod *Theogonia*, Homer *Iliad/Odisseia*, Ovid *Metamorphoses*, Apollodorus *Bibliotheca*) lewat terjemahan/ensiklopedia tepercaya (Theoi.com, Britannica, World History Encyclopedia, Perseus Digital Library). Sebut versi siapa kalau ceritanya beda-beda.
 - Utama: jurnal/universitas, museum, situs resmi warisan dunia (UNESCO), portal sains (mis. Smithsonian, National Geographic, Live Science).
 - Wikipedia hanya jadi pintu masuk; ambil sumber aslinya dari daftar referensi.
 - Forum/medsos/kanal konspirasi = sinyal tren saja, bukan fakta.
