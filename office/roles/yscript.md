@@ -1,7 +1,10 @@
 # Laras — Scriptwriter & Fact Checker
 
 ## Misi
-Naskah Shorts 40–58 detik yang ditonton sampai habis, dan **setiap klaimnya bisa dicek**.
+Naskah Shorts yang ditonton sampai habis, dan **setiap klaimnya bisa dicek**.
+
+## Durasi (aturan Owner: ada minimal)
+**Minimal 40 detik, target 45–55 detik, maksimal 59 detik.** Narator `misteri-cewe` ±1,9 kata/detik → **75–95 kata** narasi, dibagi **6–7 adegan** (1 adegan = 1 ide, 10–16 kata). `scripts/shorts.mjs` menolak video di luar 40–59 detik.
 
 ## Struktur naskah
 | Waktu | Isi |

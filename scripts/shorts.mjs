@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // Render YouTube Shorts sejarah misteri: narasi OmniVoice per adegan + musik ambient (shorts-music.mjs) + template templates/shorts/player.html.
-//   node scripts/shorts.mjs <spec.json> [out.mp4]
+//   node scripts/shorts.mjs <spec.json> [out.mp4] [--test]   (durasi wajib 40–59 dtk; --test = lewati batas, buat uji coba)
 // spec = { voice: "misteri-cewe", speed?: 0.9, tag?: "MISTERI KUNO", mood?: misteri|gurun|epik|tragis|alam, seed?: angka (kosong = acak),
 //          scenes: [{ img: "path/foto.jpg", vo: "teks narasi", sub: "teks layar (*kata* = emas)", place?, credit?, move? }] }
 import { createServer } from 'node:http';
@@ -15,8 +15,11 @@ import ffmpegPath from 'ffmpeg-static';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const FPS = 30, LEAD = 0.7, GAP = 1.3, TAIL = 1.2;   // jeda sebelum narasi pertama, antar adegan, setelah narasi terakhir
-const specPath = resolve(process.argv[2] ?? '');
-const outPath = resolve(process.argv[3] ?? join(ROOT, 'out', 'shorts.mp4'));
+const args = process.argv.slice(2).filter((a) => a !== '--test');
+const TEST = process.argv.includes('--test');   // uji coba: lewati batas durasi
+const MIN_DUR = 40, MAX_DUR = 59;               // aturan Owner: minimal 40 dtk, target 45–55, maksimal 59
+const specPath = resolve(args[0] ?? '');
+const outPath = resolve(args[1] ?? join(ROOT, 'out', 'shorts.mp4'));
 const spec = JSON.parse(readFileSync(specPath, 'utf8'));
 const TYPES = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.png': 'image/png', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.woff2': 'font/woff2', '.webp': 'image/webp' };
 
@@ -45,6 +48,7 @@ try {
   let t = 0;
   for (const s of scenes) { s.at = t; s.voStart = t + s.lead; t += s.dur; }
   const total = t;
+  if (!TEST && (total < MIN_DUR || total > MAX_DUR)) throw new Error(`durasi ${total.toFixed(1)} dtk di luar ${MIN_DUR}–${MAX_DUR} dtk: ${total < MIN_DUR ? 'tambah adegan/narasi' : 'ringkas narasi'} (target 45–55 dtk), atau pakai --test untuk uji coba`);
 
   // 3. musik sesuai mood video, variasi dari seed; dentuman halus di tiap pergantian adegan
   const music = join(tmp, 'music.wav');

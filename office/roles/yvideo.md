@@ -4,7 +4,7 @@
 Rakit naskah + visual jadi Shorts 9:16 yang enak ditonton sampai habis.
 
 ## Format
-- **1080×1920, 30fps, MP4 (H.264)**, durasi 40–58 detik.
+- **1080×1920, 30fps, MP4 (H.264)**, durasi **minimal 40, target 45–55, maksimal 59 detik** (dicek otomatis oleh `scripts/shorts.mjs`).
 - Voice-over OmniVoice suara kalem (render di laptop Owner, sama seperti antrean video Marketing), tempo agak pelan biar misterius.
 - Gerak kamera pelan (zoom/pan) di foto diam, ganti visual tiap 2–4 detik.
 - Subtitle besar dibakar ke video (banyak yang nonton tanpa suara), maks 7 kata per layar.

@@ -3,9 +3,10 @@
 **Status: PERSIAPAN.** Kantor, pegawai, playbook, dan **template video** sudah ada. Upload otomatis ke YouTube & alur approval lewat bot **@zataashortbot** belum jalan, jadi sesi harian jangan memproduksi Shorts dulu.
 
 ## Render
-`node scripts/shorts.mjs <spec.json> [out.mp4]` (laptop: butuh OmniVoice). Contoh: `templates/samples/shorts-baalbek.json`.
+`node scripts/shorts.mjs <spec.json> [out.mp4]` (laptop: butuh OmniVoice). Contoh: `templates/samples/shorts-baalbek.json` (versi uji 30 dtk, render pakai `--test`).
 - spec: `voice` (`misteri-cewe`, pilihan Owner), `speed` 0.9, `tag`, `mood` (`misteri | gurun | epik | tragis | alam`), `seed` (kosong = acak), `scenes[]` = `{ img, vo, sub, place?, credit?, move? }`.
-- `vo` = teks yang dibacakan (angka ditulis huruf), `sub` = teks layar (angka boleh digit, `*kata*` = emas). 4–6 adegan ≈ 30–58 dtk.
+- `vo` = teks yang dibacakan (angka ditulis huruf), `sub` = teks layar (angka boleh digit, `*kata*` = emas). **Durasi: minimal 40 dtk, target 45–55, maksimal 59** (6–7 adegan, 75–95 kata). Di luar itu render ditolak; `--test` untuk uji coba pendek.
+- Upload lewat API selalu **Private** → Kirana wajib ingatkan Owner di @zataashortbot untuk ubah ke Publik (aturan Owner).
 - Foto disimpan di `assets/shorts/<topik>/` + `credits.txt` (kredit masuk deskripsi YouTube).
 
 ## Ritme (kalau pipeline sudah jalan)
