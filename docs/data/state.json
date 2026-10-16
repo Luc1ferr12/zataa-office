@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-16T03:51:14.878Z",
+ "generated_at": "2026-10-16T04:01:14.885Z",
  "today": "2026-10-16",
  "week_start": "2026-10-12",
  "campaign": {
@@ -78,7 +78,7 @@
    "title": "Data Analyst",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-10-16 01:00:44"
+   "updated_at": "2026-10-16 04:00:26"
   },
   {
    "id": "price",
@@ -86,7 +86,7 @@
    "title": "Price Watcher",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-10-16 02:00:33"
+   "updated_at": "2026-10-16 04:00:26"
   },
   {
    "id": "ob",
@@ -102,7 +102,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-16 03:46:04"
+   "updated_at": "2026-10-16 04:01:04"
   },
   {
    "id": "tresearch",
@@ -110,7 +110,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Waspada rilis Fed Chairman Warsh Speaks (11.30 WITA)",
-   "updated_at": "2026-10-16 03:46:04"
+   "updated_at": "2026-10-16 04:01:04"
   },
   {
    "id": "ttech",
@@ -118,7 +118,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Bias sideways",
-   "updated_at": "2026-10-16 03:46:04"
+   "updated_at": "2026-10-16 04:01:04"
   },
   {
    "id": "trisk",
@@ -126,7 +126,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: di luar jam sesi London–New York",
-   "updated_at": "2026-10-16 03:46:04"
+   "updated_at": "2026-10-16 04:01:04"
   },
   {
    "id": "texec",
@@ -573,6 +573,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-16 04:00:26",
+   "agent_id": "analyst",
+   "message": "Update data 19 post IG 📈"
+  },
+  {
    "ts": "2026-10-16 03:31:04",
    "agent_id": "ttech",
    "message": "M15 berubah arah: sideways → bullish"
@@ -691,11 +696,6 @@
    "ts": "2026-10-15 23:31:18",
    "agent_id": "publisher",
    "message": "Kirim #26 ke Owner buat approval"
-  },
-  {
-   "ts": "2026-10-15 23:30:39",
-   "agent_id": "researcher",
-   "message": "Nemu 1 topik baru"
   }
  ],
  "chats": [
@@ -988,11 +988,17 @@
    "pending": 0,
    "scheduled": 2,
    "views": 0,
-   "likes": 194,
+   "likes": 206,
    "comments": 0,
    "shares": 0,
    "saves": 0,
    "top": [
+    {
+     "title": "Kartu Jadwal Lengkap Week 9 MPL ID (16–18 Okt)",
+     "format": "feed",
+     "pillar": "esport",
+     "views": 0
+    },
     {
      "title": "Weekly Diamond Pass buat Push Rank Akhir Season",
      "format": "feed",
@@ -1004,12 +1010,6 @@
      "format": "feed",
      "pillar": "engagement",
      "views": 0
-    },
-    {
-     "title": "Duel Puncak: NAVI vs TLID Sama-Sama 11 Poin",
-     "format": "feed",
-     "pillar": "esport",
-     "views": 0
     }
    ]
   },
@@ -1020,7 +1020,7 @@
    "pending": 0,
    "scheduled": 0,
    "views": 0,
-   "likes": 163,
+   "likes": 169,
    "comments": 0,
    "shares": 0,
    "saves": 0,
@@ -1051,9 +1051,14 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4180.399902,
+  "price": 4184.200195,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-16 04:01:04",
+    "decision": "NO TRADE",
+    "reason": "di luar jam sesi London–New York"
+   },
    {
     "ts": "2026-10-16 03:46:04",
     "decision": "NO TRADE",
@@ -1078,11 +1083,6 @@
     "ts": "2026-10-16 02:46:04",
     "decision": "NO TRADE",
     "reason": "di luar jam sesi London–New York"
-   },
-   {
-    "ts": "2026-10-16 02:31:04",
-    "decision": "NO TRADE",
-    "reason": "di luar jam sesi London–New York"
    }
   ],
   "trades": [],
@@ -1104,7 +1104,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-16 03:46:04",
+   "ts": "2026-10-16 04:01:04",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1123,7 +1123,7 @@
     "bias": "sideways",
     "score": 1,
     "trigger": null,
-    "note": "sideways (skor 1) · harga 4167.20 · EMA50 H1 4151.75 · RSI M15 54"
+    "note": "sideways (skor 1) · harga 4184.20 · EMA50 H1 4153.65 · RSI M15 65"
    }
   },
   "fund": {
@@ -1159,46 +1159,46 @@
    "M10": {
     "bias": "bullish",
     "score": 2,
-    "price": 4178.8,
-    "ema20": 4165.91,
-    "ema50": 4163.1,
-    "rsi": 64.7,
+    "price": 4184,
+    "ema20": 4167.63,
+    "ema50": 4163.92,
+    "rsi": 68.2,
     "n": 299,
-    "slot": 2986871,
-    "at": 1792122664809
+    "slot": 2986872,
+    "at": 1792123264638
    },
    "M15": {
     "bias": "bullish",
     "score": 2,
-    "price": 4164.9,
-    "ema20": 4163.77,
-    "ema50": 4160.91,
-    "rsi": 51.8,
+    "price": 4184,
+    "ema20": 4165.7,
+    "ema50": 4161.82,
+    "rsi": 65.4,
     "n": 299,
-    "slot": 1991247,
-    "at": 1792122364617
+    "slot": 1991248,
+    "at": 1792123264644
    },
    "M30": {
     "bias": "bullish",
     "score": 2,
-    "price": 4170.7,
-    "ema20": 4162.61,
-    "ema50": 4155.35,
-    "rsi": 57.9,
-    "n": 180,
-    "slot": 995623,
-    "at": 1792121464614
+    "price": 4184,
+    "ema20": 4164.65,
+    "ema50": 4156.47,
+    "rsi": 65.3,
+    "n": 181,
+    "slot": 995624,
+    "at": 1792123264645
    },
    "H1": {
     "bias": "bullish",
     "score": 3,
-    "price": 4179.6,
-    "ema20": 4157.51,
-    "ema50": 4151.12,
-    "rsi": 63.6,
+    "price": 4184,
+    "ema20": 4160.03,
+    "ema50": 4152.41,
+    "rsi": 65.3,
     "n": 299,
-    "slot": 497811,
-    "at": 1792119664792
+    "slot": 497812,
+    "at": 1792123264652
    }
   },
   "currency": "USC",
