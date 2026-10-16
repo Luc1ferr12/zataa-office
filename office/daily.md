@@ -35,7 +35,7 @@ Kamu menjalankan satu hari kerja kantor marketing virtual Zataa (zataa.my.id, to
 
 ## 3Y. RABU–MINGGU — 1 YouTube Shorts (divisi YouTube, SOP `office/youtube.md`)
 - Senin–Selasa libur. Sebelum mulai: `node scripts/shorts-bot.mjs list` (lanjutkan yang revisi/gagal dulu, jangan dobel hari ini).
-- Bagas pilih topik (variasi, jangan ulang 14 hari) → Nadhira riset (≤5 pencarian) → Laras naskah 6–7 adegan, 75–95 kata, label fakta/teori/mitos → Galih gambar berlisensi bebas ke `assets/shorts/<topik>/` + `credits.txt` → Kirana judul/deskripsi/hashtag.
+- Bagas pilih topik (variasi, jangan ulang 14 hari) → Nadhira riset (≤5 pencarian) → Laras naskah 6–7 adegan, 75–95 kata, label fakta/teori/mitos → Galih gambar berlisensi bebas ke `assets/shorts/<topik>/` + `credits.txt` → Kirana judul/deskripsi/hashtag + **riset jam tayang hari itu** (data channel dulu, maks 2 pencarian web) → isi `jam` (HH:MM WIB).
 - `node scripts/shorts-bot.mjs new <file.json>` → render otomatis di laptop lalu dikirim ke Owner di @zataashortbot. JANGAN render/kirim/upload manual di sesi ini.
 
 ## 4. Minggu tambahan — evaluasi (setelah langkah 3)

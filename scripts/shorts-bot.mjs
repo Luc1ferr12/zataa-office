@@ -4,8 +4,8 @@
 // Alur: new (sesi harian) → antre render laptop (_laptop 1, scripts/shorts-laptop.mjs, OmniVoice) → submit (Kirana kirim video + ✅/✏️/❌)
 //       → ✅ → upload YouTube (scripts/youtube.mjs, SELALU Private) → status 'uploaded' + pengingat Owner ubah ke Publik → Owner tekan
 //       "Sudah Publik" → 'posted'. Shorts belum dianggap tayang sebelum Owner konfirmasi.
-//   node scripts/shorts-bot.mjs new <file.json>       {title, caption, hashtags, sources?, day?, test?, synthetic?, tags?, spec:{voice, mood, scenes[]}}
-//   node scripts/shorts-bot.mjs get <id> | set <id> <json|file> | list [tgl_senin]
+//   node scripts/shorts-bot.mjs new <file.json>       {title, caption, hashtags, sources?, day?, jam? (HH:MM WIB), test?, synthetic?, tags?, spec:{voice, mood, scenes[]}}
+//   node scripts/shorts-bot.mjs get <id> | set <id> <json|file> (+ jam) | list [tgl_senin]
 //   node scripts/shorts-bot.mjs queue <id>            antre render ulang di laptop
 //   node scripts/shorts-bot.mjs submit <id>           kirim ke Owner (dipanggil laptop setelah render)
 //   node scripts/shorts-bot.mjs upload <id>           upload manual (Owner sudah ✅)
@@ -24,7 +24,9 @@ import { wita } from '../docs/js/schedule.js';
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const STATE = join(ROOT, 'tmp', 'shorts-bot.json');
 const DAYS = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
-const SLOT_WIB = '18:00';
+const SLOT_WIB = '18:00'; // default; jam tayang per Shorts (hasil riset harian Kirana) di data_json._jam
+const jamOf = (c) => { try { return JSON.parse(c.data_json ?? '{}')._jam ?? SLOT_WIB; } catch { return SLOT_WIB; } };
+const JAM = /^([01]d|2[0-3]):[0-5]d$/;
 const esc = (s) => String(s ?? '').replace(/[&<>]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' })[c]);
 const out = (o) => console.log(typeof o === 'string' ? o : JSON.stringify(o));
 const state = () => { try { return JSON.parse(readFileSync(STATE, 'utf8')); } catch { return {}; } };
@@ -69,17 +71,18 @@ export const sayAs = (agent, text, extra) => send(`<b>${NAMA[agent] ?? agent}</b
 // ---------- konten Shorts
 const head = (c) => {
   const hari = DAYS[new Date(`${c.day}T00:00:00Z`).getUTCDay()];
-  return `🎬 <b>Shorts #${c.id}</b> · ${hari} ${c.day.slice(8)}/${c.day.slice(5, 7)} · ${SLOT_WIB} WIB${c.revisions ? ` · revisi ke-${c.revisions}` : ''}`;
+  return `🎬 <b>Shorts #${c.id}</b> · ${hari} ${c.day.slice(8)}/${c.day.slice(5, 7)} · ${jamOf(c)} WIB${c.revisions ? ` · revisi ke-${c.revisions}` : ''}`;
 };
 const description = (c) => [c.caption, c.hashtags].filter(Boolean).join('\n\n');
 
 export async function newShort(p) {
   if (!p.title || !p.spec?.scenes?.length) throw new Error('butuh title + spec.scenes');
+  if (p.jam && !JAM.test(p.jam)) throw new Error('jam harus HH:MM (WIB)');
   for (const s of p.spec.scenes) if (!s.img || !s.vo || !s.sub) throw new Error('tiap adegan butuh img, vo, sub');
   const missing = p.spec.scenes.map((s) => s.img).filter((f) => !existsSync(join(ROOT, f)));
   if (missing.length) throw new Error(`gambar tidak ada (path relatif dari root repo): ${missing.join(', ')}`);
   const d = await db();
-  const data = { ...p.spec, ...(p.tags ? { tags: p.tags } : {}), ...(p.synthetic ? { synthetic: true } : {}), ...(p.test ? { _test: 1 } : {}), _laptop: 1 };
+  const data = { ...p.spec, ...(p.tags ? { tags: p.tags } : {}), ...(p.synthetic ? { synthetic: true } : {}), ...(p.test ? { _test: 1 } : {}), ...(p.jam ? { _jam: p.jam } : {}), _laptop: 1 };
   const today = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Makassar' }).format(new Date());
   const r = d.prepare("INSERT INTO contents (channel, day, slot, format, game, pillar, title, data_json, caption, hashtags, sources, template) VALUES ('youtube', ?, 'shorts', 'shorts', 'sejarah', 'misteri', ?, ?, ?, ?, ?, 'shorts')")
     .run(p.day ?? today, String(p.title).slice(0, 100), JSON.stringify(data), p.caption ?? '', p.hashtags ?? '#Shorts #sejarah', p.sources ?? null);
@@ -125,7 +128,7 @@ export async function submit(id, { note = '' } = {}) {
 
 const remindText = (c) => `🔒 Shorts <b>#${c.id}</b> "${esc(c.title)}" masih <b>Private</b> di Zataa Story.
 🔗 https://youtube.com/shorts/${c.youtube_id}
-Bos, tolong ubah jadi <b>Publik</b> sendiri ya (jadwal tayang ${SLOT_WIB} WIB): YouTube Studio → Konten → video ini → Visibilitas → Publik.
+Bos, tolong ubah jadi <b>Publik</b> sendiri ya (jadwal tayang ${jamOf(c)} WIB): YouTube Studio → Konten → video ini → Visibilitas → Publik.
 ✏️ Studio: https://studio.youtube.com/video/${c.youtube_id}/edit
 Kalau udah publik, tekan tombol di bawah biar tim catat udah tayang.`;
 const PUB_BTN = (id) => ({ inline_keyboard: [[{ text: '✅ Sudah Publik', callback_data: `ypub:${id}` }]] });
@@ -238,7 +241,7 @@ async function statusText() {
   const rows = d.prepare("SELECT id, day, title, status, youtube_id, json_extract(data_json, '$._laptop') lap FROM contents WHERE channel = 'youtube' AND day >= date('now', '-7 days') ORDER BY day, id").all();
   const ST = { draft: 'draft', revision: 'revisi', pending_approval: 'nunggu ✅ Bos', approved: 'mau di-upload', uploading: 'lagi upload', uploaded: 'Private, nunggu Bos ubah Publik', upload_failed: 'upload gagal', posted: 'tayang', rejected: 'ditolak' };
   const lap = { 1: '⏳ antre render laptop', 2: '🎙️ lagi dirender di laptop', 3: '⚠️ render gagal' };
-  if (!rows.length) return `<b>${NAMA.ydir}</b>: Belum ada Shorts minggu ini, Bos. Produksi Rabu–Minggu, 1 per hari (tayang ${SLOT_WIB} WIB).`;
+  if (!rows.length) return `<b>${NAMA.ydir}</b>: Belum ada Shorts minggu ini, Bos. Produksi Rabu–Minggu, 1 per hari (jam tayang dicek tiap hari).`;
   return `<b>${NAMA.ydir}</b>: Rekap Shorts 7 hari terakhir:\n${rows.map((r) => `• #${r.id} ${r.day.slice(8)}/${r.day.slice(5, 7)} ${esc(r.title)} — ${lap[r.lap] ?? ST[r.status] ?? r.status}`).join('\n')}`;
 }
 
@@ -276,10 +279,10 @@ async function runJobs(log) {
       await sayAs('yvideo', `💻 Shorts #${c.id} "${esc(c.title)}" udah 3 jam nunggu laptop nyala buat render suara OmniVoice, Bos. Begitu laptop on, otomatis aku render & kirim ke sini.`).catch(() => {});
     }
   }
-  // Private → Publik: ingatkan lagi di jam tayang (18:00 WIB = 19:00 WITA) lalu tiap pagi 09:00 WITA, maks 3×
+  // Private → Publik: ingatkan lagi di jam tayang (_jam, default 18:00 WIB) lalu tiap pagi 09:00 WITA, maks 3×
   for (const c of d.prepare("SELECT * FROM contents WHERE channel = 'youtube' AND status = 'uploaded' AND youtube_id IS NOT NULL").all()) {
     const r = (remind[c.id] ??= { n: 0 });
-    const slotDue = r.n === 0 && Date.now() >= Math.max(new Date(`${c.day}T${SLOT_WIB}:00+07:00`).getTime(), (r.at ?? 0) + 2 * 3600e3);
+    const slotDue = r.n === 0 && Date.now() >= Math.max(new Date(`${c.day}T${jamOf(c)}:00+07:00`).getTime(), (r.at ?? 0) + 2 * 3600e3);
     const morningDue = r.n > 0 && r.n < 3 && r.last !== t.date && t.minutes >= 9 * 60 && t.minutes < 12 * 60;
     if (!slotDue && !morningDue) continue;
     r.n += 1; r.last = t.date;
@@ -374,13 +377,18 @@ if (isMain) {
       // data_json baru = spec render; tanda internal (_test, _laptop, durasi) dibawa dari yang lama
       const keep = Object.fromEntries(Object.entries(dataOf(getShort(d, +a))).filter(([k]) => k.startsWith('_') || k === 'duration'));
       for (const [k, v] of Object.entries(json(b))) {
+        if (k === 'jam') {
+          if (!JAM.test(v)) throw new Error('jam harus HH:MM (WIB)');
+          d.prepare("UPDATE contents SET data_json = json_set(data_json, '$._jam', ?), updated_at = datetime('now') WHERE id = ?").run(v, +a);
+          continue;
+        }
         if (!['title', 'caption', 'hashtags', 'sources', 'data_json', 'day', 'status'].includes(k)) continue;
         const val = k === 'data_json' ? JSON.stringify({ ...(typeof v === 'string' ? JSON.parse(v) : v), ...keep }) : v;
         d.prepare(`UPDATE contents SET ${k} = ?, updated_at = datetime('now') WHERE id = ?`).run(val, +a);
       }
       out('ok');
     } else if (cmd === 'list') {
-      out((await db()).prepare("SELECT id, day, title, status, youtube_id, json_extract(data_json, '$._laptop') laptop FROM contents WHERE channel = 'youtube' AND day >= ? ORDER BY day, id").all(a ?? new Date(Date.now() - 14 * 864e5).toISOString().slice(0, 10)));
+      out((await db()).prepare("SELECT id, day, title, status, youtube_id, json_extract(data_json, '$._laptop') laptop, json_extract(data_json, '$._jam') jam FROM contents WHERE channel = 'youtube' AND day >= ? ORDER BY day, id").all(a ?? new Date(Date.now() - 14 * 864e5).toISOString().slice(0, 10)));
     } else if (cmd === 'queue') out(await queue(+a));
     else if (cmd === 'submit') out(await submit(+a));
     else if (cmd === 'upload') {
