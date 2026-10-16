@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-16T17:40:35.837Z",
+ "generated_at": "2026-10-16T17:50:35.847Z",
  "today": "2026-10-17",
  "week_start": "2026-10-12",
  "campaign": {
@@ -102,7 +102,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-16 17:31:05"
+   "updated_at": "2026-10-16 17:46:05"
   },
   {
    "id": "tresearch",
@@ -110,23 +110,23 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Tak ada berita 24 jam terbaru di hasil cari. Data terakhir: DXY dekat 18 bulan tinggi, inflasi lengket, pasar masih buka peluang Fed naik. Bias tipis negatif.",
-   "updated_at": "2026-10-16 17:31:05"
+   "updated_at": "2026-10-16 17:46:05"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Bias sideways",
-   "updated_at": "2026-10-16 17:31:05"
+   "current_task": "Bias bullish",
+   "updated_at": "2026-10-16 17:46:05"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: market sideways, tunggu arah jelas",
-   "updated_at": "2026-10-16 17:31:05"
+   "current_task": "NO TRADE: bullish, tapi belum ada pemicu entry di area",
+   "updated_at": "2026-10-16 17:46:05"
   },
   {
    "id": "texec",
@@ -615,6 +615,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-16 17:46:05",
+   "agent_id": "trisk",
+   "message": "NO TRADE · bullish, tapi belum ada pemicu entry di area"
+  },
+  {
    "ts": "2026-10-16 17:01:05",
    "agent_id": "ttech",
    "message": "M15 berubah arah: sideways → bearish"
@@ -733,11 +738,6 @@
    "ts": "2026-10-16 13:46:05",
    "agent_id": "trisk",
    "message": "NO TRADE · market sideways, tunggu arah jelas"
-  },
-  {
-   "ts": "2026-10-16 13:41:05",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: bearish → sideways"
   }
  ],
  "chats": [
@@ -1093,9 +1093,14 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4160.200195,
+  "price": 4163.600098,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-16 17:46:05",
+    "decision": "NO TRADE",
+    "reason": "bullish, tapi belum ada pemicu entry di area"
+   },
    {
     "ts": "2026-10-16 17:31:05",
     "decision": "NO TRADE",
@@ -1120,11 +1125,6 @@
     "ts": "2026-10-16 16:31:05",
     "decision": "NO TRADE",
     "reason": "bullish, tapi belum ada pemicu entry di area"
-   },
-   {
-    "ts": "2026-10-16 16:16:05",
-    "decision": "NO TRADE",
-    "reason": "bullish, tapi belum ada pemicu entry di area"
    }
   ],
   "trades": [],
@@ -1146,7 +1146,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-16 17:31:05",
+   "ts": "2026-10-16 17:46:05",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1155,17 +1155,17 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "market sideways, tunggu arah jelas",
+   "reason": "bullish, tapi belum ada pemicu entry di area",
    "fund": {
     "bias": -0.1,
     "note": "Tak ada berita 24 jam terbaru di hasil cari. Data terakhir: DXY dekat 18 bulan tinggi, inflasi lengket, pasar masih buka peluang Fed naik. Bias tipis negatif.",
     "blackout": null
    },
    "tech": {
-    "bias": "sideways",
-    "score": -1,
+    "bias": "bullish",
+    "score": 3,
     "trigger": null,
-    "note": "sideways (skor -1) · harga 4161.60 · EMA50 H1 4162.24 · RSI M15 40"
+    "note": "bullish (skor 3) · harga 4166.40 · EMA50 H1 4162.43 · RSI M15 44"
    }
   },
   "fund": {
@@ -1192,25 +1192,25 @@
   "tf": {
    "M10": {
     "bias": "bearish",
-    "score": -2,
-    "price": 4161.2,
-    "ema20": 4169.31,
-    "ema50": 4173.93,
-    "rsi": 36.2,
+    "score": -3,
+    "price": 4161.8,
+    "ema20": 4168.59,
+    "ema50": 4173.45,
+    "rsi": 37.2,
     "n": 299,
-    "slot": 2986953,
-    "at": 1792171865212
+    "slot": 2986954,
+    "at": 1792172465233
    },
    "M15": {
     "bias": "bearish",
     "score": -3,
-    "price": 4161.2,
-    "ema20": 4172.3,
-    "ema50": 4174.42,
-    "rsi": 39.2,
+    "price": 4166.9,
+    "ema20": 4171.78,
+    "ema50": 4174.13,
+    "rsi": 44.6,
     "n": 299,
-    "slot": 1991302,
-    "at": 1792171865217
+    "slot": 1991303,
+    "at": 1792172765229
    },
    "M30": {
     "bias": "sideways",
