@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-16T06:20:23.956Z",
+ "generated_at": "2026-10-16T06:30:23.954Z",
  "today": "2026-10-16",
  "week_start": "2026-10-12",
  "campaign": {
@@ -601,6 +601,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-16 06:21:04",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: bullish → sideways"
+  },
+  {
    "ts": "2026-10-16 06:01:04",
    "agent_id": "ttech",
    "message": "M10 berubah arah: sideways → bullish"
@@ -719,11 +724,6 @@
    "ts": "2026-10-16 02:53:31",
    "agent_id": "yvideo",
    "message": "Shorts #28 \"[UJI] Batu 800 Ton di Baalbek\" masuk antrean render laptop (OmniVoice)"
-  },
-  {
-   "ts": "2026-10-16 02:31:04",
-   "agent_id": "ttech",
-   "message": "M30 berubah arah: sideways → bullish"
   }
  ],
  "chats": [
@@ -1079,7 +1079,7 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4172.600098,
+  "price": 4176,
   "open": [],
   "signals": [
    {
@@ -1158,15 +1158,7 @@
    "bias": 0.2,
    "note": "NFP Sep meleset (29rb vs 84rb), USD melemah; tapi Fed condong hawkish & peluang hike Des. Emas ~4.150, support 4.065-4.100"
   },
-  "calendar": [
-   {
-    "title": "Fed Chairman Warsh Speaks",
-    "impact": "High",
-    "at": 1792121400000,
-    "forecast": "",
-    "previous": ""
-   }
-  ],
+  "calendar": [],
   "ea": {
    "connected": false,
    "demo": null
@@ -1185,15 +1177,15 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "bullish",
-    "score": 2,
-    "price": 4174.2,
-    "ema20": 4173.1,
-    "ema50": 4168.59,
-    "rsi": 53.2,
+    "bias": "sideways",
+    "score": 0,
+    "price": 4172.6,
+    "ema20": 4173.06,
+    "ema50": 4168.74,
+    "rsi": 51,
     "n": 299,
-    "slot": 2986885,
-    "at": 1792131064911
+    "slot": 2986886,
+    "at": 1792131664718
    },
    "M15": {
     "bias": "bullish",
