@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-16T23:00:36.024Z",
+ "generated_at": "2026-10-16T23:10:36.025Z",
  "today": "2026-10-17",
  "week_start": "2026-10-12",
  "campaign": {
@@ -21,48 +21,48 @@
    "name": "Andre",
    "title": "Marketing Director",
    "status": "done",
-   "current_task": "Bagi tugas: Uda bisaa, buat sekarang",
-   "updated_at": "2026-10-16 15:17:09"
+   "current_task": "Sesi pagi selesai",
+   "updated_at": "2026-10-16 23:04:12"
   },
   {
    "id": "researcher",
    "name": "Clariana",
    "title": "Researcher",
-   "status": "working",
-   "current_task": "Riset hasil Upper Final Champions & Week 9 MPL ID",
-   "updated_at": "2026-10-16 23:00:23"
+   "status": "done",
+   "current_task": "Verifikasi NAVI 12 MP & jadwal vs BTR",
+   "updated_at": "2026-10-16 23:08:21"
   },
   {
    "id": "copywriter",
    "name": "Ista",
    "title": "Copywriter",
    "status": "done",
-   "current_task": "Revisi #31: 100T singkirkan G2, lolos Lower Final Champions Shanghai",
-   "updated_at": "2026-10-16 15:22:45"
+   "current_task": "Teks feed NAVI 12 Match Point",
+   "updated_at": "2026-10-16 23:08:31"
   },
   {
    "id": "designer",
    "name": "Maria",
    "title": "Graphic Designer",
    "status": "done",
-   "current_task": "Revisi #31: 100T singkirkan G2, lolos Lower Final Champions Shanghai",
-   "updated_at": "2026-10-16 15:22:45"
+   "current_task": "Render feed NAVI 12 MP",
+   "updated_at": "2026-10-16 23:09:00"
   },
   {
    "id": "video",
    "name": "Dimas",
    "title": "Video Production",
    "status": "done",
-   "current_task": null,
-   "updated_at": "2026-10-15 23:04:42"
+   "current_task": "Video #16 masuk antrean laptop (OmniVoice)",
+   "updated_at": "2026-10-16 23:04:04"
   },
   {
    "id": "publisher",
    "name": "Fikri",
    "title": "Social Media Publisher",
-   "status": "waiting",
-   "current_task": "#31 100T singkirkan G2, lolos Lower Final Champions Shanghai",
-   "updated_at": "2026-10-16 15:22:51"
+   "status": "done",
+   "current_task": "QA & kirim feed NAVI 12 MP",
+   "updated_at": "2026-10-16 23:09:03"
   },
   {
    "id": "ads",
@@ -76,17 +76,17 @@
    "id": "analyst",
    "name": "Raka",
    "title": "Data Analyst",
-   "status": "working",
-   "current_task": "Cek pola metrik kemarin",
-   "updated_at": "2026-10-16 23:00:23"
+   "status": "done",
+   "current_task": "Pola: post komen 1 kata & kartu jadwal paling atas",
+   "updated_at": "2026-10-16 23:02:54"
   },
   {
    "id": "price",
    "name": "Budi",
    "title": "Price Watcher",
-   "status": "working",
-   "current_task": "Cek harga di zataa.my.id",
-   "updated_at": "2026-10-16 23:00:35"
+   "status": "done",
+   "current_task": "Harga ML 17 Okt sama dengan kemarin",
+   "updated_at": "2026-10-16 23:02:40"
   },
   {
    "id": "ob",
@@ -505,6 +505,20 @@
    "channel": null
   },
   {
+   "id": 32,
+   "day": "2026-10-17",
+   "slot": "sore",
+   "format": "feed",
+   "game": "mlbb",
+   "pillar": "esport",
+   "title": "NAVI 12 Match Point: Selangkah Lagi Juara Reguler",
+   "status": "pending_approval",
+   "asset_url": "{\"feed\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-17/32-navi-12-match-point-selangkah-lagi-juara.jpg\"],\"story\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-17/32-navi-12-match-point-selangkah-lagi-juara-916.jpg\"]}",
+   "scheduled_at": null,
+   "posted_at": null,
+   "channel": null
+  },
+  {
    "id": 17,
    "day": "2026-10-17",
    "slot": "malam",
@@ -512,8 +526,8 @@
    "game": "mlbb",
    "pillar": "promo",
    "title": "Weekend Top Up Diamond ML di zataa.my.id",
-   "status": "draft",
-   "asset_url": null,
+   "status": "approved",
+   "asset_url": "{\"feed\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-17/17-weekend-top-up-diamond-ml-di-zataa-my-id.jpg\"],\"story\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-17/17-weekend-top-up-diamond-ml-di-zataa-my-id-916.jpg\"]}",
    "scheduled_at": null,
    "posted_at": null,
    "channel": null
@@ -615,6 +629,76 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-16 23:09:03",
+   "agent_id": "publisher",
+   "message": "Kirim #32 ke Owner buat approval"
+  },
+  {
+   "ts": "2026-10-16 23:08:21",
+   "agent_id": "researcher",
+   "message": "Nemu 1 topik baru"
+  },
+  {
+   "ts": "2026-10-16 23:07:36",
+   "agent_id": "owner",
+   "message": "Approve konten #17 ✅"
+  },
+  {
+   "ts": "2026-10-16 23:07:36",
+   "agent_id": "owner",
+   "message": "Approve 1 ide konten tambahan 💡"
+  },
+  {
+   "ts": "2026-10-16 23:04:07",
+   "agent_id": "publisher",
+   "message": "#17 harga cocok zataa.my.id 17 Okt, label TERLARIS dibuang (klaim tak terbukti)"
+  },
+  {
+   "ts": "2026-10-16 23:04:07",
+   "agent_id": "publisher",
+   "message": "Kirim #17 ke Owner buat approval"
+  },
+  {
+   "ts": "2026-10-16 23:04:04",
+   "agent_id": "video",
+   "message": "Edge TTS gagal 2x, video #16 dialihkan ke voice kalem-2, render di laptop"
+  },
+  {
+   "ts": "2026-10-16 23:03:01",
+   "agent_id": "dir",
+   "message": "Ide pilihan: #41 ONIC vs DEWA (pagi, sebelum 14:00) & #43 NAVI 12 MP (sore). Ide Lower Final ditahan karena jam main belum pasti"
+  },
+  {
+   "ts": "2026-10-16 23:03:01",
+   "agent_id": "dir",
+   "message": "Kirim 2 ide briefing ke Owner"
+  },
+  {
+   "ts": "2026-10-16 23:03:00",
+   "agent_id": "dir",
+   "message": "Pilih 2 ide terbaik dari briefing"
+  },
+  {
+   "ts": "2026-10-16 23:02:54",
+   "agent_id": "analyst",
+   "message": "Pekan ini 18 post tayang, 278 like, komentar masih 0 — perbanyak format pancing komen"
+  },
+  {
+   "ts": "2026-10-16 23:02:40",
+   "agent_id": "price",
+   "message": "Harga ML zataa.my.id 17 Okt tidak berubah (price.mjs check gagal baca JS, cek manual OK)"
+  },
+  {
+   "ts": "2026-10-16 23:02:40",
+   "agent_id": "researcher",
+   "message": "6 item riset: LOUD 2-1 Vitality (Haven 13-11), NAVI 2-1 RRQ, AE 2-0 GEEK, GEEK tersingkir"
+  },
+  {
+   "ts": "2026-10-16 23:02:32",
+   "agent_id": "researcher",
+   "message": "Nemu 6 topik baru"
+  },
+  {
    "ts": "2026-10-16 22:00:54",
    "agent_id": "analyst",
    "message": "Update data 21 post IG 📈"
@@ -668,79 +752,128 @@
    "ts": "2026-10-16 16:01:05",
    "agent_id": "ttech",
    "message": "M60 berubah arah: bullish → sideways"
-  },
-  {
-   "ts": "2026-10-16 16:00:55",
-   "agent_id": "analyst",
-   "message": "Update data 21 post IG 📈"
-  },
-  {
-   "ts": "2026-10-16 15:46:05",
-   "agent_id": "trisk",
-   "message": "NO TRADE · market sideways, tunggu arah jelas"
-  },
-  {
-   "ts": "2026-10-16 15:31:05",
-   "agent_id": "ttech",
-   "message": "M30 berubah arah: bullish → sideways"
-  },
-  {
-   "ts": "2026-10-16 15:22:51",
-   "agent_id": "publisher",
-   "message": "Kirim #31 ke Owner buat approval · revisi ke-1"
-  },
-  {
-   "ts": "2026-10-16 15:22:45",
-   "agent_id": "designer",
-   "message": "Revisi #31 kelar: Intinya #31 udah jadi carousel 6 slide yang dibuka ucapan selamat buat 100T, cuma foto pemainnya masih nunggu link karen"
-  },
-  {
-   "ts": "2026-10-16 15:20:42",
-   "agent_id": "designer",
-   "message": "Balik ke komputer, ngerjain revisi #31"
-  },
-  {
-   "ts": "2026-10-16 15:20:42",
-   "agent_id": "owner",
-   "message": "Minta revisi #31: Buatin carousel, pertama ucapin selamat dulu ke 100T pake foto pemain nya 100t. Baru next halaman selanjutnya ngikutin, coba buat aja dulu"
-  },
-  {
-   "ts": "2026-10-16 15:17:01",
-   "agent_id": "publisher",
-   "message": "Kirim #31 (100T singkirkan G2) ke Owner setelah limit reset"
-  },
-  {
-   "ts": "2026-10-16 15:17:01",
-   "agent_id": "publisher",
-   "message": "Kirim #31 ke Owner buat approval"
-  },
-  {
-   "ts": "2026-10-16 15:16:35",
-   "agent_id": "owner",
-   "message": "Chat: Uda bisaa, buat sekarang"
-  },
-  {
-   "ts": "2026-10-16 15:14:36",
-   "agent_id": "owner",
-   "message": "Chat: Uda bisa ngerjain kan"
-  },
-  {
-   "ts": "2026-10-16 14:46:05",
-   "agent_id": "trisk",
-   "message": "NO TRADE · market sideways, tunggu arah jelas"
-  },
-  {
-   "ts": "2026-10-16 14:12:35",
-   "agent_id": "owner",
-   "message": "Chat: Okkee, kalo uda abis reset, lgsung kerjain"
-  },
-  {
-   "ts": "2026-10-16 14:01:05",
-   "agent_id": "ttech",
-   "message": "M60 berubah arah: sideways → bullish"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-10-16 23:09:11",
+   "agent_id": "publisher",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Udah aku kirim ke Telegram Bos, tinggal ✅ biar tayang sore ini!"
+  },
+  {
+   "ts": "2026-10-16 23:09:11",
+   "agent_id": "designer",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Feed \"NAVI 12 Match Point\" pakai logo NAVI + TLID udah jadi, versi 1:1 dan 9:16 👌"
+  },
+  {
+   "ts": "2026-10-16 23:09:11",
+   "agent_id": "researcher",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Udah dicek ke id-mpl.com Bos, NAVI 12-3 dan TLID paling mentok 12 MP, jadi NAVI cukup menang lawan BTR Minggu 17:00 WIB."
+  },
+  {
+   "ts": "2026-10-16 23:09:04",
+   "agent_id": "researcher",
+   "to_id": "copywriter",
+   "kind": "santai",
+   "message": "Besok NAVI vs BTR jam 5 sore, siap-siap bikin update hasilnya ya Ta 😆"
+  },
+  {
+   "ts": "2026-10-16 23:09:03",
+   "agent_id": "publisher",
+   "to_id": "owner",
+   "kind": "oper",
+   "message": "\"QA & kirim feed NAVI 12 MP\" udah lolos QA, tinggal nunggu ✅ dari Bos"
+  },
+  {
+   "ts": "2026-10-16 23:09:00",
+   "agent_id": "designer",
+   "to_id": "publisher",
+   "kind": "oper",
+   "message": "Visual \"Render feed NAVI 12 MP\" kelar! Fikri, cek typo-nya sekalian ya 🙏"
+  },
+  {
+   "ts": "2026-10-16 23:08:31",
+   "agent_id": "copywriter",
+   "to_id": "designer",
+   "kind": "oper",
+   "message": "Teks buat \"Teks feed NAVI 12 Match Point\" ready. Maria, giliranmu bikin cakep!"
+  },
+  {
+   "ts": "2026-10-16 23:08:21",
+   "agent_id": "researcher",
+   "to_id": "copywriter",
+   "kind": "oper",
+   "message": "Riset \"Verifikasi NAVI 12 MP & jadwal vs BTR\" beres, udah dicek 2 sumber. Ista, lanjut ya~"
+  },
+  {
+   "ts": "2026-10-16 23:07:36",
+   "agent_id": "dir",
+   "to_id": null,
+   "kind": "oper",
+   "message": "Bos ACC 1 ide tambahan! \"NAVI 12 Match Point: Selangkah Lagi Juara Reguler\" 🎉"
+  },
+  {
+   "ts": "2026-10-16 23:04:12",
+   "agent_id": "researcher",
+   "to_id": null,
+   "kind": "santai",
+   "message": "Semalam LOUD comeback di Haven 13-11, aku sampe teriak di mess 😆"
+  },
+  {
+   "ts": "2026-10-16 23:04:07",
+   "agent_id": "publisher",
+   "to_id": "owner",
+   "kind": "oper",
+   "message": "\"QA #17 promo OK, terkirim ke Owner\" udah lolos QA, tinggal nunggu ✅ dari Bos"
+  },
+  {
+   "ts": "2026-10-16 23:04:04",
+   "agent_id": "video",
+   "to_id": "publisher",
+   "kind": "oper",
+   "message": "Render \"Video #16 masuk antrean laptop (OmniVoice)\" selesai, Fikri. Cek cover-nya ya"
+  },
+  {
+   "ts": "2026-10-16 23:03:35",
+   "agent_id": "designer",
+   "to_id": "publisher",
+   "kind": "oper",
+   "message": "Visual \"Feed promo #17\" kelar! Fikri, cek typo-nya sekalian ya 🙏"
+  },
+  {
+   "ts": "2026-10-16 23:03:29",
+   "agent_id": "copywriter",
+   "to_id": "designer",
+   "kind": "oper",
+   "message": "Maria, copy \"Naskah video #16 & promo #17\" udah masuk. Headline-nya jangan dikecilin ya 😆"
+  },
+  {
+   "ts": "2026-10-16 23:03:01",
+   "agent_id": "dir",
+   "to_id": "researcher",
+   "kind": "oper",
+   "message": "Brief \"Pilih ide ONIC vs DEWA & NAVI 12 MP\" udah jadi. Clariana, gas riset ya!"
+  },
+  {
+   "ts": "2026-10-16 23:02:54",
+   "agent_id": "analyst",
+   "to_id": "dir",
+   "kind": "oper",
+   "message": "Rekap \"Pola: post komen 1 kata & kartu jadwal paling atas\" beres, Andre. Bisa buat bahan plan"
+  },
+  {
+   "ts": "2026-10-16 23:02:40",
+   "agent_id": "researcher",
+   "to_id": "copywriter",
+   "kind": "oper",
+   "message": "Ista, bahan buat \"Riset: LOUD ke Grand Final, Lower Final Vitality vs 100T, We\" udah aku rangkum + sumbernya. Tinggal kamu racik captionnya ✍️"
+  },
   {
    "ts": "2026-10-16 15:22:45",
    "agent_id": "designer",
@@ -901,134 +1034,15 @@
    "to_id": null,
    "kind": "oper",
    "message": "Oke tim, ada titah dari Bos. Aku bagi tugasnya ya 👇"
-  },
-  {
-   "ts": "2026-10-16 13:55:36",
-   "agent_id": "owner",
-   "to_id": "sec",
-   "kind": "bos",
-   "message": "Yg menang 100t, tp lgsung cek lgi, kalo emng iya lgsung bikin desainnya"
-  },
-  {
-   "ts": "2026-10-16 13:53:37",
-   "agent_id": "sec",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "⚠️ Bos, limit sesi (5 jam) Claude udah 97%. Reset Jumat, 16 Okt, 23.10 WITA.\nKalau penuh, kerjaan AI ketunda sebentar sampai reset."
-  },
-  {
-   "ts": "2026-10-16 13:50:03",
-   "agent_id": "researcher",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Bahannya udah siap (dulu G2 sempet sapu 100T 2-0), 30 menit lagi aku cek ulang. Begitu skornya pasti, Ista sama Maria langsung bikin feed dan Fikri kirim ke Bos buat ✅ ya 🔥"
-  },
-  {
-   "ts": "2026-10-16 13:50:03",
-   "agent_id": "researcher",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Lagi aku kejar Bos! G2 vs 100T (Lower Round 3 Champions, mulai ±16:00 WIB) skor finalnya belum bisa aku pastiin dari 2 sumber, jadi belum aku kasih ke tim biar nggak salah info."
-  },
-  {
-   "ts": "2026-10-16 13:48:36",
-   "agent_id": "dir",
-   "to_id": null,
-   "kind": "oper",
-   "message": "Oke tim, ada titah dari Bos. Aku bagi tugasnya ya 👇"
-  },
-  {
-   "ts": "2026-10-16 13:48:36",
-   "agent_id": "owner",
-   "to_id": "dir",
-   "kind": "bos",
-   "message": "Gimana untuk konten G2 vs 100t nya ?"
-  },
-  {
-   "ts": "2026-10-16 09:00:22",
-   "agent_id": "publisher",
-   "to_id": null,
-   "kind": "oper",
-   "message": "\"Komen 1 Kata: Siapa Juara Reguler, NAVI atau TLID?\" udah tayang di IG 🚀 Makasih semua!"
-  },
-  {
-   "ts": "2026-10-16 05:00:26",
-   "agent_id": "publisher",
-   "to_id": null,
-   "kind": "oper",
-   "message": "\"Jumat Top Up: Diamond ML Siap Buat Nonton Week 9\" udah tayang di IG 🚀 Makasih semua!"
-  },
-  {
-   "ts": "2026-10-16 03:00:37",
-   "agent_id": "publisher",
-   "to_id": null,
-   "kind": "oper",
-   "message": "\"Kartu Jadwal Lengkap Week 9 MPL ID (16–18 Okt)\" udah tayang di IG 🚀 Makasih semua!"
-  },
-  {
-   "ts": "2026-10-15 23:32:46",
-   "agent_id": "publisher",
-   "to_id": null,
-   "kind": "oper",
-   "message": "\"Upper Final Champions Shanghai: 2 Tim, 1 Tiket Gra\" udah tayang di IG 🚀 Makasih semua!"
-  },
-  {
-   "ts": "2026-10-15 23:31:35",
-   "agent_id": "publisher",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Dua-duanya udah aku QA dan kirim ke Telegram ya Bos, tinggal ✅ aja!"
-  },
-  {
-   "ts": "2026-10-15 23:31:35",
-   "agent_id": "copywriter",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Polling \"NAVI atau TLID, komen 1 kata\" juga siap buat slot sore, Minggu malam kita bahas lagi siapa yang nebaknya bener 😎"
-  },
-  {
-   "ts": "2026-10-15 23:31:35",
-   "agent_id": "designer",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Bos, kartu jadwal Week 9 udah jadi, 8 laga lengkap pakai logo tim, ONIC vs DEWA aku sorot emas biar kerasa hidup-matinya 🔥"
-  },
-  {
-   "ts": "2026-10-15 23:31:21",
-   "agent_id": "publisher",
-   "to_id": "owner",
-   "kind": "oper",
-   "message": "Bos, \"Jadwal Week 9 & polling NAVI/TLID dikirim ke Owner\" udah aku kirim ke Telegram. Ditunggu approve-nya 🙏"
-  },
-  {
-   "ts": "2026-10-15 23:31:15",
-   "agent_id": "designer",
-   "to_id": "copywriter",
-   "kind": "santai",
-   "message": "Ista, logo 9 tim muat semua di 1 kartu, ONIC–DEWA aku kasih sorot emas biar kerasa tegangnya 🔥"
-  },
-  {
-   "ts": "2026-10-15 23:31:15",
-   "agent_id": "designer",
-   "to_id": "publisher",
-   "kind": "oper",
-   "message": "Visual \"Kartu jadwal Week 9 + polling NAVI/TLID (1:1 & 9:16)\" kelar! Fikri, cek typo-nya sekalian ya 🙏"
-  },
-  {
-   "ts": "2026-10-15 23:30:57",
-   "agent_id": "copywriter",
-   "to_id": "designer",
-   "kind": "oper",
-   "message": "Teks buat \"Teks jadwal Week 9 & polling NAVI/TLID\" ready. Maria, giliranmu bikin cakep!"
   }
  ],
  "stats": {
   "this_week": {
    "week": "2026-10-12",
-   "total": 23,
+   "total": 24,
    "posted": 18,
-   "pending": 1,
-   "scheduled": 0,
+   "pending": 2,
+   "scheduled": 1,
    "views": 0,
    "likes": 278,
    "comments": 0,
