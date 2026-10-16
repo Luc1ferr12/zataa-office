@@ -11,6 +11,7 @@
 //   node scripts/shorts-bot.mjs upload <id>           upload manual sekarang (Owner sudah ✅; normalnya otomatis di jam tayang)
 //   ❌ Tolak → Claude CLI bikin Shorts pengganti (topik lain, hari & jam sama)
 //   node scripts/shorts-bot.mjs say <agent> "<teks>"  pesan dari pegawai YouTube
+//   node scripts/shorts-bot.mjs report                laporan harian sekarang (otomatis tiap 21:00 WITA)
 //   .env: SHORTS_BOT_TOKEN, SHORTS_OWNER_ID (+ YT_* untuk upload)
 process.removeAllListeners('warning');
 import { join, dirname, basename } from 'node:path';
@@ -299,6 +300,36 @@ async function statusText() {
   return `<b>${NAMA.ydir}</b>: Rekap Shorts 7 hari terakhir:\n${rows.map((r) => `• #${r.id} ${r.day.slice(8)}/${r.day.slice(5, 7)} ${esc(r.title)} — ${lap[r.lap] ?? ST[r.status] ?? r.status}`).join('\n')}`;
 }
 
+// ---------- laporan harian Kirana (21:00 WITA, 0 token): subscriber, views, likes + kenaikan sejak laporan kemarin
+const REPORT_MIN = 21 * 60;
+const num = (n) => (n == null ? '?' : Number(n).toLocaleString('id-ID'));
+const plus = (n) => (n == null ? '' : ` (${n >= 0 ? '+' : ''}${num(n)})`);
+export async function dailyReport() {
+  const r = await run(['scripts/youtube.mjs', 'stats'], 3);
+  if (!r.ok) throw new Error((r.err || r.out).split('\n').pop().slice(0, 200));
+  const st = JSON.parse(r.out.split('\n').pop());
+  const views = st.list.reduce((a, v) => a + v.views, 0); // total channel dari API telat update → jumlahkan per video
+  const prev = state().snap;
+  const t = wita(new Date());
+  const hari = DAYS[new Date(`${t.date}T00:00:00Z`).getUTCDay()];
+  const vPrev = prev?.videos ?? {};
+  const rows = st.list.filter((v) => v.privacy !== 'private' || v.views > 0)
+    .map((v) => ({ ...v, dv: vPrev[v.id] ? v.views - vPrev[v.id].v : null, dl: vPrev[v.id] ? v.likes - vPrev[v.id].l : null }))
+    .sort((a, b) => (b.dv ?? b.views) - (a.dv ?? a.views));
+  const lines = [
+    `📊 <b>Laporan harian Zataa Story</b> · ${hari} ${t.date.slice(8)}/${t.date.slice(5, 7)}`, '',
+    `👥 Subscriber: <b>${num(st.subscribers)}</b>${prev ? plus(st.subscribers - prev.subs) : ''}`,
+    `👁️ Views: <b>${num(views)}</b>${prev ? plus(views - prev.views) : ''}`,
+    `👍 Likes: <b>${num(st.likes)}</b>${prev ? plus(st.likes - prev.likes) : ''}`,
+    `🎬 Video tayang: ${st.list.filter((v) => v.privacy === 'public').length}`, '',
+    ...rows.slice(0, 5).map((v, i) => `${i + 1}. ${esc(v.title.slice(0, 45))} · 👁️ ${num(v.views)}${plus(v.dv)} · 👍 ${num(v.likes)}${v.privacy !== 'public' ? ` · <i>${v.privacy}</i>` : ''}`),
+    prev ? `\n<i>(angka dalam kurung = kenaikan sejak laporan ${prev.date.slice(8)}/${prev.date.slice(5, 7)})</i>` : '\n<i>Laporan pertama, kenaikan harian mulai muncul besok.</i>',
+  ].filter((l) => l !== undefined);
+  await sayAs('ypublish', lines.join('\n'));
+  patchState((s) => { s.snap = { date: t.date, subs: st.subscribers, views, likes: st.likes, videos: Object.fromEntries(st.list.map((v) => [v.id, { v: v.views, l: v.likes }])) }; s.reportDate = t.date; });
+  return { ok: true, subscribers: st.subscribers, views, likes: st.likes };
+}
+
 // pesan bebas Owner → Claude CLI sebagai tim YouTube
 async function talk(msg, log) {
   const r = await claude(`Kamu tim YouTube Shorts "Zataa Story" (sejarah misteri kuno) di folder ini, ngobrol dengan Owner (Bos Zamiir) lewat bot Telegram @zataashortbot.
@@ -348,7 +379,13 @@ async function runJobs(log) {
     log(`shorts #${c.id}: pengingat Publik ${r.n}/3`);
   }
   saveState({ ...state(), notified, remind });
+  // laporan harian 21:00 WITA (sekali per hari; jalan di antrean biar nggak dobel)
+  if (t.minutes >= REPORT_MIN && state().reportDate !== t.date && !reporting) {
+    reporting = true;
+    later(() => dailyReport().then(() => log('shorts: laporan harian terkirim')).catch((e) => { log(`shorts: laporan harian gagal ${e.message}`); patchState((s) => { s.reportDate = t.date; }); }).finally(() => { reporting = false; }), log);
+  }
 }
+let reporting = false;
 
 // antrean kerja panjang (upload/revisi/obrolan Claude) satu per satu, polling tetap jalan
 let chain = Promise.resolve();
@@ -463,6 +500,7 @@ if (isMain) {
       if (!r.already) { await sayAs('ypublish', `✅ Udah ke-upload!\n${remindText(c)}`, { reply_markup: PUB_BTN(+a) }); patchState((s) => { (s.remind ??= {})[+a] = { n: 0, at: Date.now() }; }); }
       out(r);
     } else if (cmd === 'say') { await sayAs(a, esc(b)); out('ok'); }
+    else if (cmd === 'report') out(await dailyReport());
     else out('pakai: shorts-bot.mjs new <file.json> | get <id> | set <id> <json|file> | list [dari] | queue <id> | submit <id> | upload <id> | say <agent> "<teks>"');
   } catch (e) { out(`gagal: ${e.message}`); process.exit(1); }
 }
