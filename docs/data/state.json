@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-16T15:10:35.799Z",
+ "generated_at": "2026-10-16T15:20:35.803Z",
  "today": "2026-10-16",
  "week_start": "2026-10-12",
  "campaign": {
@@ -21,8 +21,8 @@
    "name": "Andre",
    "title": "Marketing Director",
    "status": "done",
-   "current_task": "Bagi tugas: Yg menang 100t, tp lgsung cek lgi, kalo emng iya lgsung biki",
-   "updated_at": "2026-10-16 13:57:23"
+   "current_task": "Bagi tugas: Uda bisaa, buat sekarang",
+   "updated_at": "2026-10-16 15:17:09"
   },
   {
    "id": "researcher",
@@ -61,8 +61,8 @@
    "name": "Fikri",
    "title": "Social Media Publisher",
    "status": "done",
-   "current_task": null,
-   "updated_at": "2026-10-16 09:00:22"
+   "current_task": "QA & kirim #31 100T vs G2",
+   "updated_at": "2026-10-16 15:17:01"
   },
   {
    "id": "ads",
@@ -102,7 +102,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-16 15:01:05"
+   "updated_at": "2026-10-16 15:16:05"
   },
   {
    "id": "tresearch",
@@ -110,7 +110,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Tak ada berita 24 jam terbaru di hasil cari. Data terakhir: DXY dekat 18 bulan tinggi, inflasi lengket, pasar masih buka peluang Fed naik. Bias tipis negatif.",
-   "updated_at": "2026-10-16 15:01:05"
+   "updated_at": "2026-10-16 15:16:05"
   },
   {
    "id": "ttech",
@@ -118,7 +118,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Bias bullish",
-   "updated_at": "2026-10-16 15:01:05"
+   "updated_at": "2026-10-16 15:16:05"
   },
   {
    "id": "trisk",
@@ -126,7 +126,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: bullish, tapi belum ada pemicu entry di area",
-   "updated_at": "2026-10-16 15:01:05"
+   "updated_at": "2026-10-16 15:16:05"
   },
   {
    "id": "texec",
@@ -456,7 +456,7 @@
    "game": "valorant",
    "pillar": "esport",
    "title": "100T singkirkan G2, lolos Lower Final Champions Shanghai",
-   "status": "draft",
+   "status": "pending_approval",
    "asset_url": "{\"feed\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-16/31-100t-singkirkan-g2-lolos-lower-final-cha.jpg\"],\"story\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-16/31-100t-singkirkan-g2-lolos-lower-final-cha-916.jpg\"]}",
    "scheduled_at": null,
    "posted_at": null,
@@ -615,6 +615,26 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-16 15:17:01",
+   "agent_id": "publisher",
+   "message": "Kirim #31 (100T singkirkan G2) ke Owner setelah limit reset"
+  },
+  {
+   "ts": "2026-10-16 15:17:01",
+   "agent_id": "publisher",
+   "message": "Kirim #31 ke Owner buat approval"
+  },
+  {
+   "ts": "2026-10-16 15:16:35",
+   "agent_id": "owner",
+   "message": "Chat: Uda bisaa, buat sekarang"
+  },
+  {
+   "ts": "2026-10-16 15:14:36",
+   "agent_id": "owner",
+   "message": "Chat: Uda bisa ngerjain kan"
+  },
+  {
    "ts": "2026-10-16 14:46:05",
    "agent_id": "trisk",
    "message": "NO TRADE · market sideways, tunggu arah jelas"
@@ -718,29 +738,65 @@
    "ts": "2026-10-16 11:41:04",
    "agent_id": "ttech",
    "message": "M10 berubah arah: bullish → sideways"
-  },
-  {
-   "ts": "2026-10-16 11:31:04",
-   "agent_id": "ttech",
-   "message": "M30 berubah arah: sideways → bullish"
-  },
-  {
-   "ts": "2026-10-16 11:31:04",
-   "agent_id": "ttech",
-   "message": "M15 berubah arah: sideways → bullish"
-  },
-  {
-   "ts": "2026-10-16 11:31:04",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: sideways → bullish"
-  },
-  {
-   "ts": "2026-10-16 11:01:05",
-   "agent_id": "ttech",
-   "message": "M30 berubah arah: bullish → sideways"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-10-16 15:17:09",
+   "agent_id": "publisher",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Konten 100T singkirkan G2 (lolos Lower Final Champions Shanghai) udah aku kirim, tinggal Bos ✅ ya. Begitu di-approve langsung tayang!"
+  },
+  {
+   "ts": "2026-10-16 15:17:09",
+   "agent_id": "sec",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Udah bisa lagi Bos, tim langsung lanjut 💪"
+  },
+  {
+   "ts": "2026-10-16 15:17:01",
+   "agent_id": "publisher",
+   "to_id": "owner",
+   "kind": "oper",
+   "message": "\"QA & kirim #31 100T vs G2\" udah lolos QA, tinggal nunggu ✅ dari Bos"
+  },
+  {
+   "ts": "2026-10-16 15:16:36",
+   "agent_id": "dir",
+   "to_id": null,
+   "kind": "oper",
+   "message": "Oke tim, ada titah dari Bos. Aku bagi tugasnya ya 👇"
+  },
+  {
+   "ts": "2026-10-16 15:16:36",
+   "agent_id": "owner",
+   "to_id": "sec",
+   "kind": "bos",
+   "message": "Uda bisaa, buat sekarang"
+  },
+  {
+   "ts": "2026-10-16 15:14:45",
+   "agent_id": "sec",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Kalau udah lewat jam itu, kabarin aku ya, nanti tim lanjut kerjaan."
+  },
+  {
+   "ts": "2026-10-16 15:14:45",
+   "agent_id": "sec",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Kayaknya belum, Bos. Limit terakhir masih 100%, reset Jumat 16 Okt jam 23.10 WITA."
+  },
+  {
+   "ts": "2026-10-16 15:14:36",
+   "agent_id": "owner",
+   "to_id": "sec",
+   "kind": "bos",
+   "message": "Uda bisa ngerjain kan"
+  },
   {
    "ts": "2026-10-16 15:05:36",
    "agent_id": "sec",
@@ -964,62 +1020,6 @@
    "to_id": null,
    "kind": "santai",
    "message": "14 post, komentar masih nol semua. Hari ini kita pancing pakai pertanyaan 1 kata ya 🙏"
-  },
-  {
-   "ts": "2026-10-15 23:04:42",
-   "agent_id": "publisher",
-   "to_id": "owner",
-   "kind": "oper",
-   "message": "\"QA & kirim #14, #15 ke Bos\" udah lolos QA, tinggal nunggu ✅ dari Bos"
-  },
-  {
-   "ts": "2026-10-15 23:04:25",
-   "agent_id": "designer",
-   "to_id": "publisher",
-   "kind": "oper",
-   "message": "Visual \"Render #14 & #15 (1:1 + 9:16)\" kelar! Fikri, cek typo-nya sekalian ya 🙏"
-  },
-  {
-   "ts": "2026-10-15 23:04:05",
-   "agent_id": "copywriter",
-   "to_id": "designer",
-   "kind": "oper",
-   "message": "Teks buat \"Isi #14 promo ML & #15 versus Upper Final\" ready. Maria, giliranmu bikin cakep!"
-  },
-  {
-   "ts": "2026-10-15 23:03:22",
-   "agent_id": "analyst",
-   "to_id": "dir",
-   "kind": "oper",
-   "message": "Andre, data \"Pola minggu ini: 0 komentar di 14 post\" udah aku rangkum. Angkanya menarik nih 📈"
-  },
-  {
-   "ts": "2026-10-15 23:02:32",
-   "agent_id": "researcher",
-   "to_id": "copywriter",
-   "kind": "oper",
-   "message": "Riset \"Riset: Upper Final VIT vs LOUD 13:00 WIB, Week 9 MPL\" beres, udah dicek 2 sumber. Ista, lanjut ya~"
-  },
-  {
-   "ts": "2026-10-15 12:00:41",
-   "agent_id": "publisher",
-   "to_id": null,
-   "kind": "oper",
-   "message": "\"24 Tim, 4 Weekend: Road to FFWS Global Finals Bang\" udah tayang di IG 🚀 Makasih semua!"
-  },
-  {
-   "ts": "2026-10-15 09:00:42",
-   "agent_id": "publisher",
-   "to_id": null,
-   "kind": "oper",
-   "message": "\"Weekly Diamond Pass buat Push Rank Akhir Season\" udah tayang di IG 🚀 Makasih semua!"
-  },
-  {
-   "ts": "2026-10-15 05:02:04",
-   "agent_id": "publisher",
-   "to_id": null,
-   "kind": "oper",
-   "message": "\"5 Tips Push Rank Akhir Season ala Pro MPL\" udah tayang di IG 🚀 Makasih semua!"
   }
  ],
  "stats": {
@@ -1027,7 +1027,7 @@
    "week": "2026-10-12",
    "total": 23,
    "posted": 18,
-   "pending": 0,
+   "pending": 1,
    "scheduled": 0,
    "views": 0,
    "likes": 242,
@@ -1093,9 +1093,14 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4186.600098,
+  "price": 4181.100098,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-16 15:16:05",
+    "decision": "NO TRADE",
+    "reason": "bullish, tapi belum ada pemicu entry di area"
+   },
    {
     "ts": "2026-10-16 15:01:05",
     "decision": "NO TRADE",
@@ -1120,11 +1125,6 @@
     "ts": "2026-10-16 14:01:05",
     "decision": "NO TRADE",
     "reason": "market sideways, tunggu arah jelas"
-   },
-   {
-    "ts": "2026-10-16 13:46:05",
-    "decision": "NO TRADE",
-    "reason": "market sideways, tunggu arah jelas"
    }
   ],
   "trades": [],
@@ -1146,7 +1146,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-16 15:01:05",
+   "ts": "2026-10-16 15:16:05",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1165,7 +1165,7 @@
     "bias": "bullish",
     "score": 3,
     "trigger": null,
-    "note": "bullish (skor 3) · harga 4186.50 · EMA50 H1 4162.94 · RSI M15 54"
+    "note": "bullish (skor 3) · harga 4181.10 · EMA50 H1 4162.73 · RSI M15 50"
    }
   },
   "fund": {
@@ -1193,24 +1193,24 @@
    "M10": {
     "bias": "sideways",
     "score": 1,
-    "price": 4185.4,
-    "ema20": 4181.83,
-    "ema50": 4179.27,
-    "rsi": 53.9,
+    "price": 4184.3,
+    "ema20": 4182.07,
+    "ema50": 4179.47,
+    "rsi": 52.9,
     "n": 299,
-    "slot": 2986938,
-    "at": 1792162865104
+    "slot": 2986939,
+    "at": 1792163465110
    },
    "M15": {
     "bias": "sideways",
     "score": 1,
-    "price": 4185.4,
-    "ema20": 4181.39,
-    "ema50": 4177.48,
-    "rsi": 53.1,
+    "price": 4184.2,
+    "ema20": 4181.66,
+    "ema50": 4177.74,
+    "rsi": 52.3,
     "n": 299,
-    "slot": 1991292,
-    "at": 1792162865110
+    "slot": 1991293,
+    "at": 1792163765158
    },
    "M30": {
     "bias": "bullish",
