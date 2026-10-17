@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-17T14:10:41.208Z",
+ "generated_at": "2026-10-17T14:19:38.270Z",
  "today": "2026-10-17",
  "week_start": "2026-10-12",
  "campaign": {
@@ -1205,13 +1205,17 @@
   "risk": {
    "riskPct": 1,
    "rr": 2,
+   "safeRiskMul": 0.5,
    "dailyLossPct": 3,
    "maxConsecLoss": 3,
-   "sessionUTC": [
-    6,
-    20
+   "asiaUTC": [
+    0,
+    7
    ],
-   "newsBlackoutMin": 45
+   "offUTC": [
+    20,
+    24
+   ]
   },
   "proposals": [],
   "tf": {
