@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-17T00:00:36.265Z",
+ "generated_at": "2026-10-17T00:10:36.073Z",
  "today": "2026-10-17",
  "week_start": "2026-10-12",
  "campaign": {
@@ -140,9 +140,9 @@
    "id": "teval",
    "name": "Jihan",
    "title": "Evaluation & Optimization",
-   "status": "working",
-   "current_task": "Backtest & evaluasi mingguan",
-   "updated_at": "2026-10-17 00:00:16"
+   "status": "done",
+   "current_task": "Evaluasi mingguan beres",
+   "updated_at": "2026-10-17 00:01:39"
   },
   {
    "id": "treport",
@@ -629,6 +629,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-17 00:01:39",
+   "agent_id": "teval",
+   "message": "Evaluasi + backtest mingguan selesai"
+  },
+  {
    "ts": "2026-10-17 00:00:15",
    "agent_id": "treport",
    "message": "Laporan lengkap paper: belum layak ke akun real"
@@ -747,11 +752,6 @@
    "ts": "2026-10-16 17:01:05",
    "agent_id": "ttech",
    "message": "M15 berubah arah: sideways → bearish"
-  },
-  {
-   "ts": "2026-10-16 16:46:05",
-   "agent_id": "trisk",
-   "message": "NO TRADE · bullish, tapi belum ada pemicu entry di area"
   }
  ],
  "chats": [
