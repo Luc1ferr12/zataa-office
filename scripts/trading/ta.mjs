@@ -67,3 +67,33 @@ export function engulf(b) {
   return 0;
 }
 export const last = (arr) => arr[arr.length - 1];
+// Bollinger Band: tengah = SMA(n), atas/bawah = tengah ± k × simpangan baku
+export function bollinger(vals, n = 20, k = 2) {
+  const mid = [], up = [], lo = [];
+  for (let i = 0; i < vals.length; i++) {
+    if (i < n - 1) { mid[i] = up[i] = lo[i] = null; continue; }
+    const w = vals.slice(i - n + 1, i + 1), m = w.reduce((s, v) => s + v, 0) / n;
+    const sd = Math.sqrt(w.reduce((s, v) => s + (v - m) ** 2, 0) / n);
+    mid[i] = m; up[i] = m + k * sd; lo[i] = m - k * sd;
+  }
+  return { mid, up, lo };
+}
+// MACD(12, 26, 9): garis = EMA cepat − EMA lambat, sinyal = EMA garis, histogram = garis − sinyal
+export function macd(vals, f = 12, s = 26, sig = 9) {
+  const a = ema(vals, f), b = ema(vals, s);
+  const line = vals.map((_, i) => (a[i] != null && b[i] != null ? a[i] - b[i] : null));
+  const start = line.findIndex((v) => v != null), sg = new Array(vals.length).fill(null);
+  if (start >= 0) ema(line.slice(start), sig).forEach((v, i) => { sg[start + i] = v; });
+  return { line, signal: sg, hist: line.map((v, i) => (v != null && sg[i] != null ? v - sg[i] : null)) };
+}
+// Stokastik lambat (14, 3, 3): %K = posisi close di rentang high–low n candle, dihaluskan; %D = rata-rata %K
+export function stoch(b, n = 14, smooth = 3, d = 3) {
+  const raw = b.map((_, i) => {
+    if (i < n - 1) return null;
+    const w = b.slice(i - n + 1, i + 1), hh = Math.max(...w.map((x) => x.h)), ll = Math.min(...w.map((x) => x.l));
+    return hh === ll ? 50 : (b[i].c - ll) / (hh - ll) * 100;
+  });
+  const sma = (arr, m) => arr.map((_, i) => { const w = arr.slice(i - m + 1, i + 1); return i < m - 1 || w.some((v) => v == null) ? null : w.reduce((s, v) => s + v, 0) / m; });
+  const k = sma(raw, smooth);
+  return { k, d: sma(k, d) };
+}

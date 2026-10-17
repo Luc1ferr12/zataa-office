@@ -1,8 +1,8 @@
 // Jihan (Evaluation & Optimization): backtest strategi di data historis (M15 + H1), bandingkan varian parameter.
 //   node scripts/trading/backtest.mjs            → backtest parameter sekarang
 //   node scripts/trading/backtest.mjs --grid     → cari varian lebih baik (hasil masuk proposal, butuh ACC Owner)
-import { technical, decide } from './strategy.mjs';
-import { resample, TF_SEC } from './market.mjs';
+import { technical, decide, M15_MIN_BARS } from './strategy.mjs';
+import { TF_SEC } from './market.mjs';
 import { all, params } from './store.mjs';
 
 // simulasi bar demi bar: sinyal di penutupan M15, isi di harga close + spread, keluar saat SL/TP tersentuh (SL duluan kalau dua-duanya)
@@ -10,7 +10,7 @@ export function backtest(m15, h1, p, { spread = 0.3, equity0 = 10000, fund = nul
   let equity = equity0, peak = equity0, maxDd = 0, pos = null, consec = 0, dayKey = '', dayPnl = 0;
   const trades = [];
   let j = 0;
-  for (let i = 60; i < m15.length; i++) {
+  for (let i = M15_MIN_BARS + 80; i < m15.length; i++) {
     const b = m15[i];
     if (pos) {
       const hitSl = pos.side === 'buy' ? b.l <= pos.sl : b.h >= pos.sl;
@@ -32,8 +32,7 @@ export function backtest(m15, h1, p, { spread = 0.3, equity0 = 10000, fund = nul
     while (j < h1.length && h1[j].t + TF_SEC.H1 <= b.t + TF_SEC.M15) j++;
     const H1 = h1.slice(Math.max(0, j - 400), j);
     if (H1.length < p.emaSlow + 5) continue;
-    const H4 = resample(H1, TF_SEC.H4);
-    const tech = technical(m15.slice(i - 59, i + 1), H1, H4, p);
+    const tech = technical(m15.slice(i - M15_MIN_BARS - 79, i + 1), H1, p);
     const q = { bid: b.c - spread / 2, ask: b.c + spread / 2 };
     const dec = decide(tech, { equity, open: 0, dayPnl, consecLoss: consec, spread, quote: q, fund, now: d }, p);
     if (dec.decision === 'NO TRADE') continue;
@@ -56,10 +55,11 @@ export function loadHistory(src = 'yahoo') {
   return { m15, h1 };
 }
 
-// varian parameter yang dicoba (kecil, biar cepat): RR, jarak SL, area pullback
+// varian parameter yang dicoba (kecil, biar cepat & nggak overfitting): konfirmasi Asia, buffer SL, RR maksimal
+export const GRID_KEYS = ['minConfAsia', 'slBufAtr', 'maxRr'];
 export function grid(base) {
   const out = [];
-  for (const rr of [1.5, 2, 2.5]) for (const slAtr of [1.5, 2, 2.5]) for (const pullbackAtr of [0.7, 1.2]) for (const minScore of [2, 3]) out.push({ ...base, rr, slAtr, pullbackAtr, minScore });
+  for (const minConfAsia of [2, 3]) for (const slBufAtr of [0.3, 0.6, 1.0]) for (const maxRr of [1.5, 2, 2.5]) out.push({ ...base, minConfAsia, slBufAtr, maxRr });
   return out;
 }
 export const score = (s) => (s.trades < 8 ? -99 : s.profitFactor * 2 + s.netPct / 5 - s.maxDdPct / 2);
@@ -71,7 +71,7 @@ if (process.argv[1]?.endsWith('backtest.mjs')) {
   const { list, ...b } = base;
   console.log('sekarang', JSON.stringify(b));
   if (process.argv.includes('--grid')) {
-    const rows = grid(p).map((q) => { const { list: _, ...s } = backtest(m15, h1, q); return { q: { rr: q.rr, slAtr: q.slAtr, pullbackAtr: q.pullbackAtr, minScore: q.minScore }, s, sc: score(s) }; }).sort((a, b) => b.sc - a.sc);
+    const rows = grid(p).map((q) => { const { list: _, ...s } = backtest(m15, h1, q); return { q: Object.fromEntries(GRID_KEYS.map((k) => [k, q[k]])), s, sc: score(s) }; }).sort((a, b) => b.sc - a.sc);
     for (const r of rows.slice(0, 5)) console.log(JSON.stringify(r));
   }
 }

@@ -16,10 +16,17 @@ export async function refreshCalendar() {
   return ev;
 }
 
-// rilis penting dalam ±menit dari sekarang → nama beritanya (blackout entry)
-export function blackout(now = Date.now(), minutes = 45) {
-  const ev = kv('calendar', []);
-  const hit = ev.find((e) => e.impact === 'High' && Math.abs(e.at - now) <= minutes * 60000);
+// jendela larangan entry per berita (menit sebelum, menit sesudah rilis), bertingkat:
+//   besar (FOMC, NFP, CPI, Powell) > High lain > Medium penting
+const MAJOR = /CPI|Non-Farm|NFP|FOMC|Federal Funds|Fed Chair|Powell/i;
+export function newsWindow(e, p = {}) {
+  if (e.impact === 'High' && MAJOR.test(e.title)) return [p.newsMajorBeforeMin ?? 120, p.newsMajorAfterMin ?? 90];
+  if (e.impact === 'High') return [p.newsBeforeMin ?? 60, p.newsBlackoutMin ?? 45];
+  return [p.newsMediumMin ?? 20, p.newsMediumMin ?? 20];
+}
+// berita yang jendela larangannya lagi berlaku → nama beritanya (blackout entry)
+export function blackout(now = Date.now(), p = {}) {
+  const hit = kv('calendar', []).find((e) => { const [b, a] = newsWindow(e, p); return now >= e.at - b * 60000 && now <= e.at + a * 60000; });
   return hit ? `${hit.title} (${new Date(hit.at).toLocaleTimeString('id-ID', { timeZone: 'Asia/Makassar', hour: '2-digit', minute: '2-digit' })} WITA)` : null;
 }
 export function upcoming(now = Date.now(), hours = 24) {
@@ -30,7 +37,7 @@ export function upcoming(now = Date.now(), hours = 24) {
 export function fundamental(now = Date.now(), p = { newsBlackoutMin: 45 }) {
   const f = kv('fund', null);
   const valid = f && f.until > now;
-  return { bias: valid ? f.bias : 0, note: valid ? f.note : 'netral (belum ada ringkasan hari ini)', blackout: blackout(now, p.newsBlackoutMin) };
+  return { bias: valid ? f.bias : 0, note: valid ? f.note : 'netral (belum ada ringkasan hari ini)', danger: valid && f.danger ? f.danger : null, blackout: blackout(now, p) };
 }
 
 // ringkasan sentimen lewat Claude CLI (WebSearch) — dipanggil maks 2×/hari oleh supervisor
@@ -40,7 +47,8 @@ export function aiSentiment({ bin = process.env.CLAUDE_BIN || 'claude', model = 
   const prompt = `Kamu Davina, analis fundamental emas (XAUUSD) di tim trading Zataa. Cari berita 24 jam terakhir (maks 4 pencarian web):
 politik/perang/geopolitik, The Fed & suku bunga, data inflasi (CPI/PCE), tenaga kerja (NFP), dan kekuatan USD (DXY).
 Kalender USD 36 jam ke depan:\n${cal}
-Simpulkan sentimen untuk EMAS hari ini. Balas HANYA satu baris JSON: {"bias": angka -1..1 (positif = emas naik), "note": "ringkasan ≤140 karakter bahasa Indonesia", "sources": ["url", "url"]}`;
+Simpulkan sentimen untuk EMAS hari ini, dan nilai apakah kondisinya TERLALU BAHAYA buat entry (mis. perang pecah/eskalasi besar, rapat darurat Fed, krisis bank, harga emas gerak liar ratusan dolar).
+Balas HANYA satu baris JSON: {"bias": angka -1..1 (positif = emas naik), "danger": null atau "alasan singkat ≤80 karakter", "note": "ringkasan ≤140 karakter bahasa Indonesia", "sources": ["url", "url"]}`;
   return new Promise((resolve) => {
     const p = spawn(bin, ['-p', '--model', model, '--allowedTools', 'WebSearch', 'WebFetch'], { cwd: ROOT, shell: process.platform === 'win32', windowsHide: true });
     let o = '';
@@ -53,7 +61,7 @@ Simpulkan sentimen untuk EMAS hari ini. Balas HANYA satu baris JSON: {"bias": an
       if (!m) return resolve(null);
       try {
         const j = JSON.parse(m[0]);
-        const f = { bias: Math.max(-1, Math.min(1, +j.bias || 0)), note: String(j.note || '').slice(0, 160), sources: j.sources ?? [], until: Date.now() + 10 * 3600000 };
+        const f = { bias: Math.max(-1, Math.min(1, +j.bias || 0)), danger: j.danger ? String(j.danger).slice(0, 100) : null, note: String(j.note || '').slice(0, 160), sources: j.sources ?? [], until: Date.now() + 10 * 3600000 };
         setKv('fund', f);
         resolve(f);
       } catch { resolve(null); }

@@ -16,7 +16,7 @@ Kode ikut waktu New York (`marketOpen()` di `market.mjs`), jadi otomatis geser w
 | Jeda harian | 05:00–06:00 | 06:00–07:00 |
 | Tutup | Sabtu 05:00 | Sabtu 06:00 |
 - Sabtu–Minggu nggak ada siklus.
-- Sesi trading yang diizinkan: London–New York **14:00–04:00 WITA** (06–20 UTC), sengaja tetap (nggak ikut DST) biar backtest & live konsisten. Di luar itu NO TRADE.
+- Sesi trading (sengaja UTC tetap, nggak ikut DST, biar backtest & live konsisten): **Asia 08:00–15:00 WITA** (00–07 UTC) = paling aktif · **London–NY 15:00–04:00 WITA** = mode aman (syarat ketat, risiko setengah) · **04:00–08:00 WITA** = libur.
 - Jam rilis berita AS juga geser +1 jam WITA di musim dingin: CPI/NFP 20:30 → 21:30 WITA (kalender ForexFactory udah otomatis).
 
 ## Mode & akun
@@ -33,5 +33,5 @@ Kode ikut waktu New York (`marketOpen()` di `market.mjs`), jadi otomatis geser w
 - Status: `node scripts/trading/cli.mjs status`. **Jangan pernah ngarang angka trading.**
 
 ## Pelajaran nyata
-- Hari pertama (12 Okt) 100% NO TRADE: sideways & di luar sesi. Itu normal untuk aturan ini, bukan error.
+- Hari pertama (12 Okt) 100% NO TRADE: sideways & di luar sesi (strategi lama). 17 Okt strategi diganti ke pantulan Bollinger Band M15, fokus jam Asia.
 - Yahoo Finance kena blok (429) dari VPS sejak 12 Okt; harga jalan dari spot gold-api + riwayat Yahoo lama. Riwayat penuh baru ada kalau EA MT5 tersambung.

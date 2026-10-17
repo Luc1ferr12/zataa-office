@@ -27,10 +27,10 @@ export async function cycle({ force = false, log = console.log } = {}) {
   const fund = fundamental(Date.now(), p);
   setAgent('tresearch', 'done', fund.blackout ? `Waspada rilis ${fund.blackout}` : `Fundamental: ${fund.note}`);
   // ---- 3. Technical (Keira)
-  setAgent('ttech', 'working', 'Baca chart XAUUSD M15/H1/H4');
-  const m15 = bars('M15', 300), h1 = bars('H1', 400), h4 = bars('H4', 300);
-  const tech = technical(m15, h1, h4, p);
-  setAgent('ttech', 'done', tech.ok ? `Bias ${tech.bias}${tech.trigger ? `, pemicu ${tech.trigger.toUpperCase()}` : ''}` : tech.note);
+  setAgent('ttech', 'working', 'Baca Bollinger Band + RSI/Stokastik/MACD M15');
+  const m15 = bars('M15', 300), h1 = bars('H1', 400);
+  const tech = technical(m15, h1, p);
+  setAgent('ttech', 'done', tech.ok ? (tech.trigger ? `Setup ${tech.trigger.toUpperCase()} di band (${tech.confirm.join('+') || 'tanpa konfirmasi'})` : `Belum ada pantulan band · H1 ${tech.bias}`) : tech.note);
   // ---- 4. Decision & Risk (Aryaputra)
   setAgent('trisk', 'working', 'Gabungin fundamental + teknikal, hitung risiko');
   const acc = account(), q = quote(), day = today();
@@ -38,7 +38,7 @@ export async function cycle({ force = false, log = console.log } = {}) {
     ? decide(tech, { equity: acc.equity, open: openTrades().length, dayPnl: day.pnl, consecLoss: day.consecLoss, spread: acc.spread, quote: q, fund, now }, p)
     : { decision: 'NO TRADE', reason: m === 'paper' ? 'harga belum tersedia' : 'EA MT5 belum tersambung' };
   const sig = run(`INSERT INTO trd_signals (price, fund, tech, decision, side, entry, sl, tp, lot, rr, risk_usd, reason)
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`, tech.price ?? null, JSON.stringify(fund), JSON.stringify({ bias: tech.bias, score: tech.score, trigger: tech.trigger, note: tech.note }),
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`, tech.price ?? null, JSON.stringify(fund), JSON.stringify({ bias: tech.bias, score: tech.score, trigger: tech.trigger, confirm: tech.confirm, note: tech.note }),
   dec.decision, dec.side ?? null, dec.entry ?? null, dec.sl ?? null, dec.tp ?? null, dec.lot ?? null, dec.rr ?? null, dec.risk ?? null, dec.reason);
   setAgent('trisk', 'done', dec.decision === 'NO TRADE' ? `NO TRADE: ${dec.reason}` : `${dec.decision} ${dec.lot} lot, RR 1:${dec.rr}`);
   // ---- 5. Execution (Wiratama)

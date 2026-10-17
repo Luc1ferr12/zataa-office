@@ -243,9 +243,13 @@ function renderTrading(tr) {
 
   // kondisi sekarang: masuk atau nggak, dan kenapa
   const L = tr.last, t = L?.tech ?? {};
-  const [s0, s1] = rk.sessionUTC ?? [6, 20], hUtc = new Date().getUTCHours();
-  const sessionOn = hUtc >= s0 && hUtc < s1, mkt = goldMarketOpen();
-  const sesTxt = `${witaHM(Date.UTC(2000, 0, 1, s0))}–${witaHM(Date.UTC(2000, 0, 1, s1))}`;
+  // sesi: Asia = aktif, London–NY = mode aman, rollover = libur (sama dengan strategy.mjs → session)
+  const hUtc = new Date().getUTCHours(), mkt = goldMarketOpen();
+  const inR = ([a, b]) => (a <= b ? hUtc >= a && hUtc < b : hUtc >= a || hUtc < b);
+  const asia = rk.asiaUTC ?? [0, 7], off = rk.offUTC ?? [20, 24];
+  const hmU = (h) => witaHM(Date.UTC(2000, 0, 1, h));
+  const ses = inR(asia) ? ['🟢 Asia (aktif)', 'up'] : inR(off) ? ['😴 libur (rollover)', ''] : [`🛡️ London–NY (mode aman, risiko ×${rk.safeRiskMul ?? 0.5})`, ''];
+  const sesTxt = `Asia ${hmU(asia[0])}–${hmU(asia[1])} · libur ${hmU(off[0])}–${hmU(off[1])} WITA`;
   const verdict = open.length
     ? `<div class="verdict in">📈 Lagi pegang posisi ${open[0].side.toUpperCase()} ${open[0].lot} lot<small>Entry ${open[0].entry} · SL ${open[0].sl} · TP ${open[0].tp}</small></div>`
     : !L ? '<div class="verdict">Belum ada analisa</div>'
@@ -253,23 +257,23 @@ function renderTrading(tr) {
         : `<div class="verdict out">⛔ Nggak masuk<small>${esc(L.reason)}</small></div>`;
   const biasIcon = { bullish: '🟢', bearish: '🔴', sideways: '⚪' }[t.bias] ?? '';
   $('trd-now').innerHTML = verdict
-    + kvRow('Teknikal (Keira)', t.bias ? `${biasIcon} ${t.bias} · skor ${Math.abs(t.score ?? 0)}/3` : '–')
+    + kvRow('Teknikal M15 (Keira)', t.bias ? (t.trigger ? `setup ${t.trigger.toUpperCase()} · konfirmasi ${t.score ?? 0}/4${t.confirm?.length ? ` (${esc(t.confirm.join('+'))})` : ''}` : `nunggu pantulan BB · H1 ${biasIcon} ${t.bias}`) : '–')
     + kvRow('Fundamental (Davina)', esc(tr.fund?.note ?? 'netral, pantau kalender'))
     + kvRow('Pasar emas', mkt ? 'buka' : 'tutup', mkt ? 'up' : 'down')
-    + kvRow(`Sesi London–NY (${sesTxt} WITA)`, sessionOn ? 'jalan' : 'di luar sesi', sessionOn ? 'up' : '')
+    + kvRow(`Sesi (${sesTxt})`, ses[0], ses[1])
     + kvRow('EA MT5', tr.ea?.connected ? `tersambung${tr.ea.demo ? ' (demo)' : ''}` : 'belum tersambung', tr.ea?.connected ? 'up' : '')
     + kvRow('Analisa terakhir', L ? `${fmtTs(L.ts)} WITA` : '–');
 
-  // berita: lagi terdampak (dalam ±menit blackout rilis High) atau aman
-  const win = (rk.newsBlackoutMin ?? 45) * 60000;
+  // berita: lagi terdampak (dalam jendela larangan entry, bertingkat per berita) atau aman
+  const wb = (e) => (e.wb ?? 60) * 60000, wa = (e) => (e.wa ?? 45) * 60000;
   const cal = tr.calendar ?? [];
-  const hit = cal.find((e) => e.impact === 'High' && Math.abs(e.at - now) <= win);
+  const hit = cal.find((e) => now >= e.at - wb(e) && now <= e.at + wa(e));
   const next = cal.find((e) => e.impact === 'High' && e.at > now);
   const banner = hit
-    ? `<div class="verdict out">⚠️ Lagi terdampak berita: ${esc(hit.title)}<small>Rilis ${witaDay(hit.at)} ${witaHM(hit.at)} WITA · entry ditahan sampai ${witaHM(hit.at + win)} WITA</small></div>`
-    : `<div class="verdict in">🛡️ Aman dari berita<small>${next ? `Berikutnya: ${esc(next.title)} · ${witaDay(next.at)} ${witaHM(next.at)} WITA (entry ditahan ±${rk.newsBlackoutMin ?? 45} menit)` : 'Nggak ada rilis USD berdampak tinggi lagi minggu ini'}</small></div>`;
+    ? `<div class="verdict out">⚠️ Lagi terdampak berita: ${esc(hit.title)}<small>Rilis ${witaDay(hit.at)} ${witaHM(hit.at)} WITA · entry ditahan sampai ${witaHM(hit.at + wa(hit))} WITA</small></div>`
+    : `<div class="verdict in">🛡️ Aman dari berita<small>${next ? `Berikutnya: ${esc(next.title)} · ${witaDay(next.at)} ${witaHM(next.at)} WITA (entry ditahan ${witaHM(next.at - wb(next))}–${witaHM(next.at + wa(next))})` : 'Nggak ada rilis USD berdampak tinggi lagi minggu ini'}</small></div>`;
   $('trd-news').innerHTML = banner + (cal.length
-    ? `<ul class="news">${cal.map((e) => `<li class="${e.at < now - win ? 'past' : ''}${e === hit ? ' hit' : ''}"><time>${witaDay(e.at)} ${witaHM(e.at)}</time><i class="imp ${e.impact === 'High' ? 'hi' : 'md'}" title="${e.impact}"></i><span>${esc(e.title)}${e.forecast || e.previous ? `<small>prakiraan ${esc(e.forecast || '–')} · sebelumnya ${esc(e.previous || '–')}</small>` : ''}</span></li>`).join('')}</ul>`
+    ? `<ul class="news">${cal.map((e) => `<li class="${e.at < now - wa(e) ? 'past' : ''}${e === hit ? ' hit' : ''}"><time>${witaDay(e.at)} ${witaHM(e.at)}</time><i class="imp ${e.impact === 'High' ? 'hi' : 'md'}" title="${e.impact}"></i><span>${esc(e.title)}${e.forecast || e.previous ? `<small>prakiraan ${esc(e.forecast || '–')} · sebelumnya ${esc(e.previous || '–')}</small>` : ''}</span></li>`).join('')}</ul>`
     : '<div class="muted">Kalender kosong.</div>');
 
   // risiko & loss

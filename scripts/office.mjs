@@ -244,7 +244,10 @@ function tradingState() {
     const kv = (k, d) => { const r = get('SELECT value FROM trd_kv WHERE key = ?', k); try { return r ? JSON.parse(r.value) : d; } catch { return d; } };
     const mode = kv('mode', 'paper');
     const day = new Date().toISOString().slice(0, 10);
-    const P = { riskPct: 1, rr: 2, dailyLossPct: 3, maxConsecLoss: 3, sessionUTC: [6, 20], newsBlackoutMin: 45, ...kv('params', {}) };
+    const P = { riskPct: 1, maxRr: 2, safeRiskMul: 0.5, dailyLossPct: 3, maxConsecLoss: 3, asiaUTC: [0, 7], offUTC: [20, 24], newsBlackoutMin: 45, newsBeforeMin: 60, newsMajorBeforeMin: 120, newsMajorAfterMin: 90, newsMediumMin: 20, ...kv('params', {}) };
+    // jendela larangan entry per berita, menit [sebelum, sesudah] (sama dengan scripts/trading/research.mjs → newsWindow)
+    const newsWin = (e) => (e.impact === 'High' && /CPI|Non-Farm|NFP|FOMC|Federal Funds|Fed Chair|Powell/i.test(e.title) ? [P.newsMajorBeforeMin, P.newsMajorAfterMin]
+      : e.impact === 'High' ? [P.newsBeforeMin, P.newsBlackoutMin] : [P.newsMediumMin, P.newsMediumMin]);
     const balance = mode === 'paper' ? kv('paper', { balance: 10000 }).balance : kv('ea', {})?.equity ?? null;
     const closed = all("SELECT pnl, r, close_ts FROM trd_trades WHERE status = 'closed' AND mode = ? ORDER BY id", mode);
     const todayRows = closed.filter((x) => (x.close_ts ?? '').slice(0, 10) === day);
@@ -279,9 +282,10 @@ function tradingState() {
       curve,
       last: last ? { ...last, fund: json(last.fund), tech: json(last.tech) } : null,
       fund: fund && fund.until > Date.now() ? { bias: fund.bias, note: fund.note } : null,
-      calendar: kv('calendar', []).filter((e) => e.at >= Date.now() - 3 * 3600e3 && e.at <= Date.now() + 7 * 864e5).sort((x, y) => x.at - y.at).slice(0, 8),
+      calendar: kv('calendar', []).filter((e) => e.at >= Date.now() - 3 * 3600e3 && e.at <= Date.now() + 7 * 864e5).sort((x, y) => x.at - y.at).slice(0, 8)
+        .map((e) => { const [wb, wa] = newsWin(e); return { ...e, wb, wa }; }),
       ea: { connected: !!ea.at && Date.now() / 1000 - ea.at < 180, demo: ea.demo ?? null },
-      risk: { riskPct: P.riskPct, rr: P.rr, dailyLossPct: P.dailyLossPct, maxConsecLoss: P.maxConsecLoss, sessionUTC: P.sessionUTC, newsBlackoutMin: P.newsBlackoutMin },
+      risk: { riskPct: P.riskPct, rr: P.maxRr, safeRiskMul: P.safeRiskMul, dailyLossPct: P.dailyLossPct, maxConsecLoss: P.maxConsecLoss, asiaUTC: P.asiaUTC, offUTC: P.offUTC },
       proposals: all("SELECT id, ts, note FROM trd_proposals WHERE status = 'proposed' ORDER BY id DESC LIMIT 3"),
       tf: kv('tfTrend', {}),
       currency: kv('currency', 'USD'), usd_idr: kv('usdIdr', 16500),

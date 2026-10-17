@@ -15,7 +15,7 @@ import { pollTrading, tradingBotOn } from './tgbot.mjs';
 import { handleTrading } from './telegram.mjs';
 import { cycle, newsToday } from './cycle.mjs';
 import { monitorPaper, closeTrade, onOpened, summary, paperReport, report, setAgent, note, talk, sayAs, exportState } from './desk.mjs';
-import { backtest, loadHistory, grid, score } from './backtest.mjs';
+import { backtest, loadHistory, grid, score, GRID_KEYS } from './backtest.mjs';
 import { readFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 
@@ -105,7 +105,7 @@ export async function weeklyEvaluation() {
   const fmt = (s) => `${s.trades} trade · WR ${s.winrate}% · PF ${s.profitFactor} · net ${s.netPct}% · DD ${s.maxDdPct}%`;
   let msg = `🧪 <b>Evaluasi mingguan</b> (backtest ${now.from} → ${now.to})\nSetelan sekarang: ${fmt(now)}`;
   if (best && best.sc > score(now) + 0.5 && best.s.trades >= 8) {
-    const change = { rr: best.q.rr, slAtr: best.q.slAtr, pullbackAtr: best.q.pullbackAtr, minScore: best.q.minScore };
+    const change = Object.fromEntries(GRID_KEYS.map((k) => [k, best.q[k]]));
     const pr = run('INSERT INTO trd_proposals (params, stats, note) VALUES (?, ?, ?)', JSON.stringify(change), JSON.stringify(best.s), 'grid mingguan');
     const id = Number(pr.lastInsertRowid);
     msg += `\nUsulan #${id}: ${Object.entries(change).map(([k, v]) => `${k}=${v}`).join(', ')}\nHasil uji: ${fmt(best.s)}\nAryaputra siap pasang setelah forward test. Balas <b>trading terapkan ${id}</b> / <b>trading tolak ${id}</b>.`;

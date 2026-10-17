@@ -57,18 +57,31 @@ export const kvAge = (key) => {
 // ---------------------------------------------------------------- setelan strategi & risiko (bisa diubah lewat proposal yang di-ACC Owner)
 export const DEFAULT_PARAMS = {
   riskPct: 1.0,          // risiko per trade (% ekuitas)
-  rr: 2.0,               // target reward : risk
-  slAtr: 2.0,            // jarak SL minimal = slAtr × ATR(M15)
-  minSl: 5, maxSl: 35,   // batas jarak SL (USD) — emas ±4000an, ATR H1 ±10
-  minScore: 2,           // kekuatan tren minimal (2 dari 3: H4, EMA H1, struktur)
-  emaFast: 50, emaSlow: 200,
-  pullbackAtr: 1.2,      // harga harus dekat area (EMA50 H1 / support-resistance), dalam ×ATR(H1)
+  // strategi M15 (17 Okt 2026): pantulan Bollinger Band + konfirmasi RSI / Stokastik / MACD / divergensi
+  bbLen: 20, bbDev: 2.2, // Bollinger Band M15 (2,2 deviasi: sentuhan lebih ekstrem, pantulan lebih bersih di backtest)
+  bbLookback: 3,         // harga nyentuh band di salah satu dari N candle terakhir
+  rsiLo: 35,             // RSI ≤ 35 (BUY) / ≥ 65 (SELL) di area sentuhan
+  stochLo: 20,           // Stokastik %K ≤ 20 / ≥ 80 lalu nyilang %D
+  minConfAsia: 2,        // konfirmasi minimal di sesi Asia (dari RSI, Stokastik, MACD, divergensi)
+  minConfSafe: 3,        // di luar Asia (cari aman) + wajib searah tren H1
+  safeRiskMul: 0.5,      // risiko di luar Asia = riskPct × ini
+  slBufAtr: 0.6,         // SL = ujung sentuhan band + buffer × ATR(M15)
+  minRr: 1.2, maxRr: 2.0,   // TP ke tengah band; RR di bawah minRr = NO TRADE, di atas maxRr dipotong
+  spikeAtr: 3,           // candle M15 > 3× ATR = spike (berita dadakan) → NO TRADE
+  bbExpand: 1.8,         // lebar band > 1,8× rata-rata 50 candle = breakout → jangan lawan
+  minSl: 3, maxSl: 35,   // batas jarak SL (USD)
+  emaFast: 50, emaSlow: 200,   // konteks tren H1
   maxPositions: 1,
   dailyLossPct: 3,       // berhenti hari ini kalau rugi ≥ ini
   maxConsecLoss: 3,      // berhenti hari ini setelah kalah beruntun segini
   maxSpread: 0.8,        // USD
-  sessionUTC: [6, 20],   // jam trading (UTC): London + New York. Sengaja tetap UTC (nggak ikut DST) biar backtest & live konsisten; = 14:00–04:00 WITA
-  newsBlackoutMin: 45,   // tidak entry ±menit dari rilis berita USD berdampak tinggi
+  // sesi (UTC, sengaja tetap biar backtest & live konsisten): Asia 00–07 = 08:00–15:00 WITA (aktif),
+  // libur 20–24 = 04:00–08:00 WITA (rollover, spread lebar), sisanya London–NY = mode aman
+  asiaUTC: [0, 7], offUTC: [20, 24],
+  newsBlackoutMin: 45,   // berita USD High: nggak entry 60 mnt sebelum s.d. 45 mnt sesudah rilis
+  newsBeforeMin: 60,
+  newsMajorBeforeMin: 120, newsMajorAfterMin: 90,   // FOMC / NFP / CPI / Powell: jauh lebih lama
+  newsMediumMin: 20,     // berita Medium penting: ±20 mnt
   maxLot: 1.0, minLot: 0.01, lotStep: 0.01, contract: 100,   // 1 lot XAU = 100 oz
   ddAlertPct: 5,         // peringatan drawdown dari puncak ekuitas
 };
