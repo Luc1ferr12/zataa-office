@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-16T23:50:36.034Z",
+ "generated_at": "2026-10-17T00:00:36.265Z",
  "today": "2026-10-17",
  "week_start": "2026-10-12",
  "campaign": {
@@ -85,8 +85,8 @@
    "name": "Budi",
    "title": "Price Watcher",
    "status": "done",
-   "current_task": "Harga ML 17 Okt sama dengan kemarin",
-   "updated_at": "2026-10-16 23:02:40"
+   "current_task": null,
+   "updated_at": "2026-10-17 00:00:36"
   },
   {
    "id": "ob",
@@ -140,9 +140,9 @@
    "id": "teval",
    "name": "Jihan",
    "title": "Evaluation & Optimization",
-   "status": "idle",
-   "current_task": null,
-   "updated_at": "2026-10-12 04:59:47"
+   "status": "working",
+   "current_task": "Backtest & evaluasi mingguan",
+   "updated_at": "2026-10-17 00:00:16"
   },
   {
    "id": "treport",
@@ -629,6 +629,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-17 00:00:15",
+   "agent_id": "treport",
+   "message": "Laporan lengkap paper: belum layak ke akun real"
+  },
+  {
    "ts": "2026-10-16 23:21:45",
    "agent_id": "video",
    "message": "Render laptop video #16 gagal, cek logs/laptop-worker.log di laptop"
@@ -747,14 +752,16 @@
    "ts": "2026-10-16 16:46:05",
    "agent_id": "trisk",
    "message": "NO TRADE · bullish, tapi belum ada pemicu entry di area"
-  },
-  {
-   "ts": "2026-10-16 16:11:05",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: sideways → bearish"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-10-17 00:00:15",
+   "agent_id": "treport",
+   "to_id": "tdir",
+   "kind": "oper",
+   "message": "Paper belum lolos syarat live, udah kulaporin ke Bos"
+  },
   {
    "ts": "2026-10-16 23:09:11",
    "agent_id": "publisher",
@@ -1027,13 +1034,6 @@
    "to_id": "copywriter",
    "kind": "oper",
    "message": "Ista, bahan buat \"Cek ulang skor G2 vs 100T: 100T menang\" udah aku rangkum + sumbernya. Tinggal kamu racik captionnya ✍️"
-  },
-  {
-   "ts": "2026-10-16 13:55:36",
-   "agent_id": "dir",
-   "to_id": null,
-   "kind": "oper",
-   "message": "Oke tim, ada titah dari Bos. Aku bagi tugasnya ya 👇"
   }
  ],
  "stats": {
@@ -1247,6 +1247,6 @@
    }
   },
   "currency": "USC",
-  "usd_idr": 17893.303251
+  "usd_idr": 17949.090321
  }
 }
