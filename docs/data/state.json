@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-17T06:20:36.185Z",
+ "generated_at": "2026-10-17T06:30:36.190Z",
  "today": "2026-10-17",
  "week_start": "2026-10-12",
  "campaign": {
@@ -554,7 +554,7 @@
    "game": "sejarah",
    "pillar": "misteri",
    "title": "Medusa: Monster atau Korban?",
-   "status": "draft",
+   "status": "pending_approval",
    "asset_url": null,
    "scheduled_at": null,
    "posted_at": null,
@@ -642,6 +642,16 @@
   }
  ],
  "activity": [
+  {
+   "ts": "2026-10-17 06:28:40",
+   "agent_id": "yvideo",
+   "message": "Shorts #33 dirender di laptop (suara OmniVoice) & dikirim ke Owner"
+  },
+  {
+   "ts": "2026-10-17 06:28:38",
+   "agent_id": "ypublish",
+   "message": "Kirim Shorts #33 ke Owner buat approval"
+  },
   {
    "ts": "2026-10-17 05:54:29",
    "agent_id": "ypublish",
@@ -756,19 +766,16 @@
    "ts": "2026-10-16 23:02:40",
    "agent_id": "researcher",
    "message": "6 item riset: LOUD 2-1 Vitality (Haven 13-11), NAVI 2-1 RRQ, AE 2-0 GEEK, GEEK tersingkir"
-  },
-  {
-   "ts": "2026-10-16 23:02:32",
-   "agent_id": "researcher",
-   "message": "Nemu 6 topik baru"
-  },
-  {
-   "ts": "2026-10-16 22:00:54",
-   "agent_id": "analyst",
-   "message": "Update data 21 post IG 📈"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-10-17 06:24:37",
+   "agent_id": "sec",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "⚠️ Bos, limit mingguan Claude udah 95%. Reset Minggu, 18 Okt, 12.00 WITA.\nKalau sampai 100%, kerjaan AI (sesi harian, tugas Telegram, revisi) berhenti sampai reset. Auto-post, cek harga & data IG tetap jalan."
+  },
   {
    "ts": "2026-10-17 06:14:37",
    "agent_id": "sec",
@@ -1041,13 +1048,6 @@
    "to_id": "sec",
    "kind": "bos",
    "message": "Okkee, kalo uda abis reset, lgsung kerjain"
-  },
-  {
-   "ts": "2026-10-16 14:03:36",
-   "agent_id": "sec",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "⚠️ Bos, limit sesi (5 jam) Claude udah 100%. Reset Jumat, 16 Okt, 23.10 WITA.\nKalau penuh, kerjaan AI ketunda sebentar sampai reset."
   }
  ],
  "stats": {
