@@ -128,6 +128,8 @@ export async function submit(id, { note = '' } = {}) {
   const lines = [
     head, `<b>${esc(c.title)}</b>`, `📍 Tayang di: ${targetLabel(c)} · ${slotLabel(c)} (otomatis setelah Approve)`, '',
     note ? `🔁 <i>${esc(note)}</i>\n` : '',
+    // permintaan Owner: app TikTok sendiri belum diaudit → akun harus Private dulu sebelum Approve (tidak perlu kalau lewat Zernio)
+    targets(c).includes('tiktok') && !ttZernio() ? '⚠️ <b>Ingat Bos:</b> set akun TikTok ke <b>Private</b> dulu sebelum Approve (Pengaturan → Privasi → Akun privat), kalau nggak upload TikTok-nya gagal.\n' : '',
     `<b>Caption:</b>\n${esc(c.caption ?? '-')}`,
     c.hashtags ? `\n${esc(c.hashtags)}` : '',
     c.sources ? `\n<b>Sumber:</b> ${esc(c.sources)}` : '',
