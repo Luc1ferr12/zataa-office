@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-18T08:19:49.686Z",
+ "generated_at": "2026-10-18T08:29:49.758Z",
  "today": "2026-10-18",
  "week_start": "2026-10-12",
  "campaign": {
@@ -30,8 +30,8 @@
    "name": "Clariana",
    "title": "Researcher",
    "status": "working",
-   "current_task": "Mantau: Cek video #35 Super Sunday (preview, kilat): statu (cek lagi 16.23)",
-   "updated_at": "2026-10-18 08:03:51"
+   "current_task": "Mantau: Cek video #35 Super Sunday (preview, kilat, MLBB M (cek lagi 16.59)",
+   "updated_at": "2026-10-18 08:24:47"
   },
   {
    "id": "copywriter",
@@ -672,6 +672,16 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-18 08:24:49",
+   "agent_id": "owner",
+   "message": "Chat: Dimas uda sampe mana rendernya ?"
+  },
+  {
+   "ts": "2026-10-18 08:24:39",
+   "agent_id": "publisher",
+   "message": "#35 fallback Gadis gagal (TTS VPS error) → antre ulang ke laptop, cek lagi 35 mnt"
+  },
+  {
    "ts": "2026-10-18 07:41:39",
    "agent_id": "video",
    "message": "Render laptop video #35 gagal, cek logs/laptop-worker.log di laptop"
@@ -785,19 +795,44 @@
    "ts": "2026-10-18 01:00:54",
    "agent_id": "analyst",
    "message": "Update data 23 post IG 📈"
-  },
-  {
-   "ts": "2026-10-17 23:04:28",
-   "agent_id": "publisher",
-   "message": "QA lolos: logo tim lengkap, sumber ada, istilah aman; #18 & #19 terkirim"
-  },
-  {
-   "ts": "2026-10-17 23:04:28",
-   "agent_id": "publisher",
-   "message": "Kirim #19 ke Owner buat approval"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-10-18 08:24:59",
+   "agent_id": "video",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Kalau lewat 17.00 WIB dan belum kelar, preview-nya kita skip ya Bos 🙏"
+  },
+  {
+   "ts": "2026-10-18 08:24:59",
+   "agent_id": "video",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Bos, video #35 Super Sunday masih nunggu render di laptop. Render sebelumnya macet, jadi sekarang lagi diantre ulang."
+  },
+  {
+   "ts": "2026-10-18 08:24:50",
+   "agent_id": "owner",
+   "to_id": "video",
+   "kind": "bos",
+   "message": "Dimas uda sampe mana rendernya ?"
+  },
+  {
+   "ts": "2026-10-18 08:24:47",
+   "agent_id": "publisher",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Udah aku antre ulang ke laptop. Kalau laptopnya nyala, video otomatis kekirim ke Bos buat di-✅. Aku cek lagi 35 menit lagi, kalau lewat 17.00 WIB preview-nya kita skip aja."
+  },
+  {
+   "ts": "2026-10-18 08:24:47",
+   "agent_id": "publisher",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Bos, video #35 Super Sunday belum jadi. Render di laptop macet, terus cadangan suara Gadis di VPS juga error (edge-tts gagal konek)."
+  },
   {
    "ts": "2026-10-18 08:08:41",
    "agent_id": "analyst",
@@ -1038,41 +1073,6 @@
   },
   {
    "ts": "2026-10-18 02:21:39",
-   "agent_id": "sec",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "⚠️ Bos, limit mingguan Claude udah 96%. Reset Minggu, 18 Okt, 11.59 WITA.\nKalau sampai 100%, kerjaan AI (sesi harian, tugas Telegram, revisi) berhenti sampai reset. Auto-post, cek harga & data IG tetap jalan."
-  },
-  {
-   "ts": "2026-10-18 02:11:39",
-   "agent_id": "sec",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "⚠️ Bos, limit mingguan Claude udah 96%. Reset Minggu, 18 Okt, 11.59 WITA.\nKalau sampai 100%, kerjaan AI (sesi harian, tugas Telegram, revisi) berhenti sampai reset. Auto-post, cek harga & data IG tetap jalan."
-  },
-  {
-   "ts": "2026-10-18 02:01:39",
-   "agent_id": "sec",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "⚠️ Bos, limit mingguan Claude udah 96%. Reset Minggu, 18 Okt, 11.59 WITA.\nKalau sampai 100%, kerjaan AI (sesi harian, tugas Telegram, revisi) berhenti sampai reset. Auto-post, cek harga & data IG tetap jalan."
-  },
-  {
-   "ts": "2026-10-18 01:51:39",
-   "agent_id": "sec",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "⚠️ Bos, limit mingguan Claude udah 96%. Reset Minggu, 18 Okt, 11.59 WITA.\nKalau sampai 100%, kerjaan AI (sesi harian, tugas Telegram, revisi) berhenti sampai reset. Auto-post, cek harga & data IG tetap jalan."
-  },
-  {
-   "ts": "2026-10-18 01:41:39",
-   "agent_id": "sec",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "⚠️ Bos, limit mingguan Claude udah 96%. Reset Minggu, 18 Okt, 12.00 WITA.\nKalau sampai 100%, kerjaan AI (sesi harian, tugas Telegram, revisi) berhenti sampai reset. Auto-post, cek harga & data IG tetap jalan."
-  },
-  {
-   "ts": "2026-10-18 01:31:39",
    "agent_id": "sec",
    "to_id": "owner",
    "kind": "santai",
