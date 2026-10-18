@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-10-18T23:32:48.564Z",
+ "generated_at": "2026-10-18T23:42:48.565Z",
  "today": "2026-10-19",
  "week_start": "2026-10-19",
  "campaign": {
   "week_start": "2026-10-19",
   "theme": "Road to Surabaya: Playoff MPL ID S18 + Bursa Transfer",
   "goals": "Bangun hype 2 minggu jelang playoff MPL ID (4-8 Nov) & tempel promo ke momen esport; 7 feed + 7 video. Eksperimen: hook pertanyaan (Sen/Rab/Jum/Min) vs hook angka (Sel/Kam/Sab), nilai pakai like+komen+views. Slot tetap 12:00 feed & 19:00 video (saran Raka: pertahankan 12:00).",
-  "status": "pending"
+  "status": "approved"
  },
  "agents": [
   {
@@ -29,9 +29,9 @@
    "id": "researcher",
    "name": "Clariana",
    "title": "Researcher",
-   "status": "done",
-   "current_task": "Riset tren & jadwal minggu ini",
-   "updated_at": "2026-10-18 23:01:30"
+   "status": "working",
+   "current_task": "Riset seed playoff MPL S18 + bursa transfer VCT 2027",
+   "updated_at": "2026-10-18 23:42:15"
   },
   {
    "id": "copywriter",
@@ -476,6 +476,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-18 23:41:48",
+   "agent_id": "owner",
+   "message": "Approve plan mingguan ✅"
+  },
+  {
    "ts": "2026-10-18 23:04:46",
    "agent_id": "ydir",
    "message": "Bank topik terisi 12 (11 approved, 5 HH). Shorts #52 Pasukan Terakota antre render laptop, tayang 18:00 WIB."
@@ -594,14 +599,16 @@
    "ts": "2026-10-18 13:01:13",
    "agent_id": "analyst",
    "message": "Update data 27 post IG 📈"
-  },
-  {
-   "ts": "2026-10-18 12:01:10",
-   "agent_id": "publisher",
-   "message": "Posting #19 ke IG ✅"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-10-18 23:41:48",
+   "agent_id": "dir",
+   "to_id": null,
+   "kind": "oper",
+   "message": "Plan minggu ini udah di-ACC Bos! Gas produksi konten hari ini 🔥"
+  },
   {
    "ts": "2026-10-18 23:04:46",
    "agent_id": "yresearch",
@@ -874,13 +881,6 @@
    "to_id": "dir",
    "kind": "oper",
    "message": "Kak, laporan minggu ini udah aku kirim ke Bos. Pilar news paling rame 📈"
-  },
-  {
-   "ts": "2026-10-18 08:00:30",
-   "agent_id": "analyst",
-   "to_id": "dir",
-   "kind": "oper",
-   "message": "Kak, laporan minggu ini udah aku kirim ke Bos. Pilar misteri paling rame 📈"
   }
  ],
  "stats": {
@@ -945,7 +945,7 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4184.700195,
+  "price": 4184.200195,
   "open": [],
   "signals": [
    {
@@ -1061,13 +1061,13 @@
    "M10": {
     "bias": "bullish",
     "score": 2,
-    "price": 4184.3,
-    "ema20": 4173.1,
-    "ema50": 4169.55,
-    "rsi": 79.6,
+    "price": 4182.5,
+    "ema20": 4173.99,
+    "ema50": 4170.06,
+    "rsi": 73.4,
     "n": 299,
-    "slot": 2987277,
-    "at": 1792366250586
+    "slot": 2987278,
+    "at": 1792366850597
    },
    "M15": {
     "bias": "sideways",
