@@ -22,7 +22,7 @@ export const PILLARS = {
   historical_mysteries: { code: 'HM', label: 'Historical Mysteries', desc: 'misteri sejarah yang belum terpecahkan / masih diperdebatkan' },
   ancient_secrets: { code: 'AS', label: 'Ancient Secrets & Inventions', desc: 'teknologi kuno, penemuan, matematika & pengetahuan masa lalu' },
   strange_events: { code: 'SE', label: 'Strange Historical Events', desc: 'peristiwa nyata yang absurd, aneh, sulit dipercaya' },
-  greek_myth: { code: 'GM', label: 'Mitologi Yunani', desc: 'dewa-dewi, Titan, pahlawan, monster (opsional, isi slot bebas)' },
+  greek_myth: { code: 'GM', label: 'Mitologi Yunani', desc: 'dewa-dewi, Titan, pahlawan, monster (pilar bebas, label mitos)' },
 };
 export const STATUSES = ['backlog', 'research', 'approved', 'production', 'published'];
 export const WEEK_TOTAL = 7, HH_MIN = 4;
