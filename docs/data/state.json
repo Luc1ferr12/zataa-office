@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-18T04:41:30.959Z",
+ "generated_at": "2026-10-18T04:51:31.029Z",
  "today": "2026-10-18",
  "week_start": "2026-10-12",
  "campaign": {
@@ -21,24 +21,24 @@
    "name": "Andre",
    "title": "Marketing Director",
    "status": "done",
-   "current_task": "Evaluasi mingguan",
-   "updated_at": "2026-10-17 23:04:46"
+   "current_task": "Bagi tugas: Bikinin konten video hari ini",
+   "updated_at": "2026-10-18 04:46:46"
   },
   {
    "id": "researcher",
    "name": "Clariana",
    "title": "Researcher",
    "status": "done",
-   "current_task": "Riset: Vitality 3-1 100T, rematch LOUD; 6 besar MPL terkunci",
-   "updated_at": "2026-10-17 23:02:59"
+   "current_task": "Bahan video Super Sunday: 3 laga MPL + GF Champions",
+   "updated_at": "2026-10-18 04:46:10"
   },
   {
    "id": "copywriter",
    "name": "Ista",
    "title": "Copywriter",
    "status": "done",
-   "current_task": "Copy #18 Tebak Skor GF & #19 Vote MVP",
-   "updated_at": "2026-10-17 23:04:10"
+   "current_task": "Naskah video Super Sunday",
+   "updated_at": "2026-10-18 04:46:24"
   },
   {
    "id": "designer",
@@ -53,16 +53,16 @@
    "name": "Dimas",
    "title": "Video Production",
    "status": "done",
-   "current_task": "Video #16 masuk antrean laptop (OmniVoice)",
-   "updated_at": "2026-10-16 23:04:04"
+   "current_task": "Video Super Sunday masuk antrean render laptop (OmniVoice)",
+   "updated_at": "2026-10-18 04:46:36"
   },
   {
    "id": "publisher",
    "name": "Fikri",
    "title": "Social Media Publisher",
    "status": "done",
-   "current_task": "Kirim #18 & #19 ke Owner",
-   "updated_at": "2026-10-17 23:04:28"
+   "current_task": "undefined",
+   "updated_at": "2026-10-18 04:45:31"
   },
   {
    "id": "ads",
@@ -568,8 +568,22 @@
    "game": "valorant",
    "pillar": "engagement",
    "title": "Tebak Skor Grand Final Champions Shanghai 2026!",
-   "status": "pending_approval",
+   "status": "approved",
    "asset_url": "{\"feed\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-18/18-tebak-skor-grand-final-champions-shangha.jpg\"],\"story\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-18/18-tebak-skor-grand-final-champions-shangha-916.jpg\"]}",
+   "scheduled_at": null,
+   "posted_at": null,
+   "channel": null
+  },
+  {
+   "id": 35,
+   "day": "2026-10-18",
+   "slot": "kilat",
+   "format": "video",
+   "game": "mlbb",
+   "pillar": "news",
+   "title": "Super Sunday: 3 Laga Penutup MPL ID S18 + Grand Final Champions",
+   "status": "draft",
+   "asset_url": null,
    "scheduled_at": null,
    "posted_at": null,
    "channel": null
@@ -582,7 +596,7 @@
    "game": "mlbb",
    "pillar": "engagement",
    "title": "Vote MVP Reguler MPL ID S18 — Siapa Pilihanmu?",
-   "status": "pending_approval",
+   "status": "approved",
    "asset_url": "{\"feed\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-18/19-vote-mvp-reguler-mpl-id-s18-siapa-piliha.jpg\"],\"story\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-18/19-vote-mvp-reguler-mpl-id-s18-siapa-piliha-916.jpg\"]}",
    "scheduled_at": null,
    "posted_at": null,
@@ -610,7 +624,7 @@
    "game": "sejarah",
    "pillar": "misteri",
    "title": "Prometheus: Pencuri Api dari Para Dewa",
-   "status": "pending_approval",
+   "status": "approved",
    "asset_url": null,
    "scheduled_at": null,
    "posted_at": null,
@@ -656,6 +670,41 @@
   }
  ],
  "activity": [
+  {
+   "ts": "2026-10-18 04:48:31",
+   "agent_id": "owner",
+   "message": "Chat: Laptop uda nyala, lgsung render aja kalo uda siap render"
+  },
+  {
+   "ts": "2026-10-18 04:46:36",
+   "agent_id": "publisher",
+   "message": "Video #35 Super Sunday dikirim otomatis ke Owner setelah render laptop"
+  },
+  {
+   "ts": "2026-10-18 04:45:31",
+   "agent_id": "owner",
+   "message": "Approve konten #19 ✅"
+  },
+  {
+   "ts": "2026-10-18 04:45:31",
+   "agent_id": "owner",
+   "message": "Approve konten #18 ✅"
+  },
+  {
+   "ts": "2026-10-18 04:45:31",
+   "agent_id": "owner",
+   "message": "Skip ide tambahan hari ini"
+  },
+  {
+   "ts": "2026-10-18 04:45:31",
+   "agent_id": "owner",
+   "message": "Chat: Bikinin konten video hari ini"
+  },
+  {
+   "ts": "2026-10-18 04:43:00",
+   "agent_id": "owner",
+   "message": "Approve Shorts #34 ✅"
+  },
   {
    "ts": "2026-10-18 04:17:15",
    "agent_id": "yvideo",
@@ -745,44 +794,86 @@
    "ts": "2026-10-17 16:00:54",
    "agent_id": "analyst",
    "message": "Update data 23 post IG 📈"
-  },
-  {
-   "ts": "2026-10-17 14:38:37",
-   "agent_id": "ypublish",
-   "message": "Shorts #33 udah Publik di Zataa Story 🎉"
-  },
-  {
-   "ts": "2026-10-17 13:00:57",
-   "agent_id": "analyst",
-   "message": "Update data 23 post IG 📈"
-  },
-  {
-   "ts": "2026-10-17 12:00:58",
-   "agent_id": "publisher",
-   "message": "Posting #17 ke IG ✅"
-  },
-  {
-   "ts": "2026-10-17 11:01:01",
-   "agent_id": "ypublish",
-   "message": "Upload Shorts #33 ke Zataa Story (Private), nunggu Owner ubah ke Publik"
-  },
-  {
-   "ts": "2026-10-17 10:00:54",
-   "agent_id": "analyst",
-   "message": "Update data 22 post IG 📈"
-  },
-  {
-   "ts": "2026-10-17 09:02:01",
-   "agent_id": "publisher",
-   "message": "Posting #32 ke IG ✅"
-  },
-  {
-   "ts": "2026-10-17 07:00:55",
-   "agent_id": "analyst",
-   "message": "Update data 21 post IG 📈"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-10-18 04:48:31",
+   "agent_id": "dir",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Hehe makasih Bos, jadi semangat nih 😆"
+  },
+  {
+   "ts": "2026-10-18 04:48:31",
+   "agent_id": "owner",
+   "to_id": "dir",
+   "kind": "bos",
+   "message": "Laptop uda nyala, lgsung render aja kalo uda siap render"
+  },
+  {
+   "ts": "2026-10-18 04:46:47",
+   "agent_id": "publisher",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Begitu jadi, videonya langsung masuk Telegram Bos buat di-✅. Tinggal approve, langsung tayang."
+  },
+  {
+   "ts": "2026-10-18 04:46:47",
+   "agent_id": "video",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Suara bawaannya error lagi Bos, jadi videonya pakai suara kalem-2 dan ngantre render di laptop. Nyalain laptopnya sebelum 15.00 WITA ya, biar keburu tayang sebelum laga pertama 🙏"
+  },
+  {
+   "ts": "2026-10-18 04:46:47",
+   "agent_id": "copywriter",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Siap Bos, naskah video \"Super Sunday\" udah jadi: 3 laga penutup MPL ID S18 + Grand Final Champions LOUD vs Vitality, plus ajakan komen prediksi 🔥"
+  },
+  {
+   "ts": "2026-10-18 04:46:36",
+   "agent_id": "video",
+   "to_id": "copywriter",
+   "kind": "santai",
+   "message": "Edge TTS ngambek lagi, untung ada suara kalem-2 di laptop 😅"
+  },
+  {
+   "ts": "2026-10-18 04:46:36",
+   "agent_id": "video",
+   "to_id": "publisher",
+   "kind": "oper",
+   "message": "Fikri, video \"Video Super Sunday masuk antrean render laptop (OmniVoice)\" udah render 9:16. Musiknya aman kok"
+  },
+  {
+   "ts": "2026-10-18 04:46:24",
+   "agent_id": "copywriter",
+   "to_id": "designer",
+   "kind": "oper",
+   "message": "Maria, copy \"Naskah video Super Sunday\" udah masuk. Headline-nya jangan dikecilin ya 😆"
+  },
+  {
+   "ts": "2026-10-18 04:46:10",
+   "agent_id": "researcher",
+   "to_id": "copywriter",
+   "kind": "oper",
+   "message": "Ista, bahan buat \"Bahan video Super Sunday: 3 laga MPL + GF Champions\" udah aku rangkum + sumbernya. Tinggal kamu racik captionnya ✍️"
+  },
+  {
+   "ts": "2026-10-18 04:45:31",
+   "agent_id": "dir",
+   "to_id": null,
+   "kind": "oper",
+   "message": "Oke tim, ada titah dari Bos. Aku bagi tugasnya ya 👇"
+  },
+  {
+   "ts": "2026-10-18 04:45:31",
+   "agent_id": "owner",
+   "to_id": "dir",
+   "kind": "bos",
+   "message": "Bikinin konten video hari ini"
+  },
   {
    "ts": "2026-10-18 04:06:18",
    "agent_id": "yvisual",
@@ -985,92 +1076,15 @@
    "to_id": "owner",
    "kind": "santai",
    "message": "⚠️ Bos, limit mingguan Claude udah 96%. Reset Minggu, 18 Okt, 11.59 WITA.\nKalau sampai 100%, kerjaan AI (sesi harian, tugas Telegram, revisi) berhenti sampai reset. Auto-post, cek harga & data IG tetap jalan."
-  },
-  {
-   "ts": "2026-10-17 23:21:39",
-   "agent_id": "sec",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "⚠️ Bos, limit mingguan Claude udah 96%. Reset Minggu, 18 Okt, 11.59 WITA.\nKalau sampai 100%, kerjaan AI (sesi harian, tugas Telegram, revisi) berhenti sampai reset. Auto-post, cek harga & data IG tetap jalan."
-  },
-  {
-   "ts": "2026-10-17 23:11:39",
-   "agent_id": "sec",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "⚠️ Bos, limit mingguan Claude udah 96%. Reset Minggu, 18 Okt, 11.59 WITA.\nKalau sampai 100%, kerjaan AI (sesi harian, tugas Telegram, revisi) berhenti sampai reset. Auto-post, cek harga & data IG tetap jalan."
-  },
-  {
-   "ts": "2026-10-17 23:04:43",
-   "agent_id": "dir",
-   "to_id": null,
-   "kind": "santai",
-   "message": "Reguler MPL tamat, Champions final hari ini. Minggu depan fokus Road to Playoff Surabaya, gas!"
-  },
-  {
-   "ts": "2026-10-17 23:04:28",
-   "agent_id": "publisher",
-   "to_id": "owner",
-   "kind": "oper",
-   "message": "\"Kirim #18 & #19 ke Owner\" udah lolos QA, tinggal nunggu ✅ dari Bos"
-  },
-  {
-   "ts": "2026-10-17 23:04:22",
-   "agent_id": "designer",
-   "to_id": "publisher",
-   "kind": "oper",
-   "message": "Visual \"Render #18 & #19 feed + 9:16\" kelar! Fikri, cek typo-nya sekalian ya 🙏"
-  },
-  {
-   "ts": "2026-10-17 23:04:10",
-   "agent_id": "copywriter",
-   "to_id": "designer",
-   "kind": "oper",
-   "message": "Teks buat \"Copy #18 Tebak Skor GF & #19 Vote MVP\" ready. Maria, giliranmu bikin cakep!"
-  },
-  {
-   "ts": "2026-10-17 23:03:31",
-   "agent_id": "dir",
-   "to_id": "researcher",
-   "kind": "oper",
-   "message": "Brief \"Pilih 2 ide: jadwal Super Sunday (pagi) & 6 besar terkunci (\" udah jadi. Clariana, gas riset ya!"
-  },
-  {
-   "ts": "2026-10-17 23:02:59",
-   "agent_id": "researcher",
-   "to_id": "copywriter",
-   "kind": "oper",
-   "message": "Ista, bahan buat \"Riset: Vitality 3-1 100T, rematch LOUD; 6 besar MPL terkunci\" udah aku rangkum + sumbernya. Tinggal kamu racik captionnya ✍️"
-  },
-  {
-   "ts": "2026-10-17 23:01:40",
-   "agent_id": "sec",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "⚠️ Bos, limit mingguan Claude udah 96%. Reset Minggu, 18 Okt, 11.59 WITA.\nKalau sampai 100%, kerjaan AI (sesi harian, tugas Telegram, revisi) berhenti sampai reset. Auto-post, cek harga & data IG tetap jalan."
-  },
-  {
-   "ts": "2026-10-17 12:00:58",
-   "agent_id": "publisher",
-   "to_id": null,
-   "kind": "oper",
-   "message": "\"Weekend Top Up Diamond ML di zataa.my.id\" udah tayang di IG 🚀 Makasih semua!"
-  },
-  {
-   "ts": "2026-10-17 09:02:01",
-   "agent_id": "publisher",
-   "to_id": null,
-   "kind": "oper",
-   "message": "\"NAVI 12 Match Point: Selangkah Lagi Juara Reguler\" udah tayang di IG 🚀 Makasih semua!"
   }
  ],
  "stats": {
   "this_week": {
    "week": "2026-10-12",
-   "total": 24,
+   "total": 25,
    "posted": 20,
-   "pending": 3,
-   "scheduled": 0,
+   "pending": 1,
+   "scheduled": 2,
    "views": 0,
    "likes": 405,
    "comments": 0,
