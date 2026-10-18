@@ -389,7 +389,8 @@ export async function weeklyReport({ dry = false } = {}) {
   const live = rows.filter((r) => r.v);
   const rejected = d.prepare("SELECT COUNT(*) n FROM contents WHERE channel = 'youtube' AND status = 'rejected' AND day BETWEEN ? AND ?").get(wk.mon, wk.sun).n;
   const pil = {};
-  for (const r of live) (pil[r.pillar ?? 'lain'] ??= []).push(r.v.views);
+  for (const r of live) if (r.pillar) (pil[r.pillar] ??= []).push(r.v.views); // Shorts lama (sebelum bank topik) tanpa pilar → nggak dihitung
+  const tagged = rows.some((r) => r.pillar);
   const avg = Object.entries(pil).map(([k, v]) => [k, v.reduce((a, b) => a + b, 0) / v.length]).sort((a, b) => b[1] - a[1]);
   const label = (k) => PILLARS[k]?.label ?? k;
   const ready = d.prepare("SELECT COUNT(*) n FROM shorts_topics WHERE status = 'approved'").get().n;
@@ -399,7 +400,7 @@ export async function weeklyReport({ dry = false } = {}) {
     `👥 Subscriber: <b>${num(st.subscribers)}</b>${prev ? plus(st.subscribers - prev.subs) : ''} · target video panjang ${num(LONGFORM_SUBS)}`,
     `👁️ Views: <b>${num(views)}</b>${prev ? plus(views - prev.views) : ''}`, '',
     '<b>Produksi</b>',
-    `🎬 ${rows.length}/${WEEK_TOTAL} Shorts · 📢 tayang ${live.length} · Hidden History ${wk.hh}/${HH_MIN}${wk.hh >= HH_MIN ? ' ✅' : ' ⚠️'} · ❌ ditolak ${rejected} · ✏️ revisi ${rows.reduce((a, r) => a + (r.revisions ?? 0), 0)}×`,
+    `🎬 ${rows.length}/${WEEK_TOTAL} Shorts · 📢 tayang ${live.length} · Hidden History ${tagged ? `${wk.hh}/${HH_MIN}${wk.hh >= HH_MIN ? ' ✅' : ' ⚠️'}` : '– (belum lewat bank topik)'} · ❌ ditolak ${rejected} · ✏️ revisi ${rows.reduce((a, r) => a + (r.revisions ?? 0), 0)}×`,
     ...(live.length ? ['', '<b>Top video minggu ini</b>', ...[...live].sort((a, b) => b.v.views - a.v.views).slice(0, 3).map((r, i) => `${i + 1}. #${r.id} ${esc(r.title.slice(0, 45))} · 👁️ ${num(r.v.views)} · 👍 ${num(r.v.likes)}`)] : []),
     ...(avg.length ? ['', '<b>Pilar paling ditonton</b>', ...avg.map(([k, v]) => `• ${esc(label(k))}: rata-rata ${num(Math.round(v))} views`)] : []), '',
     `📚 Bank topik siap produksi: ${ready}${ready < WEEK_TOTAL ? ' (kurang buat seminggu, Nadhira tambah riset)' : ''}`,
