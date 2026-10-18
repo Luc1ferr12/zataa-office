@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-18T21:42:48.625Z",
+ "generated_at": "2026-10-18T21:52:48.564Z",
  "today": "2026-10-19",
  "week_start": "2026-10-19",
  "campaign": null,
@@ -16,9 +16,9 @@
    "id": "dir",
    "name": "Andre",
    "title": "Marketing Director",
-   "status": "working",
+   "status": "done",
    "current_task": "Bagi tugas: Buatin video hall of champions valorant dari winner 2021-202",
-   "updated_at": "2026-10-18 21:27:48"
+   "updated_at": "2026-10-18 21:47:52"
   },
   {
    "id": "researcher",
@@ -224,6 +224,11 @@
  "today_tasks": [],
  "activity": [
   {
+   "ts": "2026-10-18 21:48:48",
+   "agent_id": "owner",
+   "message": "Chat: Belum bisa ngerjain karna ?"
+  },
+  {
    "ts": "2026-10-18 21:31:16",
    "agent_id": "researcher",
    "message": "Nemu 1 topik baru"
@@ -342,14 +347,23 @@
    "ts": "2026-10-18 07:32:53",
    "agent_id": "video",
    "message": "Video #35 Super Sunday diantre render laptop (kalem-2), preview bukan hasil — tidak nunggu LOUD vs Vitality"
-  },
-  {
-   "ts": "2026-10-18 07:31:51",
-   "agent_id": "owner",
-   "message": "Chat: Ini videonya nunggu loud vs vitality selesai ya ?"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-10-18 21:49:00",
+   "agent_id": "dir",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Masih ada yang kudu dicek dulu, Bos: roster juara tiap tahun sama aset logo & foto pemainnya. Biar nggak salah roster, jadi belum bisa langsung render. Nanti aku kabarin progresnya."
+  },
+  {
+   "ts": "2026-10-18 21:48:48",
+   "agent_id": "owner",
+   "to_id": "dir",
+   "kind": "bos",
+   "message": "Belum bisa ngerjain karna ?"
+  },
   {
    "ts": "2026-10-18 21:41:59",
    "agent_id": "researcher",
@@ -615,20 +629,6 @@
    "to_id": "owner",
    "kind": "santai",
    "message": "Maaf Bos, tadi ternyata belum beneran masuk antrean, sekarang udah ngantre render di laptop pakai suara kalem-2. Bagian jadwalnya juga udah diupdate karena EVOS vs AE udah jalan."
-  },
-  {
-   "ts": "2026-10-18 07:33:03",
-   "agent_id": "video",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Nggak nunggu kok Bos, ini video preview, jadi bisa tayang sebelum LOUD vs Vitality main 🙏"
-  },
-  {
-   "ts": "2026-10-18 07:31:51",
-   "agent_id": "owner",
-   "to_id": "dir",
-   "kind": "bos",
-   "message": "Ini videonya nunggu loud vs vitality selesai ya ?"
   }
  ],
  "stats": {
