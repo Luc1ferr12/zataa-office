@@ -4,6 +4,7 @@
 //   node scripts/publish.mjs due              posting semua konten approved yang jam slot-nya (WIB) sudah lewat
 //   node scripts/publish.mjs now <id>         posting 1 konten sekarang juga (abaikan jam slot)
 //   node scripts/publish.mjs ig-check         cek token & akun IG
+//   node scripts/publish.mjs ig-token-info    jenis token, kedaluwarsa, permission yang kurang (views IG butuh instagram_manage_insights)
 //   node scripts/publish.mjs ig-id            cari IG_USER_ID dari token, simpan ke .env
 //   node scripts/publish.mjs ig-page-token    ganti User token (sudah di-extend) → Page token permanen
 //   node scripts/publish.mjs tiktok-login     cetak link login TikTok (sekali saja)
@@ -352,7 +353,7 @@ if (isMain) {
       if (r.error) throw new Error(`IG: ${r.error.message}`);
       const x = r.data;
       const when = (s) => (s ? new Date(s * 1000).toLocaleString('id-ID', { timeZone: 'Asia/Makassar' }) : 'tidak pernah');
-      const need = ['instagram_basic', 'instagram_content_publish', 'pages_show_list', 'pages_read_engagement', 'business_management'];
+      const need = ['instagram_basic', 'instagram_content_publish', 'instagram_manage_insights', 'pages_show_list', 'pages_read_engagement', 'business_management'];
       out({ jenis: x.type, valid: x.is_valid, kedaluwarsa: when(x.expires_at), akses_data_habis: when(x.data_access_expires_at), kurang_permission: need.filter((p) => !x.scopes?.includes(p)) });
     }
     else if (cmd === 'ig-page-token') {
