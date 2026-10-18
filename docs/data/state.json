@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-18T21:22:48.389Z",
+ "generated_at": "2026-10-18T21:32:48.653Z",
  "today": "2026-10-19",
  "week_start": "2026-10-19",
  "campaign": null,
@@ -16,25 +16,25 @@
    "id": "dir",
    "name": "Andre",
    "title": "Marketing Director",
-   "status": "done",
-   "current_task": "Bagi tugas: Bikin konten ini, loudmenang champions. Pake foto playernya ",
-   "updated_at": "2026-10-18 11:11:14"
+   "status": "working",
+   "current_task": "Bagi tugas: Buatin video hall of champions valorant dari winner 2021-202",
+   "updated_at": "2026-10-18 21:27:48"
   },
   {
    "id": "researcher",
    "name": "Clariana",
    "title": "Researcher",
    "status": "done",
-   "current_task": "Riset LOUD juara Valorant Champions 2026",
-   "updated_at": "2026-10-18 11:10:40"
+   "current_task": "Riset roster juara Valorant Champions 2021-2026",
+   "updated_at": "2026-10-18 21:31:17"
   },
   {
    "id": "copywriter",
    "name": "Ista",
    "title": "Copywriter",
    "status": "done",
-   "current_task": "Teks konten LOUD juara Champions",
-   "updated_at": "2026-10-18 11:10:51"
+   "current_task": "Naskah video Hall of Champions Valorant",
+   "updated_at": "2026-10-18 21:31:52"
   },
   {
    "id": "designer",
@@ -49,8 +49,8 @@
    "name": "Dimas",
    "title": "Video Production",
    "status": "working",
-   "current_task": "Antre render video Super Sunday (kalem-2)",
-   "updated_at": "2026-10-18 07:32:48"
+   "current_task": "Render video Hall of Champions Valorant",
+   "updated_at": "2026-10-18 21:31:52"
   },
   {
    "id": "publisher",
@@ -205,9 +205,34 @@
    "updated_at": "2026-10-16 00:49:33"
   }
  ],
- "week_contents": [],
+ "week_contents": [
+  {
+   "id": 37,
+   "day": "2026-10-19",
+   "slot": "kilat",
+   "format": "video",
+   "game": "valorant",
+   "pillar": "esport",
+   "title": "Hall of Champions Valorant 2021-2026",
+   "status": "draft",
+   "asset_url": null,
+   "scheduled_at": null,
+   "posted_at": null,
+   "channel": null
+  }
+ ],
  "today_tasks": [],
  "activity": [
+  {
+   "ts": "2026-10-18 21:31:16",
+   "agent_id": "researcher",
+   "message": "Nemu 1 topik baru"
+  },
+  {
+   "ts": "2026-10-18 21:27:48",
+   "agent_id": "owner",
+   "message": "Chat: Buatin video hall of champions valorant dari winner 2021-2026, di video nya ada logo tim sama foto player nya. Dan pastikan yang memenangkan saat itu roasternya siapa aja, karna bisa jadi roaster nya uda berubah"
+  },
   {
    "ts": "2026-10-18 19:01:11",
    "agent_id": "analyst",
@@ -322,19 +347,37 @@
    "ts": "2026-10-18 07:31:51",
    "agent_id": "owner",
    "message": "Chat: Ini videonya nunggu loud vs vitality selesai ya ?"
-  },
-  {
-   "ts": "2026-10-18 07:00:47",
-   "agent_id": "analyst",
-   "message": "Update data 24 post IG 📈"
-  },
-  {
-   "ts": "2026-10-18 05:49:34",
-   "agent_id": "analyst",
-   "message": "Update data 24 post IG 📈"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-10-18 21:31:52",
+   "agent_id": "copywriter",
+   "to_id": "designer",
+   "kind": "oper",
+   "message": "Maria, copy \"Naskah video Hall of Champions Valorant\" udah masuk. Headline-nya jangan dikecilin ya 😆"
+  },
+  {
+   "ts": "2026-10-18 21:31:17",
+   "agent_id": "researcher",
+   "to_id": "copywriter",
+   "kind": "oper",
+   "message": "Ista, bahan buat \"Riset roster juara Valorant Champions 2021-2026\" udah aku rangkum + sumbernya. Tinggal kamu racik captionnya ✍️"
+  },
+  {
+   "ts": "2026-10-18 21:27:48",
+   "agent_id": "dir",
+   "to_id": null,
+   "kind": "oper",
+   "message": "Oke tim, ada titah dari Bos. Aku bagi tugasnya ya 👇"
+  },
+  {
+   "ts": "2026-10-18 21:27:48",
+   "agent_id": "owner",
+   "to_id": "dir",
+   "kind": "bos",
+   "message": "Buatin video hall of champions valorant dari winner 2021-2026, di video nya ada logo tim sama foto player nya. Dan pastikan yang memenangkan saat itu roasternya siapa aja, karna bisa jadi roaster nya uda berubah"
+  },
   {
    "ts": "2026-10-18 12:01:10",
    "agent_id": "publisher",
@@ -586,40 +629,12 @@
    "to_id": null,
    "kind": "oper",
    "message": "\"Tebak Skor Grand Final Champions Shanghai 2026!\" udah tayang di IG 🚀 Makasih semua!"
-  },
-  {
-   "ts": "2026-10-18 04:48:31",
-   "agent_id": "dir",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Hehe makasih Bos, jadi semangat nih 😆"
-  },
-  {
-   "ts": "2026-10-18 04:48:31",
-   "agent_id": "owner",
-   "to_id": "dir",
-   "kind": "bos",
-   "message": "Laptop uda nyala, lgsung render aja kalo uda siap render"
-  },
-  {
-   "ts": "2026-10-18 04:46:47",
-   "agent_id": "publisher",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Begitu jadi, videonya langsung masuk Telegram Bos buat di-✅. Tinggal approve, langsung tayang."
-  },
-  {
-   "ts": "2026-10-18 04:46:47",
-   "agent_id": "video",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Suara bawaannya error lagi Bos, jadi videonya pakai suara kalem-2 dan ngantre render di laptop. Nyalain laptopnya sebelum 15.00 WITA ya, biar keburu tayang sebelum laga pertama 🙏"
   }
  ],
  "stats": {
   "this_week": {
    "week": "2026-10-19",
-   "total": 0,
+   "total": 1,
    "posted": 0,
    "pending": 0,
    "scheduled": 0,
