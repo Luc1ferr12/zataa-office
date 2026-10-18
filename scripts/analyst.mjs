@@ -25,7 +25,7 @@ async function graph(path, params) {
 
 export async function collect() {
   const d = await db();
-  const posts = d.prepare("SELECT id, title, ig_media_id FROM contents WHERE ig_media_id IS NOT NULL AND posted_at >= datetime('now', '-14 days')").all();
+  const posts = d.prepare("SELECT id, title, ig_media_id FROM contents WHERE ig_media_id IS NOT NULL AND channel IS NOT 'youtube' AND posted_at >= datetime('now', '-14 days')").all();
   if (!posts.length) return { collected: 0 };
   setRaka(d, 'working', `Narik data insight ${posts.length} post IG`);
   let n = 0;
@@ -46,10 +46,10 @@ export async function collect() {
 
 export async function weeklyReport() {
   const d = await db();
-  // metrik terakhir per konten minggu ini (Senin–Minggu WITA)
+  // metrik IG terakhir per konten marketing minggu ini; Shorts YouTube dilaporkan Kirana di bot @zataashortbot
   const rows = d.prepare(`SELECT c.id, c.title, c.pillar, c.format, m.views, m.likes, m.comments, m.saves
-    FROM contents c JOIN metrics m ON m.id = (SELECT id FROM metrics WHERE content_id = c.id ORDER BY id DESC LIMIT 1)
-    WHERE c.posted_at >= datetime('now', '-7 days')`).all();
+    FROM contents c JOIN metrics m ON m.id = (SELECT id FROM metrics WHERE content_id = c.id AND platform = 'instagram' ORDER BY id DESC LIMIT 1)
+    WHERE c.channel IS NOT 'youtube' AND c.posted_at >= datetime('now', '-7 days')`).all();
   if (!rows.length) {
     await sayAs('analyst', '📊 <b>Laporan mingguan</b>\nMinggu ini belum ada post IG yang bisa dianalisis.');
     return { posts: 0 };
@@ -61,7 +61,7 @@ export async function weeklyReport() {
   const avg = Object.entries(pillars).map(([k, v]) => [k, v.reduce((a, b) => a + b, 0) / v.length]).sort((a, b) => b[1] - a[1]);
   const total = rows.reduce((a, r) => ({ likes: a.likes + r.likes, comments: a.comments + r.comments, views: a.views + r.views }), { likes: 0, comments: 0, views: 0 });
   const text = [
-    '<b>Raka</b>: 📊 <b>Laporan mingguan</b>', `${rows.length} post · ❤️ ${total.likes} · 💬 ${total.comments}${total.views ? ` · 👀 ${total.views}` : ''}`, '',
+    '<b>Raka</b>: 📊 <b>Laporan mingguan IG Marketing</b>', `${rows.length} post · ❤️ ${total.likes} · 💬 ${total.comments}${total.views ? ` · 👀 ${total.views}` : ''}`, '',
     '<b>Top 3 post:</b>', ...top.map((r, i) => `${i + 1}. #${r.id} ${esc(r.title)} (❤️ ${r.likes} · 💬 ${r.comments})`), '',
     '<b>Pilar paling works:</b>', ...avg.map(([k, v]) => `• ${esc(k)}: skor rata-rata ${v.toFixed(1)}`), '',
     `Saran: perbanyak pilar <b>${esc(avg[0][0])}</b> minggu depan. Andre pakai ini buat evaluasi & plan Senin.`,

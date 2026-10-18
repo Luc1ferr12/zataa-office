@@ -81,7 +81,7 @@ export async function propose({ force = false } = {}) {
 
   // kandidat: sudah tayang di IG 20–72 jam lalu, belum pernah diusulkan
   const rows = d.prepare(`SELECT id, title, pillar, format, ig_media_id FROM contents
-    WHERE status = 'posted' AND ig_media_id IS NOT NULL
+    WHERE status = 'posted' AND ig_media_id IS NOT NULL AND channel IS NOT 'youtube'
       AND posted_at BETWEEN datetime('now', '-72 hours') AND datetime('now', '-20 hours')
       AND id NOT IN (SELECT content_id FROM boosts)`).all();
   if (!rows.length) return { skip: 'belum ada post yang umurnya pas (20–72 jam)' };

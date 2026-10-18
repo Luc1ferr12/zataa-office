@@ -64,7 +64,7 @@ Akhiri dengan baris "BALASAN:" lalu pesan untuk sayang (tanpa awalan nama): sebu
   const r = await claude(prompt, 6, { model: loadEnv().FINANCE_MODEL || 'haiku', tools: ['Read', 'Bash(node scripts/finance.mjs:*)'] });
   for (const f of refs) { try { unlinkSync(join(ROOT, f)); } catch { /* sudah hilang */ } }
   const reply = !r.ok ? 'Aduh sayang, aku lagi error pas nyatet 😣 Kirim ulang bentar lagi ya.'
-    : r.text.includes(ESCALATE) ? 'Itu urusan kantor sayang 😊 Kirim ke bot Zataa Office ya, biar tim yang ngerjain. Di sini khusus keuangan kamu 💕'
+    : r.text.includes(ESCALATE) ? 'Itu urusan kantor sayang 😊 Konten/IG ke bot Zataa Office Marketing, trading ke bot Zataa Office Trading, YouTube ke @zataashortbot ya, biar tim yang ngerjain. Di sini khusus keuangan kamu 💕'
       : r.text.slice(r.text.lastIndexOf('BALASAN:') + 8).trim().slice(0, 3800);
   log(`keuangan: ${r.ok ? 'ok' : 'gagal'}`);
   try { mkdirSync(dirname(HIST), { recursive: true }); writeFileSync(HIST, JSON.stringify([...hist(), { t: Date.now(), owner: (msg || '(foto)').slice(0, 300), reply: reply.slice(0, 600) }].slice(-10))); } catch { /* abaikan */ }

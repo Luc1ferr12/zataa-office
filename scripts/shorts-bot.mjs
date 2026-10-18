@@ -326,6 +326,24 @@ const REPORT_MIN = 21 * 60;
 const LONGFORM_SUBS = 500; // target Owner: mulai video panjang 5–10 menit (office/youtube.md)
 const num = (n) => (n == null ? '?' : Number(n).toLocaleString('id-ID'));
 const plus = (n) => (n == null ? '' : ` (${n >= 0 ? '+' : ''}${num(n)})`);
+// rekap mingguan Kirana (Minggu, nyatu di laporan 21:00): Shorts tayang 7 hari + pilar paling ditonton → bahan evaluasi Bagas
+async function weeklyLines(st, views) {
+  const d = await db();
+  const byId = Object.fromEntries(st.list.map((v) => [v.id, v]));
+  const rows = d.prepare("SELECT id, title, pillar, youtube_id FROM contents WHERE channel = 'youtube' AND youtube_id IS NOT NULL AND posted_at >= datetime('now', '-7 days')").all()
+    .map((c) => ({ ...c, v: byId[c.youtube_id] })).filter((c) => c.v);
+  const w = state().weekSnap;
+  const out = ['', '🗓️ <b>Rekap mingguan Shorts</b>',
+    `${rows.length} Shorts tayang minggu ini${w ? ` · 👥${plus(st.subscribers - w.subs)} subs · 👁️${plus(views - w.views)} views sejak ${w.date.slice(8)}/${w.date.slice(5, 7)}` : ''}`];
+  if (!rows.length) return out;
+  const pil = {};
+  for (const c of rows) (pil[c.pillar ?? 'lain'] ??= []).push(c.v.views);
+  const avg = Object.entries(pil).map(([k, v]) => [k, v.reduce((a, b) => a + b, 0) / v.length]).sort((a, b) => b[1] - a[1]);
+  return [...out,
+    ...[...rows].sort((a, b) => b.v.views - a.v.views).slice(0, 3).map((c, i) => `${i + 1}. #${c.id} ${esc(c.title.slice(0, 45))} · 👁️ ${num(c.v.views)} · 👍 ${num(c.v.likes)}`),
+    `Pilar paling ditonton: <b>${esc(avg[0][0])}</b> (rata-rata ${num(Math.round(avg[0][1]))} views). Bagas pakai ini buat evaluasi & antrean topik minggu depan.`];
+}
+
 export async function dailyReport({ dry = false } = {}) {
   const r = await run(['scripts/youtube.mjs', 'stats'], 3);
   if (!r.ok) throw new Error((r.err || r.out).split('\n').pop().slice(0, 200));
@@ -347,10 +365,14 @@ export async function dailyReport({ dry = false } = {}) {
     ...rows.slice(0, 5).map((v, i) => `${i + 1}. ${esc(v.title.slice(0, 45))} · 👁️ ${num(v.views)}${plus(v.dv)} · 👍 ${num(v.likes)}${v.privacy !== 'public' ? ` · <i>${v.privacy}</i>` : ''}`),
     ...(st.subscribers >= LONGFORM_SUBS && !state().longform ? [`\n🎉 <b>Tembus ${num(LONGFORM_SUBS)} subscriber!</b> Sesuai rencana Bos, waktunya nambah video panjang 5–10 menit (Shorts tetap jalan seperti biasa). Bagas siapin rencananya ya.`] : []),
     prev ? `\n<i>(angka dalam kurung = kenaikan sejak laporan ${prev.date.slice(8)}/${prev.date.slice(5, 7)})</i>` : '\n<i>Laporan pertama, kenaikan harian mulai muncul besok.</i>',
+    ...(hari === 'Minggu' ? await weeklyLines(st, views) : []),
   ].filter((l) => l !== undefined);
   if (dry) return lines.join('\n');
   await sayAs('ypublish', lines.join('\n'));
-  patchState((s) => { s.snap = { date: t.date, subs: st.subscribers, views, likes: st.likes, videos: Object.fromEntries(st.list.map((v) => [v.id, { v: v.views, l: v.likes }])) }; s.reportDate = t.date; if (st.subscribers >= LONGFORM_SUBS) s.longform = s.longform ?? t.date; });
+  patchState((s) => {
+    s.snap = { date: t.date, subs: st.subscribers, views, likes: st.likes, videos: Object.fromEntries(st.list.map((v) => [v.id, { v: v.views, l: v.likes }])) }; s.reportDate = t.date; if (st.subscribers >= LONGFORM_SUBS) s.longform = s.longform ?? t.date;
+    if (hari === 'Minggu') s.weekSnap = { date: t.date, subs: st.subscribers, views };
+  });
   return { ok: true, subscribers: st.subscribers, views, likes: st.likes };
 }
 
@@ -363,7 +385,7 @@ SOP & cara kerja: office/youtube.md (baca kalau perlu). Data Shorts: node script
 Tugas (mis. bikin Shorts baru / ganti topik): kerjakan sesuai office/youtube.md (new → render otomatis di laptop → Kirana kirim ke sini). Jangan kirim Telegram sendiri.
 Urusan marketing top up / IG / trading / keuangan → tulis persis ${ESCALATE} lalu berhenti.
 Akhiri dengan baris "BALASAN:" lalu 1–3 baris, TIAP baris diawali nama pegawai: "Nama: pesan". Santai, sopan.`, 25);
-  if (r.ok && r.text.includes(ESCALATE)) return sayAs('ydir', 'Itu urusan kantor marketing/trading, Bos 🙏 Kirim ke bot Zataa Office ya. Di sini khusus YouTube Shorts.');
+  if (r.ok && r.text.includes(ESCALATE)) return sayAs('ydir', 'Itu urusan kantor marketing/trading, Bos 🙏 Marketing/IG ke bot Zataa Office Marketing, trading ke bot Zataa Office Trading, keuangan ke @zataaaccountingbot ya. Di sini khusus YouTube Shorts.');
   if (!r.ok) { log(`bot shorts: claude gagal ${r.text.slice(0, 200)}`); return sayAs('ydir', '⚠️ Maaf Bos, lagi error. Coba lagi bentar ya.'); }
   return send(formatReply(r.text, 'ydir'));
 }

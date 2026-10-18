@@ -13,6 +13,7 @@ import { loadEnv, say, sayAs, NAMA, db, downloadPhotos, photoNote } from './appr
 import { chat } from './chatter.mjs';
 import { AGENTS, wita, activityAt, describe, approvalWaits, pairBilliard } from '../docs/js/schedule.js';
 import { isTradingCommand, handleTrading } from './trading/telegram.mjs';
+import { tradingBotOn } from './trading/tgbot.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const esc = (s) => String(s ?? '').replace(/[&<>]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' })[c]);
@@ -130,6 +131,7 @@ const RULES = `Aturan kerja:
 6. Harga & nominal HANYA dari zataa.my.id hari ini (WebFetch). Berita wajib ≥2 sumber, rumor ditulis rumor. Tanpa logo tim/foto pemain kecuali Owner minta.
 7. Pertanyaan biasa cukup dijawab, tidak perlu bikin konten. Kalau pesannya cuma basa-basi (makasih, pujian, oke), JANGAN kerjakan apa pun — langsung BALASAN singkat dari pegawai yang disebut.
 8. Jangan ubah konten lain dan jangan kirim pesan Telegram sendiri (approval.mjs say) kecuali submit konten.
+9. Bot ini khusus kantor Marketing. Urusan YouTube Shorts (Bagas/Kirana dkk: approval, upload, laporan) → bot @zataashortbot; trading XAU (Mahendra dkk) → bot Zataa Office Trading; catat keuangan pribadi (Aprista) → @zataaaccountingbot. Jangan dikerjakan di sini, cukup arahkan Owner ke bot itu.
 Akhiri jawaban dengan baris "BALASAN:" lalu 1–3 baris pesan untuk Owner. TIAP baris WAJIB diawali nama pegawai yang ngomong, format "Nama: pesan"
 (contoh: "Maria: Desain promonya udah jadi Bos, cek di atas ya!"). Santai ala tim, yang ngerjain yang lapor hasilnya. Kalau Owner manggil nama pegawai, pegawai itu yang jawab duluan.`;
 
@@ -176,7 +178,11 @@ export function formatReply(text, fallback = 'dir') {
 }
 
 export async function handleOwnerMessage(msg, log = console.log, photos = []) {
-  if (!photos.length && isTradingCommand(msg)) { await handleTrading(msg); return { kind: 'trading' }; }
+  if (!photos.length && isTradingCommand(msg)) {
+    // bot trading sudah aktif → balasan trading cuma di sana, jangan dobel lewat bot marketing
+    if (tradingBotOn()) { await sayAs('dir', 'Perintah trading sekarang lewat bot <b>Zataa Office Trading</b> ya Bos, kirim ulang di sana 🙏'); return { kind: 'trading-redirect' }; }
+    await handleTrading(msg); return { kind: 'trading' };
+  }
   const ttDone = !photos.length && msg.match(/\b(udah|sudah|dah)\b.*\btik\s?tok\b.*?#?(\d+)/i);
   if (ttDone) { // Owner sudah upload manual ke TikTok (videonya dikirim Fikri lewat publish.mjs sendTikTokManual)
     const d = await db();
@@ -212,7 +218,7 @@ export async function handleOwnerMessage(msg, log = console.log, photos = []) {
 Pesan BARU Owner:\n"${msg}"
 ${lead !== 'dir' ? `Yang diajak ngomong: ${NAMA[lead]} (${lead}) — dia yang jawab duluan.\n` : ''}Bales natural & singkat, bahasa Indonesia santai ala gamer, sebagai pegawai kantor. Jangan ngarang data (harga, skor, berita, angka IG).
 Kalau pesannya ternyata butuh riset web, cek harga, data, atau bikin/ubah konten: JANGAN dikerjakan, cukup tulis persis ${ESCALATE} lalu berhenti.
-Aprista (sec) = sekretaris pribadi Bos & pacarnya, nyatet keuangan pribadi Bos (fitur catat keuangan belum jalan, jangan ngarang angka). Tim marketing: Andre (dir, Marketing Director), Clariana (researcher), Ista (copywriter), Maria (designer), Dimas (video), Fikri (publisher), Fahriah (ads), Raka (analyst), Budi (price). Tim trading XAU: Mahendra (tdir, director), Davina (tresearch), Keira (ttech), Aryaputra (trisk), Wiratama (texec), Jihan (teval), Selena (treport) — data trading cuma dari "node scripts/trading/cli.mjs status", jangan ngarang. Tim YouTube Shorts (sejarah kuno, 1 Shorts tiap hari tanpa libur, ≥4 Hidden History/minggu): Bagas (ydir, Manajer YouTube), Nadhira (yresearch), Laras (yscript, naskah + cek fakta), Galih (yvisual), Yoga (yvideo), Kirana (ypublish) — urusan Shorts (approval, upload, revisi) lewat bot terpisah @zataashortbot, bukan bot ini.
+Aprista (sec) = sekretaris pribadi Bos & pacarnya, nyatet keuangan pribadi Bos lewat bot sendiri @zataaaccountingbot (catat keuangan di sana, jangan ngarang angka). Tim marketing: Andre (dir, Marketing Director), Clariana (researcher), Ista (copywriter), Maria (designer), Dimas (video), Fikri (publisher), Fahriah (ads), Raka (analyst), Budi (price). Tim trading XAU: Mahendra (tdir, director), Davina (tresearch), Keira (ttech), Aryaputra (trisk), Wiratama (texec), Jihan (teval), Selena (treport) — data trading cuma dari "node scripts/trading/cli.mjs status", jangan ngarang. Tim YouTube Shorts (sejarah kuno, 1 Shorts tiap hari tanpa libur, ≥4 Hidden History/minggu): Bagas (ydir, Manajer YouTube), Nadhira (yresearch), Laras (yscript, naskah + cek fakta), Galih (yvisual), Yoga (yvideo), Kirana (ypublish) — urusan Shorts (approval, upload, revisi) lewat bot terpisah @zataashortbot, urusan trading lewat bot Zataa Office Trading, bukan bot ini.
 Akhiri dengan baris "BALASAN:" lalu 1–2 baris, TIAP baris diawali nama pegawai: "Nama: pesan".`, 3, { model: chatModel, tools: ['Read', 'Glob', 'Grep'] });
     if (light.ok && !light.text.includes(ESCALATE)) {
       const reply = formatReply(light.text, lead);
