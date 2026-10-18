@@ -1,8 +1,13 @@
 {
- "generated_at": "2026-10-18T22:52:48.560Z",
+ "generated_at": "2026-10-18T23:02:48.562Z",
  "today": "2026-10-19",
  "week_start": "2026-10-19",
- "campaign": null,
+ "campaign": {
+  "week_start": "2026-10-19",
+  "theme": "Road to Surabaya: Playoff MPL ID S18 + Bursa Transfer",
+  "goals": "Bangun hype 2 minggu jelang playoff MPL ID (4-8 Nov) & tempel promo ke momen esport; 7 feed + 7 video. Eksperimen: hook pertanyaan (Sen/Rab/Jum/Min) vs hook angka (Sel/Kam/Sab), nilai pakai like+komen+views. Slot tetap 12:00 feed & 19:00 video (saran Raka: pertahankan 12:00).",
+  "status": "pending"
+ },
  "agents": [
   {
    "id": "owner",
@@ -17,16 +22,16 @@
    "name": "Andre",
    "title": "Marketing Director",
    "status": "done",
-   "current_task": "Bagi tugas: Buatin video hall of champions valorant dari winner 2021-202",
-   "updated_at": "2026-10-18 21:47:52"
+   "current_task": "Plan mingguan dikirim ke Owner",
+   "updated_at": "2026-10-18 23:01:34"
   },
   {
    "id": "researcher",
    "name": "Clariana",
    "title": "Researcher",
    "status": "done",
-   "current_task": "Riset roster juara Valorant Champions 2021-2026",
-   "updated_at": "2026-10-18 21:31:17"
+   "current_task": "Riset tren & jadwal minggu ini",
+   "updated_at": "2026-10-18 23:01:30"
   },
   {
    "id": "copywriter",
@@ -82,7 +87,7 @@
    "title": "Price Watcher",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-10-18 12:00:51"
+   "updated_at": "2026-10-18 23:00:48"
   },
   {
    "id": "ob",
@@ -98,15 +103,15 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-18 22:45:50"
+   "updated_at": "2026-10-18 23:01:19"
   },
   {
    "id": "tresearch",
    "name": "Davina",
    "title": "Research & Fundamental",
    "status": "done",
-   "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
-   "updated_at": "2026-10-18 22:45:50"
+   "current_task": "Fundamental: Fed hawkish (hike Sep, pasar pasang hike Des), CPI Sep 3,7% panas; NFP 29rb lemah. Berita 24 jam tak terkonfirmasi.",
+   "updated_at": "2026-10-18 23:01:19"
   },
   {
    "id": "ttech",
@@ -114,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bullish",
-   "updated_at": "2026-10-18 22:45:50"
+   "updated_at": "2026-10-18 23:01:19"
   },
   {
    "id": "trisk",
@@ -122,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
-   "updated_at": "2026-10-18 22:45:50"
+   "updated_at": "2026-10-18 23:01:19"
   },
   {
    "id": "texec",
@@ -168,9 +173,9 @@
    "id": "yresearch",
    "name": "Nadhira",
    "title": "Riset Sejarah & Tren",
-   "status": "idle",
-   "current_task": null,
-   "updated_at": "2026-10-16 00:49:33"
+   "status": "working",
+   "current_task": "Isi bank topik Shorts",
+   "updated_at": "2026-10-18 23:02:33"
   },
   {
    "id": "yscript",
@@ -207,6 +212,20 @@
  ],
  "week_contents": [
   {
+   "id": 38,
+   "day": "2026-10-19",
+   "slot": "siang",
+   "format": "carousel",
+   "game": "mlbb",
+   "pillar": "esport",
+   "title": "6 tim ke Surabaya: daftar lolos playoff MPL ID S18 + jadwal 4-8 Nov (seed final dicek ulang dulu)",
+   "status": "draft",
+   "asset_url": null,
+   "scheduled_at": null,
+   "posted_at": null,
+   "channel": null
+  },
+  {
    "id": 37,
    "day": "2026-10-19",
    "slot": "kilat",
@@ -219,10 +238,264 @@
    "scheduled_at": null,
    "posted_at": null,
    "channel": null
+  },
+  {
+   "id": 39,
+   "day": "2026-10-19",
+   "slot": "malam",
+   "format": "video",
+   "game": "valorant",
+   "pillar": "news",
+   "title": "Era franchise VCT tamat: bursa transfer 2027 dimulai (rumor ditandai)",
+   "status": "draft",
+   "asset_url": null,
+   "scheduled_at": null,
+   "posted_at": null,
+   "channel": null
+  },
+  {
+   "id": 40,
+   "day": "2026-10-20",
+   "slot": "siang",
+   "format": "feed",
+   "game": "mlbb",
+   "pillar": "engagement",
+   "title": "Polling: siapa juara MPL ID S18? NAVI, TLID, AE, BTR, EVOS, ONIC",
+   "status": "draft",
+   "asset_url": null,
+   "scheduled_at": null,
+   "posted_at": null,
+   "channel": null
+  },
+  {
+   "id": 41,
+   "day": "2026-10-20",
+   "slot": "malam",
+   "format": "video",
+   "game": "mlbb",
+   "pillar": "esport",
+   "title": "Bracket playoff MPL ID S18: Bo5, Bo7, siapa ketemu siapa",
+   "status": "draft",
+   "asset_url": null,
+   "scheduled_at": null,
+   "posted_at": null,
+   "channel": null
+  },
+  {
+   "id": 42,
+   "day": "2026-10-21",
+   "slot": "siang",
+   "format": "feed",
+   "game": "mlbb",
+   "pillar": "promo",
+   "title": "Diamond ML hemat buat nonton bareng playoff (harga zataa.my.id hari itu)",
+   "status": "draft",
+   "asset_url": null,
+   "scheduled_at": null,
+   "posted_at": null,
+   "channel": null
+  },
+  {
+   "id": 43,
+   "day": "2026-10-21",
+   "slot": "malam",
+   "format": "video",
+   "game": "mlbb",
+   "pillar": "esport",
+   "title": "RRQ, DEWA, GEEK gugur: musim yang bikin nyesek",
+   "status": "draft",
+   "asset_url": null,
+   "scheduled_at": null,
+   "posted_at": null,
+   "channel": null
+  },
+  {
+   "id": 44,
+   "day": "2026-10-22",
+   "slot": "siang",
+   "format": "feed",
+   "game": "freefire",
+   "pillar": "esport",
+   "title": "FFWS Global Finals 2026 Bangkok: 24 tim, 4 weekend",
+   "status": "draft",
+   "asset_url": null,
+   "scheduled_at": null,
+   "posted_at": null,
+   "channel": null
+  },
+  {
+   "id": 45,
+   "day": "2026-10-22",
+   "slot": "malam",
+   "format": "video",
+   "game": "mlbb",
+   "pillar": "tips",
+   "title": "3 hero meta playoff MPL yang wajib kamu coba di rank",
+   "status": "draft",
+   "asset_url": null,
+   "scheduled_at": null,
+   "posted_at": null,
+   "channel": null
+  },
+  {
+   "id": 46,
+   "day": "2026-10-23",
+   "slot": "siang",
+   "format": "feed",
+   "game": "valorant",
+   "pillar": "promo",
+   "title": "VP Valorant buat skin baru offseason (harga zataa.my.id hari itu)",
+   "status": "draft",
+   "asset_url": null,
+   "scheduled_at": null,
+   "posted_at": null,
+   "channel": null
+  },
+  {
+   "id": 47,
+   "day": "2026-10-23",
+   "slot": "malam",
+   "format": "video",
+   "game": "valorant",
+   "pillar": "news",
+   "title": "Update bursa transfer VCT minggu ini",
+   "status": "draft",
+   "asset_url": null,
+   "scheduled_at": null,
+   "posted_at": null,
+   "channel": null
+  },
+  {
+   "id": 48,
+   "day": "2026-10-24",
+   "slot": "siang",
+   "format": "feed",
+   "game": "mlbb",
+   "pillar": "tips",
+   "title": "Kuis: tebak pemain MPL ID dari stat musim ini",
+   "status": "draft",
+   "asset_url": null,
+   "scheduled_at": null,
+   "posted_at": null,
+   "channel": null
+  },
+  {
+   "id": 49,
+   "day": "2026-10-24",
+   "slot": "malam",
+   "format": "video",
+   "game": "freefire",
+   "pillar": "promo",
+   "title": "Diamond FF weekend dari zataa.my.id + hype FFWS",
+   "status": "draft",
+   "asset_url": null,
+   "scheduled_at": null,
+   "posted_at": null,
+   "channel": null
+  },
+  {
+   "id": 50,
+   "day": "2026-10-25",
+   "slot": "siang",
+   "format": "carousel",
+   "game": "mlbb",
+   "pillar": "esport",
+   "title": "Profil 2 tim Upper Bracket MPL ID S18: roster + rekor",
+   "status": "draft",
+   "asset_url": null,
+   "scheduled_at": null,
+   "posted_at": null,
+   "channel": null
+  },
+  {
+   "id": 51,
+   "day": "2026-10-25",
+   "slot": "malam",
+   "format": "video",
+   "game": "mlbb",
+   "pillar": "engagement",
+   "title": "10 hari lagi playoff: prediksi juara versi kamu?",
+   "status": "draft",
+   "asset_url": null,
+   "scheduled_at": null,
+   "posted_at": null,
+   "channel": null
   }
  ],
- "today_tasks": [],
+ "today_tasks": [
+  {
+   "agent_id": "copywriter",
+   "type": "copy",
+   "title": "6 tim ke Surabaya: daftar lolos playoff MPL ID S18 + jadwal 4-8 Nov (seed final dicek ulang dulu)",
+   "status": "todo"
+  },
+  {
+   "agent_id": "designer",
+   "type": "design",
+   "title": "6 tim ke Surabaya: daftar lolos playoff MPL ID S18 + jadwal 4-8 Nov (seed final dicek ulang dulu)",
+   "status": "todo"
+  },
+  {
+   "agent_id": "publisher",
+   "type": "publish",
+   "title": "6 tim ke Surabaya: daftar lolos playoff MPL ID S18 + jadwal 4-8 Nov (seed final dicek ulang dulu)",
+   "status": "todo"
+  },
+  {
+   "agent_id": "copywriter",
+   "type": "copy",
+   "title": "Era franchise VCT tamat: bursa transfer 2027 dimulai (rumor ditandai)",
+   "status": "todo"
+  },
+  {
+   "agent_id": "video",
+   "type": "video",
+   "title": "Era franchise VCT tamat: bursa transfer 2027 dimulai (rumor ditandai)",
+   "status": "todo"
+  },
+  {
+   "agent_id": "publisher",
+   "type": "publish",
+   "title": "Era franchise VCT tamat: bursa transfer 2027 dimulai (rumor ditandai)",
+   "status": "todo"
+  }
+ ],
  "activity": [
+  {
+   "ts": "2026-10-18 23:01:34",
+   "agent_id": "dir",
+   "message": "Plan minggu 19-25 Okt (tema Road to Surabaya) dikirim ke Owner, produksi nunggu ✅."
+  },
+  {
+   "ts": "2026-10-18 23:01:31",
+   "agent_id": "dir",
+   "message": "Kirim plan minggu 2026-10-19 ke Owner (14 konten)"
+  },
+  {
+   "ts": "2026-10-18 23:01:30",
+   "agent_id": "dir",
+   "message": "Plan minggu 2026-10-19 dibuat: Road to Surabaya: Playoff MPL ID S18 + Bursa Transfer (14 konten)"
+  },
+  {
+   "ts": "2026-10-18 23:01:30",
+   "agent_id": "researcher",
+   "message": "Riset Senin 6 item: MPL seed & playoff, FFWS Bangkok, offseason VCT. Hasil Super Sunday belum terindeks, cek ulang Selasa."
+  },
+  {
+   "ts": "2026-10-18 23:01:30",
+   "agent_id": "researcher",
+   "message": "Nemu 6 topik baru"
+  },
+  {
+   "ts": "2026-10-18 23:01:19",
+   "agent_id": "trisk",
+   "message": "NO TRADE · jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
+  },
+  {
+   "ts": "2026-10-18 23:00:50",
+   "agent_id": "ttech",
+   "message": "M60 berubah arah: sideways → bullish"
+  },
   {
    "ts": "2026-10-18 22:45:50",
    "agent_id": "ttech",
@@ -312,44 +585,30 @@
    "ts": "2026-10-18 11:12:54",
    "agent_id": "owner",
    "message": "Approve konten #36 ✅"
-  },
-  {
-   "ts": "2026-10-18 11:11:02",
-   "agent_id": "publisher",
-   "message": "Kirim #36 ke Owner buat approval"
-  },
-  {
-   "ts": "2026-10-18 11:10:40",
-   "agent_id": "researcher",
-   "message": "Nemu 1 topik baru"
-  },
-  {
-   "ts": "2026-10-18 11:08:48",
-   "agent_id": "owner",
-   "message": "Chat: Bikin konten ini, loudmenang champions. Pake foto playernya full tim"
-  },
-  {
-   "ts": "2026-10-18 10:01:08",
-   "agent_id": "analyst",
-   "message": "Update data 25 post IG 📈"
-  },
-  {
-   "ts": "2026-10-18 08:37:32",
-   "agent_id": "publisher",
-   "message": "Posting #35 ke IG + TikTok ✅"
-  },
-  {
-   "ts": "2026-10-18 08:34:49",
-   "agent_id": "owner",
-   "message": "Approve konten #35 ✅"
-  },
-  {
-   "ts": "2026-10-18 08:34:49",
-   "agent_id": "owner",
-   "message": "Approve konten #35 ✅"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-10-18 23:01:34",
+   "agent_id": "dir",
+   "to_id": null,
+   "kind": "santai",
+   "message": "Plan udah di meja Bos. Sambil nunggu ✅, jangan ada yang render duluan ya."
+  },
+  {
+   "ts": "2026-10-18 23:01:34",
+   "agent_id": "dir",
+   "to_id": "researcher",
+   "kind": "oper",
+   "message": "Brief \"Plan mingguan dikirim ke Owner\" udah jadi. Clariana, gas riset ya!"
+  },
+  {
+   "ts": "2026-10-18 23:01:30",
+   "agent_id": "researcher",
+   "to_id": "copywriter",
+   "kind": "oper",
+   "message": "Riset \"Riset tren & jadwal minggu ini\" beres, udah dicek 2 sumber. Ista, lanjut ya~"
+  },
   {
    "ts": "2026-10-18 22:06:55",
    "agent_id": "dir",
@@ -608,33 +867,12 @@
    "to_id": "owner",
    "kind": "santai",
    "message": "Sekarang video #35 udah ada di antrean render laptop. Begitu diambil laptop langsung dirender, abis itu Fikri kirim ke Telegram Bos buat di-✅."
-  },
-  {
-   "ts": "2026-10-18 07:38:57",
-   "agent_id": "dir",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Iya Bos, ini salah gw, tadi gw nggak ngecek ulang pas Dimas bilang udah ngantre, ternyata baru beneran masuk antrean 15.32 WITA. Maaf ya Bos 🙏"
-  },
-  {
-   "ts": "2026-10-18 07:38:11",
-   "agent_id": "dir",
-   "to_id": null,
-   "kind": "oper",
-   "message": "Oke tim, ada titah dari Bos. Aku bagi tugasnya ya 👇"
-  },
-  {
-   "ts": "2026-10-18 07:38:11",
-   "agent_id": "owner",
-   "to_id": "dir",
-   "kind": "bos",
-   "message": "Gimana si, andre lu ga ngingetin tim lu apa gmna sampe kelewat masalah render doang, laptop uda gw idupin dari tadi"
   }
  ],
  "stats": {
   "this_week": {
    "week": "2026-10-19",
-   "total": 1,
+   "total": 15,
    "posted": 0,
    "pending": 0,
    "scheduled": 0,
@@ -693,9 +931,14 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4175.799805,
+  "price": 4179.200195,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-18 23:01:19",
+    "decision": "NO TRADE",
+    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
+   },
    {
     "ts": "2026-10-18 22:45:50",
     "decision": "NO TRADE",
@@ -720,11 +963,6 @@
     "ts": "2026-10-16 20:46:05",
     "decision": "NO TRADE",
     "reason": "di luar jam sesi London–New York"
-   },
-   {
-    "ts": "2026-10-16 20:31:05",
-    "decision": "NO TRADE",
-    "reason": "di luar jam sesi London–New York"
    }
   ],
   "trades": [],
@@ -746,7 +984,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-18 22:45:50",
+   "ts": "2026-10-18 23:01:19",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -757,8 +995,8 @@
    "risk_usd": null,
    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
    "fund": {
-    "bias": 0,
-    "note": "netral (belum ada ringkasan hari ini)",
+    "bias": -0.3,
+    "note": "Fed hawkish (hike Sep, pasar pasang hike Des), CPI Sep 3,7% panas; NFP 29rb lemah. Berita 24 jam tak terkonfirmasi.",
     "danger": null,
     "blackout": null
    },
@@ -767,10 +1005,13 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4177.80 di atas tengah band (4158.6–4178.0) · RSI 93 · Stoch 95 · MACD +1.40 · H1 bullish"
+    "note": "M15 4176.20 di atas tengah band (4158.7–4178.7) · RSI 84 · Stoch 86 · MACD +1.22 · H1 bullish"
    }
   },
-  "fund": null,
+  "fund": {
+   "bias": -0.3,
+   "note": "Fed hawkish (hike Sep, pasar pasang hike Des), CPI Sep 3,7% panas; NFP 29rb lemah. Berita 24 jam tak terkonfirmasi."
+  },
   "calendar": [
    {
     "title": "Unemployment Claims",
@@ -806,46 +1047,46 @@
    "M10": {
     "bias": "bullish",
     "score": 2,
-    "price": 4177.6,
-    "ema20": 4170,
-    "ema50": 4167.87,
-    "rsi": 85.5,
+    "price": 4176.2,
+    "ema20": 4170.59,
+    "ema50": 4168.2,
+    "rsi": 76.5,
     "n": 299,
-    "slot": 2987273,
-    "at": 1792363850737
+    "slot": 2987274,
+    "at": 1792364450767
    },
    "M15": {
     "bias": "sideways",
     "score": 1,
-    "price": 4177.4,
-    "ema20": 4168.88,
-    "ema50": 4167.31,
-    "rsi": 93,
+    "price": 4176.2,
+    "ema20": 4169.58,
+    "ema50": 4167.66,
+    "rsi": 83.6,
     "n": 299,
-    "slot": 1991515,
-    "at": 1792363550561
+    "slot": 1991516,
+    "at": 1792364450776
    },
    "M30": {
     "bias": "bullish",
     "score": 3,
-    "price": 4178.2,
-    "ema20": 4167.25,
-    "ema50": 4166.63,
-    "rsi": 99.8,
+    "price": 4176.2,
+    "ema20": 4168.1,
+    "ema50": 4167,
+    "rsi": 84.8,
     "n": 299,
-    "slot": 995757,
-    "at": 1792362650569
+    "slot": 995758,
+    "at": 1792364450779
    },
    "H1": {
-    "bias": "sideways",
-    "score": 0,
-    "price": 4166.1,
-    "ema20": 4166.13,
-    "ema50": 4165.62,
-    "rsi": 49,
+    "bias": "bullish",
+    "score": 2,
+    "price": 4176.2,
+    "ema20": 4167.09,
+    "ema50": 4166.04,
+    "rsi": 90.5,
     "n": 299,
-    "slot": 497878,
-    "at": 1792360850673
+    "slot": 497879,
+    "at": 1792364450790
    }
   },
   "currency": "USC",
