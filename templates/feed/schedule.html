@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="id"><head><meta charset="utf-8"><title>schedule</title>
+<link rel="stylesheet" href="../shared/brand.css">
+<style>
+  .h1 { font-size: 64px; }
+  .grow { gap: 18px; }
+  .days { display: grid; grid-template-columns: repeat(var(--n), 1fr); gap: 16px; align-items: start; }
+  .day { display: flex; flex-direction: column; gap: 10px; }
+  .day > b { font: 800 24px/1 Sora; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); padding-left: 6px; }
+  .m { padding: 12px 14px; border-radius: 20px; display: flex; flex-direction: column; align-items: center; gap: 6px; }
+  .m .row { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 8px; width: 100%; }
+  .m .t { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+  .m img { width: 64px; height: 64px; object-fit: contain; filter: drop-shadow(0 6px 14px #000b); }
+  .m .ini { width: 64px; height: 64px; display: grid; place-items: center; border-radius: 50%; background: var(--brand); font: 800 22px/1 Sora; }
+  .m .t span { font: 800 20px/1 Sora; letter-spacing: .02em; }
+  .m .vs { font: 800 20px/1 Sora; color: var(--muted); }
+  .m time { font: 800 24px/1 Sora; color: var(--white); }
+  .m.hot { border-color: var(--accent); background: linear-gradient(160deg, color-mix(in srgb, var(--accent) 34%, transparent), #ffffff08); }
+  .m .tag { font: 800 16px/1 Sora; letter-spacing: .08em; text-transform: uppercase; color: var(--ink); background: var(--accent); padding: 6px 10px; border-radius: 8px; }
+  .story .h1 { font-size: 84px; }
+  .story .days { grid-template-columns: 1fr; gap: 26px; }
+  .story .day > div { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .story .m img, .story .m .ini { width: 76px; height: 76px; }
+</style></head>
+<body><div id="root"></div>
+<script type="module">
+import { setup, shell, kicker, md, esc, fit, ready } from '../shared/brand.js';
+// data: { game, kicker, headline, sub?, days:[{day, matches:[{time, left:{name, logo?}, right:{name, logo?}, tag?}]}] (≤3 hari, ≤3 laga/hari), cta, footnote }
+// tag = tandai laga penting (mis. "HIDUP-MATI") → kartu disorot warna aksen
+const team = (t = {}) => `<div class="t">${t.logo ? `<img src="/${esc(t.logo.replace(/^\/+/, ''))}" alt="">` : `<div class="ini">${esc((t.name ?? '?').slice(0, 3))}</div>`}<span>${esc(t.name)}</span></div>`;
+window.render = async (d, size) => {
+  const g = setup(d, size);
+  const days = (d.days ?? []).slice(0, 3);
+  const html = days.map((day) => `<div class="day"><b>${esc(day.day)}</b><div style="display:contents">${(day.matches ?? []).slice(0, 3).map((m) => `
+    <div class="card m${m.tag ? ' hot' : ''}"><div class="row">${team(m.left)}<i class="vs">VS</i>${team(m.right)}</div>
+    <time>${esc(m.time)}</time>${m.tag ? `<div class="tag">${esc(m.tag)}</div>` : ''}</div>`).join('')}</div></div>`).join('');
+  document.getElementById('root').innerHTML = shell({ cta: 'Simpan & share ke temen mabar 👇', ...d }, g, `
+    <div class="grow"><h1 class="h1">${md(d.headline)}</h1>${d.sub ? `<p class="sub">${md(d.sub)}</p>` : ''}<div class="days" style="--n:${days.length || 1}">${html}</div></div>`,
+    { kicker: kicker(d.kicker ?? 'JADWAL') });
+  if (size === 'story') document.querySelectorAll('.day > div').forEach((el) => { el.style.display = ''; });
+  await ready();
+  fit(document.querySelector('.h1'), 44);
+};
+</script></body></html>

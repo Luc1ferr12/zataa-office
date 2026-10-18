@@ -14,6 +14,22 @@
   .h1.hook { font-size: 124px; }
   .tlogos { display: flex; gap: 22px; align-items: center; }
   .tlogos img { width: 120px; height: 120px; object-fit: contain; filter: drop-shadow(0 8px 22px #000b); }
+  .tlogos.big img { width: 220px; height: 220px; }
+  .pre { font: 800 34px/1 Sora; letter-spacing: .3em; color: var(--accent); }
+  /* hook + photo: foto tim/pemain di atas, nuansa ungu, judul besar di bawah (seperti news) */
+  .photo { position: absolute; left: 0; right: 0; top: 0; height: 74%; overflow: hidden; }
+  .story .photo { height: 62%; }
+  .photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; filter: saturate(.85) contrast(1.05); }
+  .photo::before { content: ''; position: absolute; inset: 0; background: linear-gradient(160deg, #5b1fd6, #2a0a6b); mix-blend-mode: color; opacity: .55; }
+  .photo::after { content: ''; position: absolute; inset: 0;
+    background: linear-gradient(180deg, #12052fcc 0%, transparent 22%, transparent 48%, #12052f 96%), radial-gradient(70% 60% at 50% 40%, transparent, #2a0a6b66); }
+  .with-photo .watermark { display: none; }
+  .with-photo .grow { justify-content: flex-end; gap: 14px; text-align: center; align-items: center; }
+  .with-photo .tlogos { justify-content: center; }
+  .with-photo .h1.hook { font-size: 132px; line-height: .95; text-transform: uppercase; text-shadow: 0 6px 30px #0009; }
+  .with-photo .pre { color: var(--white); text-shadow: 0 4px 20px #000a; }
+  .with-photo .sub { font-size: 30px; color: #e6dcff; max-width: 92%; }
+  .with-photo .swipe { text-align: right; }
   .cta-logo { width: 220px; height: 220px; border-radius: 48px; box-shadow: 0 20px 60px #0009, 0 0 0 4px #ffffff22; }
 </style></head>
 <body><div id="root"></div>
@@ -29,8 +45,11 @@ window.render = async (d, size, opts = {}) => {
   const logos = [s.logo ?? []].flat().filter(Boolean);
   const logoRow = logos.length ? `<div class="tlogos">${logos.map((l) => `<img src="/${esc(l.replace(/^\/+/, ''))}" alt="">`).join('')}</div>` : '';
   let inner;
+  document.body.classList.toggle('with-photo', !!(s.kind === 'hook' && s.photo));
   if (s.kind === 'hook') {
-    inner = `<div class="grow">${logoRow}<h1 class="h1 hook">${md(s.headline)}</h1>${s.sub ? `<p class="sub">${md(s.sub)}</p>` : ''}</div><div class="swipe">Geser ➜</div>`;
+    // photo = foto tim/pemain (mis. assets/photos/x.jpg) → layout foto; pre = teks kecil di atas judul; logo tanpa foto tampil besar
+    const row = s.photo ? logoRow : logoRow.replace('class="tlogos"', 'class="tlogos big"');
+    inner = `<div class="grow">${row}${s.pre ? `<div class="pre">${md(s.pre)}</div>` : ''}<h1 class="h1 hook">${md(s.headline)}</h1>${s.sub ? `<p class="sub">${md(s.sub)}</p>` : ''}</div><div class="swipe">Geser ➜</div>`;
   } else if (s.kind === 'cta') {
     const logo = new URL('../../docs/assets/logo.png', location.href).href;
     inner = `<div class="grow"><img class="cta-logo" src="${logo}" alt=""><h1 class="h1">${md(s.headline ?? 'Top up sekarang!')}</h1>${s.sub ? `<p class="sub">${md(s.sub)}</p>` : ''}</div>${footer(d)}`;
@@ -38,7 +57,9 @@ window.render = async (d, size, opts = {}) => {
     const num = s.n ?? i;
     inner = `<div class="grow">${logoRow}<div class="pt-n">${esc(String(num).padStart(2, '0'))}</div><h2 class="h2 pt">${md(s.title)}</h2>${s.body ? `<p class="body">${md(s.body)}</p>` : ''}</div><div class="swipe">Geser ➜</div>`;
   }
-  document.getElementById('root').innerHTML = shell(d, g, top + inner, { foot: false });
+  let html = shell(d, g, top + inner, { foot: false });
+  if (s.kind === 'hook' && s.photo) html = html.replace('<div class="bg"></div>', `<div class="bg"></div><div class="photo"><img src="/${esc(s.photo.replace(/^\/+/, ''))}" alt=""></div>`);
+  document.getElementById('root').innerHTML = html;
   await ready();
   fit(document.querySelector('.h1, .h2'), 52);
 };

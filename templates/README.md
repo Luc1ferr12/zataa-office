@@ -22,7 +22,8 @@ Hasil feed/carousel: JPG 1080×1080 (IG, 1:1) + `-916.jpg` 1080×1920 (TikTok). 
 | `versus` | `event, headline, left:{name, sub, short?, logo?}, right:{…sama}, time` — `logo` = path file (mis. `assets/teams/rrq.png`), tidak ada → lambang inisial `short` |
 | `tips` | `kicker, headline, items:[{title, desc}] (3–5)` |
 | `quiz` | `kicker: KUIS\|POLLING, headline, sub?, options:[2–4 teks \| {text, logo}]` — opsi tim pakai `{text, logo}` |
-| `carousel` | `slides:[{kind:"hook", headline, sub, logo?} · {kind:"point", title, body, n?, logo?} · {kind:"cta", headline, sub}]` (5–7 slide) — `logo` = path / array logo tim di atas judul |
+| `schedule` | `kicker, headline, sub?, days:[{day, matches:[{time, left:{name, logo}, right:{name, logo}, tag?}]}]` (≤3 hari × ≤3 laga) — kartu jadwal pekan, `tag` (mis. "HIDUP-MATI") menyorot laga penting |
+| `carousel` | `slides:[{kind:"hook", headline, sub, logo?} · {kind:"point", title, body, n?, logo?} · {kind:"cta", headline, sub}]` (5–7 slide) — `logo` = path / array logo tim di atas judul; hook boleh `photo` (foto tim/pemain → layout foto ala news) + `pre` (teks kecil di atas judul) |
 
 ## Video (`format: video`, template otomatis `video`)
 `data_json = { game, gameName?, style, ticker?, duration?, music?, bg?, scenes:[...] }` — contoh tiap gaya: `templates/samples/video-<style>.json`.

@@ -14,7 +14,7 @@ import { chromium } from 'playwright-core';
 import ffmpegPath from 'ffmpeg-static';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const FEED = ['promo', 'news', 'versus', 'tips', 'quiz', 'carousel'];
+const FEED = ['promo', 'news', 'versus', 'tips', 'quiz', 'carousel', 'schedule'];
 const FPS = 30;
 const out = (o) => console.log(typeof o === 'string' ? o : JSON.stringify(o));
 
