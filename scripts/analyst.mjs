@@ -133,7 +133,10 @@ export async function slotStats(platform = 'instagram') {
     let advice;
     if (!best || !plan || plan.n < SLOT_MIN) advice = `data belum cukup (butuh ≥${SLOT_MIN} post per jam)`;
     else if (best.hour !== plan.hour && best.views >= plan.views * 1.3) advice = `geser ${kind} plan dari ${SLOT[PLAN_SLOT[kind]]} ke <b>${String(best.hour).padStart(2, '0')}:00 WIB</b> (views +${Math.round((best.views / Math.max(plan.views, 1) - 1) * 100)}%)`;
-    else advice = `jam plan ${SLOT[PLAN_SLOT[kind]]} WIB udah paling oke, pertahankan`;
+    else {
+      const hint = list.find((r) => r.n < SLOT_MIN && r.views > plan.views * 1.3); // jam lain kelihatan lebih tinggi tapi datanya masih dikit
+      advice = `jam plan ${SLOT[PLAN_SLOT[kind]]} WIB terbaik dari jam yang datanya cukup, pertahankan${hint ? ` (jam ${String(hint.hour).padStart(2, "0")}:00 kelihatan lebih tinggi tapi baru ${hint.n} post, layak dites lewat ide tambahan)` : ""}`;
+    }
     out[kind] = { list, advice };
   }
   return out;
