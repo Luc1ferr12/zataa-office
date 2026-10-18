@@ -17,7 +17,7 @@ const env = () => ({ ...loadEnv(), ...process.env });
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 export const zernioOn = () => !!env().ZERNIO_API_KEY;
 
-async function api(path, { method = 'GET', body, headers = {} } = {}) {
+export async function api(path, { method = 'GET', body, headers = {} } = {}) {
   const key = env().ZERNIO_API_KEY;
   if (!key) throw new Error('ZERNIO_API_KEY belum diisi di .env');
   const r = await fetch(`${API}${path}`, {

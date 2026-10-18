@@ -9,9 +9,11 @@ const STATUS = {
   rejected: 'Ditolak', scheduled: 'Terjadwal', posted: 'Terposting', failed: 'Gagal',
   uploading: 'Lagi upload', uploaded: 'Private, nunggu Owner ubah Publik', upload_failed: 'Upload gagal',
 };
+const SHORTS_DAILY_FROM = '2026-10-19'; // mulai tanggal ini Shorts tiap hari (dulu Senin–Selasa libur)
 const NAMES = Object.fromEntries([['owner', 'Zamiir'], ...AGENTS.map((a) => [a.id, a.name])]);
 
 let state = null;
+let socials = null;
 let office = null;
 let selected = null;
 let lastSim = null;
@@ -29,7 +31,50 @@ async function loadState() {
     const r = await fetch(`data/state.json?t=${Date.now()}`, { cache: 'no-store' });
     if (r.ok) state = await r.json();
   } catch { /* offline: tetap jalan dengan data terakhir */ }
+  try {
+    const r = await fetch(`data/socials.json?t=${Date.now()}`, { cache: 'no-store' });
+    if (r.ok) socials = await r.json();
+  } catch { /* belum ada data analytics */ }
   renderDashboard();
+  renderSocials();
+}
+
+// ---------- analytics sosmed (docs/data/socials.json, ditarik watcher tiap 3 jam lewat scripts/socials.mjs)
+const PLATFORMS = [
+  { key: 'instagram', name: 'Instagram', icon: '📸', audience: 'followers', audLabel: 'Followers' },
+  { key: 'tiktok', name: 'TikTok', icon: '🎵', audience: 'followers', audLabel: 'Followers' },
+  { key: 'youtube', name: 'YouTube Shorts', icon: '▶️', audience: 'subscribers', audLabel: 'Subscribers' },
+];
+const num = (n) => (n == null ? '—' : Number(n).toLocaleString('id-ID'));
+const safeUrl = (u) => (/^https:\/\//.test(u ?? '') ? u : null);
+function renderSocials() {
+  const s = socials;
+  $('social-updated').textContent = s?.generated_at ? `update ${new Date(s.generated_at).toLocaleString('id-ID', { timeZone: 'Asia/Makassar', hour: '2-digit', minute: '2-digit', day: 'numeric', month: 'short' })} WITA` : '';
+  if (!s) { $('social-grid').innerHTML = '<p class="muted">Belum ada data. Ditarik otomatis tiap 3 jam.</p>'; return; }
+  $('social-grid').innerHTML = PLATFORMS.map((pf) => {
+    const p = s[pf.key];
+    const head = `<h3><span>${pf.icon} ${pf.name}</span>${p?.url && safeUrl(p.url) ? `<a href="${esc(p.url)}" target="_blank" rel="noopener">${esc(p.handle ?? '')}</a>` : ''}</h3>`;
+    if (!p || p.error) return `<section class="social-col">${head}<p class="muted">Data belum tersedia${p?.error ? `: ${esc(p.error)}` : ''}</p></section>`;
+    const c = p.posts ?? {};
+    const parts = [['video', '🎬 video'], ['foto', '🖼️ foto'], ['carousel', '🗂️ carousel']].filter(([k]) => c[k]).map(([k, l]) => `${num(c[k])} ${l}`).join(' · ');
+    const top = (p.top ?? []).map((t) => {
+      const url = safeUrl(t.url), thumb = safeUrl(t.thumb);
+      const inner = `${thumb ? `<img src="${esc(thumb)}" alt="" loading="lazy" referrerpolicy="no-referrer">` : '<span class="ph">🎬</span>'}
+        <span class="t"><span>${esc(t.title || '(tanpa judul)')}</span><small>👁 ${num(t.views)} · ❤ ${num(t.likes)} · 💬 ${num(t.comments)}</small></span>`;
+      return `<li>${url ? `<a href="${esc(url)}" target="_blank" rel="noopener">${inner}</a>` : inner}</li>`;
+    }).join('');
+    return `<section class="social-col">${head}
+      <div class="aud"><strong>${num(p[pf.audience])}</strong><span>${pf.audLabel}</span></div>
+      <dl class="social-stats">
+        <div><dt>Postingan</dt><dd>${num(c.total)}</dd><small>${parts || '—'}</small></div>
+        <div><dt>Views</dt><dd>${num(p.views)}</dd>${p.views == null ? '<small>butuh izin insights</small>' : ''}</div>
+        <div><dt>Likes</dt><dd>${num(p.likes)}</dd></div>
+        <div><dt>Komentar</dt><dd>${num(p.comments)}</dd></div>
+      </dl>
+      <h4>Top konten</h4>
+      ${top ? `<ol class="social-top">${top}</ol>` : '<p class="muted">Belum ada postingan.</p>'}
+    </section>`;
+  }).join('');
 }
 
 function renderDashboard() {
@@ -59,10 +104,10 @@ function renderDashboard() {
         : '<p class="empty">—</p>';
     return `<div class="day ${date === s?.today ? 'today' : ''}"><h3>${d}<small>${date ? date.slice(8) : ''}</small></h3>${chips}</div>`;
   }).join('');
-  // Shorts: Senin–Selasa libur, Rabu–Minggu 1 slot (kosong = belum ada konten)
+  // Shorts: 1 slot tiap hari sejak 19 Okt 2026 (sebelumnya Senin–Selasa libur; kosong = belum ada konten)
   $('week-grid-yt').innerHTML = days.map((d, i) => {
     const date = week ? addDays(week, i) : null;
-    const off = i < 2;
+    const off = i < 2 && date !== null && date < SHORTS_DAILY_FROM;
     const items = (s?.week_contents ?? []).filter((c) => c.day === date && isYT(c));
     const chips = off ? '<p class="empty">Libur</p>'
       : items.length ? items.map((c) => `<div class="chip yt s-${c.status}" title="${esc(STATUS[c.status] ?? c.status)}"><b>18:00 · 🎬 shorts</b>${esc(c.title)}</div>`).join('')
@@ -127,7 +172,7 @@ const DIVISIONS = [
   { name: 'Pimpinan', flow: '', ids: ['owner', 'sec'] },
   { name: 'Marketing', flow: 'plan → riset → konten → publish → iklan → data', ids: ['dir', 'researcher', 'price', 'copywriter', 'designer', 'video', 'publisher', 'ads', 'analyst'] },
   { name: 'Trading XAUUSD', flow: 'siklus tiap candle M15', ids: ['tdir', 'tresearch', 'ttech', 'trisk', 'texec', 'teval', 'treport'] },
-  { name: 'YouTube Shorts', flow: 'riset → naskah & cek fakta → visual → video → upload · Rabu–Minggu', ids: ['ydir', 'yresearch', 'yscript', 'yvisual', 'yvideo', 'ypublish'] },
+  { name: 'YouTube Shorts', flow: 'riset → naskah & cek fakta → visual → video → upload · tiap hari', ids: ['ydir', 'yresearch', 'yscript', 'yvisual', 'yvideo', 'ypublish'] },
   { name: 'Umum', flow: '', ids: ['ob'] },
 ];
 // card Tim lebar penuh: kolom 1 Pimpinan + YouTube + Umum, kolom 2 Marketing, kolom 3 Trading

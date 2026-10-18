@@ -18,6 +18,7 @@ import { handleOwnerMessage, handleDecision, runFollowups, syncMonitor } from '.
 import { startFinanceBot } from './finance-bot.mjs';
 import { startShortsBot } from './shorts-bot.mjs';
 import { analystTick } from './analyst.mjs';
+import { socialsTick } from './socials.mjs';
 import { priceTick } from './price.mjs';
 import { limitsTick } from './limits.mjs';
 import { laptopFallback } from './laptop-fallback.mjs';
@@ -157,7 +158,7 @@ async function talk() {
 
 // GitHub Pages: push state.json tiap 10 menit kalau ada perubahan (status pegawai, aktivitas, chit-chat). 0 token.
 const SYNC_EVERY = 10 * 60_000;
-const PAGES_DATA = () => ['docs/data/state.json', 'docs/data/tiktok.json'].filter((f) => existsSync(join(ROOT, f)));
+const PAGES_DATA = () => ['docs/data/state.json', 'docs/data/tiktok.json', 'docs/data/socials.json'].filter((f) => existsSync(join(ROOT, f)));
 async function syncPages() {
   if (posting) return; // publish.mjs juga lagi push media, jangan tabrakan
   const git = (...a) => execFileSync('git', a, { cwd: ROOT, encoding: 'utf8', windowsHide: true, stdio: ['ignore', 'pipe', 'pipe'] });
@@ -185,6 +186,8 @@ async function staff() {
     if (p) log(`nadia: ${JSON.stringify(p).slice(0, 200)}`);
     const l = await limitsTick().catch((e) => log(`cek limit gagal: ${e.message}`));
     if (l) log(`limit claude: ${JSON.stringify(l)}`);
+    const so = await socialsTick().catch((e) => log(`analytics sosmed gagal: ${e.message}`));
+    if (so) log(`analytics sosmed: ${JSON.stringify(so)}`);
     if (a || p) exportState();
   } catch (e) { log(`raka/nadia gagal: ${e.message}`); }
   crunching = false;
