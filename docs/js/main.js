@@ -1,4 +1,4 @@
-import { AGENTS, wita, activityAt, describe, officeStatus, approvalWaits } from './schedule.js';
+import { AGENTS, wita, activityAt, describe, officeStatus, approvalWaits, pairBilliard } from './schedule.js';
 import { chatFeed } from './chatter.js';
 
 const $ = (id) => document.getElementById(id);
@@ -198,12 +198,14 @@ function tick(force = false) {
   const visits = visitsNow();
   // divisi yang nunggu ✅ Owner di Telegram → manajernya nunggu di depan ruang Bos
   const waits = approvalWaits({ campaign: state?.campaign, contents: state?.week_contents, agents: state?.agents, proposals: state?.trading?.proposals, today: state?.today });
-  const list = AGENTS.map((a, idx) => {
+  const infos = pairBilliard(AGENTS.map((a, idx) => {
     const real = realOf(a.id);
     const partnerBusy = a.partner ? realOf(a.partner)?.status === 'working' : false;
-    const info = describe(a, activityAt(idx, a, t, real, { visit: visits[a.id], partnerBusy, waitApproval: waits[a.id] }), real);
-    office?.setActivity(a.id, info, mode);
-    return { a, info };
+    return describe(a, activityAt(idx, a, t, real, { visit: visits[a.id], partnerBusy, waitApproval: waits[a.id] }), real);
+  }), t);   // billiard: pasangin 2 orang per meja
+  const list = AGENTS.map((a, idx) => {
+    office?.setActivity(a.id, infos[idx], mode);
+    return { a, info: infos[idx] };
   });
 
   const os = officeStatus(t, list.some((l) => l.info.overtime));

@@ -124,16 +124,20 @@ export function locationFor(spots, agent, idx, loc, info) {
     case 'visit': {
       // berdiri di samping meja teman (oper kerjaan), menghadap mejanya
       const ta = AGENTS.find((a) => a.id === info?.target);
-      if (ta?.desk == null) {   // nyamperin manajer/boss: berdiri di depan mejanya
+      if (ta?.desk == null) {   // nyamperin manajer/boss/sekretaris: berdiri di depan mejanya
         const mgr = MGR_ROOM[ta?.id] ? ta.id : 'dir';
-        const s = ta?.boss ? spots.bossDesk : spots[`${mgr}Desk`];
-        const room = ta?.boss ? 'boss' : MGR_ROOM[mgr];
+        const s = ta?.boss ? spots.bossDesk : ta?.sec ? spots.secDesk : spots[`${mgr}Desk`];
+        const room = ta?.boss || ta?.sec ? 'boss' : MGR_ROOM[mgr];
         return { pos: V(s.x, s.y, s.z + 1.9), rot: Math.PI, pose: 'stand', anchor: `R:${room}`, approach: [] };
       }
       const d = spots.desk[ta.desk];
       const x = d.x + 0.95, y = d.y;
       const approach = d.row === 'A' ? [V(d.side, y, RZ(2, -1.4)), V(d.side, y, d.aisle), V(x, y, d.aisle)] : [V(x, y, d.aisle)];
       return { pos: V(x, y, d.z + 0.15), rot: d.rot, pose: 'stand', anchor: `R:${d.room}`, approach };
+    }
+    case 'secDesk': {   // meja Aprista di ruang Bos: dari pintu lewat sisi kanan meja, masuk dari belakang
+      const s = spots.secDesk, back = s.z - 0.75;
+      return { pos: P(s), rot: s.rot, pose: 'type', anchor: 'R:boss', approach: [V(s.x + 1.4, s.y, RZ(3, -1.6)), V(s.x + 1.4, s.y, back), V(s.x, s.y, back)] };
     }
     case 'dirDesk': case 'tdirDesk': case 'ydirDesk': case 'boss': {
       const mgr = key.replace('Desk', '');
@@ -209,12 +213,8 @@ export function locationFor(spots, agent, idx, loc, info) {
       return { pos: P(s), rot: s.rot, pose: 'stand', anchor: 'R:santai', approach: [V(s.x, 0, RZ(1, -1.4))] };
     }
     case 'billiard': {
-      const s = spots.billiard[k % spots.billiard.length], y = s.y;
-      const side = Math.abs(s.x - s.tx) < 0.1;
-      const back = side && s.tz < -4;   // sisi depan meja baris belakang: lewat celah antar meja
-      const ex = back ? s.tx + 1.75 : s.x;
-      const approach = [V(ex, y, RZ(3, -0.9)), ...(back ? [V(ex, y, s.z)] : [])];
-      return { pos: P(s), rot: s.rot, pose: 'stand', anchor: 'R:billiard', approach };
+      const s = spots.billiard[k % spots.billiard.length];
+      return { pos: P(s), rot: s.rot, pose: 'stand', anchor: 'R:billiard', approach: [V(s.x, s.y, RZ(3, -0.9))] };
     }
     case 'cinema': {
       const s = spots.cinema[k % spots.cinema.length], y0 = yOf(3);

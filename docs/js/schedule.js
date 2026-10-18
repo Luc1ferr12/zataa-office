@@ -50,7 +50,7 @@ const CINE_FREE = [...Array(28).keys()].filter((i) => i !== 23 && i !== 24);
 const cineSeat = (idx, agent) => CINE_SEAT[agent.id] ?? CINE_FREE[idx % CINE_FREE.length];
 const MGR = ['dir', 'tdir', 'ydir'];   // punya ruang sendiri di Lt.2 (px/scene.js MGR_ROOM)
 const WAIT_SLOT = { dir: 0, tdir: 1, ydir: 2 };   // kursi tunggu depan ruang Bos (px/scene.js S.waitBoss)
-const deskLoc = (agent) => (agent.boss || agent.sec ? 'boss' : MGR.includes(agent.id) ? `${agent.id}Desk` : 'desk');
+const deskLoc = (agent) => (agent.boss ? 'boss' : agent.sec ? 'secDesk' : MGR.includes(agent.id) ? `${agent.id}Desk` : 'desk');
 const trading = (agent) => agent.team === 'trd';
 const youtube = (agent) => agent.team === 'yt';
 const RESEARCH = {
@@ -62,8 +62,7 @@ const RESEARCH = {
   ydir: 'Cek retention Shorts kemarin', yresearch: 'Gali misteri kuno & sumbernya', yscript: 'Baca jurnal & arsip sejarah',
   yvisual: 'Kumpulin foto situs & artefak', yvideo: 'Cek referensi editing Shorts', ypublish: 'Cek trending & komentar YouTube',
 };
-// Aprista numpang komputer Bos: gantian per 30 menit (deterministik, jadi dua-duanya sepakat siapa yang pegang PC)
-const secTurn = (t) => hash(Math.floor(t.minutes / 30) * 2.3 + (t.dayNum ?? t.dow) * 5.7) < 0.45;
+// Aprista punya meja sendiri di ruang Bos (px/scene.js SEC_DESK)
 const SEC_TASK = ['Nyatet pengeluaran Bos', 'Rekap uang masuk & keluar', 'Cek tagihan bulanan Bos', 'Rapihin catatan keuangan'];
 const NY_TASK = { tdir: 'Jaga sesi New York', texec: 'Pantau order sesi New York', treport: 'Laporan sesi New York' };
 // kursi rapat: Marketing (10 kursi), Trading (8 kursi)
@@ -166,21 +165,20 @@ function freeTime(idx, agent, t) {
   const late = m >= at(22) || m < at(4, 30);              // tengah malam: begadang
   const night = late || m >= at(19, 30) || m < at(5, 30);
   const canSwim = agent.gender === 'm' && m >= at(6, 30) && m < at(21);
-  // urutan tempat digilir tiap hari (permutasi) → yang kebagian main billiard/arcade ganti-ganti, nggak numpuk
+  // urutan tempat digilir tiap hari (permutasi) → yang kebagian arcade ganti-ganti, nggak numpuk
   const order = (loc) => (loc === 'cafe' ? seatOf(idx, agent) : loc === 'cinema' ? cineSeat(idx, agent) : (idx + Math.floor(hash(day * 2.7) * AGENTS.length)) % AGENTS.length);
   const capOf = (loc) => CAP[loc === 'game' ? 'lounge' : loc] ?? 99;
   if (agent.boss) {
-    // Bos santainya di ruangannya, cafe, billiard, kolam, atau bioskop kalau malam
-    const b = [['bossSofa', 'Santai di ruang boss', '🛋️'], ['cafe', late ? 'Ngopi begadang' : 'Ngopi santai', '☕'], ...(order('billiard') < CAP.billiard ? [['billiard', 'Main billiard', '🎱']] : []),
+    // Bos santainya di ruangannya, cafe, kolam, atau bioskop kalau malam (+ billiard, lihat billiardWish)
+    const b = [['bossSofa', 'Santai di ruang boss', '🛋️'], ['cafe', late ? 'Ngopi begadang' : 'Ngopi santai', '☕'],
       ...(night ? [['cinema', 'Nonton film di bioskop mini', '🍿']] : []), ...(canSwim ? [['pool', 'Berenang', '🏊']] : [])];
     const [loc, label, emoji] = pick(b, r);
-    return { act: 'free', loc, label, emoji, slot: ['cafe', 'cinema', 'billiard'].includes(loc) ? order(loc) : 0 };
+    return billiardWish(idx, t, { act: 'free', loc, label, emoji, slot: ['cafe', 'cinema'].includes(loc) ? order(loc) : 0 });
   }
   const opts = [
     ['cafe', late ? 'Ngopi begadang' : m < at(7) ? 'Ngeteh pagi' : 'Ngopi santai', late ? '🌙' : '☕'],
     ['lounge', night ? 'Nonton TV bareng' : 'Rebahan sambil scroll HP', night ? '📺' : '📱'],
     ['game', 'Mabar di ruang santai', '🎮'],
-    ['billiard', 'Main billiard', '🎱'],
     ['arcade', pick(['Main arcade', 'Main pingpong'], hash(idx + day)), '🕹️'],
     ...(night ? [['cinema', late ? 'Nonton film tengah malam' : 'Nonton film di bioskop mini', '🍿']] : [['lounger', 'Santai di pinggir kolam', '🕶️']]),
     ['garden', night ? 'Ngobrol di gazebo, liat bintang' : 'Ngadem di gazebo taman', night ? '🌙' : '🌿'],
@@ -188,7 +186,29 @@ function freeTime(idx, agent, t) {
   if (canSwim) opts.push(['pool', 'Berenang', '🏊']);
   if (!opts.length) opts.push(['cafe', 'Ngopi santai', '☕']);
   const [loc, label, emoji] = pick(opts, r);
-  return { act: 'free', loc, label, emoji, slot: order(loc) };
+  return billiardWish(idx, t, { act: 'free', loc, label, emoji, slot: order(loc) });
+}
+
+// billiard: 1 game = 10 menit, 1 meja = 2 orang. Tiap blok 10 menit sebagian orang yang lagi santai pengin main;
+// pairBilliard() (dipanggil setelah semua pegawai dihitung) memasangkan mereka per meja, sisanya balik ke rencana awal (alt)
+function billiardWish(idx, t, alt) {
+  const g = Math.floor(t.minutes / 10), day = t.dayNum ?? t.dow;
+  if (hash(g * 7.7 + idx * 3.1 + day * 5.3) >= 0.24 || alt.loc === 'pool') return alt;
+  return { act: 'free', loc: 'billiard', label: 'Main billiard', emoji: '🎱', alt };
+}
+export function pairBilliard(infos, t) {
+  const g = Math.floor(t.minutes / 10), day = t.dayNum ?? t.dow;
+  const key = (i) => hash(i * 9.1 + g * 1.3 + day * 0.7);
+  const want = infos.map((x, i) => i).filter((i) => infos[i]?.loc === 'billiard').sort((a, b) => key(a) - key(b));
+  const n = Math.min(want.length - (want.length % 2), CAP.billiard);
+  want.forEach((i, k) => {
+    const x = infos[i];
+    if (k >= n) { Object.assign(x, x.alt); delete x.alt; return; }
+    const lawan = AGENTS[want[k ^ 1]]?.name ?? 'teman';
+    Object.assign(x, { slot: k, label: `Main billiard lawan ${lawan} (1 game 10 menit)` });
+    delete x.alt;
+  });
+  return infos;
 }
 
 // waktu sholat (WITA) 5 menit; wudhu 7 gelombang @1 menit sebelumnya (4 keran × 7 = 28 orang, biar nggak rebutan)
@@ -341,8 +361,8 @@ export function activityAt(idx, agent, t, real, ctx = {}) {
   // tim Trading: 07:00 riset masing-masing, 08:00 briefing di Meeting Trading (Mahendra mimpin alur agent)
   if (trd && m < at(8)) return withMood({ act: 'work', loc: desk, label: RESEARCH[agent.id] ?? 'Siapin analisa pagi', emoji: '🔎' });
   if (trd && m < at(8, 30)) return withMood({ act: 'meeting', loc: 'meetingT', slot: TRD_SEAT[agent.id], label: agent.id === 'tdir' ? 'Mimpin briefing trading pagi' : 'Briefing trading: rencana XAU hari ini', emoji: '📈' });
-  // Aprista: pas Bos rapat/briefing pagi, komputer Bos dia yang pakai (Bos riset pagi di PC → Aprista di sofa)
-  if (agent.sec && dow !== 1 && m < at(8)) return withMood({ act: 'free', loc: 'bossSofa', slot: 1, label: 'Nyiapin catatan keuangan di HP', emoji: '📱' });
+  // Aprista: pagi nyiapin catatan keuangan di mejanya sendiri (ruang Bos)
+  if (agent.sec && dow !== 1 && m < at(8)) return withMood({ act: 'work', loc: desk, label: 'Nyiapin catatan keuangan Bos', emoji: '🧾' });
   if (agent.sec && m < at(8, 30)) return withMood({ act: 'work', loc: desk, label: 'Rekap keuangan Bos kemarin', emoji: '🧾' });
   // pagi kerja: Senin rapat plan mingguan; Selasa–Minggu riset sendiri lalu briefing pitching ide bareng Bos
   if (dow === 1 && m < at(8)) return withMood({ act: 'meeting', loc: 'meeting', slot: MKT_SEAT[agent.id], label: 'Rapat plan konten mingguan', emoji: '🗓️' });
@@ -390,11 +410,7 @@ export function activityAt(idx, agent, t, real, ctx = {}) {
   const sip = 20 + j(8 + hour, 30);
   if (hash(hour * 7 + idx * 13 + day * 31) < 0.3 && mm >= sip && mm < sip + 5) return { act: 'water', loc: 'counter', slot: idx % CAP.counter, label: 'Ambil minum', emoji: '🥤', mood };
 
-  // komputer Bos gantian: yang nggak pegang PC kerja dari sofa ruang boss
-  if (agent.sec) return secTurn(t)
-    ? { act: 'work', loc: desk, label: pick(SEC_TASK, hash(hour + day)), emoji: '🧾', mood }
-    : { act: 'free', loc: 'bossSofa', slot: 1, label: 'Gantian komputer, nyatet di HP', emoji: '📱', mood };
-  if (agent.boss && secTurn(t)) return { act: 'free', loc: 'bossSofa', slot: 0, label: 'Gantian komputer sama Aprista', emoji: '📱', mood };
+  if (agent.sec) return { act: 'work', loc: desk, label: pick(SEC_TASK, hash(hour + day)), emoji: '🧾', mood };
   return { act: 'work', loc: desk, label: 'Kerja', emoji: '💻', mood };
 }
 

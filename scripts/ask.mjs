@@ -11,7 +11,7 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { loadEnv, say, sayAs, NAMA, db, downloadPhotos, photoNote } from './approval.mjs';
 import { chat } from './chatter.mjs';
-import { AGENTS, wita, activityAt, describe, approvalWaits } from '../docs/js/schedule.js';
+import { AGENTS, wita, activityAt, describe, approvalWaits, pairBilliard } from '../docs/js/schedule.js';
 import { isTradingCommand, handleTrading } from './trading/telegram.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -33,13 +33,19 @@ function waitsFromDb(d, t) {
   });
 }
 
+// aktivitas semua pegawai sekarang (index = urutan AGENTS), sama dengan dashboard (termasuk pasangan billiard)
+function teamNow(d, t) {
+  const real = Object.fromEntries(d.prepare('SELECT id, status, current_task FROM agents').all().map((a) => [a.id, a]));
+  const waits = waitsFromDb(d, t);
+  return pairBilliard(AGENTS.map((a, idx) => describe(a, activityAt(idx, a, t, real[a.id], { waitApproval: waits[a.id] }), real[a.id])), t);
+}
+
 export async function statusReport() {
   const d = await db();
-  const real = Object.fromEntries(d.prepare('SELECT id, status, current_task FROM agents').all().map((a) => [a.id, a]));
   const t = wita(new Date());
-  const waits = waitsFromDb(d, t);
+  const infos = teamNow(d, t);
   const lines = AGENTS.map((a, idx) => [a, idx]).filter(([a]) => !a.boss).map(([a, idx]) => {
-    const info = describe(a, activityAt(idx, a, t, real[a.id], { waitApproval: waits[a.id] }), real[a.id]);
+    const info = infos[idx];
     const mood = ['work', 'break'].includes(info.act) && info.mood?.label ? ` <i>(${esc(info.mood.label)})</i>` : '';
     return `${info.emoji} <b>${a.name}</b> · ${esc(info.label)}${mood}`;
   });
@@ -61,9 +67,7 @@ async function answerCall(msg) {
   const idx = AGENTS.findIndex((a) => a.id === agent);
   let doing = '';
   if (idx >= 0) {
-    const real = d.prepare('SELECT id, status, current_task FROM agents WHERE id = ?').get(agent);
-    const t = wita(new Date());
-    const info = describe(AGENTS[idx], activityAt(idx, AGENTS[idx], t, real, { waitApproval: waitsFromDb(d, t)[agent] }), real);
+    const info = teamNow(d, wita(new Date()))[idx];
     if (info?.label) doing = ` Lagi ${info.label.charAt(0).toLowerCase()}${info.label.slice(1)} nih.`;
   }
   const pool = ['Iya Bos? 🙋', 'Hadir Bos! 👋', 'Dalem Bos? 😄', 'Siap Bos, ada apa? 🫡'];

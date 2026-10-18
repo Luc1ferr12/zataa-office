@@ -197,7 +197,7 @@ export const DESK_LIST = [];
 for (const team of ['mkt', 'trd', 'yt']) for (const row of ['A', 'B']) for (const x of TEAM_DESK[team].xs) DESK_LIST.push({ x, lz: ROW_DESK[row], row, team, w: TEAM_DESK[team].w });
 export const DESKS = DESK_LIST.length;
 // kapasitas tiap tempat (dipakai schedule.js supaya nggak ada yang duduk numpuk)
-export const CAP = { cafe: 28, counter: 8, lounge: 10, garden: 10, lounger: 6, meeting: 10, meetingT: 8, meetingY: 6, cinema: 28, billiard: 12, arcade: 5, waitBoss: 3 };
+export const CAP = { cafe: 28, counter: 8, lounge: 10, garden: 10, lounger: 6, meeting: 10, meetingT: 8, meetingY: 6, cinema: 28, billiard: 8, arcade: 5, waitBoss: 3 };
 // permukaan dinamis (digambar ulang tiap frame oleh pixoffice.js)
 const dynM = (name, color) => mk(name, color, { emissive: true, dyn: name });
 dynM('water', '#2fb3d6');
@@ -425,6 +425,7 @@ export function makeSpots() {
     S[`${id}Sofa`] = [r.x0 + 1.4, r.x0 + 2.2].map((x) => ({ x, y: y(2), z: RZ(2, -1.3), rot: Math.PI }));
   }
   S.bossDesk = { x: 8.6, y: y(3), z: RZ(3, -6.6), rot: 0 };
+  S.secDesk = { x: SEC_DESK.x, y: y(3), z: RZ(3, SEC_DESK.lz - 0.85), rot: 0 };
   S.bossSofa = [12.6, 13.4, 14.2].map((x) => ({ x, y: y(3), z: RZ(3, -6.95), rot: 0 }));
   // kursi tunggu di selasar depan ruang Bos (manajer nunggu approval Owner)
   S.waitBoss = WAIT_X.map((x) => ({ x, y: y(3) + 0.02, z: RZ(3, 0.4), rot: 0 }));
@@ -459,11 +460,10 @@ export function makeSpots() {
   // bioskop (Lt.3): 4 baris × 7 kursi menghadap layar di dinding belakang; baris belakang kursi 23–24 = love seat Zamiir & Aprista
   S.cinema = [];
   CINE_ROWS.forEach((r) => CINE_X.forEach((x) => S.cinema.push({ x, y: y(3) + r.h + 0.05, z: RZ(3, r.lz + 0.05), rot: Math.PI, row: r.lz })));
-  // billiard (Lt.3): 4 meja, tiap meja 3 pemain (ujung kiri, ujung kanan, sisi depan)
+  // billiard (Lt.3): 4 meja, 1 meja 2 pemain di ujung kiri & kanan (slot 2k, 2k+1 = meja k)
   S.billiard = BILLIARD.flatMap(([tx, tz]) => [
     { x: tx - 1.75, y: y(3), z: RZ(3, tz), rot: Math.PI / 2, tx, tz },
     { x: tx + 1.75, y: y(3), z: RZ(3, tz), rot: -Math.PI / 2, tx, tz },
-    { x: tx, y: y(3), z: RZ(3, tz + 1.25), rot: Math.PI, tx, tz },
   ]);
   // ruang meeting (Lt.3): kursi tiap sisi meja + 2 ujung
   for (const [key, m] of Object.entries(MEET)) S[key] = meetSeats(m).map((c) => ({ x: c.x, y: y(3), z: RZ(3, c.lz), rot: c.rot }));
@@ -491,6 +491,8 @@ export const BILLIARD = [[-9.8, -6.0], [-3.6, -6.0], [-9.8, -2.8], [-3.6, -2.8]]
 const ARCADE_X = [25.8, 26.7, 27.6];
 const PINGPONG = { x: 29.8, lz: -3.5 };
 const WAIT_X = [12.6, 11.8, 11.0];
+// meja sekretaris (Aprista) di ruang Bos, kiri depan; kursi di belakang meja menghadap kamera
+export const SEC_DESK = { x: 4.6, lz: -3.2 };
 // ruang manajer Lt.2 (id pegawai → ruang); meja di tengah ruang
 export const MGR_ROOM = { ydir: 'ydirRoom', dir: 'dirRoom', tdir: 'tdirRoom' };
 export const mgrX = (id) => (ROOM[MGR_ROOM[id]].x0 + ROOM[MGR_ROOM[id]].x1) / 2;
@@ -874,6 +876,20 @@ export function buildScene(logo) {
     for (const sx of [-1.22, 1.22]) B.box(0.08, 0.72, 1.0, 8.6 + sx, y + 0.38, z(-5.7), M.walnut);
     for (const dx of [-0.5, 0.5]) { B.box(0.9, 0.52, 0.05, 8.6 + dx, y + 1.15, z(-5.95), M.black, { ry: dx * 0.4 }); B.box(0.08, 0.3, 0.08, 8.6 + dx, y + 0.95, z(-6.0), M.steel); }
     officeChair(B, 8.6, y, z(-6.6), 0, M.leather, 1.2);
+    // meja sekretaris (Aprista): meja kecil + 1 monitor + pot bunga
+    {
+      const { x: dx, lz } = SEC_DESK;
+      B.box(1.7, 0.07, 0.8, dx, y + 0.75, z(lz), M.lightwood);
+      B.box(1.6, 0.7, 0.05, dx, y + 0.36, z(lz) + 0.36, M.lightwood);
+      for (const sx of [-0.8, 0.8]) B.box(0.06, 0.7, 0.72, dx + sx, y + 0.36, z(lz), M.lightwood);
+      B.box(0.7, 0.42, 0.05, dx - 0.2, y + 1.05, z(lz - 0.2), M.black);
+      B.box(0.06, 0.25, 0.06, dx - 0.2, y + 0.9, z(lz - 0.25), M.steel);
+      B.box(0.4, 0.03, 0.14, dx - 0.2, y + 0.8, z(lz + 0.1), M.dark);
+      B.cyl(0.09, 0.14, dx + 0.6, y + 0.86, z(lz - 0.1), M.potLight, 8);
+      B.ell(dx + 0.6, y + 1.0, z(lz - 0.1), 0.12, 0.1, 0.12, M.flower, { leafy: true });
+      officeChair(B, dx, y, z(lz - 0.85), 0, M.pink, 1.0);
+      L(dx, y + 2.4, z(lz), WARM, 3, 0.7);
+    }
     B.box(1.95, 1.12, 0.06, 4.6, y + 2.1, z(-7.75), M.black);
     B.vquad(1.8, 1.0, 4.6, y + 2.1, z(-7.7), M.tvBoss);
     B.vquad(1.0, 1.0, 3.0, y + 2.1, z(-7.7), M.ledgeDark, 0, { tex: logoTex(logo, 1.0, 1.0) });

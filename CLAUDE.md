@@ -13,7 +13,7 @@ Kantor marketing virtual untuk **zataa.my.id** (top up game). Claude memerankan 
 | id | Nama | Tugas |
 |---|---|---|
 | dir | Andre | Marketing Director (santai tapi tegas). Senin: plan mingguan (`office.mjs campaign plan.json`). Minggu: evaluasi + ide minggu depan |
-| sec | Aprista | Sekretaris pribadi Owner: catat keuangan pribadi Owner lewat bot Telegram sendiri @zataaaccountingbot ke Google Sheet (`scripts/finance-bot.mjs` + `finance.mjs`, haiku, data TIDAK masuk DB/web). Numpang komputer Owner |
+| sec | Aprista | Sekretaris pribadi Owner: catat keuangan pribadi Owner lewat bot Telegram sendiri @zataaaccountingbot ke Google Sheet (`scripts/finance-bot.mjs` + `finance.mjs`, haiku, data TIDAK masuk DB/web). Meja sendiri di ruang Bos |
 | researcher | Clariana | Tren & berita ML / Valorant / Free Fire, turnamen, transfer pemain, update patch, cek harga di zataa.my.id |
 | copywriter | Ista | Headline, isi template, caption, hashtag, CTA |
 | designer | Maria | Render feed/carousel dari template → JPG 1080×1080 IG feed (+9:16) |
@@ -48,7 +48,7 @@ Data: `node scripts/trading/cli.mjs status` — jangan ngarang angka trading. EA
 
 Sebelum memerankan pegawai, baca **hanya** playbook-nya: `office/roles/<id>.md` (keahlian Marketing & Trading diadaptasi dari agency-agents, MIT).
 
-Denah kantor 3 lantai (`docs/js/px/scene.js`): Lt.1 indoor Mushola + wudhu, Gudang Mbak Sari, Cafe & Resto, Ruang Santai (+ arcade/pingpong); outdoor taman, gazebo, kolam, sign ZATAA OFFICE · Lt.2 tangga pojok kiri, R. Manajer YouTube/Marketing/Trading, bilik YouTube/Marketing/Trading (+ rak server) · Lt.3 3 ruang meeting, Billiard (4 meja), Ruang Bos (+ kursi tunggu di depannya), Bioskop Mini. Tanpa mess/kamar mandi. Ubah denah → render ulang latar Blender (`blender/render_all.sh`, laptop).
+Denah kantor 3 lantai (`docs/js/px/scene.js`): Lt.1 indoor Mushola + wudhu, Gudang Mbak Sari, Cafe & Resto, Ruang Santai (+ arcade/pingpong); outdoor taman, gazebo, kolam, sign ZATAA OFFICE · Lt.2 tangga pojok kiri, R. Manajer YouTube/Marketing/Trading, bilik YouTube/Marketing/Trading (+ rak server) · Lt.3 3 ruang meeting, Billiard (4 meja, 2 orang/meja, 1 game 10 menit), Ruang Bos (+ meja sekretaris Aprista, kursi tunggu di depannya), Bioskop Mini. Tanpa mess/kamar mandi. Ubah denah → render ulang latar Blender (`blender/render_all.sh`, laptop).
 
 Update status visual: `office.mjs agent <id> working "<tugas>"` → selesai `office.mjs agent <id> done "<tugas>"`, dan log singkat `office.mjs log <id> "<pesan>"`.
 `done` otomatis menulis obrolan oper kerjaan ke panel Chit-chat. Boleh tambah 1–2 obrolan natural per sesi (santai/curhat, singkat): `office.mjs chat <dari> <ke|all> <oper|santai|curhat> "<pesan>"`.
