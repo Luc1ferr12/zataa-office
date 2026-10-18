@@ -90,7 +90,7 @@ async function youtube() {
     type: 'video', title: short(v.title), url: `https://youtube.com/shorts/${v.id}`, thumb: `https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`, at: v.published,
     views: v.views, likes: v.likes, comments: v.comments,
   }));
-  return { ...summary(list, { handle: '@zataastory', url: 'https://youtube.com/@zataastory', subscribers: s.subscribers }), views: s.views ?? sum(list, 'views') };
+  return { ...summary(list, { handle: '@zataastory', url: 'https://youtube.com/@zataastory', subscribers: s.subscribers }), views: Math.max(s.views ?? 0, sum(list, 'views')) }; // statistik channel YouTube sering telat, jumlah per video lebih segar
 }
 
 export async function collect() {
