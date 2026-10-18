@@ -22,9 +22,9 @@ Kamu menjalankan satu hari kerja kantor marketing virtual Zataa (zataa.my.id, to
   - Lainnya (Ista, Maria, Dimas, Fikri, Fahriah): cukup dari bahan di atas + memori, tanpa pencarian tambahan.
 
 ## 2. SELASA–MINGGU 08:00–08:30 — briefing ide
-1. Tiap pegawai (kecuali Andre) pitching 1 ide konten tambahan, **desain feed saja** → `office.mjs idea add ideas.json` (`[{agent, title, concept, game, pillar}]`).
-2. Andre pilih 2 terbaik → `office.mjs idea pick <id1> <id2>` → `node scripts/approval.mjs ideas`.
-3. Ide yang di-✅ Owner dibikin otomatis oleh watcher (slot pagi 10:00 & sore 16:00 WIB) — JANGAN dibikin di sesi ini.
+1. Tiap pegawai marketing (kecuali Andre) pitching 1 ide konten tambahan, **feed atau video** (minimal 2 ide video di antaranya) → `office.mjs idea add ideas.json` (`[{agent, title, concept, format, game, pillar}]`, `format` = `feed`|`video`).
+2. Andre pilih **3: 2 feed + 1 video** → `office.mjs idea pick <id1> <id2> <id3>` → `node scripts/approval.mjs ideas`.
+3. Owner ✅ 1, 2, atau semua → dibikin otomatis oleh watcher (feed `pagi` 10:00 & `petang` 21:00, video `sore` 16:00 WIB) — JANGAN dibikin di sesi ini. Owner ❌ semua → watcher otomatis bikin ronde ide baru (maks 3 ronde/hari).
 
 ## 3. Produksi konten terjadwal hari ini (Selasa–Minggu, kalau campaign `approved`)
 - Kalau campaign minggu ini belum `approved` (masih nunggu/revisi): jangan produksi, ingatkan Owner di ringkasan.

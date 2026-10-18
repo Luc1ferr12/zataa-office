@@ -9,7 +9,7 @@ process.removeAllListeners('warning');
 import { spawn } from 'node:child_process';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { loadEnv, say, sayAs, NAMA, db, downloadPhotos, photoNote } from './approval.mjs';
+import { loadEnv, say, sayAs, NAMA, db, downloadPhotos, photoNote, SLOT } from './approval.mjs';
 import { chat } from './chatter.mjs';
 import { AGENTS, wita, activityAt, describe, approvalWaits, pairBilliard } from '../docs/js/schedule.js';
 import { isTradingCommand, handleTrading } from './trading/telegram.mjs';
@@ -18,6 +18,7 @@ import { tradingBotOn } from './trading/tgbot.mjs';
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const esc = (s) => String(s ?? '').replace(/[&<>]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' })[c]);
 const MAX_FOLLOWUPS_PER_DAY = 16; // pengaman token: tugas pantau maksimal segini kali bangun per hari
+const MAX_IDEA_ROUNDS = 3; // ide tambahan ditolak semua → ronde baru, maksimal segini ronde per hari (hemat token)
 
 // ---------- status (0 token): sama persis dengan yang tampil di dashboard
 export const isStatusQuestion = (t) => /\b(lagi\s+(pada\s+)?ngapain|pada\s+ngapain|status\s+(tim|kantor)|siapa\s+(aja\s+)?yang\s+(lagi\s+)?(kerja|santai))\b/i.test(t) || /^\/?status$/i.test(t.trim());
@@ -295,9 +296,25 @@ export async function handleDecision(x, log = console.log) {
     const rows = ids.map((id) => d.prepare('SELECT * FROM ideas WHERE id = ?').get(id)).filter(Boolean);
     if (!rows.length) return false;
     chat(d, 'dir', null, `Bos ACC ${rows.length} ide tambahan! ${rows.map((r) => `"${r.title}"`).join(' & ')} 🎉`, 'oper');
-    const list = rows.map((r, i) => `- idea id ${r.id}: "${r.title}" — ${r.concept ?? ''} (dari ${r.agent_id}${r.game ? `, game ${r.game}` : ''}${r.pillar ? `, pilar ${r.pillar}` : ''}) → slot "${ids.length === 1 ? 'sore' : i === 0 ? 'pagi' : 'sore'}"`).join('\n');
-    return team('Owner APPROVE ide konten tambahan hasil briefing pagi (DESAIN FEED saja, bukan video):\n' + list,
-      'Untuk tiap ide: buat konten baru (node scripts/office.mjs content new \'{"format":"feed","slot":"<slot>","game":"...","pillar":"...","title":"..."}\'), Ista isi teks, Maria render, Fikri QA lalu node scripts/approval.mjs submit <id>, dan catat: node scripts/office.mjs idea done <idea_id> <content_id>.', log);
+    await sayAs('dir', `Siap Bos, ${rows.length} ide di-ACC: ${rows.map((r) => `${r.format === 'video' ? '🎬' : '🖼️'} ${esc(r.title)} (${SLOT[r.slot] ?? '?'} WIB)`).join(', ')}. Tim langsung produksi 🔥`).catch(() => {});
+    const list = rows.map((r) => `- idea id ${r.id}: ${r.format === 'video' ? 'VIDEO' : 'FEED'} "${r.title}" — ${r.concept ?? ''} (dari ${r.agent_id}${r.game ? `, game ${r.game}` : ''}${r.pillar ? `, pilar ${r.pillar}` : ''}) → format "${r.format === 'video' ? 'video' : 'feed'}", slot "${r.slot ?? (r.format === 'video' ? 'sore' : 'pagi')}"`).join('\n');
+    return team('Owner APPROVE ide konten tambahan hasil briefing pagi:\n' + list,
+      'Untuk tiap ide: buat konten baru (node scripts/office.mjs content new \'{"format":"<format>","slot":"<slot>","game":"...","pillar":"...","title":"..."}\'), Ista isi teks, Maria render feed / Dimas render video (node scripts/render.mjs <id>), Fikri QA lalu node scripts/approval.mjs submit <id> (video bersuara OmniVoice otomatis dirender & dikirim laptop), dan catat: node scripts/office.mjs idea done <idea_id> <content_id>.', log);
+  }
+  if (x.action === 'idea_skip') { // Owner ❌ semua ide → ronde baru: semua pegawai marketing cari ide lagi, Andre pilih 3, kirim ulang
+    const day = d.prepare('SELECT day FROM ideas WHERE id = ?').get(x.id)?.day;
+    if (!day) return false;
+    const old = d.prepare("SELECT title, format FROM ideas WHERE day = ? ORDER BY id").all(day);
+    d.prepare("UPDATE ideas SET status = 'skipped' WHERE day = ? AND status = 'pitched'").run(day); // ide ronde lama yang nggak kepilih nggak boleh diajukan lagi
+    const round = Math.ceil(d.prepare('SELECT COUNT(*) n FROM ideas WHERE day = ? AND chosen = 1').get(day).n / 3);
+    if (round >= MAX_IDEA_ROUNDS) {
+      await sayAs('dir', `Oke Bos, ide tambahan ronde ${round} juga ditolak. Hari ini udah ${round} ronde, ide tambahan aku stop dulu ya biar tim fokus konten plan. Kalau ada arahan tema, kabarin aja 🙏`).catch(() => {});
+      return true;
+    }
+    chat(d, 'dir', null, 'Ide tambahan ditolak semua sama Bos. Tim, cari ide baru ya, kumpulin ke aku 💡', 'oper');
+    await sayAs('dir', `Siap Bos, ide ronde ${round} ditolak semua. Tim langsung cari ide baru, nanti aku pilih 3 (2 feed + 1 video) terus kirim lagi ke sini 💡`).catch(() => {});
+    return team(`Owner MENOLAK SEMUA ide konten tambahan hari ini (ronde ${round}). Ide yang sudah pernah diajukan hari ini (JANGAN diulang / dimirip-miripin):\n${old.map((o) => `- [${o.format}] ${o.title}`).join('\n')}`,
+      `Ronde ${round + 1}: tiap pegawai marketing (Clariana, Ista, Maria, Dimas, Fikri, Fahriah, Raka, Budi) pitching 1 ide BARU yang beda sudut pandang (baca office/roles/dir.md bagian briefing), minimal 2 ide berformat video. Simpan: node scripts/office.mjs idea add ideas.json ([{agent, title, concept, format: "feed"|"video", game, pillar}]). Andre pilih 3 (2 feed + 1 video): node scripts/office.mjs idea pick <id1> <id2> <id3>, lalu kirim: node scripts/approval.mjs ideas. JANGAN produksi kontennya sebelum Owner ✅. Riset web maks 2 pencarian.`, log);
   }
   if (x.action === 'price_promo') {
     const snap = d.prepare('SELECT * FROM price_snapshots WHERE id = ?').get(x.id);

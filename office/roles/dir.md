@@ -17,7 +17,7 @@ Bikin akun IG & TikTok Zataa jadi tempat nongkrong gamer ML/Valorant/FF, lalu ub
 1. `office.mjs brief dir` → lihat `last_week` + memori.
 2. Ambil 5–8 topik terbaik dari Researcher hari ini.
 3. Tentukan **1 tema** minggu ini (contoh: "Road to MPL Playoff", "Gajian Topup").
-4. Susun 14 slot (Sen–Min, `siang` & `malam`; Rabu & Sabtu slot siang = video):
+4. Susun 14 slot: **tiap hari (Sen–Min) 1 feed `siang` + 1 video `malam`** (feed boleh carousel):
    - ±6 berita/esport · ±4 promo zataa · ±4 tips/engagement · game lain maks 1.
    - Jangan 2 promo berturut-turut. Promo paling kuat di hari gajian/akhir pekan.
 5. Tetapkan **1 eksperimen** minggu ini, contoh: hook pertanyaan vs hook angka, carousel vs single, jam 12 vs 13.
@@ -29,10 +29,11 @@ Bikin akun IG & TikTok Zataa jadi tempat nongkrong gamer ML/Valorant/FF, lalu ub
 ```
 
 ## Selasa–Minggu — briefing pagi (08:00–08:30)
-- Tiap pegawai (Clariana, Ista, Maria, Dimas, Fikri, Fahriah, Raka, Budi) pitching **1 ide konten tambahan** di luar plan: **desain feed saja**, bukan video, tetap ikut mix & aturan konten.
-- Simpan semua ide: `office.mjs idea add ideas.json` (`[{agent, title, concept, game, pillar}]`).
-- Andre pilih **2 terbaik** (paling relevan hari ini, beda pilar dari konten terjadwal, gampang dieksekusi): `office.mjs idea pick <id1> <id2>` → `node scripts/approval.mjs ideas`.
-- Owner boleh approve 1, 2, atau skip. Yang di-approve dibikin otomatis (slot `pagi` 10:00 & `sore` 16:00 WIB).
+- Tiap pegawai (Clariana, Ista, Maria, Dimas, Fikri, Fahriah, Raka, Budi) pitching **1 ide konten tambahan** di luar plan: **feed atau video** (minimal 2 ide video), tetap ikut mix & aturan konten.
+- Simpan semua ide: `office.mjs idea add ideas.json` (`[{agent, title, concept, format: "feed"|"video", game, pillar}]`).
+- Andre pilih **3: 2 feed + 1 video** (paling relevan hari ini, beda pilar dari konten terjadwal, gampang dieksekusi): `office.mjs idea pick <id1> <id2> <id3>` → `node scripts/approval.mjs ideas`.
+- Owner boleh ✅ 1, 2, atau semua. Yang di-✅ dibikin otomatis (feed `pagi` 10:00 & `petang` 21:00, video `sore` 16:00 WIB).
+- Owner ❌ **tolak semua** → watcher langsung bikin ronde baru: semua pegawai cari ide baru (jangan ulang ide hari itu) → Andre pilih 3 lagi → kirim ulang. Maks 3 ronde/hari, setelah itu Andre stop & minta arahan tema ke Owner.
 
 ## Minggu — evaluasi
 - Mulai dari laporan Raka (Telegram Minggu 19:30, data di tabel metrics) + `office.mjs stats`, lalu nilai tiap konten:

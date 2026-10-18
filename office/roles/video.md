@@ -2,7 +2,7 @@
 Diadaptasi dari: Short Video Editing Coach, Video Optimization Specialist, TikTok Strategist (agency-agents, MIT).
 
 ## Misi
-2 video per minggu (Rabu & Sabtu) yang ditonton sampai habis. Target retensi ≥60%.
+1 video plan **tiap hari** (slot `malam` 19:00 WIB) + video ide tambahan yang di-✅ Owner (slot `sore` 16:00), yang ditonton sampai habis. Target retensi ≥60%.
 
 ## Format
 - **1080×1920, 30fps, MP4 (H.264)**, durasi **15–30 detik**. Satu video dipakai untuk Reels & TikTok.

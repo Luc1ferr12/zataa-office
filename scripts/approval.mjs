@@ -89,7 +89,7 @@ export const NAMA = { dir: 'Andre', sec: 'Aprista', researcher: 'Clariana', copy
   ydir: 'Bagas', yresearch: 'Nadhira', yscript: 'Laras', yvisual: 'Galih', yvideo: 'Yoga', ypublish: 'Kirana' };
 export const sayAs = (agent, text) => say(`<b>${NAMA[agent] ?? agent}</b>: ${text}`);
 
-export const SLOT = { pagi: '10:00', siang: '12:00', sore: '16:00', malam: '19:00', kilat: 'langsung' }; // WIB; pagi & sore = konten tambahan dari briefing
+export const SLOT = { pagi: '10:00', siang: '12:00', sore: '16:00', malam: '19:00', petang: '21:00', kilat: 'langsung' }; // WIB; plan: siang (feed) & malam (video); ide briefing: pagi & petang (feed), sore (video)
 const slotLabel = (c) => (c.slot === 'kilat' ? 'langsung tayang' : `${SLOT[c.slot] ?? '?'} WIB`);
 // tujuan posting per format: video → IG Reels (+ TikTok private kalau sudah login), feed/carousel → IG Feed
 const tiktokOn = () => !!loadEnv().TIKTOK_REFRESH_TOKEN;
@@ -152,7 +152,7 @@ export async function submitPlan() {
   const d = await db();
   const c = d.prepare('SELECT * FROM campaigns ORDER BY week_start DESC LIMIT 1').get();
   if (!c) throw new Error('belum ada campaign minggu ini');
-  const rows = d.prepare("SELECT day, slot, format, game, pillar, title FROM contents WHERE campaign_id = ? ORDER BY day, CASE slot WHEN 'pagi' THEN 0 WHEN 'siang' THEN 1 WHEN 'sore' THEN 2 ELSE 3 END").all(c.id);
+  const rows = d.prepare("SELECT day, slot, format, game, pillar, title FROM contents WHERE campaign_id = ? ORDER BY day, CASE slot WHEN 'pagi' THEN 0 WHEN 'siang' THEN 1 WHEN 'sore' THEN 2 WHEN 'malam' THEN 3 ELSE 4 END").all(c.id);
   const byDay = {};
   for (const r of rows) (byDay[r.day] ??= []).push(r);
   const lines = Object.entries(byDay).map(([day, items]) => `<b>${DAY_SHORT[new Date(`${day}T00:00:00Z`).getUTCDay()]} ${day.slice(8)}/${day.slice(5, 7)}</b>\n${items
@@ -169,23 +169,29 @@ export async function submitPlan() {
   return { ok: true, campaign: c.id, contents: rows.length };
 }
 
-// ---------- ide briefing pagi (Selasa–Minggu): 2 ide terbaik pilihan Andre → Owner pilih
+// ---------- ide briefing pagi (Selasa–Minggu): 3 ide pilihan Andre (2 feed + 1 video) → Owner ✅ sebagian/semua atau ❌ semua (→ ronde ide baru)
+// slot ide: feed pertama pagi 10:00, video sore 16:00, feed kedua petang 21:00 WIB (konten plan: feed siang 12:00, video malam 19:00)
+export const ideaSlots = (ideas) => { let f = 0; return ideas.map((x) => (x.format === 'video' ? 'sore' : f++ === 0 ? 'pagi' : 'petang')); };
 export async function submitIdeas() {
   const d = await db();
   const today = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Makassar' }).format(new Date());
-  const ideas = d.prepare('SELECT * FROM ideas WHERE day = ? AND chosen = 1 ORDER BY id LIMIT 2').all(today);
-  if (!ideas.length) throw new Error('belum ada ide yang dipilih hari ini (office.mjs idea pick)');
-  const slotOf = (i) => (i === 0 ? 'pagi 10:00' : 'sore 16:00');
-  const text = ['💡 <b>Ide konten tambahan hari ini</b> (hasil briefing, dipilih Andre)', '',
-    ...ideas.map((x, i) => `<b>Ide ${i + 1}</b> · dari ${NAMA[x.agent_id] ?? x.agent_id} · tayang ${slotOf(i)} WIB\n<b>${esc(x.title)}</b>\n${esc(x.concept ?? '')}`), '',
-    'Desain feed aja (bukan video). Pilih yang mau dibikin:'].join('\n');
-  const row = ideas.map((x, i) => ({ text: `✅ Ide ${i + 1}`, callback_data: `idea:${x.id}` }));
-  const both = ideas.length === 2 ? [[{ text: '✅ Dua-duanya', callback_data: `ideas:${ideas[0].id}-${ideas[1].id}` }, { text: '❌ Skip', callback_data: `ideaskip:${ideas[0].id}` }]]
-    : [[{ text: '❌ Skip', callback_data: `ideaskip:${ideas[0].id}` }]];
-  await tg('sendMessage', { chat_id: env.TELEGRAM_CHAT_ID, text, parse_mode: 'HTML', reply_markup: { inline_keyboard: [row, ...both] } });
-  for (const x of ideas) d.prepare("UPDATE ideas SET status = 'proposed' WHERE id = ?").run(x.id);
-  d.prepare('INSERT INTO activity (agent_id, message) VALUES (?, ?)').run('dir', `Kirim ${ideas.length} ide briefing ke Owner`);
-  return { ok: true, ideas: ideas.map((x) => x.id) };
+  // ronde terbaru saja: ide ronde sebelumnya yang ditolak sudah berstatus skipped
+  const ideas = d.prepare("SELECT * FROM ideas WHERE day = ? AND chosen = 1 AND status = 'pitched' ORDER BY format = 'video', id LIMIT 3").all(today);
+  if (!ideas.length) throw new Error('belum ada ide yang dipilih ronde ini (office.mjs idea pick <id1> <id2> <id3>)');
+  const round = Math.ceil(d.prepare('SELECT COUNT(*) n FROM ideas WHERE day = ? AND chosen = 1').get(today).n / 3); // tiap ronde Andre pilih 3
+  const slots = ideaSlots(ideas);
+  const text = [`💡 <b>Ide konten tambahan hari ini</b>${round > 1 ? ` (ronde ${round}, ide baru)` : ''} · dipilih Andre`, '',
+    ...ideas.map((x, i) => `<b>Ide ${i + 1}</b> · ${x.format === 'video' ? '🎬 video' : '🖼️ feed'} · dari ${NAMA[x.agent_id] ?? x.agent_id} · tayang ${SLOT[slots[i]]} WIB\n<b>${esc(x.title)}</b>\n${esc(x.concept ?? '')}`), '',
+    'Pilih yang mau dibikin (boleh 1, 2, atau semua). ❌ Tolak semua = tim cari ide baru & Andre kirim lagi.'].join('\n');
+  const ids = ideas.map((x) => x.id);
+  const n = (i) => i + 1;
+  const kb = [ids.map((id, i) => ({ text: `✅ Ide ${n(i)}`, callback_data: `idea:${id}` }))];
+  if (ids.length === 3) kb.push([[0, 1], [0, 2], [1, 2]].map(([a, b]) => ({ text: `✅ ${n(a)}+${n(b)}`, callback_data: `ideas:${ids[a]}-${ids[b]}` })));
+  kb.push([...(ids.length > 1 ? [{ text: '✅ Semua', callback_data: `ideas:${ids.join('-')}` }] : []), { text: '❌ Tolak semua', callback_data: `ideaskip:${ids[0]}` }]);
+  await tg('sendMessage', { chat_id: env.TELEGRAM_CHAT_ID, text, parse_mode: 'HTML', reply_markup: { inline_keyboard: kb } });
+  ideas.forEach((x, i) => d.prepare("UPDATE ideas SET status = 'proposed', slot = ? WHERE id = ?").run(slots[i], x.id));
+  d.prepare('INSERT INTO activity (agent_id, message) VALUES (?, ?)').run('dir', `Kirim ${ideas.length} ide briefing ke Owner${round > 1 ? ` (ronde ${round})` : ''}`);
+  return { ok: true, ideas: ids, round };
 }
 
 // tarik keputusan dari n8n (antrian dengan nomor urut; ack = nomor terakhir yang sudah diproses)

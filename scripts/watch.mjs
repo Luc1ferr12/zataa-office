@@ -213,7 +213,7 @@ async function tick() {
       tiktokCommand(g.note).then((r) => log(`studio beres: ${JSON.stringify(r)}`), (e) => log(`studio gagal: ${e.message}`)).finally(syncPages);
     }
     for (const g of got.filter((x) => x.action === 'chat' && !isTiktokCommand(x.note ?? '') && (x.note || x.photos?.length))) inbox.push({ msg: g.note ?? '', photos: g.photos ?? [] });
-    for (const g of got.filter((x) => ['plan_approve', 'plan_revision', 'idea_approve', 'price_promo'].includes(x.action))) inbox.push({ decision: g });
+    for (const g of got.filter((x) => ['plan_approve', 'plan_revision', 'idea_approve', 'idea_skip', 'price_promo'].includes(x.action))) inbox.push({ decision: g });
     if (inbox.length) talk();
     exportState();
     // revisi terakhir per konten saja (kalau Owner kirim beberapa catatan, gabungkan)

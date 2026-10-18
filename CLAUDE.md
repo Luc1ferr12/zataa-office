@@ -63,9 +63,9 @@ Kalau sesi ini jalan di laptop (Windows): jangan nyalain watcher lokal; ubah kod
 ## Ritme kerja
 - Kantor jalan **24 jam** (VPS), nggak ada yang pulang/tidur: di luar jam kerja tiap pegawai aktivitas acak (`docs/js/schedule.js`); tugas dadakan Owner → langsung ke meja. Divisi yang nunggu ✅ Owner → manajernya duduk nunggu di depan ruang Bos sampai di-approve. Sesi kerja Claude otomatis 07:00 WITA, SOP lengkap: `office/daily.md`.
 - **Senin 07:00–08:00**: rapat plan mingguan → `approval.mjs plan` → produksi baru jalan setelah Owner ✅ plan.
-- **Selasa–Minggu**: 07:00–08:00 riset masing-masing, 08:00–08:30 briefing (tiap pegawai 1 ide desain tambahan, Andre pilih 2 → `approval.mjs ideas`), lalu produksi konten terjadwal.
-- Video: **Rabu & Sabtu**. Hari lain feed/carousel.
-- Slot WIB (jam tayang ikut zona mayoritas audiens): `siang` ±12:00 & `malam` ±19:00 (plan), `pagi` 10:00 & `sore` 16:00 (ide tambahan yang di-✅), `kilat` = langsung setelah approve.
+- **Selasa–Minggu**: 07:00–08:00 riset masing-masing, 08:00–08:30 briefing (tiap pegawai marketing 1 ide tambahan feed/video, Andre pilih **3: 2 feed + 1 video** → `approval.mjs ideas`; Owner ✅ 1/2/3 ide atau ❌ semua → tim langsung cari ide baru, Andre pilih 3 lagi & kirim ulang, maks 3 ronde/hari), lalu produksi konten terjadwal.
+- Plan: **tiap hari 1 feed + 1 video** (mulai 19 Okt 2026).
+- Slot WIB (jam tayang ikut zona mayoritas audiens): plan `siang` 12:00 (feed) & `malam` 19:00 (video); ide tambahan yang di-✅: `pagi` 10:00 (feed), `sore` 16:00 (video), `petang` 21:00 (feed); `kilat` = langsung setelah approve.
 - Mix konten mingguan: ~40% berita/esport (turnamen, transfer, patch), ~30% promo zataa (harga, event top up), ~20% tips/engagement (kuis, polling, meme aman), game lain di luar ML/Valorant/FF maksimal 1×/minggu.
 
 ## Aturan konten

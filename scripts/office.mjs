@@ -32,10 +32,11 @@ try {
 for (const col of ['channel TEXT', 'youtube_id TEXT']) { try { db.exec(`ALTER TABLE contents ADD COLUMN ${col}`); } catch { /* sudah ada / db belum init */ } }
 // plan mingguan perlu ✅ Owner; campaign lama dianggap sudah approved
 try { db.exec("ALTER TABLE campaigns ADD COLUMN status TEXT DEFAULT 'approved'"); } catch { /* sudah ada */ }
-// ide konten tambahan dari briefing pagi (desain saja, maks 2 dipilih Andre per hari)
+// ide konten tambahan dari briefing pagi: Andre pilih 3 (2 feed + 1 video) per ronde; Owner ❌ semua → ronde baru
 db.exec(`CREATE TABLE IF NOT EXISTS ideas (id INTEGER PRIMARY KEY AUTOINCREMENT, day TEXT NOT NULL, agent_id TEXT NOT NULL,
   title TEXT NOT NULL, concept TEXT, game TEXT, pillar TEXT, chosen INTEGER NOT NULL DEFAULT 0,
   status TEXT NOT NULL DEFAULT 'pitched', content_id INTEGER, created_at TEXT DEFAULT (datetime('now')))`); // pitched | proposed | approved | skipped | made
+for (const col of ["format TEXT DEFAULT 'feed'", 'slot TEXT']) { try { db.exec(`ALTER TABLE ideas ADD COLUMN ${col}`); } catch { /* sudah ada */ } }
 db.exec(`CREATE TABLE IF NOT EXISTS followups (id INTEGER PRIMARY KEY AUTOINCREMENT, note TEXT NOT NULL, due_at TEXT NOT NULL,
   done INTEGER NOT NULL DEFAULT 0, created_at TEXT DEFAULT (datetime('now')))`);
 
@@ -95,22 +96,27 @@ const commands = {
     out('ok');
   },
 
-  // idea add <file.json> [{agent, title, concept, game, pillar}] | idea pick <id1> [id2] | idea list [day]
-  idea(sub, a, b) {
+  // idea add <file.json> [{agent, title, concept, format, game, pillar}] | idea pick <id1> <id2> <id3> | idea list [day]
+  idea(sub, a, b, c) {
     if (sub === 'add') {
       const items = JSON.parse(existsSync(a) ? readFileSync(a, 'utf8') : a);
-      const ids = items.map((i) => Number(run('INSERT INTO ideas (day, agent_id, title, concept, game, pillar) VALUES (?, ?, ?, ?, ?, ?)',
-        today(), i.agent, i.title, i.concept ?? null, i.game ?? null, i.pillar ?? null).lastInsertRowid));
+      const ids = items.map((i) => Number(run('INSERT INTO ideas (day, agent_id, title, concept, format, game, pillar) VALUES (?, ?, ?, ?, ?, ?, ?)',
+        today(), i.agent, i.title, i.concept ?? null, i.format === 'video' ? 'video' : 'feed', i.game ?? null, i.pillar ?? null).lastInsertRowid));
       return out({ ok: true, ids });
     }
-    if (sub === 'pick') {
-      for (const id of [a, b].filter(Boolean)) run('UPDATE ideas SET chosen = 1 WHERE id = ?', id);
-      log('dir', `Pilih ${[a, b].filter(Boolean).length} ide terbaik dari briefing`);
+    if (sub === 'pick') { // wajib 3 ide ronde ini: 2 feed + 1 video
+      const ids = [a, b, c].filter(Boolean).map(Number);
+      const rows = ids.map((id) => get("SELECT id, format, status FROM ideas WHERE id = ?", id));
+      if (rows.some((r) => !r || r.status !== 'pitched')) return out({ ok: false, error: 'ide nggak ada / bukan dari ronde ini (status harus pitched)' });
+      const v = rows.filter((r) => r.format === 'video').length;
+      if (ids.length !== 3 || v !== 1) return out({ ok: false, error: `pilih 3 ide: 2 feed + 1 video (sekarang ${ids.length} ide, ${v} video)` });
+      for (const id of ids) run('UPDATE ideas SET chosen = 1 WHERE id = ?', id);
+      log('dir', 'Pilih 3 ide terbaik dari briefing (2 feed + 1 video)');
       return out('ok');
     }
-    if (sub === 'list') return out(all('SELECT id, agent_id, title, concept, chosen, status, content_id FROM ideas WHERE day = ? ORDER BY id', a ?? today()));
+    if (sub === 'list') return out(all('SELECT id, agent_id, format, title, concept, chosen, status, content_id FROM ideas WHERE day = ? ORDER BY id', a ?? today()));
     if (sub === 'done') { run("UPDATE ideas SET status = 'made', content_id = ? WHERE id = ?", b, a); return out('ok'); }
-    out('pakai: idea add <file.json> | pick <id1> [id2] | list [day] | done <idea_id> <content_id>');
+    out('pakai: idea add <file.json> | pick <id1> <id2> <id3> (2 feed + 1 video) | list [day] | done <idea_id> <content_id>');
   },
 
   // followup <menit> "<apa yang dicek>" — minta watcher membangunkan Claude lagi nanti (mis. pantau skor pertandingan)
@@ -225,7 +231,7 @@ const commands = {
       campaign: camp ?? null,
       agents: all('SELECT id, name, title, status, current_task, updated_at FROM agents'),
       week_contents: all(`SELECT id, day, slot, format, game, pillar, title, status, asset_url, scheduled_at, posted_at, channel
-                          FROM contents WHERE day BETWEEN ? AND ? ORDER BY day, CASE slot WHEN 'pagi' THEN 0 WHEN 'siang' THEN 1 WHEN 'kilat' THEN 2 WHEN 'sore' THEN 3 ELSE 4 END`, week, addDays(week, 6)),
+                          FROM contents WHERE day BETWEEN ? AND ? ORDER BY day, CASE slot WHEN 'pagi' THEN 0 WHEN 'siang' THEN 1 WHEN 'kilat' THEN 2 WHEN 'sore' THEN 3 WHEN 'malam' THEN 4 ELSE 5 END`, week, addDays(week, 6)),
       today_tasks: all('SELECT agent_id, type, title, status FROM tasks WHERE day = ? ORDER BY id', t),
       activity: all('SELECT ts, agent_id, message FROM activity ORDER BY id DESC LIMIT 25'),
       chats: all('SELECT ts, agent_id, to_id, kind, message FROM chats ORDER BY id DESC LIMIT 40'),
