@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-18T00:59:38.630Z",
+ "generated_at": "2026-10-18T01:09:38.635Z",
  "today": "2026-10-18",
  "week_start": "2026-10-12",
  "campaign": {
@@ -77,8 +77,8 @@
    "name": "Raka",
    "title": "Data Analyst",
    "status": "done",
-   "current_task": "Data IG mingguan",
-   "updated_at": "2026-10-17 23:04:46"
+   "current_task": null,
+   "updated_at": "2026-10-18 01:00:54"
   },
   {
    "id": "price",
@@ -643,6 +643,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-18 01:00:54",
+   "agent_id": "analyst",
+   "message": "Update data 23 post IG 📈"
+  },
+  {
    "ts": "2026-10-17 23:04:28",
    "agent_id": "publisher",
    "message": "QA lolos: logo tim lengkap, sumber ada, istilah aman; #18 & #19 terkirim"
@@ -761,14 +766,16 @@
    "ts": "2026-10-17 05:34:22",
    "agent_id": "ypublish",
    "message": "Shorts Medusa dijadwalkan Senin 19 Okt 18:00 WIB (default, channel belum punya data jam per mitologi)"
-  },
-  {
-   "ts": "2026-10-17 05:34:22",
-   "agent_id": "yresearch",
-   "message": "Riset Medusa: Hesiodos (Theogonia) vs Ovidius (Metamorphoses 4) + Apollodorus 2.4, label mitos"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-10-18 01:01:39",
+   "agent_id": "sec",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "⚠️ Bos, limit mingguan Claude udah 96%. Reset Minggu, 18 Okt, 11.59 WITA.\nKalau sampai 100%, kerjaan AI (sesi harian, tugas Telegram, revisi) berhenti sampai reset. Auto-post, cek harga & data IG tetap jalan."
+  },
   {
    "ts": "2026-10-18 00:51:39",
    "agent_id": "sec",
@@ -1041,13 +1048,6 @@
    "to_id": "publisher",
    "kind": "oper",
    "message": "Render \"Video #16 masuk antrean laptop (OmniVoice)\" selesai, Fikri. Cek cover-nya ya"
-  },
-  {
-   "ts": "2026-10-16 23:03:35",
-   "agent_id": "designer",
-   "to_id": "publisher",
-   "kind": "oper",
-   "message": "Visual \"Feed promo #17\" kelar! Fikri, cek typo-nya sekalian ya 🙏"
   }
  ],
  "stats": {
@@ -1058,7 +1058,7 @@
    "pending": 3,
    "scheduled": 0,
    "views": 0,
-   "likes": 379,
+   "likes": 392,
    "comments": 0,
    "shares": 0,
    "saves": 0,
@@ -1090,7 +1090,7 @@
    "pending": 0,
    "scheduled": 0,
    "views": 0,
-   "likes": 253,
+   "likes": 259,
    "comments": 0,
    "shares": 0,
    "saves": 0,
