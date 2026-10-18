@@ -94,9 +94,11 @@ const slotLabel = (c) => (c.slot === 'kilat' ? 'langsung tayang' : `${SLOT[c.slo
 // tujuan posting per format: video → IG Reels (+ TikTok private kalau sudah login), feed/carousel → IG Feed
 const tiktokOn = () => !!loadEnv().TIKTOK_REFRESH_TOKEN;
 // TikTok default manual: setelah IG tayang Fikri kirim file video + caption ke Telegram (publish.mjs sendTikTokManual); TIKTOK_MODE=auto = auto-post private
-const tiktokAuto = () => tiktokOn() && loadEnv().TIKTOK_MODE === 'auto';
+// ZERNIO_API_KEY ada → TikTok otomatis Publik lewat Zernio (scripts/zernio.mjs), mengalahkan mode manual/private
+const ttZernio = () => !!loadEnv().ZERNIO_API_KEY;
+const tiktokAuto = () => ttZernio() || (tiktokOn() && loadEnv().TIKTOK_MODE === 'auto');
 export const targets = (c) => (c.format === 'video' && tiktokAuto() ? ['ig', 'tiktok'] : ['ig']);
-export const targetLabel = (c) => (c.format === 'video' ? (tiktokAuto() ? 'IG Reels + TikTok (private)' : tiktokOn() ? 'IG Reels (+ TikTok upload manual)' : 'IG Reels') : c.format === 'carousel' ? 'IG Feed (carousel)' : 'IG Feed');
+export const targetLabel = (c) => (c.format === 'video' ? (ttZernio() ? 'IG Reels + TikTok (publik)' : tiktokAuto() ? 'IG Reels + TikTok (private)' : tiktokOn() ? 'IG Reels (+ TikTok upload manual)' : 'IG Reels') : c.format === 'carousel' ? 'IG Feed (carousel)' : 'IG Feed');
 const DAYS = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
 
 export async function submit(id, { note = '' } = {}) {

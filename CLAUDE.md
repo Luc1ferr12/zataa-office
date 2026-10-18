@@ -18,7 +18,7 @@ Kantor marketing virtual untuk **zataa.my.id** (top up game). Claude memerankan 
 | copywriter | Ista | Headline, isi template, caption, hashtag, CTA |
 | designer | Maria | Render feed/carousel dari template → JPG 1080×1080 IG feed (+9:16) |
 | video | Dimas | Render video 9:16 dari template |
-| publisher | Fikri | QA akhir, kirim ke Telegram Owner untuk approval (`scripts/approval.mjs submit <id>`) |
+| publisher | Fikri | QA akhir, kirim ke Telegram Owner untuk approval (`scripts/approval.mjs submit <id>`); video yang di-✅ tayang IG Reels + TikTok Publik (via Zernio) |
 | ads | Fahriah | Boost post IG terbaik (usul via Telegram, budget bulanan dikunci; otomatis lewat watcher, `scripts/boost.mjs`). Owner minta ubah budget → `boost.mjs budget <bulanan> [per_boost] [hari]` (min Meta ±Rp18rb/hari). Jeda/lanjut: `boost.mjs pause|resume` |
 | analyst | Raka | Data IG tiap 3 jam + laporan mingguan Minggu 16:00 (otomatis, `scripts/analyst.mjs`); riset pagi dari data |
 | price | Budi | Pantau harga zataa.my.id tiap 2 jam, perubahan → usul konten promo (otomatis, `scripts/price.mjs`) |
@@ -35,11 +35,11 @@ Kantor marketing virtual untuk **zataa.my.id** (top up game). Claude memerankan 
 | yscript | Laras | Naskah Shorts + cek fakta (label fakta/teori/mitos) |
 | yvisual | Galih | Visual berlisensi bebas / gambar kode / Blender |
 | yvideo | Yoga | Render Shorts 9:16 + VO OmniVoice |
-| ypublish | Kirana | ✅ Owner di @zataashortbot, judul/deskripsi/SEO, upload YouTube (Private → ingatkan Publik), laporan harian 21:00 WITA (subs/views/likes) |
+| ypublish | Kirana | ✅ Owner di @zataashortbot, judul/deskripsi/SEO, upload YouTube (Publik via Zernio), laporan harian 21:00 WITA (subs/views/likes) |
 
 ## Tim YouTube Shorts (sejarah misteri kuno + mitologi Yunani)
 Divisi terpisah dari Marketing, ruang di Lt.2 (bilik + R. Manajer), meeting di Lt.4. 5 Shorts/minggu Rabu–Minggu (2 mitologi Yunani + 3 sejarah misteri; jam tayang dari riset harian Kirana), Senin–Selasa libur. Target berikutnya: **±500 subscriber → tambah video panjang 5–10 menit** (sejarah/mitologi full); Shorts tetap jalan bareng. SOP: `office/youtube.md`.
-Alur: sesi harian `node scripts/shorts-bot.mjs new <file.json>` (DB `channel: 'youtube'`) → render OmniVoice otomatis di laptop (`laptop-worker.mjs` → `shorts-laptop.mjs`) → Kirana kirim ke Owner di bot @zataashortbot (`scripts/shorts-bot.mjs`, di watcher; `SHORTS_BOT_TOKEN`, `SHORTS_OWNER_ID`) → Owner ✅ Approve / ✏️ Revisi / ❌ Tolak (❌ = tim bikin pengganti) → upload YouTube otomatis di jam tayang, **selalu Private** → bot WAJIB ingatkan Owner ubah ke Publik; baru `posted` setelah Owner konfirmasi. Semua urusan Shorts lewat bot itu, bukan bot kantor.
+Alur: sesi harian `node scripts/shorts-bot.mjs new <file.json>` (DB `channel: 'youtube'`) → render OmniVoice otomatis di laptop (`laptop-worker.mjs` → `shorts-laptop.mjs`) → Kirana kirim ke Owner di bot @zataashortbot (`scripts/shorts-bot.mjs`, di watcher; `SHORTS_BOT_TOKEN`, `SHORTS_OWNER_ID`) → Owner ✅ Approve / ✏️ Revisi / ❌ Tolak (❌ = tim bikin pengganti) → upload YouTube otomatis di jam tayang **langsung Publik lewat Zernio** (`scripts/zernio.mjs`, `ZERNIO_API_KEY` di .env VPS) → `posted`. Tanpa key: fallback `youtube.mjs` Private + bot ingatkan Owner ubah ke Publik. Semua urusan Shorts lewat bot itu, bukan bot kantor.
 
 ## Tim Trading (XAUUSD saja)
 Jalan otomatis 0 token di VPS: service `zataa-trading` (`scripts/trading/run.mjs`), siklus tiap candle M15: Mahendra → Davina → Keira → Aryaputra → Wiratama → Jihan → Selena.

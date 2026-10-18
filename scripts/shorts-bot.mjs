@@ -20,6 +20,7 @@ import { readFileSync, writeFileSync, existsSync, mkdirSync, unlinkSync } from '
 import { readFile } from 'node:fs/promises';
 import { execFile } from 'node:child_process';
 import { loadEnv, NAMA } from './approval.mjs';
+import { zernioOn, youtubeUpload } from './zernio.mjs';
 import { claude, formatReply, ESCALATE, isStatusQuestion } from './ask.mjs';
 import { wita } from '../docs/js/schedule.js';
 
@@ -155,17 +156,22 @@ export async function upload(id) {
   mkdirSync(dirname(metaPath), { recursive: true });
   writeFileSync(metaPath, JSON.stringify(meta));
   d.prepare("UPDATE contents SET status = 'uploading', updated_at = datetime('now') WHERE id = ?").run(id);
-  const r = await run(['scripts/youtube.mjs', 'upload', join(ROOT, JSON.parse(c.asset_path).video), metaPath]);
+  const video = join(ROOT, JSON.parse(c.asset_path).video);
+  let r, res = null;
+  if (zernioOn()) { // lewat Zernio: app sudah diaudit → langsung Publik (keputusan Owner 18 Okt)
+    try { res = await youtubeUpload(video, meta, `yt-${id}`); r = { ok: true }; } catch (e) { r = { ok: false, out: '', err: e.message }; }
+  } else {
+    r = await run(['scripts/youtube.mjs', 'upload', video, metaPath]);
+    try { res = JSON.parse(r.out.split('\n').pop()); } catch { /* bukan JSON */ }
+  }
   try { unlinkSync(metaPath); } catch { /* abaikan */ }
-  let res = null;
-  try { res = JSON.parse(r.out.split('\n').pop()); } catch { /* bukan JSON */ }
   if (!r.ok || !res?.id) {
     d.prepare("UPDATE contents SET status = 'upload_failed', updated_at = datetime('now') WHERE id = ?").run(id);
     act(d, 'ypublish', `Upload Shorts #${id} gagal`);
     throw new Error((r.err || r.out).split('\n').pop().slice(0, 300));
   }
   d.prepare("UPDATE contents SET status = 'uploaded', youtube_id = ?, asset_url = ?, updated_at = datetime('now') WHERE id = ?").run(res.id, res.url, id);
-  act(d, 'ypublish', `Upload Shorts #${id} ke Zataa Story (Private), nunggu Owner ubah ke Publik`);
+  act(d, 'ypublish', res.privacy === 'public' ? `Upload Shorts #${id} ke Zataa Story (Publik via Zernio)` : `Upload Shorts #${id} ke Zataa Story (Private), nunggu Owner ubah ke Publik`);
   return { ok: true, id, youtube_id: res.id, url: res.url, privacy: res.privacy };
 }
 

@@ -18,6 +18,7 @@ import { fileURLToPath } from 'node:url';
 import { execFileSync } from 'node:child_process';
 import { loadEnv, setEnv, sayAs, SLOT, targets, tg } from './approval.mjs';
 import { chat } from './chatter.mjs';
+import { zernioOn, tiktokPost } from './zernio.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 // jangan pernah bocorkan token ke log/Telegram (pesan error Meta kadang memuatnya)
@@ -234,9 +235,15 @@ export async function publishOne(id) {
   }
   if (want.includes('tiktok')) {
     try {
-      const ttId = await postTikTok(c, A, caption);
-      d.prepare('UPDATE contents SET tiktok_id = ? WHERE id = ?').run(String(ttId), c.id);
-      done.push('TikTok (private)');
+      if (zernioOn()) { // lewat Zernio: langsung Publik
+        const r = await tiktokPost(join(ROOT, A.video), caption, `tt-${c.id}`);
+        d.prepare('UPDATE contents SET tiktok_id = ? WHERE id = ?').run(String(r.id), c.id);
+        done.push('TikTok');
+      } else {
+        const ttId = await postTikTok(c, A, caption);
+        d.prepare('UPDATE contents SET tiktok_id = ? WHERE id = ?').run(String(ttId), c.id);
+        done.push('TikTok (private)');
+      }
     } catch (e) { errs.push(e.message); }
   }
   setAgent(d, 'done');
@@ -244,7 +251,7 @@ export async function publishOne(id) {
   if (!errs.length) {
     d.prepare("UPDATE contents SET status = 'posted', posted_at = datetime('now'), updated_at = datetime('now') WHERE id = ?").run(c.id);
     failures.delete(c.id);
-    await sayAs('publisher', `🚀 #${c.id} udah tayang di ${done.join(' + ') || 'semua platform'}.${done.some((p) => p.startsWith('TikTok')) ? '\nTikTok masih private, ubah privacy di app kalau mau publik.' : ''}`).catch(() => {});
+    await sayAs('publisher', `🚀 #${c.id} udah tayang di ${done.join(' + ') || 'semua platform'}.${done.includes('TikTok (private)') ? '\nTikTok masih private, ubah privacy di app kalau mau publik.' : ''}`).catch(() => {});
     if (A.video && !targets(c).includes('tiktok') && !c.tiktok_id) await sendTikTokManual(c, A).catch((e) => sayAs('publisher', `⚠️ Gagal kirim video #${c.id} buat TikTok: ${e.message}`).catch(() => {}));
     return { ok: true, id: c.id, posted: done };
   }
