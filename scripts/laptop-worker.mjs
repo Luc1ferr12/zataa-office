@@ -30,7 +30,10 @@ try {
     log(`render ${shorts ? 'shorts ' : ''}#${id}`);
     const r = spawnSync(process.execPath, [join(ROOT, 'scripts', shorts ? 'shorts-laptop.mjs' : 'render-laptop.mjs'), String(id), '--submit'], { encoding: 'utf8' });
     const ok = r.status === 0;
-    log(ok ? `selesai #${id}: ${r.stdout.trim().slice(-300)}` : `gagal #${id}: ${(r.stderr || r.stdout).trim().slice(-300)}`);
+    const full = `${r.stdout ?? ''}\n${r.stderr ?? ''}`.trim();
+    if (!ok) appendFileSync(join(ROOT, 'logs', `render-${id}.log`), `===== ${new Date().toISOString()}\n${full}\n`); // log lengkap, nggak kepotong
+    const why = full.split('\n').map((l) => l.trim()).filter((l) => /^Error:|error|gagal|ENOENT|403|timeout/i.test(l)).slice(-2).join(' | ') || full.slice(-300);
+    log(ok ? `selesai #${id}: ${r.stdout.trim().slice(-300)}` : `gagal #${id}: ${why.slice(0, 400)} (lengkap: logs/render-${id}.log)`);
     const what = shorts ? 'Shorts' : 'video';
     const msg = ok ? `${what} #${id} dirender di laptop (suara OmniVoice) & dikirim ke Owner` : `Render laptop ${what} #${id} gagal, cek logs/laptop-worker.log di laptop`;
     vps(`node scripts/office.mjs log ${shorts ? 'yvideo' : 'video'} ${JSON.stringify(msg)}`);

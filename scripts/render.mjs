@@ -111,6 +111,12 @@ async function voiceOverOmni(scenes, style, dir, voice) {
   idx.forEach((i, k) => { res[i] = { file: items[k].out, dur: mediaDur(items[k].out) }; });
   return res;
 }
+let edgeUpgraded = false;
+// baris error yang berguna dari stderr (traceback Python / Node), bukan cuma ekornya
+const errLine = (s) => {
+  const lines = String(s ?? '').split('\n').map((l) => l.trim()).filter(Boolean);
+  return (lines.filter((l) => /error|exception|gagal|denied|not found|ENOENT|403|404|timeout/i.test(l)).slice(-2).join(' | ') || lines.slice(-2).join(' | ')).slice(0, 300);
+};
 async function voiceOver(scenes, style, dir, voice) {
   if (voice && voice !== 'gadis') {
     if (omniPython()) return voiceOverOmni(scenes, style, dir, voice);
@@ -124,8 +130,17 @@ async function voiceOver(scenes, style, dir, voice) {
     const p = MOOD[moodOf(s, style)] ?? MOOD.info;
     const file = join(dir, `vo-${i}.mp3`);
     const text = s.vo.replace(/zataa\.my\.id/gi, 'Zataa');
-    const r = spawnSync(bin, [...pre, '--voice', VOICE, `--rate=${p.rate}`, `--pitch=${p.pitch}`, '--text', text, '--write-media', file], { encoding: 'utf8' });
-    if (r.status !== 0 || !existsSync(file)) throw new Error(`voice over gagal (adegan ${i + 1}): ${(r.stderr || r.error?.message || '').slice(-200)}`);
+    const say = () => spawnSync(bin, [...pre, '--voice', VOICE, `--rate=${p.rate}`, `--pitch=${p.pitch}`, '--text', text, '--write-media', file], { encoding: 'utf8' });
+    let r = say();
+    // Microsoft rutin ganti token → edge-tts lama kena 403; upgrade sekali lalu coba lagi
+    if ((r.status !== 0 || !existsSync(file)) && !edgeUpgraded) {
+      edgeUpgraded = true;
+      const pip = bin.endsWith('edge-tts') ? [join(dirname(bin), 'pip'), []] : [bin, ['-m', 'pip']];
+      console.error('edge-tts gagal, upgrade edge-tts lalu coba lagi…');
+      spawnSync(pip[0], [...pip[1], 'install', '-q', '-U', 'edge-tts'], { encoding: 'utf8', timeout: 120_000 });
+      r = say();
+    }
+    if (r.status !== 0 || !existsSync(file)) throw new Error(`voice over Gadis (edge-tts) gagal (adegan ${i + 1}): ${errLine(r.stderr || r.error?.message)}`);
     res.push({ file, dur: mediaDur(file) });
   }
   return res;
@@ -257,7 +272,7 @@ if (a1 === 'try') {
   const voice = template === 'video' ? JSON.parse(c.data_json).voice : null;
   if (voice && voice !== 'gadis' && !omniPython()) { // suara OmniVoice hanya di laptop Owner (VPS tanpa GPU)
     // tandai antre: scripts/laptop-worker.mjs di laptop ambil, render, upload, lalu submit ke Owner
-    db.prepare("UPDATE contents SET data_json = json_set(data_json, '$._laptop', 1), asset_path = NULL, updated_at = datetime('now') WHERE id = ?").run(c.id);
+    db.prepare("UPDATE contents SET data_json = json_remove(json_set(data_json, '$._laptop', 1), '$._err'), asset_path = NULL, updated_at = datetime('now') WHERE id = ?").run(c.id);
     out(`konten ${c.id} pakai suara "${voice}" → masuk antrean render laptop (otomatis render + kirim ke Owner saat laptop nyala). Jangan submit manual.`);
     process.exit(0);
   }

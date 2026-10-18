@@ -29,11 +29,17 @@ if (c.format !== 'video' || !c.data_json) throw new Error(`konten ${id} bukan vi
 const queued = JSON.parse(c.data_json)._laptop != null;
 if (queued) onVps(`${DB} db.prepare("UPDATE contents SET data_json = json_set(data_json, '$._laptop', 2), updated_at = datetime('now') WHERE id = ? AND json_extract(data_json, '$._laptop') = 1").run(${c.id});`);
 
+// baris error yang berguna (bukan cuma ekor stack trace)
+const errLine = (s) => {
+  const lines = String(s ?? '').split('\n').map((l) => l.trim()).filter(Boolean);
+  return (lines.filter((l) => /error|exception|gagal|denied|not found|ENOENT|403|404|timeout/i.test(l)).slice(-2).join(' | ') || lines.slice(-2).join(' | ')).slice(0, 300);
+};
+
 const tmp = mkdtempSync(join(tmpdir(), 'zataa-laptop-'));
 try {
   writeFileSync(join(tmp, 'data.json'), c.data_json);
-  const r = spawnSync(process.execPath, [join(ROOT, 'scripts', 'render.mjs'), 'try', 'video', join(tmp, 'data.json'), tmp], { stdio: ['ignore', 'pipe', 'inherit'], encoding: 'utf8' });
-  if (r.status !== 0) throw new Error(`render gagal: ${r.stdout.slice(-300)}`);
+  const r = spawnSync(process.execPath, [join(ROOT, 'scripts', 'render.mjs'), 'try', 'video', join(tmp, 'data.json'), tmp], { stdio: ['ignore', 'pipe', 'pipe'], encoding: 'utf8' });
+  if (r.status !== 0) throw new Error(`render gagal: ${errLine(r.stderr || r.stdout)}`);
   const res = JSON.parse(r.stdout.trim().split('\n').pop());
 
   // nama file = render.mjs <id> + '-ov' (tidak menimpa hasil fallback Gadis)
@@ -64,6 +70,10 @@ try {
     out.submit = r2.status === 0 ? r2.stdout.trim() : `gagal: ${(r2.stderr || '').trim().slice(-200)}`;
   }
   console.log(JSON.stringify(out));
+} catch (e) {
+  // tandai gagal (_laptop 3 + _err) → watcher langsung alihkan ke suara Gadis di VPS & kabari Owner; worker nggak ngulang terus
+  if (queued) try { onVps(`${DB} db.prepare("UPDATE contents SET data_json = json_set(data_json, '$._laptop', 3, '$._err', ?), updated_at = datetime('now') WHERE id = ? AND json_extract(data_json, '$._laptop') = 2").run(${JSON.stringify(String(e.message).slice(0, 300))}, ${c.id});`); } catch { /* VPS putus: klaim 2 dilepas fallback setelah 30 mnt */ }
+  throw e;
 } finally {
   rmSync(tmp, { recursive: true, force: true });
 }
