@@ -212,7 +212,7 @@ function tick(force = false) {
   const byId = Object.fromEntries(list.map((l) => [l.a.id, l]));
   const row = ({ a, info }) => `
     <li class="member ${selected === a.id ? 'active' : ''}" data-id="${a.id}">
-      <div class="avatar" style="background:${a.avatar}">${a.name[0]}</div>
+      <div class="avatar" style="background:${a.avatar}">${a.name[0]}<img src="assets/office/faces/${a.id}.webp" alt="" loading="lazy" onerror="this.remove()"></div>
       <div class="who"><strong>${a.name} <span style="display:inline;color:var(--muted);font-weight:400">· ${a.title}</span></strong><span>${info.emoji} ${esc(info.label)}</span></div>
       <div class="emoji" title="${esc(info.mood?.label ?? '')}">${info.mood?.emoji ?? ''}</div>
     </li>`;

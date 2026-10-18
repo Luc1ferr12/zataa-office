@@ -105,7 +105,9 @@ main { padding: 20px 24px 40px; max-width: 1440px; margin: 0 auto; display: grid
 .team-list .division small { min-width: 0; color: var(--muted); font-size: 10.5px; line-height: 1.35; }
 .member { display: grid; grid-template-columns: 34px 1fr auto; gap: 10px; align-items: center; padding: 7px 8px; border-radius: 10px; cursor: pointer; }
 .member:hover, .member.active { background: var(--panel-2); }
-.avatar { width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; font: 700 13px Sora, sans-serif; color: #fff; }
+.avatar { width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; font: 700 13px Sora, sans-serif; color: #fff; position: relative; overflow: hidden; flex: none; }
+/* wajah 3D (blender/toy_portraits.py) menutup inisial; gagal dimuat → inisial tetap tampil */
+.avatar img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transform: scale(1.12) translateY(5%); }
 .member .who { min-width: 0; }
 .member .who strong { display: block; font-size: 13.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .member .who span { color: var(--muted); font-size: 12px; display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
