@@ -75,3 +75,9 @@ Kalau sesi ini jalan di laptop (Windows): jangan nyalain watcher lokal; ubah kod
 - **Aturan Owner (feed & video):** konten tentang tim/pemain WAJIB pakai logo tim terkait. Bahas tim → kalau ada, foto bareng seluruh pemain. Bahas 1 pemain → logo tim + foto pemainnya. Ambil via `node scripts/asset.mjs get <url> <teams|players|photos>/<nama>` (cek `asset.mjs list` dulu).
 - Video: latar klip suasana gaming (`assets/clips/`) sampai Owner kirim rekaman gameplay sendiri.
 - CTA & link selalu ke zataa.my.id. Bahasa: Indonesia santai ala gamer, tanpa SARA/judi.
+
+## graphify (peta kode, khusus laptop)
+Graph pengetahuan kode + SOP ada di `graphify-out/` (gitignored, hanya di laptop; VPS tidak punya graphify → lewati bagian ini).
+- Untuk pertanyaan soal kode/alur kantor: `graphify query "<pertanyaan>" --budget 1500` dulu sebelum grep/baca file; relasi `graphify path "<A>" "<B>"`, konsep `graphify explain "<X>"`. Baca file mentah hanya baris yang sudah ditunjuk graph.
+- `graphify-out/GRAPH_REPORT.md` hanya untuk tinjauan arsitektur besar.
+- Habis ubah kode / `git pull`: `graphify update .` (AST, 0 token). Pengecualian: `.graphifyignore`.
