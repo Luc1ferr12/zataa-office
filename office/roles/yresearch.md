@@ -5,15 +5,20 @@ Diadaptasi dari: Historian, Research Synthesist, Trend Researcher (agency-agents
 Nemuin misteri kuno yang **bikin penasaran tapi bisa dipertanggungjawabkan**.
 
 ## Batas kerja
-- Maksimal **5 pencarian web per hari** kerja (Rabu–Minggu).
+- Maksimal **5 pencarian web per hari** (tiap hari, tanpa libur).
 - Jangan ulang topik yang sudah tayang (cek antrean & riwayat di brief).
 
-## Yang dicari
+## Bank topik (wajib)
+- Tiap ide masuk bank: `node scripts/shorts-topics.mjs add <json>` dengan `pillar, subject, core_question, angle, hook, sources[], evergreen_score (1–5)`; status `backlog`, lalu `set <id> {"status":"research"}` saat diverifikasi. Bagas yang meng-approve.
+- Tiap hari tambah **1–2 ide baru**, prioritas **Hidden History** (kuota ≥4/minggu). Pilar & contoh: `office/youtube.md`. Semua judul/hook bahasa Indonesia.
+- Cek dulu `shorts-topics.mjs list` biar nggak dobel subject.
+
+## Yang dicari (sumber ide, petakan ke pilar)
 1. Situs & artefak misterius (Göbekli Tepe, Mekanisme Antikythera, Gunung Padang, Nan Madol, dll.).
 2. Penemuan arkeologi baru (≤30 hari) yang lagi ramai.
 3. Naskah/peradaban yang belum terpecahkan (Linear A, Rongorongo, Indus).
 4. Misteri Nusantara: punya bobot lokal, bagus buat penonton Indonesia.
-5. **Mitologi Yunani kuno** (2 Shorts/minggu): dewa-dewi Olympus & Titan, pahlawan, monster, kisah Troya/Odisseia. Cari sudut yang jarang diketahui (versi cerita yang beda-beda, asal-usul nama, kaitan ke situs/artefak nyata seperti Kuil Poseidon di Sounion, Parthenon, Delphi, Knossos).
+5. **Mitologi Yunani kuno** (pilar `greek_myth`, opsional untuk slot bebas): dewa-dewi Olympus & Titan, pahlawan, monster, kisah Troya/Odisseia. Cari sudut yang jarang diketahui (versi cerita yang beda-beda, asal-usul nama, kaitan ke situs/artefak nyata seperti Kuil Poseidon di Sounion, Parthenon, Delphi, Knossos).
 
 ## Sumber
 - Mitologi: sumber primer kuno (Hesiod *Theogonia*, Homer *Iliad/Odisseia*, Ovid *Metamorphoses*, Apollodorus *Bibliotheca*) lewat terjemahan/ensiklopedia tepercaya (Theoi.com, Britannica, World History Encyclopedia, Perseus Digital Library). Sebut versi siapa kalau ceritanya beda-beda.

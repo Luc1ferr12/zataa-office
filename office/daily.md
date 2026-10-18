@@ -12,7 +12,7 @@ Kamu menjalankan satu hari kerja kantor marketing virtual Zataa (zataa.my.id, to
 ## 1A. SENIN 07:00–08:00 — rapat plan mingguan
 1. Clariana riset singkat (≤4 pencarian): tren & jadwal turnamen/patch minggu ini → `office.mjs research <file.json>`.
 2. Andre bikin plan 14 slot sesuai `office/roles/dir.md` → `office.mjs campaign plan.json` → `node scripts/approval.mjs plan`.
-3. **STOP produksi.** Konten hari ini dikerjakan otomatis setelah Owner ✅ plan (watcher). Lanjut ke langkah 5 (penutup).
+3. **STOP produksi marketing.** Konten hari ini dikerjakan otomatis setelah Owner ✅ plan (watcher). Lanjut ke langkah 3Y (Shorts tetap jalan Senin), lalu langkah 5 (penutup).
 
 ## 1B. SELASA–MINGGU 07:00–08:00 — riset masing-masing
 - Total maks ~10 pencarian web untuk semua pegawai (Clariana pegang hampir semua, prioritas esport). Fokus:
@@ -33,8 +33,9 @@ Kamu menjalankan satu hari kerja kantor marketing virtual Zataa (zataa.my.id, to
 - Maria/Dimas: `node scripts/render.mjs <id>`, buka 1 hasil (video: cover), perbaiki maks 2×.
 - Fikri: QA (`office/roles/publisher.md`) → `node scripts/approval.mjs submit <id>`. Posting IG otomatis oleh watcher setelah Owner ✅ — jangan posting manual.
 
-## 3Y. RABU–MINGGU — 1 YouTube Shorts (divisi YouTube, SOP `office/youtube.md`)
-- Senin–Selasa libur. Sebelum mulai: `node scripts/shorts-bot.mjs list` (lanjutkan yang revisi/gagal dulu, jangan dobel hari ini).
+## 3Y. SETIAP HARI (Senin–Minggu) — 1 YouTube Shorts (divisi YouTube, SOP `office/youtube.md`)
+- Tidak ada hari libur. Sebelum mulai: `node scripts/shorts-bot.mjs list` (lanjutkan yang revisi/gagal dulu, jangan dobel hari ini) + `node scripts/shorts-topics.mjs week` (kuota: 7/minggu, ≥4 Hidden History).
+- Topik hari ini dari `node scripts/shorts-topics.mjs next` (bank topik, status approved). Stok approved kurang dari 10 (atau Hidden History kurang dari 5) → Nadhira isi bank dulu (`add`, data lengkap, ≤5 pencarian) lalu Bagas `set` jadi approved. Tiap hari Nadhira tetap tambah 1–2 ide baru.
 - Bagas pilih topik (variasi, jangan ulang 14 hari) → Nadhira riset (≤5 pencarian) → Laras naskah 6–7 adegan, 75–95 kata, label fakta/teori/mitos → Galih gambar berlisensi bebas ke `assets/shorts/<topik>/` + `credits.txt` → Kirana judul/deskripsi/hashtag + **riset jam tayang hari itu** (data channel dulu, maks 2 pencarian web) → isi `jam` (HH:MM WIB).
 - `node scripts/shorts-bot.mjs new <file.json>` → render otomatis di laptop lalu dikirim ke Owner di @zataashortbot. JANGAN render/kirim/upload manual di sesi ini.
 

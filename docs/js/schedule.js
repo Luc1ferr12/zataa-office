@@ -26,7 +26,7 @@ export const AGENTS = [
   { id: 'treport',    name: 'Selena',    avatar: '#7e22ce', title: 'Reporting',              gender: 'f', team: 'trd', desk: 13, nyShift: true },
   // Aprista: sekretaris pribadi Bos (catat keuangan), numpang komputer Bos
   { id: 'sec',        name: 'Aprista',   avatar: '#8a5a3c', title: 'Sekretaris Pribadi',     gender: 'f', partner: 'owner', sec: true },
-  // tim YouTube Shorts (sejarah misteri kuno): produksi Rabu–Minggu, Senin–Selasa libur
+  // tim YouTube Shorts (sejarah kuno): produksi tiap hari, 1 Shorts/hari (tanpa libur, keputusan Owner 18 Okt)
   { id: 'ydir',       name: 'Bagas',     avatar: '#991b1b', title: 'Manajer YouTube',        gender: 'm', team: 'yt', lead: true },
   { id: 'yresearch',  name: 'Nadhira',   avatar: '#a16207', title: 'Riset Sejarah & Tren',   gender: 'f', team: 'yt', desk: 14 },
   { id: 'yscript',    name: 'Laras',     avatar: '#7c2d12', title: 'Scriptwriter & Fact Checker', gender: 'f', team: 'yt', desk: 15 },
@@ -352,15 +352,7 @@ export function activityAt(idx, agent, t, real, ctx = {}) {
     return withMood({ ...f, label: dow === 0 ? `${f.label} (pasar tutup)` : f.label }, true);
   }
 
-  // tim YouTube: produksi Rabu–Minggu, Senin–Selasa libur
-  if (yt && (dow === 1 || dow === 2)) {
-    if (m >= at(12, 20) && m < at(12, 45) + j(5, 25)) return withMood({ act: 'lunch', loc: 'cafe', slot: seatOf(idx, agent), label: 'Makan siang', emoji: '🍛' });
-    if (m >= at(18, 20) && m < at(18, 50) + j(6, 15)) return withMood({ act: 'lunch', loc: 'cafe', slot: seatOf(idx, agent), label: 'Makan malam', emoji: '🍜' });
-    if (m >= bed - 12) return withMood({ act: 'free', loc: 'sink', slot: idx % 2, label: 'Sikat gigi, siap tidur', emoji: '🪥' }, true);
-    const f = freeTime(idx, agent, t);
-    return withMood({ ...f, label: `${f.label} (libur Shorts)` }, true);
-  }
-  // tim YouTube: 07:00 riset sendiri, 08:00 briefing di Meeting YouTube (Bagas pilih topik Shorts hari ini)
+  // tim YouTube: produksi tiap hari (tanpa libur sejak 19 Okt). 07:00 riset sendiri, 08:00 briefing di Meeting YouTube (Bagas pilih topik Shorts hari ini)
   if (yt && m < at(8)) return withMood({ act: 'work', loc: desk, label: RESEARCH[agent.id] ?? 'Riset pagi', emoji: '🔎' });
   if (yt && m < at(8, 30)) return withMood({ act: 'meeting', loc: 'meetingY', slot: YT_SEAT[agent.id], label: agent.id === 'ydir' ? 'Mimpin briefing Shorts' : 'Briefing: topik misteri hari ini', emoji: '🏺' });
   // tim Trading: 07:00 riset masing-masing, 08:00 briefing di Meeting Trading (Mahendra mimpin alur agent)
