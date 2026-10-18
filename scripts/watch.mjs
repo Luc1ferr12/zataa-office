@@ -25,7 +25,8 @@ import { laptopFallback } from './laptop-fallback.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const EVERY = 60_000;
-const stamp = () => new Date().toLocaleTimeString('id-ID', { timeZone: 'Asia/Makassar' });
+// tanggal + jam WITA: watcher.log nyambung berhari-hari, tanpa tanggal error lama kebaca seperti baru
+const stamp = () => new Date().toLocaleString('sv-SE', { timeZone: 'Asia/Makassar' }).slice(5, 16).replace(' ', ' ');
 const log = (m) => console.log(`[${stamp()}] ${m}`);
 const busy = new Set();
 
