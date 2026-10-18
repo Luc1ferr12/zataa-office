@@ -17,7 +17,7 @@ Bikin akun IG & TikTok Zataa jadi tempat nongkrong gamer ML/Valorant/FF, lalu ub
 1. `office.mjs brief dir` → lihat `last_week` + memori.
 2. Ambil 5–8 topik terbaik dari Researcher hari ini.
 3. Tentukan **1 tema** minggu ini (contoh: "Road to MPL Playoff", "Gajian Topup").
-4. Susun 14 slot: **tiap hari (Sen–Min) 1 feed `siang` + 1 video `malam`** (feed boleh carousel):
+4. Susun 14 slot: **tiap hari (Sen–Min) 1 feed `siang` + 1 video `malam`** (feed boleh carousel). Cek dulu `node scripts/analyst.mjs slots`: kalau Raka menyarankan geser jam (≥4 post/jam, views ≥30% lebih tinggi), pakai slot itu dan sebutkan di plan biar Owner tahu:
    - ±6 berita/esport · ±4 promo zataa · ±4 tips/engagement · game lain maks 1.
    - Jangan 2 promo berturut-turut. Promo paling kuat di hari gajian/akhir pekan.
 5. Tetapkan **1 eksperimen** minggu ini, contoh: hook pertanyaan vs hook angka, carousel vs single, jam 12 vs 13.

@@ -4,10 +4,11 @@
 //   node scripts/analyst.mjs collect          tarik metrik sekarang
 //   node scripts/analyst.mjs daily [--dry]    laporan harian sekarang (--dry = cetak saja, tidak dikirim)
 //   node scripts/analyst.mjs weekly [--dry]   laporan mingguan sekarang
+//   node scripts/analyst.mjs slots            performa per jam tayang 28 hari (feed vs video) + saran jam
 process.removeAllListeners('warning');
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
-import { loadEnv, db, say } from './approval.mjs';
+import { loadEnv, db, say, SLOT } from './approval.mjs';
 import { chat } from './chatter.mjs';
 
 const env = () => ({ ...loadEnv(), ...process.env });
@@ -107,6 +108,34 @@ export async function dailyReport({ dry = false } = {}) {
   return { made: made.length, posted: posted.length };
 }
 
+// performa per jam tayang (slot) 28 hari terakhir, dipisah feed vs video → bahan Andre geser jam di plan Senin
+const SLOT_DAYS = 28, SLOT_MIN = 4; // slot baru dinilai kalau sudah ada ≥4 post
+const PLAN_SLOT = { feed: 'siang', video: 'malam' }; // jam plan harian sekarang (office/roles/dir.md)
+export async function slotStats() {
+  const d = await db();
+  const rows = d.prepare(`SELECT c.slot, CASE WHEN c.format = 'video' THEN 'video' ELSE 'feed' END kind, COUNT(*) n,
+      AVG(m.views) views, AVG(m.likes + 3 * m.comments + 2 * m.saves) score
+    FROM contents c JOIN metrics m ON m.id = (SELECT id FROM metrics WHERE content_id = c.id AND platform = 'instagram' ORDER BY id DESC LIMIT 1)
+    WHERE ${MK('c.')} AND c.status = 'posted' AND c.posted_at >= datetime('now', ?) GROUP BY c.slot, kind`).all(`-${SLOT_DAYS} days`);
+  const out = {};
+  for (const kind of ['feed', 'video']) {
+    const list = rows.filter((r) => r.kind === kind).sort((a, b) => b.views - a.views);
+    const ok = list.filter((r) => r.slot !== 'kilat' && SLOT[r.slot] && r.n >= SLOT_MIN);
+    const plan = list.find((r) => r.slot === PLAN_SLOT[kind]);
+    const best = ok[0];
+    let advice;
+    if (!best || !plan || plan.n < SLOT_MIN) advice = `data belum cukup (butuh ≥${SLOT_MIN} post per jam)`;
+    else if (best.slot !== plan.slot && best.views >= plan.views * 1.3) advice = `geser ${kind} plan dari ${SLOT[plan.slot]} ke <b>${SLOT[best.slot]} WIB</b> (views +${Math.round((best.views / Math.max(plan.views, 1) - 1) * 100)}%)`;
+    else advice = `jam plan ${SLOT[plan.slot]} WIB udah paling oke, pertahankan`;
+    out[kind] = { list, advice };
+  }
+  return out;
+}
+const slotLines = (st) => ['', `<b>Jam tayang terbaik</b> (${SLOT_DAYS} hari, rata-rata per post)`,
+  ...['feed', 'video'].flatMap((kind) => [
+    `${kind === 'video' ? '🎬 Video' : '🖼️ Feed'}: ${st[kind].list.length ? st[kind].list.map((r) => `${r.slot === 'kilat' ? 'kilat' : `${SLOT[r.slot] ?? r.slot}`} 👀${num(Math.round(r.views))} ❤️${(r.score).toFixed(1)} (${r.n})`).join(' · ') : 'belum ada data'}`,
+    `   → ${st[kind].advice}`])];
+
 export async function weeklyReport({ dry = false } = {}) {
   const d = await db();
   const w = wita();
@@ -130,6 +159,7 @@ export async function weeklyReport({ dry = false } = {}) {
   for (const r of rows) (pillars[r.pillar ?? 'lain'] ??= []).push(score(r));
   const avg = Object.entries(pillars).map(([k, v]) => [k, v.reduce((a, b) => a + b, 0) / v.length]).sort((a, b) => b[1] - a[1]);
   const total = rows.reduce((a, r) => ({ likes: a.likes + r.likes, comments: a.comments + r.comments, views: a.views + r.views }), { likes: 0, comments: 0, views: 0 });
+  const slots = await slotStats();
   const text = [
     `<b>Raka</b>: 🗓️ <b>Laporan mingguan Marketing</b> · ${dm(monday)}–${dm(date)}`, '',
     '<b>Akun</b>', accLine('instagram', '📸 IG', s, prev), accLine('tiktok', '🎵 TikTok', s, prev), '',
@@ -138,10 +168,11 @@ export async function weeklyReport({ dry = false } = {}) {
     `<b>Performa IG</b> (${rows.length} post tayang)`,
     `❤️ ${num(total.likes)} · 💬 ${num(total.comments)}${total.views ? ` · 👀 ${num(total.views)}` : ''}`,
     ...(top.length ? ['<b>Top 3 post:</b>', ...top.map((r, i) => `${i + 1}. #${r.id} ${esc(r.title)} (❤️ ${r.likes} · 💬 ${r.comments})`)] : []),
-    ...(avg.length ? ['', '<b>Pilar paling works:</b>', ...avg.map(([k, v]) => `• ${esc(k)}: skor rata-rata ${v.toFixed(1)}`)] : []), '',
+    ...(avg.length ? ['', '<b>Pilar paling works:</b>', ...avg.map(([k, v]) => `• ${esc(k)}: skor rata-rata ${v.toFixed(1)}`)] : []),
+    ...slotLines(slots), '',
     `🚀 Boost minggu ini: ${boost.n}× · ${rp(boost.s)}`,
     `💰 Perubahan harga zataa.my.id: ${prices}×`, '',
-    avg.length ? `Saran: perbanyak pilar <b>${esc(avg[0][0])}</b> minggu depan. Andre pakai ini buat plan Senin.` : 'Minggu ini belum ada data IG yang cukup buat dianalisis.',
+    avg.length ? `Saran: perbanyak pilar <b>${esc(avg[0][0])}</b> minggu depan. Andre pakai ini (pilar + jam tayang) buat plan Senin.` : 'Minggu ini belum ada data IG yang cukup buat dianalisis.',
     prev ? '<i>(angka dalam kurung = kenaikan sejak laporan minggu lalu)</i>' : '',
   ].join('\n').trim();
   if (dry) return text;
@@ -174,5 +205,6 @@ if (isMain) {
   if (cmd === 'collect') show(await collect());
   else if (cmd === 'daily') show(await dailyReport({ dry }));
   else if (cmd === 'weekly' || cmd === 'report') show(await weeklyReport({ dry }));
-  else console.log('pakai: analyst.mjs collect | daily [--dry] | weekly [--dry]');
+  else if (cmd === 'slots') show(await slotStats());
+  else console.log('pakai: analyst.mjs collect | daily [--dry] | weekly [--dry] | slots');
 }
