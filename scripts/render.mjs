@@ -8,7 +8,7 @@ import { readFile, mkdir, writeFile } from 'node:fs/promises';
 import { readFileSync, existsSync, readdirSync, mkdtempSync, rmSync, statSync, writeFileSync, createReadStream } from 'node:fs';
 import { spawn, spawnSync } from 'node:child_process';
 import { tmpdir, homedir } from 'node:os';
-import { join, extname, normalize, dirname, relative } from 'node:path';
+import { join, extname, normalize, dirname, relative, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { chromium } from 'playwright-core';
 import ffmpegPath from 'ffmpeg-static';
@@ -243,7 +243,7 @@ if (!a1) { out('pakai: render.mjs <content_id> | render.mjs try <template> <data
 
 if (a1 === 'try') {
   const data = JSON.parse(readFileSync(a3, 'utf8'));
-  const dir = join(ROOT, a4 ?? 'out');
+  const dir = resolve(ROOT, a4 ?? 'out'); // a4 bisa absolut (render-laptop.mjs pakai folder temp)
   const res = await run(a2, data, dir, a2);
   out({ ok: true, dir: relative(ROOT, dir), ...res });
 } else {
