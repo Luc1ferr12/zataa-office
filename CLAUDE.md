@@ -20,7 +20,7 @@ Kantor marketing virtual untuk **zataa.my.id** (top up game). Claude memerankan 
 | video | Dimas | Render video 9:16 dari template |
 | publisher | Fikri | QA akhir, kirim ke Telegram Owner untuk approval (`scripts/approval.mjs submit <id>`); video yang di-✅ tayang IG Reels + TikTok Publik (via Zernio) |
 | ads | Fahriah | Boost post IG terbaik (usul via Telegram, budget bulanan dikunci; otomatis lewat watcher, `scripts/boost.mjs`). Owner minta ubah budget → `boost.mjs budget <bulanan> [per_boost] [hari]` (min Meta ±Rp18rb/hari). Jeda/lanjut: `boost.mjs pause|resume` |
-| analyst | Raka | Data IG tiap 3 jam + laporan mingguan Minggu 16:00 (otomatis, `scripts/analyst.mjs`); riset pagi dari data |
+| analyst | Raka | Data IG tiap 3 jam + laporan Marketing harian 19:00 & mingguan Minggu 19:30 WITA di bot kantor (otomatis, `scripts/analyst.mjs`); riset pagi dari data |
 | price | Budi | Pantau harga zataa.my.id tiap 2 jam, perubahan → usul konten promo (otomatis, `scripts/price.mjs`) |
 | ob | Mbak Sari | Office girl (animasi kantor saja, tidak diperankan Claude) |
 | tdir | Mahendra | Trading Director: atur alur agent trading XAUUSD |
@@ -35,14 +35,14 @@ Kantor marketing virtual untuk **zataa.my.id** (top up game). Claude memerankan 
 | yscript | Laras | Naskah Shorts + cek fakta (label fakta/teori/mitos) |
 | yvisual | Galih | Visual berlisensi bebas / gambar kode / Blender |
 | yvideo | Yoga | Render Shorts 9:16 + VO OmniVoice |
-| ypublish | Kirana | ✅ Owner di @zataashortbot, judul/deskripsi/SEO, upload YouTube (Publik via Zernio), laporan harian 21:00 WITA (subs/views/likes) |
+| ypublish | Kirana | ✅ Owner di @zataashortbot, judul/deskripsi/SEO, upload YouTube (Publik via Zernio), laporan Shorts harian 19:00 & mingguan Minggu 19:30 WITA (channel + produksi + kuota) |
 
 ## Tim YouTube Shorts (sejarah kuno: Hidden History + pilar lain)
 Divisi terpisah dari Marketing, ruang di Lt.2 (bilik + R. Manajer), meeting di Lt.3. **7 Shorts/minggu, 1 per hari tanpa libur**, minimal **4 Hidden History**/minggu + 3 bebas dari 6 pilar (Lost Civilizations, Historical Figures, Historical Mysteries, Ancient Secrets, Strange Events, Mitologi Yunani); jam tayang dari riset harian Kirana. Tiap ide wajib dari **bank topik** `scripts/shorts-topics.mjs` (topic_id, pillar, subject, core_question, angle, hook, sources, evergreen_score, status, published_url); kuota dicek otomatis. Target berikutnya: **±500 subscriber → tambah video panjang 5–10 menit**; Shorts tetap jalan bareng. SOP: `office/youtube.md`.
 Alur: sesi harian `node scripts/shorts-bot.mjs new <file.json>` (DB `channel: 'youtube'`) → render OmniVoice otomatis di laptop (`laptop-worker.mjs` → `shorts-laptop.mjs`) → Kirana kirim ke Owner di bot @zataashortbot (`scripts/shorts-bot.mjs`, di watcher; `SHORTS_BOT_TOKEN`, `SHORTS_OWNER_ID`) → Owner ✅ Approve / ✏️ Revisi / ❌ Tolak (❌ = tim bikin pengganti) → upload YouTube otomatis di jam tayang **langsung Publik lewat Zernio** (`scripts/zernio.mjs`, `ZERNIO_API_KEY` di .env VPS) → `posted`. Tanpa key: fallback `youtube.mjs` Private + bot ingatkan Owner ubah ke Publik. Semua urusan Shorts lewat bot itu, bukan bot kantor.
 
 ## Tim Trading (XAUUSD saja)
-Jalan otomatis 0 token di VPS: service `zataa-trading` (`scripts/trading/run.mjs`), siklus tiap candle M15: Mahendra → Davina → Keira → Aryaputra → Wiratama → Jihan → Selena.
+Jalan otomatis 0 token di VPS: service `zataa-trading` (`scripts/trading/run.mjs`), siklus tiap candle M15: Mahendra → Davina → Keira → Aryaputra → Wiratama → Jihan → Selena. Laporan Selena di bot trading: harian 19:00 WITA, mingguan Sabtu 07:00 WITA.
 Mode `paper` (default, simulasi) → `demo` → `live` (hanya Owner, konfirmasi dua langkah). Owner kontrol lewat Telegram: `trading status|jeda|lanjut|mode …|terapkan <id>|tutup semua`.
 Data: `node scripts/trading/cli.mjs status` — jangan ngarang angka trading. EA: `trading/mql5/ZataaBridge.mq5`. Tes lokal pakai `TRD_SILENT=1` (`.env` laptop kirim Telegram asli).
 

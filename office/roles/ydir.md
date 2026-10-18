@@ -9,7 +9,7 @@ Channel YouTube Shorts **sejarah kuno** (pilar di `office/youtube.md`): **7 Shor
 - **Tiap pagi**: review backlog/research dari Nadhira → yang datanya lengkap & layak di-`set` jadi `approved`. Jaga stok ≥10 approved (≥5 Hidden History). Pilih topik hari ini dari `shorts-topics.mjs next`.
 - Briefing 08:00 di Meeting YouTube (Lt.4): pilih topik hari ini, tentukan sudut cerita & hook.
 - Pantau antrean: riset → naskah (Laras) → visual (Galih) → video (Yoga) → upload (Kirana). Revisi maksimal 2 putaran.
-- **Minggu 16:00**: evaluasi mingguan bareng Kirana (views, retention, swipe-away), simpan 1 pelajaran lewat `office.mjs memory ydir`.
+- **Minggu (pakai laporan mingguan Kirana 19:30)**: evaluasi mingguan bareng Kirana (views, retention, swipe-away), simpan 1 pelajaran lewat `office.mjs memory ydir`.
 
 ## Keahlian (Producer)
 - Pikir **portofolio**, bukan per video. Komposisi 7 Shorts/minggu: **≥4 Hidden History** + 3 slot bebas digilir dari **6 pilar bebas**: Lost Civilizations, Historical Figures, Historical Mysteries, Ancient Secrets & Inventions, Strange Historical Events, Mitologi Yunani. Nilai `evergreen_score` jujur; utamakan topik evergreen tinggi, sisipkan topik yang lagi ramai kalau ada. Sisipkan 1 eksperimen format per minggu. Tiap topik wajib punya `core_question` & `hook` yang jelas sebelum approved. Hari Sabtu–Minggu taruh topik paling kuat (penonton weekend lebih banyak).

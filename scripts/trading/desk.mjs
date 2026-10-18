@@ -2,7 +2,8 @@
 // plus status pegawai di kantor virtual (dashboard & obrolan oper kerjaan).
 import { execFileSync } from 'node:child_process';
 import { all, get, run, kv, setKv, params, mode, ROOT, money, currency, usdIdr, toIdr } from './store.mjs';
-import { quote, bars, eaFresh } from './market.mjs';
+import { quote, bars, eaFresh, marketOpen } from './market.mjs';
+import { upcoming } from './research.mjs';
 import { chat } from '../chatter.mjs';
 import { tradingBotOn, sendTrading } from './tgbot.mjs';
 import { db as officeDb } from './store.mjs';
@@ -131,17 +132,34 @@ export function evaluate(t) {
 }
 
 // ---------------------------------------------------------------- ringkasan harian / mingguan (Selena)
-export async function summary(days = 1) {
+// harian 19:00 WITA tiap hari (24 jam terakhir), mingguan non-paper Sabtu 07:00 WITA
+export async function summary(days = 1, { dry = false } = {}) {
   const from = new Date(Date.now() - days * 86400000).toISOString().slice(0, 19).replace('T', ' ');
-  const rows = all("SELECT * FROM trd_trades WHERE status = 'closed' AND mode = ? AND close_ts >= ?", mode(), from);
+  const rows = all("SELECT * FROM trd_trades WHERE status = 'closed' AND mode = ? AND close_ts >= ? ORDER BY id", mode(), from);
   const sigs = get("SELECT COUNT(*) n, SUM(decision = 'NO TRADE') skip FROM trd_signals WHERE ts >= ?", from);
+  const why = all("SELECT reason, COUNT(*) n FROM trd_signals WHERE decision = 'NO TRADE' AND ts >= ? GROUP BY reason ORDER BY n DESC LIMIT 2", from);
   const net = rows.reduce((s, r) => s + r.pnl, 0), wins = rows.filter((r) => r.pnl > 0).length;
-  const acc = account();
+  const acc = account(), open = openTrades();
   const label = days === 1 ? 'harian' : 'mingguan';
-  await report(`📊 <b>Laporan ${label} XAUUSD</b> (${acc.mode})\nTrade: ${rows.length} (menang ${wins}, kalah ${rows.length - wins})\nHasil bersih: <b>${usd(net)}</b>\nEkuitas: ${money(acc.equity)}\nAnalisa: ${sigs?.n ?? 0}× (no trade ${sigs?.skip ?? 0}×)`);
+  const news = upcoming(Date.now(), 24).filter((e) => e.impact === 'High');
+  const hm = (at) => new Date(at).toLocaleString('id-ID', { timeZone: 'Asia/Makassar', weekday: 'short', hour: '2-digit', minute: '2-digit' });
+  const msg = [
+    `📊 <b>Laporan ${label} XAUUSD</b> · mode ${acc.mode}${kv('paused', false) ? ' · ⏸️ dijeda' : ''} · pasar ${marketOpen() ? 'buka' : 'tutup'}`, '',
+    `<b>Mahendra/Keira</b> analisa: ${sigs?.n ?? 0} siklus (NO TRADE ${sigs?.skip ?? 0}×)`,
+    ...why.map((w) => `  • ${esc(w.reason)} (${w.n}×)`),
+    `<b>Wiratama</b> trade ditutup: ${rows.length} (menang ${wins}, kalah ${rows.length - wins})`,
+    ...rows.slice(-5).map((r) => `  • ${r.side.toUpperCase()} ${r.lot} lot ${r.entry} → ${r.exit} · ${usd(r.pnl)} (${esc(r.reason_close ?? '')})`),
+    `Hasil bersih: <b>${usd(net)}</b> · Ekuitas: ${money(acc.equity)}`,
+    `Posisi kebuka: ${open.length ? open.map((t) => `${t.side.toUpperCase()} ${t.lot} @ ${t.entry} (SL ${t.sl} · TP ${t.tp})`).join('; ') : 'nggak ada'}`,
+    `<b>Davina</b> berita USD 24 jam ke depan: ${news.length ? '' : 'nggak ada rilis berdampak tinggi'}`,
+    ...news.map((e) => `  • ${hm(e.at)} WITA ${esc(e.title)}`),
+  ].join('\n');
+  if (dry) return msg;
+  await report(msg);
+  return { trades: rows.length, net };
 }
 
-// ---------------------------------------------------------------- laporan lengkap paper + kelayakan akun real (Selena, Sabtu 08:00)
+// ---------------------------------------------------------------- laporan lengkap paper + kelayakan akun real (Selena, Sabtu 07:00)
 // Paper pakai modal yang sama dengan akun real Owner (perintah "modal <rupiah>"), jadi angkanya langsung bisa dibandingkan.
 const LIVE_READY = { minTrades: 10, minPf: 1.3, maxDdPct: 10 };
 const rp = (v) => `${v < 0 ? '−' : ''}Rp${Math.round(Math.abs(v)).toLocaleString('id-ID')}`;

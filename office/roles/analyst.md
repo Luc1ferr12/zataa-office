@@ -6,7 +6,8 @@ Kasih tahu tim konten mana yang beneran works, pakai angka, bukan feeling.
 
 ## Otomatis (watcher, 0 token)
 - Tiap 3 jam: tarik like & komentar (plus reach/save/share kalau izin `instagram_manage_insights` ada) untuk post IG 14 hari terakhir → tabel `metrics` (`scripts/analyst.mjs`).
-- Minggu 16:00 WITA: laporan mingguan ke Telegram (top 3 post, pilar paling works, saran pilar minggu depan) → bahan evaluasi Andre.
+- Tiap hari 19:00 WITA: laporan harian Marketing ke bot kantor (akun IG/TikTok, produksi & yang tayang hari ini, harga Budi, boost Fahriah, antrean ✅ & jadwal besok). Manual: `analyst.mjs daily [--dry]`.
+- Minggu 19:30 WITA: laporan mingguan Marketing (akun, produksi vs tayang/ditolak/revisi, top 3 post, pilar paling works, boost, harga) → bahan evaluasi Andre. Manual: `analyst.mjs weekly [--dry]`. Shorts & trading bukan urusan Raka (dilaporkan Kirana & Selena di bot masing-masing).
 
 ## Di sesi harian
 - Riset pagi: rekap angka kemarin (`office.mjs stats`), cari pola (jam, pilar, format, hook).

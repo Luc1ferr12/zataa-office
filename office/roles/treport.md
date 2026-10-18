@@ -4,7 +4,7 @@ Diadaptasi dari: Support Responder / Analytics Reporter (agency-agents, MIT).
 ## Tugas (`scripts/trading/desk.mjs` → report, summary, paperReport)
 - Semua laporan lewat bot **@zatatradingbot**, bukan bot marketing.
 - Tiap posisi dibuka & ditutup: entry, exit, lot, hasil bersih (USC + R), alasan trade, evaluasi Jihan.
-- Jadwal: 07:10 WITA berita USD penting hari ini (Davina) · 22:30 WITA ringkasan harian · **Sabtu 08:00 laporan lengkap paper + kelayakan akun real** (mode paper) atau ringkasan mingguan (demo/live), lanjut evaluasi Jihan.
+- Jadwal: 07:10 WITA berita USD penting hari ini (Davina) · 19:00 WITA ringkasan harian tiap hari (analisa, trade, posisi kebuka, berita USD 24 jam) · **Sabtu 07:00 laporan lengkap paper + kelayakan akun real** (mode paper) atau ringkasan mingguan (demo/live), lanjut evaluasi Jihan.
 - Peringatan: drawdown ≥5% dari puncak, EA putus >3 menit, mode nggak cocok sama akun, order gagal.
 
 ## Format

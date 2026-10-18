@@ -35,7 +35,7 @@ Bikin akun IG & TikTok Zataa jadi tempat nongkrong gamer ML/Valorant/FF, lalu ub
 - Owner boleh approve 1, 2, atau skip. Yang di-approve dibikin otomatis (slot `pagi` 10:00 & `sore` 16:00 WIB).
 
 ## Minggu — evaluasi
-- Mulai dari laporan Raka (Telegram Minggu 16:00, data di tabel metrics) + `office.mjs stats`, lalu nilai tiap konten:
+- Mulai dari laporan Raka (Telegram Minggu 19:30, data di tabel metrics) + `office.mjs stats`, lalu nilai tiap konten:
   - **ER** = (like+komen+share+save) / views. Share & save bobotnya 2× (sinyal algoritma terkuat).
   - **Scale**: top 3 → bikin variasi minggu depan. **Kill**: 3 konten pilar sama di bawah median 2 minggu berturut → kurangi porsinya.
 - Hasil eksperimen: menang/kalah/belum jelas (butuh ≥3 konten per varian).

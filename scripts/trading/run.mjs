@@ -2,7 +2,7 @@
 // Layanan tim Trading XAUUSD (24 jam, di VPS = service zataa-trading):
 //  - bridge HTTP untuk EA MT5 (ZataaBridge.mq5): terima harga/akun/posisi, kirim instruksi order
 //  - tiap candle M15 tutup → siklus agent (cycle.mjs); tiap 30 dtk cek SL/TP posisi paper
-//  - 22:30 WITA laporan harian, Sabtu 08:00 WITA evaluasi + backtest mingguan (proposal perubahan → ACC Owner)
+//  - 19:00 WITA laporan harian (tiap hari), Sabtu 07:00 WITA laporan + evaluasi + backtest mingguan (proposal perubahan → ACC Owner)
 //   node scripts/trading/run.mjs            (jalan terus)
 //   node scripts/trading/run.mjs --once     (satu siklus paksa, buat tes)
 process.removeAllListeners('warning');
@@ -161,8 +161,8 @@ async function tick() {
       const n = newsToday();
       await sayAs('tresearch', `☀️ Pagi Bos. Mode trading: <b>${mode()}</b>.${n ? `\nBerita USD penting hari ini:\n${n}` : '\nHari ini nggak ada rilis USD berdampak tinggi.'}`);
     });
-    if (hm === '22:30' && !['Sat', 'Sun'].includes(w.weekday)) await once('dailyDone', () => summary(1));
-    if (hm === '08:00' && w.weekday === 'Sat') await once('weeklyDone', async () => { await (mode() === 'paper' ? paperReport() : summary(7)); await weeklyEvaluation(); });
+    if (hm >= '19:00' && hm < '19:30') await once('dailyDone', () => summary(1));
+    if (hm >= '07:00' && hm < '07:30' && w.weekday === 'Sat') await once('weeklyDone', async () => { await (mode() === 'paper' ? paperReport() : summary(7)); await weeklyEvaluation(); });
   } catch (e) { log(`tick: ${e.stack || e.message}`); }
   busy = false;
 }

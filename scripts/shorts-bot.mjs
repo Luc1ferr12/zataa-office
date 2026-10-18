@@ -11,7 +11,8 @@
 //   node scripts/shorts-bot.mjs upload <id>           upload manual sekarang (Owner sudah ✅; normalnya otomatis di jam tayang)
 //   ❌ Tolak → Claude CLI bikin Shorts pengganti (topik lain, hari & jam sama)
 //   node scripts/shorts-bot.mjs say <agent> "<teks>"  pesan dari pegawai YouTube
-//   node scripts/shorts-bot.mjs report [--dry]        laporan harian sekarang (otomatis tiap 21:00 WITA; --dry = cetak saja, tidak dikirim)
+//   node scripts/shorts-bot.mjs report [--dry]        laporan harian sekarang (otomatis tiap 19:00 WITA; --dry = cetak saja, tidak dikirim)
+//   node scripts/shorts-bot.mjs weekly [--dry]        laporan mingguan sekarang (otomatis Minggu 19:30 WITA)
 //   .env: SHORTS_BOT_TOKEN, SHORTS_OWNER_ID (+ YT_* untuk upload)
 process.removeAllListeners('warning');
 import { join, dirname, basename } from 'node:path';
@@ -21,7 +22,7 @@ import { readFile } from 'node:fs/promises';
 import { execFile } from 'node:child_process';
 import { loadEnv, NAMA } from './approval.mjs';
 import { zernioOn, youtubeUpload } from './zernio.mjs';
-import { tdb, getTopic, checkQuota, syncTopic } from './shorts-topics.mjs';
+import { tdb, getTopic, checkQuota, syncTopic, weekStats, WEEK_TOTAL, HH_MIN, PILLARS } from './shorts-topics.mjs';
 import { claude, formatReply, ESCALATE, isStatusQuestion } from './ask.mjs';
 import { wita } from '../docs/js/schedule.js';
 
@@ -321,59 +322,94 @@ async function statusText() {
   return `<b>${NAMA.ydir}</b>: Rekap Shorts 7 hari terakhir:\n${rows.map((r) => `• #${r.id} ${r.day.slice(8)}/${r.day.slice(5, 7)} ${esc(r.title)} — ${lap[r.lap] ?? ST[r.status] ?? r.status}`).join('\n')}`;
 }
 
-// ---------- laporan harian Kirana (21:00 WITA, 0 token): subscriber, views, likes + kenaikan sejak laporan kemarin
-const REPORT_MIN = 21 * 60;
+// ---------- laporan Kirana di bot ini (0 token): harian 19:00 WITA, mingguan Minggu 19:30 WITA
+const REPORT_MIN = 19 * 60, WEEKLY_MIN = 19 * 60 + 30;
 const LONGFORM_SUBS = 500; // target Owner: mulai video panjang 5–10 menit (office/youtube.md)
 const num = (n) => (n == null ? '?' : Number(n).toLocaleString('id-ID'));
 const plus = (n) => (n == null ? '' : ` (${n >= 0 ? '+' : ''}${num(n)})`);
-// rekap mingguan Kirana (Minggu, nyatu di laporan 21:00): Shorts tayang 7 hari + pilar paling ditonton → bahan evaluasi Bagas
-async function weeklyLines(st, views) {
-  const d = await db();
-  const byId = Object.fromEntries(st.list.map((v) => [v.id, v]));
-  const rows = d.prepare("SELECT id, title, pillar, youtube_id FROM contents WHERE channel = 'youtube' AND youtube_id IS NOT NULL AND posted_at >= datetime('now', '-7 days')").all()
-    .map((c) => ({ ...c, v: byId[c.youtube_id] })).filter((c) => c.v);
-  const w = state().weekSnap;
-  const out = ['', '🗓️ <b>Rekap mingguan Shorts</b>',
-    `${rows.length} Shorts tayang minggu ini${w ? ` · 👥${plus(st.subscribers - w.subs)} subs · 👁️${plus(views - w.views)} views sejak ${w.date.slice(8)}/${w.date.slice(5, 7)}` : ''}`];
-  if (!rows.length) return out;
-  const pil = {};
-  for (const c of rows) (pil[c.pillar ?? 'lain'] ??= []).push(c.v.views);
-  const avg = Object.entries(pil).map(([k, v]) => [k, v.reduce((a, b) => a + b, 0) / v.length]).sort((a, b) => b[1] - a[1]);
-  return [...out,
-    ...[...rows].sort((a, b) => b.v.views - a.v.views).slice(0, 3).map((c, i) => `${i + 1}. #${c.id} ${esc(c.title.slice(0, 45))} · 👁️ ${num(c.v.views)} · 👍 ${num(c.v.likes)}`),
-    `Pilar paling ditonton: <b>${esc(avg[0][0])}</b> (rata-rata ${num(Math.round(avg[0][1]))} views). Bagas pakai ini buat evaluasi & antrean topik minggu depan.`];
-}
-
-export async function dailyReport({ dry = false } = {}) {
+const dm = (date) => `${date.slice(8)}/${date.slice(5, 7)}`;
+const addDays = (date, n) => new Date(Date.parse(`${date}T00:00:00Z`) + n * 86400_000).toISOString().slice(0, 10);
+const PROD = { draft: '📝 naskah/visual', revision: '✏️ revisi', pending_approval: '⏳ nunggu ✅ Bos', approved: '✅ nunggu jam tayang', uploading: '⏫ lagi upload', uploaded: '🔒 Private, nunggu Publik', upload_failed: '⚠️ upload gagal', posted: '📢 tayang' };
+const LAP = { 1: '⏳ antre render laptop', 2: '🎙️ dirender di laptop', 3: '⚠️ render gagal' };
+const prodLine = (c) => `#${c.id} ${esc(c.title.slice(0, 45))} — ${LAP[c.lap] ?? PROD[c.status] ?? esc(c.status)}`;
+async function ytStats() {
   const r = await run(['scripts/youtube.mjs', 'stats'], 3);
   if (!r.ok) throw new Error((r.err || r.out).split('\n').pop().slice(0, 200));
   const st = JSON.parse(r.out.split('\n').pop());
-  const views = st.list.reduce((a, v) => a + v.views, 0); // total channel dari API telat update → jumlahkan per video
+  return { st, views: st.list.reduce((a, v) => a + v.views, 0) }; // total channel dari API telat update → jumlahkan per video
+}
+
+export async function dailyReport({ dry = false } = {}) {
+  const { st, views } = await ytStats();
+  const d = await db();
   const prev = state().snap;
   const t = wita(new Date());
   const hari = DAYS[new Date(`${t.date}T00:00:00Z`).getUTCDay()];
   const vPrev = prev?.videos ?? {};
   const rows = st.list.filter((v) => v.privacy !== 'private' || v.views > 0)
-    .map((v) => ({ ...v, dv: vPrev[v.id] ? v.views - vPrev[v.id].v : null, dl: vPrev[v.id] ? v.likes - vPrev[v.id].l : null }))
+    .map((v) => ({ ...v, dv: vPrev[v.id] ? v.views - vPrev[v.id].v : null }))
     .sort((a, b) => (b.dv ?? b.views) - (a.dv ?? a.views));
+  const prodOf = (day) => d.prepare(`SELECT id, title, status, json_extract(data_json, '$._laptop') lap FROM contents
+    WHERE channel = 'youtube' AND day = ? AND status != 'rejected' AND COALESCE(json_extract(data_json, '$._test'), 0) = 0 ORDER BY id`).all(day);
+  const today = prodOf(t.date), tomorrow = prodOf(addDays(t.date, 1));
+  const wk = weekStats(d, t.date);
+  const ready = d.prepare("SELECT COUNT(*) n FROM shorts_topics WHERE status = 'approved'").get().n;
   const lines = [
-    `📊 <b>Laporan harian Zataa Story</b> · ${hari} ${t.date.slice(8)}/${t.date.slice(5, 7)}`, '',
+    `📊 <b>Laporan harian YouTube Shorts</b> · ${hari} ${dm(t.date)}`, '',
+    '<b>Channel Zataa Story</b>',
     `👥 Subscriber: <b>${num(st.subscribers)}</b>${prev ? plus(st.subscribers - prev.subs) : ''}`,
     `👁️ Views: <b>${num(views)}</b>${prev ? plus(views - prev.views) : ''}`,
     `👍 Likes: <b>${num(st.likes)}</b>${prev ? plus(st.likes - prev.likes) : ''}`,
-    `🎬 Video tayang: ${st.list.filter((v) => v.privacy === 'public').length}`, '',
-    ...rows.slice(0, 5).map((v, i) => `${i + 1}. ${esc(v.title.slice(0, 45))} · 👁️ ${num(v.views)}${plus(v.dv)} · 👍 ${num(v.likes)}${v.privacy !== 'public' ? ` · <i>${v.privacy}</i>` : ''}`),
+    `🎬 Video tayang: ${st.list.filter((v) => v.privacy === 'public').length}`,
+    ...rows.slice(0, 5).map((v, i) => `${i + 1}. ${esc(v.title.slice(0, 45))} · 👁️ ${num(v.views)}${plus(v.dv)} · 👍 ${num(v.likes)}${v.privacy !== 'public' ? ` · <i>${v.privacy}</i>` : ''}`), '',
+    '<b>Produksi</b>',
+    `Hari ini: ${today.length ? today.map(prodLine).join('; ') : '⚠️ belum ada Shorts'}`,
+    `Besok: ${tomorrow.length ? tomorrow.map(prodLine).join('; ') : 'belum disiapkan (dikerjain sesi pagi)'}`,
+    `Kuota minggu ini: ${wk.rows.length}/${WEEK_TOTAL} Shorts · Hidden History ${wk.hh}/${HH_MIN} · bank topik siap: ${ready}`,
     ...(st.subscribers >= LONGFORM_SUBS && !state().longform ? [`\n🎉 <b>Tembus ${num(LONGFORM_SUBS)} subscriber!</b> Sesuai rencana Bos, waktunya nambah video panjang 5–10 menit (Shorts tetap jalan seperti biasa). Bagas siapin rencananya ya.`] : []),
-    prev ? `\n<i>(angka dalam kurung = kenaikan sejak laporan ${prev.date.slice(8)}/${prev.date.slice(5, 7)})</i>` : '\n<i>Laporan pertama, kenaikan harian mulai muncul besok.</i>',
-    ...(hari === 'Minggu' ? await weeklyLines(st, views) : []),
-  ].filter((l) => l !== undefined);
+    prev ? `\n<i>(angka dalam kurung = kenaikan sejak laporan ${dm(prev.date)})</i>` : '\n<i>Laporan pertama, kenaikan harian mulai muncul besok.</i>',
+  ];
   if (dry) return lines.join('\n');
   await sayAs('ypublish', lines.join('\n'));
-  patchState((s) => {
-    s.snap = { date: t.date, subs: st.subscribers, views, likes: st.likes, videos: Object.fromEntries(st.list.map((v) => [v.id, { v: v.views, l: v.likes }])) }; s.reportDate = t.date; if (st.subscribers >= LONGFORM_SUBS) s.longform = s.longform ?? t.date;
-    if (hari === 'Minggu') s.weekSnap = { date: t.date, subs: st.subscribers, views };
-  });
+  patchState((s) => { s.snap = { date: t.date, subs: st.subscribers, views, likes: st.likes, videos: Object.fromEntries(st.list.map((v) => [v.id, { v: v.views, l: v.likes }])) }; s.reportDate = t.date; if (st.subscribers >= LONGFORM_SUBS) s.longform = s.longform ?? t.date; });
   return { ok: true, subscribers: st.subscribers, views, likes: st.likes };
+}
+
+// rekap mingguan (Senin–Minggu): target 7 Shorts & ≥4 Hidden History, top video, pilar paling ditonton → bahan evaluasi Bagas
+export async function weeklyReport({ dry = false } = {}) {
+  const { st, views } = await ytStats();
+  const d = await db();
+  const t = wita(new Date());
+  const wk = weekStats(d, t.date);
+  const prev = state().weekSnap;
+  const byId = Object.fromEntries(st.list.map((v) => [v.id, v]));
+  const ids = wk.rows.map((r) => r.id);
+  const info = ids.length ? Object.fromEntries(d.prepare(`SELECT id, status, youtube_id, revisions FROM contents WHERE id IN (${ids.join(',')})`).all().map((c) => [c.id, c])) : {};
+  const rows = wk.rows.map((r) => ({ ...r, ...info[r.id], v: byId[info[r.id]?.youtube_id] }));
+  const live = rows.filter((r) => r.v);
+  const rejected = d.prepare("SELECT COUNT(*) n FROM contents WHERE channel = 'youtube' AND status = 'rejected' AND day BETWEEN ? AND ?").get(wk.mon, wk.sun).n;
+  const pil = {};
+  for (const r of live) (pil[r.pillar ?? 'lain'] ??= []).push(r.v.views);
+  const avg = Object.entries(pil).map(([k, v]) => [k, v.reduce((a, b) => a + b, 0) / v.length]).sort((a, b) => b[1] - a[1]);
+  const label = (k) => PILLARS[k]?.label ?? k;
+  const ready = d.prepare("SELECT COUNT(*) n FROM shorts_topics WHERE status = 'approved'").get().n;
+  const lines = [
+    `🗓️ <b>Laporan mingguan YouTube Shorts</b> · ${dm(wk.mon)}–${dm(wk.sun)}`, '',
+    '<b>Channel Zataa Story</b>',
+    `👥 Subscriber: <b>${num(st.subscribers)}</b>${prev ? plus(st.subscribers - prev.subs) : ''} · target video panjang ${num(LONGFORM_SUBS)}`,
+    `👁️ Views: <b>${num(views)}</b>${prev ? plus(views - prev.views) : ''}`, '',
+    '<b>Produksi</b>',
+    `🎬 ${rows.length}/${WEEK_TOTAL} Shorts · 📢 tayang ${live.length} · Hidden History ${wk.hh}/${HH_MIN}${wk.hh >= HH_MIN ? ' ✅' : ' ⚠️'} · ❌ ditolak ${rejected} · ✏️ revisi ${rows.reduce((a, r) => a + (r.revisions ?? 0), 0)}×`,
+    ...(live.length ? ['', '<b>Top video minggu ini</b>', ...[...live].sort((a, b) => b.v.views - a.v.views).slice(0, 3).map((r, i) => `${i + 1}. #${r.id} ${esc(r.title.slice(0, 45))} · 👁️ ${num(r.v.views)} · 👍 ${num(r.v.likes)}`)] : []),
+    ...(avg.length ? ['', '<b>Pilar paling ditonton</b>', ...avg.map(([k, v]) => `• ${esc(label(k))}: rata-rata ${num(Math.round(v))} views`)] : []), '',
+    `📚 Bank topik siap produksi: ${ready}${ready < WEEK_TOTAL ? ' (kurang buat seminggu, Nadhira tambah riset)' : ''}`,
+    avg.length ? `Saran: perbanyak <b>${esc(label(avg[0][0]))}</b> di slot bebas minggu depan. Bagas pakai ini buat antrean topik.` : '',
+    prev ? `<i>(angka dalam kurung = kenaikan sejak laporan ${dm(prev.date)})</i>` : '',
+  ].filter((l, i, a) => l !== '' || a[i - 1] !== '');
+  if (dry) return lines.join('\n').trim();
+  await sayAs('ypublish', lines.join('\n').trim());
+  patchState((s) => { s.weekSnap = { date: t.date, subs: st.subscribers, views }; s.weeklyDate = t.date; });
+  return { ok: true, shorts: rows.length, hh: wk.hh };
 }
 
 // pesan bebas Owner → Claude CLI sebagai tim YouTube
@@ -425,10 +461,13 @@ async function runJobs(log) {
     log(`shorts #${c.id}: pengingat Publik ${r.n}/3`);
   }
   saveState({ ...state(), notified, remind });
-  // laporan harian 21:00 WITA (sekali per hari; jalan di antrean biar nggak dobel)
+  // laporan harian 19:00 & mingguan Minggu 19:30 WITA (sekali per hari; jalan di antrean biar nggak dobel)
   if (t.minutes >= REPORT_MIN && state().reportDate !== t.date && !reporting) {
     reporting = true;
     later(() => dailyReport().then(() => log('shorts: laporan harian terkirim')).catch((e) => { log(`shorts: laporan harian gagal ${e.message}`); patchState((s) => { s.reportDate = t.date; }); }).finally(() => { reporting = false; }), log);
+  } else if (t.minutes >= WEEKLY_MIN && new Date(`${t.date}T00:00:00Z`).getUTCDay() === 0 && state().reportDate === t.date && state().weeklyDate !== t.date && !reporting) {
+    reporting = true;
+    later(() => weeklyReport().then(() => log('shorts: laporan mingguan terkirim')).catch((e) => { log(`shorts: laporan mingguan gagal ${e.message}`); patchState((s) => { s.weeklyDate = t.date; }); }).finally(() => { reporting = false; }), log);
   }
 }
 let reporting = false;
@@ -547,6 +586,7 @@ if (isMain) {
       out(r);
     } else if (cmd === 'say') { await sayAs(a, esc(b)); out('ok'); }
     else if (cmd === 'report') out(await dailyReport({ dry: a === '--dry' }));
+    else if (cmd === 'weekly') out(await weeklyReport({ dry: a === '--dry' }));
     else out('pakai: shorts-bot.mjs new <file.json> | get <id> | set <id> <json|file> | list [dari] | queue <id> | submit <id> | upload <id> | say <agent> "<teks>"');
   } catch (e) { out(`gagal: ${e.message}`); process.exit(1); }
 }

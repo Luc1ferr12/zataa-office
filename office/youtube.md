@@ -28,8 +28,8 @@
 - 07:00–08:00 riset masing-masing → 08:00–08:30 briefing di Meeting YouTube (Lt.3) → produksi.
 - **Riset jam tayang tiap hari** (Kirana, aturan Owner): data YouTube Studio channel sendiri > hasil Shorts kita per jam > maks 2 pencarian web studi terbaru. Hasil → `jam` di Shorts hari itu + 1 kalimat alasan (`office.mjs log ypublish`). Channel belum punya data → uji jam berbeda, bandingkan tiap Minggu.
 - Alur: Bagas (topik) → Nadhira (riset, ≤5 pencarian web) → Laras (naskah + cek fakta) → Galih (visual berlisensi) → Yoga (render 9:16 + VO) → Kirana (jam tayang + judul/SEO → ✅ Owner via Telegram → upload).
-- **Tiap hari 21:00 WITA** Kirana kirim laporan harian ke Owner di @zataashortbot (otomatis, 0 token): total subscriber, views, likes + kenaikan sejak kemarin, 5 video teratas. Manual: `shorts-bot.mjs report` (`--dry` = cetak saja).
-- Minggu 16:00 evaluasi mingguan (Bagas + Kirana).
+- **Tiap hari 19:00 WITA** Kirana kirim laporan harian ke Owner di @zataashortbot (otomatis, 0 token): subscriber, views, likes + kenaikan sejak kemarin, 5 video teratas, status produksi hari ini & besok, kuota minggu (x/7, Hidden History x/4), bank topik siap. Manual: `shorts-bot.mjs report` (`--dry` = cetak saja).
+- **Minggu 19:30 WITA** laporan mingguan (otomatis): kenaikan subs/views seminggu, produksi vs target, top video, pilar paling ditonton → bahan evaluasi Bagas. Manual: `shorts-bot.mjs weekly [--dry]`.
 
 ## Bank topik (`scripts/shorts-topics.mjs`, DB tabel `shorts_topics`)
 Tiap ide video wajib masuk bank dulu, lengkap dengan: `topic_id` (otomatis, mis. `HH-001`), `pillar`, `subject` (peristiwa/tokoh/tempat/objek), `core_question` (pertanyaan utama video), `angle` (sudut cerita), `hook` (pembuka 3 detik), `sources` (≥2 URL untuk verifikasi), `evergreen_score` (1–5: 5 = tetap relevan bertahun-tahun, 1 = cuma ramai sesaat), `status`, `published_url` (otomatis setelah tayang).
