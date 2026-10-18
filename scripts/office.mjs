@@ -295,16 +295,22 @@ function tradingState() {
 
 function weekStats(week) {
   const end = addDays(week, 6);
+  // Marketing (IG/TikTok) + YouTube Shorts; Shorts 'uploading/uploaded' = sudah ✅ tapi belum tayang publik
   const c = get(`SELECT COUNT(*) total,
       SUM(status = 'posted') posted,
       SUM(status = 'pending_approval') pending,
-      SUM(status IN ('approved','scheduled')) scheduled
-    FROM contents WHERE day BETWEEN ? AND ? AND channel IS NOT 'youtube'`, week, end);
+      SUM(status IN ('approved','scheduled','uploading','uploaded')) scheduled,
+      SUM(channel IS 'youtube') yt_total, SUM(channel IS 'youtube' AND status = 'posted') yt_posted,
+      SUM(channel IS 'youtube' AND status = 'pending_approval') yt_pending,
+      SUM(channel IS 'youtube' AND status IN ('approved','uploading','uploaded')) yt_scheduled
+    FROM contents WHERE day BETWEEN ? AND ? AND COALESCE(json_extract(data_json, '$._test'), 0) = 0 AND status != 'rejected'`, week, end);
+  // metrics = snapshot tiap tarikan (Raka tiap 3 jam, socials.mjs) → ambil yang terbaru per konten per platform, jangan dijumlah semua
+  const LATEST = 'm.id IN (SELECT MAX(id) FROM metrics GROUP BY content_id, platform)';
   const m = get(`SELECT COALESCE(SUM(m.views),0) views, COALESCE(SUM(m.likes),0) likes, COALESCE(SUM(m.comments),0) comments,
-      COALESCE(SUM(m.shares),0) shares, COALESCE(SUM(m.saves),0) saves
-    FROM metrics m JOIN contents c ON c.id = m.content_id WHERE c.day BETWEEN ? AND ?`, week, end);
+      COALESCE(SUM(m.shares),0) shares, COALESCE(SUM(m.saves),0) saves, COALESCE(SUM(CASE WHEN c.channel IS 'youtube' THEN m.views END),0) yt_views
+    FROM metrics m JOIN contents c ON c.id = m.content_id WHERE ${LATEST} AND c.day BETWEEN ? AND ?`, week, end);
   const top = all(`SELECT c.title, c.format, c.pillar, SUM(m.views) views FROM metrics m JOIN contents c ON c.id = m.content_id
-    WHERE c.day BETWEEN ? AND ? GROUP BY c.id ORDER BY views DESC LIMIT 3`, week, end);
+    WHERE ${LATEST} AND c.day BETWEEN ? AND ? GROUP BY c.id ORDER BY views DESC LIMIT 3`, week, end);
   return { week, ...normalize(c), ...normalize(m), top };
 }
 const normalize = (o) => Object.fromEntries(Object.entries(o ?? {}).map(([k, v]) => [k, Number(v ?? 0)]));

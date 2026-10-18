@@ -8,7 +8,7 @@ import { writeFileSync, existsSync, statSync, mkdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { execFile } from 'node:child_process';
 import { fileURLToPath, pathToFileURL } from 'node:url';
-import { loadEnv } from './approval.mjs';
+import { loadEnv, db } from './approval.mjs';
 import { api as zernio } from './zernio.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -22,7 +22,7 @@ function summary(list, extra) {
   const count = { total: list.length, video: 0, foto: 0, carousel: 0 };
   for (const p of list) count[p.type] += 1;
   const hasViews = list.some((p) => p.views != null);
-  return { ...extra, posts: count, views: hasViews ? sum(list, 'views') : null, likes: sum(list, 'likes'), comments: sum(list, 'comments'), top: top(list) };
+  return { ...extra, list, posts: count, views: hasViews ? sum(list, 'views') : null, likes: sum(list, 'likes'), comments: sum(list, 'comments'), top: top(list) };
 }
 
 // ---------- Instagram (Graph API, token & IG_USER_ID sama dengan publish.mjs)
@@ -73,6 +73,7 @@ async function tiktok() {
     if (page >= (j.pagination?.pages ?? 1)) break;
   }
   const list = posts.filter((p) => p.status === 'published').map((p) => ({
+    pid: p.platforms?.find((x) => x.platform === 'tiktok')?.platformPostId ?? null,
     type: p.mediaType === 'video' ? 'video' : (p.mediaItems?.length ?? 0) > 1 ? 'carousel' : 'foto',
     title: short(p.content), url: p.platformPostUrl?.split('?')[0] ?? null, thumb: p.thumbnailUrl ?? null, at: p.publishedAt,
     views: p.analytics?.views ?? null, likes: p.analytics?.likes ?? 0, comments: p.analytics?.comments ?? 0,
@@ -87,17 +88,32 @@ const ytStats = () => new Promise((ok, no) => execFile(process.execPath, [join(R
 async function youtube() {
   const s = await ytStats();
   const list = (s.list ?? []).filter((v) => v.privacy === 'public').map((v) => ({
-    type: 'video', title: short(v.title), url: `https://youtube.com/shorts/${v.id}`, thumb: `https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`, at: v.published,
+    pid: v.id, type: 'video', title: short(v.title), url: `https://youtube.com/shorts/${v.id}`, thumb: `https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`, at: v.published,
     views: v.views, likes: v.likes, comments: v.comments,
   }));
   return { ...summary(list, { handle: '@zataastory', url: 'https://youtube.com/@zataastory', subscribers: s.subscribers }), views: Math.max(s.views ?? 0, sum(list, 'views')) }; // statistik channel YouTube sering telat, jumlah per video lebih segar
 }
 
+// snapshot views/likes/komentar per konten kantor ke tabel metrics (IG sudah dicatat Raka di analyst.mjs)
+async function record(platform, col, list) {
+  const d = await db();
+  const find = d.prepare(`SELECT id FROM contents WHERE ${col} = ?`);
+  const ins = d.prepare('INSERT INTO metrics (content_id, platform, views, likes, comments) VALUES (?, ?, ?, ?, ?)');
+  for (const p of list) {
+    const c = p.pid && find.get(String(p.pid));
+    if (c) ins.run(c.id, platform, p.views ?? 0, p.likes ?? 0, p.comments ?? 0);
+  }
+}
+
 export async function collect() {
   const out = { generated_at: new Date().toISOString() };
+  const all = {};
   for (const [k, fn] of [['instagram', instagram], ['tiktok', tiktok], ['youtube', youtube]]) {
-    try { out[k] = await fn(); } catch (e) { out[k] = { error: e.message.slice(0, 160) }; }
+    try { out[k] = await fn(); all[k] = out[k].list; delete out[k].list; } catch (e) { out[k] = { error: e.message.slice(0, 160) }; }
   }
+  await record('tiktok', 'tiktok_id', all.tiktok ?? []).catch(() => {});
+  await record('youtube', 'youtube_id', all.youtube ?? []).catch(() => {});
+  for (const k of Object.keys(all)) for (const p of out[k].top ?? []) delete p.pid;
   mkdirSync(dirname(OUT), { recursive: true });
   writeFileSync(OUT, `${JSON.stringify(out, null, 1)}\n`);
   return Object.fromEntries(['instagram', 'tiktok', 'youtube'].map((k) => [k, out[k].error ? `gagal: ${out[k].error}` : `${out[k].posts.total} post`]));

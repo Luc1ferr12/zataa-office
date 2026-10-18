@@ -81,13 +81,18 @@ function renderDashboard() {
   const s = state;
   const st = s?.stats?.this_week ?? {};
   const lw = s?.stats?.last_week ?? {};
+  // KPI gabungan Marketing + Shorts, rincian di baris kecil (yt_* dari office.mjs weekStats)
+  const split = (all, yt) => `Marketing ${(all ?? 0) - (yt ?? 0)} · Shorts ${yt ?? 0}`;
   $('k-total').textContent = st.total ?? 0;
+  $('k-total-sub').textContent = split(st.total, st.yt_total);
   $('k-pending').textContent = st.pending ?? 0;
+  $('k-pending-sub').textContent = `${split(st.pending, st.yt_pending)} · cek Telegram`;
   $('k-posted').textContent = st.posted ?? 0;
-  $('k-sched').textContent = `${st.scheduled ?? 0} terjadwal`;
+  $('k-sched').textContent = `${split(st.posted, st.yt_posted)} · ${st.scheduled ?? 0} terjadwal`;
   $('k-views').textContent = (st.views ?? 0).toLocaleString('id-ID');
   const diff = lw.views ? Math.round(((st.views - lw.views) / lw.views) * 100) : null;
-  $('k-views-sub').textContent = diff === null ? 'belum ada data minggu lalu' : `${diff >= 0 ? '▲' : '▼'} ${Math.abs(diff)}% vs minggu lalu`;
+  const vSplit = `Marketing ${((st.views ?? 0) - (st.yt_views ?? 0)).toLocaleString('id-ID')} · Shorts ${(st.yt_views ?? 0).toLocaleString('id-ID')}`;
+  $('k-views-sub').textContent = diff === null ? vSplit : `${diff >= 0 ? '▲' : '▼'} ${Math.abs(diff)}% vs minggu lalu · ${vSplit}`;
   $('campaign-theme').textContent = s?.campaign?.theme ? `Tema: ${s.campaign.theme}` : 'Belum ada campaign';
   $('updated-at').textContent = s?.generated_at ? `update ${new Date(s.generated_at).toLocaleString('id-ID', { timeZone: 'Asia/Makassar', hour: '2-digit', minute: '2-digit', day: 'numeric', month: 'short' })}` : '';
 
