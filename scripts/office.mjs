@@ -217,7 +217,7 @@ const commands = {
   export() {
     const t = today();
     const week = mondayOf(t);
-    const camp = get('SELECT week_start, theme, goals FROM campaigns WHERE week_start = ?', week);
+    const camp = get('SELECT week_start, theme, goals, status FROM campaigns WHERE week_start = ?', week);
     const state = {
       generated_at: new Date().toISOString(),
       today: t,

@@ -1,6 +1,6 @@
-// Peta jalan kantor v2 (terasering 4 tingkat): titik-titik selasar, pintu, tangga (graph) + lokasi tiap aktivitas.
+// Peta jalan kantor v3 (terasering 3 tingkat): titik-titik selasar, pintu, tangga (graph) + lokasi tiap aktivitas.
 // Karakter selalu berjalan lewat graph ini — lewat selasar, naik tangga, masuk pintu, ke kolam — tidak pernah teleport.
-import { ROOM, ROOMDEF, RF, RZ, LY, FRONT, CORR_SPAN, STAIR, stairAt, GAZEBO, GAZEBO2, POOL, MGR_ROOM, mgrX, MEET } from './px/scene.js';
+import { ROOM, ROOMDEF, RF, RZ, LY, FRONT, FLOORS, CORR_SPAN, STAIR, stairAt, POOL, MGR_ROOM, mgrX, MEET, CINE_AISLE } from './px/scene.js';
 import { AGENTS } from './schedule.js';
 
 // vektor 3D kecil (pengganti THREE.Vector3)
@@ -20,8 +20,8 @@ const EDGES = [];
 const corrZ = (t) => FRONT[t - 1] - 1;   // garis tengah selasar
 const yOf = (t) => LY[t - 1];
 // titik di selasar tiap tingkat: ujung-ujung, tiap pintu, tangga, + simpul halaman/taman
-const EXTRA_X = { 1: [0.8, 6.4, -2.2], 2: [], 3: [25.5], 4: [19] };
-for (let t = 1; t <= 4; t++) {
+const EXTRA_X = { 1: [0.8, 6.4, -2.2], 2: [], 3: [] };
+for (let t = 1; t <= FLOORS; t++) {
   const [a, b] = CORR_SPAN[t - 1];
   const xs = new Set([a + 0.6, b - 0.6, 0, ...EXTRA_X[t], stairAt(t), ...(t > 1 ? [stairAt(t - 1)] : [])]);
   for (const [id] of ROOMDEF[t]) if (!id.startsWith('tangga')) xs.add(+ROOM[id].door.toFixed(2));
@@ -34,16 +34,16 @@ for (let t = 1; t <= 4; t++) {
   for (const [id] of ROOMDEF[t]) {
     if (id.startsWith('tangga')) continue;
     const r = ROOM[id];
-    N[`R:${id}`] = [r.door, yOf(t), RF(t) - (id === 'tamanAtas' ? 0.6 : 1.0)];
+    N[`R:${id}`] = [r.door, yOf(t), RF(t) - 1.0];
     EDGES.push([`C${t}:${+r.door.toFixed(2)}`, `R:${id}`]);
   }
 }
 // tangga: bawah (di sel tangga) → atas (tepi depan selasar tingkat berikutnya); 2→3 ada di pojok kiri Lt.2
-for (let t = 1; t <= 3; t++) {
+for (let t = 1; t < FLOORS; t++) {
   const sx = stairAt(t);
   N[`ST${t}b`] = [sx, yOf(t), RZ(t, STAIR.lz0 + 0.3)];
   N[`ST${t}t`] = [sx, yOf(t + 1), FRONT[t] - 0.15];
-  EDGES.push([t === 1 ? 'R:lobby' : `C${t}:${sx}`, `ST${t}b`], [`ST${t}b`, `ST${t}t`], [`ST${t}t`, `C${t + 1}:${sx}`]);
+  EDGES.push([`C${t}:${sx}`, `ST${t}b`], [`ST${t}b`, `ST${t}t`], [`ST${t}t`, `C${t + 1}:${sx}`]);
 }
 // halaman depan: jalan utama, taman + gazebo, dek kolam, gerbang
 Object.assign(N, {
@@ -87,7 +87,7 @@ function shortest(from, to) {
   return path;
 }
 
-// ---------------------------------------------------------------- daftar shaf & kasur
+// ---------------------------------------------------------------- daftar shaf & perenang
 const MEN_SHAF = AGENTS.filter((a) => a.gender === 'm' && !a.imam).map((a) => a.id);
 const WOMEN = AGENTS.filter((a) => a.gender === 'f').map((a) => a.id);
 const SWIMMERS = AGENTS.filter((a) => a.gender === 'm').map((a) => a.id);
@@ -98,12 +98,16 @@ for (const r of Object.values(ROOM)) {
   if (r.id.startsWith('tangga')) continue;
   CLEAN[r.id] = { p: [Math.max(r.x0 + 1, r.door - 1.6), yOf(r.L), RZ(r.L, -3.4)], a: `R:${r.id}`, rot: Math.PI / 2 };
 }
+CLEAN.mushola.p = [-21.6, 0, RZ(1, -4.6)];
+CLEAN.billiard.p = [-0.4, yOf(3), RZ(3, -4.4)];
+CLEAN.cafe.p = [-5.75, 0, RZ(1, -3.15)];
+CLEAN.santai.p = [24.4, 0, RZ(1, -4.6)];
 CLEAN.teras = { p: [-10, 0, corrZ(1)], a: 'C1:-2.2', rot: -Math.PI / 2 };
 CLEAN.kolam = { p: [7.2, 0, 15], a: 'DECK1', rot: Math.PI / 2 };
 CLEAN.selasar2 = { p: [8, yOf(2), corrZ(2)], a: 'C2:0', rot: Math.PI / 2 };
+CLEAN.selasar3 = { p: [4, yOf(3), corrZ(3)], a: 'C3:0', rot: -Math.PI / 2 };
 
 // ---------------------------------------------------------------- lokasi tujuan → { pos, rot, pose, anchor, approach[] }
-const inRoom = (id, lz) => { const r = ROOM[id]; return V(r.door, yOf(r.L), RZ(r.L, lz)); };
 export function locationFor(spots, agent, idx, loc, info) {
   const key = String(loc).split('#')[0];
   const k = info?.slot ?? idx;
@@ -143,80 +147,79 @@ export function locationFor(spots, agent, idx, loc, info) {
       const list = spots[key];
       const s = list[(info?.slot ?? 0) % list.length];
       const room = key === 'bossSofa' ? 'boss' : MGR_ROOM[key.replace('Sofa', '')];
-      const front = key === 'bossSofa' ? RZ(4, -4.6) : s.z - 1.1;
+      const front = key === 'bossSofa' ? RZ(3, -4.6) : s.z - 1.1;
       return { pos: P(s), rot: s.rot, pose: info?.pose ?? 'phone', anchor: `R:${room}`, approach: [V(s.x, s.y, front)] };
     }
-    case 'meeting': case 'meetingT': case 'meetingY': {   // ruang meeting di Lt.4
+    case 'waitBoss': {   // manajer duduk di kursi tunggu depan pintu Bos sampai Owner approve
+      const s = spots.waitBoss[k % spots.waitBoss.length];
+      return { pos: P(s), rot: s.rot, pose: 'phone', anchor: `C3:${+ROOM.boss.door.toFixed(2)}`, approach: [V(s.x, yOf(3), corrZ(3))] };
+    }
+    case 'meeting': case 'meetingT': case 'meetingY': {   // ruang meeting di Lt.3
       const list = spots[key];
       const m = list[k % list.length];
       const { room, lz: cz, east } = MEET[key], y = m.y;
       let approach;
-      if (Math.abs(m.rot) < 0.1) approach = [V(east, y, RZ(4, -6.1)), V(m.x, y, RZ(4, -6.1))];          // sisi belakang meja
-      else approach = [V(m.x, y, RZ(4, cz + 1.9))];                                                        // sisi depan / ujung meja
+      if (Math.abs(m.rot) < 0.1) approach = [V(east, y, RZ(3, -6.1)), V(m.x, y, RZ(3, -6.1))];          // sisi belakang meja
+      else approach = [V(m.x, y, RZ(3, cz + 1.9))];                                                        // sisi depan / ujung meja
       return { pos: P(m), rot: m.rot, pose: 'talk', anchor: `R:${room}`, approach };
     }
     case 'mimbar': {
-      const s = spots.mimbar, y = yOf(3);
-      return { pos: P(s), rot: 0, pose: 'stand', anchor: 'R:mushola', approach: [V(-21.4, y, RZ(3, -4.4)), V(-22.5, y, RZ(3, -6.15)), V(s.x, y, RZ(3, -6.15)), V(s.x, y + 0.3, RZ(3, -6.6))] };
+      const s = spots.mimbar, y = yOf(1);
+      return { pos: P(s), rot: 0, pose: 'stand', anchor: 'R:mushola', approach: [V(-21.4, y, RZ(1, -4.4)), V(-22.5, y, RZ(1, -6.15)), V(s.x, y, RZ(1, -6.15)), V(s.x, y + 0.3, RZ(1, -6.6))] };
     }
     case 'musholla': {
       // kiblat = mihrab di dinding belakang → semua menghadap −z. Pria di depan tabir, wanita di belakang tabir
-      const m = spots.musholla, y = yOf(3);
+      const m = spots.musholla, y = yOf(1);
       const f = agent.gender === 'f';
       const s = agent.imam ? m.imam : f ? m.women[Math.max(0, WOMEN.indexOf(agent.id)) % m.women.length] : m.men[Math.max(0, MEN_SHAF.indexOf(agent.id)) % m.men.length];
-      const approach = f ? [V(s.x, y, RZ(3, -1.4))]
-        : agent.imam ? [V(-21.4, y, RZ(3, -4.4)), V(-22.5, y, RZ(3, -6.15)), V(s.x, y, RZ(3, -6.15))]
-          : [V(-21.4, y, RZ(3, -4.4)), V(s.x, y, RZ(3, -4.4))];
+      const approach = f ? [V(s.x, y, RZ(1, -1.4))]
+        : agent.imam ? [V(-21.4, y, RZ(1, -4.4)), V(-22.5, y, RZ(1, -6.15)), V(s.x, y, RZ(1, -6.15))]
+          : [V(-21.4, y, RZ(1, -4.4)), V(s.x, y, RZ(1, -4.4))];
       return { pos: V(s.x, y, s.z), rot: Math.PI, pose: 'pray', anchor: 'R:mushola', approach };
     }
     case 'wudhu': {
       const w = spots.wudhu[k % spots.wudhu.length];
-      return { pos: P(w), rot: w.rot, pose: 'stand', anchor: 'R:wudhu', approach: [V(w.x, w.y, RZ(3, -5.4))] };
-    }
-    case 'mandi': {   // shower pagi di kamar mandi lantai 3 (pria / wanita)
-      const list = agent.gender === 'f' ? spots.showerF : spots.showerM;
-      const s = list[k % list.length];
-      return { pos: P(s), rot: s.rot, pose: 'stand', anchor: `R:${s.room}`, approach: [V(s.x, s.y, RZ(3, -5.4))] };
-    }
-    case 'sink': {
-      const list = agent.gender === 'f' ? spots.sinkF : spots.sinkM;
-      const s = list[k % list.length];
-      return { pos: P(s), rot: s.rot, pose: 'stand', anchor: `R:${s.room}`, approach: [V(s.x, s.y, RZ(3, -1.3))] };
-    }
-    case 'toilet': {   // toilet umum lantai 1 (siang hari)
-      const s = spots.toilet[k % spots.toilet.length];
-      return { pos: P(s), rot: s.rot, pose: 'stand', anchor: 'R:toilet', approach: [V(s.x, 0, RZ(1, -5.4))] };
-    }
-    case 'bed': {
-      const s = spots.bed[k % spots.bed.length];
-      const room = ROOM[s.room], y = yOf(room.L);
-      const ax = s.room === 'king' ? s.x : s.x + 0.75;
-      return { pos: P(s), rot: s.rot, pose: 'lie', anchor: `R:${s.room}`, approach: [V(ax, y, RZ(room.L, -4.5)), V(ax, y, RZ(room.L, -5.4))] };
+      return { pos: P(w), rot: w.rot, pose: 'stand', anchor: 'R:wudhu', approach: [V(w.x, w.y, RZ(1, -5.4))] };
     }
     case 'cafe': {
       const c = spots.cafe[k % spots.cafe.length];
       const approach = c.cafe
-        ? [V(-23.8, 0, RZ(1, -0.6)), V(-23.8, 0, RZ(1, c.lane)), V(c.x, 0, RZ(1, c.lane))]
-        : c.lane < -3 ? [V(-15.6, 0, RZ(1, -1.4)), V(-15.6, 0, RZ(1, c.lane)), V(c.x, 0, RZ(1, c.lane))] : [V(c.x, 0, RZ(1, c.lane))];
+        ? [V(-1.8, 0, RZ(1, -0.6)), V(-1.8, 0, RZ(1, c.lane)), V(c.x, 0, RZ(1, c.lane))]
+        : c.lane < -3 ? [V(6.4, 0, RZ(1, -1.4)), V(6.4, 0, RZ(1, c.lane)), V(c.x, 0, RZ(1, c.lane))] : [V(c.x, 0, RZ(1, c.lane))];
       return { pos: V(c.x, 0, c.z), rot: c.rot, pose: 'eat', anchor: 'R:cafe', approach };
     }
     case 'counter': {
       const c = spots.counter[k % spots.counter.length];
-      return { pos: V(c.x, 0, c.z), rot: c.rot, pose: 'drink', anchor: 'R:cafe', approach: [V(-23.8, 0, RZ(1, -0.6)), V(-23.8, 0, RZ(1, -5.7)), V(c.x, 0, RZ(1, -5.7))] };
+      return { pos: V(c.x, 0, c.z), rot: c.rot, pose: 'drink', anchor: 'R:cafe', approach: [V(-1.8, 0, RZ(1, -0.6)), V(-1.8, 0, RZ(1, -5.7)), V(c.x, 0, RZ(1, -5.7))] };
     }
-    case 'kitchen': return { pos: P(spots.kitchen), rot: spots.kitchen.rot, pose: 'stand', anchor: 'R:dapur', approach: [V(-11.5, 0, RZ(1, -5.6))] };
+    case 'kitchen': {
+      const s = spots.kitchen;
+      return { pos: P(s), rot: s.rot, pose: 'stand', anchor: 'R:cafe', approach: [V(6.4, 0, RZ(1, -1.4)), V(8.4, 0, RZ(1, -1.4)), V(8.4, 0, RZ(1, -5.6)), V(s.x, 0, RZ(1, -5.6))] };
+    }
     case 'gudang': return { pos: P(spots.gudang), rot: spots.gudang.rot, pose: 'stand', anchor: 'R:gudang', approach: [] };
     case 'lounge':
     case 'game': {
       const l = spots.lounge[k % spots.lounge.length];
       const pose = l.pose === 'beanbag' ? 'beanbag' : key === 'game' || info?.label?.includes('Mabar') ? 'game' : 'phone';
-      const approach = l.z < RZ(1, -3) ? [V(24.0, 0, RZ(1, -2.0)), V(24.0, 0, RZ(1, -6.4)), V(l.x, 0, RZ(1, -6.4))] : [V(l.x, 0, RZ(1, -1.4))];
+      const approach = l.z < RZ(1, -3) ? [V(22.0, 0, RZ(1, -2.0)), V(22.0, 0, RZ(1, -6.4)), V(l.x, 0, RZ(1, -6.4))] : [V(l.x, 0, RZ(1, -1.4))];
       return { pos: V(l.x, 0, l.z), rot: l.rot, pose, anchor: 'R:santai', approach };
     }
+    case 'arcade': {
+      const s = spots.arcade[k % spots.arcade.length];
+      return { pos: P(s), rot: s.rot, pose: 'stand', anchor: 'R:santai', approach: [V(s.x, 0, RZ(1, -1.4))] };
+    }
+    case 'billiard': {
+      const s = spots.billiard[k % spots.billiard.length], y = s.y;
+      const side = Math.abs(s.x - s.tx) < 0.1;
+      const back = side && s.tz < -4;   // sisi depan meja baris belakang: lewat celah antar meja
+      const ex = back ? s.tx + 1.75 : s.x;
+      const approach = [V(ex, y, RZ(3, -0.9)), ...(back ? [V(ex, y, s.z)] : [])];
+      return { pos: P(s), rot: s.rot, pose: 'stand', anchor: 'R:billiard', approach };
+    }
     case 'cinema': {
-      const s = spots.cinema[k % spots.cinema.length];
+      const s = spots.cinema[k % spots.cinema.length], y0 = yOf(3);
       const front = s.z - 0.6;
-      return { pos: P(s), rot: Math.PI, pose: 'talk', anchor: 'R:bioskop', approach: [V(12.0, 0, RZ(1, -1.0)), V(12.0, s.y - 0.05, front), V(s.x, s.y - 0.05, front)] };
+      return { pos: P(s), rot: Math.PI, pose: 'talk', anchor: 'R:bioskop', approach: [V(CINE_AISLE, y0, RZ(3, -1.0)), V(CINE_AISLE, s.y - 0.05, front), V(s.x, s.y - 0.05, front)] };
     }
     case 'garden': {
       const g = spots.garden[k % spots.garden.length];
@@ -224,17 +227,9 @@ export function locationFor(spots, agent, idx, loc, info) {
       const far = g.z > 20;
       return { pos: P(g), rot: g.rot, pose: 'bench', anchor: far ? 'FARBENCH' : 'BENCH', approach: [V(g.x, 0, g.z - 0.9)] };
     }
-    case 'gardenTop': {
-      const g = spots.gardenTop[k % spots.gardenTop.length], y = yOf(3);
-      return { pos: P(g), rot: g.rot, pose: 'bench', anchor: 'R:tamanAtas', approach: [V(GAZEBO2.x + 1.4, y + 0.3, RZ(3, GAZEBO2.lz)), V(g.x, y + 0.3, g.z + (g.rot ? 0.35 : -0.35))] };
-    }
     case 'lounger': {
       const l = spots.lounger[k % spots.lounger.length];
       return { pos: V(l.x, 0, l.z), rot: l.rot, pose: 'lie', anchor: 'DECK2', approach: [V(l.x, 0, 17.6)] };
-    }
-    case 'terasBoss': {
-      const s = spots.terasBoss[k % spots.terasBoss.length];
-      return { pos: P(s), rot: s.rot, pose: 'lie', anchor: 'R:terasBoss', approach: [V(s.x + 0.8, s.y, s.z + 1.2)] };
     }
     case 'clean': {
       const c = CLEAN[key.slice(6)] ?? CLEAN.cafe;

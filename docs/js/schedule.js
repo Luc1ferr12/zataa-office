@@ -1,12 +1,15 @@
 // Jadwal, aktivitas, dan mood pegawai — semuanya dihitung di browser dari jam WITA (0 token).
-// Kantor jalan 24 jam: pegawai tinggal di mess (tidur malam, Subuh, mandi pagi), kerja 07:00–±19:30, malam santai.
+// Kantor jalan 24 jam & nggak ada yang pulang: jam kerja ikut plan/tugas harian (07:00–±19:30), di luar itu tiap
+// pegawai beraktivitas acak (nongkrong, mabar, billiard, nonton, renang, ngadem di gazebo…) — tanpa mess, tanpa tidur.
+// Tugas dadakan dari Owner (status 'working' di database) selalu menang: pegawainya langsung ke meja kerja.
+// Divisi yang lagi nunggu approval Owner di Telegram → manajernya duduk nunggu di depan ruang Bos (Lt.3).
 // Tim Trading (XAUUSD) ikut jam pasar: Senin–Jumat, sebagian jaga sesi New York sampai malam; Sabtu review mingguan.
 // Deterministik: jam yang sama selalu menghasilkan keadaan yang sama, jadi dashboard & kantor selalu sinkron.
 import { CAP as SCENE_CAP } from './px/scene.js';
 
 // desk = nomor meja di bilik (px/scene.js DESK_LIST: 0–7 Marketing, 8–13 Trading, 14–19 YouTube)
 export const AGENTS = [
-  { id: 'dir',        name: 'Andre',     avatar: '#2b4c7e', title: 'Marketing Director',     gender: 'm', team: 'mkt', lead: true, commute: true },
+  { id: 'dir',        name: 'Andre',     avatar: '#2b4c7e', title: 'Marketing Director',     gender: 'm', team: 'mkt', lead: true },
   { id: 'researcher', name: 'Clariana',  avatar: '#6b4fd8', title: 'Researcher',             gender: 'f', team: 'mkt', desk: 0 },
   { id: 'copywriter', name: 'Ista',      avatar: '#2f6b65', title: 'Copywriter',             gender: 'f', team: 'mkt', desk: 1 },
   { id: 'designer',   name: 'Maria',     avatar: '#c0668a', title: 'Graphic Designer',       gender: 'f', team: 'mkt', desk: 2 },
@@ -39,24 +42,14 @@ export const AGENTS = [
 const DOW = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
 // kapasitas tempat (dari px/scene.js) — yang nomor urutnya lewat kapasitas pilih tempat lain
 const CAP = SCENE_CAP;
-// kasur (px/scene.js S.bed): 0–11 mess cewek, 12–21 mess cowok, 22–23 king bed Zamiir & Aprista
-// Andre (commute) belum dapet kasur → pulang ke rumah tiap sore
-const BED_SLOT = {
-  researcher: 0, copywriter: 1, designer: 2, ads: 3, ob: 4, tresearch: 5, ttech: 6, teval: 7, treport: 8, yresearch: 9, yscript: 10, ypublish: 11,
-  video: 12, publisher: 13, analyst: 14, price: 15, tdir: 16, texec: 17, trisk: 18, ydir: 19, yvisual: 20, yvideo: 21,
-  sec: 22, owner: 23,
-};
-const BED = (idx, agent) => BED_SLOT[agent.id] ?? idx;
 const LUNCH_SEAT = { sec: 0, owner: 1, ob: 27 }; // Zamiir & Aprista semeja (meja cafe pertama)
-const seatOf = (idx, agent) => LUNCH_SEAT[agent.id] ?? 4 + idx;
+const seatOf = (idx, agent) => LUNCH_SEAT[agent.id] ?? 2 + idx;   // 2–26, nggak bentrok sama kursi 0, 1, 27
 // bioskop 4 baris × 7 kursi: baris belakang kursi 23–24 = love seat Zamiir & Aprista
 const CINE_SEAT = { owner: 23, sec: 24 };
 const CINE_FREE = [...Array(28).keys()].filter((i) => i !== 23 && i !== 24);
 const cineSeat = (idx, agent) => CINE_SEAT[agent.id] ?? CINE_FREE[idx % CINE_FREE.length];
-// urutan mandi pagi per kamar mandi (3 shower pria, 3 shower wanita)
-const BATH_RANK = {};
-for (const g of ['m', 'f']) AGENTS.filter((a) => a.gender === g && !a.ob).forEach((a, i) => { BATH_RANK[a.id] = i; });
 const MGR = ['dir', 'tdir', 'ydir'];   // punya ruang sendiri di Lt.2 (px/scene.js MGR_ROOM)
+const WAIT_SLOT = { dir: 0, tdir: 1, ydir: 2 };   // kursi tunggu depan ruang Bos (px/scene.js S.waitBoss)
 const deskLoc = (agent) => (agent.boss || agent.sec ? 'boss' : MGR.includes(agent.id) ? `${agent.id}Desk` : 'desk');
 const trading = (agent) => agent.team === 'trd';
 const youtube = (agent) => agent.team === 'yt';
@@ -165,36 +158,40 @@ export function moodAt(idx, agent, t, done) {
   return mood;
 }
 
+// waktu luang 24 jam: tiap ±25 menit pilih kegiatan acak (deterministik per orang per hari), pilihannya ikut jam
 function freeTime(idx, agent, t) {
   const m = t.minutes;
-  const r = hash(Math.floor(m / 25) * 3.3 + idx * 17.9 + (t.dayNum ?? t.dow) * 101.1);
-  const canSwim = agent.gender === 'm' && m >= at(9) && m < at(17, 45);
-  if (agent.boss) {
-    // boss santainya di ruangannya sendiri, terasnya, cafe, atau kolam
-    const b = [['bossSofa', 'Santai di ruang boss', '🛋️'], ['terasBoss', 'Rebahan di teras', '🌤️'], ['cafe', 'Ngopi santai', '☕'], ...(canSwim ? [['pool', 'Berenang', '🏊']] : [])];
-    const [loc, label, emoji] = pick(b, r);
-    return { act: 'free', loc, label, emoji, slot: loc === 'cafe' ? seatOf(idx, agent) : 0 };
-  }
-  const night = m >= at(19, 30) || m < at(6);
-  // tiap tempat punya urutan duduk sendiri biar nggak numpuk
-  const order = (loc) => (loc === 'cafe' ? seatOf(idx, agent) : loc === 'cinema' ? cineSeat(idx, agent) : idx);
+  const day = t.dayNum ?? t.dow;
+  const r = hash(Math.floor(m / 25) * 3.3 + idx * 17.9 + day * 101.1);
+  const late = m >= at(22) || m < at(4, 30);              // tengah malam: begadang
+  const night = late || m >= at(19, 30) || m < at(5, 30);
+  const canSwim = agent.gender === 'm' && m >= at(6, 30) && m < at(21);
+  // urutan tempat digilir tiap hari (permutasi) → yang kebagian main billiard/arcade ganti-ganti, nggak numpuk
+  const order = (loc) => (loc === 'cafe' ? seatOf(idx, agent) : loc === 'cinema' ? cineSeat(idx, agent) : (idx + Math.floor(hash(day * 2.7) * AGENTS.length)) % AGENTS.length);
   const capOf = (loc) => CAP[loc === 'game' ? 'lounge' : loc] ?? 99;
+  if (agent.boss) {
+    // Bos santainya di ruangannya, cafe, billiard, kolam, atau bioskop kalau malam
+    const b = [['bossSofa', 'Santai di ruang boss', '🛋️'], ['cafe', late ? 'Ngopi begadang' : 'Ngopi santai', '☕'], ...(order('billiard') < CAP.billiard ? [['billiard', 'Main billiard', '🎱']] : []),
+      ...(night ? [['cinema', 'Nonton film di bioskop mini', '🍿']] : []), ...(canSwim ? [['pool', 'Berenang', '🏊']] : [])];
+    const [loc, label, emoji] = pick(b, r);
+    return { act: 'free', loc, label, emoji, slot: ['cafe', 'cinema', 'billiard'].includes(loc) ? order(loc) : 0 };
+  }
   const opts = [
-    ['cafe', 'Ngopi santai', '☕'],
+    ['cafe', late ? 'Ngopi begadang' : m < at(7) ? 'Ngeteh pagi' : 'Ngopi santai', late ? '🌙' : '☕'],
     ['lounge', night ? 'Nonton TV bareng' : 'Rebahan sambil scroll HP', night ? '📺' : '📱'],
     ['game', 'Mabar di ruang santai', '🎮'],
-    ...(night ? [['cinema', 'Nonton film di bioskop mini', '🍿']] : [['lounger', 'Santai di pinggir kolam', '🕶️']]),
+    ['billiard', 'Main billiard', '🎱'],
+    ['arcade', pick(['Main arcade', 'Main pingpong'], hash(idx + day)), '🕹️'],
+    ...(night ? [['cinema', late ? 'Nonton film tengah malam' : 'Nonton film di bioskop mini', '🍿']] : [['lounger', 'Santai di pinggir kolam', '🕶️']]),
     ['garden', night ? 'Ngobrol di gazebo, liat bintang' : 'Ngadem di gazebo taman', night ? '🌙' : '🌿'],
-    ['gardenTop', 'Nyantai di taman atas', '🌳'],
   ].filter(([loc]) => order(loc) < capOf(loc));
-  if (canSwim) opts.push(['pool', 'Berenang', '🏊'], ['pool', 'Berenang', '🏊']);
-  // semua tempat penuh (biasanya yang urutannya paling belakang) → rebahan di kasur sendiri
-  if (!agent.commute && !opts.length) opts.push(['bed', 'Rebahan di mess sambil main HP', '📱']);
+  if (canSwim) opts.push(['pool', 'Berenang', '🏊']);
+  if (!opts.length) opts.push(['cafe', 'Ngopi santai', '☕']);
   const [loc, label, emoji] = pick(opts, r);
-  return { act: 'free', loc, label, emoji, slot: loc === 'bed' ? BED(idx, agent) : order(loc) };
+  return { act: 'free', loc, label, emoji, slot: order(loc) };
 }
 
-// waktu sholat (WITA) 5 menit; wudhu 5 gelombang @1 menit sebelumnya (biar keran nggak rebutan)
+// waktu sholat (WITA) 5 menit; wudhu 7 gelombang @1 menit sebelumnya (4 keran × 7 = 28 orang, biar nggak rebutan)
 const PRAYERS = [
   { name: 'Subuh', at: at(4, 40), len: 5 },
   { name: 'Dzuhur', at: at(12), len: 5 },
@@ -203,19 +200,18 @@ const PRAYERS = [
   { name: 'Isya', at: at(19, 15), len: 5 },
 ];
 
-function prayerAt(idx, agent, t, present) {
+function prayerAt(idx, agent, t) {
   const { dow, minutes: m } = t;
   const jumat = dow === 5;
   const male = agent.gender === 'm';
-  // 5 gelombang wudhu @1 menit (maks 4 orang per gelombang, 4 keran) → abis wudhu duduk nunggu di musholla
-  const wave = idx % 5;
+  // 7 gelombang wudhu @1 menit (maks 4 orang per gelombang, 4 keran) → abis wudhu duduk nunggu di musholla
+  const wave = idx % 7;
   const wudhu = (start, label) => {
-    const w0 = start - 5 + wave;
-    if (m >= w0 && m < w0 + 1) return { act: 'pray', loc: 'wudhu', slot: Math.floor(idx / 5) % 4, label: `Wudhu dulu sebelum ${label}`, emoji: '💧' };
+    const w0 = start - 7 + wave;
+    if (m >= w0 && m < w0 + 1) return { act: 'pray', loc: 'wudhu', slot: Math.floor(idx / 7) % 4, label: `Wudhu dulu sebelum ${label}`, emoji: '💧' };
     if (m >= w0 + 1 && m < start) return { act: 'pray', loc: 'musholla', label: `Duduk nunggu ${label}`, emoji: '🕌', phase: 'duduk' };
     return null;
   };
-  if (!present) return null;
   // Jumat: cowok Jumatan di musholla kantor (khotib & imam: Zamiir), cewek gantian Dzuhur setelahnya
   if (jumat && male) {
     const w = wudhu(at(11, 45), 'Jumatan');
@@ -254,25 +250,29 @@ function dateAt(t) {
 }
 
 // Mbak Sari (OB): bersih-bersih keliling, tapi juga ngopi, istirahat, makan, sholat, tidur
-const ROOMS_CLEAN = ['cafe', 'santai', 'mkt', 'trd', 'yt', 'kmW', 'kmP', 'mushola', 'wudhu', 'meetM', 'meetT', 'meetY', 'boss', 'lobby', 'bioskop', 'messF', 'messM', 'king', 'dirRoom', 'tdirRoom', 'ydirRoom', 'teras', 'kolam', 'toilet', 'selasar2'];
+const ROOMS_CLEAN = ['cafe', 'santai', 'mkt', 'trd', 'yt', 'mushola', 'wudhu', 'meetM', 'meetT', 'meetY', 'boss', 'billiard', 'bioskop', 'dirRoom', 'tdirRoom', 'ydirRoom', 'teras', 'kolam', 'selasar2', 'selasar3'];
 const ROOM_NAME = {
-  cafe: 'cafe & resto', santai: 'ruang santai', mkt: 'bilik marketing', trd: 'bilik trading', kmW: 'kamar mandi cewek', kmP: 'kamar mandi cowok',
-  mushola: 'musholla', wudhu: 'tempat wudhu', meetM: 'ruang meeting', meetT: 'meeting trading', boss: 'ruang boss', lobby: 'lobby', bioskop: 'bioskop mini',
-  messF: 'mess cewek', messM: 'mess cowok', king: 'kamar bos', dirRoom: 'ruang Andre', tdirRoom: 'ruang Mahendra', teras: 'teras depan', kolam: 'pinggir kolam',
+  cafe: 'cafe & resto', santai: 'ruang santai', mkt: 'bilik marketing', trd: 'bilik trading', billiard: 'ruang billiard',
+  mushola: 'musholla', wudhu: 'tempat wudhu', meetM: 'ruang meeting', meetT: 'meeting trading', boss: 'ruang boss', bioskop: 'bioskop mini',
+  dirRoom: 'ruang Andre', tdirRoom: 'ruang Mahendra', teras: 'teras depan', kolam: 'pinggir kolam',
   yt: 'bilik YouTube', meetY: 'meeting YouTube', ydirRoom: 'ruang Bagas',
-  toilet: 'toilet umum', selasar2: 'selasar lantai 2',
+  selasar2: 'selasar lantai 2', selasar3: 'selasar lantai 3',
 };
 function obAt(idx, agent, t, withMood, prayer) {
   const m = t.minutes;
   const day = t.dayNum ?? t.dow;
-  const clean = (k) => {
+  const clean = (k, night = false) => {
     const room = ROOMS_CLEAN[Math.floor(hash(Math.floor(m / 25) * 2.9 + day * 7 + k) * ROOMS_CLEAN.length)];
-    return withMood({ act: 'clean', loc: `clean:${room}`, label: `Bersihin ${ROOM_NAME[room]}`, emoji: '🧹' });
+    return withMood({ act: 'clean', loc: `clean:${room}`, label: `${night ? 'Bersih-bersih malam: ' : 'Bersihin '}${ROOM_NAME[room]}`, emoji: '🧹' });
   };
-  if (m < at(4, 15) || m >= at(22)) return withMood({ act: 'sleep', loc: 'bed', slot: BED(idx, agent), label: 'Tidur', emoji: '💤' });
-  if (m < at(4, 30)) return withMood({ act: 'free', loc: 'sink', slot: 1, label: 'Bangun, cuci muka', emoji: '🚿' });
   if (prayer) return withMood(prayer);
-  if (m < at(5, 10)) return withMood({ act: 'free', loc: 'mandi', slot: 2, label: 'Mandi duluan sebelum yang lain bangun', emoji: '🚿' });
+  // jaga malam (22:00–05:10): gantian bersih-bersih, ngeteh, istirahat di gudang
+  if (m >= at(22) || m < at(5, 10)) {
+    const r = hash(Math.floor(m / 30) * 5.3 + day * 1.7);
+    if (r < 0.3) return withMood({ act: 'break', loc: 'gudang', label: 'Istirahat di gudang sambil nonton HP', emoji: '📱' }, true);
+    if (r < 0.45) return withMood({ act: 'coffee', loc: 'cafe', slot: 27, label: 'Ngeteh anget, jaga malam', emoji: '🍵' }, true);
+    return clean(3, true);
+  }
   if (m < at(5, 20)) return withMood({ act: 'work', loc: 'gudang', label: 'Ambil alat bersih-bersih di gudang', emoji: '🧺' });
   if (m < at(6)) return clean(1);
   if (m < at(6, 40)) return withMood({ act: 'work', loc: 'kitchen', label: 'Nyiapin sarapan & kopi', emoji: '🍳' });
@@ -283,37 +283,29 @@ function obAt(idx, agent, t, withMood, prayer) {
   if (m >= at(13, 25) && m < at(14)) return withMood({ act: 'break', loc: 'cafe', slot: 27, label: 'Istirahat siang', emoji: '😌' });
   if (m >= at(18, 50) && m < at(19, 10)) return withMood({ act: 'lunch', loc: 'cafe', slot: 27, label: 'Makan malam', emoji: '🍜' });
   if (m >= at(19, 30) && m < at(21)) return withMood({ act: 'free', loc: 'cafe', slot: 27, label: 'Santai, nonton sinetron di HP', emoji: '📱' }, true);
-  if (m >= at(21) && m < at(21, 40)) return withMood({ act: 'clean', loc: 'clean:cafe', label: 'Beres-beres cafe sebelum tidur', emoji: '🧽' });
-  if (m >= at(14) && m < at(14, 40)) return withMood({ act: 'clean', loc: 'clean:laundry', label: 'Nyuci & jemur baju anak-anak', emoji: '🧺' });
-  if (m >= at(21, 40)) return withMood({ act: 'free', loc: 'sink', slot: 1, label: 'Sikat gigi, siap tidur', emoji: '🪥' });
+  if (m >= at(21) && m < at(21, 40)) return withMood({ act: 'clean', loc: 'clean:cafe', label: 'Beres-beres cafe', emoji: '🧽' });
+  if (m >= at(21, 40)) return withMood({ act: 'free', loc: 'gudang', label: 'Rapihin gudang, siap jaga malam', emoji: '🧺' });
+  if (m >= at(14) && m < at(14, 40)) return withMood({ act: 'work', loc: 'gudang', label: 'Nyuci lap & kain pel', emoji: '🧺' });
   // jeda kecil: kadang duduk istirahat bentar
   if (hash(Math.floor(m / 30) * 4.1 + day) < 0.2 && m % 30 >= 20) return withMood({ act: 'break', loc: 'cafe', slot: 27, label: 'Duduk bentar, ngelap keringet', emoji: '😮‍💨' });
   return clean(2);
 }
 
-// act: sleep | work | meeting | pray | lunch | coffee | water | free | break | visit | clean | off
-// Prioritas: sholat > kerja asli dari database (termasuk lembur) > jadwal harian > simulasi.
+// act: work | meeting | pray | lunch | coffee | water | free | break | visit | clean | wait
+// Prioritas: kerja asli dari database (tugas dadakan, termasuk lembur) > sholat > nunggu approval > jadwal harian > waktu luang acak.
 // ctx.visit = { target, label } → lagi nyamperin meja teman; ctx.partnerBusy → pasangan lagi kerja (nggak ngedate)
+// ctx.waitApproval → (manajer divisi) ada konten/plan divisinya yang nunggu ✅ Owner di Telegram
 export function activityAt(idx, agent, t, real, ctx = {}) {
   const { dow, minutes: m } = t;
   const day = t.dayNum ?? dow; // variasi harian (mode simulasi: per hari dalam minggu)
   const j = (k, span) => Math.floor(hash(day * 13.37 + idx * 7.1 + k) * span); // jitter deterministik per orang per hari
-  const withMood = (a, done = false) => ({ ...a, mood: ['off', 'sleep'].includes(a.act) ? { key: a.act, emoji: '', label: '' } : moodAt(idx, agent, t, done) });
+  const withMood = (a, done = false) => ({ ...a, mood: a.act === 'off' ? { key: a.act, emoji: '', label: '' } : moodAt(idx, agent, t, done) });
   const working = real?.status === 'working';
   const busy = working || real?.status === 'waiting';
   const desk = deskLoc(agent);
   const trd = trading(agent), yt = youtube(agent), weekend = dow === 0 || dow === 6;
   const nyShift = trd && agent.nyShift && !weekend;
-
-  // semua tinggal di mess; Zamiir & Aprista sekamar, jadi jam tidur & bangunnya barengan.
-  // Andre belum dapet kasur: dateng pagi, pulang ke rumah sore
-  const arrive = at(6, 40) + j(12, 15), leave = at(17, 30) + j(13, 40);
-  const bossHome = agent.commute && (m < arrive || m >= leave);
-  const jj = agent.partner ? (k, span) => Math.floor(hash(day * 13.37 + 0.5 + k) * span) : j;
-  const wake = at(4, 25) + jj(3, 8);
-  const bed = (nyShift ? at(22, 40) : at(22)) + jj(4, nyShift ? 50 : 90);
-  const asleep = m < wake || m >= bed;
-  const prayer = prayerAt(idx, agent, t, !bossHome && !asleep);
+  const prayer = prayerAt(idx, agent, t);
 
   // kerja asli dari database menang (lembur malam pun tetap di meja), kecuali pas sholat
   if (working) {
@@ -323,22 +315,14 @@ export function activityAt(idx, agent, t, real, ctx = {}) {
     return withMood({ act: 'work', loc: desk, label: late ? 'Lembur' : 'Kerja', emoji: late ? '🌙' : '💻', overtime: late });
   }
   if (agent.ob) return obAt(idx, agent, t, withMood, prayer);
-  if (bossHome) return withMood({ act: 'off', loc: 'out', label: m < at(12) ? 'Otw kantor' : 'Pulang ke rumah', emoji: '🏠' });
-  if (asleep) return withMood({ act: 'sleep', loc: 'bed', slot: BED(idx, agent), label: 'Tidur', emoji: '💤' });
   if (prayer) return withMood(prayer);
-  if (m < at(4, 40)) return withMood({ act: 'sleep', loc: 'bed', slot: BED(idx, agent), label: 'Melek, ngumpulin nyawa buat Subuh', emoji: '🥱' });
+  // manajer divisi nunggu approval Owner: duduk di kursi tunggu depan ruang Bos sampai di-✅
+  if (ctx.waitApproval && WAIT_SLOT[agent.id] != null) return withMood({ act: 'wait', loc: 'waitBoss', slot: WAIT_SLOT[agent.id], label: 'Nunggu approval Owner di depan ruang Bos', emoji: '⏳' });
 
-  // pagi: abis Subuh tidur lagi / santai → mandi gantian (3 shower pria, 3 shower wanita) → sarapan
-  if (agent.commute && m < at(7)) return withMood({ act: 'coffee', loc: 'cafe', slot: seatOf(idx, agent), label: 'Baru nyampe, ngopi dulu', emoji: '☕' });
+  // dini hari & pagi sebelum kerja: bebas (nggak ada yang tidur/pulang), sarapan 06:20–07:00
   if (m < at(7)) {
-    const rank = BATH_RANK[agent.id] ?? idx;
-    const bath = at(5, 35) + Math.floor(rank / 3) * 13;
-    if (m >= bath && m < bath + 11) return withMood({ act: 'free', loc: 'mandi', slot: rank % 3, label: 'Mandi pagi', emoji: '🚿' });
-    if (m >= at(6, 20)) return withMood({ act: 'lunch', loc: 'cafe', slot: seatOf(idx, agent), label: 'Sarapan', emoji: '🍞' });
-    if (m < bath) return hash(day + idx * 3.7) < 0.55
-      ? withMood({ act: 'sleep', loc: 'bed', slot: BED(idx, agent), label: 'Tidur lagi bentar abis Subuh', emoji: '💤' })
-      : withMood({ act: 'free', loc: idx < CAP.lounge ? 'lounge' : 'cafe', slot: idx < CAP.lounge ? idx : seatOf(idx, agent), label: 'Nunggu giliran mandi', emoji: '📱' });
-    return withMood({ act: 'free', loc: 'cafe', slot: seatOf(idx, agent), label: 'Ngeteh pagi', emoji: '🍵' });
+    if (m >= at(6, 20) + j(2, 15)) return withMood({ act: 'lunch', loc: 'cafe', slot: seatOf(idx, agent), label: 'Sarapan', emoji: '🍞' });
+    return withMood(freeTime(idx, agent, t), true);
   }
 
   // tim Trading: pasar emas tutup Sabtu–Minggu. Sabtu pagi review mingguan, sisanya libur
@@ -346,7 +330,6 @@ export function activityAt(idx, agent, t, real, ctx = {}) {
     if (dow === 6 && m >= at(9) && m < at(10, 30)) return withMood({ act: 'meeting', loc: 'meetingT', slot: TRD_SEAT[agent.id], label: agent.id === 'teval' ? 'Presentasi evaluasi mingguan' : 'Review mingguan trading', emoji: '📊' });
     if (m >= at(12, 20) && m < at(12, 45) + j(5, 25)) return withMood({ act: 'lunch', loc: 'cafe', slot: seatOf(idx, agent), label: 'Makan siang', emoji: '🍛' });
     if (m >= at(18, 20) && m < at(18, 50) + j(6, 15)) return withMood({ act: 'lunch', loc: 'cafe', slot: seatOf(idx, agent), label: 'Makan malam', emoji: '🍜' });
-    if (m >= bed - 12) return withMood({ act: 'free', loc: 'sink', slot: idx % 2, label: 'Sikat gigi, siap tidur', emoji: '🪥' }, true);
     if (dow === 6 && m >= at(20) && m < at(22)) return withMood({ act: 'free', loc: 'cinema', slot: cineSeat(idx, agent), label: 'Nobar malam Minggu 🍿', emoji: '🍿' }, true);
     const f = freeTime(idx, agent, t);
     return withMood({ ...f, label: dow === 0 ? `${f.label} (pasar tutup)` : f.label }, true);
@@ -368,7 +351,6 @@ export function activityAt(idx, agent, t, real, ctx = {}) {
   if (ctx.visit) return withMood({ act: 'visit', loc: 'visit', target: ctx.visit.target, label: ctx.visit.label, emoji: '🗣️' });
 
   // makan: jam mulai & lamanya beda tiap hari; Zamiir & Aprista selalu semeja
-  const seat = LUNCH_SEAT[agent.id];
   const jumat = dow === 5, male = agent.gender === 'm';
   const lunchEnd = at(12, 30) + j(5, 25);
   const eat = (label, emoji) => withMood({ act: 'lunch', loc: 'cafe', slot: seatOf(idx, agent), label: agent.partner ? `${label} bareng ${agent.boss ? 'Aprista' : 'Zamiir'} 💕` : label, emoji });
@@ -383,23 +365,20 @@ export function activityAt(idx, agent, t, real, ctx = {}) {
   // Sabtu malam: nobar bareng di bioskop mini
   if (dow === 6 && m >= at(20) && m < at(22)) return withMood({ act: 'free', loc: 'cinema', slot: cineSeat(idx, agent), label: agent.partner ? 'Nobar, duduk di love seat 💕' : 'Nobar malam Minggu 🍿', emoji: '🍿' }, true);
 
-  // malam: pacaran (Zamiir & Aprista), sebelum tidur sikat gigi
+  // malam: pacaran (Zamiir & Aprista)
   if (agent.partner && !ctx.partnerBusy) {
     const d = dateAt(t);
     if (d) return withMood({ act: 'free', loc: d.loc, slot: d.slots[agent.id], label: d.label, emoji: d.emoji, pose: d.pose }, true);
   }
-  if (m >= bed - 12) return withMood({ act: 'free', loc: 'sink', slot: idx % 2, label: 'Sikat gigi, siap tidur', emoji: '🪥' }, true);
 
   const done = real?.status === 'done' || m >= at(19, 30) || (!busy && m >= doneAt(idx, agent, dow, day));
   if (done) return withMood(freeTime(idx, agent, t), true);
 
   // jeda kecil yang waktunya acak tiap hari (bukan jam pakem)
-  const toiletAt = at(9) + j(9, 9 * 60);
-  if (!agent.boss && m >= toiletAt && m < toiletAt + 6) return withMood({ act: 'break', loc: 'toilet', slot: idx % 3, label: 'Ke kamar mandi bentar', emoji: '🚻' });
   const coffeeAt = at(9, 30) + j(10, 6 * 60); // sekali sehari antara 09:30–15:30
   if (hash(day * 3.1 + idx) < 0.7 && m >= coffeeAt && m < coffeeAt + 12 + j(11, 8)) return withMood({ act: 'coffee', loc: 'cafe', slot: seatOf(idx, agent), label: 'Ngopi bentar', emoji: '☕' });
   const rest = agent.boss || agent.sec ? 'bossSofa' : MGR.includes(agent.id) ? `${agent.id}Sofa` : idx < CAP.lounge ? 'lounge' : 'cafe';
-  const restSlot = rest === 'lounge' ? idx : rest === 'cafe' ? seatOf(idx, agent) : 0;
+  const restSlot = rest === 'lounge' ? idx : rest === 'cafe' ? seatOf(idx, agent) : agent.sec ? 1 : 0;
   const stretchAt = at(10) + j(7, 5 * 60);
   if (!busy && hash(day * 5.3 + idx) < 0.45 && m >= stretchAt && m < stretchAt + 8) return withMood({ act: 'break', loc: rest, slot: restSlot, label: 'Rebahan bentar, pegel', emoji: '🛋️' });
 
@@ -419,6 +398,19 @@ export function activityAt(idx, agent, t, real, ctx = {}) {
   return { act: 'work', loc: desk, label: 'Kerja', emoji: '💻', mood };
 }
 
+// Divisi mana yang lagi nunggu ✅ Owner (Telegram) → manajernya nunggu di depan ruang Bos.
+// Marketing: plan mingguan draft / konten IG-TikTok pending / ada anggota status 'waiting' (mis. usulan boost Fahriah)
+// YouTube: Shorts pending · Trading: usulan perbaikan Jihan belum di-"terapkan". Konten hari yang sudah lewat diabaikan.
+export function approvalWaits({ campaign = null, contents = [], agents = [], proposals = [], today = null } = {}) {
+  const team = Object.fromEntries(AGENTS.map((a) => [a.id, a.team]));
+  const waiting = (tm) => agents.some((a) => a.status === 'waiting' && team[a.id] === tm);
+  const pend = (yt) => contents.some((c) => c.status === 'pending_approval' && (c.channel === 'youtube') === yt && (!today || !c.day || c.day >= today));
+  return {
+    dir: campaign?.status === 'draft' || pend(false) || waiting('mkt'),
+    ydir: pend(true) || waiting('yt'),
+    tdir: proposals.length > 0 || waiting('trd'),
+  };
+}
 
 // Gabungkan dengan status kerja asli dari database (state.json)
 export function describe(agent, sched, real) {
@@ -441,10 +433,10 @@ export function describe(agent, sched, real) {
 
 export function officeStatus(t, overtime = false) {
   const m = t.minutes;
-  const night = m < at(4, 25) || m >= at(22, 30);
-  if (night) return overtime ? { label: 'Lembur 🌙', tone: 'break' } : { label: 'Malam · tim tidur 💤', tone: 'off' };
-  if (m < at(4, 45)) return { label: 'Subuh 🕌', tone: 'break' };
-  if (m < at(7)) return { label: 'Pagi · mandi & sarapan', tone: 'break' };
+  const night = m < at(4, 30) || m >= at(22, 30);
+  if (night) return overtime ? { label: 'Lembur 🌙', tone: 'break' } : { label: 'Malam · nongkrong santai 🌙', tone: 'off' };
+  if (m < at(4, 50)) return { label: 'Subuh 🕌', tone: 'break' };
+  if (m < at(7)) return { label: 'Pagi · santai & sarapan', tone: 'break' };
   if (t.dow === 1 && m < at(8)) return { label: 'Rapat mingguan 🗓️', tone: 'on' };
   if (m < at(8)) return { label: 'Riset pagi 🔎', tone: 'on' };
   if (t.dow !== 1 && m < at(8, 30)) return { label: 'Briefing ide 💡', tone: 'on' };

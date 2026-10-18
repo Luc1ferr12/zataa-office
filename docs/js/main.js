@@ -1,4 +1,4 @@
-import { AGENTS, wita, activityAt, describe, officeStatus } from './schedule.js';
+import { AGENTS, wita, activityAt, describe, officeStatus, approvalWaits } from './schedule.js';
 import { chatFeed } from './chatter.js';
 
 const $ = (id) => document.getElementById(id);
@@ -124,7 +124,7 @@ function renderDashboard() {
   const acts = s?.activity ?? [];
   $('activity').innerHTML = acts.length
     ? acts.map((a) => `<li><time>${fmtTs(a.ts)}</time><b>${esc(NAMES[a.agent_id] ?? '')}</b> ${esc(a.message)}</li>`).join('')
-    : '<li class="muted">Belum ada aktivitas. Kantor buka tiap hari 07:00–21:00 WITA.</li>';
+    : '<li class="muted">Belum ada aktivitas. Kantor jalan 24 jam, kerja tiap hari mulai 07:00 WITA.</li>';
 
   renderTrading(s?.trading);
 
@@ -196,10 +196,12 @@ function tick(force = false) {
   office?.setTime(t.minutes, t.dow);
   if (office?.chars.size) office.setOutfitForDay(t.dow);
   const visits = visitsNow();
+  // divisi yang nunggu ✅ Owner di Telegram → manajernya nunggu di depan ruang Bos
+  const waits = approvalWaits({ campaign: state?.campaign, contents: state?.week_contents, agents: state?.agents, proposals: state?.trading?.proposals, today: state?.today });
   const list = AGENTS.map((a, idx) => {
     const real = realOf(a.id);
     const partnerBusy = a.partner ? realOf(a.partner)?.status === 'working' : false;
-    const info = describe(a, activityAt(idx, a, t, real, { visit: visits[a.id], partnerBusy }), real);
+    const info = describe(a, activityAt(idx, a, t, real, { visit: visits[a.id], partnerBusy, waitApproval: waits[a.id] }), real);
     office?.setActivity(a.id, info, mode);
     return { a, info };
   });

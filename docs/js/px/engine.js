@@ -16,8 +16,8 @@ const RX = [K, 0, K * TAN_YAW];
 const RY = [-S * sP * SIN_EL, -S * cE, S * cP * SIN_EL];
 export const VW = [-sP * cE, SIN_EL, cP * cE]; // arah ke kamera (kedalaman: makin besar makin dekat)
 export const PXH = S * cE; // piksel per meter tinggi
-// kantor terasering 4 tingkat (x −40…40, z −38…26, tinggi s/d ±16 m) muat satu frame
-export const W = 1552 * RES, H = 1200 * RES, OX = 800 * RES, OY = 760 * RES;
+// kantor terasering 3 tingkat (x −40…40, z −30…31, tinggi s/d ±12 m) muat satu frame
+export const W = 1552 * RES, H = 1200 * RES, OX = 800 * RES, OY = 690 * RES;
 
 export const proj = (x, y, z) => [OX + RX[0] * x + RX[2] * z, OY + RY[0] * x + RY[1] * y + RY[2] * z];
 export const depthOf = (x, y, z) => VW[0] * x + VW[1] * y + VW[2] * z;

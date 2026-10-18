@@ -1,6 +1,6 @@
 # SOP sesi harian 07:00 WITA
 
-Kamu menjalankan satu hari kerja kantor marketing virtual Zataa (zataa.my.id, top up game) di folder repo ini. Kantor jalan 24 jam (pegawai tinggal di mess); sesi ini = pagi kerja. Kerjakan mandiri tanpa menunggu konfirmasi. Bahasa konten: Indonesia santai ala gamer.
+Kamu menjalankan satu hari kerja kantor marketing virtual Zataa (zataa.my.id, top up game) di folder repo ini. Kantor jalan 24 jam (pegawai nggak pulang, aktivitas acak di luar jam kerja); sesi ini = pagi kerja. Kerjakan mandiri tanpa menunggu konfirmasi. Bahasa konten: Indonesia santai ala gamer.
 
 ## 0. Persiapan
 - Baca `CLAUDE.md` (aturan hemat token & konten). Patuhi.

@@ -1,4 +1,4 @@
-// Kantor virtual Zataa v2 (terasering 4 tingkat). Gedung dirender sekali (Blender → tile latar, + mesin pixel di
+// Kantor virtual Zataa v3 (terasering 3 tingkat). Gedung dirender sekali (Blender → tile latar, + mesin pixel di
 // Web Worker untuk kedalaman/layar/cahaya); tiap frame cuma bagian yang kelihatan di layar yang digambar:
 // tile latar sesuai zoom, lapisan layar/air, lalu sprite pegawai yang sudah ditutup perabot di depannya.
 import { W, H, PXH, VW, proj, depthOf, pack, bayer, hash2, RES } from './px/engine.js';
@@ -29,7 +29,7 @@ const C = Object.fromEntries(Object.entries({
 
 // "kotak pandang" awal: seluruh gedung + halaman (koordinat tampilan)
 function focusRect() {
-  const pts = [[-34, 0, 26], [34, 0, 26], [-34, 14, -38], [34, 14, -38], [-34, 0, -10], [34, 14, -30]];
+  const pts = [[-34, 0, 28], [34, 0, 28], [-34, 12, -28], [34, 12, -28], [-34, 0, -10], [34, 12, -26]];
   let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
   for (const p of pts) { const [x, y] = proj(...p); x0 = Math.min(x0, x); x1 = Math.max(x1, x); y0 = Math.min(y0, y); y1 = Math.max(y1, y); }
   return { x: x0 * DS, y: y0 * DS, w: (x1 - x0) * DS, h: (y1 - y0) * DS };
@@ -212,7 +212,7 @@ export class Office {
     const day = smooth(5.6, 7, h) * (1 - smooth(17.4, 18.8, h));
     this.nightF = 1 - day;
     this.golden = Math.max(1 - smooth(6, 8.5, h), smooth(15.5, 17.8, h)) * day;
-    this.dim = h >= 23 || h < 5 ? 0.45 : 0;
+    this.dim = h >= 23 || h < 5 ? 0.25 : 0;   // malam larut agak redup (pegawai tetap beraktivitas 24 jam)
   }
 
   setCampaign(theme, pending) {

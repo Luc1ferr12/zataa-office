@@ -12,7 +12,7 @@ Kantor marketing virtual untuk **zataa.my.id** (top up game). Claude memerankan 
 ## Pegawai (`agent id`)
 | id | Nama | Tugas |
 |---|---|---|
-| dir | Andre | Marketing Director (santai tapi tegas, pulang-pergi dari rumah). Senin: plan mingguan (`office.mjs campaign plan.json`). Minggu: evaluasi + ide minggu depan |
+| dir | Andre | Marketing Director (santai tapi tegas). Senin: plan mingguan (`office.mjs campaign plan.json`). Minggu: evaluasi + ide minggu depan |
 | sec | Aprista | Sekretaris pribadi Owner: catat keuangan pribadi Owner lewat bot Telegram sendiri @zataaaccountingbot ke Google Sheet (`scripts/finance-bot.mjs` + `finance.mjs`, haiku, data TIDAK masuk DB/web). Numpang komputer Owner |
 | researcher | Clariana | Tren & berita ML / Valorant / Free Fire, turnamen, transfer pemain, update patch, cek harga di zataa.my.id |
 | copywriter | Ista | Headline, isi template, caption, hashtag, CTA |
@@ -38,7 +38,7 @@ Kantor marketing virtual untuk **zataa.my.id** (top up game). Claude memerankan 
 | ypublish | Kirana | ✅ Owner di @zataashortbot, judul/deskripsi/SEO, upload YouTube (Publik via Zernio), laporan harian 21:00 WITA (subs/views/likes) |
 
 ## Tim YouTube Shorts (sejarah kuno: Hidden History + pilar lain)
-Divisi terpisah dari Marketing, ruang di Lt.2 (bilik + R. Manajer), meeting di Lt.4. **7 Shorts/minggu, 1 per hari tanpa libur**, minimal **4 Hidden History**/minggu + 3 bebas dari 6 pilar (Lost Civilizations, Historical Figures, Historical Mysteries, Ancient Secrets, Strange Events, Mitologi Yunani); jam tayang dari riset harian Kirana. Tiap ide wajib dari **bank topik** `scripts/shorts-topics.mjs` (topic_id, pillar, subject, core_question, angle, hook, sources, evergreen_score, status, published_url); kuota dicek otomatis. Target berikutnya: **±500 subscriber → tambah video panjang 5–10 menit**; Shorts tetap jalan bareng. SOP: `office/youtube.md`.
+Divisi terpisah dari Marketing, ruang di Lt.2 (bilik + R. Manajer), meeting di Lt.3. **7 Shorts/minggu, 1 per hari tanpa libur**, minimal **4 Hidden History**/minggu + 3 bebas dari 6 pilar (Lost Civilizations, Historical Figures, Historical Mysteries, Ancient Secrets, Strange Events, Mitologi Yunani); jam tayang dari riset harian Kirana. Tiap ide wajib dari **bank topik** `scripts/shorts-topics.mjs` (topic_id, pillar, subject, core_question, angle, hook, sources, evergreen_score, status, published_url); kuota dicek otomatis. Target berikutnya: **±500 subscriber → tambah video panjang 5–10 menit**; Shorts tetap jalan bareng. SOP: `office/youtube.md`.
 Alur: sesi harian `node scripts/shorts-bot.mjs new <file.json>` (DB `channel: 'youtube'`) → render OmniVoice otomatis di laptop (`laptop-worker.mjs` → `shorts-laptop.mjs`) → Kirana kirim ke Owner di bot @zataashortbot (`scripts/shorts-bot.mjs`, di watcher; `SHORTS_BOT_TOKEN`, `SHORTS_OWNER_ID`) → Owner ✅ Approve / ✏️ Revisi / ❌ Tolak (❌ = tim bikin pengganti) → upload YouTube otomatis di jam tayang **langsung Publik lewat Zernio** (`scripts/zernio.mjs`, `ZERNIO_API_KEY` di .env VPS) → `posted`. Tanpa key: fallback `youtube.mjs` Private + bot ingatkan Owner ubah ke Publik. Semua urusan Shorts lewat bot itu, bukan bot kantor.
 
 ## Tim Trading (XAUUSD saja)
@@ -48,7 +48,7 @@ Data: `node scripts/trading/cli.mjs status` — jangan ngarang angka trading. EA
 
 Sebelum memerankan pegawai, baca **hanya** playbook-nya: `office/roles/<id>.md` (keahlian Marketing & Trading diadaptasi dari agency-agents, MIT).
 
-Denah kantor (`docs/js/px/scene.js`): Lt.1 publik · Lt.2 tangga pojok kiri, R. Manajer YouTube/Marketing/Trading, bilik YouTube/Marketing/Trading (+ rak server) · Lt.3 musholla & mess · Lt.4 3 ruang meeting + kamar & ruang Bos. Ubah denah → render ulang latar Blender (`blender/render_all.sh`, laptop).
+Denah kantor 3 lantai (`docs/js/px/scene.js`): Lt.1 indoor Mushola + wudhu, Gudang Mbak Sari, Cafe & Resto, Ruang Santai (+ arcade/pingpong); outdoor taman, gazebo, kolam, sign ZATAA OFFICE · Lt.2 tangga pojok kiri, R. Manajer YouTube/Marketing/Trading, bilik YouTube/Marketing/Trading (+ rak server) · Lt.3 3 ruang meeting, Billiard (4 meja), Ruang Bos (+ kursi tunggu di depannya), Bioskop Mini. Tanpa mess/kamar mandi. Ubah denah → render ulang latar Blender (`blender/render_all.sh`, laptop).
 
 Update status visual: `office.mjs agent <id> working "<tugas>"` → selesai `office.mjs agent <id> done "<tugas>"`, dan log singkat `office.mjs log <id> "<pesan>"`.
 `done` otomatis menulis obrolan oper kerjaan ke panel Chit-chat. Boleh tambah 1–2 obrolan natural per sesi (santai/curhat, singkat): `office.mjs chat <dari> <ke|all> <oper|santai|curhat> "<pesan>"`.
@@ -61,7 +61,7 @@ Kantor jalan di VPS (`~/zataa-office`, watcher = service `zataa-watcher`, cron s
 Kalau sesi ini jalan di laptop (Windows): jangan nyalain watcher lokal; ubah kode → commit + push → `ssh zataa-vps "cd ~/zataa-office && git pull && sudo systemctl restart zataa-watcher"`.
 
 ## Ritme kerja
-- Kantor jalan **24 jam** (VPS); pegawai tinggal di mess. Sesi kerja Claude otomatis 07:00 WITA, SOP lengkap: `office/daily.md`.
+- Kantor jalan **24 jam** (VPS), nggak ada yang pulang/tidur: di luar jam kerja tiap pegawai aktivitas acak (`docs/js/schedule.js`); tugas dadakan Owner → langsung ke meja. Divisi yang nunggu ✅ Owner → manajernya duduk nunggu di depan ruang Bos sampai di-approve. Sesi kerja Claude otomatis 07:00 WITA, SOP lengkap: `office/daily.md`.
 - **Senin 07:00–08:00**: rapat plan mingguan → `approval.mjs plan` → produksi baru jalan setelah Owner ✅ plan.
 - **Selasa–Minggu**: 07:00–08:00 riset masing-masing, 08:00–08:30 briefing (tiap pegawai 1 ide desain tambahan, Andre pilih 2 → `approval.mjs ideas`), lalu produksi konten terjadwal.
 - Video: **Rabu & Sabtu**. Hari lain feed/carousel.

@@ -11,7 +11,7 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { loadEnv, say, sayAs, NAMA, db, downloadPhotos, photoNote } from './approval.mjs';
 import { chat } from './chatter.mjs';
-import { AGENTS, wita, activityAt, describe } from '../docs/js/schedule.js';
+import { AGENTS, wita, activityAt, describe, approvalWaits } from '../docs/js/schedule.js';
 import { isTradingCommand, handleTrading } from './trading/telegram.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -21,12 +21,25 @@ const MAX_FOLLOWUPS_PER_DAY = 16; // pengaman token: tugas pantau maksimal segin
 // ---------- status (0 token): sama persis dengan yang tampil di dashboard
 export const isStatusQuestion = (t) => /\b(lagi\s+(pada\s+)?ngapain|pada\s+ngapain|status\s+(tim|kantor)|siapa\s+(aja\s+)?yang\s+(lagi\s+)?(kerja|santai))\b/i.test(t) || /^\/?status$/i.test(t.trim());
 
+// divisi yang nunggu ✅ Owner (sama dengan dashboard: manajernya nunggu di depan ruang Bos)
+function waitsFromDb(d, t) {
+  const q = (sql, ...p) => { try { return d.prepare(sql).all(...p); } catch { return []; } };
+  return approvalWaits({
+    campaign: q('SELECT status FROM campaigns ORDER BY week_start DESC LIMIT 1')[0],
+    contents: q("SELECT day, status, channel FROM contents WHERE status = 'pending_approval'"),
+    agents: q('SELECT id, status FROM agents'),
+    proposals: q("SELECT id FROM trd_proposals WHERE status = 'proposed'"),
+    today: t.date,
+  });
+}
+
 export async function statusReport() {
   const d = await db();
   const real = Object.fromEntries(d.prepare('SELECT id, status, current_task FROM agents').all().map((a) => [a.id, a]));
   const t = wita(new Date());
-  const lines = AGENTS.filter((a) => !a.boss).map((a, idx) => {
-    const info = describe(a, activityAt(idx, a, t, real[a.id]), real[a.id]);
+  const waits = waitsFromDb(d, t);
+  const lines = AGENTS.map((a, idx) => [a, idx]).filter(([a]) => !a.boss).map(([a, idx]) => {
+    const info = describe(a, activityAt(idx, a, t, real[a.id], { waitApproval: waits[a.id] }), real[a.id]);
     const mood = ['work', 'break'].includes(info.act) && info.mood?.label ? ` <i>(${esc(info.mood.label)})</i>` : '';
     return `${info.emoji} <b>${a.name}</b> · ${esc(info.label)}${mood}`;
   });
@@ -49,7 +62,8 @@ async function answerCall(msg) {
   let doing = '';
   if (idx >= 0) {
     const real = d.prepare('SELECT id, status, current_task FROM agents WHERE id = ?').get(agent);
-    const info = describe(AGENTS[idx], activityAt(idx, AGENTS[idx], wita(new Date()), real), real);
+    const t = wita(new Date());
+    const info = describe(AGENTS[idx], activityAt(idx, AGENTS[idx], t, real, { waitApproval: waitsFromDb(d, t)[agent] }), real);
     if (info?.label) doing = ` Lagi ${info.label.charAt(0).toLowerCase()}${info.label.slice(1)} nih.`;
   }
   const pool = ['Iya Bos? 🙋', 'Hadir Bos! 👋', 'Dalem Bos? 😄', 'Siap Bos, ada apa? 🫡'];
