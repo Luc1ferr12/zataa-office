@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Analytics semua sosmed untuk dashboard (docs/data/socials.json): IG (Graph API), TikTok (Zernio), YouTube Shorts (youtube.mjs stats).
 // Per platform: jumlah post (video/foto/carousel), views, likes, komentar, follower/subscriber, top konten. Tanpa AI → 0 token.
-// Watcher panggil socialsTick() tiap menit, narik ulang kalau data sudah >3 jam.
+// Watcher panggil socialsTick() tiap menit, narik ulang kalau data sudah >1 jam.
 //   node scripts/socials.mjs collect     tarik sekarang + tulis docs/data/socials.json
 process.removeAllListeners('warning');
 import { writeFileSync, existsSync, statSync, mkdirSync } from 'node:fs';
@@ -13,7 +13,7 @@ import { api as zernio } from './zernio.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const OUT = join(ROOT, 'docs', 'data', 'socials.json');
-const EVERY = 3 * 3600_000;
+const EVERY = 3600_000;
 const env = () => ({ ...loadEnv(), ...process.env });
 const sum = (list, k) => list.reduce((a, p) => a + (p[k] ?? 0), 0);
 const short = (s, n = 70) => { const t = String(s ?? '').replace(/\s+/g, ' ').trim(); return t.length > n ? `${t.slice(0, n - 1)}…` : t; };
@@ -119,7 +119,7 @@ export async function collect() {
   return Object.fromEntries(['instagram', 'tiktok', 'youtube'].map((k) => [k, out[k].error ? `gagal: ${out[k].error}` : `${out[k].posts.total} post`]));
 }
 
-// dipanggil watcher tiap menit: tarik ulang kalau file belum ada / sudah >3 jam
+// dipanggil watcher tiap menit: tarik ulang kalau file belum ada / sudah >1 jam
 let busy = false;
 export async function socialsTick() {
   if (busy || (existsSync(OUT) && Date.now() - statSync(OUT).mtimeMs < EVERY)) return null;
