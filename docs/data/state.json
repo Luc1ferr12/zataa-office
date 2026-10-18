@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-18T21:52:48.564Z",
+ "generated_at": "2026-10-18T22:02:48.561Z",
  "today": "2026-10-19",
  "week_start": "2026-10-19",
  "campaign": null,
@@ -74,7 +74,7 @@
    "title": "Data Analyst",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-10-18 19:01:11"
+   "updated_at": "2026-10-18 22:01:08"
   },
   {
    "id": "price",
@@ -98,31 +98,31 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-16 20:46:05"
+   "updated_at": "2026-10-18 22:00:50"
   },
   {
    "id": "tresearch",
    "name": "Davina",
    "title": "Research & Fundamental",
    "status": "done",
-   "current_task": "Fundamental: Tak ada berita 24 jam terbaru di hasil cari. Data terakhir: DXY dekat 18 bulan tinggi, inflasi lengket, pasar masih buka peluang Fed naik. Bias tipis negatif.",
-   "updated_at": "2026-10-16 20:46:05"
+   "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
+   "updated_at": "2026-10-18 22:00:50"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Bias bullish",
-   "updated_at": "2026-10-16 20:46:05"
+   "current_task": "Belum ada pantulan band · H1 bullish",
+   "updated_at": "2026-10-18 22:00:50"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: di luar jam sesi London–New York",
-   "updated_at": "2026-10-16 20:46:05"
+   "current_task": "NO TRADE: jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
+   "updated_at": "2026-10-18 22:00:50"
   },
   {
    "id": "texec",
@@ -223,6 +223,26 @@
  ],
  "today_tasks": [],
  "activity": [
+  {
+   "ts": "2026-10-18 22:01:08",
+   "agent_id": "analyst",
+   "message": "Update data 27 post IG 📈"
+  },
+  {
+   "ts": "2026-10-18 22:00:50",
+   "agent_id": "trisk",
+   "message": "NO TRADE · jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
+  },
+  {
+   "ts": "2026-10-18 22:00:50",
+   "agent_id": "ttech",
+   "message": "M15 berubah arah: sideways → bearish"
+  },
+  {
+   "ts": "2026-10-18 22:00:50",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: sideways → bearish"
+  },
   {
    "ts": "2026-10-18 21:48:48",
    "agent_id": "owner",
@@ -327,26 +347,6 @@
    "ts": "2026-10-18 08:24:39",
    "agent_id": "publisher",
    "message": "#35 fallback Gadis gagal (TTS VPS error) → antre ulang ke laptop, cek lagi 35 mnt"
-  },
-  {
-   "ts": "2026-10-18 07:41:39",
-   "agent_id": "video",
-   "message": "Render laptop video #35 gagal, cek logs/laptop-worker.log di laptop"
-  },
-  {
-   "ts": "2026-10-18 07:38:49",
-   "agent_id": "dir",
-   "message": "Cek antrean render: video #35 udah ngantre di laptop (kalem-2) sejak 15:32 WITA, nunggu diambil worker laptop"
-  },
-  {
-   "ts": "2026-10-18 07:38:11",
-   "agent_id": "owner",
-   "message": "Chat: Gimana si, andre lu ga ngingetin tim lu apa gmna sampe kelewat masalah render doang, laptop uda gw idupin dari tadi"
-  },
-  {
-   "ts": "2026-10-18 07:32:53",
-   "agent_id": "video",
-   "message": "Video #35 Super Sunday diantre render laptop (kalem-2), preview bukan hasil — tidak nunggu LOUD vs Vitality"
   }
  ],
  "chats": [
@@ -660,7 +660,7 @@
    "yt_posted": 4,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 4818,
+   "views": 4824,
    "likes": 75,
    "comments": 1,
    "shares": 1,
@@ -693,9 +693,14 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4166.100098,
+  "price": 4165.399902,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-18 22:00:50",
+    "decision": "NO TRADE",
+    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
+   },
    {
     "ts": "2026-10-16 20:46:05",
     "decision": "NO TRADE",
@@ -720,11 +725,6 @@
     "ts": "2026-10-16 19:46:12",
     "decision": "NO TRADE",
     "reason": "bullish, tapi belum ada pemicu entry di area"
-   },
-   {
-    "ts": "2026-10-16 19:31:09",
-    "decision": "NO TRADE",
-    "reason": "bullish, tapi belum ada pemicu entry di area"
    }
   ],
   "trades": [],
@@ -746,7 +746,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-16 20:46:05",
+   "ts": "2026-10-18 22:00:50",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -755,21 +755,33 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "di luar jam sesi London–New York",
+   "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
    "fund": {
-    "bias": -0.1,
-    "note": "Tak ada berita 24 jam terbaru di hasil cari. Data terakhir: DXY dekat 18 bulan tinggi, inflasi lengket, pasar masih buka peluang Fed naik. Bias tipis negatif.",
+    "bias": 0,
+    "note": "netral (belum ada ringkasan hari ini)",
+    "danger": null,
     "blackout": null
    },
    "tech": {
     "bias": "bullish",
-    "score": 3,
+    "score": 0,
     "trigger": null,
-    "note": "bullish (skor 3) · harga 4169.50 · EMA50 H1 4162.82 · RSI M15 50"
+    "confirm": [],
+    "note": "M15 4166.10 di bawah tengah band (4166.1–4166.1) · RSI 46 · Stoch 50 · MACD +0.00 · H1 bullish"
    }
   },
   "fund": null,
-  "calendar": [],
+  "calendar": [
+   {
+    "title": "Unemployment Claims",
+    "impact": "Medium",
+    "at": 1792672200000,
+    "forecast": "200K",
+    "previous": "199K",
+    "wb": 20,
+    "wa": 20
+   }
+  ],
   "ea": {
    "connected": false,
    "demo": null
@@ -792,48 +804,48 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "sideways",
-    "score": 0,
-    "price": 4168.4,
-    "ema20": 4167.44,
-    "ema50": 4169.73,
-    "rsi": 51.3,
+    "bias": "bearish",
+    "score": -2,
+    "price": 4166.1,
+    "ema20": 4166.1,
+    "ema50": 4166.1,
+    "rsi": 21.7,
     "n": 299,
-    "slot": 2986973,
-    "at": 1792183865366
+    "slot": 2987268,
+    "at": 1792360850538
    },
    "M15": {
-    "bias": "sideways",
-    "score": 0,
-    "price": 4169.5,
-    "ema20": 4168.35,
-    "ema50": 4171.15,
-    "rsi": 50.2,
+    "bias": "bearish",
+    "score": -2,
+    "price": 4166.1,
+    "ema20": 4166.1,
+    "ema50": 4166.1,
+    "rsi": 46,
     "n": 299,
-    "slot": 1991315,
-    "at": 1792183565372
+    "slot": 1991512,
+    "at": 1792360850552
    },
    "M30": {
     "bias": "sideways",
     "score": -1,
-    "price": 4169.7,
-    "ema20": 4170.28,
-    "ema50": 4168.89,
-    "rsi": 49.2,
-    "n": 214,
-    "slot": 995657,
-    "at": 1792182665376
+    "price": 4166.1,
+    "ema20": 4166.1,
+    "ema50": 4166.15,
+    "rsi": 46.8,
+    "n": 299,
+    "slot": 995756,
+    "at": 1792360850559
    },
    "H1": {
     "bias": "sideways",
     "score": 0,
-    "price": 4168.9,
-    "ema20": 4169.86,
-    "ema50": 4162.55,
-    "rsi": 50.5,
+    "price": 4166.1,
+    "ema20": 4166.13,
+    "ema50": 4165.62,
+    "rsi": 49,
     "n": 299,
-    "slot": 497828,
-    "at": 1792180865358
+    "slot": 497878,
+    "at": 1792360850673
    }
   },
   "currency": "USC",
