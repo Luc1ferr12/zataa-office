@@ -27,61 +27,6 @@
   </header>
 
   <main>
-    <section class="kpis" aria-label="Ringkasan minggu ini">
-      <article class="kpi"><span>Konten minggu ini</span><strong id="k-total">0</strong><small id="k-total-sub">dari plan</small></article>
-      <article class="kpi"><span>Nunggu approval</span><strong id="k-pending">0</strong><small id="k-pending-sub">cek Telegram</small></article>
-      <article class="kpi"><span>Terposting</span><strong id="k-posted">0</strong><small id="k-sched">0 terjadwal</small></article>
-      <article class="kpi"><span>Views minggu ini</span><strong id="k-views">0</strong><small id="k-views-sub">vs minggu lalu</small></article>
-    </section>
-
-    <section class="grid">
-      <div class="card week">
-        <div class="card-head">
-          <h2>Jadwal konten minggu ini</h2>
-          <span class="muted" id="campaign-theme">Belum ada campaign</span>
-        </div>
-        <h3 class="week-sub">Divisi Marketing</h3>
-        <div class="week-grid" id="week-grid"></div>
-        <h3 class="week-sub yt">Divisi YouTube Shorts <small>7 Shorts · tiap hari (≥4 Hidden History)</small></h3>
-        <div class="week-grid short" id="week-grid-yt"></div>
-      </div>
-
-      <div class="card social">
-        <div class="card-head"><h2>Analytics sosmed</h2><span class="muted" id="social-updated"></span></div>
-        <div class="social-grid" id="social-grid"><p class="muted">Memuat data…</p></div>
-      </div>
-
-      <div class="card team">
-        <div class="card-head"><h2>Tim</h2><span class="muted">klik untuk lihat di kantor</span></div>
-        <ul id="team-list" class="team-list"></ul>
-      </div>
-
-      <div class="card activity">
-        <div class="card-head"><h2>Aktivitas</h2><span class="muted" id="updated-at"></span></div>
-        <ol id="activity" class="activity-list"></ol>
-      </div>
-
-      <div class="card trading">
-        <div class="card-head"><h2>Trading XAU</h2><span class="muted" id="trd-mode"></span></div>
-        <div class="trd-kpi" id="trd-kpi"></div>
-        <div class="trd-tf" id="trd-tf" aria-label="Arah per timeframe"></div>
-        <div class="trd-cols">
-          <section class="trd-box"><h3>Kondisi sekarang</h3><div id="trd-now"></div></section>
-          <section class="trd-box"><h3>Berita USD</h3><div id="trd-news"></div></section>
-          <section class="trd-box"><h3>Risiko &amp; loss</h3><div id="trd-risk"></div></section>
-        </div>
-        <div class="trd-cols two">
-          <section class="trd-box"><h3>Posisi &amp; riwayat trade</h3><ol id="trd-trades" class="activity-list"></ol></section>
-          <section class="trd-box"><h3>Log keputusan</h3><ol id="trd-list" class="activity-list"></ol></section>
-        </div>
-      </div>
-
-      <div class="card chat">
-        <div class="card-head"><h2>Chit-chat</h2><span class="muted">obrolan tim · 🔁 oper · ☕ santai · 💭 curhat · 💕</span></div>
-        <ol id="chat" class="chat-list" aria-live="polite"></ol>
-      </div>
-    </section>
-
     <section class="office-wrap" aria-label="Kantor virtual">
       <div class="office-head">
         <div>
@@ -118,6 +63,72 @@
           <div class="insp-tasks" id="insp-tasks"></div>
         </aside>
         <div class="loading" id="loading">Lagi nyiapin kantor…</div>
+      </div>
+    </section>
+
+    <section class="kpis" aria-label="Ringkasan minggu ini">
+      <article class="kpi"><span>Konten minggu ini</span><strong id="k-total">0</strong><small id="k-total-sub">dari plan</small></article>
+      <article class="kpi"><span>Nunggu approval</span><strong id="k-pending">0</strong><small id="k-pending-sub">cek Telegram</small></article>
+      <article class="kpi"><span>Terposting</span><strong id="k-posted">0</strong><small id="k-sched">0 terjadwal</small></article>
+      <article class="kpi"><span>Views minggu ini</span><strong id="k-views">0</strong><small id="k-views-sub">vs minggu lalu</small></article>
+    </section>
+
+    <nav class="tabs" role="tablist" aria-label="Bagian dashboard">
+      <button role="tab" data-tab="ringkasan" style="--acc:var(--c-teal)">⚡ Ringkasan</button>
+      <button role="tab" data-tab="jadwal" style="--acc:var(--c-mkt)">🗓️ Jadwal</button>
+      <button role="tab" data-tab="analytics" style="--acc:var(--c-pink)">📊 Analytics</button>
+      <button role="tab" data-tab="tim" style="--acc:var(--c-boss)">👥 Tim</button>
+      <button role="tab" data-tab="trading" style="--acc:var(--c-trd)">📈 Trading</button>
+    </nav>
+
+    <section class="panel two" data-panel="ringkasan">
+      <div class="card activity">
+        <div class="card-head"><h2>Aktivitas</h2><span class="muted" id="updated-at"></span></div>
+        <ol id="activity" class="activity-list"></ol>
+      </div>
+      <div class="card chat">
+        <div class="card-head"><h2>Chit-chat</h2><span class="muted">obrolan tim · 🔁 oper · ☕ santai · 💭 curhat · 💕</span></div>
+        <ol id="chat" class="chat-list" aria-live="polite"></ol>
+      </div>
+    </section>
+    <section class="panel" data-panel="jadwal">
+      <div class="card week">
+        <div class="card-head">
+          <h2>Jadwal konten minggu ini</h2>
+          <span class="muted" id="campaign-theme">Belum ada campaign</span>
+        </div>
+        <h3 class="week-sub">Divisi Marketing</h3>
+        <div class="week-grid" id="week-grid"></div>
+        <h3 class="week-sub yt">Divisi YouTube Shorts <small>7 Shorts · tiap hari (≥4 Hidden History)</small></h3>
+        <div class="week-grid short" id="week-grid-yt"></div>
+      </div>
+    </section>
+    <section class="panel" data-panel="analytics">
+      <div class="card social">
+        <div class="card-head"><h2>Analytics sosmed</h2><span class="muted" id="social-updated"></span></div>
+        <div class="social-grid" id="social-grid"><p class="muted">Memuat data…</p></div>
+      </div>
+    </section>
+    <section class="panel" data-panel="tim">
+      <div class="card team">
+        <div class="card-head"><h2>Tim</h2><span class="muted">klik untuk lihat di kantor</span></div>
+        <ul id="team-list" class="team-list"></ul>
+      </div>
+    </section>
+    <section class="panel" data-panel="trading">
+      <div class="card trading">
+        <div class="card-head"><h2>Trading XAU</h2><span class="muted" id="trd-mode"></span></div>
+        <div class="trd-kpi" id="trd-kpi"></div>
+        <div class="trd-tf" id="trd-tf" aria-label="Arah per timeframe"></div>
+        <div class="trd-cols">
+          <section class="trd-box"><h3>Kondisi sekarang</h3><div id="trd-now"></div></section>
+          <section class="trd-box"><h3>Berita USD</h3><div id="trd-news"></div></section>
+          <section class="trd-box"><h3>Risiko &amp; loss</h3><div id="trd-risk"></div></section>
+        </div>
+        <div class="trd-cols two">
+          <section class="trd-box"><h3>Posisi &amp; riwayat trade</h3><ol id="trd-trades" class="activity-list"></ol></section>
+          <section class="trd-box"><h3>Log keputusan</h3><ol id="trd-list" class="activity-list"></ol></section>
+        </div>
       </div>
     </section>
   </main>

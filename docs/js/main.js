@@ -174,14 +174,12 @@ function visitsNow() {
 
 // panel Tim: per divisi, urut sesuai alur kerja (urutan AGENTS dipakai buat kursi/kasur, jangan diubah)
 const DIVISIONS = [
-  { name: 'Pimpinan', flow: '', ids: ['owner', 'sec'] },
-  { name: 'Marketing', flow: 'plan → riset → konten → publish → iklan → data', ids: ['dir', 'researcher', 'price', 'copywriter', 'designer', 'video', 'publisher', 'ads', 'analyst'] },
-  { name: 'Trading XAUUSD', flow: 'siklus tiap candle M15', ids: ['tdir', 'tresearch', 'ttech', 'trisk', 'texec', 'teval', 'treport'] },
-  { name: 'YouTube Shorts', flow: 'riset → naskah & cek fakta → visual → video → upload · tiap hari', ids: ['ydir', 'yresearch', 'yscript', 'yvisual', 'yvideo', 'ypublish'] },
-  { name: 'Umum', flow: '', ids: ['ob'] },
+  { name: 'Pimpinan', color: 'boss', flow: '', ids: ['owner', 'sec'] },
+  { name: 'Umum', color: 'gen', flow: '', ids: ['ob'] },
+  { name: 'Marketing', color: 'mkt', flow: 'plan → riset → konten → publish → iklan → data', ids: ['dir', 'researcher', 'price', 'copywriter', 'designer', 'video', 'publisher', 'ads', 'analyst'] },
+  { name: 'YouTube Shorts', color: 'yt', flow: 'riset → naskah & cek fakta → visual → video → upload · tiap hari', ids: ['ydir', 'yresearch', 'yscript', 'yvisual', 'yvideo', 'ypublish'] },
+  { name: 'Trading XAUUSD', color: 'trd', flow: 'siklus tiap candle M15', ids: ['tdir', 'tresearch', 'ttech', 'trisk', 'texec', 'teval', 'treport'] },
 ];
-// card Tim lebar penuh: kolom 1 Pimpinan + YouTube + Umum, kolom 2 Marketing, kolom 3 Trading
-const TEAM_COLUMNS = [[0, 3, 4], [1], [2]];
 
 function tick(force = false) {
   const t = now();
@@ -215,16 +213,19 @@ function tick(force = false) {
 
   const byId = Object.fromEntries(list.map((l) => [l.a.id, l]));
   const row = ({ a, info }) => `
-    <li class="member ${selected === a.id ? 'active' : ''}" data-id="${a.id}">
+    <li class="member ${selected === a.id ? 'active' : ''}" data-id="${a.id}" title="${esc(`${a.name} · ${a.title}`)}">
       <div class="avatar" style="background:${a.avatar}">${a.name[0]}<img src="assets/office/faces/${a.id}.webp" alt="" loading="lazy" onerror="this.remove()"></div>
-      <div class="who"><strong>${a.name} <span style="display:inline;color:var(--muted);font-weight:400">· ${a.title}</span></strong><span>${info.emoji} ${esc(info.label)}</span></div>
-      <div class="emoji" title="${esc(info.mood?.label ?? '')}">${info.mood?.emoji ?? ''}</div>
+      <div class="who"><strong>${a.name} <small>${a.title}</small></strong><span>${info.emoji} ${esc(info.label)}</span></div>
+      <i class="mood" title="${esc(info.mood?.label ?? '')}">${info.mood?.emoji ?? ''}</i>
     </li>`;
   const division = (d) => {
     const rows = d.ids.map((id) => byId[id]).filter(Boolean);
-    return rows.length ? `<div class="division"><span>${d.name}</span><small>${d.flow}</small></div><ul>${rows.map(row).join('')}</ul>` : '';
+    if (!rows.length) return '';
+    return `<li class="team-div ${rows.length < 3 ? 'mini' : ''}" style="--acc:var(--c-${d.color})">
+      <div class="division"><span>${d.name}</span><b>${rows.length}</b>${d.flow ? `<small>${d.flow}</small>` : ''}</div>
+      <ul>${rows.map(row).join('')}</ul></li>`;
   };
-  $('team-list').innerHTML = TEAM_COLUMNS.map((col) => `<li class="team-col">${col.map((i) => division(DIVISIONS[i])).join('')}</li>`).join('');
+  $('team-list').innerHTML = DIVISIONS.map(division).join('');
   if (selected) renderInspector(selected, list.find((l) => l.a.id === selected)?.info);
   renderChat(t);
 }
@@ -376,6 +377,23 @@ function select(id) {
   if (!id) $('inspector').hidden = true;
   tick();
 }
+
+// ---------- tab navigasi (diingat di localStorage, bisa dibuka langsung lewat #hash) ----------
+const TABS = [...document.querySelectorAll('.tabs [data-tab]')];
+function showTab(name) {
+  if (!TABS.some((b) => b.dataset.tab === name)) name = 'ringkasan';
+  for (const b of TABS) b.setAttribute('aria-selected', String(b.dataset.tab === name));
+  const on = TABS.find((b) => b.dataset.tab === name), bar = on.parentElement;   // HP: tab aktif digeser kelihatan
+  bar.scrollLeft = on.offsetLeft - (bar.clientWidth - on.offsetWidth) / 2;
+  for (const p of document.querySelectorAll('[data-panel]')) p.hidden = p.dataset.panel !== name;
+  if (name === 'ringkasan') { const box = $('chat'); box.scrollTop = box.scrollHeight; }
+  try { localStorage.setItem('tab', name); } catch { /* storage diblokir */ }
+}
+for (const b of TABS) b.addEventListener('click', () => { showTab(b.dataset.tab); history.replaceState(null, '', `#${b.dataset.tab}`); });
+addEventListener('hashchange', () => showTab(location.hash.slice(1)));
+let savedTab = null;
+try { savedTab = localStorage.getItem('tab'); } catch { /* storage diblokir */ }
+showTab(location.hash.slice(1) || savedTab);
 
 // ---------- event ----------
 $('team-list').addEventListener('click', (e) => {
