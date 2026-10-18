@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-18T11:12:54.362Z",
+ "generated_at": "2026-10-18T11:22:48.119Z",
  "today": "2026-10-18",
  "week_start": "2026-10-12",
  "campaign": {
@@ -62,8 +62,8 @@
    "name": "Fikri",
    "title": "Social Media Publisher",
    "status": "done",
-   "current_task": "undefined",
-   "updated_at": "2026-10-18 11:12:54"
+   "current_task": null,
+   "updated_at": "2026-10-18 11:15:02"
   },
   {
    "id": "ads",
@@ -597,10 +597,10 @@
    "game": "valorant",
    "pillar": "esport",
    "title": "LOUD juara VALORANT Champions Shanghai 2026",
-   "status": "approved",
+   "status": "posted",
    "asset_url": "{\"feed\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-18/36-loud-juara-valorant-champions-shanghai-2.jpg\"],\"story\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-18/36-loud-juara-valorant-champions-shanghai-2-916.jpg\"]}",
    "scheduled_at": null,
-   "posted_at": null,
+   "posted_at": "2026-10-18 11:15:02",
    "channel": null
   },
   {
@@ -685,6 +685,11 @@
   }
  ],
  "activity": [
+  {
+   "ts": "2026-10-18 11:15:02",
+   "agent_id": "publisher",
+   "message": "Posting #36 ke IG ✅"
+  },
   {
    "ts": "2026-10-18 11:12:54",
    "agent_id": "owner",
@@ -804,14 +809,16 @@
    "ts": "2026-10-18 04:48:31",
    "agent_id": "owner",
    "message": "Chat: Laptop uda nyala, lgsung render aja kalo uda siap render"
-  },
-  {
-   "ts": "2026-10-18 04:46:36",
-   "agent_id": "publisher",
-   "message": "Video #35 Super Sunday dikirim otomatis ke Owner setelah render laptop"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-10-18 11:15:02",
+   "agent_id": "publisher",
+   "to_id": null,
+   "kind": "oper",
+   "message": "\"LOUD juara VALORANT Champions Shanghai 2026\" udah tayang di IG 🚀 Makasih semua!"
+  },
   {
    "ts": "2026-10-18 11:11:15",
    "agent_id": "publisher",
@@ -1084,22 +1091,15 @@
    "to_id": "copywriter",
    "kind": "santai",
    "message": "Edge TTS ngambek lagi, untung ada suara kalem-2 di laptop 😅"
-  },
-  {
-   "ts": "2026-10-18 04:46:36",
-   "agent_id": "video",
-   "to_id": "publisher",
-   "kind": "oper",
-   "message": "Fikri, video \"Video Super Sunday masuk antrean render laptop (OmniVoice)\" udah render 9:16. Musiknya aman kok"
   }
  ],
  "stats": {
   "this_week": {
    "week": "2026-10-12",
    "total": 30,
-   "posted": 26,
+   "posted": 27,
    "pending": 1,
-   "scheduled": 2,
+   "scheduled": 1,
    "yt_total": 4,
    "yt_posted": 4,
    "yt_pending": 0,
