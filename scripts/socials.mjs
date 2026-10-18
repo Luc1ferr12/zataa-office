@@ -75,7 +75,7 @@ async function tiktok() {
   const list = posts.filter((p) => p.status === 'published').map((p) => ({
     pid: p.platforms?.find((x) => x.platform === 'tiktok')?.platformPostId ?? null,
     type: p.mediaType === 'video' ? 'video' : (p.mediaItems?.length ?? 0) > 1 ? 'carousel' : 'foto',
-    title: short(p.content), url: p.platformPostUrl?.split('?')[0] ?? null, thumb: p.thumbnailUrl ?? null, at: p.publishedAt,
+    title: short(p.content), text: p.content ?? '', url: p.platformPostUrl?.split('?')[0] ?? null, thumb: p.thumbnailUrl ?? null, at: p.publishedAt,
     views: p.analytics?.views ?? null, likes: p.analytics?.likes ?? 0, comments: p.analytics?.comments ?? 0,
   }));
   const handle = account?.username ?? 'zataa.topup';
@@ -100,9 +100,21 @@ async function record(platform, col, list) {
   const find = d.prepare(`SELECT id FROM contents WHERE ${col} = ?`);
   const ins = d.prepare('INSERT INTO metrics (content_id, platform, views, likes, comments) VALUES (?, ?, ?, ?, ?)');
   for (const p of list) {
-    const c = p.pid && find.get(String(p.pid));
+    const c = (p.pid && find.get(String(p.pid))) || (platform === 'tiktok' && linkTiktok(d, p));
     if (c) ins.run(c.id, platform, p.views ?? 0, p.likes ?? 0, p.comments ?? 0);
   }
+}
+// tiktok_id dari publish (Zernio/TikTok "v_pub_…") atau 'manual' ≠ id video di analytics → cocokkan sekali lewat jam tayang (±20 mnt)
+// atau awal caption, lalu simpan id video asli + jam tayang TikTok (tiktok_at, buat analisa jam terbaik per platform)
+function linkTiktok(d, p) {
+  if (!p.pid || !p.at) return null;
+  const at = new Date(p.at).toISOString().slice(0, 19).replace('T', ' ');
+  const head = String(p.text ?? '').replace(/s+/g, ' ').trim().slice(0, 40);
+  const c = d.prepare(`SELECT id FROM contents WHERE tiktok_id IS NOT NULL AND tiktok_id NOT GLOB '[0-9]*'
+      AND (ABS(strftime('%s', posted_at) - strftime('%s', ?)) <= 1200 OR (? != '' AND substr(replace(replace(caption, char(10), ' '), '  ', ' '), 1, 40) = ?))
+    ORDER BY ABS(strftime('%s', posted_at) - strftime('%s', ?)) LIMIT 1`).get(at, head, head, at);
+  if (c) d.prepare('UPDATE contents SET tiktok_id = ?, tiktok_at = ? WHERE id = ?').run(String(p.pid), at, c.id);
+  return c;
 }
 
 export async function collect() {
@@ -113,7 +125,7 @@ export async function collect() {
   }
   await record('tiktok', 'tiktok_id', all.tiktok ?? []).catch(() => {});
   await record('youtube', 'youtube_id', all.youtube ?? []).catch(() => {});
-  for (const k of Object.keys(all)) for (const p of out[k].top ?? []) delete p.pid;
+  for (const k of Object.keys(all)) for (const p of out[k].top ?? []) { delete p.pid; delete p.text; }
   mkdirSync(dirname(OUT), { recursive: true });
   writeFileSync(OUT, `${JSON.stringify(out, null, 1)}\n`);
   return Object.fromEntries(['instagram', 'tiktok', 'youtube'].map((k) => [k, out[k].error ? `gagal: ${out[k].error}` : `${out[k].posts.total} post`]));

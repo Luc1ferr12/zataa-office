@@ -32,6 +32,7 @@ export async function db() {
   const { DatabaseSync } = await import('node:sqlite');
   const d = new DatabaseSync(join(ROOT, 'db', 'office.db'));
   try { d.exec('ALTER TABLE contents ADD COLUMN revisions INTEGER NOT NULL DEFAULT 0'); } catch { /* sudah ada */ }
+  try { d.exec('ALTER TABLE contents ADD COLUMN tiktok_at TEXT'); } catch { /* sudah ada; jam tayang TikTok asli (socials.mjs) */ }
   d.exec(`CREATE TABLE IF NOT EXISTS boosts (
     id INTEGER PRIMARY KEY AUTOINCREMENT, content_id INTEGER NOT NULL, month TEXT NOT NULL, amount INTEGER NOT NULL, days INTEGER NOT NULL,
     score REAL, status TEXT NOT NULL DEFAULT 'proposed', -- proposed | approved | skipped | active | failed
