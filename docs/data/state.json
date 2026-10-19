@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-19T05:52:48.653Z",
+ "generated_at": "2026-10-19T06:02:48.660Z",
  "today": "2026-10-19",
  "week_start": "2026-10-19",
  "campaign": {
@@ -87,7 +87,7 @@
    "title": "Price Watcher",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-10-19 04:01:14"
+   "updated_at": "2026-10-19 06:00:50"
   },
   {
    "id": "ob",
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-19 05:45:50"
+   "updated_at": "2026-10-19 06:00:51"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Fed hawkish (hike Sep, pasar pasang hike Des), CPI Sep 3,7% panas; NFP 29rb lemah. Berita 24 jam tak terkonfirmasi.",
-   "updated_at": "2026-10-19 05:45:50"
+   "updated_at": "2026-10-19 06:00:51"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bullish",
-   "updated_at": "2026-10-19 05:45:50"
+   "updated_at": "2026-10-19 06:00:51"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
-   "updated_at": "2026-10-19 05:45:50"
+   "updated_at": "2026-10-19 06:00:51"
   },
   {
    "id": "texec",
@@ -952,9 +952,14 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4185.5,
+  "price": 4184.799805,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-19 06:00:51",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
+   },
    {
     "ts": "2026-10-19 05:45:50",
     "decision": "NO TRADE",
@@ -979,11 +984,6 @@
     "ts": "2026-10-19 04:45:50",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-   },
-   {
-    "ts": "2026-10-19 04:30:50",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
    }
   ],
   "trades": [],
@@ -1005,7 +1005,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-19 05:45:50",
+   "ts": "2026-10-19 06:00:51",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1026,7 +1026,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4186.00 di atas tengah band (4167.9–4188.7) · RSI 59 · Stoch 75 · MACD +0.35 · H1 bullish"
+    "note": "M15 4185.50 di atas tengah band (4168.6–4189.3) · RSI 59 · Stoch 92 · MACD +0.41 · H1 bullish"
    }
   },
   "fund": {
@@ -1068,46 +1068,46 @@
    "M10": {
     "bias": "bullish",
     "score": 2,
-    "price": 4186.3,
-    "ema20": 4180.03,
-    "ema50": 4177.03,
-    "rsi": 59.1,
+    "price": 4185.6,
+    "ema20": 4180.56,
+    "ema50": 4177.37,
+    "rsi": 58,
     "n": 299,
-    "slot": 2987315,
-    "at": 1792389050923
+    "slot": 2987316,
+    "at": 1792389651108
    },
    "M15": {
     "bias": "bullish",
-    "score": 3,
-    "price": 4185.4,
-    "ema20": 4178.67,
-    "ema50": 4174.93,
-    "rsi": 58.6,
+    "score": 2,
+    "price": 4185.6,
+    "ema20": 4179.33,
+    "ema50": 4175.35,
+    "rsi": 58.8,
     "n": 299,
-    "slot": 1991543,
-    "at": 1792388750918
+    "slot": 1991544,
+    "at": 1792389651118
    },
    "M30": {
     "bias": "bullish",
     "score": 2,
-    "price": 4175.5,
-    "ema20": 4175.05,
-    "ema50": 4171.28,
-    "rsi": 51.9,
+    "price": 4185.6,
+    "ema20": 4176.06,
+    "ema50": 4171.84,
+    "rsi": 60.8,
     "n": 299,
-    "slot": 995771,
-    "at": 1792387850926
+    "slot": 995772,
+    "at": 1792389651119
    },
    "H1": {
     "bias": "bullish",
     "score": 3,
-    "price": 4184.3,
-    "ema20": 4172.62,
-    "ema50": 4168.84,
-    "rsi": 71.4,
+    "price": 4185.6,
+    "ema20": 4173.86,
+    "ema50": 4169.5,
+    "rsi": 72.6,
     "n": 299,
-    "slot": 497885,
-    "at": 1792386051099
+    "slot": 497886,
+    "at": 1792389651131
    }
   },
   "currency": "USC",
