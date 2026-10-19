@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-19T23:22:49.269Z",
+ "generated_at": "2026-10-19T23:32:49.252Z",
  "today": "2026-10-20",
  "week_start": "2026-10-19",
  "campaign": {
@@ -53,25 +53,25 @@
    "id": "video",
    "name": "Dimas",
    "title": "Video Production",
-   "status": "working",
-   "current_task": "Render video #41 bracket playoff",
-   "updated_at": "2026-10-19 23:03:43"
+   "status": "done",
+   "current_task": "Render video #41 bracket playoff (43 dtk)",
+   "updated_at": "2026-10-19 23:24:25"
   },
   {
    "id": "publisher",
    "name": "Fikri",
    "title": "Social Media Publisher",
-   "status": "working",
-   "current_task": "QA & kirim #40 ke Owner",
-   "updated_at": "2026-10-19 23:15:29"
+   "status": "done",
+   "current_task": "QA & kirim #40 + #41 ke Owner",
+   "updated_at": "2026-10-19 23:24:34"
   },
   {
    "id": "ads",
    "name": "Fahriah",
    "title": "Ads Specialist",
    "status": "done",
-   "current_task": null,
-   "updated_at": "2026-10-15 23:04:42"
+   "current_task": "Pitch ide briefing",
+   "updated_at": "2026-10-19 23:24:39"
   },
   {
    "id": "analyst",
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-19 23:15:51"
+   "updated_at": "2026-10-19 23:30:51"
   },
   {
    "id": "tresearch",
@@ -111,15 +111,15 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Fed condong hawkish (CPI & PPI September panas, Warsh belum beri sinyal), yield naik; risiko geopolitik Timur Tengah menahan turun.",
-   "updated_at": "2026-10-19 23:15:51"
+   "updated_at": "2026-10-19 23:30:51"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Setup BUY di band (RSI)",
-   "updated_at": "2026-10-19 23:15:51"
+   "current_task": "Belum ada pantulan band · H1 bearish",
+   "updated_at": "2026-10-19 23:30:51"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
-   "updated_at": "2026-10-19 23:15:51"
+   "updated_at": "2026-10-19 23:30:51"
   },
   {
    "id": "texec",
@@ -197,9 +197,9 @@
    "id": "yvideo",
    "name": "Yoga",
    "title": "Video Producer",
-   "status": "working",
-   "current_task": "Antre render #34 di laptop",
-   "updated_at": "2026-10-18 04:06:18"
+   "status": "done",
+   "current_task": "Shorts #53 antre render laptop",
+   "updated_at": "2026-10-19 23:24:39"
   },
   {
    "id": "ypublish",
@@ -289,8 +289,8 @@
    "game": "mlbb",
    "pillar": "esport",
    "title": "Bracket playoff MPL ID S18: Bo5, Bo7, siapa ketemu siapa",
-   "status": "draft",
-   "asset_url": null,
+   "status": "pending_approval",
+   "asset_url": "{\"video\":\"https://luc1ferr12.github.io/zataa-office/media/2026-10-20/41-bracket-playoff-mpl-id-s18-bo5-bo7-siapa.mp4\",\"cover\":\"https://luc1ferr12.github.io/zataa-office/media/2026-10-20/41-bracket-playoff-mpl-id-s18-bo5-bo7-siapa-cover.jpg\"}",
    "scheduled_at": null,
    "posted_at": null,
    "channel": null
@@ -490,6 +490,16 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-19 23:24:34",
+   "agent_id": "publisher",
+   "message": "#40 polling (12:00 WIB) & #41 bracket (19:00 WIB) menunggu ✅ Owner"
+  },
+  {
+   "ts": "2026-10-19 23:24:34",
+   "agent_id": "publisher",
+   "message": "Kirim #41 ke Owner buat approval"
+  },
+  {
    "ts": "2026-10-19 23:15:33",
    "agent_id": "publisher",
    "message": "Kirim #40 ke Owner buat approval"
@@ -603,19 +613,30 @@
    "ts": "2026-10-19 19:10:51",
    "agent_id": "ttech",
    "message": "M10 berubah arah: sideways → bearish"
-  },
-  {
-   "ts": "2026-10-19 19:01:13",
-   "agent_id": "analyst",
-   "message": "Update data 30 post IG 📈"
-  },
-  {
-   "ts": "2026-10-19 18:50:51",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: bearish → sideways"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-10-19 23:24:39",
+   "agent_id": "yvideo",
+   "to_id": "ypublish",
+   "kind": "oper",
+   "message": "Video \"Shorts #53 antre render laptop\" kelar, Kirana. Durasinya pas di bawah 60 detik"
+  },
+  {
+   "ts": "2026-10-19 23:24:34",
+   "agent_id": "publisher",
+   "to_id": "owner",
+   "kind": "oper",
+   "message": "Bos, \"QA & kirim #40 + #41 ke Owner\" udah aku kirim ke Telegram. Ditunggu approve-nya 🙏"
+  },
+  {
+   "ts": "2026-10-19 23:24:25",
+   "agent_id": "video",
+   "to_id": "publisher",
+   "kind": "oper",
+   "message": "Render \"Render video #41 bracket playoff (43 dtk)\" selesai, Fikri. Cek cover-nya ya"
+  },
   {
    "ts": "2026-10-19 23:15:42",
    "agent_id": "yvisual",
@@ -874,27 +895,6 @@
    "to_id": "owner",
    "kind": "santai",
    "message": "Siap, Bos. Begitu roster juara sama aset logo & fotonya beres, langsung aku kabarin."
-  },
-  {
-   "ts": "2026-10-18 22:06:48",
-   "agent_id": "owner",
-   "to_id": "dir",
-   "kind": "bos",
-   "message": "Okee andre"
-  },
-  {
-   "ts": "2026-10-18 21:49:00",
-   "agent_id": "dir",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Masih ada yang kudu dicek dulu, Bos: roster juara tiap tahun sama aset logo & foto pemainnya. Biar nggak salah roster, jadi belum bisa langsung render. Nanti aku kabarin progresnya."
-  },
-  {
-   "ts": "2026-10-18 21:48:48",
-   "agent_id": "owner",
-   "to_id": "dir",
-   "kind": "bos",
-   "message": "Belum bisa ngerjain karna ?"
   }
  ],
  "stats": {
@@ -902,18 +902,18 @@
    "week": "2026-10-19",
    "total": 17,
    "posted": 4,
-   "pending": 1,
+   "pending": 2,
    "scheduled": 0,
    "yt_total": 2,
    "yt_posted": 1,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 20964,
+   "views": 20965,
    "likes": 54,
    "comments": 1,
    "shares": 0,
    "saves": 1,
-   "yt_views": 1268,
+   "yt_views": 1269,
    "top": [
     {
      "title": "Hall of Champions Valorant 2021-2026",
@@ -925,7 +925,7 @@
      "title": "8.000 Prajurit Penjaga Makam yang Belum Dibuka",
      "format": "shorts",
      "pillar": "hidden_history",
-     "views": 1268
+     "views": 1269
     },
     {
      "title": "Era franchise VCT tamat: bursa transfer 2027 dimulai (rumor ditandai)",
@@ -978,9 +978,14 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4135.299805,
+  "price": 4136.200195,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-19 23:30:51",
+    "decision": "NO TRADE",
+    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
+   },
    {
     "ts": "2026-10-19 23:15:51",
     "decision": "NO TRADE",
@@ -1005,11 +1010,6 @@
     "ts": "2026-10-19 22:15:51",
     "decision": "NO TRADE",
     "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
-   },
-   {
-    "ts": "2026-10-19 22:00:51",
-    "decision": "NO TRADE",
-    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
    }
   ],
   "trades": [],
@@ -1031,7 +1031,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-19 23:15:51",
+   "ts": "2026-10-19 23:30:51",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1049,12 +1049,10 @@
    },
    "tech": {
     "bias": "bearish",
-    "score": 1,
-    "trigger": "buy",
-    "confirm": [
-     "RSI"
-    ],
-    "note": "M15 4135.00 di bawah tengah band (4134.2–4148.7) · RSI 30 · Stoch 2 · MACD -0.21 · H1 bearish · setup BUY (RSI)"
+    "score": 0,
+    "trigger": null,
+    "confirm": [],
+    "note": "M15 4135.60 di bawah tengah band (4133.8–4148.0) · RSI 32 · Stoch 8 · MACD -0.19 · H1 bearish"
    }
   },
   "fund": {
@@ -1096,35 +1094,35 @@
    "M10": {
     "bias": "bearish",
     "score": -3,
-    "price": 4135.1,
-    "ema20": 4140.38,
-    "ema50": 4144.89,
-    "rsi": 31.1,
+    "price": 4135.7,
+    "ema20": 4139.93,
+    "ema50": 4144.53,
+    "rsi": 33.6,
     "n": 299,
-    "slot": 2987420,
-    "at": 1792452051748
+    "slot": 2987421,
+    "at": 1792452651753
    },
    "M15": {
     "bias": "bearish",
     "score": -2,
-    "price": 4134.5,
-    "ema20": 4141.76,
-    "ema50": 4148.96,
-    "rsi": 28.6,
+    "price": 4135.7,
+    "ema20": 4141.19,
+    "ema50": 4148.44,
+    "rsi": 32.5,
     "n": 299,
-    "slot": 1991613,
-    "at": 1792451751744
+    "slot": 1991614,
+    "at": 1792452651759
    },
    "M30": {
     "bias": "bearish",
     "score": -2,
-    "price": 4137.5,
-    "ema20": 4147.08,
-    "ema50": 4156.73,
-    "rsi": 32.9,
+    "price": 4135.7,
+    "ema20": 4146,
+    "ema50": 4155.9,
+    "rsi": 31.4,
     "n": 299,
-    "slot": 995806,
-    "at": 1792450852079
+    "slot": 995807,
+    "at": 1792452651759
    },
    "H1": {
     "bias": "bearish",
