@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-19T01:12:48.569Z",
+ "generated_at": "2026-10-19T01:22:48.570Z",
  "today": "2026-10-19",
  "week_start": "2026-10-19",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-19 01:00:50"
+   "updated_at": "2026-10-19 01:15:50"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Fed hawkish (hike Sep, pasar pasang hike Des), CPI Sep 3,7% panas; NFP 29rb lemah. Berita 24 jam tak terkonfirmasi.",
-   "updated_at": "2026-10-19 01:00:50"
+   "updated_at": "2026-10-19 01:15:50"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bullish",
-   "updated_at": "2026-10-19 01:00:50"
+   "updated_at": "2026-10-19 01:15:50"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
-   "updated_at": "2026-10-19 01:00:50"
+   "updated_at": "2026-10-19 01:15:50"
   },
   {
    "id": "texec",
@@ -261,7 +261,7 @@
    "game": "sejarah",
    "pillar": "hidden_history",
    "title": "8.000 Prajurit Penjaga Makam yang Belum Dibuka",
-   "status": "draft",
+   "status": "pending_approval",
    "asset_url": null,
    "scheduled_at": null,
    "posted_at": null,
@@ -476,6 +476,21 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-19 01:15:50",
+   "agent_id": "trisk",
+   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (sesi Asia)"
+  },
+  {
+   "ts": "2026-10-19 01:13:21",
+   "agent_id": "yvideo",
+   "message": "Shorts #52 dirender di laptop (suara OmniVoice) & dikirim ke Owner"
+  },
+  {
+   "ts": "2026-10-19 01:13:20",
+   "agent_id": "ypublish",
+   "message": "Kirim Shorts #52 ke Owner buat approval"
+  },
+  {
    "ts": "2026-10-19 01:01:24",
    "agent_id": "analyst",
    "message": "Update data 28 post IG 📈"
@@ -584,21 +599,6 @@
    "ts": "2026-10-18 23:01:30",
    "agent_id": "researcher",
    "message": "Riset Senin 6 item: MPL seed & playoff, FFWS Bangkok, offseason VCT. Hasil Super Sunday belum terindeks, cek ulang Selasa."
-  },
-  {
-   "ts": "2026-10-18 23:01:30",
-   "agent_id": "researcher",
-   "message": "Nemu 6 topik baru"
-  },
-  {
-   "ts": "2026-10-18 23:01:19",
-   "agent_id": "trisk",
-   "message": "NO TRADE · jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
-  },
-  {
-   "ts": "2026-10-18 23:00:50",
-   "agent_id": "ttech",
-   "message": "M60 berubah arah: sideways → bullish"
   }
  ],
  "chats": [
@@ -888,11 +888,11 @@
    "week": "2026-10-19",
    "total": 16,
    "posted": 1,
-   "pending": 0,
+   "pending": 1,
    "scheduled": 2,
    "yt_total": 1,
    "yt_posted": 0,
-   "yt_pending": 0,
+   "yt_pending": 1,
    "yt_scheduled": 0,
    "views": 5,
    "likes": 1,
@@ -952,9 +952,14 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4170.799805,
+  "price": 4169.100098,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-19 01:15:50",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
+   },
    {
     "ts": "2026-10-19 01:00:50",
     "decision": "NO TRADE",
@@ -979,11 +984,6 @@
     "ts": "2026-10-19 00:00:50",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-   },
-   {
-    "ts": "2026-10-18 23:45:50",
-    "decision": "NO TRADE",
-    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
    }
   ],
   "trades": [],
@@ -1005,7 +1005,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-19 01:00:50",
+   "ts": "2026-10-19 01:15:50",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1026,7 +1026,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4175.10 di atas tengah band (4159.5–4188.4) · RSI 54 · Stoch 42 · MACD -0.45 · H1 bullish"
+    "note": "M15 4173.40 di bawah tengah band (4160.2–4188.1) · RSI 50 · Stoch 35 · MACD -0.83 · H1 bullish"
    }
   },
   "fund": {
@@ -1068,24 +1068,24 @@
    "M10": {
     "bias": "sideways",
     "score": 1,
-    "price": 4170.7,
-    "ema20": 4175.95,
-    "ema50": 4172.47,
-    "rsi": 41.8,
+    "price": 4173.7,
+    "ema20": 4175.73,
+    "ema50": 4172.52,
+    "rsi": 47.8,
     "n": 299,
-    "slot": 2987287,
-    "at": 1792372250681
+    "slot": 2987288,
+    "at": 1792372850691
    },
    "M15": {
     "bias": "sideways",
     "score": 0,
-    "price": 4173.6,
-    "ema20": 4174.64,
-    "ema50": 4170.8,
-    "rsi": 50.6,
+    "price": 4171.5,
+    "ema20": 4174.34,
+    "ema50": 4170.83,
+    "rsi": 46.1,
     "n": 299,
-    "slot": 1991524,
-    "at": 1792371650863
+    "slot": 1991525,
+    "at": 1792372550685
    },
    "M30": {
     "bias": "bullish",
