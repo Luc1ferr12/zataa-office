@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-19T23:02:49.151Z",
+ "generated_at": "2026-10-19T23:12:49.282Z",
  "today": "2026-10-20",
  "week_start": "2026-10-19",
  "campaign": {
@@ -38,24 +38,24 @@
    "name": "Ista",
    "title": "Copywriter",
    "status": "done",
-   "current_task": "Teks carousel playoff MPL & script video transfer VCT",
-   "updated_at": "2026-10-18 23:45:41"
+   "current_task": "Copy #40 polling & #41 bracket siap",
+   "updated_at": "2026-10-19 23:03:34"
   },
   {
    "id": "designer",
    "name": "Maria",
    "title": "Graphic Designer",
    "status": "done",
-   "current_task": "Render carousel playoff MPL S18",
-   "updated_at": "2026-10-18 23:46:20"
+   "current_task": "Render feed #40 polling 6 tim",
+   "updated_at": "2026-10-19 23:03:43"
   },
   {
    "id": "video",
    "name": "Dimas",
    "title": "Video Production",
-   "status": "done",
-   "current_task": "Render video Hall of Champions Valorant",
-   "updated_at": "2026-10-19 00:12:52"
+   "status": "working",
+   "current_task": "Render video #41 bracket playoff",
+   "updated_at": "2026-10-19 23:03:43"
   },
   {
    "id": "publisher",
@@ -165,17 +165,17 @@
    "id": "ydir",
    "name": "Bagas",
    "title": "Manajer YouTube",
-   "status": "done",
-   "current_task": "Approve 11 topik bank",
-   "updated_at": "2026-10-18 23:04:46"
+   "status": "working",
+   "current_task": "Cek bank topik & pilih topik Shorts hari ini",
+   "updated_at": "2026-10-19 23:12:35"
   },
   {
    "id": "yresearch",
    "name": "Nadhira",
    "title": "Riset Sejarah & Tren",
-   "status": "done",
-   "current_task": "Isi bank topik Shorts",
-   "updated_at": "2026-10-18 23:04:46"
+   "status": "working",
+   "current_task": "Riset beton Romawi + verifikasi kapal karam Belitung",
+   "updated_at": "2026-10-19 23:12:35"
   },
   {
    "id": "yscript",
@@ -276,7 +276,7 @@
    "pillar": "engagement",
    "title": "Polling: siapa juara MPL ID S18? NAVI, TLID, AE, BTR, EVOS, ONIC",
    "status": "draft",
-   "asset_url": null,
+   "asset_url": "{\"feed\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-20/40-polling-siapa-juara-mpl-id-s18-navi-tlid.jpg\"],\"story\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-20/40-polling-siapa-juara-mpl-id-s18-navi-tlid-916.jpg\"]}",
    "scheduled_at": null,
    "posted_at": null,
    "channel": null
@@ -476,6 +476,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-19 23:03:34",
+   "agent_id": "copywriter",
+   "message": "#40 & #41 diisi, hook angka (eksperimen Selasa)"
+  },
+  {
    "ts": "2026-10-19 23:02:42",
    "agent_id": "dir",
    "message": "Ide dikirim ke Owner: #57 feed ENVY, #59 feed tiket sold out, #60 video Hall of Champions MPL ID"
@@ -594,14 +599,23 @@
    "ts": "2026-10-19 18:00:51",
    "agent_id": "ttech",
    "message": "M10 berubah arah: bearish → sideways"
-  },
-  {
-   "ts": "2026-10-19 17:15:51",
-   "agent_id": "trisk",
-   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-10-19 23:03:43",
+   "agent_id": "designer",
+   "to_id": "publisher",
+   "kind": "oper",
+   "message": "Visual \"Render feed #40 polling 6 tim\" kelar! Fikri, cek typo-nya sekalian ya 🙏"
+  },
+  {
+   "ts": "2026-10-19 23:03:34",
+   "agent_id": "copywriter",
+   "to_id": "designer",
+   "kind": "oper",
+   "message": "Maria, copy \"Copy #40 polling & #41 bracket siap\" udah masuk. Headline-nya jangan dikecilin ya 😆"
+  },
   {
    "ts": "2026-10-19 23:02:42",
    "agent_id": "dir",
@@ -867,20 +881,6 @@
    "to_id": "copywriter",
    "kind": "oper",
    "message": "Ista, bahan buat \"Riset roster juara Valorant Champions 2021-2026\" udah aku rangkum + sumbernya. Tinggal kamu racik captionnya ✍️"
-  },
-  {
-   "ts": "2026-10-18 21:27:48",
-   "agent_id": "dir",
-   "to_id": null,
-   "kind": "oper",
-   "message": "Oke tim, ada titah dari Bos. Aku bagi tugasnya ya 👇"
-  },
-  {
-   "ts": "2026-10-18 21:27:48",
-   "agent_id": "owner",
-   "to_id": "dir",
-   "kind": "bos",
-   "message": "Buatin video hall of champions valorant dari winner 2021-2026, di video nya ada logo tim sama foto player nya. Dan pastikan yang memenangkan saat itu roasternya siapa aja, karna bisa jadi roaster nya uda berubah"
   }
  ],
  "stats": {
@@ -964,7 +964,7 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4135.600098,
+  "price": 4134.799805,
   "open": [],
   "signals": [
    {
@@ -1080,13 +1080,13 @@
    "M10": {
     "bias": "bearish",
     "score": -3,
-    "price": 4137.5,
-    "ema20": 4141.54,
-    "ema50": 4145.7,
-    "rsi": 35.6,
+    "price": 4135.2,
+    "ema20": 4140.93,
+    "ema50": 4145.29,
+    "rsi": 31.3,
     "n": 299,
-    "slot": 2987418,
-    "at": 1792450852073
+    "slot": 2987419,
+    "at": 1792451451726
    },
    "M15": {
     "bias": "bearish",
