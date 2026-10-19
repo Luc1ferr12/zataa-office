@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-19T23:12:49.282Z",
+ "generated_at": "2026-10-19T23:22:49.269Z",
  "today": "2026-10-20",
  "week_start": "2026-10-19",
  "campaign": {
@@ -61,9 +61,9 @@
    "id": "publisher",
    "name": "Fikri",
    "title": "Social Media Publisher",
-   "status": "done",
-   "current_task": null,
-   "updated_at": "2026-10-19 12:02:07"
+   "status": "working",
+   "current_task": "QA & kirim #40 ke Owner",
+   "updated_at": "2026-10-19 23:15:29"
   },
   {
    "id": "ads",
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-19 23:01:19"
+   "updated_at": "2026-10-19 23:15:51"
   },
   {
    "id": "tresearch",
@@ -111,15 +111,15 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Fed condong hawkish (CPI & PPI September panas, Warsh belum beri sinyal), yield naik; risiko geopolitik Timur Tengah menahan turun.",
-   "updated_at": "2026-10-19 23:01:19"
+   "updated_at": "2026-10-19 23:15:51"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-10-19 23:01:19"
+   "current_task": "Setup BUY di band (RSI)",
+   "updated_at": "2026-10-19 23:15:51"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
-   "updated_at": "2026-10-19 23:01:19"
+   "updated_at": "2026-10-19 23:15:51"
   },
   {
    "id": "texec",
@@ -182,16 +182,16 @@
    "name": "Laras",
    "title": "Scriptwriter & Fact Checker",
    "status": "done",
-   "current_task": "Naskah Shorts Pasukan Terakota",
-   "updated_at": "2026-10-18 23:04:46"
+   "current_task": "Naskah Beton Romawi 7 adegan, label fakta/teori",
+   "updated_at": "2026-10-19 23:15:05"
   },
   {
    "id": "yvisual",
    "name": "Galih",
    "title": "Visual & Creative",
    "status": "done",
-   "current_task": "Visual Shorts Pasukan Terakota",
-   "updated_at": "2026-10-18 23:04:46"
+   "current_task": "7 foto Commons beton Romawi + credits.txt",
+   "updated_at": "2026-10-19 23:15:05"
   },
   {
    "id": "yvideo",
@@ -206,8 +206,8 @@
    "name": "Kirana",
    "title": "Publisher, SEO & Growth",
    "status": "done",
-   "current_task": "Judul & jam tayang Shorts 18:00",
-   "updated_at": "2026-10-18 23:04:46"
+   "current_task": "Shorts #53 Beton Romawi antre render, tayang 18:00 WIB",
+   "updated_at": "2026-10-19 23:15:19"
   }
  ],
  "week_contents": [
@@ -275,7 +275,7 @@
    "game": "mlbb",
    "pillar": "engagement",
    "title": "Polling: siapa juara MPL ID S18? NAVI, TLID, AE, BTR, EVOS, ONIC",
-   "status": "draft",
+   "status": "pending_approval",
    "asset_url": "{\"feed\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-20/40-polling-siapa-juara-mpl-id-s18-navi-tlid.jpg\"],\"story\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-20/40-polling-siapa-juara-mpl-id-s18-navi-tlid-916.jpg\"]}",
    "scheduled_at": null,
    "posted_at": null,
@@ -294,6 +294,20 @@
    "scheduled_at": null,
    "posted_at": null,
    "channel": null
+  },
+  {
+   "id": 53,
+   "day": "2026-10-20",
+   "slot": "shorts",
+   "format": "shorts",
+   "game": "sejarah",
+   "pillar": "ancient_secrets",
+   "title": "Beton Romawi yang Bisa Menambal Dirinya Sendiri",
+   "status": "draft",
+   "asset_url": null,
+   "scheduled_at": null,
+   "posted_at": null,
+   "channel": "youtube"
   },
   {
    "id": 42,
@@ -476,6 +490,21 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-19 23:15:33",
+   "agent_id": "publisher",
+   "message": "Kirim #40 ke Owner buat approval"
+  },
+  {
+   "ts": "2026-10-19 23:15:19",
+   "agent_id": "ypublish",
+   "message": "Jam tayang 18:00 WIB: data channel 18:00 (±1.260 views, 2 video) & 19:00 (1.426) jauh di atas 13:00 (40 views)"
+  },
+  {
+   "ts": "2026-10-19 23:15:14",
+   "agent_id": "yvideo",
+   "message": "Shorts #53 \"Beton Romawi yang Bisa Menambal Dirinya Sendiri\" masuk antrean render laptop (OmniVoice)"
+  },
+  {
    "ts": "2026-10-19 23:03:34",
    "agent_id": "copywriter",
    "message": "#40 & #41 diisi, hook angka (eksperimen Selasa)"
@@ -584,24 +613,30 @@
    "ts": "2026-10-19 18:50:51",
    "agent_id": "ttech",
    "message": "M10 berubah arah: bearish → sideways"
-  },
-  {
-   "ts": "2026-10-19 18:30:51",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: sideways → bearish"
-  },
-  {
-   "ts": "2026-10-19 18:15:51",
-   "agent_id": "trisk",
-   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-  },
-  {
-   "ts": "2026-10-19 18:00:51",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: bearish → sideways"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-10-19 23:15:42",
+   "agent_id": "yvisual",
+   "to_id": "yscript",
+   "kind": "santai",
+   "message": "Ras, foto Pantheon dari bawah keren banget buat hook, pas sama naskahmu!"
+  },
+  {
+   "ts": "2026-10-19 23:15:19",
+   "agent_id": "ypublish",
+   "to_id": "owner",
+   "kind": "oper",
+   "message": "Bos, Shorts \"Shorts #53 Beton Romawi antre render, tayang 18:00 WIB\" udah aku kirim ke Telegram. Ditunggu ✅ buat upload 🙏"
+  },
+  {
+   "ts": "2026-10-19 23:15:05",
+   "agent_id": "yvisual",
+   "to_id": "yvideo",
+   "kind": "oper",
+   "message": "Aset adegan \"7 foto Commons beton Romawi + credits.txt\" kelar, Yoga. Gas edit!"
+  },
   {
    "ts": "2026-10-19 23:03:43",
    "agent_id": "designer",
@@ -860,37 +895,16 @@
    "to_id": "dir",
    "kind": "bos",
    "message": "Belum bisa ngerjain karna ?"
-  },
-  {
-   "ts": "2026-10-18 21:41:59",
-   "agent_id": "researcher",
-   "to_id": "copywriter",
-   "kind": "santai",
-   "message": "Ternyata Ethan juara Champions 2x pake 2 tim beda, aku sampe cek ulang 3 sumber 😂"
-  },
-  {
-   "ts": "2026-10-18 21:31:52",
-   "agent_id": "copywriter",
-   "to_id": "designer",
-   "kind": "oper",
-   "message": "Maria, copy \"Naskah video Hall of Champions Valorant\" udah masuk. Headline-nya jangan dikecilin ya 😆"
-  },
-  {
-   "ts": "2026-10-18 21:31:17",
-   "agent_id": "researcher",
-   "to_id": "copywriter",
-   "kind": "oper",
-   "message": "Ista, bahan buat \"Riset roster juara Valorant Champions 2021-2026\" udah aku rangkum + sumbernya. Tinggal kamu racik captionnya ✍️"
   }
  ],
  "stats": {
   "this_week": {
    "week": "2026-10-19",
-   "total": 16,
+   "total": 17,
    "posted": 4,
-   "pending": 0,
+   "pending": 1,
    "scheduled": 0,
-   "yt_total": 1,
+   "yt_total": 2,
    "yt_posted": 1,
    "yt_pending": 0,
    "yt_scheduled": 0,
@@ -964,9 +978,14 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4134.799805,
+  "price": 4135.299805,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-19 23:15:51",
+    "decision": "NO TRADE",
+    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
+   },
    {
     "ts": "2026-10-19 23:01:19",
     "decision": "NO TRADE",
@@ -991,11 +1010,6 @@
     "ts": "2026-10-19 22:00:51",
     "decision": "NO TRADE",
     "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
-   },
-   {
-    "ts": "2026-10-19 20:45:51",
-    "decision": "NO TRADE",
-    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
    }
   ],
   "trades": [],
@@ -1017,7 +1031,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-19 23:01:19",
+   "ts": "2026-10-19 23:15:51",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1035,10 +1049,12 @@
    },
    "tech": {
     "bias": "bearish",
-    "score": 0,
-    "trigger": null,
-    "confirm": [],
-    "note": "M15 4137.40 di bawah tengah band (4136.0–4148.3) · RSI 33 · Stoch 0 · MACD +0.11 · H1 bearish"
+    "score": 1,
+    "trigger": "buy",
+    "confirm": [
+     "RSI"
+    ],
+    "note": "M15 4135.00 di bawah tengah band (4134.2–4148.7) · RSI 30 · Stoch 2 · MACD -0.21 · H1 bearish · setup BUY (RSI)"
    }
   },
   "fund": {
@@ -1080,24 +1096,24 @@
    "M10": {
     "bias": "bearish",
     "score": -3,
-    "price": 4135.2,
-    "ema20": 4140.93,
-    "ema50": 4145.29,
-    "rsi": 31.3,
+    "price": 4135.1,
+    "ema20": 4140.38,
+    "ema50": 4144.89,
+    "rsi": 31.1,
     "n": 299,
-    "slot": 2987419,
-    "at": 1792451451726
+    "slot": 2987420,
+    "at": 1792452051748
    },
    "M15": {
     "bias": "bearish",
     "score": -2,
-    "price": 4137.5,
-    "ema20": 4142.53,
-    "ema50": 4149.55,
-    "rsi": 33,
+    "price": 4134.5,
+    "ema20": 4141.76,
+    "ema50": 4148.96,
+    "rsi": 28.6,
     "n": 299,
-    "slot": 1991612,
-    "at": 1792450852078
+    "slot": 1991613,
+    "at": 1792451751744
    },
    "M30": {
     "bias": "bearish",
