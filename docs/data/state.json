@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-19T00:02:48.563Z",
+ "generated_at": "2026-10-19T00:12:48.563Z",
  "today": "2026-10-19",
  "week_start": "2026-10-19",
  "campaign": {
@@ -21,9 +21,9 @@
    "id": "dir",
    "name": "Andre",
    "title": "Marketing Director",
-   "status": "done",
-   "current_task": "Plan mingguan dikirim ke Owner",
-   "updated_at": "2026-10-18 23:01:34"
+   "status": "working",
+   "current_task": "Bagi tugas: Video hall of champions updatenya sudah sampai mana ?",
+   "updated_at": "2026-10-19 00:11:48"
   },
   {
    "id": "researcher",
@@ -62,8 +62,8 @@
    "name": "Fikri",
    "title": "Social Media Publisher",
    "status": "done",
-   "current_task": "QA & kirim video transfer VCT ke Owner",
-   "updated_at": "2026-10-18 23:58:33"
+   "current_task": "undefined",
+   "updated_at": "2026-10-19 00:11:48"
   },
   {
    "id": "ads",
@@ -219,7 +219,7 @@
    "game": "mlbb",
    "pillar": "esport",
    "title": "6 tim ke Surabaya: daftar lolos playoff MPL ID S18 + jadwal 4-8 Nov (seed final dicek ulang dulu)",
-   "status": "pending_approval",
+   "status": "approved",
    "asset_url": "{\"feed\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-19/38-6-tim-ke-surabaya-daftar-lolos-playoff-m-1.jpg\",\"https://luc1ferr12.github.io/zataa-office/media/2026-10-19/38-6-tim-ke-surabaya-daftar-lolos-playoff-m-2.jpg\",\"https://luc1ferr12.github.io/zataa-office/media/2026-10-19/38-6-tim-ke-surabaya-daftar-lolos-playoff-m-3.jpg\",\"https://luc1ferr12.github.io/zataa-office/media/2026-10-19/38-6-tim-ke-surabaya-daftar-lolos-playoff-m-4.jpg\",\"https://luc1ferr12.github.io/zataa-office/media/2026-10-19/38-6-tim-ke-surabaya-daftar-lolos-playoff-m-5.jpg\",\"https://luc1ferr12.github.io/zataa-office/media/2026-10-19/38-6-tim-ke-surabaya-daftar-lolos-playoff-m-6.jpg\"],\"story\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-19/38-6-tim-ke-surabaya-daftar-lolos-playoff-m-1-916.jpg\",\"https://luc1ferr12.github.io/zataa-office/media/2026-10-19/38-6-tim-ke-surabaya-daftar-lolos-playoff-m-2-916.jpg\",\"https://luc1ferr12.github.io/zataa-office/media/2026-10-19/38-6-tim-ke-surabaya-daftar-lolos-playoff-m-3-916.jpg\",\"https://luc1ferr12.github.io/zataa-office/media/2026-10-19/38-6-tim-ke-surabaya-daftar-lolos-playoff-m-4-916.jpg\",\"https://luc1ferr12.github.io/zataa-office/media/2026-10-19/38-6-tim-ke-surabaya-daftar-lolos-playoff-m-5-916.jpg\",\"https://luc1ferr12.github.io/zataa-office/media/2026-10-19/38-6-tim-ke-surabaya-daftar-lolos-playoff-m-6-916.jpg\"]}",
    "scheduled_at": null,
    "posted_at": null,
@@ -247,7 +247,7 @@
    "game": "valorant",
    "pillar": "news",
    "title": "Era franchise VCT tamat: bursa transfer 2027 dimulai (rumor ditandai)",
-   "status": "pending_approval",
+   "status": "approved",
    "asset_url": "{\"video\":\"https://luc1ferr12.github.io/zataa-office/media/2026-10-19/39-era-franchise-vct-tamat-bursa-transfer-2.mp4\",\"cover\":\"https://luc1ferr12.github.io/zataa-office/media/2026-10-19/39-era-franchise-vct-tamat-bursa-transfer-2-cover.jpg\"}",
    "scheduled_at": null,
    "posted_at": null,
@@ -476,6 +476,21 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-19 00:11:48",
+   "agent_id": "owner",
+   "message": "Chat: Video hall of champions updatenya sudah sampai mana ?"
+  },
+  {
+   "ts": "2026-10-19 00:11:48",
+   "agent_id": "owner",
+   "message": "Approve konten #39 ✅"
+  },
+  {
+   "ts": "2026-10-19 00:10:48",
+   "agent_id": "owner",
+   "message": "Approve konten #38 ✅"
+  },
+  {
    "ts": "2026-10-18 23:58:33",
    "agent_id": "publisher",
    "message": "Kirim #39 ke Owner buat approval"
@@ -584,24 +599,23 @@
    "ts": "2026-10-18 22:00:50",
    "agent_id": "ttech",
    "message": "M10 berubah arah: sideways → bearish"
-  },
-  {
-   "ts": "2026-10-18 21:48:48",
-   "agent_id": "owner",
-   "message": "Chat: Belum bisa ngerjain karna ?"
-  },
-  {
-   "ts": "2026-10-18 21:31:16",
-   "agent_id": "researcher",
-   "message": "Nemu 1 topik baru"
-  },
-  {
-   "ts": "2026-10-18 21:27:48",
-   "agent_id": "owner",
-   "message": "Chat: Buatin video hall of champions valorant dari winner 2021-2026, di video nya ada logo tim sama foto player nya. Dan pastikan yang memenangkan saat itu roasternya siapa aja, karna bisa jadi roaster nya uda berubah"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-10-19 00:11:48",
+   "agent_id": "dir",
+   "to_id": null,
+   "kind": "oper",
+   "message": "Oke tim, ada titah dari Bos. Aku bagi tugasnya ya 👇"
+  },
+  {
+   "ts": "2026-10-19 00:11:48",
+   "agent_id": "owner",
+   "to_id": "video",
+   "kind": "bos",
+   "message": "Video hall of champions updatenya sudah sampai mana ?"
+  },
   {
    "ts": "2026-10-18 23:58:49",
    "agent_id": "video",
@@ -867,20 +881,6 @@
    "to_id": "dir",
    "kind": "bos",
    "message": "Bikin konten ini, loudmenang champions. Pake foto playernya full tim"
-  },
-  {
-   "ts": "2026-10-18 11:00:48",
-   "agent_id": "analyst",
-   "to_id": "dir",
-   "kind": "oper",
-   "message": "Laporan harian marketing udah aku kirim ke Bos, 2 konten tayang hari ini 📊"
-  },
-  {
-   "ts": "2026-10-18 09:00:45",
-   "agent_id": "researcher",
-   "to_id": null,
-   "kind": "santai",
-   "message": "Pantauan kelar! Akhirnya bisa istirahat 😮‍💨"
   }
  ],
  "stats": {
@@ -888,8 +888,8 @@
    "week": "2026-10-19",
    "total": 16,
    "posted": 0,
-   "pending": 2,
-   "scheduled": 0,
+   "pending": 0,
+   "scheduled": 2,
    "yt_total": 1,
    "yt_posted": 0,
    "yt_pending": 0,
@@ -912,12 +912,12 @@
    "yt_posted": 4,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 4828,
+   "views": 4833,
    "likes": 75,
    "comments": 1,
    "shares": 1,
    "saves": 0,
-   "yt_views": 3863,
+   "yt_views": 3864,
    "top": [
     {
      "title": "Komputer 2.000 Tahun dari Dasar Laut",
@@ -935,7 +935,7 @@
      "title": "Prometheus: Pencuri Api dari Para Dewa",
      "format": "shorts",
      "pillar": "misteri",
-     "views": 1179
+     "views": 1180
     }
    ]
   }
@@ -945,7 +945,7 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4187.5,
+  "price": 4183.200195,
   "open": [],
   "signals": [
    {
@@ -1061,13 +1061,13 @@
    "M10": {
     "bias": "bullish",
     "score": 2,
-    "price": 4184.5,
-    "ema20": 4176.02,
-    "ema50": 4171.22,
-    "rsi": 72.6,
+    "price": 4184.8,
+    "ema20": 4176.86,
+    "ema50": 4171.75,
+    "rsi": 73,
     "n": 299,
-    "slot": 2987280,
-    "at": 1792368050637
+    "slot": 2987281,
+    "at": 1792368650637
    },
    "M15": {
     "bias": "sideways",
