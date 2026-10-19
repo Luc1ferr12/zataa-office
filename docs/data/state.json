@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-19T06:52:48.685Z",
+ "generated_at": "2026-10-19T07:02:48.684Z",
  "today": "2026-10-19",
  "week_start": "2026-10-19",
  "campaign": {
@@ -79,7 +79,7 @@
    "title": "Data Analyst",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-10-19 04:01:13"
+   "updated_at": "2026-10-19 07:01:11"
   },
   {
    "id": "price",
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-19 06:45:51"
+   "updated_at": "2026-10-19 07:00:51"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Fed hawkish (hike Sep, pasar pasang hike Des), CPI Sep 3,7% panas; NFP 29rb lemah. Berita 24 jam tak terkonfirmasi.",
-   "updated_at": "2026-10-19 06:45:51"
+   "updated_at": "2026-10-19 07:00:51"
   },
   {
    "id": "ttech",
@@ -119,15 +119,15 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bullish",
-   "updated_at": "2026-10-19 06:45:51"
+   "updated_at": "2026-10-19 07:00:51"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
-   "updated_at": "2026-10-19 06:45:51"
+   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
+   "updated_at": "2026-10-19 07:00:51"
   },
   {
    "id": "texec",
@@ -476,6 +476,21 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-19 07:01:11",
+   "agent_id": "analyst",
+   "message": "Update data 29 post IG 📈"
+  },
+  {
+   "ts": "2026-10-19 07:00:50",
+   "agent_id": "ttech",
+   "message": "M15 berubah arah: sideways → bullish"
+  },
+  {
+   "ts": "2026-10-19 07:00:50",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: sideways → bullish"
+  },
+  {
    "ts": "2026-10-19 06:30:50",
    "agent_id": "ttech",
    "message": "M15 berubah arah: bullish → sideways"
@@ -584,21 +599,6 @@
    "ts": "2026-10-19 02:15:50",
    "agent_id": "trisk",
    "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-  },
-  {
-   "ts": "2026-10-19 02:15:50",
-   "agent_id": "ttech",
-   "message": "M15 berubah arah: sideways → bullish"
-  },
-  {
-   "ts": "2026-10-19 02:00:50",
-   "agent_id": "ttech",
-   "message": "M30 berubah arah: sideways → bullish"
-  },
-  {
-   "ts": "2026-10-19 01:32:24",
-   "agent_id": "owner",
-   "message": "Approve Shorts #52 ✅"
   }
  ],
  "chats": [
@@ -894,8 +894,8 @@
    "yt_posted": 0,
    "yt_pending": 0,
    "yt_scheduled": 1,
-   "views": 8955,
-   "likes": 8,
+   "views": 8975,
+   "likes": 9,
    "comments": 1,
    "shares": 0,
    "saves": 0,
@@ -905,7 +905,13 @@
      "title": "Hall of Champions Valorant 2021-2026",
      "format": "video",
      "pillar": "esport",
-     "views": 8955
+     "views": 8968
+    },
+    {
+     "title": "6 tim ke Surabaya: daftar lolos playoff MPL ID S18 + jadwal 4-8 Nov (seed final dicek ulang dulu)",
+     "format": "carousel",
+     "pillar": "esport",
+     "views": 7
     }
    ]
   },
@@ -919,7 +925,7 @@
    "yt_posted": 4,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 4967,
+   "views": 4970,
    "likes": 78,
    "comments": 1,
    "shares": 1,
@@ -952,9 +958,14 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4179.5,
+  "price": 4184.700195,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-19 07:00:51",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
    {
     "ts": "2026-10-19 06:45:51",
     "decision": "NO TRADE",
@@ -979,11 +990,6 @@
     "ts": "2026-10-19 05:45:50",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-   },
-   {
-    "ts": "2026-10-19 05:30:51",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
    }
   ],
   "trades": [],
@@ -1005,7 +1011,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-19 06:45:51",
+   "ts": "2026-10-19 07:00:51",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1014,7 +1020,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)",
+   "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
    "fund": {
     "bias": -0.3,
     "note": "Fed hawkish (hike Sep, pasar pasang hike Des), CPI Sep 3,7% panas; NFP 29rb lemah. Berita 24 jam tak terkonfirmasi.",
@@ -1026,7 +1032,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4176.80 di bawah tengah band (4172.2–4186.9) · RSI 48 · Stoch 22 · MACD -0.69 · H1 bullish"
+    "note": "M15 4186.20 di atas tengah band (4171.9–4188.5) · RSI 58 · Stoch 71 · MACD +0.16 · H1 bullish"
    }
   },
   "fund": {
@@ -1066,48 +1072,48 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "sideways",
-    "score": 0,
-    "price": 4177.4,
-    "ema20": 4179.64,
-    "ema50": 4177.56,
-    "rsi": 47.2,
+    "bias": "bullish",
+    "score": 2,
+    "price": 4185.9,
+    "ema20": 4180.24,
+    "ema50": 4177.89,
+    "rsi": 57.7,
     "n": 299,
-    "slot": 2987321,
-    "at": 1792392650963
+    "slot": 2987322,
+    "at": 1792393250967
    },
    "M15": {
-    "bias": "sideways",
-    "score": 0,
-    "price": 4177.2,
-    "ema20": 4178.98,
-    "ema50": 4175.65,
-    "rsi": 48.8,
+    "bias": "bullish",
+    "score": 2,
+    "price": 4185.9,
+    "ema20": 4179.64,
+    "ema50": 4176.05,
+    "rsi": 57.7,
     "n": 299,
-    "slot": 1991547,
-    "at": 1792392351155
+    "slot": 1991548,
+    "at": 1792393250974
    },
    "M30": {
     "bias": "bullish",
-    "score": 2,
-    "price": 4176.8,
-    "ema20": 4176.13,
-    "ema50": 4172.03,
-    "rsi": 51.8,
+    "score": 3,
+    "price": 4185.9,
+    "ema20": 4177.06,
+    "ema50": 4172.58,
+    "rsi": 58.6,
     "n": 299,
-    "slot": 995773,
-    "at": 1792391450947
+    "slot": 995774,
+    "at": 1792393250977
    },
    "H1": {
     "bias": "bullish",
     "score": 3,
-    "price": 4185.6,
-    "ema20": 4173.86,
-    "ema50": 4169.5,
-    "rsi": 72.6,
+    "price": 4185.9,
+    "ema20": 4175,
+    "ema50": 4170.14,
+    "rsi": 72.9,
     "n": 299,
-    "slot": 497886,
-    "at": 1792389651131
+    "slot": 497887,
+    "at": 1792393250985
    }
   },
   "currency": "USC",
