@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-19T10:52:48.820Z",
+ "generated_at": "2026-10-19T11:02:48.897Z",
  "today": "2026-10-19",
  "week_start": "2026-10-19",
  "campaign": {
@@ -103,23 +103,23 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-19 10:45:51"
+   "updated_at": "2026-10-19 11:01:13"
   },
   {
    "id": "tresearch",
    "name": "Davina",
    "title": "Research & Fundamental",
    "status": "done",
-   "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
-   "updated_at": "2026-10-19 10:45:51"
+   "current_task": "Fundamental: NFP Sep lemah (29K vs 84K) & USD melemah; PCE ~3.7% panas, Fed 28 Okt peluang hike kecil. Harga live tak terverifikasi, bias hati-hati.",
+   "updated_at": "2026-10-19 11:01:13"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-10-19 10:45:51"
+   "current_task": "Belum ada pantulan band · H1 bullish",
+   "updated_at": "2026-10-19 11:01:13"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-10-19 10:45:51"
+   "updated_at": "2026-10-19 11:01:13"
   },
   {
    "id": "texec",
@@ -261,10 +261,10 @@
    "game": "sejarah",
    "pillar": "hidden_history",
    "title": "8.000 Prajurit Penjaga Makam yang Belum Dibuka",
-   "status": "approved",
-   "asset_url": null,
+   "status": "posted",
+   "asset_url": "https://www.youtube.com/watch?v=mUvlq7ms_6A",
    "scheduled_at": null,
-   "posted_at": null,
+   "posted_at": "2026-10-19 11:00:30",
    "channel": "youtube"
   },
   {
@@ -476,6 +476,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-19 11:00:30",
+   "agent_id": "ypublish",
+   "message": "Upload Shorts #52 ke Zataa Story (Publik via Zernio)"
+  },
+  {
    "ts": "2026-10-19 10:15:51",
    "agent_id": "trisk",
    "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
@@ -594,14 +599,16 @@
    "ts": "2026-10-19 05:01:42",
    "agent_id": "publisher",
    "message": "Posting #38 ke IG ✅"
-  },
-  {
-   "ts": "2026-10-19 04:50:50",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: bullish → sideways"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-10-19 11:00:49",
+   "agent_id": "analyst",
+   "to_id": "dir",
+   "kind": "oper",
+   "message": "Laporan harian marketing udah aku kirim ke Bos, 2 konten tayang hari ini 📊"
+  },
   {
    "ts": "2026-10-19 05:01:42",
    "agent_id": "publisher",
@@ -874,26 +881,19 @@
    "to_id": "owner",
    "kind": "santai",
    "message": "Desainnya udah jadi, foto LOUD satu tim lengkap + logo + judul gede \"CHAMPIONS\" kayak contoh Bos 🔥"
-  },
-  {
-   "ts": "2026-10-18 11:11:15",
-   "agent_id": "researcher",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Udah aku cek Bos, LOUD juara 3–1 atas Vitality dan erde MVP-nya, sumbernya dari 3 media 🏆"
   }
  ],
  "stats": {
   "this_week": {
    "week": "2026-10-19",
    "total": 16,
-   "posted": 2,
+   "posted": 3,
    "pending": 0,
-   "scheduled": 2,
+   "scheduled": 1,
    "yt_total": 1,
-   "yt_posted": 0,
+   "yt_posted": 1,
    "yt_pending": 0,
-   "yt_scheduled": 1,
+   "yt_scheduled": 0,
    "views": 14623,
    "likes": 12,
    "comments": 1,
@@ -958,9 +958,14 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4164.200195,
+  "price": 4173.399902,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-19 11:01:13",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
    {
     "ts": "2026-10-19 10:45:51",
     "decision": "NO TRADE",
@@ -985,11 +990,6 @@
     "ts": "2026-10-19 09:45:51",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-10-19 09:30:51",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
   ],
   "trades": [],
@@ -1011,7 +1011,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-19 10:45:51",
+   "ts": "2026-10-19 11:01:13",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1022,20 +1022,23 @@
    "risk_usd": null,
    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
    "fund": {
-    "bias": 0,
-    "note": "netral (belum ada ringkasan hari ini)",
+    "bias": 0.15,
+    "note": "NFP Sep lemah (29K vs 84K) & USD melemah; PCE ~3.7% panas, Fed 28 Okt peluang hike kecil. Harga live tak terverifikasi, bias hati-hati.",
     "danger": null,
     "blackout": null
    },
    "tech": {
-    "bias": "sideways",
+    "bias": "bullish",
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4166.50 di bawah tengah band (4160.9–4190.1) · RSI 37 · Stoch 7 · MACD -1.26 · H1 sideways"
+    "note": "M15 4170.80 di bawah tengah band (4161.0–4189.3) · RSI 44 · Stoch 20 · MACD -0.72 · H1 bullish"
    }
   },
-  "fund": null,
+  "fund": {
+   "bias": 0.15,
+   "note": "NFP Sep lemah (29K vs 84K) & USD melemah; PCE ~3.7% panas, Fed 28 Okt peluang hike kecil. Harga live tak terverifikasi, bias hati-hati."
+  },
   "calendar": [
    {
     "title": "Unemployment Claims",
@@ -1071,46 +1074,46 @@
    "M10": {
     "bias": "bearish",
     "score": -2,
-    "price": 4164.7,
-    "ema20": 4172.5,
-    "ema50": 4175.36,
-    "rsi": 33.7,
+    "price": 4169.65,
+    "ema20": 4172.23,
+    "ema50": 4175.13,
+    "rsi": 43.7,
     "n": 299,
-    "slot": 2987345,
-    "at": 1792407051138
+    "slot": 2987346,
+    "at": 1792407651141
    },
    "M15": {
     "bias": "bearish",
     "score": -2,
-    "price": 4167.3,
-    "ema20": 4173.98,
-    "ema50": 4175.03,
-    "rsi": 37.7,
+    "price": 4169.65,
+    "ema20": 4173.56,
+    "ema50": 4174.82,
+    "rsi": 42.2,
     "n": 299,
-    "slot": 1991563,
-    "at": 1792406751300
+    "slot": 1991564,
+    "at": 1792407651149
    },
    "M30": {
     "bias": "sideways",
     "score": 1,
-    "price": 4167.9,
-    "ema20": 4175.15,
-    "ema50": 4172.92,
-    "rsi": 43.8,
-    "n": 300,
-    "slot": 995781,
-    "at": 1792405850934
+    "price": 4169.65,
+    "ema20": 4174.63,
+    "ema50": 4172.79,
+    "rsi": 45.5,
+    "n": 299,
+    "slot": 995782,
+    "at": 1792407651152
    },
    "H1": {
     "bias": "sideways",
     "score": 1,
-    "price": 4168.3,
-    "ema20": 4174.2,
-    "ema50": 4170.36,
-    "rsi": 43.6,
+    "price": 4169.65,
+    "ema20": 4173.77,
+    "ema50": 4170.33,
+    "rsi": 45.6,
     "n": 299,
-    "slot": 497890,
-    "at": 1792404051314
+    "slot": 497891,
+    "at": 1792407651184
    }
   },
   "currency": "USC",
