@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-19T23:42:49.254Z",
+ "generated_at": "2026-10-19T23:52:49.278Z",
  "today": "2026-10-20",
  "week_start": "2026-10-19",
  "campaign": {
@@ -29,33 +29,33 @@
    "id": "researcher",
    "name": "Clariana",
    "title": "Researcher",
-   "status": "working",
-   "current_task": "Riset ide #57 ENVY, #59 tiket MPL, #60 Hall of Champions",
-   "updated_at": "2026-10-19 23:41:14"
+   "status": "done",
+   "current_task": "Riset ENVY, tiket playoff MPL, juara MPL S1-S17",
+   "updated_at": "2026-10-19 23:45:13"
   },
   {
    "id": "copywriter",
    "name": "Ista",
    "title": "Copywriter",
    "status": "done",
-   "current_task": "Copy #40 polling & #41 bracket siap",
-   "updated_at": "2026-10-19 23:03:34"
+   "current_task": "Teks feed ENVY, feed tiket MPL, video Hall of Champions",
+   "updated_at": "2026-10-19 23:45:57"
   },
   {
    "id": "designer",
    "name": "Maria",
    "title": "Graphic Designer",
    "status": "done",
-   "current_task": "Render feed #40 polling 6 tim",
-   "updated_at": "2026-10-19 23:03:43"
+   "current_task": "Render feed #54 ENVY & #55 tiket MPL",
+   "updated_at": "2026-10-19 23:46:19"
   },
   {
    "id": "video",
    "name": "Dimas",
    "title": "Video Production",
-   "status": "done",
-   "current_task": "Render video #41 bracket playoff (43 dtk)",
-   "updated_at": "2026-10-19 23:24:25"
+   "status": "working",
+   "current_task": "Render video #56 Hall of Champions MPL ID",
+   "updated_at": "2026-10-19 23:46:19"
   },
   {
    "id": "publisher",
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-19 23:30:51"
+   "updated_at": "2026-10-19 23:45:51"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Fed condong hawkish (CPI & PPI September panas, Warsh belum beri sinyal), yield naik; risiko geopolitik Timur Tengah menahan turun.",
-   "updated_at": "2026-10-19 23:30:51"
+   "updated_at": "2026-10-19 23:45:51"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-10-19 23:30:51"
+   "updated_at": "2026-10-19 23:45:51"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
-   "updated_at": "2026-10-19 23:30:51"
+   "updated_at": "2026-10-19 23:45:51"
   },
   {
    "id": "texec",
@@ -268,6 +268,20 @@
    "channel": "youtube"
   },
   {
+   "id": 54,
+   "day": "2026-10-20",
+   "slot": "pagi",
+   "format": "feed",
+   "game": "valorant",
+   "pillar": "news",
+   "title": "ENVY lepas Demon1, keznit, GLYPH: juara Champions 2023 cari tim baru 2027",
+   "status": "draft",
+   "asset_url": "{\"feed\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-20/54-envy-lepas-demon1-keznit-glyph-juara-cha.jpg\"],\"story\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-20/54-envy-lepas-demon1-keznit-glyph-juara-cha-916.jpg\"]}",
+   "scheduled_at": null,
+   "posted_at": null,
+   "channel": null
+  },
+  {
    "id": 40,
    "day": "2026-10-20",
    "slot": "siang",
@@ -277,6 +291,20 @@
    "title": "Polling: siapa juara MPL ID S18? NAVI, TLID, AE, BTR, EVOS, ONIC",
    "status": "approved",
    "asset_url": "{\"feed\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-20/40-polling-siapa-juara-mpl-id-s18-navi-tlid.jpg\"],\"story\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-20/40-polling-siapa-juara-mpl-id-s18-navi-tlid-916.jpg\"]}",
+   "scheduled_at": null,
+   "posted_at": null,
+   "channel": null
+  },
+  {
+   "id": 56,
+   "day": "2026-10-20",
+   "slot": "sore",
+   "format": "video",
+   "game": "mlbb",
+   "pillar": "esport",
+   "title": "Hall of Champions MPL ID: juara tiap season sampai S17",
+   "status": "draft",
+   "asset_url": null,
    "scheduled_at": null,
    "posted_at": null,
    "channel": null
@@ -308,6 +336,20 @@
    "scheduled_at": null,
    "posted_at": null,
    "channel": "youtube"
+  },
+  {
+   "id": 55,
+   "day": "2026-10-20",
+   "slot": "petang",
+   "format": "feed",
+   "game": "mlbb",
+   "pillar": "esport",
+   "title": "Tiket UB Final, LB Final & Grand Final MPL ID Surabaya SOLD OUT",
+   "status": "draft",
+   "asset_url": "{\"feed\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-20/55-tiket-ub-final-lb-final-grand-final-mpl-.jpg\"],\"story\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-20/55-tiket-ub-final-lb-final-grand-final-mpl--916.jpg\"]}",
+   "scheduled_at": null,
+   "posted_at": null,
+   "channel": null
   },
   {
    "id": 42,
@@ -490,6 +532,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-19 23:45:13",
+   "agent_id": "researcher",
+   "message": "Nemu 3 topik baru"
+  },
+  {
    "ts": "2026-10-19 23:41:49",
    "agent_id": "owner",
    "message": "Approve konten #41 ✅"
@@ -608,14 +655,30 @@
    "ts": "2026-10-19 22:00:51",
    "agent_id": "trisk",
    "message": "NO TRADE · jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
-  },
-  {
-   "ts": "2026-10-19 22:00:51",
-   "agent_id": "ttech",
-   "message": "M15 berubah arah: bearish → sideways"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-10-19 23:46:19",
+   "agent_id": "designer",
+   "to_id": "publisher",
+   "kind": "oper",
+   "message": "Visual \"Render feed #54 ENVY & #55 tiket MPL\" kelar! Fikri, cek typo-nya sekalian ya 🙏"
+  },
+  {
+   "ts": "2026-10-19 23:45:57",
+   "agent_id": "copywriter",
+   "to_id": "designer",
+   "kind": "oper",
+   "message": "Teks buat \"Teks feed ENVY, feed tiket MPL, video Hall of Champions\" ready. Maria, giliranmu bikin cakep!"
+  },
+  {
+   "ts": "2026-10-19 23:45:13",
+   "agent_id": "researcher",
+   "to_id": "copywriter",
+   "kind": "oper",
+   "message": "Ista, bahan buat \"Riset ENVY, tiket playoff MPL, juara MPL S1-S17\" udah aku rangkum + sumbernya. Tinggal kamu racik captionnya ✍️"
+  },
   {
    "ts": "2026-10-19 23:40:49",
    "agent_id": "dir",
@@ -874,33 +937,12 @@
    "to_id": "yscript",
    "kind": "oper",
    "message": "Laras, bahan \"Isi bank topik Shorts\" udah aku rangkum + sumbernya. Mana fakta, mana teori udah aku tandain 📜"
-  },
-  {
-   "ts": "2026-10-18 23:01:34",
-   "agent_id": "dir",
-   "to_id": null,
-   "kind": "santai",
-   "message": "Plan udah di meja Bos. Sambil nunggu ✅, jangan ada yang render duluan ya."
-  },
-  {
-   "ts": "2026-10-18 23:01:34",
-   "agent_id": "dir",
-   "to_id": "researcher",
-   "kind": "oper",
-   "message": "Brief \"Plan mingguan dikirim ke Owner\" udah jadi. Clariana, gas riset ya!"
-  },
-  {
-   "ts": "2026-10-18 23:01:30",
-   "agent_id": "researcher",
-   "to_id": "copywriter",
-   "kind": "oper",
-   "message": "Riset \"Riset tren & jadwal minggu ini\" beres, udah dicek 2 sumber. Ista, lanjut ya~"
   }
  ],
  "stats": {
   "this_week": {
    "week": "2026-10-19",
-   "total": 17,
+   "total": 20,
    "posted": 4,
    "pending": 0,
    "scheduled": 2,
@@ -978,9 +1020,14 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4136,
+  "price": 4133.299805,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-19 23:45:51",
+    "decision": "NO TRADE",
+    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
+   },
    {
     "ts": "2026-10-19 23:30:51",
     "decision": "NO TRADE",
@@ -1005,11 +1052,6 @@
     "ts": "2026-10-19 22:30:51",
     "decision": "NO TRADE",
     "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
-   },
-   {
-    "ts": "2026-10-19 22:15:51",
-    "decision": "NO TRADE",
-    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
    }
   ],
   "trades": [],
@@ -1031,7 +1073,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-19 23:30:51",
+   "ts": "2026-10-19 23:45:51",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1052,7 +1094,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4135.60 di bawah tengah band (4133.8–4148.0) · RSI 32 · Stoch 8 · MACD -0.19 · H1 bearish"
+    "note": "M15 4136.20 di bawah tengah band (4133.9–4146.9) · RSI 34 · Stoch 16 · MACD -0.11 · H1 bearish"
    }
   },
   "fund": {
@@ -1094,24 +1136,24 @@
    "M10": {
     "bias": "bearish",
     "score": -3,
-    "price": 4137.3,
-    "ema20": 4139.68,
-    "ema50": 4144.25,
-    "rsi": 39.7,
+    "price": 4134.2,
+    "ema20": 4139.16,
+    "ema50": 4143.85,
+    "rsi": 33.3,
     "n": 299,
-    "slot": 2987422,
-    "at": 1792453251776
+    "slot": 2987423,
+    "at": 1792453851963
    },
    "M15": {
     "bias": "bearish",
     "score": -2,
-    "price": 4135.7,
-    "ema20": 4141.19,
-    "ema50": 4148.44,
-    "rsi": 32.5,
+    "price": 4136.2,
+    "ema20": 4140.71,
+    "ema50": 4147.96,
+    "rsi": 34.1,
     "n": 299,
-    "slot": 1991614,
-    "at": 1792452651759
+    "slot": 1991615,
+    "at": 1792453551758
    },
    "M30": {
     "bias": "bearish",
