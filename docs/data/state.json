@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-19T23:32:49.252Z",
+ "generated_at": "2026-10-19T23:42:49.254Z",
  "today": "2026-10-20",
  "week_start": "2026-10-19",
  "campaign": {
@@ -29,9 +29,9 @@
    "id": "researcher",
    "name": "Clariana",
    "title": "Researcher",
-   "status": "done",
-   "current_task": "Riset esport: bracket playoff MPL, transfer VCT",
-   "updated_at": "2026-10-19 23:02:09"
+   "status": "working",
+   "current_task": "Riset ide #57 ENVY, #59 tiket MPL, #60 Hall of Champions",
+   "updated_at": "2026-10-19 23:41:14"
   },
   {
    "id": "copywriter",
@@ -62,8 +62,8 @@
    "name": "Fikri",
    "title": "Social Media Publisher",
    "status": "done",
-   "current_task": "QA & kirim #40 + #41 ke Owner",
-   "updated_at": "2026-10-19 23:24:34"
+   "current_task": "undefined",
+   "updated_at": "2026-10-19 23:41:49"
   },
   {
    "id": "ads",
@@ -275,7 +275,7 @@
    "game": "mlbb",
    "pillar": "engagement",
    "title": "Polling: siapa juara MPL ID S18? NAVI, TLID, AE, BTR, EVOS, ONIC",
-   "status": "pending_approval",
+   "status": "approved",
    "asset_url": "{\"feed\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-20/40-polling-siapa-juara-mpl-id-s18-navi-tlid.jpg\"],\"story\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-20/40-polling-siapa-juara-mpl-id-s18-navi-tlid-916.jpg\"]}",
    "scheduled_at": null,
    "posted_at": null,
@@ -289,7 +289,7 @@
    "game": "mlbb",
    "pillar": "esport",
    "title": "Bracket playoff MPL ID S18: Bo5, Bo7, siapa ketemu siapa",
-   "status": "pending_approval",
+   "status": "approved",
    "asset_url": "{\"video\":\"https://luc1ferr12.github.io/zataa-office/media/2026-10-20/41-bracket-playoff-mpl-id-s18-bo5-bo7-siapa.mp4\",\"cover\":\"https://luc1ferr12.github.io/zataa-office/media/2026-10-20/41-bracket-playoff-mpl-id-s18-bo5-bo7-siapa-cover.jpg\"}",
    "scheduled_at": null,
    "posted_at": null,
@@ -490,6 +490,21 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-19 23:41:49",
+   "agent_id": "owner",
+   "message": "Approve konten #41 ✅"
+  },
+  {
+   "ts": "2026-10-19 23:40:49",
+   "agent_id": "owner",
+   "message": "Approve konten #40 ✅"
+  },
+  {
+   "ts": "2026-10-19 23:40:49",
+   "agent_id": "owner",
+   "message": "Approve 3 ide konten tambahan 💡"
+  },
+  {
    "ts": "2026-10-19 23:24:34",
    "agent_id": "publisher",
    "message": "#40 polling (12:00 WIB) & #41 bracket (19:00 WIB) menunggu ✅ Owner"
@@ -598,24 +613,16 @@
    "ts": "2026-10-19 22:00:51",
    "agent_id": "ttech",
    "message": "M15 berubah arah: bearish → sideways"
-  },
-  {
-   "ts": "2026-10-19 20:15:51",
-   "agent_id": "trisk",
-   "message": "NO TRADE · jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
-  },
-  {
-   "ts": "2026-10-19 19:15:51",
-   "agent_id": "trisk",
-   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-  },
-  {
-   "ts": "2026-10-19 19:10:51",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: sideways → bearish"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-10-19 23:40:49",
+   "agent_id": "dir",
+   "to_id": null,
+   "kind": "oper",
+   "message": "Bos ACC 3 ide tambahan! \"ENVY lepas Demon1, keznit, GLYPH: juara Champions 2023 cari tim baru 2027\" & \"Tiket UB Final, LB Final & Grand Final MPL ID Surabaya SOLD OUT\" & \"Hall of Champions MPL ID: juara tiap season sampai S17\" 🎉"
+  },
   {
    "ts": "2026-10-19 23:24:39",
    "agent_id": "yvideo",
@@ -888,13 +895,6 @@
    "to_id": "copywriter",
    "kind": "oper",
    "message": "Riset \"Riset tren & jadwal minggu ini\" beres, udah dicek 2 sumber. Ista, lanjut ya~"
-  },
-  {
-   "ts": "2026-10-18 22:06:55",
-   "agent_id": "dir",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Siap, Bos. Begitu roster juara sama aset logo & fotonya beres, langsung aku kabarin."
   }
  ],
  "stats": {
@@ -902,8 +902,8 @@
    "week": "2026-10-19",
    "total": 17,
    "posted": 4,
-   "pending": 2,
-   "scheduled": 0,
+   "pending": 0,
+   "scheduled": 2,
    "yt_total": 2,
    "yt_posted": 1,
    "yt_pending": 0,
@@ -978,7 +978,7 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4136.200195,
+  "price": 4136,
   "open": [],
   "signals": [
    {
@@ -1094,13 +1094,13 @@
    "M10": {
     "bias": "bearish",
     "score": -3,
-    "price": 4135.7,
-    "ema20": 4139.93,
-    "ema50": 4144.53,
-    "rsi": 33.6,
+    "price": 4137.3,
+    "ema20": 4139.68,
+    "ema50": 4144.25,
+    "rsi": 39.7,
     "n": 299,
-    "slot": 2987421,
-    "at": 1792452651753
+    "slot": 2987422,
+    "at": 1792453251776
    },
    "M15": {
     "bias": "bearish",
