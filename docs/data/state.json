@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-19T04:42:48.616Z",
+ "generated_at": "2026-10-19T04:52:48.619Z",
  "today": "2026-10-19",
  "week_start": "2026-10-19",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-19 04:30:50"
+   "updated_at": "2026-10-19 04:45:50"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Fed hawkish (hike Sep, pasar pasang hike Des), CPI Sep 3,7% panas; NFP 29rb lemah. Berita 24 jam tak terkonfirmasi.",
-   "updated_at": "2026-10-19 04:30:50"
+   "updated_at": "2026-10-19 04:45:50"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bullish",
-   "updated_at": "2026-10-19 04:30:50"
+   "updated_at": "2026-10-19 04:45:50"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
-   "updated_at": "2026-10-19 04:30:50"
+   "updated_at": "2026-10-19 04:45:50"
   },
   {
    "id": "texec",
@@ -476,6 +476,16 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-19 04:50:50",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: bullish → sideways"
+  },
+  {
+   "ts": "2026-10-19 04:45:50",
+   "agent_id": "ttech",
+   "message": "M15 berubah arah: sideways → bullish"
+  },
+  {
    "ts": "2026-10-19 04:40:50",
    "agent_id": "ttech",
    "message": "M10 berubah arah: sideways → bullish"
@@ -589,16 +599,6 @@
    "ts": "2026-10-19 00:30:50",
    "agent_id": "ttech",
    "message": "M10 berubah arah: bullish → sideways"
-  },
-  {
-   "ts": "2026-10-19 00:24:02",
-   "agent_id": "publisher",
-   "message": "Posting #37 ke IG + TikTok ✅"
-  },
-  {
-   "ts": "2026-10-19 00:20:48",
-   "agent_id": "owner",
-   "message": "Approve konten #37 ✅"
   }
  ],
  "chats": [
@@ -952,9 +952,14 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4181.100098,
+  "price": 4183.899902,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-19 04:45:50",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
+   },
    {
     "ts": "2026-10-19 04:30:50",
     "decision": "NO TRADE",
@@ -979,11 +984,6 @@
     "ts": "2026-10-19 03:30:50",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-   },
-   {
-    "ts": "2026-10-19 03:15:50",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
    }
   ],
   "trades": [],
@@ -1005,7 +1005,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-19 04:30:50",
+   "ts": "2026-10-19 04:45:50",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1026,7 +1026,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4176.00 di bawah tengah band (4167.7–4186.3) · RSI 50 · Stoch 56 · MACD -0.32 · H1 bullish"
+    "note": "M15 4180.60 di atas tengah band (4168.2–4186.0) · RSI 56 · Stoch 67 · MACD +0.03 · H1 bullish"
    }
   },
   "fund": {
@@ -1066,26 +1066,26 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "bullish",
-    "score": 2,
-    "price": 4183.3,
-    "ema20": 4178.37,
-    "ema50": 4175.55,
-    "rsi": 58.5,
+    "bias": "sideways",
+    "score": 1,
+    "price": 4181.5,
+    "ema20": 4178.66,
+    "ema50": 4175.79,
+    "rsi": 55.5,
     "n": 299,
-    "slot": 2987308,
-    "at": 1792384850857
+    "slot": 2987309,
+    "at": 1792385450867
    },
    "M15": {
-    "bias": "sideways",
-    "score": 0,
-    "price": 4176.1,
-    "ema20": 4176.91,
-    "ema50": 4173.5,
-    "rsi": 50.2,
+    "bias": "bullish",
+    "score": 2,
+    "price": 4181,
+    "ema20": 4177.3,
+    "ema50": 4173.79,
+    "rsi": 56.6,
     "n": 299,
-    "slot": 1991538,
-    "at": 1792384250849
+    "slot": 1991539,
+    "at": 1792385150858
    },
    "M30": {
     "bias": "bullish",
