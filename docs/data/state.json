@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-19T21:52:49.100Z",
+ "generated_at": "2026-10-19T22:02:49.105Z",
  "today": "2026-10-20",
  "week_start": "2026-10-19",
  "campaign": {
@@ -79,7 +79,7 @@
    "title": "Data Analyst",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-10-19 19:01:13"
+   "updated_at": "2026-10-19 22:01:13"
   },
   {
    "id": "price",
@@ -103,15 +103,15 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-19 20:45:51"
+   "updated_at": "2026-10-19 22:00:51"
   },
   {
    "id": "tresearch",
    "name": "Davina",
    "title": "Research & Fundamental",
    "status": "done",
-   "current_task": "Fundamental: NFP Sep lemah (29K vs 84K) & USD melemah; PCE ~3.7% panas, Fed 28 Okt peluang hike kecil. Harga live tak terverifikasi, bias hati-hati.",
-   "updated_at": "2026-10-19 20:45:51"
+   "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
+   "updated_at": "2026-10-19 22:00:51"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-10-19 20:45:51"
+   "updated_at": "2026-10-19 22:00:51"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
-   "updated_at": "2026-10-19 20:45:51"
+   "updated_at": "2026-10-19 22:00:51"
   },
   {
    "id": "texec",
@@ -476,6 +476,21 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-19 22:01:13",
+   "agent_id": "analyst",
+   "message": "Update data 30 post IG 📈"
+  },
+  {
+   "ts": "2026-10-19 22:00:51",
+   "agent_id": "trisk",
+   "message": "NO TRADE · jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
+  },
+  {
+   "ts": "2026-10-19 22:00:51",
+   "agent_id": "ttech",
+   "message": "M15 berubah arah: bearish → sideways"
+  },
+  {
    "ts": "2026-10-19 20:15:51",
    "agent_id": "trisk",
    "message": "NO TRADE · jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
@@ -584,21 +599,6 @@
    "ts": "2026-10-19 11:15:51",
    "agent_id": "trisk",
    "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-  },
-  {
-   "ts": "2026-10-19 11:15:51",
-   "agent_id": "ttech",
-   "message": "M15 berubah arah: bearish → sideways"
-  },
-  {
-   "ts": "2026-10-19 11:10:51",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: bearish → sideways"
-  },
-  {
-   "ts": "2026-10-19 11:00:30",
-   "agent_id": "ypublish",
-   "message": "Upload Shorts #52 ke Zataa Story (Publik via Zernio)"
   }
  ],
  "chats": [
@@ -894,7 +894,7 @@
    "yt_posted": 1,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 20840,
+   "views": 20909,
    "likes": 53,
    "comments": 1,
    "shares": 0,
@@ -905,7 +905,7 @@
      "title": "Hall of Champions Valorant 2021-2026",
      "format": "video",
      "pillar": "esport",
-     "views": 18610
+     "views": 18613
     },
     {
      "title": "8.000 Prajurit Penjaga Makam yang Belum Dibuka",
@@ -917,7 +917,7 @@
      "title": "Era franchise VCT tamat: bursa transfer 2027 dimulai (rumor ditandai)",
      "format": "video",
      "pillar": "news",
-     "views": 960
+     "views": 1026
     }
    ]
   },
@@ -964,9 +964,14 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4141.899902,
+  "price": 4144.200195,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-19 22:00:51",
+    "decision": "NO TRADE",
+    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
+   },
    {
     "ts": "2026-10-19 20:45:51",
     "decision": "NO TRADE",
@@ -991,11 +996,6 @@
     "ts": "2026-10-19 19:45:51",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-10-19 19:30:51",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
   ],
   "trades": [],
@@ -1017,7 +1017,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-19 20:45:51",
+   "ts": "2026-10-19 22:00:51",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1028,8 +1028,8 @@
    "risk_usd": null,
    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
    "fund": {
-    "bias": 0.15,
-    "note": "NFP Sep lemah (29K vs 84K) & USD melemah; PCE ~3.7% panas, Fed 28 Okt peluang hike kecil. Harga live tak terverifikasi, bias hati-hati.",
+    "bias": 0,
+    "note": "netral (belum ada ringkasan hari ini)",
     "danger": null,
     "blackout": null
    },
@@ -1038,7 +1038,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4139.20 di bawah tengah band (4137.1–4149.7) · RSI 34 · Stoch 9 · MACD +0.20 · H1 sideways"
+    "note": "M15 4144.60 di atas tengah band (4137.8–4149.2) · RSI 48 · Stoch 36 · MACD +0.79 · H1 sideways"
    }
   },
   "fund": null,
@@ -1076,47 +1076,47 @@
   "tf": {
    "M10": {
     "bias": "bearish",
-    "score": -2,
-    "price": 4139.2,
-    "ema20": 4143.17,
-    "ema50": 4148.79,
-    "rsi": 37.3,
+    "score": -3,
+    "price": 4141.9,
+    "ema20": 4142.51,
+    "ema50": 4147.1,
+    "rsi": 44.8,
     "n": 299,
-    "slot": 2987405,
-    "at": 1792443051589
+    "slot": 2987412,
+    "at": 1792447251656
    },
    "M15": {
-    "bias": "bearish",
-    "score": -2,
-    "price": 4139.5,
-    "ema20": 4144.97,
-    "ema50": 4153.23,
-    "rsi": 34.8,
+    "bias": "sideways",
+    "score": -1,
+    "price": 4141.9,
+    "ema20": 4143.74,
+    "ema50": 4151.17,
+    "rsi": 40.6,
     "n": 299,
-    "slot": 1991603,
-    "at": 1792442751609
+    "slot": 1991608,
+    "at": 1792447251661
    },
    "M30": {
     "bias": "bearish",
-    "score": -3,
-    "price": 4139.4,
-    "ema20": 4151.04,
-    "ema50": 4160.19,
-    "rsi": 32.7,
+    "score": -2,
+    "price": 4141.9,
+    "ema20": 4148.65,
+    "ema50": 4158.11,
+    "rsi": 36.4,
     "n": 299,
-    "slot": 995801,
-    "at": 1792441851782
+    "slot": 995804,
+    "at": 1792447251665
    },
    "H1": {
     "bias": "bearish",
     "score": -3,
-    "price": 4142.9,
-    "ema20": 4158.71,
-    "ema50": 4163.97,
-    "rsi": 29.1,
+    "price": 4141.9,
+    "ema20": 4155.63,
+    "ema50": 4162.26,
+    "rsi": 28.8,
     "n": 299,
-    "slot": 497900,
-    "at": 1792440051990
+    "slot": 497902,
+    "at": 1792447251672
    }
   },
   "currency": "USC",
