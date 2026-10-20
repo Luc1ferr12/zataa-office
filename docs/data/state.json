@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-20T18:29:03.047Z",
+ "generated_at": "2026-10-20T18:31:19.019Z",
  "today": "2026-10-21",
  "week_start": "2026-10-19",
  "campaign": {
@@ -532,6 +532,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-20 18:31:03",
+   "agent_id": "dir",
+   "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
+  },
+  {
    "ts": "2026-10-20 18:28:47",
    "agent_id": "dir",
    "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
@@ -648,11 +653,6 @@
   },
   {
    "ts": "2026-10-20 17:37:45",
-   "agent_id": "dir",
-   "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
-  },
-  {
-   "ts": "2026-10-20 17:35:29",
    "agent_id": "dir",
    "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
   }
@@ -1020,7 +1020,7 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4126.399902,
+  "price": 4125.5,
   "open": [],
   "signals": [
    {
@@ -1136,35 +1136,35 @@
    "M10": {
     "bias": "bearish",
     "score": -2,
-    "price": 4126.4,
-    "ema20": 4127.1,
-    "ema50": 4128.13,
-    "rsi": 48.2,
+    "price": 4125.6,
+    "ema20": 4126.96,
+    "ema50": 4128.03,
+    "rsi": 47.1,
     "n": 299,
-    "slot": 2987534,
-    "at": 1792520459896
+    "slot": 2987535,
+    "at": 1792521078963
    },
    "M15": {
     "bias": "sideways",
     "score": -1,
-    "price": 4127.3,
-    "ema20": 4127.93,
-    "ema50": 4129.43,
-    "rsi": 49,
+    "price": 4125.6,
+    "ema20": 4127.71,
+    "ema50": 4129.28,
+    "rsi": 47.2,
     "n": 299,
-    "slot": 1991689,
-    "at": 1792520158938
+    "slot": 1991690,
+    "at": 1792521078970
    },
    "M30": {
     "bias": "sideways",
     "score": -1,
-    "price": 4124.4,
-    "ema20": 4128.96,
-    "ema50": 4135.26,
-    "rsi": 45.7,
+    "price": 4125.6,
+    "ema20": 4128.64,
+    "ema50": 4134.88,
+    "rsi": 46.7,
     "n": 299,
-    "slot": 995844,
-    "at": 1792519268701
+    "slot": 995845,
+    "at": 1792521078971
    },
    "H1": {
     "bias": "bearish",
