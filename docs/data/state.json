@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-20T23:15:39.284Z",
+ "generated_at": "2026-10-20T23:17:54.982Z",
  "today": "2026-10-21",
  "week_start": "2026-10-19",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-20 23:01:27"
+   "updated_at": "2026-10-20 23:16:09"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Data 24 jam tidak ketemu; Fed condong hawkish (CPI Sep 3,7%, peluang hike Okt/Des), DXY ~99-102, tekanan ke emas.",
-   "updated_at": "2026-10-20 23:01:27"
+   "updated_at": "2026-10-20 23:16:09"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-10-20 23:01:27"
+   "updated_at": "2026-10-20 23:16:09"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
-   "updated_at": "2026-10-20 23:01:27"
+   "updated_at": "2026-10-20 23:16:09"
   },
   {
    "id": "texec",
@@ -546,6 +546,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-20 23:17:39",
+   "agent_id": "dir",
+   "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
+  },
+  {
    "ts": "2026-10-20 23:15:23",
    "agent_id": "dir",
    "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
@@ -664,11 +669,6 @@
    "ts": "2026-10-20 23:01:05",
    "agent_id": "ttech",
    "message": "M15 berubah arah: bearish → sideways"
-  },
-  {
-   "ts": "2026-10-20 23:00:49",
-   "agent_id": "dir",
-   "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
   }
  ],
  "chats": [
@@ -1038,6 +1038,11 @@
   "open": [],
   "signals": [
    {
+    "ts": "2026-10-20 23:16:09",
+    "decision": "NO TRADE",
+    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
+   },
+   {
     "ts": "2026-10-20 23:01:27",
     "decision": "NO TRADE",
     "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
@@ -1061,11 +1066,6 @@
     "ts": "2026-10-20 22:00:45",
     "decision": "NO TRADE",
     "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
-   },
-   {
-    "ts": "2026-10-20 20:46:24",
-    "decision": "NO TRADE",
-    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
    }
   ],
   "trades": [],
@@ -1087,7 +1087,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-20 23:01:27",
+   "ts": "2026-10-20 23:16:09",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1108,7 +1108,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4121.10 di bawah tengah band (4119.2–4129.8) · RSI 42 · Stoch 12 · MACD -0.18 · H1 sideways"
+    "note": "M15 4119.60 di bawah tengah band (4118.1–4130.1) · RSI 40 · Stoch 3 · MACD -0.49 · H1 sideways"
    }
   },
   "fund": {
@@ -1161,13 +1161,13 @@
    "M15": {
     "bias": "sideways",
     "score": -1,
-    "price": 4121.4,
-    "ema20": 4125.53,
-    "ema50": 4127.01,
-    "rsi": 42.7,
+    "price": 4119.5,
+    "ema20": 4124.96,
+    "ema50": 4126.71,
+    "rsi": 40.2,
     "n": 299,
-    "slot": 1991708,
-    "at": 1792537265276
+    "slot": 1991709,
+    "at": 1792538169419
    },
    "M30": {
     "bias": "bearish",
