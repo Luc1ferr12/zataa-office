@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-20T23:29:13.557Z",
+ "generated_at": "2026-10-20T23:30:59.541Z",
  "today": "2026-10-21",
  "week_start": "2026-10-19",
  "campaign": {
@@ -546,6 +546,16 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-20 23:30:43",
+   "agent_id": "dir",
+   "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
+  },
+  {
+   "ts": "2026-10-20 23:30:43",
+   "agent_id": "ttech",
+   "message": "M30 berubah arah: bearish → sideways"
+  },
+  {
    "ts": "2026-10-20 23:28:57",
    "agent_id": "dir",
    "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
@@ -659,16 +669,6 @@
    "ts": "2026-10-20 23:02:10",
    "agent_id": "analyst",
    "message": "Pola: video & news Valorant paling hidup (eng 6-8, views 220+), promo polos eng 0, feed MLBB views rendah"
-  },
-  {
-   "ts": "2026-10-20 23:02:04",
-   "agent_id": "price",
-   "message": "zataa.my.id aktif, harga live ML/FF/Valorant tersedia"
-  },
-  {
-   "ts": "2026-10-20 23:02:02",
-   "agent_id": "researcher",
-   "message": "Nemu 6 topik baru"
   }
  ],
  "chats": [
@@ -1034,7 +1034,7 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4117.799805,
+  "price": 4117.600098,
   "open": [],
   "signals": [
    {
@@ -1150,35 +1150,35 @@
    "M10": {
     "bias": "bearish",
     "score": -2,
-    "price": 4116.8,
-    "ema20": 4124.36,
-    "ema50": 4125.54,
-    "rsi": 33.1,
+    "price": 4117.6,
+    "ema20": 4123.71,
+    "ema50": 4125.23,
+    "rsi": 35.4,
     "n": 299,
-    "slot": 2987564,
-    "at": 1792538440651
+    "slot": 2987565,
+    "at": 1792539043688
    },
    "M15": {
     "bias": "sideways",
     "score": -1,
-    "price": 4119.5,
-    "ema20": 4124.96,
-    "ema50": 4126.71,
-    "rsi": 40.2,
+    "price": 4117.6,
+    "ema20": 4124.26,
+    "ema50": 4126.36,
+    "rsi": 37.8,
     "n": 299,
-    "slot": 1991709,
-    "at": 1792538169419
+    "slot": 1991710,
+    "at": 1792539043693
    },
    "M30": {
-    "bias": "bearish",
-    "score": -2,
-    "price": 4121.4,
-    "ema20": 4126.5,
-    "ema50": 4131.86,
-    "rsi": 44.1,
+    "bias": "sideways",
+    "score": -1,
+    "price": 4117.6,
+    "ema20": 4125.66,
+    "ema50": 4131.31,
+    "rsi": 41,
     "n": 299,
-    "slot": 995854,
-    "at": 1792537265280
+    "slot": 995855,
+    "at": 1792539043695
    },
    "H1": {
     "bias": "sideways",
