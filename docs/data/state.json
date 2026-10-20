@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-20T22:00:45.268Z",
+ "generated_at": "2026-10-20T22:03:01.029Z",
  "today": "2026-10-21",
  "week_start": "2026-10-19",
  "campaign": {
@@ -103,15 +103,15 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-20 20:46:24"
+   "updated_at": "2026-10-20 22:00:45"
   },
   {
    "id": "tresearch",
    "name": "Davina",
    "title": "Research & Fundamental",
    "status": "done",
-   "current_task": "Fundamental: Berita 24 jam tak terverifikasi (sumber terbaru s.d. Agt 2026). NFP Jul -23rb, DXY melemah, emas dekat 3-bulan high. Bias positif lemah.",
-   "updated_at": "2026-10-20 20:46:24"
+   "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
+   "updated_at": "2026-10-20 22:00:45"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-10-20 20:46:24"
+   "updated_at": "2026-10-20 22:00:45"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
-   "updated_at": "2026-10-20 20:46:24"
+   "updated_at": "2026-10-20 22:00:45"
   },
   {
    "id": "texec",
@@ -532,6 +532,26 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-20 22:02:45",
+   "agent_id": "dir",
+   "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
+  },
+  {
+   "ts": "2026-10-20 22:00:45",
+   "agent_id": "trisk",
+   "message": "NO TRADE · jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
+  },
+  {
+   "ts": "2026-10-20 22:00:45",
+   "agent_id": "ttech",
+   "message": "M15 berubah arah: bearish → sideways"
+  },
+  {
+   "ts": "2026-10-20 22:00:45",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: bearish → sideways"
+  },
+  {
    "ts": "2026-10-20 22:00:29",
    "agent_id": "dir",
    "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
@@ -633,26 +653,6 @@
   },
   {
    "ts": "2026-10-20 21:15:30",
-   "agent_id": "dir",
-   "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
-  },
-  {
-   "ts": "2026-10-20 21:13:15",
-   "agent_id": "dir",
-   "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
-  },
-  {
-   "ts": "2026-10-20 21:10:59",
-   "agent_id": "dir",
-   "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
-  },
-  {
-   "ts": "2026-10-20 21:08:43",
-   "agent_id": "dir",
-   "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
-  },
-  {
-   "ts": "2026-10-20 21:06:27",
    "agent_id": "dir",
    "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
   }
@@ -1020,9 +1020,14 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4126.100098,
+  "price": 4127.799805,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-20 22:00:45",
+    "decision": "NO TRADE",
+    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
+   },
    {
     "ts": "2026-10-20 20:46:24",
     "decision": "NO TRADE",
@@ -1047,11 +1052,6 @@
     "ts": "2026-10-20 19:45:41",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-10-20 19:31:07",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
   ],
   "trades": [],
@@ -1073,7 +1073,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-20 20:46:24",
+   "ts": "2026-10-20 22:00:45",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1084,8 +1084,8 @@
    "risk_usd": null,
    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
    "fund": {
-    "bias": 0.2,
-    "note": "Berita 24 jam tak terverifikasi (sumber terbaru s.d. Agt 2026). NFP Jul -23rb, DXY melemah, emas dekat 3-bulan high. Bias positif lemah.",
+    "bias": 0,
+    "note": "netral (belum ada ringkasan hari ini)",
     "danger": null,
     "blackout": null
    },
@@ -1094,7 +1094,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4123.60 di bawah tengah band (4120.2–4128.1) · RSI 47 · Stoch 45 · MACD -0.04 · H1 sideways"
+    "note": "M15 4128.50 di atas tengah band (4120.9–4128.6) · RSI 55 · Stoch 94 · MACD +0.60 · H1 sideways"
    }
   },
   "fund": null,
@@ -1131,48 +1131,48 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "bearish",
-    "score": -2,
-    "price": 4123.8,
-    "ema20": 4124.17,
-    "ema50": 4125.99,
-    "rsi": 48.1,
+    "bias": "sideways",
+    "score": -1,
+    "price": 4126.1,
+    "ema20": 4125.15,
+    "ema50": 4126.02,
+    "rsi": 52.5,
     "n": 299,
-    "slot": 2987549,
-    "at": 1792529454415
+    "slot": 2987556,
+    "at": 1792533645421
    },
    "M15": {
-    "bias": "bearish",
-    "score": -2,
-    "price": 4123.6,
-    "ema20": 4125.05,
-    "ema50": 4127.45,
-    "rsi": 46.7,
+    "bias": "sideways",
+    "score": 0,
+    "price": 4126.1,
+    "ema20": 4125.47,
+    "ema50": 4127.2,
+    "rsi": 50.6,
     "n": 299,
-    "slot": 1991699,
-    "at": 1792529166170
+    "slot": 1991704,
+    "at": 1792533645430
    },
    "M30": {
     "bias": "bearish",
     "score": -2,
-    "price": 4122.8,
-    "ema20": 4126.76,
-    "ema50": 4133.12,
-    "rsi": 44.8,
+    "price": 4126.1,
+    "ema20": 4126.59,
+    "ema50": 4132.33,
+    "rsi": 48.2,
     "n": 299,
-    "slot": 995849,
-    "at": 1792528243725
+    "slot": 995852,
+    "at": 1792533645433
    },
    "H1": {
     "bias": "sideways",
     "score": -1,
-    "price": 4121.7,
-    "ema20": 4130.42,
-    "ema50": 4142.47,
-    "rsi": 42.4,
+    "price": 4126.1,
+    "ema20": 4129.65,
+    "ema50": 4141.21,
+    "rsi": 45.4,
     "n": 299,
-    "slot": 497924,
-    "at": 1792526446962
+    "slot": 497926,
+    "at": 1792533645443
    }
   },
   "currency": "USC",
