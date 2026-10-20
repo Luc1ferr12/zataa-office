@@ -36,8 +36,8 @@ function cfg() {
     v: e.GRAPH_VERSION || 'v23.0',
   };
 }
-// ADS_PAUSE=1 → Fahriah libur: tidak usul & tidak pasang iklan (Owner: "boost.mjs pause|resume")
-export const adsReady = () => { const c = cfg(); return env().ADS_PAUSE !== '1' && !!(c.account && c.token && c.page && c.ig); };
+// Fahriah libur kecuali ADS_PAUSE=0 (sejak 20 Okt 2026 default libur: iklan Meta belum bisa). Owner: "boost.mjs pause|resume"
+export const adsReady = () => { const c = cfg(); return env().ADS_PAUSE === '0' && !!(c.account && c.token && c.page && c.ig); };
 
 async function graph(path, params = {}, method = 'POST', token = cfg().token) {
   const c = cfg();

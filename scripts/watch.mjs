@@ -123,7 +123,7 @@ async function autopost() {
 let boosting = false;
 async function ads() {
   if (boosting) return;
-  if (!adsReady()) return beat('ads', null, loadEnv().ADS_PAUSE === '1' ? 'dijeda Owner (iklan Meta belum bisa)' : 'setelan iklan belum lengkap', 'paused');
+  if (!adsReady()) return beat('ads', null, loadEnv().ADS_PAUSE !== '0' ? 'libur (iklan Meta belum bisa)' : 'setelan iklan belum lengkap', 'paused');
   boosting = true;
   try {
     for (const r of await runApproved()) log(r.ok ? `boost B${r.id} jalan` : `boost B${r.id} gagal: ${r.error}`);
