@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-20T03:55:05.006Z",
+ "generated_at": "2026-10-20T04:05:05.002Z",
  "today": "2026-10-20",
  "week_start": "2026-10-19",
  "campaign": {
@@ -79,7 +79,7 @@
    "title": "Data Analyst",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-10-20 01:01:18"
+   "updated_at": "2026-10-20 04:00:36"
   },
   {
    "id": "price",
@@ -87,7 +87,7 @@
    "title": "Price Watcher",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-10-20 02:00:06"
+   "updated_at": "2026-10-20 04:00:38"
   },
   {
    "id": "ob",
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-20 03:46:05"
+   "updated_at": "2026-10-20 04:01:05"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Fed condong hawkish (CPI & PPI September panas, Warsh belum beri sinyal), yield naik; risiko geopolitik Timur Tengah menahan turun.",
-   "updated_at": "2026-10-20 03:46:05"
+   "updated_at": "2026-10-20 04:01:05"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-10-20 03:46:05"
+   "updated_at": "2026-10-20 04:01:05"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
-   "updated_at": "2026-10-20 03:46:05"
+   "updated_at": "2026-10-20 04:01:05"
   },
   {
    "id": "texec",
@@ -532,6 +532,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-20 04:00:36",
+   "agent_id": "analyst",
+   "message": "Update data 31 post IG 📈"
+  },
+  {
    "ts": "2026-10-20 03:31:05",
    "agent_id": "ttech",
    "message": "M30 berubah arah: bearish → sideways"
@@ -650,11 +655,6 @@
    "ts": "2026-10-19 23:40:49",
    "agent_id": "owner",
    "message": "Approve konten #40 ✅"
-  },
-  {
-   "ts": "2026-10-19 23:40:49",
-   "agent_id": "owner",
-   "message": "Approve 3 ide konten tambahan 💡"
   }
  ],
  "chats": [
@@ -950,24 +950,24 @@
    "yt_posted": 1,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 21236,
-   "likes": 58,
+   "views": 21615,
+   "likes": 65,
    "comments": 2,
-   "shares": 0,
-   "saves": 1,
+   "shares": 5,
+   "saves": 2,
    "yt_views": 1278,
    "top": [
     {
      "title": "Hall of Champions Valorant 2021-2026",
      "format": "video",
      "pillar": "esport",
-     "views": 18619
+     "views": 18624
     },
     {
      "title": "Era franchise VCT tamat: bursa transfer 2027 dimulai (rumor ditandai)",
      "format": "video",
      "pillar": "news",
-     "views": 1331
+     "views": 1697
     },
     {
      "title": "8.000 Prajurit Penjaga Makam yang Belum Dibuka",
@@ -987,7 +987,7 @@
    "yt_posted": 4,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 5093,
+   "views": 5103,
    "likes": 79,
    "comments": 1,
    "shares": 1,
@@ -1020,9 +1020,14 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4147,
+  "price": 4145.5,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-20 04:01:05",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
+   },
    {
     "ts": "2026-10-20 03:46:05",
     "decision": "NO TRADE",
@@ -1047,11 +1052,6 @@
     "ts": "2026-10-20 02:46:05",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-   },
-   {
-    "ts": "2026-10-20 02:31:05",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
    }
   ],
   "trades": [],
@@ -1073,7 +1073,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-20 03:46:05",
+   "ts": "2026-10-20 04:01:05",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1094,7 +1094,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4145.80 di atas tengah band (4119.9–4150.8) · RSI 58 · Stoch 93 · MACD +2.25 · H1 bearish"
+    "note": "M15 4147.80 di atas tengah band (4119.4–4152.8) · RSI 60 · Stoch 98 · MACD +2.34 · H1 bearish"
    }
   },
   "fund": {
@@ -1136,46 +1136,46 @@
    "M10": {
     "bias": "sideways",
     "score": 1,
-    "price": 4146.5,
-    "ema20": 4138.36,
-    "ema50": 4139.18,
-    "rsi": 63.6,
+    "price": 4146.9,
+    "ema20": 4139.18,
+    "ema50": 4139.48,
+    "rsi": 64,
     "n": 299,
-    "slot": 2987447,
-    "at": 1792468265049
+    "slot": 2987448,
+    "at": 1792468865045
    },
    "M15": {
     "bias": "sideways",
     "score": -1,
-    "price": 4147,
-    "ema20": 4137.37,
-    "ema50": 4142,
-    "rsi": 59.5,
+    "price": 4146.9,
+    "ema20": 4138.28,
+    "ema50": 4142.19,
+    "rsi": 59.4,
     "n": 299,
-    "slot": 1991631,
-    "at": 1792467965030
+    "slot": 1991632,
+    "at": 1792468865054
    },
    "M30": {
     "bias": "sideways",
     "score": -1,
-    "price": 4142.2,
-    "ema20": 4139.71,
-    "ema50": 4149.94,
-    "rsi": 49.7,
+    "price": 4146.9,
+    "ema20": 4140.39,
+    "ema50": 4149.82,
+    "rsi": 53.5,
     "n": 299,
-    "slot": 995815,
-    "at": 1792467065033
+    "slot": 995816,
+    "at": 1792468865059
    },
    "H1": {
     "bias": "bearish",
     "score": -3,
-    "price": 4138.6,
-    "ema20": 4147.26,
-    "ema50": 4157.21,
-    "rsi": 36.2,
+    "price": 4146.9,
+    "ema20": 4147.23,
+    "ema50": 4156.81,
+    "rsi": 46.1,
     "n": 299,
-    "slot": 497907,
-    "at": 1792465265031
+    "slot": 497908,
+    "at": 1792468865072
    }
   },
   "currency": "USC",
