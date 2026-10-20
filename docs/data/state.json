@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-20T02:05:04.900Z",
+ "generated_at": "2026-10-20T02:15:04.908Z",
  "today": "2026-10-20",
  "week_start": "2026-10-19",
  "campaign": {
@@ -532,6 +532,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-20 02:11:04",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: bearish → sideways"
+  },
+  {
    "ts": "2026-10-20 01:44:49",
    "agent_id": "dir",
    "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
@@ -650,11 +655,6 @@
    "ts": "2026-10-19 23:02:09",
    "agent_id": "price",
    "message": "zataa.my.id normal pagi ini"
-  },
-  {
-   "ts": "2026-10-19 23:02:09",
-   "agent_id": "researcher",
-   "message": "Bracket R1 MPL resmi: AE vs ONIC, BTR vs EVOS. ENVY lepas Demon1 dkk."
   }
  ],
  "chats": [
@@ -1020,7 +1020,7 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4129.700195,
+  "price": 4133.700195,
   "open": [],
   "signals": [
    {
@@ -1134,15 +1134,15 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "bearish",
-    "score": -3,
-    "price": 4129.5,
-    "ema20": 4131.78,
-    "ema50": 4138.21,
-    "rsi": 43.8,
+    "bias": "sideways",
+    "score": -1,
+    "price": 4133.1,
+    "ema20": 4131.91,
+    "ema50": 4138.01,
+    "rsi": 49.4,
     "n": 299,
-    "slot": 2987436,
-    "at": 1792461664943
+    "slot": 2987437,
+    "at": 1792462264973
    },
    "M15": {
     "bias": "bearish",
