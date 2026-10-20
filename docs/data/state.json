@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-20T12:49:23.909Z",
+ "generated_at": "2026-10-20T12:51:10.230Z",
  "today": "2026-10-20",
  "week_start": "2026-10-19",
  "campaign": {
@@ -331,10 +331,10 @@
    "game": "sejarah",
    "pillar": "ancient_secrets",
    "title": "Beton Romawi yang Bisa Menambal Dirinya Sendiri",
-   "status": "pending_approval",
-   "asset_url": null,
+   "status": "posted",
+   "asset_url": "https://www.youtube.com/watch?v=OPLdaVGAln8",
    "scheduled_at": null,
-   "posted_at": null,
+   "posted_at": "2026-10-20 12:50:37",
    "channel": "youtube"
   },
   {
@@ -532,6 +532,26 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-20 12:50:53",
+   "agent_id": "dir",
+   "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
+  },
+  {
+   "ts": "2026-10-20 12:50:53",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: bearish → sideways"
+  },
+  {
+   "ts": "2026-10-20 12:50:37",
+   "agent_id": "ypublish",
+   "message": "Upload Shorts #53 ke Zataa Story (Publik via Zernio)"
+  },
+  {
+   "ts": "2026-10-20 12:50:09",
+   "agent_id": "owner",
+   "message": "Approve Shorts #53 ✅"
+  },
+  {
    "ts": "2026-10-20 12:49:08",
    "agent_id": "dir",
    "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
@@ -635,26 +655,6 @@
    "ts": "2026-10-20 10:00:32",
    "agent_id": "analyst",
    "message": "Update data 32 post IG 📈"
-  },
-  {
-   "ts": "2026-10-20 09:31:05",
-   "agent_id": "trisk",
-   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-  },
-  {
-   "ts": "2026-10-20 09:31:05",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: sideways → bearish"
-  },
-  {
-   "ts": "2026-10-20 08:31:05",
-   "agent_id": "ttech",
-   "message": "M30 berubah arah: sideways → bearish"
-  },
-  {
-   "ts": "2026-10-20 08:21:05",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: bearish → sideways"
   }
  ],
  "chats": [
@@ -943,12 +943,12 @@
   "this_week": {
    "week": "2026-10-19",
    "total": 20,
-   "posted": 7,
-   "pending": 1,
+   "posted": 8,
+   "pending": 0,
    "scheduled": 1,
    "yt_total": 2,
-   "yt_posted": 1,
-   "yt_pending": 1,
+   "yt_posted": 2,
+   "yt_pending": 0,
    "yt_scheduled": 0,
    "views": 21982,
    "likes": 71,
@@ -1020,7 +1020,7 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4127.299805,
+  "price": 4119.799805,
   "open": [],
   "signals": [
    {
@@ -1134,15 +1134,15 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "bearish",
-    "score": -3,
-    "price": 4114.4,
-    "ema20": 4121.09,
-    "ema50": 4125.48,
-    "rsi": 40.1,
+    "bias": "sideways",
+    "score": -1,
+    "price": 4123.7,
+    "ema20": 4121.34,
+    "ema50": 4125.41,
+    "rsi": 51.7,
     "n": 299,
-    "slot": 2987500,
-    "at": 1792500066145
+    "slot": 2987501,
+    "at": 1792500653915
    },
    "M15": {
     "bias": "sideways",
