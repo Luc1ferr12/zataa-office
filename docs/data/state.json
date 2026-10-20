@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-20T23:03:20.865Z",
+ "generated_at": "2026-10-20T23:06:36.530Z",
  "today": "2026-10-21",
  "week_start": "2026-10-19",
  "campaign": {
@@ -38,32 +38,32 @@
    "name": "Ista",
    "title": "Copywriter",
    "status": "done",
-   "current_task": "Teks feed ENVY, feed tiket MPL, video Hall of Champions",
-   "updated_at": "2026-10-19 23:45:57"
+   "current_task": "Isi konten #42 & #43",
+   "updated_at": "2026-10-20 23:03:46"
   },
   {
    "id": "designer",
    "name": "Maria",
    "title": "Graphic Designer",
    "status": "done",
-   "current_task": "Render feed #54 ENVY & #55 tiket MPL",
-   "updated_at": "2026-10-19 23:46:19"
+   "current_task": "Render feed #42",
+   "updated_at": "2026-10-20 23:03:56"
   },
   {
    "id": "video",
    "name": "Dimas",
    "title": "Video Production",
    "status": "done",
-   "current_task": "Video #56 Hall of Champions masuk antrean render OmniVoice laptop",
-   "updated_at": "2026-10-19 23:55:21"
+   "current_task": "Video #43 masuk antrean render laptop",
+   "updated_at": "2026-10-20 23:03:56"
   },
   {
    "id": "publisher",
    "name": "Fikri",
    "title": "Social Media Publisher",
    "status": "done",
-   "current_task": null,
-   "updated_at": "2026-10-20 14:00:15"
+   "current_task": "QA & submit #42, #56",
+   "updated_at": "2026-10-20 23:05:06"
   },
   {
    "id": "ads",
@@ -165,17 +165,17 @@
    "id": "ydir",
    "name": "Bagas",
    "title": "Manajer YouTube",
-   "status": "working",
-   "current_task": "Cek bank topik & pilih topik Shorts hari ini",
-   "updated_at": "2026-10-19 23:12:35"
+   "status": "done",
+   "current_task": "Pilih topik Shorts",
+   "updated_at": "2026-10-20 23:05:23"
   },
   {
    "id": "yresearch",
    "name": "Nadhira",
    "title": "Riset Sejarah & Tren",
    "status": "working",
-   "current_task": "Riset beton Romawi + verifikasi kapal karam Belitung",
-   "updated_at": "2026-10-19 23:12:35"
+   "current_task": "Riset lukisan gua Sulawesi",
+   "updated_at": "2026-10-20 23:05:23"
   },
   {
    "id": "yscript",
@@ -303,7 +303,7 @@
    "game": "mlbb",
    "pillar": "esport",
    "title": "Hall of Champions MPL ID: juara tiap season sampai S17",
-   "status": "draft",
+   "status": "pending_approval",
    "asset_url": "{\"video\":\"https://luc1ferr12.github.io/zataa-office/media/2026-10-20/56-hall-of-champions-mpl-id-juara-tiap-seas-ov.mp4\",\"cover\":\"https://luc1ferr12.github.io/zataa-office/media/2026-10-20/56-hall-of-champions-mpl-id-juara-tiap-seas-ov-cover.jpg\"}",
    "scheduled_at": null,
    "posted_at": null,
@@ -359,8 +359,8 @@
    "game": "mlbb",
    "pillar": "promo",
    "title": "Diamond ML hemat buat nonton bareng playoff (harga zataa.my.id hari itu)",
-   "status": "draft",
-   "asset_url": null,
+   "status": "pending_approval",
+   "asset_url": "{\"feed\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-21/42-diamond-ml-hemat-buat-nonton-bareng-play.jpg\"],\"story\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-21/42-diamond-ml-hemat-buat-nonton-bareng-play-916.jpg\"]}",
    "scheduled_at": null,
    "posted_at": null,
    "channel": null
@@ -532,6 +532,36 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-20 23:06:20",
+   "agent_id": "dir",
+   "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
+  },
+  {
+   "ts": "2026-10-20 23:05:23",
+   "agent_id": "ydir",
+   "message": "Topik Shorts hari ini HH-002 lukisan gua tertua Sulawesi (kuota HH 2/4)"
+  },
+  {
+   "ts": "2026-10-20 23:05:06",
+   "agent_id": "publisher",
+   "message": "QA lolos & kirim #42 (feed promo ML) + #56 (video Hall of Champions MPL yang nyangkut dari kemarin). Perbaiki deadlock approval submit & QA harga >40 item"
+  },
+  {
+   "ts": "2026-10-20 23:05:06",
+   "agent_id": "publisher",
+   "message": "Kirim #56 ke Owner buat approval"
+  },
+  {
+   "ts": "2026-10-20 23:04:50",
+   "agent_id": "publisher",
+   "message": "Kirim #42 ke Owner buat approval"
+  },
+  {
+   "ts": "2026-10-20 23:03:46",
+   "agent_id": "copywriter",
+   "message": "Isi #42 promo ML nobar playoff & #43 video 3 tim gugur MPL S18"
+  },
+  {
    "ts": "2026-10-20 23:02:42",
    "agent_id": "dir",
    "message": "Pilih ide: video partner VCT 2027 (RRQ), feed klasemen akhir MPL S18, polling raja Pacific 2027"
@@ -625,39 +655,44 @@
    "ts": "2026-10-20 22:45:44",
    "agent_id": "ttech",
    "message": "M15 berubah arah: sideways → bearish"
-  },
-  {
-   "ts": "2026-10-20 22:44:59",
-   "agent_id": "dir",
-   "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
-  },
-  {
-   "ts": "2026-10-20 22:42:43",
-   "agent_id": "dir",
-   "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
-  },
-  {
-   "ts": "2026-10-20 22:40:43",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: sideways → bearish"
-  },
-  {
-   "ts": "2026-10-20 22:40:27",
-   "agent_id": "dir",
-   "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
-  },
-  {
-   "ts": "2026-10-20 22:38:11",
-   "agent_id": "dir",
-   "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
-  },
-  {
-   "ts": "2026-10-20 22:35:56",
-   "agent_id": "dir",
-   "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-10-20 23:05:23",
+   "agent_id": "ydir",
+   "to_id": "yresearch",
+   "kind": "oper",
+   "message": "Nadhira, topik Shorts hari ini: \"Pilih topik Shorts\". Gali sumbernya ya, minimal 2 🏺"
+  },
+  {
+   "ts": "2026-10-20 23:05:06",
+   "agent_id": "publisher",
+   "to_id": "owner",
+   "kind": "oper",
+   "message": "\"QA & submit #42, #56\" udah lolos QA, tinggal nunggu ✅ dari Bos"
+  },
+  {
+   "ts": "2026-10-20 23:03:56",
+   "agent_id": "designer",
+   "to_id": "publisher",
+   "kind": "oper",
+   "message": "Visual \"Render feed #42\" kelar! Fikri, cek typo-nya sekalian ya 🙏"
+  },
+  {
+   "ts": "2026-10-20 23:03:56",
+   "agent_id": "video",
+   "to_id": "publisher",
+   "kind": "oper",
+   "message": "Fikri, video \"Video #43 masuk antrean render laptop\" udah render 9:16. Musiknya aman kok"
+  },
+  {
+   "ts": "2026-10-20 23:03:46",
+   "agent_id": "copywriter",
+   "to_id": "designer",
+   "kind": "oper",
+   "message": "Maria, copy \"Isi konten #42 & #43\" udah masuk. Headline-nya jangan dikecilin ya 😆"
+  },
   {
    "ts": "2026-10-20 23:02:42",
    "agent_id": "dir",
@@ -902,41 +937,6 @@
    "to_id": "owner",
    "kind": "santai",
    "message": "Udah lolos QA Bos, tinggal ✅ dan langsung tayang 🙏"
-  },
-  {
-   "ts": "2026-10-19 00:13:15",
-   "agent_id": "video",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Udah beres Bos! Video Hall of Champions 2021–2026 (47 detik) baru aja masuk Telegram, tiap tahun ada logo tim, foto juaranya, plus 5 nama pemain di roster pas juara 🏆"
-  },
-  {
-   "ts": "2026-10-19 00:13:06",
-   "agent_id": "video",
-   "to_id": "researcher",
-   "kind": "santai",
-   "message": "Clar, foto juara 6 tahun kamu lengkap semua, render-nya jadi mulus 🔥"
-  },
-  {
-   "ts": "2026-10-19 00:13:03",
-   "agent_id": "publisher",
-   "to_id": "owner",
-   "kind": "oper",
-   "message": "Bos, \"QA & kirim video Hall of Champions ke Owner\" udah aku kirim ke Telegram. Ditunggu approve-nya 🙏"
-  },
-  {
-   "ts": "2026-10-19 00:12:52",
-   "agent_id": "video",
-   "to_id": "publisher",
-   "kind": "oper",
-   "message": "Fikri, video \"Render video Hall of Champions Valorant\" udah render 9:16. Musiknya aman kok"
-  },
-  {
-   "ts": "2026-10-19 00:11:48",
-   "agent_id": "dir",
-   "to_id": null,
-   "kind": "oper",
-   "message": "Oke tim, ada titah dari Bos. Aku bagi tugasnya ya 👇"
   }
  ],
  "stats": {
@@ -944,7 +944,7 @@
    "week": "2026-10-19",
    "total": 20,
    "posted": 9,
-   "pending": 0,
+   "pending": 2,
    "scheduled": 0,
    "yt_total": 2,
    "yt_posted": 2,
@@ -1020,7 +1020,7 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4121.200195,
+  "price": 4121.5,
   "open": [],
   "signals": [
    {
