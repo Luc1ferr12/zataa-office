@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-20T20:46:21.785Z",
+ "generated_at": "2026-10-20T20:48:37.540Z",
  "today": "2026-10-21",
  "week_start": "2026-10-19",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-20 20:31:01"
+   "updated_at": "2026-10-20 20:46:24"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Berita 24 jam tak terverifikasi (sumber terbaru s.d. Agt 2026). NFP Jul -23rb, DXY melemah, emas dekat 3-bulan high. Bias positif lemah.",
-   "updated_at": "2026-10-20 20:31:01"
+   "updated_at": "2026-10-20 20:46:24"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-10-20 20:31:01"
+   "updated_at": "2026-10-20 20:46:24"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
-   "updated_at": "2026-10-20 20:31:01"
+   "updated_at": "2026-10-20 20:46:24"
   },
   {
    "id": "texec",
@@ -532,6 +532,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-20 20:48:21",
+   "agent_id": "dir",
+   "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
+  },
+  {
    "ts": "2026-10-20 20:46:06",
    "agent_id": "dir",
    "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
@@ -648,11 +653,6 @@
   },
   {
    "ts": "2026-10-20 20:00:01",
-   "agent_id": "dir",
-   "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
-  },
-  {
-   "ts": "2026-10-20 19:57:45",
    "agent_id": "dir",
    "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
   }
@@ -950,12 +950,12 @@
    "yt_posted": 2,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 22398,
+   "views": 22455,
    "likes": 81,
    "comments": 2,
    "shares": 8,
    "saves": 3,
-   "yt_views": 1568,
+   "yt_views": 1577,
    "top": [
     {
      "title": "Hall of Champions Valorant 2021-2026",
@@ -967,13 +967,13 @@
      "title": "Era franchise VCT tamat: bursa transfer 2027 dimulai (rumor ditandai)",
      "format": "video",
      "pillar": "news",
-     "views": 2061
+     "views": 2062
     },
     {
      "title": "8.000 Prajurit Penjaga Makam yang Belum Dibuka",
      "format": "shorts",
      "pillar": "hidden_history",
-     "views": 1288
+     "views": 1297
     }
    ]
   },
@@ -1020,9 +1020,14 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4123.600098,
+  "price": 4123.899902,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-20 20:46:24",
+    "decision": "NO TRADE",
+    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
+   },
    {
     "ts": "2026-10-20 20:31:01",
     "decision": "NO TRADE",
@@ -1047,11 +1052,6 @@
     "ts": "2026-10-20 19:31:07",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-10-20 19:15:47",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
   ],
   "trades": [],
@@ -1073,7 +1073,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-20 20:31:01",
+   "ts": "2026-10-20 20:46:24",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1094,7 +1094,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4122.10 di bawah tengah band (4118.7–4130.4) · RSI 44 · Stoch 47 · MACD -0.23 · H1 sideways"
+    "note": "M15 4123.60 di bawah tengah band (4120.2–4128.1) · RSI 47 · Stoch 45 · MACD -0.04 · H1 sideways"
    }
   },
   "fund": {
