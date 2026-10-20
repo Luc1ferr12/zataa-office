@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-20T14:31:19.056Z",
+ "generated_at": "2026-10-20T14:33:35.533Z",
  "today": "2026-10-20",
  "week_start": "2026-10-19",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-20 14:15:52"
+   "updated_at": "2026-10-20 14:31:34"
   },
   {
    "id": "tresearch",
@@ -111,15 +111,15 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Berita 24 jam tak terverifikasi (sumber terbaru s.d. Agt 2026). NFP Jul -23rb, DXY melemah, emas dekat 3-bulan high. Bias positif lemah.",
-   "updated_at": "2026-10-20 14:15:52"
+   "updated_at": "2026-10-20 14:31:34"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-10-20 14:15:52"
+   "current_task": "Belum ada pantulan band · H1 sideways",
+   "updated_at": "2026-10-20 14:31:34"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-10-20 14:15:52"
+   "updated_at": "2026-10-20 14:31:34"
   },
   {
    "id": "texec",
@@ -532,6 +532,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-20 14:31:34",
+   "agent_id": "trisk",
+   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+  },
+  {
    "ts": "2026-10-20 14:31:03",
    "agent_id": "dir",
    "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
@@ -648,11 +653,6 @@
   },
   {
    "ts": "2026-10-20 13:46:59",
-   "agent_id": "dir",
-   "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
-  },
-  {
-   "ts": "2026-10-20 13:44:43",
    "agent_id": "dir",
    "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
   }
@@ -1024,6 +1024,11 @@
   "open": [],
   "signals": [
    {
+    "ts": "2026-10-20 14:31:34",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
+   {
     "ts": "2026-10-20 14:15:52",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
@@ -1047,11 +1052,6 @@
     "ts": "2026-10-20 13:16:04",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-10-20 13:00:58",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
   ],
   "trades": [],
@@ -1073,7 +1073,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-20 14:15:52",
+   "ts": "2026-10-20 14:31:34",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1090,11 +1090,11 @@
     "blackout": null
    },
    "tech": {
-    "bias": "bearish",
+    "bias": "sideways",
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4133.90 di atas tengah band (4111.1–4134.5) · RSI 59 · Stoch 92 · MACD +1.91 · H1 bearish"
+    "note": "M15 4152.30 di atas band atas (4106.0–4141.4) · RSI 70 · Stoch 92 · MACD +3.08 · H1 sideways"
    }
   },
   "fund": {
