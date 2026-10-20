@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-20T15:29:15.076Z",
+ "generated_at": "2026-10-20T15:31:00.576Z",
  "today": "2026-10-20",
  "week_start": "2026-10-19",
  "campaign": {
@@ -532,6 +532,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-20 15:30:44",
+   "agent_id": "dir",
+   "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
+  },
+  {
    "ts": "2026-10-20 15:28:59",
    "agent_id": "dir",
    "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
@@ -648,11 +653,6 @@
   },
   {
    "ts": "2026-10-20 14:42:28",
-   "agent_id": "dir",
-   "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
-  },
-  {
-   "ts": "2026-10-20 14:40:09",
    "agent_id": "dir",
    "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
   }
@@ -1020,7 +1020,7 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4136.600098,
+  "price": 4135.700195,
   "open": [],
   "signals": [
    {
@@ -1136,35 +1136,35 @@
    "M10": {
     "bias": "bullish",
     "score": 3,
-    "price": 4139.7,
-    "ema20": 4134.14,
-    "ema50": 4130.02,
-    "rsi": 57.8,
+    "price": 4136.6,
+    "ema20": 4134.37,
+    "ema50": 4130.28,
+    "rsi": 54.3,
     "n": 299,
-    "slot": 2987516,
-    "at": 1792509641928
+    "slot": 2987517,
+    "at": 1792510244920
    },
    "M15": {
     "bias": "bullish",
     "score": 3,
-    "price": 4136.5,
-    "ema20": 4131.28,
-    "ema50": 4130.86,
+    "price": 4136.6,
+    "ema20": 4131.78,
+    "ema50": 4131.08,
     "rsi": 55,
     "n": 299,
-    "slot": 1991677,
-    "at": 1792509340448
+    "slot": 1991678,
+    "at": 1792510244926
    },
    "M30": {
     "bias": "sideways",
     "score": 0,
-    "price": 4143.2,
-    "ema20": 4130.42,
-    "ema50": 4137.35,
-    "rsi": 57.8,
+    "price": 4136.6,
+    "ema20": 4131.01,
+    "ema50": 4137.32,
+    "rsi": 53.1,
     "n": 299,
-    "slot": 995838,
-    "at": 1792508454472
+    "slot": 995839,
+    "at": 1792510244927
    },
    "H1": {
     "bias": "sideways",
