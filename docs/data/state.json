@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-20T14:00:31.573Z",
+ "generated_at": "2026-10-20T14:02:47.283Z",
  "today": "2026-10-20",
  "week_start": "2026-10-19",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-20 13:45:59"
+   "updated_at": "2026-10-20 14:01:01"
   },
   {
    "id": "tresearch",
@@ -111,23 +111,23 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Berita 24 jam tak terverifikasi (sumber terbaru s.d. Agt 2026). NFP Jul -23rb, DXY melemah, emas dekat 3-bulan high. Bias positif lemah.",
-   "updated_at": "2026-10-20 13:45:59"
+   "updated_at": "2026-10-20 14:01:01"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-10-20 13:45:59"
+   "current_task": "Setup SELL di band (tanpa konfirmasi)",
+   "updated_at": "2026-10-20 14:01:01"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-10-20 13:45:59"
+   "current_task": "NO TRADE: setup SELL di band, konfirmasi baru 0/3 (-) · London–NY (mode aman)",
+   "updated_at": "2026-10-20 14:01:01"
   },
   {
    "id": "texec",
@@ -532,6 +532,16 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-20 14:02:31",
+   "agent_id": "dir",
+   "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
+  },
+  {
+   "ts": "2026-10-20 14:01:01",
+   "agent_id": "ttech",
+   "message": "M30 berubah arah: bearish → sideways"
+  },
+  {
    "ts": "2026-10-20 14:00:15",
    "agent_id": "dir",
    "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
@@ -643,16 +653,6 @@
   },
   {
    "ts": "2026-10-20 13:20:04",
-   "agent_id": "dir",
-   "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
-  },
-  {
-   "ts": "2026-10-20 13:17:49",
-   "agent_id": "dir",
-   "message": "Kode kantor diperbarui, restart otomatis: scripts/watch.mjs"
-  },
-  {
-   "ts": "2026-10-20 13:15:33",
    "agent_id": "dir",
    "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
   }
@@ -1020,9 +1020,14 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4129.899902,
+  "price": 4127,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-20 14:01:01",
+    "decision": "NO TRADE",
+    "reason": "setup SELL di band, konfirmasi baru 0/3 (-) · London–NY (mode aman)"
+   },
    {
     "ts": "2026-10-20 13:45:59",
     "decision": "NO TRADE",
@@ -1047,11 +1052,6 @@
     "ts": "2026-10-20 12:45:52",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-10-20 12:31:05",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
   ],
   "trades": [],
@@ -1073,7 +1073,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-20 13:45:59",
+   "ts": "2026-10-20 14:01:01",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1082,7 +1082,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
+   "reason": "setup SELL di band, konfirmasi baru 0/3 (-) · London–NY (mode aman)",
    "fund": {
     "bias": 0.2,
     "note": "Berita 24 jam tak terverifikasi (sumber terbaru s.d. Agt 2026). NFP Jul -23rb, DXY melemah, emas dekat 3-bulan high. Bias positif lemah.",
@@ -1092,9 +1092,9 @@
    "tech": {
     "bias": "bearish",
     "score": 0,
-    "trigger": null,
+    "trigger": "sell",
     "confirm": [],
-    "note": "M15 4130.50 di atas tengah band (4112.4–4131.0) · RSI 56 · Stoch 85 · MACD +1.46 · H1 bearish"
+    "note": "M15 4128.70 di atas tengah band (4112.3–4131.7) · RSI 54 · Stoch 85 · MACD +1.49 · H1 bearish · setup SELL (tanpa konfirmasi)"
    }
   },
   "fund": {
@@ -1136,46 +1136,46 @@
    "M10": {
     "bias": "sideways",
     "score": 1,
-    "price": 4131,
-    "ema20": 4122.3,
-    "ema50": 4124.91,
-    "rsi": 59.9,
+    "price": 4129.9,
+    "ema20": 4123.02,
+    "ema50": 4125.1,
+    "rsi": 58.4,
     "n": 299,
-    "slot": 2987507,
-    "at": 1792504260990
+    "slot": 2987508,
+    "at": 1792504861693
    },
    "M15": {
     "bias": "sideways",
     "score": 1,
-    "price": 4130.4,
-    "ema20": 4123.09,
-    "ema50": 4128.12,
-    "rsi": 56.2,
+    "price": 4129.9,
+    "ema20": 4123.74,
+    "ema50": 4128.19,
+    "rsi": 55.6,
     "n": 299,
-    "slot": 1991671,
-    "at": 1792503959431
+    "slot": 1991672,
+    "at": 1792504861698
    },
    "M30": {
-    "bias": "bearish",
-    "score": -2,
-    "price": 4122.4,
-    "ema20": 4126.29,
-    "ema50": 4136.76,
-    "rsi": 43.7,
+    "bias": "sideways",
+    "score": 0,
+    "price": 4129.9,
+    "ema20": 4126.64,
+    "ema50": 4136.49,
+    "rsi": 50.8,
     "n": 299,
-    "slot": 995835,
-    "at": 1792503053881
+    "slot": 995836,
+    "at": 1792504861700
    },
    "H1": {
     "bias": "bearish",
     "score": -2,
-    "price": 4119.6,
-    "ema20": 4133.49,
-    "ema50": 4147.14,
-    "rsi": 38.2,
+    "price": 4129.9,
+    "ema20": 4133.15,
+    "ema50": 4146.46,
+    "rsi": 45.5,
     "n": 299,
-    "slot": 497917,
-    "at": 1792501258748
+    "slot": 497918,
+    "at": 1792504861709
    }
   },
   "currency": "USC",
