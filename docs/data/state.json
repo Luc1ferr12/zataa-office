@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-20T13:20:20.578Z",
+ "generated_at": "2026-10-20T13:22:36.370Z",
  "today": "2026-10-20",
  "week_start": "2026-10-19",
  "campaign": {
@@ -532,6 +532,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-20 13:22:20",
+   "agent_id": "dir",
+   "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
+  },
+  {
    "ts": "2026-10-20 13:20:04",
    "agent_id": "dir",
    "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
@@ -650,11 +655,6 @@
    "ts": "2026-10-20 12:39:42",
    "agent_id": "ypublish",
    "message": "Kirim Shorts #53 ke Owner buat approval"
-  },
-  {
-   "ts": "2026-10-20 12:31:05",
-   "agent_id": "trisk",
-   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
   }
  ],
  "chats": [
@@ -1020,7 +1020,7 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4119,
+  "price": 4120.899902,
   "open": [],
   "signals": [
    {
@@ -1136,13 +1136,13 @@
    "M10": {
     "bias": "bearish",
     "score": -2,
-    "price": 4118.8,
-    "ema20": 4120.95,
-    "ema50": 4124.94,
-    "rsi": 46.5,
+    "price": 4119,
+    "ema20": 4120.76,
+    "ema50": 4124.7,
+    "rsi": 46.8,
     "n": 299,
-    "slot": 2987503,
-    "at": 1792501861694
+    "slot": 2987504,
+    "at": 1792502450707
    },
    "M15": {
     "bias": "bearish",
