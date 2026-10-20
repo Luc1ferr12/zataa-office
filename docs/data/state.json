@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-20T06:45:05.026Z",
+ "generated_at": "2026-10-20T06:55:05.031Z",
  "today": "2026-10-20",
  "week_start": "2026-10-19",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-20 06:31:05"
+   "updated_at": "2026-10-20 06:46:05"
   },
   {
    "id": "tresearch",
@@ -111,23 +111,23 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Fed condong hawkish (CPI & PPI September panas, Warsh belum beri sinyal), yield naik; risiko geopolitik Timur Tengah menahan turun.",
-   "updated_at": "2026-10-20 06:31:05"
+   "updated_at": "2026-10-20 06:46:05"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Setup BUY di band (RSI+Stokastik+MACD)",
-   "updated_at": "2026-10-20 06:31:05"
+   "current_task": "Belum ada pantulan band · H1 bearish",
+   "updated_at": "2026-10-20 06:46:05"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: fundamental berlawanan (Fed condong hawkish (CPI & PPI September panas, Warsh belum beri sinyal), yield naik; risiko geopolitik Timur Tengah menahan turun.)",
-   "updated_at": "2026-10-20 06:31:05"
+   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
+   "updated_at": "2026-10-20 06:46:05"
   },
   {
    "id": "texec",
@@ -1020,9 +1020,14 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4132.5,
+  "price": 4134.799805,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-20 06:46:05",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
+   },
    {
     "ts": "2026-10-20 06:31:05",
     "decision": "NO TRADE",
@@ -1047,11 +1052,6 @@
     "ts": "2026-10-20 05:31:05",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-   },
-   {
-    "ts": "2026-10-20 05:16:05",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
    }
   ],
   "trades": [],
@@ -1073,7 +1073,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-20 06:31:05",
+   "ts": "2026-10-20 06:46:05",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1082,7 +1082,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "fundamental berlawanan (Fed condong hawkish (CPI & PPI September panas, Warsh belum beri sinyal), yield naik; risiko geopolitik Timur Tengah menahan turun.)",
+   "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)",
    "fund": {
     "bias": -0.2,
     "note": "Fed condong hawkish (CPI & PPI September panas, Warsh belum beri sinyal), yield naik; risiko geopolitik Timur Tengah menahan turun.",
@@ -1091,14 +1091,10 @@
    },
    "tech": {
     "bias": "bearish",
-    "score": 3,
-    "trigger": "buy",
-    "confirm": [
-     "RSI",
-     "Stokastik",
-     "MACD"
-    ],
-    "note": "M15 4131.70 di bawah tengah band (4120.7–4154.1) · RSI 45 · Stoch 28 · MACD -1.38 · H1 bearish · setup BUY (RSI+Stokastik+MACD)"
+    "score": 0,
+    "trigger": null,
+    "confirm": [],
+    "note": "M15 4132.60 di bawah tengah band (4121.2–4153.9) · RSI 46 · Stoch 44 · MACD -0.99 · H1 bearish"
    }
   },
   "fund": {
@@ -1139,25 +1135,25 @@
   "tf": {
    "M10": {
     "bias": "bearish",
-    "score": -2,
-    "price": 4131.2,
-    "ema20": 4134.56,
-    "ema50": 4137.43,
-    "rsi": 43.5,
+    "score": -3,
+    "price": 4132.4,
+    "ema20": 4134.35,
+    "ema50": 4137.23,
+    "rsi": 45.5,
     "n": 299,
-    "slot": 2987464,
-    "at": 1792478465230
+    "slot": 2987465,
+    "at": 1792479065161
    },
    "M15": {
     "bias": "bearish",
     "score": -3,
-    "price": 4130.7,
-    "ema20": 4135.54,
-    "ema50": 4139.9,
-    "rsi": 44.2,
+    "price": 4132.5,
+    "ema20": 4135.25,
+    "ema50": 4139.61,
+    "rsi": 46.2,
     "n": 299,
-    "slot": 1991642,
-    "at": 1792477865349
+    "slot": 1991643,
+    "at": 1792478765184
    },
    "M30": {
     "bias": "bearish",
