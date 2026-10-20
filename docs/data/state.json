@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-20T07:35:05.100Z",
+ "generated_at": "2026-10-20T07:45:05.098Z",
  "today": "2026-10-20",
  "week_start": "2026-10-19",
  "campaign": {
@@ -532,6 +532,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-20 07:41:05",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: sideways → bearish"
+  },
+  {
    "ts": "2026-10-20 07:31:05",
    "agent_id": "ttech",
    "message": "M30 berubah arah: bearish → sideways"
@@ -650,11 +655,6 @@
    "ts": "2026-10-20 02:46:05",
    "agent_id": "ttech",
    "message": "M15 berubah arah: sideways → bearish"
-  },
-  {
-   "ts": "2026-10-20 02:39:32",
-   "agent_id": "video",
-   "message": "video #56 dirender di laptop (suara OmniVoice) & dikirim ke Owner"
   }
  ],
  "chats": [
@@ -1020,7 +1020,7 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4130.399902,
+  "price": 4123.600098,
   "open": [],
   "signals": [
    {
@@ -1134,15 +1134,15 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "sideways",
-    "score": 0,
-    "price": 4134.5,
-    "ema20": 4134.13,
-    "ema50": 4136.71,
-    "rsi": 49.5,
+    "bias": "bearish",
+    "score": -2,
+    "price": 4125.8,
+    "ema20": 4133.34,
+    "ema50": 4136.28,
+    "rsi": 38.8,
     "n": 299,
-    "slot": 2987469,
-    "at": 1792481465203
+    "slot": 2987470,
+    "at": 1792482065392
    },
    "M15": {
     "bias": "bearish",
