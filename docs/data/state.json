@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-20T12:35:05.183Z",
+ "generated_at": "2026-10-20T12:40:20.796Z",
  "today": "2026-10-20",
  "week_start": "2026-10-19",
  "campaign": {
@@ -331,7 +331,7 @@
    "game": "sejarah",
    "pillar": "ancient_secrets",
    "title": "Beton Romawi yang Bisa Menambal Dirinya Sendiri",
-   "status": "draft",
+   "status": "pending_approval",
    "asset_url": null,
    "scheduled_at": null,
    "posted_at": null,
@@ -532,6 +532,16 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-20 12:40:05",
+   "agent_id": "dir",
+   "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
+  },
+  {
+   "ts": "2026-10-20 12:39:42",
+   "agent_id": "ypublish",
+   "message": "Kirim Shorts #53 ke Owner buat approval"
+  },
+  {
    "ts": "2026-10-20 12:31:05",
    "agent_id": "trisk",
    "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
@@ -645,16 +655,6 @@
    "ts": "2026-10-20 07:31:05",
    "agent_id": "ttech",
    "message": "M10 berubah arah: bearish → sideways"
-  },
-  {
-   "ts": "2026-10-20 07:16:05",
-   "agent_id": "trisk",
-   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-  },
-  {
-   "ts": "2026-10-20 07:16:05",
-   "agent_id": "ttech",
-   "message": "M15 berubah arah: sideways → bearish"
   }
  ],
  "chats": [
@@ -944,11 +944,11 @@
    "week": "2026-10-19",
    "total": 20,
    "posted": 7,
-   "pending": 0,
+   "pending": 1,
    "scheduled": 1,
    "yt_total": 2,
    "yt_posted": 1,
-   "yt_pending": 0,
+   "yt_pending": 1,
    "yt_scheduled": 0,
    "views": 21981,
    "likes": 70,
@@ -1020,7 +1020,7 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4121.5,
+  "price": 4114.399902,
   "open": [],
   "signals": [
    {
