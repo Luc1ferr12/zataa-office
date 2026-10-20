@@ -16,6 +16,9 @@ const esc = (s) => String(s ?? '').replace(/[&<>]/g, (c) => ({ '&': '&amp;', '<'
 const wita = () => new Date(Date.now() + 8 * 3600_000);
 const setBudi = (d, status, task = null) => d.prepare("UPDATE agents SET status = ?, current_task = ?, updated_at = datetime('now') WHERE id = 'price'").run(status, task);
 const DEF = ['mobile-legends', 'valorant', 'free-fire'].map((g) => `https://zataa.my.id/game/${g}`).join(',');
+// beranda zataa nggak nampilin harga → kalau PRICE_URLS lama masih nunjuk beranda, ganti ke halaman game
+const pageUrls = () => [...new Set(String(env().PRICE_URLS || DEF).split(',').map((u) => u.trim()).filter(Boolean)
+  .flatMap((u) => (/^https?:\/\/[^/]+\/?$/.test(u) ? DEF.split(',') : [u])))];
 const SQL = `CREATE TABLE IF NOT EXISTS price_snapshots (id INTEGER PRIMARY KEY AUTOINCREMENT, url TEXT NOT NULL, ts TEXT DEFAULT (datetime('now')),
   hash TEXT, text TEXT, diff TEXT)`;
 const flag = (d, key, value) => {
@@ -44,7 +47,7 @@ export function priceLines(html) {
 export async function check() {
   const d = await db();
   d.exec(SQL);
-  const urls = String(env().PRICE_URLS || DEF).split(',').map((u) => u.trim()).filter(Boolean);
+  const urls = pageUrls();
   setBudi(d, 'working', 'Cek harga di zataa.my.id');
   const res = [];
   for (const url of urls) {
@@ -105,7 +108,7 @@ export async function priceTick() {
 // harga terbaru per halaman game (snapshot Budi ≤6 jam; kalau belum ada/basi → baca langsung dari web, tanpa simpan)
 // dipakai Haiku di bot (jawab "harga X berapa") & QA Fikri (cocokkan nominal di caption). kata = filter, mis. "86 diamond"
 export async function latest(word = '') {
-  const urls = String(env().PRICE_URLS || DEF).split(',').map((u) => u.trim()).filter(Boolean);
+  const urls = pageUrls();
   let d = null;
   try { d = await db(); d.exec(SQL); } catch { /* DB belum ada (laptop) */ }
   const out = [];
