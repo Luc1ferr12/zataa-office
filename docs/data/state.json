@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-20T00:12:49.255Z",
+ "generated_at": "2026-10-20T00:22:49.254Z",
  "today": "2026-10-20",
  "week_start": "2026-10-19",
  "campaign": {
@@ -62,8 +62,8 @@
    "name": "Fikri",
    "title": "Social Media Publisher",
    "status": "done",
-   "current_task": "Feed #54 & #55 dikirim ke Owner, video #56 auto-kirim dari laptop",
-   "updated_at": "2026-10-19 23:55:21"
+   "current_task": "undefined",
+   "updated_at": "2026-10-20 00:19:49"
   },
   {
    "id": "ads",
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-20 00:00:53"
+   "updated_at": "2026-10-20 00:15:51"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Fed condong hawkish (CPI & PPI September panas, Warsh belum beri sinyal), yield naik; risiko geopolitik Timur Tengah menahan turun.",
-   "updated_at": "2026-10-20 00:00:53"
+   "updated_at": "2026-10-20 00:15:51"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-10-20 00:00:53"
+   "updated_at": "2026-10-20 00:15:51"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
-   "updated_at": "2026-10-20 00:00:53"
+   "updated_at": "2026-10-20 00:15:51"
   },
   {
    "id": "texec",
@@ -275,7 +275,7 @@
    "game": "valorant",
    "pillar": "news",
    "title": "ENVY lepas Demon1, keznit, GLYPH: juara Champions 2023 cari tim baru 2027",
-   "status": "pending_approval",
+   "status": "approved",
    "asset_url": "{\"feed\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-20/54-envy-lepas-demon1-keznit-glyph-juara-cha.jpg\"],\"story\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-20/54-envy-lepas-demon1-keznit-glyph-juara-cha-916.jpg\"]}",
    "scheduled_at": null,
    "posted_at": null,
@@ -345,7 +345,7 @@
    "game": "mlbb",
    "pillar": "esport",
    "title": "Tiket UB Final, LB Final & Grand Final MPL ID Surabaya SOLD OUT",
-   "status": "pending_approval",
+   "status": "approved",
    "asset_url": "{\"feed\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-20/55-tiket-ub-final-lb-final-grand-final-mpl-.jpg\"],\"story\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-20/55-tiket-ub-final-lb-final-grand-final-mpl--916.jpg\"]}",
    "scheduled_at": null,
    "posted_at": null,
@@ -532,6 +532,21 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-20 00:19:49",
+   "agent_id": "owner",
+   "message": "Approve konten #55 ✅"
+  },
+  {
+   "ts": "2026-10-20 00:19:49",
+   "agent_id": "owner",
+   "message": "Approve konten #54 ✅"
+  },
+  {
+   "ts": "2026-10-20 00:15:51",
+   "agent_id": "trisk",
+   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (sesi Asia)"
+  },
+  {
    "ts": "2026-10-19 23:55:22",
    "agent_id": "publisher",
    "message": "Ide 57/59/60 → konten 54/55/56; feed pending approval, video antre laptop (kalem-2)"
@@ -640,21 +655,6 @@
    "ts": "2026-10-19 22:45:51",
    "agent_id": "ttech",
    "message": "M15 berubah arah: sideways → bearish"
-  },
-  {
-   "ts": "2026-10-19 22:40:51",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: sideways → bearish"
-  },
-  {
-   "ts": "2026-10-19 22:30:51",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: bearish → sideways"
-  },
-  {
-   "ts": "2026-10-19 22:20:51",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: sideways → bearish"
   }
  ],
  "chats": [
@@ -944,8 +944,8 @@
    "week": "2026-10-19",
    "total": 20,
    "posted": 4,
-   "pending": 2,
-   "scheduled": 2,
+   "pending": 0,
+   "scheduled": 4,
    "yt_total": 2,
    "yt_posted": 1,
    "yt_pending": 0,
@@ -1020,9 +1020,14 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4139.799805,
+  "price": 4131.799805,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-20 00:15:51",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
+   },
    {
     "ts": "2026-10-20 00:00:53",
     "decision": "NO TRADE",
@@ -1047,11 +1052,6 @@
     "ts": "2026-10-19 23:01:19",
     "decision": "NO TRADE",
     "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
-   },
-   {
-    "ts": "2026-10-19 22:45:51",
-    "decision": "NO TRADE",
-    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
    }
   ],
   "trades": [],
@@ -1073,7 +1073,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-20 00:00:53",
+   "ts": "2026-10-20 00:15:51",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1094,7 +1094,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4133.50 di bawah tengah band (4132.5–4146.9) · RSI 30 · Stoch 12 · MACD -0.30 · H1 bearish"
+    "note": "M15 4138.40 di bawah tengah band (4133.4–4146.0) · RSI 43 · Stoch 36 · MACD +0.21 · H1 bearish"
    }
   },
   "fund": {
@@ -1136,24 +1136,24 @@
    "M10": {
     "bias": "bearish",
     "score": -3,
-    "price": 4137.4,
-    "ema20": 4138.56,
-    "ema50": 4143.23,
-    "rsi": 44.1,
+    "price": 4136.2,
+    "ema20": 4138.33,
+    "ema50": 4142.96,
+    "rsi": 41.5,
     "n": 299,
-    "slot": 2987425,
-    "at": 1792455051793
+    "slot": 2987426,
+    "at": 1792455651978
    },
    "M15": {
     "bias": "bearish",
     "score": -2,
-    "price": 4134.1,
-    "ema20": 4140.08,
-    "ema50": 4147.42,
-    "rsi": 30.8,
+    "price": 4138.5,
+    "ema20": 4139.93,
+    "ema50": 4147.07,
+    "rsi": 43.3,
     "n": 299,
-    "slot": 1991616,
-    "at": 1792454453832
+    "slot": 1991617,
+    "at": 1792455351812
    },
    "M30": {
     "bias": "bearish",
