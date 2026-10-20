@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-20T14:29:33.320Z",
+ "generated_at": "2026-10-20T14:31:19.056Z",
  "today": "2026-10-20",
  "week_start": "2026-10-19",
  "campaign": {
@@ -532,6 +532,16 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-20 14:31:03",
+   "agent_id": "dir",
+   "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
+  },
+  {
+   "ts": "2026-10-20 14:31:03",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: sideways → bullish"
+  },
+  {
    "ts": "2026-10-20 14:29:17",
    "agent_id": "dir",
    "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
@@ -643,16 +653,6 @@
   },
   {
    "ts": "2026-10-20 13:44:43",
-   "agent_id": "dir",
-   "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
-  },
-  {
-   "ts": "2026-10-20 13:42:27",
-   "agent_id": "dir",
-   "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
-  },
-  {
-   "ts": "2026-10-20 13:40:12",
    "agent_id": "dir",
    "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
   }
@@ -1134,37 +1134,37 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "sideways",
-    "score": 1,
-    "price": 4140.4,
-    "ema20": 4125.28,
-    "ema50": 4125.89,
-    "rsi": 67.5,
-    "n": 299,
-    "slot": 2987510,
-    "at": 1792506054189
+    "bias": "bullish",
+    "score": 3,
+    "price": 4152.3,
+    "ema20": 4127.85,
+    "ema50": 4126.92,
+    "rsi": 74.4,
+    "n": 300,
+    "slot": 2987511,
+    "at": 1792506663258
    },
    "M15": {
     "bias": "sideways",
     "score": 1,
-    "price": 4131.5,
-    "ema20": 4124.48,
-    "ema50": 4128.32,
-    "rsi": 57.1,
-    "n": 299,
-    "slot": 1991673,
-    "at": 1792505752205
+    "price": 4152.3,
+    "ema20": 4127.13,
+    "ema50": 4129.26,
+    "rsi": 70.5,
+    "n": 300,
+    "slot": 1991674,
+    "at": 1792506663267
    },
    "M30": {
     "bias": "sideways",
     "score": 0,
-    "price": 4129.9,
-    "ema20": 4126.64,
-    "ema50": 4136.49,
-    "rsi": 50.8,
-    "n": 299,
-    "slot": 995836,
-    "at": 1792504861700
+    "price": 4152.3,
+    "ema20": 4129.08,
+    "ema50": 4137.11,
+    "rsi": 65.1,
+    "n": 300,
+    "slot": 995837,
+    "at": 1792506663268
    },
    "H1": {
     "bias": "bearish",
