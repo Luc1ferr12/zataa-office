@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-20T14:20:25.120Z",
+ "generated_at": "2026-10-20T14:22:42.349Z",
  "today": "2026-10-20",
  "week_start": "2026-10-19",
  "campaign": {
@@ -532,6 +532,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-20 14:22:25",
+   "agent_id": "dir",
+   "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
+  },
+  {
    "ts": "2026-10-20 14:20:08",
    "agent_id": "dir",
    "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
@@ -650,11 +655,6 @@
    "ts": "2026-10-20 13:33:09",
    "agent_id": "dir",
    "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
-  },
-  {
-   "ts": "2026-10-20 13:31:09",
-   "agent_id": "trisk",
-   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
   }
  ],
  "chats": [
@@ -1020,7 +1020,7 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4140.799805,
+  "price": 4140.399902,
   "open": [],
   "signals": [
    {
@@ -1136,13 +1136,13 @@
    "M10": {
     "bias": "sideways",
     "score": 1,
-    "price": 4130,
-    "ema20": 4123.69,
-    "ema50": 4125.3,
-    "rsi": 58.5,
+    "price": 4140.4,
+    "ema20": 4125.28,
+    "ema50": 4125.89,
+    "rsi": 67.5,
     "n": 299,
-    "slot": 2987509,
-    "at": 1792505464880
+    "slot": 2987510,
+    "at": 1792506054189
    },
    "M15": {
     "bias": "sideways",
