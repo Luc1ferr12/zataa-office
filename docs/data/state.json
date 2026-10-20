@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-19T23:52:49.278Z",
+ "generated_at": "2026-10-20T00:02:49.257Z",
  "today": "2026-10-20",
  "week_start": "2026-10-19",
  "campaign": {
@@ -53,17 +53,17 @@
    "id": "video",
    "name": "Dimas",
    "title": "Video Production",
-   "status": "working",
-   "current_task": "Render video #56 Hall of Champions MPL ID",
-   "updated_at": "2026-10-19 23:46:19"
+   "status": "done",
+   "current_task": "Video #56 Hall of Champions masuk antrean render OmniVoice laptop",
+   "updated_at": "2026-10-19 23:55:21"
   },
   {
    "id": "publisher",
    "name": "Fikri",
    "title": "Social Media Publisher",
    "status": "done",
-   "current_task": "undefined",
-   "updated_at": "2026-10-19 23:41:49"
+   "current_task": "Feed #54 & #55 dikirim ke Owner, video #56 auto-kirim dari laptop",
+   "updated_at": "2026-10-19 23:55:21"
   },
   {
    "id": "ads",
@@ -86,8 +86,8 @@
    "name": "Budi",
    "title": "Price Watcher",
    "status": "done",
-   "current_task": "Cek harga zataa.my.id: web aktif",
-   "updated_at": "2026-10-19 23:02:09"
+   "current_task": null,
+   "updated_at": "2026-10-20 00:00:49"
   },
   {
    "id": "ob",
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-19 23:45:51"
+   "updated_at": "2026-10-20 00:00:53"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Fed condong hawkish (CPI & PPI September panas, Warsh belum beri sinyal), yield naik; risiko geopolitik Timur Tengah menahan turun.",
-   "updated_at": "2026-10-19 23:45:51"
+   "updated_at": "2026-10-20 00:00:53"
   },
   {
    "id": "ttech",
@@ -119,15 +119,15 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-10-19 23:45:51"
+   "updated_at": "2026-10-20 00:00:53"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
-   "updated_at": "2026-10-19 23:45:51"
+   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
+   "updated_at": "2026-10-20 00:00:53"
   },
   {
    "id": "texec",
@@ -275,7 +275,7 @@
    "game": "valorant",
    "pillar": "news",
    "title": "ENVY lepas Demon1, keznit, GLYPH: juara Champions 2023 cari tim baru 2027",
-   "status": "draft",
+   "status": "pending_approval",
    "asset_url": "{\"feed\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-20/54-envy-lepas-demon1-keznit-glyph-juara-cha.jpg\"],\"story\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-20/54-envy-lepas-demon1-keznit-glyph-juara-cha-916.jpg\"]}",
    "scheduled_at": null,
    "posted_at": null,
@@ -345,7 +345,7 @@
    "game": "mlbb",
    "pillar": "esport",
    "title": "Tiket UB Final, LB Final & Grand Final MPL ID Surabaya SOLD OUT",
-   "status": "draft",
+   "status": "pending_approval",
    "asset_url": "{\"feed\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-20/55-tiket-ub-final-lb-final-grand-final-mpl-.jpg\"],\"story\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-20/55-tiket-ub-final-lb-final-grand-final-mpl--916.jpg\"]}",
    "scheduled_at": null,
    "posted_at": null,
@@ -532,6 +532,21 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-19 23:55:22",
+   "agent_id": "publisher",
+   "message": "Ide 57/59/60 → konten 54/55/56; feed pending approval, video antre laptop (kalem-2)"
+  },
+  {
+   "ts": "2026-10-19 23:54:54",
+   "agent_id": "publisher",
+   "message": "Kirim #55 ke Owner buat approval"
+  },
+  {
+   "ts": "2026-10-19 23:54:51",
+   "agent_id": "publisher",
+   "message": "Kirim #54 ke Owner buat approval"
+  },
+  {
    "ts": "2026-10-19 23:45:13",
    "agent_id": "researcher",
    "message": "Nemu 3 topik baru"
@@ -640,24 +655,44 @@
    "ts": "2026-10-19 22:20:51",
    "agent_id": "ttech",
    "message": "M10 berubah arah: sideways → bearish"
-  },
-  {
-   "ts": "2026-10-19 22:10:51",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: bearish → sideways"
-  },
-  {
-   "ts": "2026-10-19 22:01:13",
-   "agent_id": "analyst",
-   "message": "Update data 30 post IG 📈"
-  },
-  {
-   "ts": "2026-10-19 22:00:51",
-   "agent_id": "trisk",
-   "message": "NO TRADE · jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-10-19 23:59:15",
+   "agent_id": "video",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Bos, render percobaan Hall of Champions lancar, tampilannya aman. Versi final bersuara nyusul otomatis dari laptop ya!"
+  },
+  {
+   "ts": "2026-10-19 23:55:21",
+   "agent_id": "publisher",
+   "to_id": "owner",
+   "kind": "oper",
+   "message": "Bos, \"Feed #54 & #55 dikirim ke Owner, video #56 auto-kirim dari l\" udah aku kirim ke Telegram. Ditunggu approve-nya 🙏"
+  },
+  {
+   "ts": "2026-10-19 23:55:21",
+   "agent_id": "video",
+   "to_id": "publisher",
+   "kind": "oper",
+   "message": "Fikri, video \"Video #56 Hall of Champions masuk antrean render OmniVoice l\" udah render 9:16. Musiknya aman kok"
+  },
+  {
+   "ts": "2026-10-19 23:54:58",
+   "agent_id": "researcher",
+   "to_id": "copywriter",
+   "kind": "santai",
+   "message": "Hotspawn penyelamat 😅 logo ENVY-nya hitam, jadi kubikinin versi putih"
+  },
+  {
+   "ts": "2026-10-19 23:54:58",
+   "agent_id": "copywriter",
+   "to_id": "researcher",
+   "kind": "santai",
+   "message": "Clar, foto Demon1 nemu di mana? 3 situs nolak semua tadi wkwk"
+  },
   {
    "ts": "2026-10-19 23:46:19",
    "agent_id": "designer",
@@ -902,41 +937,6 @@
    "to_id": "publisher",
    "kind": "oper",
    "message": "Fikri, desain \"Render carousel playoff MPL S18\" udah render 1080×1080. QA dulu ya sebelum ke bos"
-  },
-  {
-   "ts": "2026-10-18 23:45:41",
-   "agent_id": "copywriter",
-   "to_id": "designer",
-   "kind": "oper",
-   "message": "Maria, copy \"Teks carousel playoff MPL & script video transfer VCT\" udah masuk. Headline-nya jangan dikecilin ya 😆"
-  },
-  {
-   "ts": "2026-10-18 23:45:06",
-   "agent_id": "researcher",
-   "to_id": "copywriter",
-   "kind": "oper",
-   "message": "Riset \"Riset seed playoff MPL S18 + bursa transfer VCT\" beres, udah dicek 2 sumber. Ista, lanjut ya~"
-  },
-  {
-   "ts": "2026-10-18 23:41:48",
-   "agent_id": "dir",
-   "to_id": null,
-   "kind": "oper",
-   "message": "Plan minggu ini udah di-ACC Bos! Gas produksi konten hari ini 🔥"
-  },
-  {
-   "ts": "2026-10-18 23:04:46",
-   "agent_id": "yresearch",
-   "to_id": "ydir",
-   "kind": "santai",
-   "message": "Bank topik udah aku isi 12, stok aman buat seminggu lebih."
-  },
-  {
-   "ts": "2026-10-18 23:04:46",
-   "agent_id": "yresearch",
-   "to_id": "yscript",
-   "kind": "oper",
-   "message": "Laras, bahan \"Isi bank topik Shorts\" udah aku rangkum + sumbernya. Mana fakta, mana teori udah aku tandain 📜"
   }
  ],
  "stats": {
@@ -944,7 +944,7 @@
    "week": "2026-10-19",
    "total": 20,
    "posted": 4,
-   "pending": 0,
+   "pending": 2,
    "scheduled": 2,
    "yt_total": 2,
    "yt_posted": 1,
@@ -1020,9 +1020,14 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4133.299805,
+  "price": 4138.100098,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-20 00:00:53",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
+   },
    {
     "ts": "2026-10-19 23:45:51",
     "decision": "NO TRADE",
@@ -1047,11 +1052,6 @@
     "ts": "2026-10-19 22:45:51",
     "decision": "NO TRADE",
     "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
-   },
-   {
-    "ts": "2026-10-19 22:30:51",
-    "decision": "NO TRADE",
-    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
    }
   ],
   "trades": [],
@@ -1073,7 +1073,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-19 23:45:51",
+   "ts": "2026-10-20 00:00:53",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1082,7 +1082,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
+   "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)",
    "fund": {
     "bias": -0.2,
     "note": "Fed condong hawkish (CPI & PPI September panas, Warsh belum beri sinyal), yield naik; risiko geopolitik Timur Tengah menahan turun.",
@@ -1094,7 +1094,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4136.20 di bawah tengah band (4133.9–4146.9) · RSI 34 · Stoch 16 · MACD -0.11 · H1 bearish"
+    "note": "M15 4133.50 di bawah tengah band (4132.5–4146.9) · RSI 30 · Stoch 12 · MACD -0.30 · H1 bearish"
    }
   },
   "fund": {
@@ -1136,46 +1136,46 @@
    "M10": {
     "bias": "bearish",
     "score": -3,
-    "price": 4134.2,
-    "ema20": 4139.16,
-    "ema50": 4143.85,
-    "rsi": 33.3,
+    "price": 4134.1,
+    "ema20": 4138.68,
+    "ema50": 4143.47,
+    "rsi": 33.1,
     "n": 299,
-    "slot": 2987423,
-    "at": 1792453851963
+    "slot": 2987424,
+    "at": 1792454453827
    },
    "M15": {
     "bias": "bearish",
     "score": -2,
-    "price": 4136.2,
-    "ema20": 4140.71,
-    "ema50": 4147.96,
-    "rsi": 34.1,
+    "price": 4134.1,
+    "ema20": 4140.08,
+    "ema50": 4147.42,
+    "rsi": 30.8,
     "n": 299,
-    "slot": 1991615,
-    "at": 1792453551758
+    "slot": 1991616,
+    "at": 1792454453832
    },
    "M30": {
     "bias": "bearish",
     "score": -2,
-    "price": 4135.7,
-    "ema20": 4146,
-    "ema50": 4155.9,
-    "rsi": 31.4,
+    "price": 4134.1,
+    "ema20": 4144.87,
+    "ema50": 4155.05,
+    "rsi": 30.1,
     "n": 299,
-    "slot": 995807,
-    "at": 1792452651759
+    "slot": 995808,
+    "at": 1792454453833
    },
    "H1": {
     "bias": "bearish",
     "score": -3,
-    "price": 4137.5,
-    "ema20": 4153.91,
-    "ema50": 4161.29,
-    "rsi": 25.8,
+    "price": 4134.1,
+    "ema20": 4152.02,
+    "ema50": 4160.23,
+    "rsi": 23.8,
     "n": 299,
-    "slot": 497903,
-    "at": 1792450852086
+    "slot": 497904,
+    "at": 1792454453840
    }
   },
   "currency": "USC",
