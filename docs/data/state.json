@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-20T07:55:05.100Z",
+ "generated_at": "2026-10-20T08:05:05.095Z",
  "today": "2026-10-20",
  "week_start": "2026-10-19",
  "campaign": {
@@ -87,7 +87,7 @@
    "title": "Price Watcher",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-10-20 06:00:07"
+   "updated_at": "2026-10-20 08:00:08"
   },
   {
    "id": "ob",
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-20 07:46:05"
+   "updated_at": "2026-10-20 08:01:05"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Fed condong hawkish (CPI & PPI September panas, Warsh belum beri sinyal), yield naik; risiko geopolitik Timur Tengah menahan turun.",
-   "updated_at": "2026-10-20 07:46:05"
+   "updated_at": "2026-10-20 08:01:05"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-10-20 07:46:05"
+   "updated_at": "2026-10-20 08:01:05"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-10-20 07:46:05"
+   "updated_at": "2026-10-20 08:01:05"
   },
   {
    "id": "texec",
@@ -1020,9 +1020,14 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4122,
+  "price": 4122.700195,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-20 08:01:05",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
    {
     "ts": "2026-10-20 07:46:05",
     "decision": "NO TRADE",
@@ -1047,11 +1052,6 @@
     "ts": "2026-10-20 06:46:05",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-   },
-   {
-    "ts": "2026-10-20 06:31:05",
-    "decision": "NO TRADE",
-    "reason": "fundamental berlawanan (Fed condong hawkish (CPI & PPI September panas, Warsh belum beri sinyal), yield naik; risiko geopolitik Timur Tengah menahan turun.)"
    }
   ],
   "trades": [],
@@ -1073,7 +1073,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-20 07:46:05",
+   "ts": "2026-10-20 08:01:05",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1094,7 +1094,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4123.20 di bawah tengah band (4117.3–4154.9) · RSI 39 · Stoch 27 · MACD -1.08 · H1 bearish"
+    "note": "M15 4125.80 di bawah tengah band (4116.2–4154.2) · RSI 42 · Stoch 16 · MACD -1.01 · H1 bearish"
    }
   },
   "fund": {
@@ -1136,46 +1136,46 @@
    "M10": {
     "bias": "bearish",
     "score": -2,
-    "price": 4127,
-    "ema20": 4132.74,
-    "ema50": 4135.92,
-    "rsi": 40.7,
+    "price": 4123,
+    "ema20": 4131.81,
+    "ema50": 4135.41,
+    "rsi": 36.7,
     "n": 299,
-    "slot": 2987471,
-    "at": 1792482665569
+    "slot": 2987472,
+    "at": 1792483265659
    },
    "M15": {
     "bias": "bearish",
     "score": -2,
-    "price": 4123.6,
-    "ema20": 4133.8,
-    "ema50": 4138.36,
-    "rsi": 39.7,
+    "price": 4123,
+    "ema20": 4132.77,
+    "ema50": 4137.75,
+    "rsi": 39.3,
     "n": 299,
-    "slot": 1991647,
-    "at": 1792482365222
+    "slot": 1991648,
+    "at": 1792483265665
    },
    "M30": {
     "bias": "sideways",
     "score": -1,
-    "price": 4134.5,
-    "ema20": 4137.54,
-    "ema50": 4146.23,
-    "rsi": 46,
+    "price": 4123,
+    "ema20": 4136.16,
+    "ema50": 4145.32,
+    "rsi": 39,
     "n": 299,
-    "slot": 995823,
-    "at": 1792481465211
+    "slot": 995824,
+    "at": 1792483265666
    },
    "H1": {
     "bias": "bearish",
     "score": -2,
-    "price": 4135.8,
-    "ema20": 4143.79,
-    "ema50": 4154.24,
-    "rsi": 42.1,
+    "price": 4123,
+    "ema20": 4141.81,
+    "ema50": 4153.02,
+    "rsi": 35.8,
     "n": 299,
-    "slot": 497911,
-    "at": 1792479665244
+    "slot": 497912,
+    "at": 1792483265674
    }
   },
   "currency": "USC",
