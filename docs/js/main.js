@@ -14,6 +14,7 @@ const NAMES = Object.fromEntries([['owner', 'Zamiir'], ...AGENTS.map((a) => [a.i
 
 let state = null;
 let socials = null;
+let health = null; // docs/data/health.json
 let office = null;
 let selected = null;
 let lastSim = null;
@@ -35,8 +36,43 @@ async function loadState() {
     const r = await fetch(`data/socials.json?t=${Date.now()}`, { cache: 'no-store' });
     if (r.ok) socials = await r.json();
   } catch { /* belum ada data analytics */ }
+  try {
+    const r = await fetch(`data/health.json?t=${Date.now()}`, { cache: 'no-store' });
+    if (r.ok) health = await r.json();
+  } catch { /* belum ada data kesehatan */ }
   renderDashboard();
   renderSocials();
+  renderHealth();
+}
+
+// ---------- kesehatan kantor (docs/data/health.json dari scripts/health.mjs, di-push watcher tiap 10 menit)
+const ago = (t) => {
+  const m = Math.round((Date.now() - t) / 60000);
+  return m < 1 ? 'barusan' : m < 60 ? `${m} mnt lalu` : m < 1440 ? `${Math.round(m / 60)} jam lalu` : `${Math.round(m / 1440)} hari lalu`;
+};
+function renderHealth() {
+  const box = $('health-grid');
+  if (!box) return;
+  const items = Object.entries(health?.services ?? {}).map(([key, s]) => {
+    const fails = s.fails?.length ?? 0;
+    let cls = s.state === 'paused' ? 'off' : s.state === 'error' ? 'bad' : fails ? 'warn' : 'ok';
+    let msg = s.state === 'paused' ? s.msg : s.state === 'error' ? s.msg : fails ? `${fails}× gagal 24 jam · terakhir oke ${s.okAt ? ago(s.okAt) : '-'}` : `oke · ${ago(s.at)}`;
+    // watcher berhenti lapor >30 menit (push tiap 10 menit) = kantor VPS mati
+    if (key === 'watcher' && Date.now() - s.at > 30 * 60000) { cls = 'bad'; msg = `nggak ada kabar sejak ${ago(s.at)} (VPS/watcher mati?)`; }
+    return { name: s.name ?? key, cls, msg };
+  });
+  // tim trading: sinyal tiap candle M15 (service zataa-trading); pasar emas tutup Sabtu–Minggu
+  const last = state?.trading?.last?.ts;
+  if (last) {
+    const t = Date.parse(`${last.replace(' ', 'T')}Z`);
+    const weekend = [0, 6].includes(new Date(Date.now() + 8 * 3600_000).getUTCDay());
+    const stale = Date.now() - t > 45 * 60000;
+    items.push({ name: 'Tim Trading (M15)', cls: stale ? (weekend ? 'off' : 'bad') : 'ok', msg: stale ? (weekend ? `pasar tutup · sinyal terakhir ${ago(t)}` : `sinyal terakhir ${ago(t)}, service mati?`) : `jalan · ${state.trading.mode ?? 'paper'} · ${ago(t)}` });
+  }
+  const order = { bad: 0, warn: 1, ok: 2, off: 3 };
+  items.sort((a, b) => order[a.cls] - order[b.cls]);
+  box.innerHTML = items.length ? items.map((i) => `<li class="${i.cls}"><b>${esc(i.name)}</b><small>${esc(i.msg)}</small></li>`).join('') : '<li class="muted">Belum ada laporan dari watcher.</li>';
+  $('health-updated').textContent = health?.at ? `update ${ago(health.at)}` : '';
 }
 
 // ---------- analytics sosmed (docs/data/socials.json, ditarik watcher tiap 3 jam lewat scripts/socials.mjs)

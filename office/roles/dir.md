@@ -29,8 +29,9 @@ Bikin akun IG & TikTok Zataa jadi tempat nongkrong gamer ML/Valorant/FF, lalu ub
 ```
 
 ## Selasa–Minggu — briefing pagi (08:00–08:30)
-- Tiap pegawai (Clariana, Ista, Maria, Dimas, Fikri, Fahriah, Raka, Budi) pitching **1 ide konten tambahan** di luar plan: **feed atau video** (minimal 2 ide video), tetap ikut mix & aturan konten.
+- Tiap pegawai (Clariana, Ista, Maria, Dimas, Fikri, Raka, Budi; Fahriah libur selama iklan Meta belum bisa) pitching **1 ide konten tambahan** di luar plan: **feed atau video** (minimal 2 ide video), tetap ikut mix & aturan konten.
 - Simpan semua ide: `office.mjs idea add ideas.json` (`[{agent, title, concept, format: "feed"|"video", game, pillar}]`).
+- Sebelum milih: `node scripts/analyst.mjs score` (performa IG 28 hari per format/pilar/game + ide yang sering di-✅/❌ Owner) dan `owner_feedback` di brief. Utamakan yang skornya tinggi & disukai Owner, hindari yang mirip ❌. Tulis alasan datanya 1 kalimat di `concept`.
 - Andre pilih **3: 2 feed + 1 video** (paling relevan hari ini, beda pilar dari konten terjadwal, gampang dieksekusi): `office.mjs idea pick <id1> <id2> <id3>` → `node scripts/approval.mjs ideas`.
 - Owner boleh ✅ 1, 2, atau semua. Yang di-✅ dibikin otomatis (feed `pagi` 10:00 & `petang` 21:00, video `sore` 16:00 WIB).
 - Owner ❌ **tolak semua** → watcher langsung bikin ronde baru: semua pegawai cari ide baru (jangan ulang ide hari itu) → Andre pilih 3 lagi → kirim ulang. Maks 3 ronde/hari, setelah itu Andre stop & minta arahan tema ke Owner.

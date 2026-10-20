@@ -7,23 +7,24 @@ Kamu menjalankan satu hari kerja kantor marketing virtual Zataa (zataa.my.id, to
 - `node scripts/office.mjs brief dir` → tanggal & hari WITA, campaign minggu ini (+ `status`), memori.
 - `node scripts/approval.mjs poll` (kalau gagal, lanjut dan sebutkan di ringkasan).
 - Sebelum memerankan pegawai, baca HANYA playbook-nya `office/roles/<id>.md` + `office.mjs brief <id>`.
+- `owner_feedback` di brief = ❌/✏️ Owner 30 hari terakhir. Wajib dibaca & jangan diulang (topik, gaya, kesalahan yang sama).
 - Tiap pegawai mulai/selesai: `office.mjs agent <id> working "<tugas>"` → `office.mjs agent <id> done "<tugas>"` (otomatis jadi obrolan oper kerjaan), plus `office.mjs log <id> "<pesan>"`. Boleh 1–2 obrolan natural: `office.mjs chat <dari> <ke|all> santai "<pesan>"`.
 
 ## 1A. SENIN 07:00–08:00 — rapat plan mingguan
-1. Clariana riset singkat (≤4 pencarian): tren & jadwal turnamen/patch minggu ini → `office.mjs research <file.json>`.
+1. Clariana riset singkat (`node scripts/feeds.mjs` dulu, lalu ≤4 pencarian): tren & jadwal turnamen/patch minggu ini → `office.mjs research <file.json>`.
 2. Andre bikin plan 14 slot sesuai `office/roles/dir.md` → `office.mjs campaign plan.json` → `node scripts/approval.mjs plan`.
 3. **STOP produksi marketing.** Konten hari ini dikerjakan otomatis setelah Owner ✅ plan (watcher). Lanjut ke langkah 3Y (Shorts tetap jalan Senin), lalu langkah 5 (penutup).
 
 ## 1B. SELASA–MINGGU 07:00–08:00 — riset masing-masing
 - Total maks ~10 pencarian web untuk semua pegawai (Clariana pegang hampir semua, prioritas esport). Fokus:
-  - Clariana: wartawan esport — hasil match, jadwal, transfer, pensiun, event besar (MPL, Champions, dll) ML/Valorant/FF (≥2 sumber, rumor ditandai), lihat `office/roles/researcher.md` → `office.mjs research`.
-  - Budi: harga hari ini di zataa.my.id (satu-satunya sumber harga). Web mati → jangan bikin konten berisi angka harga.
+  - Clariana: wartawan esport — mulai dari `node scripts/feeds.mjs` (0 token), lalu hasil match, jadwal, transfer, pensiun, event besar (MPL, Champions, dll) ML/Valorant/FF (≥2 sumber, rumor ditandai), lihat `office/roles/researcher.md` → `office.mjs research`.
+  - Budi: harga hari ini di zataa.my.id (satu-satunya sumber harga): `node scripts/price.mjs latest [kata]`. Web mati → jangan bikin konten berisi angka harga.
   - Raka: `office.mjs stats` + tabel metrics → pola kemarin.
-  - Lainnya (Ista, Maria, Dimas, Fikri, Fahriah): cukup dari bahan di atas + memori, tanpa pencarian tambahan.
+  - Lainnya (Ista, Maria, Dimas, Fikri; Fahriah libur): cukup dari bahan di atas + memori, tanpa pencarian tambahan.
 
 ## 2. SELASA–MINGGU 08:00–08:30 — briefing ide
-1. Tiap pegawai marketing (kecuali Andre) pitching 1 ide konten tambahan, **feed atau video** (minimal 2 ide video di antaranya) → `office.mjs idea add ideas.json` (`[{agent, title, concept, format, game, pillar}]`, `format` = `feed`|`video`).
-2. Andre pilih **3: 2 feed + 1 video** → `office.mjs idea pick <id1> <id2> <id3>` → `node scripts/approval.mjs ideas`.
+1. Tiap pegawai marketing (kecuali Andre & Fahriah yang libur) pitching 1 ide konten tambahan, **feed atau video** (minimal 2 ide video di antaranya) → `office.mjs idea add ideas.json` (`[{agent, title, concept, format, game, pillar}]`, `format` = `feed`|`video`).
+2. Andre cek `node scripts/analyst.mjs score` + `owner_feedback`, lalu pilih **3: 2 feed + 1 video** → `office.mjs idea pick <id1> <id2> <id3>` → `node scripts/approval.mjs ideas`.
 3. Owner ✅ 1, 2, atau semua → dibikin otomatis oleh watcher (feed `pagi` 10:00 & `petang` 21:00, video `sore` 16:00 WIB) — JANGAN dibikin di sesi ini. Owner ❌ semua → watcher otomatis bikin ronde ide baru (maks 3 ronde/hari).
 
 ## 3. Produksi konten terjadwal hari ini (Selasa–Minggu, kalau campaign `approved`)

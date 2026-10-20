@@ -73,10 +73,12 @@ const commands = {
     // plan lengkap cuma untuk Director; pegawai lain cukup tema (hemat token)
     const cols = agent === 'dir' ? 'id, week_start, theme, goals, plan_json' : 'theme, goals';
     const camp = get(`SELECT ${cols} FROM campaigns WHERE week_start = ?`, mondayOf(t));
-    const mem = all('SELECT note FROM memories WHERE agent_id = ? ORDER BY id DESC LIMIT 6', agent).map((r) => r.note);
+    const mem = all("SELECT note FROM memories WHERE agent_id = ? AND note NOT LIKE '[Owner]%' ORDER BY id DESC LIMIT 6", agent).map((r) => r.note);
+    // masukan ❌/✏️ Owner 30 hari terakhir (approval.mjs lesson) — wajib dihindari terulang
+    const owner = all("SELECT note FROM memories WHERE agent_id = ? AND note LIKE '[Owner]%' AND created_at >= datetime('now', '-30 days') ORDER BY id DESC LIMIT 6", agent).map((r) => r.note.slice(8));
     const tasks = all("SELECT id, type, title, status, content_id FROM tasks WHERE agent_id = ? AND day = ? AND status != 'done'", agent, t);
     const revisions = all("SELECT id, title, owner_note FROM contents WHERE status = 'revision' AND channel IS NOT 'youtube' ORDER BY id");
-    const brief = { today: t, campaign: camp ?? null, memory: mem, tasks };
+    const brief = { today: t, campaign: camp ?? null, memory: mem, ...(owner.length ? { owner_feedback: owner } : {}), tasks };
     if (revisions.length) brief.revisions = revisions;
     if (agent === 'researcher' || agent === 'dir') {
       brief.recent_topics = all('SELECT topic FROM research WHERE day >= ? ORDER BY id DESC LIMIT 15', addDays(t, -14)).map((r) => r.topic);

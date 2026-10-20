@@ -6,6 +6,7 @@
 //   node scripts/ask.mjs "<pesan>"     (tes manual)
 //   node scripts/ask.mjs status        (cetak laporan status)
 process.removeAllListeners('warning');
+import { ESCALATE, haiku, OFFICE, ANSWER_ANY } from './haiku.mjs';
 import { spawn } from 'node:child_process';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -143,10 +144,7 @@ export const replyOf = (text) => {
 // ---------- konteks obrolan Telegram (tabel chats): biar balasan nyambung, bukan mulai dari nol tiap pesan
 const TASK_RE = /\b(bikin|bikinin|buat|buatin|buatkan|desain|design|render|post|posting|upload|tayang|revisi|ganti|ubah|edit|hapus|kirim|cariin|carikan|riset|pantau|pantauin|cek|cekin|jadwal|jadwalin|promo|konten|caption|video|feed|carousel|boost|tolong)\b/i;
 export const isTask = (t) => TASK_RE.test(t);
-// butuh data/riset (harga, berita, skor, turnamen, angka IG…) → tetap model utama walau bentuknya pertanyaan
-const WORK_RE = /\b(harga|berapa|diamond|dm|nominal|diskon|promo|berita|news|info|update|patch|meta|skor|score|menang|kalah|juara|final|turnamen|tournament|match|mpl|mdl|msc|vct|ffws|ffml|transfer|rumor|roster|tren|trending|viral|data|insight|laporan|report|engagement|reach|follower|analisa|analisis|bandingin)\b|https?:\/\//i;
-export const isLightChat = (t) => t.length <= 300 && !isTask(t) && !WORK_RE.test(t);
-export const ESCALATE = '[[ESKALASI]]';
+export { ESCALATE };
 const lastSpeaker = (d) => {
   const r = d.prepare("SELECT agent_id FROM chats WHERE to_id = 'owner' AND ts >= datetime('now', '-20 minutes') ORDER BY id DESC LIMIT 1").get();
   return r?.agent_id && NAMA[r.agent_id] ? r.agent_id : null;
@@ -212,15 +210,18 @@ export async function handleOwnerMessage(msg, log = console.log, photos = []) {
     await sayAs(lead, lead === 'dir' ? 'Siap Bos! 👌 Aku bagi tugas ke tim dulu, nanti hasilnya aku kabarin di sini.' : 'Siap Bos, aku kerjain! 👌 Nanti aku kabarin hasilnya di sini.').catch(() => {});
   }
   const refs = await downloadPhotos(photos);
-  // obrolan santai / pertanyaan singkat → model kecil (murah); kalau ternyata butuh kerja beneran, dioper ke model utama
-  if (!task && !refs.length && isLightChat(msg)) {
+  // semua pesan non-tugas → Haiku duluan (murah), boleh jawab pertanyaan apa aja; butuh kerja beneran → dioper ke model utama
+  if (!task && !refs.length) {
     const chatModel = loadEnv().CHAT_MODEL || 'haiku';
-    const light = await claude(`Kamu tim kantor marketing Zataa (zataa.my.id, top up game), lagi ngobrol santai dengan Owner (Bos Zamiir) lewat Telegram.${history}
-Pesan BARU Owner:\n"${msg}"
-${lead !== 'dir' ? `Yang diajak ngomong: ${NAMA[lead]} (${lead}) — dia yang jawab duluan.\n` : ''}Bales natural & singkat, bahasa Indonesia santai ala gamer, sebagai pegawai kantor. Jangan ngarang data (harga, skor, berita, angka IG).
-Kalau pesannya ternyata butuh riset web, cek harga, data, atau bikin/ubah konten: JANGAN dikerjakan, cukup tulis persis ${ESCALATE} lalu berhenti.
-Aprista (sec) = sekretaris pribadi Bos & pacarnya, nyatet keuangan pribadi Bos lewat bot sendiri @zataaaccountingbot (catat keuangan di sana, jangan ngarang angka). Tim marketing: Andre (dir, Marketing Director), Clariana (researcher), Ista (copywriter), Maria (designer), Dimas (video), Fikri (publisher), Fahriah (ads), Raka (analyst), Budi (price). Tim trading XAU: Mahendra (tdir, director), Davina (tresearch), Keira (ttech), Aryaputra (trisk), Wiratama (texec), Jihan (teval), Selena (treport) — data trading cuma dari "node scripts/trading/cli.mjs status", jangan ngarang. Tim YouTube Shorts (sejarah kuno, 1 Shorts tiap hari tanpa libur, ≥4 Hidden History/minggu): Bagas (ydir, Manajer YouTube), Nadhira (yresearch), Laras (yscript, naskah + cek fakta), Galih (yvisual), Yoga (yvideo), Kirana (ypublish) — urusan Shorts (approval, upload, revisi) lewat bot terpisah @zataashortbot, urusan trading lewat bot Zataa Office Trading, bukan bot ini.
-Akhiri dengan baris "BALASAN:" lalu 1–2 baris, TIAP baris diawali nama pegawai: "Nama: pesan".`, 3, { model: chatModel, tools: ['Read', 'Glob', 'Grep'] });
+    const light = await haiku(`Kamu tim kantor marketing Zataa, lagi ngobrol dengan Owner (Bos Zamiir) lewat bot Telegram Marketing.${history}
+Pesan BARU Owner:
+"${msg}"
+${lead !== 'dir' ? `Yang diajak ngomong: ${NAMA[lead]} (${lead}) — dia yang jawab duluan.
+` : ''}Bales natural & singkat, bahasa Indonesia santai ala gamer, sebagai pegawai kantor (pertanyaan soal divisi lain boleh dijawab pegawai marketing yang paling nyambung).
+${OFFICE}
+${ANSWER_ANY}
+Kalau pesannya minta BIKIN/UBAH sesuatu (konten, jadwal, riset berita panjang, tugas pantau) atau butuh lebih dari 2 pencarian web: JANGAN dikerjakan, cukup tulis persis ${ESCALATE} lalu berhenti.
+Akhiri dengan baris "BALASAN:" lalu 1–3 baris, TIAP baris diawali nama pegawai: "Nama: pesan".`);
     if (light.ok && !light.text.includes(ESCALATE)) {
       const reply = formatReply(light.text, lead);
       await say(reply).catch(() => {});

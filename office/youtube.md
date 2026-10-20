@@ -26,6 +26,7 @@
 - **7 Shorts/minggu, Senin–Minggu, 1 per hari, tanpa libur** (keputusan Owner 18 Okt; dulu 5/minggu Rabu–Minggu).
 - **Kuota pilar (aturan Owner):** minimal **4 Hidden History** per minggu (Senin–Minggu), 3 sisanya bebas dari 6 pilar bebas (termasuk Mitologi Yunani). Dicek otomatis oleh `shorts-bot.mjs new`: kalau sisa slot minggu itu = sisa kebutuhan Hidden History, hari itu WAJIB Hidden History. Cek: `shorts-topics.mjs week`.
 - 07:00–08:00 riset masing-masing → 08:00–08:30 briefing di Meeting YouTube (Lt.3) → produksi.
+- Sebelum riset/naskah: `node scripts/office.mjs brief <id>` → `owner_feedback` = ❌/✏️ Owner 30 hari terakhir, jangan diulang.
 - **Riset jam tayang tiap hari** (Kirana, aturan Owner): data YouTube Studio channel sendiri > hasil Shorts kita per jam > maks 2 pencarian web studi terbaru. Hasil → `jam` di Shorts hari itu + 1 kalimat alasan (`office.mjs log ypublish`). Channel belum punya data → uji jam berbeda, bandingkan tiap Minggu.
 - Alur: Bagas (topik) → Nadhira (riset, ≤5 pencarian web) → Laras (naskah + cek fakta) → Galih (visual berlisensi) → Yoga (render 9:16 + VO) → Kirana (jam tayang + judul/SEO → ✅ Owner via Telegram → upload).
 - **Tiap hari 19:00 WITA** Kirana kirim laporan harian ke Owner di @zataashortbot (otomatis, 0 token): subscriber, views, likes + kenaikan sejak kemarin, 5 video teratas, status produksi hari ini & besok, kuota minggu (x/7, Hidden History x/4), bank topik siap. Manual: `shorts-bot.mjs report` (`--dry` = cetak saja).

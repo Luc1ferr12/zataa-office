@@ -8,6 +8,7 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { DatabaseSync } from 'node:sqlite';
 import { SLOT, submit, sayAs } from './approval.mjs';
+import { beat } from './health.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const MIN = 60_000;
@@ -40,6 +41,7 @@ export async function laptopFallback(log) {
       if (!took) continue;
       const why = c.st === 3 ? `render di laptop gagal (${c.err ?? '?'})` : c.st === 2 ? 'render di laptop macet >30 menit' : 'laptop belum ambil antrean (offline?)';
       log(`#${c.id}: ${why} → render Gadis di VPS`);
+      beat('laptop', false, `#${c.id}: ${why}`);
       await sayAs('video', `⚠️ Video #${c.id} "${esc(c.title)}": ${esc(why)}. Aku alihin render pakai suara Gadis di VPS ya Bos.`).catch(() => {});
       try {
         await render(c.id);

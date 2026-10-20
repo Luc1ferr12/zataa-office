@@ -4,6 +4,7 @@
 import { all, get, run, kv, setKv, params, mode, money, toIdr } from './store.mjs';
 import { account, openTrades, today, sayAs, closeTrade, note, talk, setPaperCapital } from './desk.mjs';
 import { quote, eaFresh } from './market.mjs';
+import { haiku, replyOf, OFFICE, ANSWER_ANY } from '../haiku.mjs';
 
 export const isTradingCommand = (t) => /^\/?(trading|trade|xau)\b/i.test(String(t).trim());
 const esc = (s) => String(s ?? '').replace(/[&<>]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' })[c]);
@@ -66,7 +67,19 @@ export async function handleTrading(msg) {
     }
     return sayAs('texec', `Siap, ${open.length} posisi aku tutup sekarang 🫡`);
   }
-  return sayAs('tdir', 'Perintah trading: <b>status</b>, <b>jeda</b>, <b>lanjut</b>, <b>mode paper|demo|live</b>, <b>terapkan &lt;id&gt;</b>, <b>tolak &lt;id&gt;</b>, <b>tutup semua</b>, <b>modal &lt;rupiah&gt;</b> (paper).');
+  const HELP = 'Perintah trading: <b>status</b>, <b>jeda</b>, <b>lanjut</b>, <b>mode paper|demo|live</b>, <b>terapkan &lt;id&gt;</b>, <b>tolak &lt;id&gt;</b>, <b>tutup semua</b>, <b>modal &lt;rupiah&gt;</b> (paper).';
+  if (/^(bantuan|help|perintah)\b/.test(t)) return sayAs('tdir', HELP);
+  // pertanyaan bebas → Haiku jawab pakai data trading asli (0 perubahan setelan)
+  const ask = String(msg).trim().replace(/^\/?(trading|trade|xau)\s*/i, '');
+  const r = await haiku(`Kamu tim Trading XAUUSD kantor Zataa, ngobrol dengan Owner (Bos Zamiir) lewat bot Zataa Office Trading.
+Pesan Owner: "${ask}"
+${OFFICE}
+${ANSWER_ANY}
+Pertanyaan soal posisi, saldo, alasan entry/NO TRADE, strategi → WAJIB cek "node scripts/trading/cli.mjs status" dulu. Mode sekarang ${mode()}.
+Kamu TIDAK bisa ubah setelan/eksekusi. Kalau Owner nyuruh ubah sesuatu, kasih tahu perintahnya: status, jeda, lanjut, mode paper|demo|live, terapkan <id>, tolak <id>, tutup semua, modal <rupiah> (paper).
+Akhiri dengan baris "BALASAN:" lalu jawaban singkat 1–4 baris (tanpa awalan nama).`);
+  if (r.ok && !r.escalate) return sayAs('tdir', esc(replyOf(r.text)).slice(0, 3000));
+  return sayAs('tdir', HELP);
 }
 
 async function status() {

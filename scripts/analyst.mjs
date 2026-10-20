@@ -5,6 +5,7 @@
 //   node scripts/analyst.mjs daily [--dry]    laporan harian sekarang (--dry = cetak saja, tidak dikirim)
 //   node scripts/analyst.mjs weekly [--dry]   laporan mingguan sekarang
 //   node scripts/analyst.mjs slots            performa per jam tayang 28 hari, IG & TikTok terpisah (feed vs video) + saran jam
+//   node scripts/analyst.mjs score            skor performa per format/pilar/game 28 hari (Andre pakai buat milih ide)
 process.removeAllListeners('warning');
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
@@ -213,6 +214,33 @@ export async function analystTick() {
   return null;
 }
 
+// ---------- skor buat Andre milih ide (0 token): performa IG 28 hari per format / pilar / game + ide yang di-✅/❌ Owner
+// eng = like + 3×komen + 2×share + 2×save (angka terakhir tiap konten). Dipanggil sebelum `office.mjs idea pick`.
+export async function scoreStats() {
+  const d = await db();
+  const rows = d.prepare(`SELECT c.format, c.pillar, c.game, m.views, m.likes, m.comments, m.shares, m.saves
+    FROM contents c JOIN metrics m ON m.id = (SELECT id FROM metrics WHERE content_id = c.id AND platform = 'instagram' ORDER BY id DESC LIMIT 1)
+    WHERE ${MK('c.')} AND c.posted_at >= datetime('now', '-28 days')`).all();
+  const eng = (r) => r.likes + 3 * r.comments + 2 * r.shares + 2 * r.saves;
+  const group = (key) => Object.entries(rows.reduce((a, r) => {
+    const k = r[key] || '-';
+    (a[k] ??= { n: 0, eng: 0, views: 0 }).n++;
+    a[k].eng += eng(r); a[k].views += r.views;
+    return a;
+  }, {})).map(([k, v]) => ({ [key]: k, posts: v.n, eng: Math.round(v.eng / v.n), views: Math.round(v.views / v.n) })).sort((a, b) => b.eng - a.eng);
+  let ideas = [];
+  try {
+    ideas = d.prepare(`SELECT COALESCE(pillar, '-') pillar, COALESCE(format, 'feed') format,
+      SUM(status IN ('approved', 'made')) ok, SUM(status = 'skipped') no FROM ideas
+      WHERE status IN ('approved', 'made', 'skipped') AND day >= date('now', '-28 days') GROUP BY 1, 2 ORDER BY ok DESC`).all();
+  } catch { /* tabel ideas belum ada */ }
+  return {
+    posts: rows.length, rumus: 'eng = like + 3×komen + 2×share + 2×save (rata-rata per post)',
+    format: group('format'), pillar: group('pillar'), game: group('game'), owner_ide: ideas,
+    catatan: rows.length < 8 ? 'data masih dikit (<8 post), pakai sebagai petunjuk aja' : undefined,
+  };
+}
+
 const isMain = process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1];
 if (isMain) {
   const [cmd] = process.argv.slice(2);
@@ -222,5 +250,6 @@ if (isMain) {
   else if (cmd === 'daily') show(await dailyReport({ dry }));
   else if (cmd === 'weekly' || cmd === 'report') show(await weeklyReport({ dry }));
   else if (cmd === 'slots') show({ instagram: await slotStats('instagram'), tiktok: await slotStats('tiktok') });
-  else console.log('pakai: analyst.mjs collect | daily [--dry] | weekly [--dry] | slots');
+  else if (cmd === 'score') show(await scoreStats());
+  else console.log('pakai: analyst.mjs collect | daily [--dry] | weekly [--dry] | slots | score');
 }

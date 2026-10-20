@@ -14,6 +14,7 @@ Konten yang sudah jadi sampai ke Owner dalam kondisi siap tayang, lalu terbit di
 - Sabtu boleh lebih malam (20:00–22:00).
 
 ## QA terakhir (wajib sebelum submit)
+- Otomatis: `node scripts/qa.mjs <id>` (CTA zataa.my.id, ≥2 sumber berita, harga cocok `price.mjs latest`, istilah MP, logo tim). `submit` nolak kalau ada `errors`; `warnings` ikut tampil ke Owner, jadi beresin juga. `--force` cuma kalau Owner yang minta.
 - [ ] Harga & nama produk sesuai zataa.my.id hari ini
 - [ ] Link: https://zataa.my.id (bio) · CTA ada
 - [ ] Berita punya `sources`; rumor ditulis rumor

@@ -38,8 +38,26 @@ export async function db() {
     score REAL, status TEXT NOT NULL DEFAULT 'proposed', -- proposed | approved | skipped | active | failed
     campaign_id TEXT, adset_id TEXT, ad_id TEXT, error TEXT,
     created_at TEXT DEFAULT (datetime('now')), updated_at TEXT DEFAULT (datetime('now')))`);
+  // usulan lama yang content_id-nya keisi id media IG (bug dulu) → bikin "Value is too large" tiap baca
+  d.exec('DELETE FROM boosts WHERE content_id > 9007199254740991');
   return d;
 }
+
+// ❌/✏️ Owner → pelajaran 1 baris di memori pegawai yang kena (muncul lagi di `office.mjs brief` besoknya)
+export function lesson(d, agents, text) {
+  const note = `[Owner] ${String(text).replace(/\s+/g, ' ').trim()}`.slice(0, 220);
+  for (const a of agents) {
+    d.prepare('INSERT INTO memories (agent_id, note) VALUES (?, ?)').run(a, note);
+    d.prepare('DELETE FROM memories WHERE agent_id = ? AND id NOT IN (SELECT id FROM memories WHERE agent_id = ? ORDER BY id DESC LIMIT 30)').run(a, a);
+  }
+}
+const contentLesson = (d, id, kind, note = '') => {
+  const c = d.prepare('SELECT title, format, pillar, game FROM contents WHERE id = ?').get(id);
+  if (!c) return;
+  const what = `${c.format ?? 'konten'}${c.pillar ? `/${c.pillar}` : ''}${c.game ? `/${c.game}` : ''} "${String(c.title ?? '').slice(0, 60)}"`;
+  if (kind === 'revision') lesson(d, ['copywriter', c.format === 'video' ? 'video' : 'designer', 'publisher'], `✏️ revisi ${what}: ${note}`);
+  else lesson(d, ['dir', 'researcher'], `❌ ditolak ${what} — hindari angle/topik serupa`);
+};
 
 // ---------- Telegram Bot API
 export async function tg(method, params = {}, files = {}) {
@@ -102,11 +120,16 @@ export const targets = (c) => (c.format === 'video' && tiktokAuto() ? ['ig', 'ti
 export const targetLabel = (c) => (c.format === 'video' ? (ttZernio() ? 'IG Reels + TikTok (publik)' : tiktokAuto() ? 'IG Reels + TikTok (private)' : tiktokOn() ? 'IG Reels (+ TikTok upload manual)' : 'IG Reels') : c.format === 'carousel' ? 'IG Feed (carousel)' : 'IG Feed');
 const DAYS = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
 
-export async function submit(id, { note = '' } = {}) {
+export async function submit(id, { note = '', strict = false } = {}) {
   const d = await db();
   const c = d.prepare('SELECT * FROM contents WHERE id = ?').get(id);
   if (!c) throw new Error(`konten ${id} tidak ada`);
   if (!c.asset_path) throw new Error(`konten ${id} belum dirender (node scripts/render.mjs ${id})`);
+  // QA otomatis Fikri (scripts/qa.mjs): dari CLI sesi kerja = wajib lolos (kecuali --force); kiriman otomatis watcher tetap jalan, temuannya ditampilkan ke Owner
+  const { qa } = await import('./qa.mjs');
+  const check = c.channel === 'youtube' ? { errors: [], warnings: [] } : await qa(c);
+  if (strict && check.errors.length) throw new Error(`QA Fikri belum lolos #${id}: ${check.errors.join(' · ')} (benerin dulu, atau --force kalau Owner yang minta)`);
+  const qaNote = [...check.errors, ...check.warnings];
   const A = JSON.parse(c.asset_path);
   const abs = (p) => join(ROOT, p);
   const rev = c.revisions ? ` · revisi ke-${c.revisions}` : '';
@@ -129,6 +152,7 @@ export async function submit(id, { note = '' } = {}) {
   const lines = [
     head, `<b>${esc(c.title)}</b>`, `📍 Tayang di: ${targetLabel(c)} · ${slotLabel(c)} (otomatis setelah Approve)`, '',
     note ? `🔁 <i>${esc(note)}</i>\n` : '',
+    qaNote.length ? `🔎 <b>QA Fikri:</b> ${esc(qaNote.join(' · '))}\n` : '',
     // permintaan Owner: app TikTok sendiri belum diaudit → akun harus Private dulu sebelum Approve (tidak perlu kalau lewat Zernio)
     targets(c).includes('tiktok') && !ttZernio() ? '⚠️ <b>Ingat Bos:</b> set akun TikTok ke <b>Private</b> dulu sebelum Approve (Pengaturan → Privasi → Akun privat), kalau nggak upload TikTok-nya gagal.\n' : '',
     `<b>Caption:</b>\n${esc(c.caption ?? '-')}`,
@@ -200,7 +224,12 @@ export async function poll() {
   if (!env.N8N_DECISIONS_URL) throw new Error('N8N_DECISIONS_URL belum diisi di .env');
   const ack = +(loadEnv().N8N_ACK ?? 0);
   const r = await fetch(`${env.N8N_DECISIONS_URL}?ack=${ack}`, { headers: { 'x-zataa-key': env.N8N_KEY ?? '' } });
-  if (!r.ok) throw new Error(`n8n ${r.status} ${await r.text()}`);
+  // n8n di balik Cloudflare: kalau down balasannya halaman HTML utuh → cukup judulnya, jangan banjiri log
+  if (!r.ok) {
+    const t = await r.text();
+    const why = t.match(/<title>([^<]*)<\/title>/i)?.[1] ?? t.replace(/<[^>]+>/g, ' ');
+    throw new Error(`n8n ${r.status} ${why.replace(/\s+/g, ' ').trim().slice(0, 100)}`);
+  }
   const { decisions = [] } = await r.json();
   const fresh = decisions.filter((x) => x.seq > ack);
   if (!fresh.length) return [];
@@ -210,14 +239,19 @@ export async function poll() {
     // tombol usulan boost dari Fahriah (id = nomor boost, bukan konten) → dieksekusi scripts/boost.mjs
     if (x.action === 'chat') { log(`Chat: ${x.note}`); continue; } // dikerjakan watcher (scripts/ask.mjs)
     if (x.action === 'plan_approve') { d.prepare("UPDATE campaigns SET status = 'approved' WHERE id = ?").run(x.id); log(`Approve plan mingguan ✅`); continue; }
-    if (x.action === 'plan_revision') { d.prepare("UPDATE campaigns SET status = 'revision' WHERE id = ?").run(x.id); log(`Minta revisi plan: ${x.note}`); continue; }
+    if (x.action === 'plan_revision') { d.prepare("UPDATE campaigns SET status = 'revision' WHERE id = ?").run(x.id); log(`Minta revisi plan: ${x.note}`); lesson(d, ['dir'], `✏️ revisi plan mingguan: ${x.note}`); continue; }
     if (x.action === 'idea_approve') {
       const ids = String(x.note || x.id).split(',').map(Number).filter(Boolean);
       for (const id of ids) d.prepare("UPDATE ideas SET status = 'approved' WHERE id = ?").run(id);
       d.prepare(`UPDATE ideas SET status = 'skipped' WHERE status = 'proposed' AND day = (SELECT day FROM ideas WHERE id = ?)`).run(ids[0] ?? 0);
       log(`Approve ${ids.length} ide konten tambahan 💡`); continue;
     }
-    if (x.action === 'idea_skip') { d.prepare("UPDATE ideas SET status = 'skipped' WHERE status = 'proposed' AND day = (SELECT day FROM ideas WHERE id = ?)").run(x.id); log('Skip ide tambahan hari ini'); continue; }
+    if (x.action === 'idea_skip') {
+      const no = d.prepare("SELECT title FROM ideas WHERE status = 'proposed' AND day = (SELECT day FROM ideas WHERE id = ?)").all(x.id).map((r) => r.title);
+      d.prepare("UPDATE ideas SET status = 'skipped' WHERE status = 'proposed' AND day = (SELECT day FROM ideas WHERE id = ?)").run(x.id);
+      if (no.length) lesson(d, ['dir'], `❌ semua ide ditolak: ${no.join(' | ')}`);
+      log('Skip ide tambahan hari ini'); continue;
+    }
     if (x.action === 'price_promo') { log('Minta konten promo dari perubahan harga 💰'); continue; }
     if (x.action === 'boost' || x.action === 'boost_skip') {
       const st = x.action === 'boost' ? 'approved' : 'skipped';
@@ -226,10 +260,11 @@ export async function poll() {
       continue;
     }
     if (x.action === 'approve') { d.prepare("UPDATE contents SET status = 'approved', updated_at = datetime('now') WHERE id = ?").run(x.id); log(`Approve konten #${x.id} ✅`); }
-    else if (x.action === 'reject') { d.prepare("UPDATE contents SET status = 'rejected', updated_at = datetime('now') WHERE id = ?").run(x.id); log(`Tolak konten #${x.id}`); }
+    else if (x.action === 'reject') { d.prepare("UPDATE contents SET status = 'rejected', updated_at = datetime('now') WHERE id = ?").run(x.id); log(`Tolak konten #${x.id}`); contentLesson(d, x.id, 'reject'); }
     else if (x.action === 'revision') {
       d.prepare("UPDATE contents SET status = 'revision', owner_note = ?, revisions = revisions + 1, updated_at = datetime('now') WHERE id = ?").run(x.note, x.id);
       log(`Minta revisi #${x.id}: ${x.note}`);
+      contentLesson(d, x.id, 'revision', x.note);
     }
   }
   setEnv('N8N_ACK', Math.max(...fresh.map((x) => x.seq)));
@@ -254,7 +289,7 @@ if (isMain) {
   const [cmd, a] = process.argv.slice(2);
   try {
     if (cmd === 'setup') await setup();
-    else if (cmd === 'submit') out(await submit(+a));
+    else if (cmd === 'submit') out(await submit(+a, { strict: !process.argv.includes('--force') }));
     else if (cmd === 'plan') out(await submitPlan());
     else if (cmd === 'ideas') out(await submitIdeas());
     else if (cmd === 'poll') out({ decisions: await poll() });

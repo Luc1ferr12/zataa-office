@@ -2,7 +2,9 @@
 // Budi (Price Watcher): cek harga zataa.my.id tiap 2 jam (07:00–22:00 WITA), 0 token.
 // Ada perubahan → kabarin Owner + tombol 🎨 bikin konten promo. Web nggak bisa dibuka → kabarin (maks 1×/12 jam).
 //   node scripts/price.mjs check      cek sekarang
-// Halaman yang dipantau: PRICE_URLS di .env (pisah koma), default https://zataa.my.id
+//   node scripts/price.mjs latest [kata]  harga terbaru (filter kata, mis. "86 diamond")
+// Halaman yang dipantau: PRICE_URLS di .env (pisah koma), default halaman game ML/Valorant/FF
+// (beranda zataa nggak nampilin harga; halaman /game/<slug> sudah memuat harga di HTML-nya)
 process.removeAllListeners('warning');
 import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
@@ -13,6 +15,7 @@ const env = () => ({ ...loadEnv(), ...process.env });
 const esc = (s) => String(s ?? '').replace(/[&<>]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' })[c]);
 const wita = () => new Date(Date.now() + 8 * 3600_000);
 const setBudi = (d, status, task = null) => d.prepare("UPDATE agents SET status = ?, current_task = ?, updated_at = datetime('now') WHERE id = 'price'").run(status, task);
+const DEF = ['mobile-legends', 'valorant', 'free-fire'].map((g) => `https://zataa.my.id/game/${g}`).join(',');
 const SQL = `CREATE TABLE IF NOT EXISTS price_snapshots (id INTEGER PRIMARY KEY AUTOINCREMENT, url TEXT NOT NULL, ts TEXT DEFAULT (datetime('now')),
   hash TEXT, text TEXT, diff TEXT)`;
 const flag = (d, key, value) => {
@@ -41,13 +44,15 @@ export function priceLines(html) {
 export async function check() {
   const d = await db();
   d.exec(SQL);
-  const urls = String(env().PRICE_URLS || 'https://zataa.my.id').split(',').map((u) => u.trim()).filter(Boolean);
+  const urls = String(env().PRICE_URLS || DEF).split(',').map((u) => u.trim()).filter(Boolean);
   setBudi(d, 'working', 'Cek harga di zataa.my.id');
   const res = [];
   for (const url of urls) {
     let html;
     try {
-      const r = await fetch(url, { headers: { 'user-agent': 'Mozilla/5.0 ZataaPriceWatcher' }, signal: AbortSignal.timeout(20_000) });
+      const get = () => fetch(url, { headers: { 'user-agent': 'Mozilla/5.0 ZataaPriceWatcher' }, signal: AbortSignal.timeout(20_000) });
+      // DNS VPS kadang telat (EAI_AGAIN) → coba sekali lagi 5 detik kemudian
+      const r = await get().catch(async (e) => { await new Promise((ok) => setTimeout(ok, 5000)); return get(); });
       if (!r.ok) throw new Error(`HTTP ${r.status}`);
       html = await r.text();
     } catch (e) {
@@ -97,9 +102,34 @@ export async function priceTick() {
   return check();
 }
 
+// harga terbaru per halaman game (snapshot Budi ≤6 jam; kalau belum ada/basi → baca langsung dari web, tanpa simpan)
+// dipakai Haiku di bot (jawab "harga X berapa") & QA Fikri (cocokkan nominal di caption). kata = filter, mis. "86 diamond"
+export async function latest(word = '') {
+  const urls = String(env().PRICE_URLS || DEF).split(',').map((u) => u.trim()).filter(Boolean);
+  let d = null;
+  try { d = await db(); d.exec(SQL); } catch { /* DB belum ada (laptop) */ }
+  const out = [];
+  for (const url of urls) {
+    let snap = d?.prepare("SELECT ts, text FROM price_snapshots WHERE url = ? AND ts >= datetime('now', '-6 hours') ORDER BY id DESC LIMIT 1").get(url);
+    if (!snap) {
+      try {
+        const r = await fetch(url, { headers: { 'user-agent': 'Mozilla/5.0 ZataaPriceWatcher' }, signal: AbortSignal.timeout(20_000) });
+        snap = { ts: 'live', text: priceLines(await r.text()).join('\n') };
+      } catch (e) { out.push({ url, error: e.cause?.code || e.message }); continue; }
+    }
+    const words = word.toLowerCase().split(/\s+/).filter(Boolean);
+    // angka dicocokkan utuh di nama paket (bagian sebelum "Rp"): "86" ≠ "Rp86.859"
+    const hit = (l, w) => { const name = l.toLowerCase().split(/\brp/)[0]; return /^\d+$/.test(w) ? new RegExp(`(^|\\D)${w}(\\D|$)`).test(name) : name.includes(w); };
+    const lines = snap.text.split('\n').filter((l) => words.every((w) => hit(l, w)));
+    if (lines.length) out.push({ url, ts: snap.ts, items: lines.slice(0, 40) });
+  }
+  return out;
+}
+
 const isMain = process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1];
 if (isMain) {
-  const [cmd] = process.argv.slice(2);
+  const [cmd, ...rest] = process.argv.slice(2);
   if (cmd === 'check') console.log(JSON.stringify(await check()));
-  else console.log('pakai: price.mjs check');
+  else if (cmd === 'latest') console.log(JSON.stringify(await latest(rest.join(' ')), null, 1));
+  else console.log('pakai: price.mjs check | latest [kata]');
 }

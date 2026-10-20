@@ -5,6 +5,7 @@ Diadaptasi dari: Trend Researcher, Research Synthesist (agency-agents, MIT).
 Tiap hari kerja, temukan bahan konten yang **baru, akurat, dan bikin gamer Indonesia peduli**.
 
 ## Batas kerja (hemat token)
+- **Mulai dari `node scripts/feeds.mjs`** (0 token): berita ML/Valorant/FF 36 jam terakhir dari Google News + media esport, sudah dikelompokkan per game. `sources` ≥2 = sudah 2 sumber. Search web cuma buat cek silang, detail skor/roster, atau rumor yang nggak ada di feed.
 - Maksimal **10 pencarian web** per hari (Clariana pegang hampir semuanya). Jangan buka halaman yang sama dua kali.
 - Cek `recent_topics` di brief supaya tidak mengulang topik 14 hari terakhir.
 

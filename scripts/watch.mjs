@@ -22,6 +22,7 @@ import { socialsTick } from './socials.mjs';
 import { priceTick } from './price.mjs';
 import { limitsTick } from './limits.mjs';
 import { laptopFallback } from './laptop-fallback.mjs';
+import { beat } from './health.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const EVERY = 60_000;
@@ -109,8 +110,11 @@ async function autopost() {
   if (posting || !e.IG_ACCESS_TOKEN || !e.IG_USER_ID || !e.PUBLIC_BASE_URL || e.AUTOPOST === 'off') return;
   posting = true;
   try {
-    for (const r of await publishDue()) log(r.ok ? `#${r.id} tayang: ${r.posted.join(' + ')}` : `#${r.id} gagal posting: ${r.errors.join(' | ')}`);
-  } catch (e) { log(`auto-post gagal: ${e.message}`); }
+    for (const r of await publishDue()) {
+      log(r.ok ? `#${r.id} tayang: ${r.posted.join(' + ')}` : `#${r.id} gagal posting: ${r.errors.join(' | ')}`);
+      beat('publish', r.ok, r.ok ? `#${r.id} tayang` : `#${r.id}: ${r.errors.join(' | ')}`);
+    }
+  } catch (e) { log(`auto-post gagal: ${e.message}`); beat('publish', false, e.message); }
   posting = false;
   exportState();
 }
@@ -118,7 +122,8 @@ async function autopost() {
 // Fahriah: usul boost sekali sehari + pasang iklan yang sudah di-✅ Owner (aktif kalau setelan iklan lengkap di .env)
 let boosting = false;
 async function ads() {
-  if (boosting || !adsReady()) return;
+  if (boosting) return;
+  if (!adsReady()) return beat('ads', null, loadEnv().ADS_PAUSE === '1' ? 'dijeda Owner (iklan Meta belum bisa)' : 'setelan iklan belum lengkap', 'paused');
   boosting = true;
   try {
     for (const r of await runApproved()) log(r.ok ? `boost B${r.id} jalan` : `boost B${r.id} gagal: ${r.error}`);
@@ -159,7 +164,7 @@ async function talk() {
 
 // GitHub Pages: push state.json tiap 10 menit kalau ada perubahan (status pegawai, aktivitas, chit-chat). 0 token.
 const SYNC_EVERY = 10 * 60_000;
-const PAGES_DATA = () => ['docs/data/state.json', 'docs/data/tiktok.json', 'docs/data/socials.json'].filter((f) => existsSync(join(ROOT, f)));
+const PAGES_DATA = () => ['docs/data/state.json', 'docs/data/tiktok.json', 'docs/data/socials.json', 'docs/data/health.json'].filter((f) => existsSync(join(ROOT, f)));
 async function syncPages() {
   if (posting) return; // publish.mjs juga lagi push media, jangan tabrakan
   const git = (...a) => execFileSync('git', a, { cwd: ROOT, encoding: 'utf8', windowsHide: true, stdio: ['ignore', 'pipe', 'pipe'] });
@@ -182,15 +187,19 @@ async function staff() {
   crunching = true;
   try {
     const a = await analystTick();
-    if (a) log(`raka: ${JSON.stringify(a)}`);
+    if (a) { log(`raka: ${JSON.stringify(a)}`); beat('analyst', true, JSON.stringify(a)); }
     const p = await priceTick();
-    if (p) log(`nadia: ${JSON.stringify(p).slice(0, 200)}`);
+    if (p) {
+      log(`budi: ${JSON.stringify(p).slice(0, 200)}`);
+      const bad = p.filter((x) => x.error);
+      beat('price', !bad.length, bad.length ? bad.map((x) => `${x.url.split('/').pop()}: ${x.error}`).join(' · ') : `${p.length} halaman kebaca`);
+    }
     const l = await limitsTick().catch((e) => log(`cek limit gagal: ${e.message}`));
     if (l) log(`limit claude: ${JSON.stringify(l)}`);
-    const so = await socialsTick().catch((e) => log(`analytics sosmed gagal: ${e.message}`));
-    if (so) log(`analytics sosmed: ${JSON.stringify(so)}`);
+    const so = await socialsTick().catch((e) => { log(`analytics sosmed gagal: ${e.message}`); beat('socials', false, e.message); });
+    if (so) { log(`analytics sosmed: ${JSON.stringify(so)}`); beat('socials', true, 'data akun ketarik'); }
     if (a || p) exportState();
-  } catch (e) { log(`raka/nadia gagal: ${e.message}`); }
+  } catch (e) { log(`raka/budi gagal: ${e.message}`); beat('analyst', false, e.message); }
   crunching = false;
 }
 
@@ -199,9 +208,10 @@ async function tick() {
   ads();
   talk();
   staff();
+  beat('watcher', true, 'jalan');
   laptopFallback(log).catch((e) => log(`fallback laptop gagal: ${e.message}`));
   try {
-    const got = await poll();
+    const got = await poll().then((r) => { beat('n8n', true, 'nyambung'); return r; }, (e) => { beat('n8n', false, e.message); throw e; });
     if (!got.length) return;
     log(`${got.length} keputusan baru`);
     // Owner udah mutusin → Fikri nggak nunggu approval lagi

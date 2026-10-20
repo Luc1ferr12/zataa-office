@@ -20,10 +20,11 @@ import { fileURLToPath } from 'node:url';
 import { readFileSync, writeFileSync, existsSync, mkdirSync, unlinkSync } from 'node:fs';
 import { readFile } from 'node:fs/promises';
 import { execFile } from 'node:child_process';
-import { loadEnv, NAMA } from './approval.mjs';
+import { loadEnv, NAMA, lesson } from './approval.mjs';
 import { zernioOn, youtubeUpload } from './zernio.mjs';
 import { tdb, getTopic, checkQuota, syncTopic, weekStats, WEEK_TOTAL, HH_MIN, PILLARS } from './shorts-topics.mjs';
 import { claude, formatReply, ESCALATE, isStatusQuestion } from './ask.mjs';
+import { haiku, OFFICE, ANSWER_ANY } from './haiku.mjs';
 import { wita } from '../docs/js/schedule.js';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -251,6 +252,7 @@ async function revise(id, note, log) {
   if (!c) return;
   d.prepare("UPDATE contents SET status = 'revision', owner_note = ?, revisions = revisions + 1, updated_at = datetime('now') WHERE id = ?").run(note, id);
   act(d, 'owner', `Minta revisi Shorts #${id}: ${note}`);
+  lesson(d, ['yscript', 'yvisual', 'ypublish'], `✏️ revisi Shorts "${String(c.title).slice(0, 60)}": ${note}`);
   await sayAs('yscript', `🛠️ Siap Bos, revisi Shorts #${id} lagi dikerjain…`).catch(() => {});
   const r = await claude(`Kamu tim YouTube Shorts Zataa Story (sejarah kuno, pilar di office/youtube.md) di folder ini. Owner minta REVISI Shorts #${id}:
 "${note}"
@@ -286,6 +288,7 @@ async function reject(id, log) {
   d.prepare("UPDATE contents SET status = 'rejected', updated_at = datetime('now') WHERE id = ? AND channel = 'youtube'").run(id);
   syncTopic(d, dataOf(c)._topic, 'backlog', { note: `[ditolak Owner di Shorts #${id}]` });
   act(d, 'owner', `Tolak Shorts #${id}`);
+  lesson(d, ['ydir', 'yresearch'], `❌ ditolak Shorts "${String(c.title).slice(0, 60)}" — hindari angle/topik serupa`);
   await sayAs('ydir', `Oke Bos, Shorts #${id} "${esc(c.title)}" nggak dipakai. Tim langsung bikin konten pengganti dengan topik lain 🔄`).catch(() => {});
   later(() => replace(c, log), log);
 }
@@ -413,16 +416,24 @@ export async function weeklyReport({ dry = false } = {}) {
   return { ok: true, shorts: rows.length, hh: wk.hh };
 }
 
-// pesan bebas Owner → Claude CLI sebagai tim YouTube
+// pesan bebas Owner → Haiku duluan (jawab apa aja); butuh kerja Shorts beneran → model utama
 async function talk(msg, log) {
+  const quick = await haiku(`Kamu tim YouTube Shorts "Zataa Story" (sejarah misteri kuno + mitologi Yunani), ngobrol dengan Owner (Bos Zamiir) lewat bot Telegram @zataashortbot.
+Pesan Owner: "${msg}"
+${OFFICE}
+${ANSWER_ANY}
+Kalau pesannya minta BIKIN/UBAH sesuatu (Shorts baru, ganti topik, revisi, upload): JANGAN dikerjakan, tulis persis ${ESCALATE} lalu berhenti.
+Akhiri dengan baris "BALASAN:" lalu 1–3 baris, TIAP baris diawali nama pegawai tim Shorts: "Nama: pesan". Santai, sopan.`);
+  if (quick.ok && !quick.escalate) return send(formatReply(quick.text, 'ydir'));
+  if (!quick.ok) log(`bot shorts: haiku gagal, pakai model utama: ${quick.text.slice(0, 200)}`);
   const r = await claude(`Kamu tim YouTube Shorts "Zataa Story" (sejarah misteri kuno + mitologi Yunani) di folder ini, ngobrol dengan Owner (Bos Zamiir) lewat bot Telegram @zataashortbot.
 Pesan Owner: "${msg}"
 Tim: Bagas (ydir, Manajer YouTube), Nadhira (yresearch, riset), Laras (yscript, naskah + cek fakta), Galih (yvisual, visual berlisensi), Yoga (yvideo, render + VO), Kirana (ypublish, upload & SEO).
 SOP & cara kerja: office/youtube.md (baca kalau perlu). Data Shorts: node scripts/shorts-bot.mjs list. Jangan ngarang angka views.
 Tugas (mis. bikin Shorts baru / ganti topik): kerjakan sesuai office/youtube.md (new → render otomatis di laptop → Kirana kirim ke sini). Jangan kirim Telegram sendiri.
-Urusan marketing top up / IG / trading / keuangan → tulis persis ${ESCALATE} lalu berhenti.
+Perintah KERJA buat divisi lain (bikin konten IG, perintah trading, catat keuangan) → tulis persis ${ESCALATE} lalu berhenti. Pertanyaan soal divisi lain tetap dijawab.
 Akhiri dengan baris "BALASAN:" lalu 1–3 baris, TIAP baris diawali nama pegawai: "Nama: pesan". Santai, sopan.`, 25);
-  if (r.ok && r.text.includes(ESCALATE)) return sayAs('ydir', 'Itu urusan kantor marketing/trading, Bos 🙏 Marketing/IG ke bot Zataa Office Marketing, trading ke bot Zataa Office Trading, keuangan ke @zataaaccountingbot ya. Di sini khusus YouTube Shorts.');
+  if (r.ok && r.text.includes(ESCALATE)) return sayAs('ydir', 'Kalau mau nyuruh kerja divisi lain, kirim di botnya ya Bos 🙏 Konten IG ke bot Zataa Office Marketing, trading ke bot Zataa Office Trading, keuangan ke @zataaaccountingbot. Kalau cuma nanya, tanya di sini aja juga bisa.');
   if (!r.ok) { log(`bot shorts: claude gagal ${r.text.slice(0, 200)}`); return sayAs('ydir', '⚠️ Maaf Bos, lagi error. Coba lagi bentar ya.'); }
   return send(formatReply(r.text, 'ydir'));
 }
