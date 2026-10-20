@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-20T23:01:04.972Z",
+ "generated_at": "2026-10-20T23:03:20.865Z",
  "today": "2026-10-21",
  "week_start": "2026-10-19",
  "campaign": {
@@ -22,16 +22,16 @@
    "name": "Andre",
    "title": "Marketing Director",
    "status": "done",
-   "current_task": "Briefing: pilih 3 ide (ENVY, tiket sold out, Hall of Champions MPL)",
-   "updated_at": "2026-10-19 23:02:42"
+   "current_task": "Briefing ide pagi",
+   "updated_at": "2026-10-20 23:02:42"
   },
   {
    "id": "researcher",
    "name": "Clariana",
    "title": "Researcher",
-   "status": "working",
-   "current_task": "Riset pagi esport ML/Valorant/FF",
-   "updated_at": "2026-10-20 23:00:24"
+   "status": "done",
+   "current_task": "Riset pagi esport",
+   "updated_at": "2026-10-20 23:01:32"
   },
   {
    "id": "copywriter",
@@ -78,16 +78,16 @@
    "name": "Raka",
    "title": "Data Analyst",
    "status": "done",
-   "current_task": null,
-   "updated_at": "2026-10-20 22:00:29"
+   "current_task": "Cek pola data",
+   "updated_at": "2026-10-20 23:02:10"
   },
   {
    "id": "price",
    "name": "Budi",
    "title": "Price Watcher",
-   "status": "working",
-   "current_task": "Cek harga di zataa.my.id",
-   "updated_at": "2026-10-20 23:01:04"
+   "status": "done",
+   "current_task": "Cek harga zataa.my.id",
+   "updated_at": "2026-10-20 23:02:04"
   },
   {
    "id": "ob",
@@ -103,15 +103,15 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-20 22:45:45"
+   "updated_at": "2026-10-20 23:01:27"
   },
   {
    "id": "tresearch",
    "name": "Davina",
    "title": "Research & Fundamental",
    "status": "done",
-   "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
-   "updated_at": "2026-10-20 22:45:45"
+   "current_task": "Fundamental: Data 24 jam tidak ketemu; Fed condong hawkish (CPI Sep 3,7%, peluang hike Okt/Des), DXY ~99-102, tekanan ke emas.",
+   "updated_at": "2026-10-20 23:01:27"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-10-20 22:45:45"
+   "updated_at": "2026-10-20 23:01:27"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
-   "updated_at": "2026-10-20 22:45:45"
+   "updated_at": "2026-10-20 23:01:27"
   },
   {
    "id": "texec",
@@ -532,6 +532,61 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-20 23:02:42",
+   "agent_id": "dir",
+   "message": "Pilih ide: video partner VCT 2027 (RRQ), feed klasemen akhir MPL S18, polling raja Pacific 2027"
+  },
+  {
+   "ts": "2026-10-20 23:02:42",
+   "agent_id": "dir",
+   "message": "Kirim 3 ide briefing ke Owner"
+  },
+  {
+   "ts": "2026-10-20 23:02:41",
+   "agent_id": "dir",
+   "message": "Pilih 3 ide terbaik dari briefing (2 feed + 1 video)"
+  },
+  {
+   "ts": "2026-10-20 23:02:10",
+   "agent_id": "analyst",
+   "message": "Pola: video & news Valorant paling hidup (eng 6-8, views 220+), promo polos eng 0, feed MLBB views rendah"
+  },
+  {
+   "ts": "2026-10-20 23:02:04",
+   "agent_id": "price",
+   "message": "zataa.my.id aktif, harga live ML/FF/Valorant tersedia"
+  },
+  {
+   "ts": "2026-10-20 23:02:02",
+   "agent_id": "researcher",
+   "message": "Nemu 6 topik baru"
+  },
+  {
+   "ts": "2026-10-20 23:01:32",
+   "agent_id": "researcher",
+   "message": "Riset: klasemen akhir MPL S18, 32 partner VCT 2027 (RRQ bertahan), grup FFWS Global Finals"
+  },
+  {
+   "ts": "2026-10-20 23:01:32",
+   "agent_id": "researcher",
+   "message": "Nemu 5 topik baru"
+  },
+  {
+   "ts": "2026-10-20 23:01:27",
+   "agent_id": "trisk",
+   "message": "NO TRADE · jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
+  },
+  {
+   "ts": "2026-10-20 23:01:05",
+   "agent_id": "ttech",
+   "message": "M30 berubah arah: sideways → bearish"
+  },
+  {
+   "ts": "2026-10-20 23:01:05",
+   "agent_id": "ttech",
+   "message": "M15 berubah arah: bearish → sideways"
+  },
+  {
    "ts": "2026-10-20 23:00:49",
    "agent_id": "dir",
    "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
@@ -600,64 +655,37 @@
    "ts": "2026-10-20 22:35:56",
    "agent_id": "dir",
    "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
-  },
-  {
-   "ts": "2026-10-20 22:33:40",
-   "agent_id": "dir",
-   "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
-  },
-  {
-   "ts": "2026-10-20 22:31:09",
-   "agent_id": "dir",
-   "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
-  },
-  {
-   "ts": "2026-10-20 22:31:09",
-   "agent_id": "ttech",
-   "message": "M30 berubah arah: bearish → sideways"
-  },
-  {
-   "ts": "2026-10-20 22:29:23",
-   "agent_id": "dir",
-   "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
-  },
-  {
-   "ts": "2026-10-20 22:27:08",
-   "agent_id": "dir",
-   "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
-  },
-  {
-   "ts": "2026-10-20 22:24:52",
-   "agent_id": "dir",
-   "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
-  },
-  {
-   "ts": "2026-10-20 22:22:36",
-   "agent_id": "dir",
-   "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
-  },
-  {
-   "ts": "2026-10-20 22:20:20",
-   "agent_id": "dir",
-   "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
-  },
-  {
-   "ts": "2026-10-20 22:18:05",
-   "agent_id": "dir",
-   "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
-  },
-  {
-   "ts": "2026-10-20 22:15:49",
-   "agent_id": "dir",
-   "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
-  },
-  {
-   "ts": "2026-10-20 22:11:48",
-   "agent_id": "dir",
-   "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-10-20 23:02:42",
+   "agent_id": "dir",
+   "to_id": "researcher",
+   "kind": "oper",
+   "message": "Clariana, plan minggu ini udah aku taruh ya. Fokus \"Briefing ide pagi\". Tolong cariin bahan beritanya 🙏"
+  },
+  {
+   "ts": "2026-10-20 23:02:10",
+   "agent_id": "analyst",
+   "to_id": "dir",
+   "kind": "oper",
+   "message": "Rekap \"Cek pola data\" beres, Andre. Bisa buat bahan plan"
+  },
+  {
+   "ts": "2026-10-20 23:02:04",
+   "agent_id": "price",
+   "to_id": "copywriter",
+   "kind": "oper",
+   "message": "Ista, harga buat \"Cek harga zataa.my.id\" udah aku cek di web. Angkanya aman dipake 💰"
+  },
+  {
+   "ts": "2026-10-20 23:01:32",
+   "agent_id": "researcher",
+   "to_id": "copywriter",
+   "kind": "oper",
+   "message": "Ista, bahan buat \"Riset pagi esport\" udah aku rangkum + sumbernya. Tinggal kamu racik captionnya ✍️"
+  },
   {
    "ts": "2026-10-20 14:00:15",
    "agent_id": "publisher",
@@ -909,34 +937,6 @@
    "to_id": null,
    "kind": "oper",
    "message": "Oke tim, ada titah dari Bos. Aku bagi tugasnya ya 👇"
-  },
-  {
-   "ts": "2026-10-19 00:11:48",
-   "agent_id": "owner",
-   "to_id": "video",
-   "kind": "bos",
-   "message": "Video hall of champions updatenya sudah sampai mana ?"
-  },
-  {
-   "ts": "2026-10-18 23:58:49",
-   "agent_id": "video",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Video bursa transfer VCT 2027 juga udah masuk Telegram, semua kabar transfernya ditandai RUMOR, slot 19:00 WIB 🔥"
-  },
-  {
-   "ts": "2026-10-18 23:58:49",
-   "agent_id": "designer",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Carousel 6 tim ke Surabaya udah aku kirim, tinggal Bos ✅ buat tayang jam 12:00 WIB!"
-  },
-  {
-   "ts": "2026-10-18 23:58:49",
-   "agent_id": "researcher",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Seed playoff MPL S18 udah pasti Bos, TLID seed 1 & NAVI seed 2 langsung ke Round 2, sisanya main Round 1 Rabu 4 Nov."
   }
  ],
  "stats": {
@@ -1020,9 +1020,14 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4121.100098,
+  "price": 4121.200195,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-20 23:01:27",
+    "decision": "NO TRADE",
+    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
+   },
    {
     "ts": "2026-10-20 22:45:45",
     "decision": "NO TRADE",
@@ -1047,11 +1052,6 @@
     "ts": "2026-10-20 20:46:24",
     "decision": "NO TRADE",
     "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
-   },
-   {
-    "ts": "2026-10-20 20:31:01",
-    "decision": "NO TRADE",
-    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
    }
   ],
   "trades": [],
@@ -1073,7 +1073,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-20 22:45:45",
+   "ts": "2026-10-20 23:01:27",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1084,8 +1084,8 @@
    "risk_usd": null,
    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
    "fund": {
-    "bias": 0,
-    "note": "netral (belum ada ringkasan hari ini)",
+    "bias": -0.3,
+    "note": "Data 24 jam tidak ketemu; Fed condong hawkish (CPI Sep 3,7%, peluang hike Okt/Des), DXY ~99-102, tekanan ke emas.",
     "danger": null,
     "blackout": null
    },
@@ -1094,10 +1094,13 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4123.50 di bawah tengah band (4120.0–4129.8) · RSI 46 · Stoch 47 · MACD +0.21 · H1 sideways"
+    "note": "M15 4121.10 di bawah tengah band (4119.2–4129.8) · RSI 42 · Stoch 12 · MACD -0.18 · H1 sideways"
    }
   },
-  "fund": null,
+  "fund": {
+   "bias": -0.3,
+   "note": "Data 24 jam tidak ketemu; Fed condong hawkish (CPI Sep 3,7%, peluang hike Okt/Des), DXY ~99-102, tekanan ke emas."
+  },
   "calendar": [
    {
     "title": "Unemployment Claims",
@@ -1133,46 +1136,46 @@
    "M10": {
     "bias": "bearish",
     "score": -2,
-    "price": 4124,
-    "ema20": 4126.01,
-    "ema50": 4126.28,
-    "rsi": 45.4,
+    "price": 4121.4,
+    "ema20": 4125.57,
+    "ema50": 4126.09,
+    "rsi": 40.5,
     "n": 299,
-    "slot": 2987561,
-    "at": 1792536646407
+    "slot": 2987562,
+    "at": 1792537265271
    },
    "M15": {
-    "bias": "bearish",
-    "score": -2,
-    "price": 4123.6,
-    "ema20": 4125.97,
-    "ema50": 4127.24,
-    "rsi": 45.8,
+    "bias": "sideways",
+    "score": -1,
+    "price": 4121.4,
+    "ema20": 4125.53,
+    "ema50": 4127.01,
+    "rsi": 42.7,
     "n": 299,
-    "slot": 1991707,
-    "at": 1792536344926
+    "slot": 1991708,
+    "at": 1792537265276
    },
    "M30": {
-    "bias": "sideways",
-    "score": 0,
-    "price": 4131.3,
-    "ema20": 4127.04,
-    "ema50": 4132.29,
-    "rsi": 53.8,
+    "bias": "bearish",
+    "score": -2,
+    "price": 4121.4,
+    "ema20": 4126.5,
+    "ema50": 4131.86,
+    "rsi": 44.1,
     "n": 299,
-    "slot": 995853,
-    "at": 1792535469671
+    "slot": 995854,
+    "at": 1792537265280
    },
    "H1": {
     "bias": "sideways",
     "score": -1,
-    "price": 4126.1,
-    "ema20": 4129.65,
-    "ema50": 4141.21,
-    "rsi": 45.4,
+    "price": 4121.4,
+    "ema20": 4128.86,
+    "ema50": 4140.43,
+    "rsi": 42.7,
     "n": 299,
-    "slot": 497926,
-    "at": 1792533645443
+    "slot": 497927,
+    "at": 1792537265290
    }
   },
   "currency": "USC",
