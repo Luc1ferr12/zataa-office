@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-20T01:22:49.260Z",
+ "generated_at": "2026-10-20T01:32:49.266Z",
  "today": "2026-10-20",
  "week_start": "2026-10-19",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-20 01:15:51"
+   "updated_at": "2026-10-20 01:30:51"
   },
   {
    "id": "tresearch",
@@ -111,23 +111,23 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Fed condong hawkish (CPI & PPI September panas, Warsh belum beri sinyal), yield naik; risiko geopolitik Timur Tengah menahan turun.",
-   "updated_at": "2026-10-20 01:15:51"
+   "updated_at": "2026-10-20 01:30:51"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-10-20 01:15:51"
+   "current_task": "Setup BUY di band (RSI)",
+   "updated_at": "2026-10-20 01:30:51"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
-   "updated_at": "2026-10-20 01:15:51"
+   "current_task": "NO TRADE: setup BUY di band, konfirmasi baru 1/2 (RSI) · sesi Asia",
+   "updated_at": "2026-10-20 01:30:51"
   },
   {
    "id": "texec",
@@ -987,12 +987,12 @@
    "yt_posted": 4,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 5084,
+   "views": 5083,
    "likes": 78,
    "comments": 1,
    "shares": 1,
    "saves": 0,
-   "yt_views": 3926,
+   "yt_views": 3925,
    "top": [
     {
      "title": "Komputer 2.000 Tahun dari Dasar Laut",
@@ -1010,7 +1010,7 @@
      "title": "Prometheus: Pencuri Api dari Para Dewa",
      "format": "shorts",
      "pillar": "misteri",
-     "views": 1194
+     "views": 1193
     }
    ]
   }
@@ -1020,9 +1020,14 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4119.700195,
+  "price": 4123.100098,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-20 01:30:51",
+    "decision": "NO TRADE",
+    "reason": "setup BUY di band, konfirmasi baru 1/2 (RSI) · sesi Asia"
+   },
    {
     "ts": "2026-10-20 01:15:51",
     "decision": "NO TRADE",
@@ -1047,11 +1052,6 @@
     "ts": "2026-10-20 00:15:51",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-   },
-   {
-    "ts": "2026-10-20 00:00:53",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
    }
   ],
   "trades": [],
@@ -1073,7 +1073,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-20 01:15:51",
+   "ts": "2026-10-20 01:30:51",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1082,7 +1082,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)",
+   "reason": "setup BUY di band, konfirmasi baru 1/2 (RSI) · sesi Asia",
    "fund": {
     "bias": -0.2,
     "note": "Fed condong hawkish (CPI & PPI September panas, Warsh belum beri sinyal), yield naik; risiko geopolitik Timur Tengah menahan turun.",
@@ -1091,10 +1091,12 @@
    },
    "tech": {
     "bias": "bearish",
-    "score": 0,
-    "trigger": null,
-    "confirm": [],
-    "note": "M15 4123.00 di bawah band bawah (4125.0–4149.3) · RSI 24 · Stoch 3 · MACD -1.09 · H1 bearish"
+    "score": 1,
+    "trigger": "buy",
+    "confirm": [
+     "RSI"
+    ],
+    "note": "M15 4120.30 di bawah tengah band (4120.1–4151.7) · RSI 26 · Stoch 4 · MACD -1.62 · H1 bearish · setup BUY (RSI)"
    }
   },
   "fund": {
@@ -1136,35 +1138,35 @@
    "M10": {
     "bias": "bearish",
     "score": -3,
-    "price": 4119.6,
-    "ema20": 4134.9,
-    "ema50": 4140.48,
-    "rsi": 20.5,
+    "price": 4117.7,
+    "ema20": 4133.26,
+    "ema50": 4139.58,
+    "rsi": 19.2,
     "n": 299,
-    "slot": 2987432,
-    "at": 1792459252039
+    "slot": 2987433,
+    "at": 1792459851874
    },
    "M15": {
     "bias": "bearish",
     "score": -2,
-    "price": 4123.6,
-    "ema20": 4137.31,
-    "ema50": 4144.89,
-    "rsi": 24.7,
+    "price": 4117.7,
+    "ema20": 4135.45,
+    "ema50": 4143.82,
+    "rsi": 20.8,
     "n": 299,
-    "slot": 1991621,
-    "at": 1792458951847
+    "slot": 1991622,
+    "at": 1792459851881
    },
    "M30": {
     "bias": "bearish",
     "score": -2,
-    "price": 4132.3,
-    "ema20": 4142.99,
-    "ema50": 4153.47,
-    "rsi": 31.2,
+    "price": 4117.7,
+    "ema20": 4140.58,
+    "ema50": 4152.07,
+    "rsi": 22.4,
     "n": 299,
-    "slot": 995810,
-    "at": 1792458051831
+    "slot": 995811,
+    "at": 1792459851882
    },
    "H1": {
     "bias": "bearish",
