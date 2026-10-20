@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-20T23:06:36.530Z",
+ "generated_at": "2026-10-20T23:08:52.186Z",
  "today": "2026-10-21",
  "week_start": "2026-10-19",
  "campaign": {
@@ -173,41 +173,41 @@
    "id": "yresearch",
    "name": "Nadhira",
    "title": "Riset Sejarah & Tren",
-   "status": "working",
-   "current_task": "Riset lukisan gua Sulawesi",
-   "updated_at": "2026-10-20 23:05:23"
+   "status": "done",
+   "current_task": "Riset Shorts HH-002",
+   "updated_at": "2026-10-20 23:07:32"
   },
   {
    "id": "yscript",
    "name": "Laras",
    "title": "Scriptwriter & Fact Checker",
    "status": "done",
-   "current_task": "Naskah Beton Romawi 7 adegan, label fakta/teori",
-   "updated_at": "2026-10-19 23:15:05"
+   "current_task": "Naskah Shorts lukisan gua Sulawesi",
+   "updated_at": "2026-10-20 23:07:32"
   },
   {
    "id": "yvisual",
    "name": "Galih",
    "title": "Visual & Creative",
    "status": "done",
-   "current_task": "7 foto Commons beton Romawi + credits.txt",
-   "updated_at": "2026-10-19 23:15:05"
+   "current_task": "7 gambar Commons + credits",
+   "updated_at": "2026-10-20 23:07:32"
   },
   {
    "id": "yvideo",
    "name": "Yoga",
    "title": "Video Producer",
    "status": "done",
-   "current_task": "Shorts #53 antre render laptop",
-   "updated_at": "2026-10-19 23:24:39"
+   "current_task": "Shorts #57 antre render laptop",
+   "updated_at": "2026-10-20 23:07:32"
   },
   {
    "id": "ypublish",
    "name": "Kirana",
    "title": "Publisher, SEO & Growth",
    "status": "done",
-   "current_task": "Shorts #53 Beton Romawi antre render, tayang 18:00 WIB",
-   "updated_at": "2026-10-19 23:15:19"
+   "current_task": "Judul/SEO + jam 19:00 Shorts #57",
+   "updated_at": "2026-10-20 23:07:32"
   }
  ],
  "week_contents": [
@@ -380,6 +380,20 @@
    "channel": null
   },
   {
+   "id": 57,
+   "day": "2026-10-21",
+   "slot": "shorts",
+   "format": "shorts",
+   "game": "sejarah",
+   "pillar": "hidden_history",
+   "title": "Lukisan Tertua di Dunia Ternyata Ada di Sulawesi",
+   "status": "draft",
+   "asset_url": null,
+   "scheduled_at": null,
+   "posted_at": null,
+   "channel": "youtube"
+  },
+  {
    "id": 44,
    "day": "2026-10-22",
    "slot": "siang",
@@ -532,6 +546,26 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-20 23:08:36",
+   "agent_id": "dir",
+   "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
+  },
+  {
+   "ts": "2026-10-20 23:07:26",
+   "agent_id": "yresearch",
+   "message": "Riset HH-002: Leang Karampuang ≥51.200 th (Nature 2024) + cap tangan Liang Metanduno, Muna ≥67.800 th (Nature 2026). Tambah backlog HH-008 Madagaskar, SE-002 Perang Emu"
+  },
+  {
+   "ts": "2026-10-20 23:07:26",
+   "agent_id": "ypublish",
+   "message": "Jam tayang Shorts #57 19:00 WIB: data channel, Shorts 19:00 (Komputer 2.000 Tahun) views tertinggi 1.480 vs 18:00 ±1.290"
+  },
+  {
+   "ts": "2026-10-20 23:07:01",
+   "agent_id": "yvideo",
+   "message": "Shorts #57 \"Lukisan Tertua di Dunia Ternyata Ada di Sulawesi\" masuk antrean render laptop (OmniVoice)"
+  },
+  {
    "ts": "2026-10-20 23:06:20",
    "agent_id": "dir",
    "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
@@ -635,29 +669,23 @@
    "ts": "2026-10-20 22:54:02",
    "agent_id": "dir",
    "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
-  },
-  {
-   "ts": "2026-10-20 22:51:46",
-   "agent_id": "dir",
-   "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
-  },
-  {
-   "ts": "2026-10-20 22:49:30",
-   "agent_id": "dir",
-   "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
-  },
-  {
-   "ts": "2026-10-20 22:47:14",
-   "agent_id": "dir",
-   "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
-  },
-  {
-   "ts": "2026-10-20 22:45:44",
-   "agent_id": "ttech",
-   "message": "M15 berubah arah: sideways → bearish"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-10-20 23:07:32",
+   "agent_id": "yresearch",
+   "to_id": "yscript",
+   "kind": "oper",
+   "message": "Riset \"Riset Shorts HH-002\" beres, Laras. Lanjut naskah ya"
+  },
+  {
+   "ts": "2026-10-20 23:07:26",
+   "agent_id": "researcher",
+   "to_id": null,
+   "kind": "santai",
+   "message": "Plot twist pagi ini: VCT ternyata tetap pakai sistem partner, RRQ aman 2027. Riset Senin kemarin ku-koreksi ya 🙏"
+  },
   {
    "ts": "2026-10-20 23:05:23",
    "agent_id": "ydir",
@@ -923,30 +951,16 @@
    "to_id": null,
    "kind": "oper",
    "message": "\"6 tim ke Surabaya: daftar lolos playoff MPL ID S18\" udah tayang di IG 🚀 Makasih semua!"
-  },
-  {
-   "ts": "2026-10-19 00:24:02",
-   "agent_id": "publisher",
-   "to_id": null,
-   "kind": "oper",
-   "message": "\"Hall of Champions Valorant 2021-2026\" udah tayang di IG + TikTok 🚀 Makasih semua!"
-  },
-  {
-   "ts": "2026-10-19 00:13:15",
-   "agent_id": "publisher",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Udah lolos QA Bos, tinggal ✅ dan langsung tayang 🙏"
   }
  ],
  "stats": {
   "this_week": {
    "week": "2026-10-19",
-   "total": 20,
+   "total": 21,
    "posted": 9,
    "pending": 2,
    "scheduled": 0,
-   "yt_total": 2,
+   "yt_total": 3,
    "yt_posted": 2,
    "yt_pending": 0,
    "yt_scheduled": 0,
