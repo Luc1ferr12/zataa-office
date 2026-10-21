@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-21T10:57:20.756Z",
+ "generated_at": "2026-10-21T11:07:20.755Z",
  "today": "2026-10-21",
  "week_start": "2026-10-19",
  "campaign": {
@@ -103,15 +103,15 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-21 10:45:51"
+   "updated_at": "2026-10-21 11:01:13"
   },
   {
    "id": "tresearch",
    "name": "Davina",
    "title": "Research & Fundamental",
    "status": "done",
-   "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
-   "updated_at": "2026-10-21 10:45:50"
+   "current_task": "Fundamental: Berita 24 jam tidak ketemu (sumber terbaru ±12 Okt). Fed masih condong naik, NFP Sep lemah 29K, emas ~4.170 tertekan yield. Confidence rendah.",
+   "updated_at": "2026-10-21 11:01:13"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-10-21 10:45:51"
+   "updated_at": "2026-10-21 11:01:13"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-10-21 10:45:51"
+   "updated_at": "2026-10-21 11:01:13"
   },
   {
    "id": "texec",
@@ -574,6 +574,21 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-21 11:01:13",
+   "agent_id": "trisk",
+   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+  },
+  {
+   "ts": "2026-10-21 11:00:50",
+   "agent_id": "ttech",
+   "message": "M60 berubah arah: bearish → sideways"
+  },
+  {
+   "ts": "2026-10-21 11:00:50",
+   "agent_id": "ttech",
+   "message": "M30 berubah arah: bearish → sideways"
+  },
+  {
    "ts": "2026-10-21 10:45:50",
    "agent_id": "ttech",
    "message": "M15 berubah arah: sideways → bullish"
@@ -682,24 +697,16 @@
    "ts": "2026-10-21 07:40:43",
    "agent_id": "dir",
    "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
-  },
-  {
-   "ts": "2026-10-21 07:38:57",
-   "agent_id": "dir",
-   "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
-  },
-  {
-   "ts": "2026-10-21 07:36:41",
-   "agent_id": "dir",
-   "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
-  },
-  {
-   "ts": "2026-10-21 07:34:26",
-   "agent_id": "dir",
-   "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-10-21 11:00:21",
+   "agent_id": "analyst",
+   "to_id": "dir",
+   "kind": "oper",
+   "message": "Laporan harian marketing udah aku kirim ke Bos, 2 konten tayang hari ini 📊"
+  },
   {
    "ts": "2026-10-21 05:01:07",
    "agent_id": "publisher",
@@ -972,13 +979,6 @@
    "to_id": null,
    "kind": "santai",
    "message": "Gila, Hall of Champions tembus 18rb views. Konten nostalgia ternyata nendang!"
-  },
-  {
-   "ts": "2026-10-19 23:02:09",
-   "agent_id": "analyst",
-   "to_id": "dir",
-   "kind": "oper",
-   "message": "Andre, data \"Data kemarin: Hall of Champions 18,5rb views\" udah aku rangkum. Angkanya menarik nih 📈"
   }
  ],
  "stats": {
@@ -992,12 +992,12 @@
    "yt_posted": 2,
    "yt_pending": 0,
    "yt_scheduled": 1,
-   "views": 23502,
-   "likes": 95,
+   "views": 23558,
+   "likes": 96,
    "comments": 2,
    "shares": 8,
    "saves": 3,
-   "yt_views": 1819,
+   "yt_views": 1834,
    "top": [
     {
      "title": "Hall of Champions Valorant 2021-2026",
@@ -1009,7 +1009,7 @@
      "title": "Era franchise VCT tamat: bursa transfer 2027 dimulai (rumor ditandai)",
      "format": "video",
      "pillar": "news",
-     "views": 2094
+     "views": 2103
     },
     {
      "title": "8.000 Prajurit Penjaga Makam yang Belum Dibuka",
@@ -1062,9 +1062,14 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4127.600098,
+  "price": 4128.100098,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-21 11:01:13",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
    {
     "ts": "2026-10-21 10:45:51",
     "decision": "NO TRADE",
@@ -1089,11 +1094,6 @@
     "ts": "2026-10-21 09:45:50",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-10-21 09:30:50",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
   ],
   "trades": [],
@@ -1115,7 +1115,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-21 10:45:51",
+   "ts": "2026-10-21 11:01:13",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1126,8 +1126,8 @@
    "risk_usd": null,
    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
    "fund": {
-    "bias": 0,
-    "note": "netral (belum ada ringkasan hari ini)",
+    "bias": -0.1,
+    "note": "Berita 24 jam tidak ketemu (sumber terbaru ±12 Okt). Fed masih condong naik, NFP Sep lemah 29K, emas ~4.170 tertekan yield. Confidence rendah.",
     "danger": null,
     "blackout": null
    },
@@ -1136,10 +1136,13 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4129.80 di atas tengah band (4111.2–4131.4) · RSI 60 · Stoch 86 · MACD +0.68 · H1 bearish"
+    "note": "M15 4127.90 di atas tengah band (4111.9–4131.7) · RSI 58 · Stoch 92 · MACD +0.66 · H1 bearish"
    }
   },
-  "fund": null,
+  "fund": {
+   "bias": -0.1,
+   "note": "Berita 24 jam tidak ketemu (sumber terbaru ±12 Okt). Fed masih condong naik, NFP Sep lemah 29K, emas ~4.170 tertekan yield. Confidence rendah."
+  },
   "calendar": [
    {
     "title": "Unemployment Claims",
@@ -1175,46 +1178,46 @@
    "M10": {
     "bias": "bullish",
     "score": 2,
-    "price": 4127.1,
-    "ema20": 4121.73,
-    "ema50": 4121.08,
-    "rsi": 60,
+    "price": 4127.7,
+    "ema20": 4122.29,
+    "ema50": 4121.34,
+    "rsi": 60.8,
     "n": 299,
-    "slot": 2987633,
-    "at": 1792579851098
+    "slot": 2987634,
+    "at": 1792580450898
    },
    "M15": {
     "bias": "bullish",
-    "score": 3,
-    "price": 4129.4,
-    "ema20": 4121.61,
-    "ema50": 4121.45,
-    "rsi": 59.9,
+    "score": 2,
+    "price": 4127.7,
+    "ema20": 4122.19,
+    "ema50": 4121.7,
+    "rsi": 57.5,
     "n": 299,
-    "slot": 1991755,
-    "at": 1792579550901
+    "slot": 1991756,
+    "at": 1792580450903
    },
    "M30": {
-    "bias": "bearish",
-    "score": -3,
-    "price": 4121.1,
-    "ema20": 4121.21,
-    "ema50": 4124.82,
-    "rsi": 49.4,
+    "bias": "sideways",
+    "score": -1,
+    "price": 4127.7,
+    "ema20": 4121.82,
+    "ema50": 4124.93,
+    "rsi": 55.6,
     "n": 299,
-    "slot": 995877,
-    "at": 1792578650899
+    "slot": 995878,
+    "at": 1792580450904
    },
    "H1": {
-    "bias": "bearish",
-    "score": -2,
-    "price": 4119.3,
-    "ema20": 4122.35,
-    "ema50": 4132.78,
-    "rsi": 45.6,
+    "bias": "sideways",
+    "score": 0,
+    "price": 4127.7,
+    "ema20": 4122.86,
+    "ema50": 4132.58,
+    "rsi": 52.1,
     "n": 299,
-    "slot": 497938,
-    "at": 1792576850880
+    "slot": 497939,
+    "at": 1792580450914
    }
   },
   "currency": "USC",
