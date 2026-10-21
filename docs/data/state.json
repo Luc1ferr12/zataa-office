@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-21T02:14:31.304Z",
+ "generated_at": "2026-10-21T02:16:17.261Z",
  "today": "2026-10-21",
  "week_start": "2026-10-19",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-21 02:00:56"
+   "updated_at": "2026-10-21 02:16:17"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Data 24 jam tidak ketemu; Fed condong hawkish (CPI Sep 3,7%, peluang hike Okt/Des), DXY ~99-102, tekanan ke emas.",
-   "updated_at": "2026-10-21 02:00:56"
+   "updated_at": "2026-10-21 02:16:17"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-10-21 02:00:56"
+   "updated_at": "2026-10-21 02:16:17"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
-   "updated_at": "2026-10-21 02:00:56"
+   "updated_at": "2026-10-21 02:16:17"
   },
   {
    "id": "texec",
@@ -574,6 +574,21 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-21 02:16:17",
+   "agent_id": "trisk",
+   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (sesi Asia)"
+  },
+  {
+   "ts": "2026-10-21 02:16:01",
+   "agent_id": "dir",
+   "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
+  },
+  {
+   "ts": "2026-10-21 02:16:01",
+   "agent_id": "ttech",
+   "message": "M15 berubah arah: sideways → bearish"
+  },
+  {
    "ts": "2026-10-21 02:14:15",
    "agent_id": "dir",
    "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
@@ -680,21 +695,6 @@
   },
   {
    "ts": "2026-10-21 01:36:18",
-   "agent_id": "dir",
-   "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
-  },
-  {
-   "ts": "2026-10-21 01:34:02",
-   "agent_id": "dir",
-   "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
-  },
-  {
-   "ts": "2026-10-21 01:31:46",
-   "agent_id": "dir",
-   "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
-  },
-  {
-   "ts": "2026-10-21 01:29:31",
    "agent_id": "dir",
    "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
   }
@@ -1062,9 +1062,14 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4118.5,
+  "price": 4119.100098,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-21 02:16:17",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
+   },
    {
     "ts": "2026-10-21 02:00:56",
     "decision": "NO TRADE",
@@ -1089,11 +1094,6 @@
     "ts": "2026-10-21 01:00:52",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-   },
-   {
-    "ts": "2026-10-21 00:46:03",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
    }
   ],
   "trades": [],
@@ -1115,7 +1115,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-21 02:00:56",
+   "ts": "2026-10-21 02:16:17",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1136,7 +1136,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4120.10 di bawah tengah band (4110.9–4130.9) · RSI 48 · Stoch 57 · MACD +0.26 · H1 bearish"
+    "note": "M15 4119.10 di bawah tengah band (4110.8–4130.2) · RSI 47 · Stoch 64 · MACD +0.27 · H1 bearish"
    }
   },
   "fund": {
@@ -1187,15 +1187,15 @@
     "at": 1792548659923
    },
    "M15": {
-    "bias": "sideways",
-    "score": -1,
-    "price": 4121.2,
-    "ema20": 4120.32,
-    "ema50": 4123.58,
-    "rsi": 50,
+    "bias": "bearish",
+    "score": -2,
+    "price": 4119.4,
+    "ema20": 4120.24,
+    "ema50": 4123.41,
+    "rsi": 47.3,
     "n": 299,
-    "slot": 1991720,
-    "at": 1792548041158
+    "slot": 1991721,
+    "at": 1792548961420
    },
    "M30": {
     "bias": "sideways",
