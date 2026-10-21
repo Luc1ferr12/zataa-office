@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-21T19:07:20.964Z",
+ "generated_at": "2026-10-21T19:17:20.972Z",
  "today": "2026-10-22",
  "week_start": "2026-10-19",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-21 19:00:51"
+   "updated_at": "2026-10-21 19:15:51"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Berita 24 jam tidak ketemu (sumber terbaru ±12 Okt). Fed masih condong naik, NFP Sep lemah 29K, emas ~4.170 tertekan yield. Confidence rendah.",
-   "updated_at": "2026-10-21 19:00:51"
+   "updated_at": "2026-10-21 19:15:51"
   },
   {
    "id": "ttech",
@@ -119,15 +119,15 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-10-21 19:00:51"
+   "updated_at": "2026-10-21 19:15:51"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: ada candle spike di M15 (kemungkinan berita dadakan), tunggu tenang",
-   "updated_at": "2026-10-21 19:00:51"
+   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
+   "updated_at": "2026-10-21 19:15:51"
   },
   {
    "id": "texec",
@@ -1062,9 +1062,14 @@
   "paused": false,
   "balance": 1687.5099999999998,
   "today_pnl": 10.91,
-  "price": 4113.799805,
+  "price": 4120.600098,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-21 19:15:51",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
    {
     "ts": "2026-10-21 19:00:51",
     "decision": "NO TRADE",
@@ -1087,11 +1092,6 @@
    },
    {
     "ts": "2026-10-21 18:00:51",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-10-21 17:45:51",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1127,7 +1127,7 @@
    1687.5099999999995
   ],
   "last": {
-   "ts": "2026-10-21 19:00:51",
+   "ts": "2026-10-21 19:15:51",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1136,7 +1136,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "ada candle spike di M15 (kemungkinan berita dadakan), tunggu tenang",
+   "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
    "fund": {
     "bias": -0.1,
     "note": "Berita 24 jam tidak ketemu (sumber terbaru ±12 Okt). Fed masih condong naik, NFP Sep lemah 29K, emas ~4.170 tertekan yield. Confidence rendah.",
@@ -1148,7 +1148,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4114.70 di bawah band bawah (4118.8–4147.1) · RSI 33 · Stoch 29 · MACD -2.03 · H1 sideways"
+    "note": "M15 4118.40 di bawah tengah band (4117.2–4147.2) · RSI 36 · Stoch 17 · MACD -2.28 · H1 sideways"
    }
   },
   "fund": {
@@ -1190,24 +1190,24 @@
    "M10": {
     "bias": "sideways",
     "score": 1,
-    "price": 4117.8,
-    "ema20": 4134,
-    "ema50": 4132.07,
-    "rsi": 31.9,
+    "price": 4119.3,
+    "ema20": 4132.6,
+    "ema50": 4131.57,
+    "rsi": 34.1,
     "n": 299,
-    "slot": 2987682,
-    "at": 1792609251301
+    "slot": 2987683,
+    "at": 1792609851280
    },
    "M15": {
     "bias": "sideways",
-    "score": 0,
-    "price": 4117.8,
-    "ema20": 4133.49,
-    "ema50": 4130.59,
-    "rsi": 35.2,
+    "score": 1,
+    "price": 4117.1,
+    "ema20": 4131.93,
+    "ema50": 4130.06,
+    "rsi": 34.7,
     "n": 299,
-    "slot": 1991788,
-    "at": 1792609251306
+    "slot": 1991789,
+    "at": 1792610151286
    },
    "M30": {
     "bias": "sideways",
