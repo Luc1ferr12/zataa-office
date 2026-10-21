@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-21T04:59:44.557Z",
+ "generated_at": "2026-10-21T05:01:23.814Z",
  "today": "2026-10-21",
  "week_start": "2026-10-19",
  "campaign": {
@@ -63,7 +63,7 @@
    "title": "Social Media Publisher",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-10-21 00:29:55"
+   "updated_at": "2026-10-21 05:01:07"
   },
   {
    "id": "ads",
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-21 04:45:55"
+   "updated_at": "2026-10-21 05:00:44"
   },
   {
    "id": "tresearch",
@@ -111,23 +111,23 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Data 24 jam tidak ketemu; Fed condong hawkish (CPI Sep 3,7%, peluang hike Okt/Des), DXY ~99-102, tekanan ke emas.",
-   "updated_at": "2026-10-21 04:45:55"
+   "updated_at": "2026-10-21 05:00:44"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Setup SELL di band (MACD)",
-   "updated_at": "2026-10-21 04:45:55"
+   "current_task": "Belum ada pantulan band · H1 bearish",
+   "updated_at": "2026-10-21 05:00:44"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: setup SELL di band, konfirmasi baru 1/2 (MACD) · sesi Asia",
-   "updated_at": "2026-10-21 04:45:55"
+   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
+   "updated_at": "2026-10-21 05:00:44"
   },
   {
    "id": "texec",
@@ -373,10 +373,10 @@
    "game": "mlbb",
    "pillar": "promo",
    "title": "Diamond ML hemat buat nonton bareng playoff (harga zataa.my.id hari itu)",
-   "status": "approved",
+   "status": "posted",
    "asset_url": "{\"feed\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-21/42-diamond-ml-hemat-buat-nonton-bareng-play.jpg\"],\"story\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-21/42-diamond-ml-hemat-buat-nonton-bareng-play-916.jpg\"]}",
    "scheduled_at": null,
-   "posted_at": null,
+   "posted_at": "2026-10-21 05:01:07",
    "channel": null
   },
   {
@@ -574,6 +574,16 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-21 05:01:08",
+   "agent_id": "dir",
+   "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
+  },
+  {
+   "ts": "2026-10-21 05:01:07",
+   "agent_id": "publisher",
+   "message": "Posting #42 ke IG ✅"
+  },
+  {
    "ts": "2026-10-21 04:59:28",
    "agent_id": "dir",
    "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
@@ -687,19 +697,16 @@
    "ts": "2026-10-21 04:12:13",
    "agent_id": "dir",
    "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
-  },
-  {
-   "ts": "2026-10-21 04:10:43",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: bearish → sideways"
-  },
-  {
-   "ts": "2026-10-21 04:09:57",
-   "agent_id": "dir",
-   "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-10-21 05:01:07",
+   "agent_id": "publisher",
+   "to_id": null,
+   "kind": "oper",
+   "message": "\"Diamond ML hemat buat nonton bareng playoff (harga\" udah tayang di IG 🚀 Makasih semua!"
+  },
   {
    "ts": "2026-10-21 00:29:55",
    "agent_id": "publisher",
@@ -972,22 +979,15 @@
    "to_id": "dir",
    "kind": "oper",
    "message": "Andre, data \"Data kemarin: Hall of Champions 18,5rb views\" udah aku rangkum. Angkanya menarik nih 📈"
-  },
-  {
-   "ts": "2026-10-19 23:02:09",
-   "agent_id": "researcher",
-   "to_id": "copywriter",
-   "kind": "oper",
-   "message": "Riset \"Riset esport: bracket playoff MPL, transfer VCT\" beres, udah dicek 2 sumber. Ista, lanjut ya~"
   }
  ],
  "stats": {
   "this_week": {
    "week": "2026-10-19",
    "total": 23,
-   "posted": 10,
+   "posted": 11,
    "pending": 0,
-   "scheduled": 1,
+   "scheduled": 0,
    "yt_total": 3,
    "yt_posted": 2,
    "yt_pending": 0,
@@ -1062,9 +1062,14 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4116.299805,
+  "price": 4115.700195,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-21 05:00:44",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
+   },
    {
     "ts": "2026-10-21 04:45:55",
     "decision": "NO TRADE",
@@ -1089,11 +1094,6 @@
     "ts": "2026-10-21 03:45:50",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-   },
-   {
-    "ts": "2026-10-21 03:30:59",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
    }
   ],
   "trades": [],
@@ -1115,7 +1115,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-21 04:45:55",
+   "ts": "2026-10-21 05:00:44",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1124,7 +1124,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "setup SELL di band, konfirmasi baru 1/2 (MACD) · sesi Asia",
+   "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)",
    "fund": {
     "bias": -0.3,
     "note": "Data 24 jam tidak ketemu; Fed condong hawkish (CPI Sep 3,7%, peluang hike Okt/Des), DXY ~99-102, tekanan ke emas.",
@@ -1133,12 +1133,10 @@
    },
    "tech": {
     "bias": "bearish",
-    "score": 1,
-    "trigger": "sell",
-    "confirm": [
-     "MACD"
-    ],
-    "note": "M15 4116.60 di bawah tengah band (4113.3–4123.4) · RSI 45 · Stoch 39 · MACD +0.18 · H1 bearish · setup SELL (MACD)"
+    "score": 0,
+    "trigger": null,
+    "confirm": [],
+    "note": "M15 4115.70 di bawah tengah band (4112.9–4123.5) · RSI 44 · Stoch 23 · MACD +0.00 · H1 bearish"
    }
   },
   "fund": {
@@ -1180,46 +1178,46 @@
    "M10": {
     "bias": "sideways",
     "score": -1,
-    "price": 4117.2,
-    "ema20": 4119.62,
-    "ema50": 4120.69,
-    "rsi": 46,
+    "price": 4116,
+    "ema20": 4119.27,
+    "ema50": 4120.5,
+    "rsi": 44.3,
     "n": 299,
-    "slot": 2987597,
-    "at": 1792558256498
+    "slot": 2987598,
+    "at": 1792558844679
    },
    "M15": {
     "bias": "sideways",
     "score": -1,
-    "price": 4117.5,
-    "ema20": 4119.27,
-    "ema50": 4121.82,
-    "rsi": 46.3,
+    "price": 4116,
+    "ema20": 4118.95,
+    "ema50": 4121.59,
+    "rsi": 44.2,
     "n": 299,
-    "slot": 1991731,
-    "at": 1792557954970
+    "slot": 1991732,
+    "at": 1792558844685
    },
    "M30": {
     "bias": "bearish",
     "score": -2,
-    "price": 4118.1,
-    "ema20": 4121.31,
-    "ema50": 4127.16,
-    "rsi": 44,
+    "price": 4116,
+    "ema20": 4120.8,
+    "ema50": 4126.72,
+    "rsi": 41.6,
     "n": 299,
-    "slot": 995865,
-    "at": 1792557064936
+    "slot": 995866,
+    "at": 1792558844686
    },
    "H1": {
     "bias": "bearish",
     "score": -3,
-    "price": 4119,
-    "ema20": 4124.87,
-    "ema50": 4136.49,
-    "rsi": 42.7,
+    "price": 4116,
+    "ema20": 4124.03,
+    "ema50": 4135.68,
+    "rsi": 40.7,
     "n": 299,
-    "slot": 497932,
-    "at": 1792555254428
+    "slot": 497933,
+    "at": 1792558844693
    }
   },
   "currency": "USC",
