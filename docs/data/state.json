@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-21T16:17:20.885Z",
+ "generated_at": "2026-10-21T16:27:20.889Z",
  "today": "2026-10-22",
  "week_start": "2026-10-19",
  "campaign": {
@@ -574,6 +574,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-21 16:20:51",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: sideways → bullish"
+  },
+  {
    "ts": "2026-10-21 16:10:51",
    "agent_id": "ttech",
    "message": "M10 berubah arah: bullish → sideways"
@@ -692,11 +697,6 @@
    "ts": "2026-10-21 12:01:28",
    "agent_id": "ypublish",
    "message": "Upload Shorts #57 ke Zataa Story (Publik via Zernio)"
-  },
-  {
-   "ts": "2026-10-21 11:01:13",
-   "agent_id": "trisk",
-   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
   }
  ],
  "chats": [
@@ -1062,7 +1062,7 @@
   "paused": false,
   "balance": 1687.5099999999998,
   "today_pnl": 10.91,
-  "price": 4133.600098,
+  "price": 4134.899902,
   "open": [],
   "signals": [
    {
@@ -1188,15 +1188,15 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "sideways",
-    "score": 1,
-    "price": 4131.3,
-    "ema20": 4132.73,
-    "ema50": 4129.85,
-    "rsi": 48.9,
+    "bias": "bullish",
+    "score": 3,
+    "price": 4133.2,
+    "ema20": 4132.78,
+    "ema50": 4129.98,
+    "rsi": 51.3,
     "n": 299,
-    "slot": 2987665,
-    "at": 1792599051143
+    "slot": 2987666,
+    "at": 1792599651147
    },
    "M15": {
     "bias": "bullish",
