@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-21T14:57:20.857Z",
+ "generated_at": "2026-10-21T15:07:20.867Z",
  "today": "2026-10-21",
  "week_start": "2026-10-19",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-21 14:45:51"
+   "updated_at": "2026-10-21 15:00:51"
   },
   {
    "id": "tresearch",
@@ -111,15 +111,15 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Berita 24 jam tidak ketemu (sumber terbaru ±12 Okt). Fed masih condong naik, NFP Sep lemah 29K, emas ~4.170 tertekan yield. Confidence rendah.",
-   "updated_at": "2026-10-21 14:45:51"
+   "updated_at": "2026-10-21 15:00:51"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-10-21 14:45:51"
+   "current_task": "Belum ada pantulan band · H1 sideways",
+   "updated_at": "2026-10-21 15:00:51"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-10-21 14:45:51"
+   "updated_at": "2026-10-21 15:00:51"
   },
   {
    "id": "texec",
@@ -992,12 +992,12 @@
    "yt_posted": 3,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 23655,
-   "likes": 99,
-   "comments": 2,
+   "views": 24244,
+   "likes": 105,
+   "comments": 3,
    "shares": 8,
    "saves": 3,
-   "yt_views": 1874,
+   "yt_views": 2331,
    "top": [
     {
      "title": "Hall of Champions Valorant 2021-2026",
@@ -1009,13 +1009,13 @@
      "title": "Era franchise VCT tamat: bursa transfer 2027 dimulai (rumor ditandai)",
      "format": "video",
      "pillar": "news",
-     "views": 2109
+     "views": 2110
     },
     {
      "title": "8.000 Prajurit Penjaga Makam yang Belum Dibuka",
      "format": "shorts",
      "pillar": "hidden_history",
-     "views": 1344
+     "views": 1361
     }
    ]
   },
@@ -1029,12 +1029,12 @@
    "yt_posted": 4,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 5193,
+   "views": 5203,
    "likes": 82,
    "comments": 1,
    "shares": 1,
    "saves": 0,
-   "yt_views": 4019,
+   "yt_views": 4029,
    "top": [
     {
      "title": "Komputer 2.000 Tahun dari Dasar Laut",
@@ -1046,13 +1046,13 @@
      "title": "Medusa: Monster atau Korban?",
      "format": "shorts",
      "pillar": "misteri",
-     "views": 1294
+     "views": 1302
     },
     {
      "title": "Prometheus: Pencuri Api dari Para Dewa",
      "format": "shorts",
      "pillar": "misteri",
-     "views": 1204
+     "views": 1206
     }
    ]
   }
@@ -1062,9 +1062,14 @@
   "paused": false,
   "balance": 1687.5099999999998,
   "today_pnl": 10.91,
-  "price": 4131.200195,
+  "price": 4128.899902,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-21 15:00:51",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
    {
     "ts": "2026-10-21 14:45:51",
     "decision": "NO TRADE",
@@ -1087,11 +1092,6 @@
    },
    {
     "ts": "2026-10-21 13:45:51",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-10-21 13:30:51",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1127,7 +1127,7 @@
    1687.5099999999995
   ],
   "last": {
-   "ts": "2026-10-21 14:45:51",
+   "ts": "2026-10-21 15:00:51",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1144,11 +1144,11 @@
     "blackout": null
    },
    "tech": {
-    "bias": "bearish",
+    "bias": "sideways",
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4131.20 di bawah tengah band (4118.3–4145.3) · RSI 51 · Stoch 47 · MACD -0.70 · H1 bearish"
+    "note": "M15 4131.50 di bawah tengah band (4121.7–4143.6) · RSI 51 · Stoch 43 · MACD -0.70 · H1 sideways"
    }
   },
   "fund": {
@@ -1190,46 +1190,46 @@
    "M10": {
     "bias": "sideways",
     "score": 1,
-    "price": 4132.4,
-    "ema20": 4131.95,
-    "ema50": 4128.55,
-    "rsi": 51.6,
+    "price": 4132.7,
+    "ema20": 4132.02,
+    "ema50": 4128.72,
+    "rsi": 52,
     "n": 299,
-    "slot": 2987657,
-    "at": 1792594251072
+    "slot": 2987658,
+    "at": 1792594851079
    },
    "M15": {
     "bias": "sideways",
-    "score": -1,
-    "price": 4130.7,
-    "ema20": 4131.16,
-    "ema50": 4127.23,
-    "rsi": 50.9,
+    "score": 1,
+    "price": 4132.7,
+    "ema20": 4131.31,
+    "ema50": 4127.44,
+    "rsi": 52.8,
     "n": 299,
-    "slot": 1991771,
-    "at": 1792593951076
+    "slot": 1991772,
+    "at": 1792594851085
    },
    "M30": {
     "bias": "bullish",
     "score": 3,
-    "price": 4135.8,
-    "ema20": 4128.11,
-    "ema50": 4127.22,
-    "rsi": 56.6,
+    "price": 4132.7,
+    "ema20": 4128.55,
+    "ema50": 4127.43,
+    "rsi": 54,
     "n": 299,
-    "slot": 995885,
-    "at": 1792593051073
+    "slot": 995886,
+    "at": 1792594851086
    },
    "H1": {
     "bias": "sideways",
-    "score": 0,
-    "price": 4130.3,
-    "ema20": 4125.58,
+    "score": 1,
+    "price": 4132.7,
+    "ema20": 4126.26,
     "ema50": 4132.69,
-    "rsi": 52.5,
+    "rsi": 54,
     "n": 299,
-    "slot": 497942,
-    "at": 1792591251045
+    "slot": 497943,
+    "at": 1792594851094
    }
   },
   "currency": "USC",
