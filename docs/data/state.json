@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-21T17:17:20.944Z",
+ "generated_at": "2026-10-21T17:27:20.922Z",
  "today": "2026-10-22",
  "week_start": "2026-10-19",
  "campaign": {
@@ -574,6 +574,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-21 17:20:51",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: sideways → bullish"
+  },
+  {
    "ts": "2026-10-21 17:10:51",
    "agent_id": "ttech",
    "message": "M10 berubah arah: bullish → sideways"
@@ -692,11 +697,6 @@
    "ts": "2026-10-21 12:45:50",
    "agent_id": "ttech",
    "message": "M15 berubah arah: bullish → sideways"
-  },
-  {
-   "ts": "2026-10-21 12:40:50",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: bullish → sideways"
   }
  ],
  "chats": [
@@ -1062,7 +1062,7 @@
   "paused": false,
   "balance": 1687.5099999999998,
   "today_pnl": 10.91,
-  "price": 4133.5,
+  "price": 4132.700195,
   "open": [],
   "signals": [
    {
@@ -1188,15 +1188,15 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "sideways",
-    "score": 0,
-    "price": 4131.8,
-    "ema20": 4132.54,
-    "ema50": 4130.38,
-    "rsi": 49.5,
+    "bias": "bullish",
+    "score": 2,
+    "price": 4133.6,
+    "ema20": 4132.64,
+    "ema50": 4130.51,
+    "rsi": 51.9,
     "n": 299,
-    "slot": 2987671,
-    "at": 1792602651181
+    "slot": 2987672,
+    "at": 1792603251378
    },
    "M15": {
     "bias": "bullish",
