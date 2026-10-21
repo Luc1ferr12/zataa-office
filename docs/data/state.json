@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-21T00:25:37.534Z",
+ "generated_at": "2026-10-21T00:27:53.417Z",
  "today": "2026-10-21",
  "week_start": "2026-10-19",
  "campaign": {
@@ -62,8 +62,8 @@
    "name": "Fikri",
    "title": "Social Media Publisher",
    "status": "done",
-   "current_task": "QA & submit #42, #56",
-   "updated_at": "2026-10-20 23:05:06"
+   "current_task": "undefined",
+   "updated_at": "2026-10-21 00:27:53"
   },
   {
    "id": "ads",
@@ -303,7 +303,7 @@
    "game": "mlbb",
    "pillar": "esport",
    "title": "Hall of Champions MPL ID: juara tiap season sampai S17",
-   "status": "pending_approval",
+   "status": "approved",
    "asset_url": "{\"video\":\"https://luc1ferr12.github.io/zataa-office/media/2026-10-20/56-hall-of-champions-mpl-id-juara-tiap-seas-ov.mp4\",\"cover\":\"https://luc1ferr12.github.io/zataa-office/media/2026-10-20/56-hall-of-champions-mpl-id-juara-tiap-seas-ov-cover.jpg\"}",
    "scheduled_at": null,
    "posted_at": null,
@@ -359,7 +359,7 @@
    "game": "mlbb",
    "pillar": "promo",
    "title": "Diamond ML hemat buat nonton bareng playoff (harga zataa.my.id hari itu)",
-   "status": "pending_approval",
+   "status": "approved",
    "asset_url": "{\"feed\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-21/42-diamond-ml-hemat-buat-nonton-bareng-play.jpg\"],\"story\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-21/42-diamond-ml-hemat-buat-nonton-bareng-play-916.jpg\"]}",
    "scheduled_at": null,
    "posted_at": null,
@@ -546,6 +546,26 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-21 00:27:53",
+   "agent_id": "owner",
+   "message": "Approve konten #56 ✅"
+  },
+  {
+   "ts": "2026-10-21 00:27:53",
+   "agent_id": "owner",
+   "message": "Approve konten #42 ✅"
+  },
+  {
+   "ts": "2026-10-21 00:27:53",
+   "agent_id": "owner",
+   "message": "Approve 2 ide konten tambahan 💡"
+  },
+  {
+   "ts": "2026-10-21 00:27:37",
+   "agent_id": "dir",
+   "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
+  },
+  {
    "ts": "2026-10-21 00:25:21",
    "agent_id": "dir",
    "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
@@ -647,26 +667,6 @@
   },
   {
    "ts": "2026-10-20 23:39:46",
-   "agent_id": "dir",
-   "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
-  },
-  {
-   "ts": "2026-10-20 23:37:31",
-   "agent_id": "dir",
-   "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
-  },
-  {
-   "ts": "2026-10-20 23:35:15",
-   "agent_id": "dir",
-   "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
-  },
-  {
-   "ts": "2026-10-20 23:32:59",
-   "agent_id": "dir",
-   "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
-  },
-  {
-   "ts": "2026-10-20 23:30:43",
    "agent_id": "dir",
    "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
   }
@@ -958,8 +958,8 @@
    "week": "2026-10-19",
    "total": 21,
    "posted": 9,
-   "pending": 2,
-   "scheduled": 0,
+   "pending": 0,
+   "scheduled": 2,
    "yt_total": 3,
    "yt_posted": 2,
    "yt_pending": 0,
@@ -1034,7 +1034,7 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4117.700195,
+  "price": 4119.399902,
   "open": [],
   "signals": [
    {
