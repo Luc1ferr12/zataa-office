@@ -263,8 +263,8 @@ if (a1 === 'try') {
   out({ ok: true, dir: relative(ROOT, dir), ...res });
 } else {
   process.removeAllListeners('warning');
-  const { DatabaseSync } = await import('node:sqlite');
-  const db = new DatabaseSync(join(ROOT, 'db', 'office.db'));
+  const { openDb } = await import('./db.mjs');
+  const db = openDb();
   const c = db.prepare('SELECT * FROM contents WHERE id = ?').get(a1);
   if (!c) { out(`konten ${a1} tidak ada`); process.exit(1); }
   if (!c.data_json) { out(`konten ${a1} belum punya data_json (tugas Copywriter)`); process.exit(1); }

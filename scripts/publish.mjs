@@ -16,6 +16,7 @@ import { existsSync, statSync, writeFileSync } from 'node:fs';
 import { open } from 'node:fs/promises';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { openDb } from './db.mjs';
 import { execFileSync } from 'node:child_process';
 import { loadEnv, setEnv, sayAs, SLOT, targets, tg } from './approval.mjs';
 import { chat } from './chatter.mjs';
@@ -29,8 +30,7 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const env = () => ({ ...loadEnv(), ...process.env }); // baca ulang tiap kali: watcher jalan lama, .env bisa berubah
 
 async function db() {
-  const { DatabaseSync } = await import('node:sqlite');
-  return new DatabaseSync(join(ROOT, 'db', 'office.db'));
+  return openDb();
 }
 const activity = (d, agent, msg) => d.prepare('INSERT INTO activity (agent_id, message) VALUES (?, ?)').run(agent, msg);
 const setAgent = (d, status, task = null) => d.prepare("UPDATE agents SET status = ?, current_task = ?, updated_at = datetime('now') WHERE id = 'publisher'").run(status, task);

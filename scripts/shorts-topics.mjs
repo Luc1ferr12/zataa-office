@@ -13,6 +13,7 @@ process.removeAllListeners('warning');
 import { readFileSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
+import { openDb } from './db.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 export const PILLARS = {
@@ -34,8 +35,7 @@ const SQL = `CREATE TABLE IF NOT EXISTS shorts_topics (
   created_at TEXT DEFAULT (datetime('now')), updated_at TEXT DEFAULT (datetime('now')))`;
 
 export async function tdb() {
-  const { DatabaseSync } = await import('node:sqlite');
-  const d = new DatabaseSync(join(ROOT, 'db', 'office.db'));
+  const d = openDb();
   d.exec(SQL);
   return d;
 }

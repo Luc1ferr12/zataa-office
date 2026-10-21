@@ -1,14 +1,13 @@
 // Penyimpanan tim Trading (XAUUSD) di db/office.db — satu database dengan kantor, tabel berawalan trd_.
 process.removeAllListeners('warning');
-const { DatabaseSync } = await import('node:sqlite');
+import { openDb } from '../db.mjs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { CHAT_SQL } from '../chatter.mjs';
 
 export const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
-export const db = new DatabaseSync(join(ROOT, 'db', 'office.db'));
+export const db = openDb();
 db.exec('PRAGMA journal_mode = WAL');
-db.exec('PRAGMA busy_timeout = 5000');
 db.exec(CHAT_SQL);
 db.exec(`
 CREATE TABLE IF NOT EXISTS trd_kv (key TEXT PRIMARY KEY, value TEXT NOT NULL, updated_at TEXT DEFAULT (datetime('now')));

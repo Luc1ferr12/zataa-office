@@ -18,7 +18,9 @@ import { monitorPaper, closeTrade, onOpened, summary, paperReport, report, setAg
 import { backtest, loadHistory, grid, score, GRID_KEYS } from './backtest.mjs';
 import { readFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
+import { markCode } from '../reload.mjs';
 
+markCode(); // versi kode proses ini, buat auto-reload (reload.mjs)
 const stamp = () => new Date().toLocaleTimeString('id-ID', { timeZone: 'Asia/Makassar' });
 const log = (m) => console.log(`[${stamp()}] ${m}`);
 const env = (() => {

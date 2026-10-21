@@ -9,6 +9,7 @@ import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { readFile } from 'node:fs/promises';
 import { join, dirname, basename } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { openDb } from './db.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const ENV_PATH = join(ROOT, '.env');
@@ -29,8 +30,7 @@ const env = { ...loadEnv(), ...process.env };
 export { setEnv };
 
 export async function db() {
-  const { DatabaseSync } = await import('node:sqlite');
-  const d = new DatabaseSync(join(ROOT, 'db', 'office.db'));
+  const d = openDb();
   try { d.exec('ALTER TABLE contents ADD COLUMN revisions INTEGER NOT NULL DEFAULT 0'); } catch { /* sudah ada */ }
   try { d.exec('ALTER TABLE contents ADD COLUMN tiktok_at TEXT'); } catch { /* sudah ada; jam tayang TikTok asli (socials.mjs) */ }
   d.exec(`CREATE TABLE IF NOT EXISTS boosts (

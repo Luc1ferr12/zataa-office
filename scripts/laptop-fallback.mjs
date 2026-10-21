@@ -6,7 +6,7 @@
 import { execFile } from 'node:child_process';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { DatabaseSync } from 'node:sqlite';
+import { openDb } from './db.mjs';
 import { SLOT, submit, sayAs } from './approval.mjs';
 import { beat } from './health.mjs';
 
@@ -32,7 +32,7 @@ let running = false;
 export async function laptopFallback(log) {
   if (running) return;
   running = true;
-  const db = new DatabaseSync(join(ROOT, 'db', 'office.db'));
+  const db = openDb();
   try {
     const rows = db.prepare("SELECT id, day, slot, updated_at, json_extract(data_json, '$._laptop') st, json_extract(data_json, '$.voice') voice, json_extract(data_json, '$._err') err, title FROM contents WHERE format = 'video' AND status IN ('draft', 'revision') AND json_extract(data_json, '$._laptop') IN (1, 2, 3)").all();
     for (const c of rows.filter((r) => Date.now() >= deadline(r))) {

@@ -17,6 +17,7 @@
 process.removeAllListeners('warning');
 import { join, dirname, basename } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { openDb } from './db.mjs';
 import { readFileSync, writeFileSync, existsSync, mkdirSync, unlinkSync, statSync } from 'node:fs';
 import { readFile } from 'node:fs/promises';
 import { execFile } from 'node:child_process';
@@ -45,8 +46,7 @@ const saveState = (s) => { mkdirSync(dirname(STATE), { recursive: true }); write
 const patchState = (fn) => { const s = state(); fn(s); saveState(s); };
 
 export async function db() {
-  const { DatabaseSync } = await import('node:sqlite');
-  const d = new DatabaseSync(join(ROOT, 'db', 'office.db'));
+  const d = openDb();
   for (const col of ['channel TEXT', 'youtube_id TEXT', 'revisions INTEGER NOT NULL DEFAULT 0']) {
     try { d.exec(`ALTER TABLE contents ADD COLUMN ${col}`); } catch { /* sudah ada */ }
   }

@@ -23,6 +23,9 @@ import { priceTick } from './price.mjs';
 import { limitsTick } from './limits.mjs';
 import { laptopFallback } from './laptop-fallback.mjs';
 import { beat } from './health.mjs';
+import { markCode } from './reload.mjs';
+
+markCode(); // versi kode proses ini, buat auto-reload (reload.mjs)
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const EVERY = 60_000;

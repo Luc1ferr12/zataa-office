@@ -7,7 +7,7 @@
 //   node scripts/office.mjs log designer "Render feed #12 selesai"
 //   node scripts/office.mjs export
 process.removeAllListeners('warning'); // sembunyikan ExperimentalWarning node:sqlite
-const { DatabaseSync } = await import('node:sqlite');
+import { openDb } from './db.mjs';
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -18,7 +18,7 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const DB_PATH = join(ROOT, 'db', 'office.db');
 const STATE_PATH = join(ROOT, 'docs', 'data', 'state.json');
 
-const db = new DatabaseSync(DB_PATH);
+const db = openDb(DB_PATH);
 db.exec('PRAGMA foreign_keys = ON');
 db.exec(CHAT_SQL);
 // Okt 2026: Andre gantiin Aprista jadi Marketing Director (id dir), Aprista jadi sekretaris pribadi Bos (id sec)

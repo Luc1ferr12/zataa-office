@@ -7,6 +7,7 @@ import { mkdtempSync, writeFileSync, renameSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { DB_SNIPPET } from './db.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const VPS = process.env.ZATAA_VPS ?? 'zataa-vps';
@@ -19,7 +20,7 @@ function onVps(js) {
   if (r.status !== 0) throw new Error(`VPS: ${(r.stderr || r.error?.message || '').trim().slice(-300)}`);
   return r.stdout.trim();
 }
-const DB = "const { DatabaseSync } = await import('node:sqlite'); const db = new DatabaseSync('db/office.db');";
+const DB = DB_SNIPPET;
 
 const c = JSON.parse(onVps(`${DB} console.log(JSON.stringify(db.prepare('SELECT id, title, day, format, data_json FROM contents WHERE id = ?').get(${+id}) ?? null));`));
 if (!c) throw new Error(`konten ${id} tidak ada di VPS`);

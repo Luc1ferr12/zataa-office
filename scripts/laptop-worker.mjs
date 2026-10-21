@@ -10,6 +10,7 @@ import { openSync, closeSync, unlinkSync, readFileSync, writeFileSync, existsSyn
 import { tmpdir } from 'node:os';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { DB_SNIPPET } from './db.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const HOSTS = [...new Set([process.env.ZATAA_VPS ?? 'zataa-vps', 'zataa-vps-443'])];
@@ -43,7 +44,7 @@ try { fd = openSync(LOCK, 'wx'); } catch {
 }
 writeFileSync(fd, String(process.pid));
 try {
-  const QUERY = `const { DatabaseSync } = await import('node:sqlite'); const db = new DatabaseSync('db/office.db');
+  const QUERY = `${DB_SNIPPET}
     let yt = ''; try { db.prepare('SELECT channel FROM contents LIMIT 1').get(); yt = "OR channel = 'youtube'"; } catch {}
     console.log(JSON.stringify(db.prepare("SELECT id, format FROM contents WHERE (format = 'video' " + yt + ") AND status IN ('draft', 'revision') AND json_extract(data_json, '$._laptop') = 1 ORDER BY day, id").all()));`;
   let q;
