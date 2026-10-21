@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-21T21:57:21.048Z",
+ "generated_at": "2026-10-21T22:07:21.057Z",
  "today": "2026-10-22",
  "week_start": "2026-10-19",
  "campaign": {
@@ -79,7 +79,7 @@
    "title": "Data Analyst",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-10-21 19:01:04"
+   "updated_at": "2026-10-21 22:00:52"
   },
   {
    "id": "price",
@@ -103,15 +103,15 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-21 20:45:51"
+   "updated_at": "2026-10-21 22:00:51"
   },
   {
    "id": "tresearch",
    "name": "Davina",
    "title": "Research & Fundamental",
    "status": "done",
-   "current_task": "Fundamental: Berita 24 jam tidak ketemu (sumber terbaru ±12 Okt). Fed masih condong naik, NFP Sep lemah 29K, emas ~4.170 tertekan yield. Confidence rendah.",
-   "updated_at": "2026-10-21 20:45:51"
+   "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
+   "updated_at": "2026-10-21 22:00:51"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-10-21 20:45:51"
+   "updated_at": "2026-10-21 22:00:51"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
-   "updated_at": "2026-10-21 20:45:51"
+   "updated_at": "2026-10-21 22:00:51"
   },
   {
    "id": "texec",
@@ -574,6 +574,21 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-21 22:00:52",
+   "agent_id": "analyst",
+   "message": "Update data 37 post IG 📈"
+  },
+  {
+   "ts": "2026-10-21 22:00:51",
+   "agent_id": "trisk",
+   "message": "NO TRADE · jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
+  },
+  {
+   "ts": "2026-10-21 22:00:51",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: sideways → bullish"
+  },
+  {
    "ts": "2026-10-21 20:40:51",
    "agent_id": "ttech",
    "message": "M10 berubah arah: bullish → sideways"
@@ -680,21 +695,6 @@
   },
   {
    "ts": "2026-10-21 16:50:51",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: sideways → bullish"
-  },
-  {
-   "ts": "2026-10-21 16:40:51",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: bullish → sideways"
-  },
-  {
-   "ts": "2026-10-21 16:30:51",
-   "agent_id": "trisk",
-   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-  },
-  {
-   "ts": "2026-10-21 16:20:51",
    "agent_id": "ttech",
    "message": "M10 berubah arah: sideways → bullish"
   }
@@ -992,7 +992,7 @@
    "yt_posted": 3,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 25561,
+   "views": 25570,
    "likes": 130,
    "comments": 4,
    "shares": 8,
@@ -1062,9 +1062,14 @@
   "paused": false,
   "balance": 1687.5099999999998,
   "today_pnl": 10.91,
-  "price": 4142.299805,
+  "price": 4140.799805,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-21 22:00:51",
+    "decision": "NO TRADE",
+    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
+   },
    {
     "ts": "2026-10-21 20:45:51",
     "decision": "NO TRADE",
@@ -1087,11 +1092,6 @@
    },
    {
     "ts": "2026-10-21 19:45:51",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-10-21 19:30:51",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1127,7 +1127,7 @@
    1687.5099999999995
   ],
   "last": {
-   "ts": "2026-10-21 20:45:51",
+   "ts": "2026-10-21 22:00:51",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1138,8 +1138,8 @@
    "risk_usd": null,
    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
    "fund": {
-    "bias": -0.1,
-    "note": "Berita 24 jam tidak ketemu (sumber terbaru ±12 Okt). Fed masih condong naik, NFP Sep lemah 29K, emas ~4.170 tertekan yield. Confidence rendah.",
+    "bias": 0,
+    "note": "netral (belum ada ringkasan hari ini)",
     "danger": null,
     "blackout": null
    },
@@ -1148,7 +1148,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4139.10 di atas tengah band (4119.4–4147.6) · RSI 57 · Stoch 86 · MACD +0.57 · H1 sideways"
+    "note": "M15 4144.60 di atas tengah band (4119.3–4152.9) · RSI 62 · Stoch 99 · MACD +1.06 · H1 sideways"
    }
   },
   "fund": null,
@@ -1185,48 +1185,48 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "sideways",
-    "score": 1,
-    "price": 4140.7,
-    "ema20": 4133.46,
-    "ema50": 4132.12,
-    "rsi": 60.4,
+    "bias": "bullish",
+    "score": 3,
+    "price": 4142.3,
+    "ema20": 4137.91,
+    "ema50": 4134.6,
+    "rsi": 62.1,
     "n": 299,
-    "slot": 2987693,
-    "at": 1792615851365
+    "slot": 2987700,
+    "at": 1792620051428
    },
    "M15": {
     "bias": "bullish",
-    "score": 2,
-    "price": 4137.9,
-    "ema20": 4133.02,
-    "ema50": 4130.91,
-    "rsi": 55.5,
+    "score": 3,
+    "price": 4142.3,
+    "ema20": 4136.67,
+    "ema50": 4132.97,
+    "rsi": 59.3,
     "n": 299,
-    "slot": 1991795,
-    "at": 1792615551357
+    "slot": 1991800,
+    "at": 1792620051434
    },
    "M30": {
     "bias": "bullish",
     "score": 2,
-    "price": 4134.4,
-    "ema20": 4131.12,
-    "ema50": 4129.3,
-    "rsi": 52.8,
+    "price": 4142.3,
+    "ema20": 4134.01,
+    "ema50": 4130.77,
+    "rsi": 57.4,
     "n": 299,
-    "slot": 995897,
-    "at": 1792614651358
+    "slot": 995900,
+    "at": 1792620051436
    },
    "H1": {
     "bias": "sideways",
-    "score": 0,
-    "price": 4135.1,
-    "ema20": 4128.16,
-    "ema50": 4132.43,
-    "rsi": 54,
+    "score": -1,
+    "price": 4142.3,
+    "ema20": 4130.72,
+    "ema50": 4133.18,
+    "rsi": 57.6,
     "n": 299,
-    "slot": 497948,
-    "at": 1792612851350
+    "slot": 497950,
+    "at": 1792620051443
    }
   },
   "currency": "USC",
