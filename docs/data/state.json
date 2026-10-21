@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-21T13:07:20.813Z",
+ "generated_at": "2026-10-21T13:17:20.812Z",
  "today": "2026-10-21",
  "week_start": "2026-10-19",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-21 13:00:51"
+   "updated_at": "2026-10-21 13:15:51"
   },
   {
    "id": "tresearch",
@@ -111,15 +111,15 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Berita 24 jam tidak ketemu (sumber terbaru ±12 Okt). Fed masih condong naik, NFP Sep lemah 29K, emas ~4.170 tertekan yield. Confidence rendah.",
-   "updated_at": "2026-10-21 13:00:51"
+   "updated_at": "2026-10-21 13:15:51"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-10-21 13:00:51"
+   "current_task": "Belum ada pantulan band · H1 sideways",
+   "updated_at": "2026-10-21 13:15:51"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-10-21 13:00:51"
+   "updated_at": "2026-10-21 13:15:51"
   },
   {
    "id": "texec",
@@ -574,6 +574,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-21 13:10:51",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: sideways → bullish"
+  },
+  {
    "ts": "2026-10-21 13:01:05",
    "agent_id": "analyst",
    "message": "Update data 37 post IG 📈"
@@ -692,11 +697,6 @@
    "ts": "2026-10-21 08:30:50",
    "agent_id": "ttech",
    "message": "M10 berubah arah: sideways → bullish"
-  },
-  {
-   "ts": "2026-10-21 08:00:50",
-   "agent_id": "ttech",
-   "message": "M60 berubah arah: bearish → sideways"
   }
  ],
  "chats": [
@@ -1062,9 +1062,14 @@
   "paused": false,
   "balance": 1687.5099999999998,
   "today_pnl": 10.91,
-  "price": 4137.700195,
+  "price": 4139,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-21 13:15:51",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
    {
     "ts": "2026-10-21 13:00:51",
     "decision": "NO TRADE",
@@ -1087,11 +1092,6 @@
    },
    {
     "ts": "2026-10-21 12:00:51",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-10-21 11:45:52",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1127,7 +1127,7 @@
    1687.5099999999995
   ],
   "last": {
-   "ts": "2026-10-21 13:00:51",
+   "ts": "2026-10-21 13:15:51",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1144,11 +1144,11 @@
     "blackout": null
    },
    "tech": {
-    "bias": "bearish",
+    "bias": "sideways",
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4131.10 di atas tengah band (4113.3–4142.3) · RSI 54 · Stoch 54 · MACD -0.00 · H1 bearish"
+    "note": "M15 4137.40 di atas tengah band (4113.4–4144.2) · RSI 60 · Stoch 72 · MACD +0.44 · H1 sideways"
    }
   },
   "fund": {
@@ -1188,26 +1188,26 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "sideways",
-    "score": 0,
-    "price": 4129.6,
-    "ema20": 4129.62,
-    "ema50": 4125.81,
-    "rsi": 51.9,
+    "bias": "bullish",
+    "score": 3,
+    "price": 4138.2,
+    "ema20": 4130.43,
+    "ema50": 4126.29,
+    "rsi": 61.9,
     "n": 299,
-    "slot": 2987646,
-    "at": 1792587650987
+    "slot": 2987647,
+    "at": 1792588251004
    },
    "M15": {
     "bias": "bullish",
     "score": 2,
-    "price": 4129.6,
-    "ema20": 4128.42,
-    "ema50": 4124.99,
-    "rsi": 52.9,
+    "price": 4136.3,
+    "ema20": 4129.17,
+    "ema50": 4125.44,
+    "rsi": 59.2,
     "n": 299,
-    "slot": 1991764,
-    "at": 1792587650991
+    "slot": 1991765,
+    "at": 1792588551012
    },
    "M30": {
     "bias": "sideways",
