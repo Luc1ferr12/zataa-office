@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-21T13:37:20.823Z",
+ "generated_at": "2026-10-21T13:47:20.825Z",
  "today": "2026-10-21",
  "week_start": "2026-10-19",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-21 13:30:51"
+   "updated_at": "2026-10-21 13:45:51"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Berita 24 jam tidak ketemu (sumber terbaru ±12 Okt). Fed masih condong naik, NFP Sep lemah 29K, emas ~4.170 tertekan yield. Confidence rendah.",
-   "updated_at": "2026-10-21 13:30:51"
+   "updated_at": "2026-10-21 13:45:51"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-10-21 13:30:51"
+   "updated_at": "2026-10-21 13:45:51"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-10-21 13:30:51"
+   "updated_at": "2026-10-21 13:45:51"
   },
   {
    "id": "texec",
@@ -1062,9 +1062,14 @@
   "paused": false,
   "balance": 1687.5099999999998,
   "today_pnl": 10.91,
-  "price": 4135,
+  "price": 4137.899902,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-21 13:45:51",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
    {
     "ts": "2026-10-21 13:30:51",
     "decision": "NO TRADE",
@@ -1089,11 +1094,6 @@
     "ts": "2026-10-21 12:30:51",
     "decision": "NO TRADE",
     "reason": "masih ada posisi terbuka"
-   },
-   {
-    "ts": "2026-10-21 12:15:50",
-    "decision": "SELL",
-    "reason": "pantulan band atas BB M15, konfirmasi RSI+Stokastik+MACD · London–NY (mode aman) risiko 0.5% · SL 7.27 · TP tengah band RR 1:1.5 · fundamental: Berita 24 jam tidak ketemu (sumber terbaru ±12 Okt). Fed masih condong naik, NFP Sep lemah 29K, emas ~4.170 tertekan yield. Confidence rendah."
    }
   ],
   "trades": [
@@ -1127,7 +1127,7 @@
    1687.5099999999995
   ],
   "last": {
-   "ts": "2026-10-21 13:30:51",
+   "ts": "2026-10-21 13:45:51",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1148,7 +1148,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4138.90 di atas tengah band (4113.5–4145.8) · RSI 61 · Stoch 85 · MACD +0.61 · H1 sideways"
+    "note": "M15 4138.40 di atas tengah band (4114.4–4146.5) · RSI 60 · Stoch 85 · MACD +0.53 · H1 sideways"
    }
   },
   "fund": {
@@ -1190,24 +1190,24 @@
    "M10": {
     "bias": "bullish",
     "score": 3,
-    "price": 4139.3,
-    "ema20": 4131.92,
-    "ema50": 4127.24,
-    "rsi": 62.9,
+    "price": 4137.7,
+    "ema20": 4132.47,
+    "ema50": 4127.65,
+    "rsi": 60.1,
     "n": 299,
-    "slot": 2987649,
-    "at": 1792589451019
+    "slot": 2987650,
+    "at": 1792590051021
    },
    "M15": {
     "bias": "bullish",
     "score": 3,
-    "price": 4139.3,
-    "ema20": 4130.14,
-    "ema50": 4125.98,
-    "rsi": 61.7,
+    "price": 4138.2,
+    "ema20": 4130.91,
+    "ema50": 4126.46,
+    "rsi": 60.2,
     "n": 299,
-    "slot": 1991766,
-    "at": 1792589451024
+    "slot": 1991767,
+    "at": 1792590351034
    },
    "M30": {
     "bias": "bullish",
