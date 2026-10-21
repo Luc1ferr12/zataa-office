@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-21T00:59:07.572Z",
+ "generated_at": "2026-10-21T01:00:52.233Z",
  "today": "2026-10-21",
  "week_start": "2026-10-19",
  "campaign": {
@@ -78,8 +78,8 @@
    "name": "Raka",
    "title": "Data Analyst",
    "status": "done",
-   "current_task": "Cek pola data",
-   "updated_at": "2026-10-20 23:02:10"
+   "current_task": null,
+   "updated_at": "2026-10-21 01:00:36"
   },
   {
    "id": "price",
@@ -574,6 +574,26 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-21 01:00:52",
+   "agent_id": "ttech",
+   "message": "M60 berubah arah: sideways → bearish"
+  },
+  {
+   "ts": "2026-10-21 01:00:52",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: sideways → bearish"
+  },
+  {
+   "ts": "2026-10-21 01:00:36",
+   "agent_id": "dir",
+   "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
+  },
+  {
+   "ts": "2026-10-21 01:00:36",
+   "agent_id": "analyst",
+   "message": "Update data 35 post IG 📈"
+  },
+  {
    "ts": "2026-10-21 00:58:51",
    "agent_id": "dir",
    "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
@@ -677,26 +697,6 @@
    "ts": "2026-10-21 00:27:53",
    "agent_id": "owner",
    "message": "Approve 2 ide konten tambahan 💡"
-  },
-  {
-   "ts": "2026-10-21 00:27:37",
-   "agent_id": "dir",
-   "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
-  },
-  {
-   "ts": "2026-10-21 00:25:21",
-   "agent_id": "dir",
-   "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
-  },
-  {
-   "ts": "2026-10-21 00:23:06",
-   "agent_id": "dir",
-   "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
-  },
-  {
-   "ts": "2026-10-21 00:20:50",
-   "agent_id": "dir",
-   "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
   }
  ],
  "chats": [
@@ -992,7 +992,7 @@
    "yt_posted": 2,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 22636,
+   "views": 22652,
    "likes": 81,
    "comments": 2,
    "shares": 8,
@@ -1009,7 +1009,7 @@
      "title": "Era franchise VCT tamat: bursa transfer 2027 dimulai (rumor ditandai)",
      "format": "video",
      "pillar": "news",
-     "views": 2066
+     "views": 2071
     },
     {
      "title": "8.000 Prajurit Penjaga Makam yang Belum Dibuka",
@@ -1062,7 +1062,7 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4119.600098,
+  "price": 4117.799805,
   "open": [],
   "signals": [
    {
@@ -1176,48 +1176,48 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "sideways",
-    "score": 0,
-    "price": 4121.1,
-    "ema20": 4120.9,
-    "ema50": 4123.36,
-    "rsi": 48.7,
+    "bias": "bearish",
+    "score": -2,
+    "price": 4118.7,
+    "ema20": 4120.69,
+    "ema50": 4123.18,
+    "rsi": 43.7,
     "n": 299,
-    "slot": 2987573,
-    "at": 1792543864672
+    "slot": 2987574,
+    "at": 1792544452172
    },
    "M15": {
     "bias": "bearish",
     "score": -2,
-    "price": 4119.9,
-    "ema20": 4121.9,
-    "ema50": 4124.87,
-    "rsi": 44.3,
+    "price": 4118.7,
+    "ema20": 4121.6,
+    "ema50": 4124.63,
+    "rsi": 42.3,
     "n": 299,
-    "slot": 1991715,
-    "at": 1792543563162
+    "slot": 1991716,
+    "at": 1792544452179
    },
    "M30": {
     "bias": "sideways",
     "score": -1,
-    "price": 4119.8,
-    "ema20": 4124.25,
-    "ema50": 4130.27,
-    "rsi": 44.2,
+    "price": 4118.7,
+    "ema20": 4123.72,
+    "ema50": 4129.82,
+    "rsi": 43.2,
     "n": 299,
-    "slot": 995857,
-    "at": 1792542642376
+    "slot": 995858,
+    "at": 1792544452180
    },
    "H1": {
-    "bias": "sideways",
-    "score": -1,
-    "price": 4115.8,
-    "ema20": 4127.62,
-    "ema50": 4139.47,
-    "rsi": 39.6,
+    "bias": "bearish",
+    "score": -2,
+    "price": 4118.7,
+    "ema20": 4126.77,
+    "ema50": 4138.65,
+    "rsi": 41.9,
     "n": 299,
-    "slot": 497928,
-    "at": 1792540858930
+    "slot": 497929,
+    "at": 1792544452189
    }
   },
   "currency": "USC",
