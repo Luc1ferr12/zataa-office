@@ -285,7 +285,8 @@ async function setup() {
 }
 
 const isMain = process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1];
-if (isMain) {
+// CLI di async IIFE (bukan top-level await): submit → import qa.mjs/price.mjs yang balik import modul ini; kalau modul ini masih nunggu TLA, siklusnya deadlock
+if (isMain) (async () => {
   const [cmd, a] = process.argv.slice(2);
   try {
     if (cmd === 'setup') await setup();
@@ -296,4 +297,4 @@ if (isMain) {
     else if (cmd === 'say') { await say(esc(a)); out('ok'); }
     else out('pakai: approval.mjs setup | submit <id> | plan | ideas | poll | say "<teks>"');
   } catch (e) { out(`gagal: ${e.message}`); process.exit(1); }
-}
+})();

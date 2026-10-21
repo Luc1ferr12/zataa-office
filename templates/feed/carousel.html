@@ -47,8 +47,8 @@ window.render = async (d, size, opts = {}) => {
   let inner;
   document.body.classList.toggle('with-photo', !!(s.kind === 'hook' && s.photo));
   if (s.kind === 'hook') {
-    // photo = foto tim/pemain (mis. assets/photos/x.jpg) → layout foto; pre = teks kecil di atas judul; logo tanpa foto tampil besar
-    const row = s.photo ? logoRow : logoRow.replace('class="tlogos"', 'class="tlogos big"');
+    // photo = foto tim/pemain (mis. assets/photos/x.jpg) → layout foto; pre = teks kecil di atas judul; logo tanpa foto tampil besar (maks 3 logo, lebih dari itu ukuran biasa biar nggak kepotong)
+    const row = s.photo || logos.length > 3 ? logoRow : logoRow.replace('class="tlogos"', 'class="tlogos big"');
     inner = `<div class="grow">${row}${s.pre ? `<div class="pre">${md(s.pre)}</div>` : ''}<h1 class="h1 hook">${md(s.headline)}</h1>${s.sub ? `<p class="sub">${md(s.sub)}</p>` : ''}</div><div class="swipe">Geser ➜</div>`;
   } else if (s.kind === 'cta') {
     const logo = new URL('../../docs/assets/logo.png', location.href).href;

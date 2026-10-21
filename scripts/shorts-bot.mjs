@@ -17,9 +17,10 @@
 process.removeAllListeners('warning');
 import { join, dirname, basename } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { readFileSync, writeFileSync, existsSync, mkdirSync, unlinkSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync, mkdirSync, unlinkSync, statSync } from 'node:fs';
 import { readFile } from 'node:fs/promises';
 import { execFile } from 'node:child_process';
+import ffmpegPath from 'ffmpeg-static';
 import { loadEnv, NAMA, lesson } from './approval.mjs';
 import { zernioOn, youtubeUpload } from './zernio.mjs';
 import { tdb, getTopic, checkQuota, syncTopic, weekStats, WEEK_TOTAL, HH_MIN, PILLARS } from './shorts-topics.mjs';
@@ -121,6 +122,15 @@ export async function queue(id) {
   return { ok: true, id, queued: 'laptop' };
 }
 
+// Bot API maks 50 MB → video lebih besar dikirim versi preview terkompres (upload YouTube tetap pakai file asli)
+const TG_MAX = 49 * 1024 * 1024;
+function tgVideo(id, video) {
+  if (statSync(video).size <= TG_MAX) return Promise.resolve(video);
+  const prev = join(ROOT, 'tmp', `shorts-preview-${id}.mp4`);
+  mkdirSync(dirname(prev), { recursive: true });
+  return new Promise((ok, no) => execFile(ffmpegPath, ['-v', 'error', '-y', '-i', video, '-c:v', 'libx264', '-preset', 'medium', '-crf', '24', '-maxrate', '6M', '-bufsize', '12M', '-pix_fmt', 'yuv420p', '-c:a', 'copy', '-movflags', '+faststart', prev],
+    { timeout: 10 * 60_000 }, (e, so, se) => (e ? no(new Error(`kompres preview gagal: ${se || e.message}`)) : ok(prev))));
+}
 const BUTTONS = (id) => ({ inline_keyboard: [[{ text: '✅ Approve', callback_data: `yok:${id}` }, { text: '✏️ Revisi', callback_data: `yrev:${id}` }, { text: '❌ Tolak', callback_data: `yno:${id}` }]] });
 export async function submit(id, { note = '' } = {}) {
   const d = await db();
@@ -130,7 +140,7 @@ export async function submit(id, { note = '' } = {}) {
   const A = JSON.parse(c.asset_path);
   const data = dataOf(c);
   await api('sendVideo', { chat_id: owner(), caption: head(c), parse_mode: 'HTML', supports_streaming: true, width: 1080, height: 1920, ...(data.duration ? { duration: Math.round(data.duration) } : {}) },
-    { video: join(ROOT, A.video), ...(A.cover && existsSync(join(ROOT, A.cover)) ? { thumbnail: join(ROOT, A.cover) } : {}) });
+    { video: await tgVideo(c.id, join(ROOT, A.video)), ...(A.cover && existsSync(join(ROOT, A.cover)) ? { thumbnail: join(ROOT, A.cover) } : {}) });
   let text = [
     `<b>${NAMA.ypublish}</b>: Bos, Shorts ini siap upload ke <b>Zataa Story</b> 👇`, '', head(c),
     data.duration ? `⏱️ ${Math.round(data.duration)} dtk · mood ${esc(data.mood ?? 'misteri')}${data._test ? ' · <i>uji coba</i>' : ''}` : '',

@@ -107,7 +107,7 @@ export async function priceTick() {
 
 // harga terbaru per halaman game (snapshot Budi ≤6 jam; kalau belum ada/basi → baca langsung dari web, tanpa simpan)
 // dipakai Haiku di bot (jawab "harga X berapa") & QA Fikri (cocokkan nominal di caption). kata = filter, mis. "86 diamond"
-export async function latest(word = '') {
+export async function latest(word = '', limit = 40) {
   const urls = pageUrls();
   let d = null;
   try { d = await db(); d.exec(SQL); } catch { /* DB belum ada (laptop) */ }
@@ -124,7 +124,7 @@ export async function latest(word = '') {
     // angka dicocokkan utuh di nama paket (bagian sebelum "Rp"): "86" ≠ "Rp86.859"
     const hit = (l, w) => { const name = l.toLowerCase().split(/\brp/)[0]; return /^\d+$/.test(w) ? new RegExp(`(^|\\D)${w}(\\D|$)`).test(name) : name.includes(w); };
     const lines = snap.text.split('\n').filter((l) => words.every((w) => hit(l, w)));
-    if (lines.length) out.push({ url, ts: snap.ts, items: lines.slice(0, 40) });
+    if (lines.length) out.push({ url, ts: snap.ts, items: lines.slice(0, limit) });
   }
   return out;
 }

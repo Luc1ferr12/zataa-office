@@ -33,7 +33,7 @@ export async function qa(c) {
 
   const amounts = [...new Set(rpOf(words))];
   if (amounts.length) {
-    const pages = await latest().catch(() => []);
+    const pages = await latest('', Infinity).catch(() => []);
     const known = new Set(pages.flatMap((p) => p.items ?? []).flatMap(rpOf));
     if (!known.size) warnings.push('harga di konten belum bisa dicocokkan (data harga zataa nggak kebaca)');
     else {
