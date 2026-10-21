@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-21T01:50:08.213Z",
+ "generated_at": "2026-10-21T01:52:23.789Z",
  "today": "2026-10-21",
  "week_start": "2026-10-19",
  "campaign": {
@@ -574,6 +574,16 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-21 01:52:08",
+   "agent_id": "dir",
+   "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
+  },
+  {
+   "ts": "2026-10-21 01:51:08",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: sideways → bearish"
+  },
+  {
    "ts": "2026-10-21 01:49:52",
    "agent_id": "dir",
    "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
@@ -687,16 +697,6 @@
    "ts": "2026-10-21 01:05:07",
    "agent_id": "dir",
    "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
-  },
-  {
-   "ts": "2026-10-21 01:02:52",
-   "agent_id": "dir",
-   "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
-  },
-  {
-   "ts": "2026-10-21 01:00:52",
-   "agent_id": "ttech",
-   "message": "M60 berubah arah: sideways → bearish"
   }
  ],
  "chats": [
@@ -992,12 +992,12 @@
    "yt_posted": 2,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 22652,
-   "likes": 81,
+   "views": 22656,
+   "likes": 82,
    "comments": 2,
    "shares": 8,
    "saves": 3,
-   "yt_views": 1705,
+   "yt_views": 1709,
    "top": [
     {
      "title": "Hall of Champions Valorant 2021-2026",
@@ -1062,7 +1062,7 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4117.700195,
+  "price": 4120.299805,
   "open": [],
   "signals": [
    {
@@ -1176,15 +1176,15 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "sideways",
-    "score": -1,
-    "price": 4119.7,
-    "ema20": 4118.59,
-    "ema50": 4121.82,
-    "rsi": 50.2,
+    "bias": "bearish",
+    "score": -3,
+    "price": 4117.7,
+    "ema20": 4118.51,
+    "ema50": 4121.66,
+    "rsi": 47.4,
     "n": 299,
-    "slot": 2987578,
-    "at": 1792546880886
+    "slot": 2987579,
+    "at": 1792547468476
    },
    "M15": {
     "bias": "bearish",
