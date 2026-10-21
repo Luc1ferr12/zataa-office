@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-21T12:07:20.787Z",
+ "generated_at": "2026-10-21T12:17:20.794Z",
  "today": "2026-10-21",
  "week_start": "2026-10-19",
  "campaign": {
@@ -102,8 +102,8 @@
    "name": "Mahendra",
    "title": "Trading Director",
    "status": "done",
-   "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-21 12:00:51"
+   "current_task": "Siklus beres: SELL",
+   "updated_at": "2026-10-21 12:15:51"
   },
   {
    "id": "tresearch",
@@ -111,31 +111,31 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Berita 24 jam tidak ketemu (sumber terbaru ±12 Okt). Fed masih condong naik, NFP Sep lemah 29K, emas ~4.170 tertekan yield. Confidence rendah.",
-   "updated_at": "2026-10-21 12:00:51"
+   "updated_at": "2026-10-21 12:15:50"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-10-21 12:00:51"
+   "current_task": "Setup SELL di band (RSI+Stokastik+MACD)",
+   "updated_at": "2026-10-21 12:15:50"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-10-21 12:00:51"
+   "current_task": "SELL 0.01 lot, RR 1:1.5",
+   "updated_at": "2026-10-21 12:15:50"
   },
   {
    "id": "texec",
    "name": "Wiratama",
    "title": "Execution",
-   "status": "idle",
-   "current_task": null,
-   "updated_at": "2026-10-12 04:59:47"
+   "status": "done",
+   "current_task": "SELL 0.01 lot terbuka",
+   "updated_at": "2026-10-21 12:15:51"
   },
   {
    "id": "teval",
@@ -574,6 +574,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-21 12:15:51",
+   "agent_id": "texec",
+   "message": "[paper] Buka SELL 0.01 lot @ 4138.05 · SL 4145.32 · TP 4127.14"
+  },
+  {
    "ts": "2026-10-21 12:03:03",
    "agent_id": "publisher",
    "message": "Posting #43 ke IG + TikTok ✅"
@@ -692,14 +697,37 @@
    "ts": "2026-10-21 07:46:00",
    "agent_id": "trisk",
    "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-  },
-  {
-   "ts": "2026-10-21 07:45:14",
-   "agent_id": "dir",
-   "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-10-21 12:15:51",
+   "agent_id": "trisk",
+   "to_id": "texec",
+   "kind": "oper",
+   "message": "Keputusan SELL 0.01 lot, SL 4145.32, TP 4127.14. Eksekusi ya Wir!"
+  },
+  {
+   "ts": "2026-10-21 12:15:51",
+   "agent_id": "texec",
+   "to_id": "treport",
+   "kind": "oper",
+   "message": "Order SELL #1 ke-fill di 4138.05, SL TP kepasang 👍"
+  },
+  {
+   "ts": "2026-10-21 12:15:50",
+   "agent_id": "ttech",
+   "to_id": "trisk",
+   "kind": "oper",
+   "message": "M15 4138.20 di atas tengah band (4111.6–4142.7) · RSI 65 · Stoch 90 · MACD +1.71 · H1 sideways · setup SELL (RSI+Stokastik+MACD)"
+  },
+  {
+   "ts": "2026-10-21 12:15:50",
+   "agent_id": "tresearch",
+   "to_id": "ttech",
+   "kind": "oper",
+   "message": "Berita 24 jam tidak ketemu (sumber terbaru ±12 Okt). Fed masih condong naik, NFP Sep lemah 29K, emas ~4.170 tertekan yie"
+  },
   {
    "ts": "2026-10-21 12:03:03",
    "agent_id": "publisher",
@@ -951,34 +979,6 @@
    "to_id": "owner",
    "kind": "oper",
    "message": "Bos, Shorts \"Shorts #53 Beton Romawi antre render, tayang 18:00 WIB\" udah aku kirim ke Telegram. Ditunggu ✅ buat upload 🙏"
-  },
-  {
-   "ts": "2026-10-19 23:15:05",
-   "agent_id": "yvisual",
-   "to_id": "yvideo",
-   "kind": "oper",
-   "message": "Aset adegan \"7 foto Commons beton Romawi + credits.txt\" kelar, Yoga. Gas edit!"
-  },
-  {
-   "ts": "2026-10-19 23:03:43",
-   "agent_id": "designer",
-   "to_id": "publisher",
-   "kind": "oper",
-   "message": "Visual \"Render feed #40 polling 6 tim\" kelar! Fikri, cek typo-nya sekalian ya 🙏"
-  },
-  {
-   "ts": "2026-10-19 23:03:34",
-   "agent_id": "copywriter",
-   "to_id": "designer",
-   "kind": "oper",
-   "message": "Maria, copy \"Copy #40 polling & #41 bracket siap\" udah masuk. Headline-nya jangan dikecilin ya 😆"
-  },
-  {
-   "ts": "2026-10-19 23:02:42",
-   "agent_id": "dir",
-   "to_id": "researcher",
-   "kind": "oper",
-   "message": "Brief \"Briefing: pilih 3 ide (ENVY, tiket sold out, Hall of Champio\" udah jadi. Clariana, gas riset ya!"
   }
  ],
  "stats": {
@@ -1062,9 +1062,23 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4139.5,
-  "open": [],
+  "price": 4137.100098,
+  "open": [
+   {
+    "side": "sell",
+    "lot": 0.01,
+    "entry": 4138.05,
+    "sl": 4145.32,
+    "tp": 4127.14,
+    "open_ts": "2026-10-21 12:15:51"
+   }
+  ],
   "signals": [
+   {
+    "ts": "2026-10-21 12:15:50",
+    "decision": "SELL",
+    "reason": "pantulan band atas BB M15, konfirmasi RSI+Stokastik+MACD · London–NY (mode aman) risiko 0.5% · SL 7.27 · TP tengah band RR 1:1.5 · fundamental: Berita 24 jam tidak ketemu (sumber terbaru ±12 Okt). Fed masih condong naik, NFP Sep lemah 29K, emas ~4.170 tertekan yield. Confidence rendah."
+   },
    {
     "ts": "2026-10-21 12:00:51",
     "decision": "NO TRADE",
@@ -1089,11 +1103,6 @@
     "ts": "2026-10-21 11:01:13",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-10-21 10:45:51",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
   ],
   "trades": [],
@@ -1115,16 +1124,16 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-21 12:00:51",
-   "decision": "NO TRADE",
-   "side": null,
-   "entry": null,
-   "sl": null,
-   "tp": null,
-   "lot": null,
-   "rr": null,
-   "risk_usd": null,
-   "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
+   "ts": "2026-10-21 12:15:50",
+   "decision": "SELL",
+   "side": "sell",
+   "entry": 4138.05,
+   "sl": 4145.32,
+   "tp": 4127.14,
+   "lot": 0.01,
+   "rr": 1.5,
+   "risk_usd": 7.27,
+   "reason": "pantulan band atas BB M15, konfirmasi RSI+Stokastik+MACD · London–NY (mode aman) risiko 0.5% · SL 7.27 · TP tengah band RR 1:1.5 · fundamental: Berita 24 jam tidak ketemu (sumber terbaru ±12 Okt). Fed masih condong naik, NFP Sep lemah 29K, emas ~4.170 tertekan yield. Confidence rendah.",
    "fund": {
     "bias": -0.1,
     "note": "Berita 24 jam tidak ketemu (sumber terbaru ±12 Okt). Fed masih condong naik, NFP Sep lemah 29K, emas ~4.170 tertekan yield. Confidence rendah.",
@@ -1133,10 +1142,14 @@
    },
    "tech": {
     "bias": "sideways",
-    "score": 0,
-    "trigger": null,
-    "confirm": [],
-    "note": "M15 4140.90 di atas tengah band (4111.6–4141.6) · RSI 69 · Stoch 96 · MACD +2.04 · H1 sideways"
+    "score": 3,
+    "trigger": "sell",
+    "confirm": [
+     "RSI",
+     "Stokastik",
+     "MACD"
+    ],
+    "note": "M15 4138.20 di atas tengah band (4111.6–4142.7) · RSI 65 · Stoch 90 · MACD +1.71 · H1 sideways · setup SELL (RSI+Stokastik+MACD)"
    }
   },
   "fund": {
@@ -1178,24 +1191,24 @@
    "M10": {
     "bias": "bullish",
     "score": 2,
-    "price": 4141.2,
-    "ema20": 4127.85,
-    "ema50": 4124.06,
-    "rsi": 75.5,
+    "price": 4140.9,
+    "ema20": 4129.09,
+    "ema50": 4124.72,
+    "rsi": 74.7,
     "n": 299,
-    "slot": 2987640,
-    "at": 1792584050932
+    "slot": 2987641,
+    "at": 1792584651124
    },
    "M15": {
     "bias": "bullish",
     "score": 2,
-    "price": 4141.2,
-    "ema20": 4126.75,
-    "ema50": 4123.77,
-    "rsi": 69.3,
+    "price": 4138.7,
+    "ema20": 4127.89,
+    "ema50": 4124.35,
+    "rsi": 65.3,
     "n": 299,
-    "slot": 1991760,
-    "at": 1792584050936
+    "slot": 1991761,
+    "at": 1792584950954
    },
    "M30": {
     "bias": "sideways",
