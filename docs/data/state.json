@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-21T01:29:46.773Z",
+ "generated_at": "2026-10-21T01:32:02.527Z",
  "today": "2026-10-21",
  "week_start": "2026-10-19",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-21 01:16:12"
+   "updated_at": "2026-10-21 01:30:47"
   },
   {
    "id": "tresearch",
@@ -111,23 +111,23 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Data 24 jam tidak ketemu; Fed condong hawkish (CPI Sep 3,7%, peluang hike Okt/Des), DXY ~99-102, tekanan ke emas.",
-   "updated_at": "2026-10-21 01:16:12"
+   "updated_at": "2026-10-21 01:30:46"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Setup BUY di band (tanpa konfirmasi)",
-   "updated_at": "2026-10-21 01:16:12"
+   "current_task": "Belum ada pantulan band · H1 bearish",
+   "updated_at": "2026-10-21 01:30:47"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: ada candle spike di M15 (kemungkinan berita dadakan), tunggu tenang",
-   "updated_at": "2026-10-21 01:16:12"
+   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
+   "updated_at": "2026-10-21 01:30:47"
   },
   {
    "id": "texec",
@@ -574,6 +574,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-21 01:31:46",
+   "agent_id": "dir",
+   "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
+  },
+  {
    "ts": "2026-10-21 01:29:31",
    "agent_id": "dir",
    "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
@@ -690,11 +695,6 @@
   },
   {
    "ts": "2026-10-21 00:49:48",
-   "agent_id": "dir",
-   "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
-  },
-  {
-   "ts": "2026-10-21 00:47:33",
    "agent_id": "dir",
    "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
   }
@@ -1062,9 +1062,14 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4117.899902,
+  "price": 4119.100098,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-21 01:30:47",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
+   },
    {
     "ts": "2026-10-21 01:16:12",
     "decision": "NO TRADE",
@@ -1089,11 +1094,6 @@
     "ts": "2026-10-21 00:15:49",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-   },
-   {
-    "ts": "2026-10-21 00:01:14",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
    }
   ],
   "trades": [],
@@ -1115,7 +1115,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-21 01:16:12",
+   "ts": "2026-10-21 01:30:47",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1124,7 +1124,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "ada candle spike di M15 (kemungkinan berita dadakan), tunggu tenang",
+   "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)",
    "fund": {
     "bias": -0.3,
     "note": "Data 24 jam tidak ketemu; Fed condong hawkish (CPI Sep 3,7%, peluang hike Okt/Des), DXY ~99-102, tekanan ke emas.",
@@ -1134,9 +1134,9 @@
    "tech": {
     "bias": "bearish",
     "score": 0,
-    "trigger": "buy",
+    "trigger": null,
     "confirm": [],
-    "note": "M15 4110.30 di bawah tengah band (4109.6–4133.1) · RSI 31 · Stoch 16 · MACD -0.96 · H1 bearish · setup BUY (tanpa konfirmasi)"
+    "note": "M15 4118.30 di bawah tengah band (4110.9–4132.0) · RSI 45 · Stoch 31 · MACD -0.25 · H1 bearish"
    }
   },
   "fund": {
@@ -1178,35 +1178,35 @@
    "M10": {
     "bias": "bearish",
     "score": -3,
-    "price": 4108.9,
-    "ema20": 4118.52,
-    "ema50": 4122.07,
-    "rsi": 30.8,
+    "price": 4118.1,
+    "ema20": 4118.48,
+    "ema50": 4121.91,
+    "rsi": 47.9,
     "n": 299,
-    "slot": 2987576,
-    "at": 1792545643940
+    "slot": 2987577,
+    "at": 1792546246901
    },
    "M15": {
     "bias": "bearish",
-    "score": -2,
-    "price": 4111.6,
-    "ema20": 4120.65,
-    "ema50": 4124.12,
-    "rsi": 32.8,
+    "score": -3,
+    "price": 4118.1,
+    "ema20": 4120.4,
+    "ema50": 4123.88,
+    "rsi": 45,
     "n": 299,
-    "slot": 1991717,
-    "at": 1792545356679
+    "slot": 1991718,
+    "at": 1792546246907
    },
    "M30": {
     "bias": "sideways",
     "score": -1,
-    "price": 4118.7,
-    "ema20": 4123.72,
-    "ema50": 4129.82,
-    "rsi": 43.2,
+    "price": 4118.1,
+    "ema20": 4123.19,
+    "ema50": 4129.36,
+    "rsi": 42.6,
     "n": 299,
-    "slot": 995858,
-    "at": 1792544452180
+    "slot": 995859,
+    "at": 1792546246908
    },
    "H1": {
     "bias": "bearish",
