@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-21T07:10:18.290Z",
+ "generated_at": "2026-10-21T07:12:34.061Z",
  "today": "2026-10-21",
  "week_start": "2026-10-19",
  "campaign": {
@@ -401,8 +401,8 @@
    "game": "mlbb",
    "pillar": "esport",
    "title": "RRQ, DEWA, GEEK gugur: musim yang bikin nyesek",
-   "status": "draft",
-   "asset_url": null,
+   "status": "pending_approval",
+   "asset_url": "{\"video\":\"https://luc1ferr12.github.io/zataa-office/media/2026-10-21/43-rrq-dewa-geek-gugur-musim-yang-bikin-nye-ov.mp4\",\"cover\":\"https://luc1ferr12.github.io/zataa-office/media/2026-10-21/43-rrq-dewa-geek-gugur-musim-yang-bikin-nye-ov-cover.jpg\"}",
    "scheduled_at": null,
    "posted_at": null,
    "channel": null
@@ -574,6 +574,21 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-21 07:12:18",
+   "agent_id": "dir",
+   "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
+  },
+  {
+   "ts": "2026-10-21 07:11:16",
+   "agent_id": "video",
+   "message": "video #43 dirender di laptop (suara OmniVoice) & dikirim ke Owner"
+  },
+  {
+   "ts": "2026-10-21 07:11:15",
+   "agent_id": "publisher",
+   "message": "Kirim #43 ke Owner buat approval"
+  },
+  {
    "ts": "2026-10-21 07:10:02",
    "agent_id": "dir",
    "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
@@ -680,21 +695,6 @@
   },
   {
    "ts": "2026-10-21 06:30:24",
-   "agent_id": "dir",
-   "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
-  },
-  {
-   "ts": "2026-10-21 06:28:08",
-   "agent_id": "dir",
-   "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
-  },
-  {
-   "ts": "2026-10-21 06:25:37",
-   "agent_id": "dir",
-   "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
-  },
-  {
-   "ts": "2026-10-21 06:23:21",
    "agent_id": "dir",
    "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
   }
@@ -986,7 +986,7 @@
    "week": "2026-10-19",
    "total": 23,
    "posted": 11,
-   "pending": 0,
+   "pending": 1,
    "scheduled": 0,
    "yt_total": 3,
    "yt_posted": 2,
@@ -1062,7 +1062,7 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4115.299805,
+  "price": 4116.5,
   "open": [],
   "signals": [
    {
@@ -1178,13 +1178,13 @@
    "M10": {
     "bias": "bearish",
     "score": -3,
-    "price": 4113.1,
-    "ema20": 4118.34,
-    "ema50": 4119.78,
-    "rsi": 41.5,
+    "price": 4115.3,
+    "ema20": 4118.05,
+    "ema50": 4119.61,
+    "rsi": 45.1,
     "n": 299,
-    "slot": 2987610,
-    "at": 1792566059417
+    "slot": 2987611,
+    "at": 1792566648425
    },
    "M15": {
     "bias": "sideways",
