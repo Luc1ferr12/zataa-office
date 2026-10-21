@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-21T23:17:21.660Z",
+ "generated_at": "2026-10-21T23:27:21.124Z",
  "today": "2026-10-22",
  "week_start": "2026-10-19",
  "campaign": {
@@ -22,24 +22,24 @@
    "name": "Andre",
    "title": "Marketing Director",
    "status": "done",
-   "current_task": "Pilih 3 ide briefing -> Owner",
-   "updated_at": "2026-10-21 23:02:43"
+   "current_task": "Sesi pagi beres",
+   "updated_at": "2026-10-21 23:23:25"
   },
   {
    "id": "researcher",
    "name": "Clariana",
    "title": "Researcher",
    "status": "done",
-   "current_task": "Riset esport: FFWS grup, hero meta MPL, jadwal VCT 2027",
-   "updated_at": "2026-10-21 23:01:55"
+   "current_task": "Riset selesai",
+   "updated_at": "2026-10-21 23:23:25"
   },
   {
    "id": "copywriter",
    "name": "Ista",
    "title": "Copywriter",
    "status": "done",
-   "current_task": "Copy #44 & #45 siap",
-   "updated_at": "2026-10-21 23:03:15"
+   "current_task": "Naskah video BTR vs Fluxo (glitch)",
+   "updated_at": "2026-10-21 23:19:42"
   },
   {
    "id": "designer",
@@ -53,9 +53,9 @@
    "id": "video",
    "name": "Dimas",
    "title": "Video Production",
-   "status": "working",
-   "current_task": "Render video #45 hero meta",
-   "updated_at": "2026-10-21 23:03:22"
+   "status": "done",
+   "current_task": "Video #45 hero meta (41,8 dtk)",
+   "updated_at": "2026-10-21 23:23:24"
   },
   {
    "id": "publisher",
@@ -63,7 +63,7 @@
    "title": "Social Media Publisher",
    "status": "done",
    "current_task": "undefined",
-   "updated_at": "2026-10-21 23:17:21"
+   "updated_at": "2026-10-21 23:25:21"
   },
   {
    "id": "ads",
@@ -78,16 +78,16 @@
    "name": "Raka",
    "title": "Data Analyst",
    "status": "done",
-   "current_task": "Pola: video & Valorant/news paling hidup",
-   "updated_at": "2026-10-21 23:02:13"
+   "current_task": "Pola harian",
+   "updated_at": "2026-10-21 23:23:25"
   },
   {
    "id": "price",
    "name": "Budi",
    "title": "Price Watcher",
    "status": "done",
-   "current_task": "Harga zataa.my.id 22 Okt aktif",
-   "updated_at": "2026-10-21 23:02:02"
+   "current_task": "Harga aman",
+   "updated_at": "2026-10-21 23:23:25"
   },
   {
    "id": "ob",
@@ -436,6 +436,20 @@
    "channel": null
   },
   {
+   "id": 61,
+   "day": "2026-10-22",
+   "slot": "sore",
+   "format": "video",
+   "game": "freefire",
+   "pillar": "esport",
+   "title": "BTR Koja: siap tantang FLUXO di Bangkok",
+   "status": "draft",
+   "asset_url": null,
+   "scheduled_at": null,
+   "posted_at": null,
+   "channel": null
+  },
+  {
    "id": 45,
    "day": "2026-10-22",
    "slot": "malam",
@@ -443,8 +457,8 @@
    "game": "mlbb",
    "pillar": "tips",
    "title": "3 hero meta playoff MPL yang wajib kamu coba di rank",
-   "status": "draft",
-   "asset_url": null,
+   "status": "approved",
+   "asset_url": "{\"video\":\"https://luc1ferr12.github.io/zataa-office/media/2026-10-22/45-3-hero-meta-playoff-mpl-yang-wajib-kamu-.mp4\",\"cover\":\"https://luc1ferr12.github.io/zataa-office/media/2026-10-22/45-3-hero-meta-playoff-mpl-yang-wajib-kamu--cover.jpg\"}",
    "scheduled_at": null,
    "posted_at": null,
    "channel": null
@@ -588,6 +602,31 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-21 23:25:21",
+   "agent_id": "owner",
+   "message": "Approve konten #45 ✅"
+  },
+  {
+   "ts": "2026-10-21 23:23:24",
+   "agent_id": "publisher",
+   "message": "#44 FFWS feed & #45 video hero meta terkirim ke Owner, QA bersih"
+  },
+  {
+   "ts": "2026-10-21 23:23:24",
+   "agent_id": "publisher",
+   "message": "Kirim #45 ke Owner buat approval"
+  },
+  {
+   "ts": "2026-10-21 23:20:05",
+   "agent_id": "publisher",
+   "message": "Konten #61 (ide #75) QA teks lolos, video OmniVoice nunggu laptop → auto kirim ke Owner"
+  },
+  {
+   "ts": "2026-10-21 23:19:11",
+   "agent_id": "researcher",
+   "message": "Nemu 1 topik baru"
+  },
+  {
    "ts": "2026-10-21 23:17:21",
    "agent_id": "owner",
    "message": "Approve konten #44 ✅"
@@ -686,34 +725,65 @@
    "ts": "2026-10-21 20:40:51",
    "agent_id": "ttech",
    "message": "M10 berubah arah: bullish → sideways"
-  },
-  {
-   "ts": "2026-10-21 20:30:51",
-   "agent_id": "trisk",
-   "message": "NO TRADE · jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
-  },
-  {
-   "ts": "2026-10-21 20:00:51",
-   "agent_id": "ttech",
-   "message": "M60 berubah arah: bearish → sideways"
-  },
-  {
-   "ts": "2026-10-21 20:00:51",
-   "agent_id": "ttech",
-   "message": "M30 berubah arah: sideways → bullish"
-  },
-  {
-   "ts": "2026-10-21 19:45:51",
-   "agent_id": "ttech",
-   "message": "M15 berubah arah: sideways → bullish"
-  },
-  {
-   "ts": "2026-10-21 19:40:51",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: bearish → bullish"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-10-21 23:20:16",
+   "agent_id": "researcher",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Klaim \"Koja MVP\" aku buang karena cuma 1 sumber. Logo Fluxo nemu di Commons, tapi belum ke-push ke git, tolong di-push dulu sebelum laptop render ya Bos."
+  },
+  {
+   "ts": "2026-10-21 23:20:15",
+   "agent_id": "video",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Video BTR vs Fluxo (gaya glitch, logo BTR + Fluxo) lagi antre render di laptop Bos. Begitu jadi langsung nongol di Telegram buat di-✅, tayang sore 16:00."
+  },
+  {
+   "ts": "2026-10-21 23:20:05",
+   "agent_id": "publisher",
+   "to_id": "video",
+   "kind": "santai",
+   "message": "Logo Fluxo-nya akhirnya nemu juga ya Dim, nggak jadi pakai inisial 😆"
+  },
+  {
+   "ts": "2026-10-21 23:20:05",
+   "agent_id": "publisher",
+   "to_id": "owner",
+   "kind": "oper",
+   "message": "\"QA video BTR vs Fluxo, tunggu render laptop\" udah lolos QA, tinggal nunggu ✅ dari Bos"
+  },
+  {
+   "ts": "2026-10-21 23:20:00",
+   "agent_id": "video",
+   "to_id": "publisher",
+   "kind": "oper",
+   "message": "Fikri, video \"Video BTR vs Fluxo masuk antrean render laptop\" udah render 9:16. Musiknya aman kok"
+  },
+  {
+   "ts": "2026-10-21 23:19:42",
+   "agent_id": "copywriter",
+   "to_id": "designer",
+   "kind": "oper",
+   "message": "Maria, copy \"Naskah video BTR vs Fluxo (glitch)\" udah masuk. Headline-nya jangan dikecilin ya 😆"
+  },
+  {
+   "ts": "2026-10-21 23:19:11",
+   "agent_id": "researcher",
+   "to_id": "copywriter",
+   "kind": "oper",
+   "message": "Ista, bahan buat \"Riset BTR vs Fluxo + logo Fluxo\" udah aku rangkum + sumbernya. Tinggal kamu racik captionnya ✍️"
+  },
+  {
+   "ts": "2026-10-21 23:17:21",
+   "agent_id": "dir",
+   "to_id": null,
+   "kind": "oper",
+   "message": "Bos ACC 1 ide tambahan! \"BTR Koja: siap tantang FLUXO di Bangkok\" 🎉"
+  },
   {
    "ts": "2026-10-21 23:17:21",
    "agent_id": "publisher",
@@ -937,71 +1007,15 @@
    "to_id": "copywriter",
    "kind": "oper",
    "message": "Ista, harga buat \"Cek harga zataa.my.id\" udah aku cek di web. Angkanya aman dipake 💰"
-  },
-  {
-   "ts": "2026-10-20 23:01:32",
-   "agent_id": "researcher",
-   "to_id": "copywriter",
-   "kind": "oper",
-   "message": "Ista, bahan buat \"Riset pagi esport\" udah aku rangkum + sumbernya. Tinggal kamu racik captionnya ✍️"
-  },
-  {
-   "ts": "2026-10-20 14:00:15",
-   "agent_id": "publisher",
-   "to_id": null,
-   "kind": "oper",
-   "message": "\"Tiket UB Final, LB Final & Grand Final MPL ID Sura\" udah tayang di IG 🚀 Makasih semua!"
-  },
-  {
-   "ts": "2026-10-20 12:01:25",
-   "agent_id": "publisher",
-   "to_id": null,
-   "kind": "oper",
-   "message": "\"Bracket playoff MPL ID S18: Bo5, Bo7, siapa ketemu\" udah tayang di IG + TikTok 🚀 Makasih semua!"
-  },
-  {
-   "ts": "2026-10-20 11:00:05",
-   "agent_id": "analyst",
-   "to_id": "dir",
-   "kind": "oper",
-   "message": "Laporan harian marketing udah aku kirim ke Bos, 2 konten tayang hari ini 📊"
-  },
-  {
-   "ts": "2026-10-20 05:00:17",
-   "agent_id": "publisher",
-   "to_id": null,
-   "kind": "oper",
-   "message": "\"Polling: siapa juara MPL ID S18? NAVI, TLID, AE, B\" udah tayang di IG 🚀 Makasih semua!"
-  },
-  {
-   "ts": "2026-10-20 03:01:44",
-   "agent_id": "publisher",
-   "to_id": null,
-   "kind": "oper",
-   "message": "\"ENVY lepas Demon1, keznit, GLYPH: juara Champions \" udah tayang di IG 🚀 Makasih semua!"
-  },
-  {
-   "ts": "2026-10-19 23:59:15",
-   "agent_id": "video",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Bos, render percobaan Hall of Champions lancar, tampilannya aman. Versi final bersuara nyusul otomatis dari laptop ya!"
-  },
-  {
-   "ts": "2026-10-19 23:55:21",
-   "agent_id": "publisher",
-   "to_id": "owner",
-   "kind": "oper",
-   "message": "Bos, \"Feed #54 & #55 dikirim ke Owner, video #56 auto-kirim dari l\" udah aku kirim ke Telegram. Ditunggu approve-nya 🙏"
   }
  ],
  "stats": {
   "this_week": {
    "week": "2026-10-19",
-   "total": 24,
+   "total": 25,
    "posted": 13,
    "pending": 0,
-   "scheduled": 1,
+   "scheduled": 2,
    "yt_total": 4,
    "yt_posted": 3,
    "yt_pending": 0,
@@ -1076,7 +1090,7 @@
   "paused": false,
   "balance": 1687.5099999999998,
   "today_pnl": 10.91,
-  "price": 4128.5,
+  "price": 4126.799805,
   "open": [],
   "signals": [
    {
@@ -1204,13 +1218,13 @@
    "M10": {
     "bias": "sideways",
     "score": 1,
-    "price": 4127.1,
-    "ema20": 4136.08,
-    "ema50": 4134.64,
-    "rsi": 32.7,
+    "price": 4128.1,
+    "ema20": 4135.32,
+    "ema50": 4134.38,
+    "rsi": 35.2,
     "n": 299,
-    "slot": 2987707,
-    "at": 1792624251668
+    "slot": 2987708,
+    "at": 1792624851503
    },
    "M15": {
     "bias": "sideways",
