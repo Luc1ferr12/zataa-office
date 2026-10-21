@@ -58,7 +58,7 @@ Semua bot (Marketing, Shorts, Trading, Aprista) jawab pertama pakai **Haiku** (`
 
 ## Server (VPS)
 Kantor jalan di VPS (`~/zataa-office`, watcher = service `zataa-watcher`, cron sesi harian + backup DB: `scripts/vps/`). DB & `.env` asli hanya di VPS.
-Kalau sesi ini jalan di laptop (Windows): jangan nyalain watcher lokal; ubah kode → commit + push → selesai: watcher VPS `git pull` tiap 10 menit, lalu `scripts/reload.mjs` (lewat `office.mjs export`) restart sendiri watcher & trading yang masih pakai kode lama. Mau langsung: `ssh zataa-vps "cd ~/zataa-office && git pull && sudo systemctl restart zataa-watcher zataa-trading"` (port 22 kadang diblok jaringan laptop).
+Kalau sesi ini jalan di laptop (Windows): jangan nyalain watcher lokal; ubah kode → commit + push → selesai: watcher VPS `git pull` tiap 10 menit, lalu `scripts/reload.mjs` (lewat `office.mjs export`) restart sendiri watcher & trading yang masih pakai kode lama. Mau langsung: `ssh zataa-vps "cd ~/zataa-office && git pull && sudo systemctl restart zataa-watcher zataa-trading"` (port 22 kadang diblok jaringan laptop → pakai `ssh zataa-vps-443`, sshd VPS juga dengar di 443; `laptop-worker.mjs` fallback otomatis & kabari Owner di Telegram kalau dua-duanya gagal ≥20 menit).
 
 ## Ritme kerja
 - Kantor jalan **24 jam** (VPS), nggak ada yang pulang/tidur: di luar jam kerja tiap pegawai aktivitas acak (`docs/js/schedule.js`); tugas dadakan Owner → langsung ke meja. Divisi yang nunggu ✅ Owner → manajernya duduk nunggu di depan ruang Bos sampai di-approve. Sesi kerja Claude otomatis 07:00 WITA, SOP lengkap: `office/daily.md`.
