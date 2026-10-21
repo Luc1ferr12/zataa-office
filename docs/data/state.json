@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-21T03:10:07.553Z",
+ "generated_at": "2026-10-21T03:12:23.292Z",
  "today": "2026-10-21",
  "week_start": "2026-10-19",
  "campaign": {
@@ -574,6 +574,16 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-21 03:12:07",
+   "agent_id": "dir",
+   "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
+  },
+  {
+   "ts": "2026-10-21 03:11:07",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: bearish → sideways"
+  },
+  {
    "ts": "2026-10-21 03:09:51",
    "agent_id": "dir",
    "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
@@ -685,16 +695,6 @@
   },
   {
    "ts": "2026-10-21 02:29:35",
-   "agent_id": "dir",
-   "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
-  },
-  {
-   "ts": "2026-10-21 02:27:20",
-   "agent_id": "dir",
-   "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
-  },
-  {
-   "ts": "2026-10-21 02:25:04",
    "agent_id": "dir",
    "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
   }
@@ -1062,7 +1062,7 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4116.899902,
+  "price": 4115.899902,
   "open": [],
   "signals": [
    {
@@ -1176,15 +1176,15 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "bearish",
-    "score": -2,
-    "price": 4118.4,
-    "ema20": 4118.64,
-    "ema50": 4120.98,
-    "rsi": 48.5,
+    "bias": "sideways",
+    "score": -1,
+    "price": 4116.9,
+    "ema20": 4118.48,
+    "ema50": 4120.82,
+    "rsi": 46,
     "n": 299,
-    "slot": 2987586,
-    "at": 1792551646414
+    "slot": 2987587,
+    "at": 1792552267668
    },
    "M15": {
     "bias": "bearish",
