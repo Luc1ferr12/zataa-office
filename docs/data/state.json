@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-21T05:59:28.564Z",
+ "generated_at": "2026-10-21T06:01:14.815Z",
  "today": "2026-10-21",
  "week_start": "2026-10-19",
  "campaign": {
@@ -87,7 +87,7 @@
    "title": "Price Watcher",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-10-21 04:01:16"
+   "updated_at": "2026-10-21 06:00:30"
   },
   {
    "id": "ob",
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-21 05:45:54"
+   "updated_at": "2026-10-21 06:01:14"
   },
   {
    "id": "tresearch",
@@ -111,23 +111,23 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Data 24 jam tidak ketemu; Fed condong hawkish (CPI Sep 3,7%, peluang hike Okt/Des), DXY ~99-102, tekanan ke emas.",
-   "updated_at": "2026-10-21 05:45:54"
+   "updated_at": "2026-10-21 06:01:14"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-10-21 05:45:54"
+   "current_task": "Setup SELL di band (MACD)",
+   "updated_at": "2026-10-21 06:01:14"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
-   "updated_at": "2026-10-21 05:45:54"
+   "current_task": "NO TRADE: setup SELL di band, konfirmasi baru 1/2 (MACD) · sesi Asia",
+   "updated_at": "2026-10-21 06:01:14"
   },
   {
    "id": "texec",
@@ -574,6 +574,21 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-21 06:00:58",
+   "agent_id": "dir",
+   "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
+  },
+  {
+   "ts": "2026-10-21 06:00:58",
+   "agent_id": "ttech",
+   "message": "M30 berubah arah: sideways → bearish"
+  },
+  {
+   "ts": "2026-10-21 06:00:58",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: sideways → bearish"
+  },
+  {
    "ts": "2026-10-21 05:59:12",
    "agent_id": "dir",
    "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
@@ -680,21 +695,6 @@
   },
   {
    "ts": "2026-10-21 05:16:58",
-   "agent_id": "dir",
-   "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
-  },
-  {
-   "ts": "2026-10-21 05:14:42",
-   "agent_id": "dir",
-   "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
-  },
-  {
-   "ts": "2026-10-21 05:12:26",
-   "agent_id": "dir",
-   "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
-  },
-  {
-   "ts": "2026-10-21 05:10:11",
    "agent_id": "dir",
    "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
   }
@@ -1062,9 +1062,14 @@
   "paused": false,
   "balance": 1676.6,
   "today_pnl": 0,
-  "price": 4119.100098,
+  "price": 4118.700195,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-21 06:01:14",
+    "decision": "NO TRADE",
+    "reason": "setup SELL di band, konfirmasi baru 1/2 (MACD) · sesi Asia"
+   },
    {
     "ts": "2026-10-21 05:45:54",
     "decision": "NO TRADE",
@@ -1089,11 +1094,6 @@
     "ts": "2026-10-21 04:45:55",
     "decision": "NO TRADE",
     "reason": "setup SELL di band, konfirmasi baru 1/2 (MACD) · sesi Asia"
-   },
-   {
-    "ts": "2026-10-21 04:31:05",
-    "decision": "NO TRADE",
-    "reason": "setup SELL di band, konfirmasi baru 1/2 (MACD) · sesi Asia"
    }
   ],
   "trades": [],
@@ -1115,7 +1115,7 @@
    1676.6
   ],
   "last": {
-   "ts": "2026-10-21 05:45:54",
+   "ts": "2026-10-21 06:01:14",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1124,7 +1124,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)",
+   "reason": "setup SELL di band, konfirmasi baru 1/2 (MACD) · sesi Asia",
    "fund": {
     "bias": -0.3,
     "note": "Data 24 jam tidak ketemu; Fed condong hawkish (CPI Sep 3,7%, peluang hike Okt/Des), DXY ~99-102, tekanan ke emas.",
@@ -1133,10 +1133,12 @@
    },
    "tech": {
     "bias": "bearish",
-    "score": 0,
-    "trigger": null,
-    "confirm": [],
-    "note": "M15 4119.20 di atas tengah band (4111.5–4126.1) · RSI 49 · Stoch 49 · MACD +0.40 · H1 bearish"
+    "score": 1,
+    "trigger": "sell",
+    "confirm": [
+     "MACD"
+    ],
+    "note": "M15 4118.70 di bawah tengah band (4112.8–4125.5) · RSI 49 · Stoch 25 · MACD +0.28 · H1 bearish · setup SELL (MACD)"
    }
   },
   "fund": {
@@ -1176,48 +1178,48 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "sideways",
-    "score": 0,
-    "price": 4122.1,
-    "ema20": 4120.75,
-    "ema50": 4120.95,
-    "rsi": 52.1,
+    "bias": "bearish",
+    "score": -2,
+    "price": 4119.3,
+    "ema20": 4120.61,
+    "ema50": 4120.89,
+    "rsi": 48.4,
     "n": 299,
-    "slot": 2987603,
-    "at": 1792561855699
+    "slot": 2987604,
+    "at": 1792562458687
    },
    "M15": {
     "bias": "sideways",
     "score": -1,
-    "price": 4116.9,
-    "ema20": 4119.76,
-    "ema50": 4121.66,
-    "rsi": 46.6,
+    "price": 4119.3,
+    "ema20": 4119.72,
+    "ema50": 4121.56,
+    "rsi": 49.2,
     "n": 299,
-    "slot": 1991735,
-    "at": 1792561554197
+    "slot": 1991736,
+    "at": 1792562458699
    },
    "M30": {
-    "bias": "sideways",
-    "score": 0,
-    "price": 4129,
-    "ema20": 4121.58,
-    "ema50": 4126.81,
-    "rsi": 57,
+    "bias": "bearish",
+    "score": -2,
+    "price": 4119.3,
+    "ema20": 4121.37,
+    "ema50": 4126.52,
+    "rsi": 47,
     "n": 299,
-    "slot": 995867,
-    "at": 1792560648708
+    "slot": 995868,
+    "at": 1792562458702
    },
    "H1": {
     "bias": "bearish",
     "score": -3,
-    "price": 4116,
-    "ema20": 4124.03,
-    "ema50": 4135.68,
-    "rsi": 40.7,
+    "price": 4119.3,
+    "ema20": 4123.58,
+    "ema50": 4135.04,
+    "rsi": 43.8,
     "n": 299,
-    "slot": 497933,
-    "at": 1792558844693
+    "slot": 497934,
+    "at": 1792562458713
    }
   },
   "currency": "USC",
