@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-22T09:27:21.365Z",
+ "generated_at": "2026-10-22T09:37:21.361Z",
  "today": "2026-10-22",
  "week_start": "2026-10-19",
  "campaign": {
@@ -62,8 +62,8 @@
    "name": "Fikri",
    "title": "Social Media Publisher",
    "status": "done",
-   "current_task": null,
-   "updated_at": "2026-10-22 09:02:25"
+   "current_task": "undefined",
+   "updated_at": "2026-10-22 09:36:22"
   },
   {
    "id": "ads",
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-22 09:15:52"
+   "updated_at": "2026-10-22 09:30:52"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
-   "updated_at": "2026-10-22 09:15:52"
+   "updated_at": "2026-10-22 09:30:52"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-10-22 09:15:52"
+   "updated_at": "2026-10-22 09:30:52"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-10-22 09:15:52"
+   "updated_at": "2026-10-22 09:30:52"
   },
   {
    "id": "texec",
@@ -485,7 +485,7 @@
    "game": "valorant",
    "pillar": "news",
    "title": "Carousel: 32 tim partner VCT 2027 per region (request Bos)",
-   "status": "pending_approval",
+   "status": "approved",
    "asset_url": "{\"feed\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-23/62-carousel-32-tim-partner-vct-2027-per-reg-1.jpg\",\"https://luc1ferr12.github.io/zataa-office/media/2026-10-23/62-carousel-32-tim-partner-vct-2027-per-reg-2.jpg\",\"https://luc1ferr12.github.io/zataa-office/media/2026-10-23/62-carousel-32-tim-partner-vct-2027-per-reg-3.jpg\",\"https://luc1ferr12.github.io/zataa-office/media/2026-10-23/62-carousel-32-tim-partner-vct-2027-per-reg-4.jpg\",\"https://luc1ferr12.github.io/zataa-office/media/2026-10-23/62-carousel-32-tim-partner-vct-2027-per-reg-5.jpg\",\"https://luc1ferr12.github.io/zataa-office/media/2026-10-23/62-carousel-32-tim-partner-vct-2027-per-reg-6.jpg\",\"https://luc1ferr12.github.io/zataa-office/media/2026-10-23/62-carousel-32-tim-partner-vct-2027-per-reg-7.jpg\"],\"story\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-23/62-carousel-32-tim-partner-vct-2027-per-reg-1-916.jpg\",\"https://luc1ferr12.github.io/zataa-office/media/2026-10-23/62-carousel-32-tim-partner-vct-2027-per-reg-2-916.jpg\",\"https://luc1ferr12.github.io/zataa-office/media/2026-10-23/62-carousel-32-tim-partner-vct-2027-per-reg-3-916.jpg\",\"https://luc1ferr12.github.io/zataa-office/media/2026-10-23/62-carousel-32-tim-partner-vct-2027-per-reg-4-916.jpg\",\"https://luc1ferr12.github.io/zataa-office/media/2026-10-23/62-carousel-32-tim-partner-vct-2027-per-reg-5-916.jpg\",\"https://luc1ferr12.github.io/zataa-office/media/2026-10-23/62-carousel-32-tim-partner-vct-2027-per-reg-6-916.jpg\",\"https://luc1ferr12.github.io/zataa-office/media/2026-10-23/62-carousel-32-tim-partner-vct-2027-per-reg-7-916.jpg\"]}",
    "scheduled_at": null,
    "posted_at": null,
@@ -616,6 +616,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-22 09:36:22",
+   "agent_id": "owner",
+   "message": "Approve konten #62 ✅"
+  },
+  {
    "ts": "2026-10-22 09:15:52",
    "agent_id": "trisk",
    "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
@@ -734,11 +739,6 @@
    "ts": "2026-10-22 03:15:51",
    "agent_id": "ttech",
    "message": "M15 berubah arah: sideways → bearish"
-  },
-  {
-   "ts": "2026-10-22 02:45:51",
-   "agent_id": "ttech",
-   "message": "M15 berubah arah: bearish → sideways"
   }
  ],
  "chats": [
@@ -1028,8 +1028,8 @@
    "week": "2026-10-19",
    "total": 26,
    "posted": 15,
-   "pending": 1,
-   "scheduled": 2,
+   "pending": 0,
+   "scheduled": 3,
    "yt_total": 4,
    "yt_posted": 3,
    "yt_pending": 0,
@@ -1104,9 +1104,14 @@
   "paused": false,
   "balance": 1687.5099999999998,
   "today_pnl": 0,
-  "price": 4086.100098,
+  "price": 4084.399902,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-22 09:30:52",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
    {
     "ts": "2026-10-22 09:15:52",
     "decision": "NO TRADE",
@@ -1129,11 +1134,6 @@
    },
    {
     "ts": "2026-10-22 08:15:51",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-10-22 08:00:51",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1169,7 +1169,7 @@
    1687.5099999999995
   ],
   "last": {
-   "ts": "2026-10-22 09:15:52",
+   "ts": "2026-10-22 09:30:52",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1190,7 +1190,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4090.90 di atas tengah band (4079.9–4101.8) · RSI 46 · Stoch 48 · MACD +0.92 · H1 bearish"
+    "note": "M15 4084.70 di bawah tengah band (4078.5–4101.9) · RSI 41 · Stoch 28 · MACD +0.41 · H1 bearish"
    }
   },
   "fund": null,
@@ -1229,35 +1229,35 @@
    "M10": {
     "bias": "bearish",
     "score": -3,
-    "price": 4087.1,
-    "ema20": 4089.75,
-    "ema50": 4098.02,
-    "rsi": 45.5,
+    "price": 4084.4,
+    "ema20": 4089.24,
+    "ema50": 4097.48,
+    "rsi": 43.2,
     "n": 299,
-    "slot": 2987768,
-    "at": 1792660851905
+    "slot": 2987769,
+    "at": 1792661451915
    },
    "M15": {
     "bias": "bearish",
     "score": -3,
-    "price": 4088.6,
-    "ema20": 4093.36,
-    "ema50": 4104.5,
-    "rsi": 43.8,
+    "price": 4084.4,
+    "ema20": 4092.51,
+    "ema50": 4103.72,
+    "rsi": 41,
     "n": 299,
-    "slot": 1991845,
-    "at": 1792660552082
+    "slot": 1991846,
+    "at": 1792661451921
    },
    "M30": {
     "bias": "bearish",
     "score": -3,
-    "price": 4083.2,
-    "ema20": 4101.22,
-    "ema50": 4113.84,
-    "rsi": 32.3,
+    "price": 4084.4,
+    "ema20": 4099.62,
+    "ema50": 4112.69,
+    "rsi": 33.5,
     "n": 299,
-    "slot": 995922,
-    "at": 1792659654030
+    "slot": 995923,
+    "at": 1792661451922
    },
    "H1": {
     "bias": "bearish",
