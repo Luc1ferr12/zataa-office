@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-22T07:57:21.311Z",
+ "generated_at": "2026-10-22T08:07:21.382Z",
  "today": "2026-10-22",
  "week_start": "2026-10-19",
  "campaign": {
@@ -21,33 +21,33 @@
    "id": "dir",
    "name": "Andre",
    "title": "Marketing Director",
-   "status": "done",
-   "current_task": "Sesi pagi beres",
-   "updated_at": "2026-10-21 23:23:25"
+   "status": "working",
+   "current_task": "Bagi tugas: Buatin carousel kaya gini dong https://www.instagram.com/p/D",
+   "updated_at": "2026-10-22 08:04:21"
   },
   {
    "id": "researcher",
    "name": "Clariana",
    "title": "Researcher",
    "status": "done",
-   "current_task": "Riset selesai",
-   "updated_at": "2026-10-21 23:23:25"
+   "current_task": "Riset 32 tim partner VCT 2027",
+   "updated_at": "2026-10-22 08:06:41"
   },
   {
    "id": "copywriter",
    "name": "Ista",
    "title": "Copywriter",
    "status": "done",
-   "current_task": "Naskah video BTR vs Fluxo (glitch)",
-   "updated_at": "2026-10-21 23:19:42"
+   "current_task": "Teks carousel 32 tim partner VCT 2027",
+   "updated_at": "2026-10-22 08:07:18"
   },
   {
    "id": "designer",
    "name": "Maria",
    "title": "Graphic Designer",
-   "status": "done",
-   "current_task": "Feed #44 FFWS dirender",
-   "updated_at": "2026-10-21 23:03:22"
+   "status": "working",
+   "current_task": "Render carousel 32 tim partner VCT 2027",
+   "updated_at": "2026-10-22 08:07:18"
   },
   {
    "id": "video",
@@ -87,7 +87,7 @@
    "title": "Price Watcher",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-10-22 06:00:24"
+   "updated_at": "2026-10-22 08:00:24"
   },
   {
    "id": "ob",
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-22 07:45:51"
+   "updated_at": "2026-10-22 08:00:51"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Fed hawkish (hike Sep, CPI 3,7% > prakiraan), DXY ~102 tekan emas; NFP lemah 29k. Berita 24 jam belum terverifikasi.",
-   "updated_at": "2026-10-22 07:45:51"
+   "updated_at": "2026-10-22 08:00:51"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-10-22 07:45:51"
+   "updated_at": "2026-10-22 08:00:51"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-10-22 07:45:51"
+   "updated_at": "2026-10-22 08:00:51"
   },
   {
    "id": "texec",
@@ -478,6 +478,20 @@
    "channel": "youtube"
   },
   {
+   "id": 62,
+   "day": "2026-10-23",
+   "slot": "pagi",
+   "format": "feed",
+   "game": "valorant",
+   "pillar": "news",
+   "title": "Carousel: 32 tim partner VCT 2027 per region (request Bos)",
+   "status": "draft",
+   "asset_url": null,
+   "scheduled_at": null,
+   "posted_at": null,
+   "channel": null
+  },
+  {
    "id": 46,
    "day": "2026-10-23",
    "slot": "siang",
@@ -602,6 +616,16 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-22 08:06:45",
+   "agent_id": "researcher",
+   "message": "Nemu 1 topik baru"
+  },
+  {
+   "ts": "2026-10-22 08:04:21",
+   "agent_id": "owner",
+   "message": "Chat: Buatin carousel kaya gini dong https://www.instagram.com/p/DeygQSrmaaS/?dlrf=MWs2dDh3dW9peWp3Zw== \n\nTapi buat konten besok aja"
+  },
+  {
    "ts": "2026-10-22 07:40:51",
    "agent_id": "ttech",
    "message": "M10 berubah arah: sideways → bearish"
@@ -715,19 +739,37 @@
    "ts": "2026-10-22 01:00:52",
    "agent_id": "analyst",
    "message": "Update data 37 post IG 📈"
-  },
-  {
-   "ts": "2026-10-22 00:59:41",
-   "agent_id": "video",
-   "message": "video #61 dirender di laptop (suara OmniVoice) & dikirim ke Owner"
-  },
-  {
-   "ts": "2026-10-22 00:59:40",
-   "agent_id": "publisher",
-   "message": "Kirim #61 ke Owner buat approval"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-10-22 08:07:18",
+   "agent_id": "copywriter",
+   "to_id": "designer",
+   "kind": "oper",
+   "message": "Maria, copy \"Teks carousel 32 tim partner VCT 2027\" udah masuk. Headline-nya jangan dikecilin ya 😆"
+  },
+  {
+   "ts": "2026-10-22 08:06:41",
+   "agent_id": "researcher",
+   "to_id": "copywriter",
+   "kind": "oper",
+   "message": "Riset \"Riset 32 tim partner VCT 2027\" beres, udah dicek 2 sumber. Ista, lanjut ya~"
+  },
+  {
+   "ts": "2026-10-22 08:04:21",
+   "agent_id": "dir",
+   "to_id": null,
+   "kind": "oper",
+   "message": "Oke tim, ada titah dari Bos. Aku bagi tugasnya ya 👇"
+  },
+  {
+   "ts": "2026-10-22 08:04:21",
+   "agent_id": "owner",
+   "to_id": "dir",
+   "kind": "bos",
+   "message": "Buatin carousel kaya gini dong https://www.instagram.com/p/DeygQSrmaaS/?dlrf=MWs2dDh3dW9peWp3Zw== \n\nTapi buat konten besok aja"
+  },
   {
    "ts": "2026-10-22 05:02:06",
    "agent_id": "publisher",
@@ -979,40 +1021,12 @@
    "to_id": "publisher",
    "kind": "oper",
    "message": "Visual \"Render feed #42\" kelar! Fikri, cek typo-nya sekalian ya 🙏"
-  },
-  {
-   "ts": "2026-10-20 23:03:56",
-   "agent_id": "video",
-   "to_id": "publisher",
-   "kind": "oper",
-   "message": "Fikri, video \"Video #43 masuk antrean render laptop\" udah render 9:16. Musiknya aman kok"
-  },
-  {
-   "ts": "2026-10-20 23:03:46",
-   "agent_id": "copywriter",
-   "to_id": "designer",
-   "kind": "oper",
-   "message": "Maria, copy \"Isi konten #42 & #43\" udah masuk. Headline-nya jangan dikecilin ya 😆"
-  },
-  {
-   "ts": "2026-10-20 23:02:42",
-   "agent_id": "dir",
-   "to_id": "researcher",
-   "kind": "oper",
-   "message": "Clariana, plan minggu ini udah aku taruh ya. Fokus \"Briefing ide pagi\". Tolong cariin bahan beritanya 🙏"
-  },
-  {
-   "ts": "2026-10-20 23:02:10",
-   "agent_id": "analyst",
-   "to_id": "dir",
-   "kind": "oper",
-   "message": "Rekap \"Cek pola data\" beres, Andre. Bisa buat bahan plan"
   }
  ],
  "stats": {
   "this_week": {
    "week": "2026-10-19",
-   "total": 25,
+   "total": 26,
    "posted": 14,
    "pending": 0,
    "scheduled": 3,
@@ -1090,9 +1104,14 @@
   "paused": false,
   "balance": 1687.5099999999998,
   "today_pnl": 0,
-  "price": 4086.899902,
+  "price": 4088.399902,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-22 08:00:51",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
    {
     "ts": "2026-10-22 07:45:51",
     "decision": "NO TRADE",
@@ -1115,11 +1134,6 @@
    },
    {
     "ts": "2026-10-22 06:45:51",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-   },
-   {
-    "ts": "2026-10-22 06:30:52",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
    }
@@ -1155,7 +1169,7 @@
    1687.5099999999995
   ],
   "last": {
-   "ts": "2026-10-22 07:45:51",
+   "ts": "2026-10-22 08:00:51",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1176,7 +1190,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4091.60 di bawah tengah band (4080.5–4106.3) · RSI 41 · Stoch 71 · MACD +1.43 · H1 bearish"
+    "note": "M15 4089.10 di bawah tengah band (4082.1–4102.1) · RSI 40 · Stoch 60 · MACD +0.98 · H1 bearish"
    }
   },
   "fund": {
@@ -1218,46 +1232,46 @@
    "M10": {
     "bias": "bearish",
     "score": -2,
-    "price": 4089.3,
-    "ema20": 4094.39,
-    "ema50": 4102.94,
-    "rsi": 42.7,
+    "price": 4086.9,
+    "ema20": 4093.67,
+    "ema50": 4102.31,
+    "rsi": 40.6,
     "n": 299,
-    "slot": 2987759,
-    "at": 1792655451829
+    "slot": 2987760,
+    "at": 1792656051830
    },
    "M15": {
     "bias": "bearish",
     "score": -2,
-    "price": 4091.2,
-    "ema20": 4097.58,
-    "ema50": 4108.93,
-    "rsi": 41,
+    "price": 4086.9,
+    "ema20": 4096.57,
+    "ema50": 4108.06,
+    "rsi": 37.9,
     "n": 299,
-    "slot": 1991839,
-    "at": 1792655151833
+    "slot": 1991840,
+    "at": 1792656051835
    },
    "M30": {
     "bias": "bearish",
     "score": -3,
-    "price": 4095.6,
-    "ema20": 4106.13,
-    "ema50": 4117.23,
-    "rsi": 36.7,
+    "price": 4086.9,
+    "ema20": 4104.3,
+    "ema50": 4116.04,
+    "rsi": 31.6,
     "n": 299,
-    "slot": 995919,
-    "at": 1792654251815
+    "slot": 995920,
+    "at": 1792656051835
    },
    "H1": {
     "bias": "bearish",
     "score": -2,
-    "price": 4095.1,
-    "ema20": 4115.19,
-    "ema50": 4125.19,
-    "rsi": 37.5,
+    "price": 4086.9,
+    "ema20": 4112.5,
+    "ema50": 4123.69,
+    "rsi": 34.5,
     "n": 299,
-    "slot": 497959,
-    "at": 1792652451953
+    "slot": 497960,
+    "at": 1792656051843
    }
   },
   "currency": "USC",
