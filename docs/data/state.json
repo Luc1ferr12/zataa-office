@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-22T12:07:21.434Z",
+ "generated_at": "2026-10-22T12:17:21.435Z",
  "today": "2026-10-22",
  "week_start": "2026-10-19",
  "campaign": {
@@ -103,15 +103,15 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-22 12:00:53"
+   "updated_at": "2026-10-22 12:15:52"
   },
   {
    "id": "tresearch",
    "name": "Davina",
    "title": "Research & Fundamental",
    "status": "done",
-   "current_task": "Fundamental: Fed hawkish (hike Sep ke 3,75-4%), CPI ~3,6% naik; geopolitik Iran menopang emas. Berita 22 Okt belum terkonfirmasi, bias lemah.",
-   "updated_at": "2026-10-22 12:00:52"
+   "current_task": "Waspada rilis Unemployment Claims (20.30 WITA)",
+   "updated_at": "2026-10-22 12:15:52"
   },
   {
    "id": "ttech",
@@ -119,15 +119,15 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-10-22 12:00:52"
+   "updated_at": "2026-10-22 12:15:52"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-10-22 12:00:53"
+   "current_task": "NO TRADE: berita berdampak tinggi: Unemployment Claims (20.30 WITA)",
+   "updated_at": "2026-10-22 12:15:52"
   },
   {
    "id": "texec",
@@ -616,6 +616,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-22 12:15:52",
+   "agent_id": "trisk",
+   "message": "NO TRADE · berita berdampak tinggi: Unemployment Claims (20.30 WITA)"
+  },
+  {
    "ts": "2026-10-22 12:02:19",
    "agent_id": "publisher",
    "message": "Posting #45 ke IG + TikTok ✅"
@@ -734,11 +739,6 @@
    "ts": "2026-10-22 07:15:51",
    "agent_id": "trisk",
    "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-  },
-  {
-   "ts": "2026-10-22 07:15:51",
-   "agent_id": "ttech",
-   "message": "M15 berubah arah: bearish → sideways"
   }
  ],
  "chats": [
@@ -1104,9 +1104,14 @@
   "paused": false,
   "balance": 1687.5099999999998,
   "today_pnl": 0,
-  "price": 4065,
+  "price": 4072.600098,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-22 12:15:52",
+    "decision": "NO TRADE",
+    "reason": "berita berdampak tinggi: Unemployment Claims (20.30 WITA)"
+   },
    {
     "ts": "2026-10-22 12:00:53",
     "decision": "NO TRADE",
@@ -1129,11 +1134,6 @@
    },
    {
     "ts": "2026-10-22 11:01:14",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-10-22 10:45:52",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1169,7 +1169,7 @@
    1687.5099999999995
   ],
   "last": {
-   "ts": "2026-10-22 12:00:53",
+   "ts": "2026-10-22 12:15:52",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1178,19 +1178,19 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
+   "reason": "berita berdampak tinggi: Unemployment Claims (20.30 WITA)",
    "fund": {
     "bias": -0.2,
     "note": "Fed hawkish (hike Sep ke 3,75-4%), CPI ~3,6% naik; geopolitik Iran menopang emas. Berita 22 Okt belum terkonfirmasi, bias lemah.",
     "danger": null,
-    "blackout": null
+    "blackout": "Unemployment Claims (20.30 WITA)"
    },
    "tech": {
     "bias": "bearish",
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4060.50 di bawah tengah band (4057.5–4107.2) · RSI 32 · Stoch 7 · MACD -2.35 · H1 bearish"
+    "note": "M15 4071.90 di bawah tengah band (4059.7–4104.2) · RSI 42 · Stoch 30 · MACD -0.89 · H1 bearish"
    }
   },
   "fund": {
@@ -1232,24 +1232,24 @@
    "M10": {
     "bias": "bearish",
     "score": -3,
-    "price": 4059.5,
-    "ema20": 4078.41,
-    "ema50": 4088.61,
-    "rsi": 30.6,
+    "price": 4067.2,
+    "ema20": 4077.34,
+    "ema50": 4087.77,
+    "rsi": 39,
     "n": 299,
-    "slot": 2987784,
-    "at": 1792670452883
+    "slot": 2987785,
+    "at": 1792671052013
    },
    "M15": {
     "bias": "bearish",
     "score": -3,
-    "price": 4059.5,
-    "ema20": 4081.8,
-    "ema50": 4095.04,
-    "rsi": 30.5,
+    "price": 4076.7,
+    "ema20": 4081.31,
+    "ema50": 4094.32,
+    "rsi": 44.8,
     "n": 299,
-    "slot": 1991856,
-    "at": 1792670452888
+    "slot": 1991857,
+    "at": 1792671352014
    },
    "M30": {
     "bias": "bearish",
