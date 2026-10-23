@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-23T10:57:22.078Z",
+ "generated_at": "2026-10-23T11:07:22.080Z",
  "today": "2026-10-23",
  "week_start": "2026-10-19",
  "campaign": {
@@ -103,15 +103,15 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-23 10:45:53"
+   "updated_at": "2026-10-23 11:01:14"
   },
   {
    "id": "tresearch",
    "name": "Davina",
    "title": "Research & Fundamental",
    "status": "done",
-   "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
-   "updated_at": "2026-10-23 10:45:53"
+   "current_task": "Fundamental: Geopolitik Iran/Lebanon & safe-haven menopang emas; tapi wacana Fed hawkish & USD kuat menekan. Tanggal berita belum terverifikasi.",
+   "updated_at": "2026-10-23 11:01:14"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-10-23 10:45:53"
+   "updated_at": "2026-10-23 11:01:14"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-10-23 10:45:53"
+   "updated_at": "2026-10-23 11:01:14"
   },
   {
    "id": "texec",
@@ -555,10 +555,10 @@
    "game": "sejarah",
    "pillar": "greek_myth",
    "title": "Kotak Pandora Itu Sebenarnya Bukan Kotak",
-   "status": "approved",
-   "asset_url": null,
+   "status": "posted",
+   "asset_url": "https://www.youtube.com/watch?v=O3bsoAQf75I",
    "scheduled_at": null,
-   "posted_at": null,
+   "posted_at": "2026-10-23 11:00:59",
    "channel": "youtube"
   },
   {
@@ -657,6 +657,11 @@
   }
  ],
  "activity": [
+  {
+   "ts": "2026-10-23 11:00:59",
+   "agent_id": "ypublish",
+   "message": "Upload Shorts #65 ke Zataa Story (Publik via Zernio)"
+  },
   {
    "ts": "2026-10-23 10:15:53",
    "agent_id": "trisk",
@@ -776,14 +781,16 @@
    "ts": "2026-10-23 06:00:52",
    "agent_id": "ttech",
    "message": "M30 berubah arah: bearish → sideways"
-  },
-  {
-   "ts": "2026-10-23 05:45:52",
-   "agent_id": "ttech",
-   "message": "M15 berubah arah: bearish → sideways"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-10-23 11:00:22",
+   "agent_id": "analyst",
+   "to_id": "dir",
+   "kind": "oper",
+   "message": "Laporan harian marketing udah aku kirim ke Bos, 4 konten tayang hari ini 📊"
+  },
   {
    "ts": "2026-10-23 09:01:33",
    "agent_id": "publisher",
@@ -1056,26 +1063,19 @@
    "to_id": "owner",
    "kind": "santai",
    "message": "Video BTR vs Fluxo (gaya glitch, logo BTR + Fluxo) lagi antre render di laptop Bos. Begitu jadi langsung nongol di Telegram buat di-✅, tayang sore 16:00."
-  },
-  {
-   "ts": "2026-10-21 23:20:05",
-   "agent_id": "publisher",
-   "to_id": "video",
-   "kind": "santai",
-   "message": "Logo Fluxo-nya akhirnya nemu juga ya Dim, nggak jadi pakai inisial 😆"
   }
  ],
  "stats": {
   "this_week": {
    "week": "2026-10-19",
    "total": 29,
-   "posted": 21,
+   "posted": 22,
    "pending": 0,
-   "scheduled": 2,
+   "scheduled": 1,
    "yt_total": 5,
-   "yt_posted": 4,
+   "yt_posted": 5,
    "yt_pending": 0,
-   "yt_scheduled": 1,
+   "yt_scheduled": 0,
    "views": 27931,
    "likes": 162,
    "comments": 5,
@@ -1146,9 +1146,14 @@
   "paused": false,
   "balance": 1687.5099999999998,
   "today_pnl": 0,
-  "price": 4021.199951,
+  "price": 4026.199951,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-23 11:01:14",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
    {
     "ts": "2026-10-23 10:45:53",
     "decision": "NO TRADE",
@@ -1171,11 +1176,6 @@
    },
    {
     "ts": "2026-10-23 09:45:53",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-10-23 09:30:53",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1211,7 +1211,7 @@
    1687.5099999999995
   ],
   "last": {
-   "ts": "2026-10-23 10:45:53",
+   "ts": "2026-10-23 11:01:14",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1222,8 +1222,8 @@
    "risk_usd": null,
    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
    "fund": {
-    "bias": 0,
-    "note": "netral (belum ada ringkasan hari ini)",
+    "bias": 0.1,
+    "note": "Geopolitik Iran/Lebanon & safe-haven menopang emas; tapi wacana Fed hawkish & USD kuat menekan. Tanggal berita belum terverifikasi.",
     "danger": null,
     "blackout": null
    },
@@ -1232,10 +1232,13 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4025.00 di atas tengah band (4010.1–4031.0) · RSI 55 · Stoch 69 · MACD +0.65 · H1 bearish"
+    "note": "M15 4023.90 di atas tengah band (4010.4–4031.1) · RSI 54 · Stoch 64 · MACD +0.37 · H1 bearish"
    }
   },
-  "fund": null,
+  "fund": {
+   "bias": 0.1,
+   "note": "Geopolitik Iran/Lebanon & safe-haven menopang emas; tapi wacana Fed hawkish & USD kuat menekan. Tanggal berita belum terverifikasi."
+  },
   "calendar": [],
   "ea": {
    "connected": false,
@@ -1261,46 +1264,46 @@
    "M10": {
     "bias": "bullish",
     "score": 3,
-    "price": 4026.7,
-    "ema20": 4022.91,
-    "ema50": 4021.34,
-    "rsi": 57.1,
+    "price": 4023.2,
+    "ema20": 4022.94,
+    "ema50": 4021.41,
+    "rsi": 51.6,
     "n": 299,
-    "slot": 2987921,
-    "at": 1792752653060
+    "slot": 2987922,
+    "at": 1792753253268
    },
    "M15": {
     "bias": "sideways",
     "score": 1,
-    "price": 4025,
-    "ema20": 4021.42,
-    "ema50": 4023.57,
-    "rsi": 55.5,
+    "price": 4023.2,
+    "ema20": 4021.59,
+    "ema50": 4023.56,
+    "rsi": 52.9,
     "n": 299,
-    "slot": 1991947,
-    "at": 1792752353037
+    "slot": 1991948,
+    "at": 1792753253273
    },
    "M30": {
     "bias": "sideways",
     "score": 1,
-    "price": 4025.2,
-    "ema20": 4021.47,
-    "ema50": 4038.03,
-    "rsi": 50.6,
+    "price": 4023.2,
+    "ema20": 4021.63,
+    "ema50": 4037.44,
+    "rsi": 49.3,
     "n": 299,
-    "slot": 995973,
-    "at": 1792751453018
+    "slot": 995974,
+    "at": 1792753253274
    },
    "H1": {
     "bias": "bearish",
-    "score": -3,
-    "price": 4024.7,
-    "ema20": 4031.7,
-    "ema50": 4064.3,
-    "rsi": 44,
+    "score": -2,
+    "price": 4023.2,
+    "ema20": 4030.89,
+    "ema50": 4062.68,
+    "rsi": 43.5,
     "n": 299,
-    "slot": 497986,
-    "at": 1792749653260
+    "slot": 497987,
+    "at": 1792753253282
    }
   },
   "currency": "USC",
