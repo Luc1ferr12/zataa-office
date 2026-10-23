@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-23T01:27:21.802Z",
+ "generated_at": "2026-10-23T01:37:21.809Z",
  "today": "2026-10-23",
  "week_start": "2026-10-19",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-23 01:15:52"
+   "updated_at": "2026-10-23 01:30:52"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Data 24 jam minim. Fed hawkish (peluang hike Okt ~20%), DXY dekat puncak 18 bln, geopolitik campur. Bias sedikit negatif.",
-   "updated_at": "2026-10-23 01:15:52"
+   "updated_at": "2026-10-23 01:30:52"
   },
   {
    "id": "ttech",
@@ -119,15 +119,15 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-10-23 01:15:52"
+   "updated_at": "2026-10-23 01:30:52"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: ada candle spike di M15 (kemungkinan berita dadakan), tunggu tenang",
-   "updated_at": "2026-10-23 01:15:52"
+   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
+   "updated_at": "2026-10-23 01:30:52"
   },
   {
    "id": "texec",
@@ -555,7 +555,7 @@
    "game": "sejarah",
    "pillar": "greek_myth",
    "title": "Kotak Pandora Itu Sebenarnya Bukan Kotak",
-   "status": "pending_approval",
+   "status": "approved",
    "asset_url": null,
    "scheduled_at": null,
    "posted_at": null,
@@ -657,6 +657,11 @@
   }
  ],
  "activity": [
+  {
+   "ts": "2026-10-23 01:37:03",
+   "agent_id": "owner",
+   "message": "Approve Shorts #65 ✅"
+  },
   {
    "ts": "2026-10-23 01:20:52",
    "agent_id": "ttech",
@@ -776,11 +781,6 @@
    "ts": "2026-10-22 23:07:28",
    "agent_id": "owner",
    "message": "Approve 2 ide konten tambahan 💡"
-  },
-  {
-   "ts": "2026-10-22 23:02:40",
-   "agent_id": "dir",
-   "message": "Pilih ide #79 #83 (feed) + #80 (video); #82 ditahan karena beririsan promo FF besok (#49)"
   }
  ],
  "chats": [
@@ -1070,18 +1070,18 @@
    "week": "2026-10-19",
    "total": 29,
    "posted": 17,
-   "pending": 2,
-   "scheduled": 4,
+   "pending": 1,
+   "scheduled": 5,
    "yt_total": 5,
    "yt_posted": 4,
-   "yt_pending": 1,
-   "yt_scheduled": 0,
-   "views": 27348,
+   "yt_pending": 0,
+   "yt_scheduled": 1,
+   "views": 27504,
    "likes": 155,
    "comments": 5,
    "shares": 8,
    "saves": 4,
-   "yt_views": 4712,
+   "yt_views": 4830,
    "top": [
     {
      "title": "Hall of Champions Valorant 2021-2026",
@@ -1146,9 +1146,14 @@
   "paused": false,
   "balance": 1687.5099999999998,
   "today_pnl": 0,
-  "price": 4021.899902,
+  "price": 4013.300049,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-23 01:30:52",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
+   },
    {
     "ts": "2026-10-23 01:15:52",
     "decision": "NO TRADE",
@@ -1171,11 +1176,6 @@
    },
    {
     "ts": "2026-10-23 00:15:52",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-   },
-   {
-    "ts": "2026-10-23 00:00:57",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
    }
@@ -1211,7 +1211,7 @@
    1687.5099999999995
   ],
   "last": {
-   "ts": "2026-10-23 01:15:52",
+   "ts": "2026-10-23 01:30:52",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1220,7 +1220,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "ada candle spike di M15 (kemungkinan berita dadakan), tunggu tenang",
+   "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)",
    "fund": {
     "bias": -0.2,
     "note": "Data 24 jam minim. Fed hawkish (peluang hike Okt ~20%), DXY dekat puncak 18 bln, geopolitik campur. Bias sedikit negatif.",
@@ -1232,7 +1232,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4013.10 di bawah band bawah (4013.4–4036.7) · RSI 36 · Stoch 21 · MACD -0.21 · H1 bearish"
+    "note": "M15 4015.10 di bawah tengah band (4012.5–4036.8) · RSI 38 · Stoch 6 · MACD -0.25 · H1 bearish"
    }
   },
   "fund": {
@@ -1264,35 +1264,35 @@
    "M10": {
     "bias": "sideways",
     "score": -1,
-    "price": 4015.4,
-    "ema20": 4024.99,
-    "ema50": 4032.27,
-    "rsi": 36.8,
+    "price": 4015,
+    "ema20": 4024.04,
+    "ema50": 4031.59,
+    "rsi": 36.5,
     "n": 299,
-    "slot": 2987864,
-    "at": 1792718452790
+    "slot": 2987865,
+    "at": 1792719052614
    },
    "M15": {
     "bias": "bearish",
     "score": -2,
-    "price": 4013.2,
-    "ema20": 4026.65,
-    "ema50": 4040.16,
-    "rsi": 36.1,
+    "price": 4015,
+    "ema20": 4025.54,
+    "ema50": 4039.17,
+    "rsi": 38,
     "n": 299,
-    "slot": 1991909,
-    "at": 1792718152611
+    "slot": 1991910,
+    "at": 1792719052619
    },
    "M30": {
     "bias": "bearish",
     "score": -3,
-    "price": 4032.3,
-    "ema20": 4036.58,
-    "ema50": 4061.63,
-    "rsi": 42.3,
+    "price": 4015,
+    "ema20": 4034.53,
+    "ema50": 4059.8,
+    "rsi": 33.9,
     "n": 299,
-    "slot": 995954,
-    "at": 1792717252592
+    "slot": 995955,
+    "at": 1792719052620
    },
    "H1": {
     "bias": "bearish",
