@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-23T11:59:22.025Z",
+ "generated_at": "2026-10-23T12:07:22.104Z",
  "today": "2026-10-23",
  "week_start": "2026-10-19",
  "campaign": {
@@ -63,7 +63,7 @@
    "title": "Social Media Publisher",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-10-23 09:01:33"
+   "updated_at": "2026-10-23 12:01:44"
   },
   {
    "id": "ads",
@@ -87,7 +87,7 @@
    "title": "Price Watcher",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-10-23 10:00:58"
+   "updated_at": "2026-10-23 12:00:27"
   },
   {
    "id": "ob",
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-23 11:45:53"
+   "updated_at": "2026-10-23 12:00:53"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Geopolitik Iran/Lebanon & safe-haven menopang emas; tapi wacana Fed hawkish & USD kuat menekan. Tanggal berita belum terverifikasi.",
-   "updated_at": "2026-10-23 11:45:53"
+   "updated_at": "2026-10-23 12:00:53"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-10-23 11:45:53"
+   "updated_at": "2026-10-23 12:00:53"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-10-23 11:45:53"
+   "updated_at": "2026-10-23 12:00:53"
   },
   {
    "id": "texec",
@@ -541,10 +541,10 @@
    "game": "valorant",
    "pillar": "news",
    "title": "Update bursa transfer VCT minggu ini",
-   "status": "approved",
+   "status": "posted",
    "asset_url": "{\"video\":\"https://luc1ferr12.github.io/zataa-office/media/2026-10-23/47-update-bursa-transfer-vct-minggu-ini.mp4\",\"cover\":\"https://luc1ferr12.github.io/zataa-office/media/2026-10-23/47-update-bursa-transfer-vct-minggu-ini-cover.jpg\"}",
    "scheduled_at": null,
-   "posted_at": null,
+   "posted_at": "2026-10-23 12:01:44",
    "channel": null
   },
   {
@@ -657,6 +657,11 @@
   }
  ],
  "activity": [
+  {
+   "ts": "2026-10-23 12:01:44",
+   "agent_id": "publisher",
+   "message": "Posting #47 ke IG + TikTok ✅"
+  },
   {
    "ts": "2026-10-23 11:15:53",
    "agent_id": "trisk",
@@ -776,14 +781,16 @@
    "ts": "2026-10-23 06:30:52",
    "agent_id": "ttech",
    "message": "M10 berubah arah: sideways → bearish"
-  },
-  {
-   "ts": "2026-10-23 06:15:52",
-   "agent_id": "trisk",
-   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (sesi Asia)"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-10-23 12:01:44",
+   "agent_id": "publisher",
+   "to_id": null,
+   "kind": "oper",
+   "message": "\"Update bursa transfer VCT minggu ini\" udah tayang di IG + TikTok 🚀 Makasih semua!"
+  },
   {
    "ts": "2026-10-23 11:00:22",
    "agent_id": "analyst",
@@ -1056,22 +1063,15 @@
    "to_id": "owner",
    "kind": "santai",
    "message": "Klaim \"Koja MVP\" aku buang karena cuma 1 sumber. Logo Fluxo nemu di Commons, tapi belum ke-push ke git, tolong di-push dulu sebelum laptop render ya Bos."
-  },
-  {
-   "ts": "2026-10-21 23:20:15",
-   "agent_id": "video",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Video BTR vs Fluxo (gaya glitch, logo BTR + Fluxo) lagi antre render di laptop Bos. Begitu jadi langsung nongol di Telegram buat di-✅, tayang sore 16:00."
   }
  ],
  "stats": {
   "this_week": {
    "week": "2026-10-19",
    "total": 29,
-   "posted": 22,
+   "posted": 23,
    "pending": 0,
-   "scheduled": 1,
+   "scheduled": 0,
    "yt_total": 5,
    "yt_posted": 5,
    "yt_pending": 0,
@@ -1146,9 +1146,14 @@
   "paused": false,
   "balance": 1687.5099999999998,
   "today_pnl": 0,
-  "price": 4024.699951,
+  "price": 4030.600098,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-23 12:00:53",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
    {
     "ts": "2026-10-23 11:45:53",
     "decision": "NO TRADE",
@@ -1171,11 +1176,6 @@
    },
    {
     "ts": "2026-10-23 10:45:53",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-10-23 10:30:53",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1211,7 +1211,7 @@
    1687.5099999999995
   ],
   "last": {
-   "ts": "2026-10-23 11:45:53",
+   "ts": "2026-10-23 12:00:53",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1232,7 +1232,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4025.60 di atas tengah band (4012.2–4033.1) · RSI 54 · Stoch 71 · MACD +0.30 · H1 bearish"
+    "note": "M15 4025.60 di atas tengah band (4013.2–4033.1) · RSI 54 · Stoch 60 · MACD +0.15 · H1 bearish"
    }
   },
   "fund": {
@@ -1264,46 +1264,46 @@
    "M10": {
     "bias": "bullish",
     "score": 2,
-    "price": 4027.8,
-    "ema20": 4024.73,
-    "ema50": 4022.53,
-    "rsi": 55.7,
+    "price": 4025.4,
+    "ema20": 4024.79,
+    "ema50": 4022.64,
+    "rsi": 52.2,
     "n": 299,
-    "slot": 2987927,
-    "at": 1792756253086
+    "slot": 2987928,
+    "at": 1792756853259
    },
    "M15": {
     "bias": "sideways",
     "score": 0,
-    "price": 4026.2,
-    "ema20": 4023.11,
-    "ema50": 4024.01,
-    "rsi": 55,
+    "price": 4025.4,
+    "ema20": 4023.33,
+    "ema50": 4024.07,
+    "rsi": 53.9,
     "n": 299,
-    "slot": 1991951,
-    "at": 1792755953093
+    "slot": 1991952,
+    "at": 1792756853263
    },
    "M30": {
     "bias": "sideways",
     "score": 1,
-    "price": 4026.4,
-    "ema20": 4022.08,
-    "ema50": 4037.01,
-    "rsi": 51.5,
+    "price": 4025.4,
+    "ema20": 4022.4,
+    "ema50": 4036.56,
+    "rsi": 50.8,
     "n": 299,
-    "slot": 995975,
-    "at": 1792755053255
+    "slot": 995976,
+    "at": 1792756853264
    },
    "H1": {
     "bias": "bearish",
     "score": -2,
-    "price": 4023.2,
-    "ema20": 4030.89,
-    "ema50": 4062.68,
-    "rsi": 43.5,
+    "price": 4025.4,
+    "ema20": 4030.37,
+    "ema50": 4061.22,
+    "rsi": 44.5,
     "n": 299,
-    "slot": 497987,
-    "at": 1792753253282
+    "slot": 497988,
+    "at": 1792756853272
    }
   },
   "currency": "USC",
