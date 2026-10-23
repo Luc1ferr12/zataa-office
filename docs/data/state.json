@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-23T01:17:21.797Z",
+ "generated_at": "2026-10-23T01:27:21.802Z",
  "today": "2026-10-23",
  "week_start": "2026-10-19",
  "campaign": {
@@ -658,6 +658,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-23 01:20:52",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: bearish → sideways"
+  },
+  {
    "ts": "2026-10-23 01:15:52",
    "agent_id": "trisk",
    "message": "NO TRADE · ada candle spike di M15 (kemungkinan berita dadakan), tunggu tenang"
@@ -776,11 +781,6 @@
    "ts": "2026-10-22 23:02:40",
    "agent_id": "dir",
    "message": "Pilih ide #79 #83 (feed) + #80 (video); #82 ditahan karena beririsan promo FF besok (#49)"
-  },
-  {
-   "ts": "2026-10-22 23:02:40",
-   "agent_id": "dir",
-   "message": "Kirim 3 ide briefing ke Owner"
   }
  ],
  "chats": [
@@ -1146,7 +1146,7 @@
   "paused": false,
   "balance": 1687.5099999999998,
   "today_pnl": 0,
-  "price": 4014.699951,
+  "price": 4021.899902,
   "open": [],
   "signals": [
    {
@@ -1262,15 +1262,15 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "bearish",
-    "score": -2,
-    "price": 4020,
-    "ema20": 4026,
-    "ema50": 4032.96,
-    "rsi": 41.1,
+    "bias": "sideways",
+    "score": -1,
+    "price": 4015.4,
+    "ema20": 4024.99,
+    "ema50": 4032.27,
+    "rsi": 36.8,
     "n": 299,
-    "slot": 2987863,
-    "at": 1792717852601
+    "slot": 2987864,
+    "at": 1792718452790
    },
    "M15": {
     "bias": "bearish",
