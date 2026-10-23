@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-23T23:17:22.445Z",
+ "generated_at": "2026-10-23T23:27:22.447Z",
  "today": "2026-10-24",
  "week_start": "2026-10-19",
  "campaign": {
@@ -173,41 +173,41 @@
    "id": "yresearch",
    "name": "Nadhira",
    "title": "Riset Sejarah & Tren",
-   "status": "working",
-   "current_task": "Riset kapal karam Belitung + isi bank topik",
-   "updated_at": "2026-10-23 23:14:42"
+   "status": "done",
+   "current_task": "Riset Belitung terverifikasi + topik baru HH-011 Situs Liyangan",
+   "updated_at": "2026-10-23 23:17:32"
   },
   {
    "id": "yscript",
    "name": "Laras",
    "title": "Scriptwriter & Fact Checker",
    "status": "done",
-   "current_task": "Naskah Shorts #65 Kotak Pandora (7 adegan, label mitos/fakta/teori)",
-   "updated_at": "2026-10-22 23:14:56"
+   "current_task": "Naskah Belitung 7 adegan, 89 kata, label fakta/teori",
+   "updated_at": "2026-10-23 23:17:32"
   },
   {
    "id": "yvisual",
    "name": "Galih",
    "title": "Visual & Creative",
    "status": "done",
-   "current_task": "7 visual PD/CC Pandora + credits.txt",
-   "updated_at": "2026-10-22 23:14:56"
+   "current_task": "7 gambar Commons berlisensi + credits.txt kapal-belitung",
+   "updated_at": "2026-10-23 23:17:32"
   },
   {
    "id": "yvideo",
    "name": "Yoga",
    "title": "Video Producer",
-   "status": "done",
-   "current_task": "Shorts #57 antre render laptop",
-   "updated_at": "2026-10-20 23:07:32"
+   "status": "working",
+   "current_task": "Nunggu render OmniVoice Shorts #66 di laptop",
+   "updated_at": "2026-10-23 23:17:32"
   },
   {
    "id": "ypublish",
    "name": "Kirana",
    "title": "Publisher, SEO & Growth",
    "status": "done",
-   "current_task": "Judul/SEO #65, jam 18:00 WIB",
-   "updated_at": "2026-10-22 23:14:56"
+   "current_task": "Judul+deskripsi Shorts #66, jam tayang 18:00 WIB",
+   "updated_at": "2026-10-23 23:17:32"
   }
  ],
  "week_contents": [
@@ -590,6 +590,20 @@
    "channel": null
   },
   {
+   "id": 66,
+   "day": "2026-10-24",
+   "slot": "shorts",
+   "format": "shorts",
+   "game": "sejarah",
+   "pillar": "hidden_history",
+   "title": "60.000 Harta Dinasti Tang Karam di Belitung",
+   "status": "draft",
+   "asset_url": null,
+   "scheduled_at": null,
+   "posted_at": null,
+   "channel": "youtube"
+  },
+  {
    "id": 50,
    "day": "2026-10-25",
    "slot": "siang",
@@ -657,6 +671,21 @@
   }
  ],
  "activity": [
+  {
+   "ts": "2026-10-23 23:17:32",
+   "agent_id": "ypublish",
+   "message": "Jam 18:00 WIB: 5 Shorts di jam ini stabil 1.0-1.6k views, Sabtu siang 13:00 cuma 41 views"
+  },
+  {
+   "ts": "2026-10-23 23:17:32",
+   "agent_id": "yresearch",
+   "message": "Belitung: 60.000 total, 55.000 mangkuk Changsha, mangkuk 826 M (roots.gov.sg, Smithsonian). Bank: +HH-011, Bagas approve GM-002, HH-009, HH-010, HH-011"
+  },
+  {
+   "ts": "2026-10-23 23:17:25",
+   "agent_id": "yvideo",
+   "message": "Shorts #66 \"60.000 Harta Dinasti Tang Karam di Belitung\" masuk antrean render laptop (OmniVoice)"
+  },
   {
    "ts": "2026-10-23 23:14:42",
    "agent_id": "ydir",
@@ -766,24 +795,30 @@
    "ts": "2026-10-23 19:01:02",
    "agent_id": "analyst",
    "message": "Update data 45 post IG 📈"
-  },
-  {
-   "ts": "2026-10-23 18:40:53",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: sideways → bearish"
-  },
-  {
-   "ts": "2026-10-23 18:30:53",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: bearish → sideways"
-  },
-  {
-   "ts": "2026-10-23 18:15:53",
-   "agent_id": "trisk",
-   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-10-23 23:17:38",
+   "agent_id": "analyst",
+   "to_id": "dir",
+   "kind": "santai",
+   "message": "Bang Andre, Hall of Champions Valorant tembus 18,6k views. Format rekap sejarah juara kayaknya emas nih"
+  },
+  {
+   "ts": "2026-10-23 23:17:38",
+   "agent_id": "designer",
+   "to_id": "copywriter",
+   "kind": "santai",
+   "message": "Ista, kuisnya keren, tapi besok opsi jangan pakai 'A.' lagi ya, template udah ada hurufnya hehe"
+  },
+  {
+   "ts": "2026-10-23 23:17:32",
+   "agent_id": "yresearch",
+   "to_id": "yscript",
+   "kind": "oper",
+   "message": "Laras, bahan \"Riset Belitung terverifikasi + topik baru HH-011 Situs Liyan\" udah aku rangkum + sumbernya. Mana fakta, mana teori udah aku tandain 📜"
+  },
   {
    "ts": "2026-10-23 23:14:42",
    "agent_id": "ydir",
@@ -1042,37 +1077,16 @@
    "to_id": "dir",
    "kind": "oper",
    "message": "Laporan harian marketing udah aku kirim ke Bos, 2 konten tayang hari ini 📊"
-  },
-  {
-   "ts": "2026-10-22 09:02:25",
-   "agent_id": "publisher",
-   "to_id": null,
-   "kind": "oper",
-   "message": "\"BTR Koja: siap tantang FLUXO di Bangkok\" udah tayang di IG + TikTok 🚀 Makasih semua!"
-  },
-  {
-   "ts": "2026-10-22 08:08:09",
-   "agent_id": "publisher",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Udah lolos QA dan aku kirim ke Telegram ya Bos, tinggal ✅ biar besok pagi tayang 🙏"
-  },
-  {
-   "ts": "2026-10-22 08:08:09",
-   "agent_id": "designer",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Carouselnya 7 slide, isinya hook, 4 region, tim yang out, sama CTA. Dijadwalin besok jam 10:00 WIB biar nggak bentrok sama feed promo jam 12."
   }
  ],
  "stats": {
   "this_week": {
    "week": "2026-10-19",
-   "total": 29,
+   "total": 30,
    "posted": 23,
    "pending": 2,
    "scheduled": 0,
-   "yt_total": 5,
+   "yt_total": 6,
    "yt_posted": 5,
    "yt_pending": 0,
    "yt_scheduled": 0,
