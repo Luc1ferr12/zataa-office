@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-23T20:07:22.303Z",
+ "generated_at": "2026-10-23T20:17:22.306Z",
  "today": "2026-10-24",
  "week_start": "2026-10-19",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-23 20:00:53"
+   "updated_at": "2026-10-23 20:15:53"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Geopolitik Iran/Lebanon & safe-haven menopang emas; tapi wacana Fed hawkish & USD kuat menekan. Tanggal berita belum terverifikasi.",
-   "updated_at": "2026-10-23 20:00:53"
+   "updated_at": "2026-10-23 20:15:53"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-10-23 20:00:53"
+   "updated_at": "2026-10-23 20:15:53"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
-   "updated_at": "2026-10-23 20:00:53"
+   "updated_at": "2026-10-23 20:15:53"
   },
   {
    "id": "texec",
@@ -658,6 +658,16 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-23 20:15:53",
+   "agent_id": "trisk",
+   "message": "NO TRADE · jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
+  },
+  {
+   "ts": "2026-10-23 20:10:53",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: sideways → bearish"
+  },
+  {
    "ts": "2026-10-23 20:00:53",
    "agent_id": "ttech",
    "message": "M60 berubah arah: bearish → sideways"
@@ -771,16 +781,6 @@
    "ts": "2026-10-23 13:01:01",
    "agent_id": "analyst",
    "message": "Update data 45 post IG 📈"
-  },
-  {
-   "ts": "2026-10-23 13:00:53",
-   "agent_id": "ttech",
-   "message": "M15 berubah arah: sideways → bullish"
-  },
-  {
-   "ts": "2026-10-23 12:40:53",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: sideways → bullish"
   }
  ],
  "chats": [
@@ -1146,9 +1146,14 @@
   "paused": false,
   "balance": 1687.5099999999998,
   "today_pnl": 0,
-  "price": 3999,
+  "price": 3998,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-23 20:15:53",
+    "decision": "NO TRADE",
+    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
+   },
    {
     "ts": "2026-10-23 20:00:53",
     "decision": "NO TRADE",
@@ -1171,11 +1176,6 @@
    },
    {
     "ts": "2026-10-23 19:00:53",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-10-23 18:45:53",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1211,7 +1211,7 @@
    1687.5099999999995
   ],
   "last": {
-   "ts": "2026-10-23 20:00:53",
+   "ts": "2026-10-23 20:15:53",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1232,7 +1232,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4001.00 di atas tengah band (3993.7–4006.5) · RSI 46 · Stoch 59 · MACD +1.01 · H1 bearish"
+    "note": "M15 3997.60 di bawah tengah band (3993.3–4006.5) · RSI 43 · Stoch 52 · MACD +0.70 · H1 bearish"
    }
   },
   "fund": {
@@ -1262,26 +1262,26 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "sideways",
-    "score": 0,
-    "price": 4001.8,
-    "ema20": 4000.18,
-    "ema50": 4005.42,
-    "rsi": 50.8,
+    "bias": "bearish",
+    "score": -2,
+    "price": 3996.8,
+    "ema20": 3999.86,
+    "ema50": 4005.09,
+    "rsi": 43.7,
     "n": 299,
-    "slot": 2987976,
-    "at": 1792785653471
+    "slot": 2987977,
+    "at": 1792786253480
    },
    "M15": {
     "bias": "bearish",
     "score": -2,
-    "price": 4001.8,
-    "ema20": 4002.05,
-    "ema50": 4009.37,
-    "rsi": 47.4,
+    "price": 3997.9,
+    "ema20": 4001.66,
+    "ema50": 4008.92,
+    "rsi": 43.2,
     "n": 299,
-    "slot": 1991984,
-    "at": 1792785653476
+    "slot": 1991985,
+    "at": 1792786553678
    },
    "M30": {
     "bias": "bearish",
