@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-23T14:37:22.185Z",
+ "generated_at": "2026-10-23T14:47:22.177Z",
  "today": "2026-10-23",
  "week_start": "2026-10-19",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-23 14:30:53"
+   "updated_at": "2026-10-23 14:45:53"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Geopolitik Iran/Lebanon & safe-haven menopang emas; tapi wacana Fed hawkish & USD kuat menekan. Tanggal berita belum terverifikasi.",
-   "updated_at": "2026-10-23 14:30:53"
+   "updated_at": "2026-10-23 14:45:53"
   },
   {
    "id": "ttech",
@@ -119,15 +119,15 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-10-23 14:30:53"
+   "updated_at": "2026-10-23 14:45:53"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: ada candle spike di M15 (kemungkinan berita dadakan), tunggu tenang",
-   "updated_at": "2026-10-23 14:30:53"
+   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
+   "updated_at": "2026-10-23 14:45:53"
   },
   {
    "id": "texec",
@@ -1146,9 +1146,14 @@
   "paused": false,
   "balance": 1687.5099999999998,
   "today_pnl": 0,
-  "price": 3984.899902,
+  "price": 3998.600098,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-23 14:45:53",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
    {
     "ts": "2026-10-23 14:30:53",
     "decision": "NO TRADE",
@@ -1171,11 +1176,6 @@
    },
    {
     "ts": "2026-10-23 13:30:53",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-10-23 13:15:53",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1211,7 +1211,7 @@
    1687.5099999999995
   ],
   "last": {
-   "ts": "2026-10-23 14:30:53",
+   "ts": "2026-10-23 14:45:53",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1220,7 +1220,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "ada candle spike di M15 (kemungkinan berita dadakan), tunggu tenang",
+   "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
    "fund": {
     "bias": 0.1,
     "note": "Geopolitik Iran/Lebanon & safe-haven menopang emas; tapi wacana Fed hawkish & USD kuat menekan. Tanggal berita belum terverifikasi.",
@@ -1232,7 +1232,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3979.10 di bawah band bawah (3990.4–4051.7) · RSI 22 · Stoch 0 · MACD -5.27 · H1 bearish"
+    "note": "M15 4001.90 di bawah tengah band (3994.2–4047.6) · RSI 39 · Stoch 26 · MACD -3.76 · H1 bearish"
    }
   },
   "fund": {
@@ -1264,24 +1264,24 @@
    "M10": {
     "bias": "sideways",
     "score": -1,
-    "price": 3983.6,
-    "ema20": 4019.24,
-    "ema50": 4021.61,
-    "rsi": 21.9,
+    "price": 3993.7,
+    "ema20": 4016.81,
+    "ema50": 4020.52,
+    "rsi": 32.3,
     "n": 299,
-    "slot": 2987943,
-    "at": 1792765853231
+    "slot": 2987944,
+    "at": 1792766453219
    },
    "M15": {
     "bias": "sideways",
     "score": -1,
-    "price": 3983.6,
-    "ema20": 4020.16,
-    "ema50": 4022.75,
-    "rsi": 23,
+    "price": 3999.5,
+    "ema20": 4018.19,
+    "ema50": 4021.84,
+    "rsi": 37.4,
     "n": 299,
-    "slot": 1991962,
-    "at": 1792765853236
+    "slot": 1991963,
+    "at": 1792766753221
    },
    "M30": {
     "bias": "sideways",
