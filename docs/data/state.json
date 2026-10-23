@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-23T01:37:21.809Z",
+ "generated_at": "2026-10-23T01:47:21.811Z",
  "today": "2026-10-23",
  "week_start": "2026-10-19",
  "campaign": {
@@ -63,7 +63,7 @@
    "title": "Social Media Publisher",
    "status": "done",
    "current_task": "undefined",
-   "updated_at": "2026-10-23 00:30:22"
+   "updated_at": "2026-10-23 01:38:22"
   },
   {
    "id": "ads",
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-23 01:30:52"
+   "updated_at": "2026-10-23 01:45:52"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Data 24 jam minim. Fed hawkish (peluang hike Okt ~20%), DXY dekat puncak 18 bln, geopolitik campur. Bias sedikit negatif.",
-   "updated_at": "2026-10-23 01:30:52"
+   "updated_at": "2026-10-23 01:45:52"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-10-23 01:30:52"
+   "updated_at": "2026-10-23 01:45:52"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
-   "updated_at": "2026-10-23 01:30:52"
+   "updated_at": "2026-10-23 01:45:52"
   },
   {
    "id": "texec",
@@ -527,7 +527,7 @@
    "game": "mlbb",
    "pillar": "engagement",
    "title": "Polling: tim mana yang bakal ke Istanbul? (2 slot M8 dari playoff MPL ID)",
-   "status": "pending_approval",
+   "status": "approved",
    "asset_url": "{\"video\":\"https://luc1ferr12.github.io/zataa-office/media/2026-10-23/64-polling-tim-mana-yang-bakal-ke-istanbul--ov.mp4\",\"cover\":\"https://luc1ferr12.github.io/zataa-office/media/2026-10-23/64-polling-tim-mana-yang-bakal-ke-istanbul--ov-cover.jpg\"}",
    "scheduled_at": null,
    "posted_at": null,
@@ -658,6 +658,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-23 01:38:21",
+   "agent_id": "owner",
+   "message": "Approve konten #64 ✅"
+  },
+  {
    "ts": "2026-10-23 01:37:03",
    "agent_id": "owner",
    "message": "Approve Shorts #65 ✅"
@@ -776,11 +781,6 @@
    "ts": "2026-10-22 23:08:36",
    "agent_id": "researcher",
    "message": "Nemu 1 topik baru"
-  },
-  {
-   "ts": "2026-10-22 23:07:28",
-   "agent_id": "owner",
-   "message": "Approve 2 ide konten tambahan 💡"
   }
  ],
  "chats": [
@@ -1070,8 +1070,8 @@
    "week": "2026-10-19",
    "total": 29,
    "posted": 17,
-   "pending": 1,
-   "scheduled": 5,
+   "pending": 0,
+   "scheduled": 6,
    "yt_total": 5,
    "yt_posted": 4,
    "yt_pending": 0,
@@ -1146,9 +1146,14 @@
   "paused": false,
   "balance": 1687.5099999999998,
   "today_pnl": 0,
-  "price": 4013.300049,
+  "price": 4012.800049,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-23 01:45:52",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
+   },
    {
     "ts": "2026-10-23 01:30:52",
     "decision": "NO TRADE",
@@ -1171,11 +1176,6 @@
    },
    {
     "ts": "2026-10-23 00:30:52",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-   },
-   {
-    "ts": "2026-10-23 00:15:52",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
    }
@@ -1211,7 +1211,7 @@
    1687.5099999999995
   ],
   "last": {
-   "ts": "2026-10-23 01:30:52",
+   "ts": "2026-10-23 01:45:52",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1232,7 +1232,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4015.10 di bawah tengah band (4012.5–4036.8) · RSI 38 · Stoch 6 · MACD -0.25 · H1 bearish"
+    "note": "M15 4011.80 di bawah tengah band (4009.9–4037.9) · RSI 36 · Stoch 4 · MACD -0.57 · H1 bearish"
    }
   },
   "fund": {
@@ -1264,24 +1264,24 @@
    "M10": {
     "bias": "sideways",
     "score": -1,
-    "price": 4015,
-    "ema20": 4024.04,
-    "ema50": 4031.59,
-    "rsi": 36.5,
+    "price": 4012,
+    "ema20": 4022.9,
+    "ema50": 4030.82,
+    "rsi": 33.8,
     "n": 299,
-    "slot": 2987865,
-    "at": 1792719052614
+    "slot": 2987866,
+    "at": 1792719652786
    },
    "M15": {
     "bias": "bearish",
     "score": -2,
-    "price": 4015,
-    "ema20": 4025.54,
-    "ema50": 4039.17,
-    "rsi": 38,
+    "price": 4013.1,
+    "ema20": 4024.36,
+    "ema50": 4038.15,
+    "rsi": 36.7,
     "n": 299,
-    "slot": 1991910,
-    "at": 1792719052619
+    "slot": 1991911,
+    "at": 1792719952628
    },
    "M30": {
     "bias": "bearish",
