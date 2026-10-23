@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-23T14:27:22.169Z",
+ "generated_at": "2026-10-23T14:37:22.185Z",
  "today": "2026-10-23",
  "week_start": "2026-10-19",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-23 14:15:53"
+   "updated_at": "2026-10-23 14:30:53"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Geopolitik Iran/Lebanon & safe-haven menopang emas; tapi wacana Fed hawkish & USD kuat menekan. Tanggal berita belum terverifikasi.",
-   "updated_at": "2026-10-23 14:15:53"
+   "updated_at": "2026-10-23 14:30:53"
   },
   {
    "id": "ttech",
@@ -119,15 +119,15 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-10-23 14:15:53"
+   "updated_at": "2026-10-23 14:30:53"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-10-23 14:15:53"
+   "current_task": "NO TRADE: ada candle spike di M15 (kemungkinan berita dadakan), tunggu tenang",
+   "updated_at": "2026-10-23 14:30:53"
   },
   {
    "id": "texec",
@@ -1146,9 +1146,14 @@
   "paused": false,
   "balance": 1687.5099999999998,
   "today_pnl": 0,
-  "price": 3994.699951,
+  "price": 3984.899902,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-23 14:30:53",
+    "decision": "NO TRADE",
+    "reason": "ada candle spike di M15 (kemungkinan berita dadakan), tunggu tenang"
+   },
    {
     "ts": "2026-10-23 14:15:53",
     "decision": "NO TRADE",
@@ -1171,11 +1176,6 @@
    },
    {
     "ts": "2026-10-23 13:15:53",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-10-23 13:00:53",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1211,7 +1211,7 @@
    1687.5099999999995
   ],
   "last": {
-   "ts": "2026-10-23 14:15:53",
+   "ts": "2026-10-23 14:30:53",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1220,7 +1220,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
+   "reason": "ada candle spike di M15 (kemungkinan berita dadakan), tunggu tenang",
    "fund": {
     "bias": 0.1,
     "note": "Geopolitik Iran/Lebanon & safe-haven menopang emas; tapi wacana Fed hawkish & USD kuat menekan. Tanggal berita belum terverifikasi.",
@@ -1232,7 +1232,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4009.20 di bawah band bawah (4012.3–4036.9) · RSI 35 · Stoch 13 · MACD -2.08 · H1 bearish"
+    "note": "M15 3979.10 di bawah band bawah (3990.4–4051.7) · RSI 22 · Stoch 0 · MACD -5.27 · H1 bearish"
    }
   },
   "fund": {
@@ -1264,35 +1264,35 @@
    "M10": {
     "bias": "sideways",
     "score": -1,
-    "price": 3999.1,
-    "ema20": 4022.99,
-    "ema50": 4023.17,
-    "rsi": 28.1,
+    "price": 3983.6,
+    "ema20": 4019.24,
+    "ema50": 4021.61,
+    "rsi": 21.9,
     "n": 299,
-    "slot": 2987942,
-    "at": 1792765253405
+    "slot": 2987943,
+    "at": 1792765853231
    },
    "M15": {
     "bias": "sideways",
     "score": -1,
-    "price": 4009.5,
-    "ema20": 4024.01,
-    "ema50": 4024.35,
-    "rsi": 35.3,
+    "price": 3983.6,
+    "ema20": 4020.16,
+    "ema50": 4022.75,
+    "rsi": 23,
     "n": 299,
-    "slot": 1991961,
-    "at": 1792764953384
+    "slot": 1991962,
+    "at": 1792765853236
    },
    "M30": {
     "bias": "sideways",
-    "score": 0,
-    "price": 4024.9,
-    "ema20": 4024.19,
-    "ema50": 4035.28,
-    "rsi": 49.6,
+    "score": -1,
+    "price": 3983.6,
+    "ema20": 4020.33,
+    "ema50": 4033.25,
+    "rsi": 28.5,
     "n": 299,
-    "slot": 995980,
-    "at": 1792764053194
+    "slot": 995981,
+    "at": 1792765853237
    },
    "H1": {
     "bias": "bearish",
