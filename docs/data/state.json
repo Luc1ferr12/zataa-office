@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-24T03:59:34.885Z",
+ "generated_at": "2026-10-24T04:07:22.526Z",
  "today": "2026-10-24",
  "week_start": "2026-10-19",
  "campaign": {
@@ -22,8 +22,8 @@
    "name": "Andre",
    "title": "Marketing Director",
    "status": "done",
-   "current_task": "Pilih 3 ide: BOOM VCT, Joshuaa NAVI, Hall of Champions MPL ID",
-   "updated_at": "2026-10-23 23:03:50"
+   "current_task": "Bagi tugas: #67 langsung upload aja",
+   "updated_at": "2026-10-24 04:01:16"
   },
   {
    "id": "researcher",
@@ -61,9 +61,9 @@
    "id": "publisher",
    "name": "Fikri",
    "title": "Social Media Publisher",
-   "status": "working",
-   "current_task": "Upload #67 ke IG",
-   "updated_at": "2026-10-24 03:59:22"
+   "status": "done",
+   "current_task": "Feed BOOM #67 tayang di IG",
+   "updated_at": "2026-10-24 04:01:12"
   },
   {
    "id": "ads",
@@ -79,7 +79,7 @@
    "title": "Data Analyst",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-10-24 01:00:59"
+   "updated_at": "2026-10-24 04:01:16"
   },
   {
    "id": "price",
@@ -87,7 +87,7 @@
    "title": "Price Watcher",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-10-24 02:00:24"
+   "updated_at": "2026-10-24 04:01:17"
   },
   {
    "id": "ob",
@@ -569,10 +569,10 @@
    "game": "valorant",
    "pillar": "news",
    "title": "BOOM nggak jadi partner VCT 2027: nasib Indonesia di Valorant?",
-   "status": "approved",
+   "status": "posted",
    "asset_url": "{\"feed\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-24/67-boom-nggak-jadi-partner-vct-2027-nasib-i.jpg\"],\"story\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-24/67-boom-nggak-jadi-partner-vct-2027-nasib-i-916.jpg\"]}",
    "scheduled_at": null,
-   "posted_at": null,
+   "posted_at": "2026-10-24 04:01:08",
    "channel": null
   },
   {
@@ -700,6 +700,26 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-24 04:01:16",
+   "agent_id": "analyst",
+   "message": "Update data 45 post IG 📈"
+  },
+  {
+   "ts": "2026-10-24 04:01:12",
+   "agent_id": "publisher",
+   "message": "#67 feed BOOM VCT 2027 diposting ke IG (perintah Owner)"
+  },
+  {
+   "ts": "2026-10-24 04:01:08",
+   "agent_id": "publisher",
+   "message": "Posting #67 ke IG ✅"
+  },
+  {
+   "ts": "2026-10-24 04:01:05",
+   "agent_id": "publisher",
+   "message": "Posting #67 ke IG ✅"
+  },
+  {
    "ts": "2026-10-24 03:59:34",
    "agent_id": "owner",
    "message": "Chat: #67 langsung upload aja"
@@ -803,29 +823,51 @@
    "ts": "2026-10-23 23:14:09",
    "agent_id": "publisher",
    "message": "Kirim #48 ke Owner buat approval"
-  },
-  {
-   "ts": "2026-10-23 23:04:24",
-   "agent_id": "copywriter",
-   "message": "Hook angka (Sabtu): KDA 7,85 & 13 hari lagi FFWS. Harga FF dari zataa hari ini"
-  },
-  {
-   "ts": "2026-10-23 23:03:50",
-   "agent_id": "dir",
-   "message": "Ide ronde 1 dikirim ke Owner: #87 feed BOOM, #88 feed Joshuaa, #91 video Hall of Champions MPL ID (ikut format terlaris 18,6k views)"
-  },
-  {
-   "ts": "2026-10-23 23:03:46",
-   "agent_id": "dir",
-   "message": "Kirim 3 ide briefing ke Owner"
-  },
-  {
-   "ts": "2026-10-23 23:03:46",
-   "agent_id": "dir",
-   "message": "Pilih 3 ide terbaik dari briefing (2 feed + 1 video)"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-10-24 04:01:16",
+   "agent_id": "publisher",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Video Hall of Champions MPL masih dirender Dimas di laptop, nanti aku kirim buat di-approve ya 🙏"
+  },
+  {
+   "ts": "2026-10-24 04:01:16",
+   "agent_id": "publisher",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Siap Bos, feed BOOM #67 udah tayang di IG sekarang ✅"
+  },
+  {
+   "ts": "2026-10-24 04:01:08",
+   "agent_id": "publisher",
+   "to_id": null,
+   "kind": "oper",
+   "message": "\"BOOM nggak jadi partner VCT 2027: nasib Indonesia \" udah tayang di IG 🚀 Makasih semua!"
+  },
+  {
+   "ts": "2026-10-24 04:01:05",
+   "agent_id": "publisher",
+   "to_id": null,
+   "kind": "oper",
+   "message": "\"BOOM nggak jadi partner VCT 2027: nasib Indonesia \" udah tayang di IG 🚀 Makasih semua!"
+  },
+  {
+   "ts": "2026-10-24 03:59:34",
+   "agent_id": "dir",
+   "to_id": null,
+   "kind": "oper",
+   "message": "Oke tim, ada titah dari Bos. Aku bagi tugasnya ya 👇"
+  },
+  {
+   "ts": "2026-10-24 03:59:34",
+   "agent_id": "owner",
+   "to_id": "dir",
+   "kind": "bos",
+   "message": "#67 langsung upload aja"
+  },
   {
    "ts": "2026-10-24 02:40:39",
    "agent_id": "video",
@@ -1063,62 +1105,20 @@
    "to_id": "owner",
    "kind": "santai",
    "message": "Feed M8 lengkap 6 logo tim playoff udah kekirim, tinggal ✅ ya Bos!"
-  },
-  {
-   "ts": "2026-10-22 23:09:42",
-   "agent_id": "researcher",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Udah dicek ke 3 sumber Bos, resmi dari Moonton juga: cuma 2 finalis playoff MPL ID yang ke Istanbul 🇹🇷"
-  },
-  {
-   "ts": "2026-10-22 23:09:29",
-   "agent_id": "video",
-   "to_id": "publisher",
-   "kind": "santai",
-   "message": "Fik, video Istanbul lagi antre di laptop, nanti kekirim sendiri ya. Taruhanku NAVI vs TLID final 😆"
-  },
-  {
-   "ts": "2026-10-22 23:09:29",
-   "agent_id": "publisher",
-   "to_id": "owner",
-   "kind": "oper",
-   "message": "Bos, \"QA & kirim feed M8 Istanbul\" udah aku kirim ke Telegram. Ditunggu approve-nya 🙏"
-  },
-  {
-   "ts": "2026-10-22 23:09:22",
-   "agent_id": "video",
-   "to_id": "publisher",
-   "kind": "oper",
-   "message": "Render \"Render video polling Istanbul (antre laptop)\" selesai, Fikri. Cek cover-nya ya"
-  },
-  {
-   "ts": "2026-10-22 23:09:18",
-   "agent_id": "designer",
-   "to_id": "publisher",
-   "kind": "oper",
-   "message": "Visual \"Render feed M8 Istanbul\" kelar! Fikri, cek typo-nya sekalian ya 🙏"
-  },
-  {
-   "ts": "2026-10-22 23:09:09",
-   "agent_id": "copywriter",
-   "to_id": "designer",
-   "kind": "oper",
-   "message": "Maria, copy \"Teks feed M8 Istanbul + video polling\" udah masuk. Headline-nya jangan dikecilin ya 😆"
   }
  ],
  "stats": {
   "this_week": {
    "week": "2026-10-19",
    "total": 32,
-   "posted": 23,
+   "posted": 24,
    "pending": 0,
-   "scheduled": 5,
+   "scheduled": 4,
    "yt_total": 6,
    "yt_posted": 5,
    "yt_pending": 0,
    "yt_scheduled": 1,
-   "views": 30235,
+   "views": 30272,
    "likes": 193,
    "comments": 5,
    "shares": 9,
@@ -1135,7 +1135,7 @@
      "title": "Era franchise VCT tamat: bursa transfer 2027 dimulai (rumor ditandai)",
      "format": "video",
      "pillar": "news",
-     "views": 2132
+     "views": 2134
     },
     {
      "title": "8.000 Prajurit Penjaga Makam yang Belum Dibuka",
