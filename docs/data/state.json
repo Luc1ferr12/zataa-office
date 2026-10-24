@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-24T23:17:23.162Z",
+ "generated_at": "2026-10-24T23:27:23.160Z",
  "today": "2026-10-25",
  "week_start": "2026-10-19",
  "campaign": {
@@ -53,17 +53,17 @@
    "id": "video",
    "name": "Dimas",
    "title": "Video Production",
-   "status": "working",
-   "current_task": "Render video #51",
-   "updated_at": "2026-10-24 23:04:48"
+   "status": "done",
+   "current_task": "Render video #51 (40 dtk, 7 VO)",
+   "updated_at": "2026-10-24 23:19:59"
   },
   {
    "id": "publisher",
    "name": "Fikri",
    "title": "Social Media Publisher",
-   "status": "working",
-   "current_task": "QA & submit #50",
-   "updated_at": "2026-10-24 23:15:16"
+   "status": "done",
+   "current_task": "QA & submit #50 + #51 ke Owner",
+   "updated_at": "2026-10-24 23:20:11"
   },
   {
    "id": "ads",
@@ -653,7 +653,7 @@
    "game": "mlbb",
    "pillar": "engagement",
    "title": "10 hari lagi playoff: prediksi juara versi kamu?",
-   "status": "draft",
+   "status": "pending_approval",
    "asset_url": "{\"video\":\"https://luc1ferr12.github.io/zataa-office/media/2026-10-25/51-10-hari-lagi-playoff-prediksi-juara-vers.mp4\",\"cover\":\"https://luc1ferr12.github.io/zataa-office/media/2026-10-25/51-10-hari-lagi-playoff-prediksi-juara-vers-cover.jpg\"}",
    "scheduled_at": null,
    "posted_at": null,
@@ -713,6 +713,21 @@
   }
  ],
  "activity": [
+  {
+   "ts": "2026-10-24 23:20:11",
+   "agent_id": "video",
+   "message": "Video #51 40,6 dtk, musik hype, latar klip mobile"
+  },
+  {
+   "ts": "2026-10-24 23:20:11",
+   "agent_id": "publisher",
+   "message": "#50 carousel & #51 video lolos QA, terkirim ke Telegram Owner"
+  },
+  {
+   "ts": "2026-10-24 23:20:07",
+   "agent_id": "publisher",
+   "message": "Kirim #51 ke Owner buat approval"
+  },
   {
    "ts": "2026-10-24 23:17:00",
    "agent_id": "yvideo",
@@ -822,24 +837,23 @@
    "ts": "2026-10-24 09:01:32",
    "agent_id": "publisher",
    "message": "Posting #68 ke IG + TikTok ✅"
-  },
-  {
-   "ts": "2026-10-24 07:01:01",
-   "agent_id": "analyst",
-   "message": "Update data 46 post IG 📈"
-  },
-  {
-   "ts": "2026-10-24 05:00:47",
-   "agent_id": "publisher",
-   "message": "Posting #48 ke IG ✅"
-  },
-  {
-   "ts": "2026-10-24 04:01:16",
-   "agent_id": "analyst",
-   "message": "Update data 45 post IG 📈"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-10-24 23:20:11",
+   "agent_id": "publisher",
+   "to_id": "owner",
+   "kind": "oper",
+   "message": "Bos, \"QA & submit #50 + #51 ke Owner\" udah aku kirim ke Telegram. Ditunggu approve-nya 🙏"
+  },
+  {
+   "ts": "2026-10-24 23:19:59",
+   "agent_id": "video",
+   "to_id": "publisher",
+   "kind": "oper",
+   "message": "Fikri, video \"Render video #51 (40 dtk, 7 VO)\" udah render 9:16. Musiknya aman kok"
+  },
   {
    "ts": "2026-10-24 23:09:38",
    "agent_id": "dir",
@@ -1105,20 +1119,6 @@
    "to_id": "publisher",
    "kind": "oper",
    "message": "Visual \"Render kuis KDA #48 (1:1 + 9:16)\" kelar! Fikri, cek typo-nya sekalian ya 🙏"
-  },
-  {
-   "ts": "2026-10-23 23:04:24",
-   "agent_id": "copywriter",
-   "to_id": "designer",
-   "kind": "oper",
-   "message": "Teks buat \"Copy kuis KDA #48 & video FFWS + diamond FF #49\" ready. Maria, giliranmu bikin cakep!"
-  },
-  {
-   "ts": "2026-10-23 23:03:50",
-   "agent_id": "dir",
-   "to_id": "researcher",
-   "kind": "oper",
-   "message": "Brief \"Pilih 3 ide: BOOM VCT, Joshuaa NAVI, Hall of Champions MPL I\" udah jadi. Clariana, gas riset ya!"
   }
  ],
  "stats": {
@@ -1126,18 +1126,18 @@
    "week": "2026-10-19",
    "total": 33,
    "posted": 28,
-   "pending": 2,
+   "pending": 3,
    "scheduled": 0,
    "yt_total": 7,
    "yt_posted": 6,
    "yt_pending": 1,
    "yt_scheduled": 0,
-   "views": 32111,
+   "views": 32116,
    "likes": 224,
    "comments": 6,
    "shares": 9,
    "saves": 4,
-   "yt_views": 7119,
+   "yt_views": 7124,
    "top": [
     {
      "title": "Hall of Champions Valorant 2021-2026",
