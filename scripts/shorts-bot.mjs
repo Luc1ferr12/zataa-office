@@ -1,6 +1,7 @@
 #!/usr/bin/env node
-// Divisi YouTube Shorts: bot Telegram @zataashortbot + alur konten (DB contents, channel 'youtube', format/slot 'shorts').
-// Bot jalan di dalam watcher (long polling, terpisah dari bot kantor), cuma nerima pesan & tombol dari SHORTS_OWNER_ID.
+// Divisi Shorts, dua brand dengan kode yang sama (scripts/brand.mjs, pilih --brand=history|story, default history):
+//   Zataa History: bot @zataashortbot, DB channel 'youtube', tim Bagas dkk · Zataa Story: bot @zataastorybot, DB channel 'story', tim Raditya dkk (+ TikTok).
+// Bot History jalan di dalam watcher, bot Story = proses anak watcher (shorts-bot.mjs bot --brand=story); cuma nerima pesan & tombol dari SHORTS_OWNER_ID.
 // Alur: new (sesi harian) → antre render laptop (_laptop 1, scripts/shorts-laptop.mjs, OmniVoice) → submit (Kirana kirim video + ✅/✏️/❌)
 //       → ✅ → tunggu jam tayang (_jam) → upload YouTube Publik lewat Zernio (scripts/zernio.mjs) → 'posted'. Tanpa ZERNIO_API_KEY: scripts/youtube.mjs Private → 'uploaded' + pengingat → Owner tekan
 //       "Sudah Publik" → 'posted'. Shorts belum dianggap tayang sebelum Owner konfirmasi.
@@ -11,10 +12,12 @@
 //   node scripts/shorts-bot.mjs upload <id>           upload manual sekarang (Owner sudah ✅; normalnya otomatis di jam tayang)
 //   ❌ Tolak → Claude CLI bikin Shorts pengganti (topik lain, hari & jam sama)
 //   node scripts/shorts-bot.mjs say <agent> "<teks>"  pesan dari pegawai YouTube
-//   node scripts/shorts-bot.mjs tiktok <id>           cross-post ke TikTok Zataa Story sekarang (otomatis setelah tayang YouTube kalau ZERNIO_STORY_TIKTOK_ACCOUNT diisi)
+//   node scripts/shorts-bot.mjs tiktok <id>           cross-post ke TikTok brand ini sekarang (Story: otomatis setelah tayang YouTube)
+//   node scripts/shorts-bot.mjs bot                   jalankan bot Telegram brand ini (dipakai watcher untuk --brand=story)
+//   Semua perintah: tambah --brand=story untuk Zataa Story.
 //   node scripts/shorts-bot.mjs report [--dry]        laporan harian sekarang (otomatis tiap 19:00 WITA; --dry = cetak saja, tidak dikirim)
 //   node scripts/shorts-bot.mjs weekly [--dry]        laporan mingguan sekarang (otomatis Minggu 19:30 WITA)
-//   .env: SHORTS_BOT_TOKEN, SHORTS_OWNER_ID (+ YT_* untuk upload, ZERNIO_STORY_TIKTOK_ACCOUNT = id akun TikTok Zataa Story di Zernio)
+//   .env: SHORTS_OWNER_ID + per brand: History SHORTS_BOT_TOKEN / ZERNIO_API_KEY / YT_REFRESH_TOKEN · Story STORY_BOT_TOKEN / ZERNIO_STORY_API_KEY / STORY_YT_REFRESH_TOKEN
 process.removeAllListeners('warning');
 import { join, dirname, basename } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -24,14 +27,18 @@ import { readFile } from 'node:fs/promises';
 import { execFile } from 'node:child_process';
 import ffmpegPath from 'ffmpeg-static';
 import { loadEnv, NAMA, lesson } from './approval.mjs';
-import { zernioOn, youtubeUpload, tiktokPost } from './zernio.mjs';
-import { tdb, getTopic, checkQuota, syncTopic, weekStats, WEEK_TOTAL, CORE_MIN, FOREIGN_MAX, PILLARS } from './shorts-topics.mjs';
+import { zernioOn, youtubeUpload, tiktokPost, api as zernioApi } from './zernio.mjs';
+import { tdb, getTopic, checkQuota, syncTopic, weekStats, WEEK_TOTAL, CORE, CORE_MIN, PILLARS } from './shorts-topics.mjs';
+import { B, cliArgs } from './brand.mjs';
 import { claude, formatReply, ESCALATE, isStatusQuestion } from './ask.mjs';
 import { haiku, OFFICE, ANSWER_ANY } from './haiku.mjs';
 import { wita } from '../docs/js/schedule.js';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const STATE = join(ROOT, 'tmp', 'shorts-bot.json');
+const STATE = join(ROOT, B.state);
+const CH = B.channel, T = B.team;           // channel DB & id pegawai brand ini
+const BR = `--brand=${B.key}`;              // ikut diteruskan ke perintah anak (youtube.mjs, prompt Claude)
+const OWN = Object.keys(PILLARS).filter((k) => PILLARS[k].brand === B.key).map((k) => `'${k}'`).join(', ');
 const DAYS = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
 const SLOT_WIB = '18:00'; // default; jam tayang per Shorts (hasil riset harian Kirana) di data_json._jam
 const jamOf = (c) => { try { return JSON.parse(c.data_json ?? '{}')._jam ?? SLOT_WIB; } catch { return SLOT_WIB; } };
@@ -54,13 +61,13 @@ export async function db() {
   return d;
 }
 const act = (d, agent, msg) => { try { d.prepare('INSERT INTO activity (agent_id, message) VALUES (?, ?)').run(agent, msg); } catch { /* pegawai belum ada di DB lama */ } };
-const getShort = (d, id) => d.prepare("SELECT * FROM contents WHERE id = ? AND channel = 'youtube'").get(id);
+const getShort = (d, id) => d.prepare(`SELECT * FROM contents WHERE id = ? AND channel = '${CH}'`).get(id);
 const dataOf = (c) => { try { return JSON.parse(c.data_json ?? '{}'); } catch { return {}; } };
 
-// ---------- Telegram (bot @zataashortbot)
+// ---------- Telegram (bot brand ini: B.bot)
 async function api(method, params = {}, files = {}) {
-  const token = loadEnv().SHORTS_BOT_TOKEN;
-  if (!token) throw new Error('SHORTS_BOT_TOKEN kosong di .env');
+  const token = loadEnv()[B.tokenEnv];
+  if (!token) throw new Error(`${B.tokenEnv} kosong di .env`);
   let body, headers = {};
   if (Object.keys(files).length) {
     body = new FormData();
@@ -96,7 +103,7 @@ export async function newShort(p) {
   const d = await db();
   const today = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Makassar' }).format(new Date());
   const day = p.day ?? today;
-  // tiap Shorts wajib dari bank topik (status approved) + lolos kuota mingguan (≥3 Horor Bersejarah, maks 1 Misteri Dunia dari 7)
+  // tiap Shorts wajib dari bank topik (status approved) + lolos kuota mingguan brand (B.week, ≥B.coreMin pilar inti)
   let topic = null;
   if (!p.test) {
     if (!p.topic_id) throw new Error('butuh topic_id dari bank topik (node scripts/shorts-topics.mjs next)');
@@ -105,12 +112,12 @@ export async function newShort(p) {
     if (topic.status !== 'approved') throw new Error(`topik ${p.topic_id} statusnya ${topic.status}, harus approved dulu`);
     checkQuota(d, day, topic.pillar);
   }
-  const data = { ...p.spec, ...(p.tags ? { tags: p.tags } : {}), ...(p.synthetic ? { synthetic: true } : {}), ...(p.test ? { _test: 1 } : {}), ...(p.jam ? { _jam: p.jam } : {}), ...(topic ? { _topic: topic.topic_id } : {}), _laptop: 1 };
-  const r = d.prepare("INSERT INTO contents (channel, day, slot, format, game, pillar, title, data_json, caption, hashtags, sources, template) VALUES ('youtube', ?, 'shorts', 'shorts', 'sejarah', ?, ?, ?, ?, ?, ?, 'shorts')")
-    .run(day, topic?.pillar ?? 'misteri', String(p.title).slice(0, 100), JSON.stringify(data), p.caption ?? '', p.hashtags ?? '#Shorts #misteri #nusantara', p.sources ?? null);
+  const data = { tag: B.tag, ...p.spec, ...(p.tags ? { tags: p.tags } : {}), ...(p.synthetic ? { synthetic: true } : {}), ...(p.test ? { _test: 1 } : {}), ...(p.jam ? { _jam: p.jam } : {}), ...(topic ? { _topic: topic.topic_id } : {}), _laptop: 1 };
+  const r = d.prepare("INSERT INTO contents (channel, day, slot, format, game, pillar, title, data_json, caption, hashtags, sources, template) VALUES (?, ?, 'shorts', 'shorts', 'sejarah', ?, ?, ?, ?, ?, ?, 'shorts')")
+    .run(CH, day, topic?.pillar ?? 'misteri', String(p.title).slice(0, 100), JSON.stringify(data), p.caption ?? '', p.hashtags ?? B.hashtags, p.sources ?? null);
   const id = Number(r.lastInsertRowid);
   if (topic) syncTopic(d, topic.topic_id, 'production', { contentId: id });
-  act(d, 'yvideo', `Shorts #${id} "${p.title}" masuk antrean render laptop (OmniVoice)`);
+  act(d, T.video, `Shorts #${id} "${p.title}" masuk antrean render laptop (OmniVoice)`);
   return { ok: true, id, topic_id: topic?.topic_id ?? null, queued: 'laptop' };
 }
 
@@ -143,7 +150,7 @@ export async function submit(id, { note = '' } = {}) {
   await api('sendVideo', { chat_id: owner(), caption: head(c), parse_mode: 'HTML', supports_streaming: true, width: 1080, height: 1920, ...(data.duration ? { duration: Math.round(data.duration) } : {}) },
     { video: await tgVideo(c.id, join(ROOT, A.video)), ...(A.cover && existsSync(join(ROOT, A.cover)) ? { thumbnail: join(ROOT, A.cover) } : {}) });
   let text = [
-    `<b>${NAMA.ypublish}</b>: Bos, Shorts ini siap upload ke <b>Zataa Story</b> 👇`, '', head(c),
+    `<b>${NAMA[T.publish]}</b>: Bos, Shorts ini siap upload ke <b>${B.name}</b>${B.tiktok ? ' (+ TikTok)' : ''} 👇`, '', head(c),
     data.duration ? `⏱️ ${Math.round(data.duration)} dtk · mood ${esc(data.mood ?? 'misteri')}${data._test ? ' · <i>uji coba</i>' : ''}` : '',
     note ? `🔁 <i>${esc(note)}</i>` : '', '',
     `👁️ Visibilitas: <b>${PRIV[privOf(c)]}</b> (ganti: ketik "publik #${c.id}" / "unlisted #${c.id}" / "private #${c.id}")`,
@@ -155,11 +162,11 @@ export async function submit(id, { note = '' } = {}) {
   const m = await send(text, { reply_markup: BUTTONS(c.id) });
   patchState((s) => { (s.msgs ??= {})[m.message_id] = c.id; s.msgs = Object.fromEntries(Object.entries(s.msgs).slice(-40)); });
   d.prepare("UPDATE contents SET status = 'pending_approval', updated_at = datetime('now') WHERE id = ?").run(c.id);
-  act(d, 'ypublish', `Kirim Shorts #${c.id} ke Owner buat approval`);
+  act(d, T.publish, `Kirim Shorts #${c.id} ke Owner buat approval`);
   return { ok: true, id: c.id, status: 'pending_approval' };
 }
 
-const remindText = (c) => `🔒 Shorts <b>#${c.id}</b> "${esc(c.title)}" masih <b>Private</b> di Zataa Story.
+const remindText = (c) => `🔒 Shorts <b>#${c.id}</b> "${esc(c.title)}" masih <b>Private</b> di ${B.name}.
 🔗 https://youtube.com/shorts/${c.youtube_id}
 Bos, tolong ubah jadi <b>Publik</b> sendiri ya (jadwal tayang ${jamOf(c)} WIB): YouTube Studio → Konten → video ini → Visibilitas → Publik.
 ✏️ Studio: https://studio.youtube.com/video/${c.youtube_id}/edit
@@ -184,47 +191,45 @@ export async function upload(id) {
   const video = join(ROOT, JSON.parse(c.asset_path).video);
   let r, res = null;
   if (zernioOn()) { // lewat Zernio: app sudah diaudit → langsung Publik (keputusan Owner 18 Okt)
-    try { res = await youtubeUpload(video, meta, `yt-${id}`); r = { ok: true }; } catch (e) { r = { ok: false, out: '', err: e.message }; }
+    try { res = await youtubeUpload(video, meta, B.key === 'history' ? `yt-${id}` : `yt-${B.key}-${id}`); r = { ok: true }; } catch (e) { r = { ok: false, out: '', err: e.message }; }
   } else {
-    r = await run(['scripts/youtube.mjs', 'upload', video, metaPath]);
+    r = await run(['scripts/youtube.mjs', 'upload', video, metaPath, BR]);
     try { res = JSON.parse(r.out.split('\n').pop()); } catch { /* bukan JSON */ }
   }
   try { unlinkSync(metaPath); } catch { /* abaikan */ }
   if (!r.ok || !res?.id) {
     d.prepare("UPDATE contents SET status = 'upload_failed', updated_at = datetime('now') WHERE id = ?").run(id);
-    act(d, 'ypublish', `Upload Shorts #${id} gagal`);
+    act(d, T.publish, `Upload Shorts #${id} gagal`);
     throw new Error((r.err || r.out).split('\n').pop().slice(0, 300));
   }
   d.prepare("UPDATE contents SET status = 'uploaded', youtube_id = ?, asset_url = ?, updated_at = datetime('now') WHERE id = ?").run(res.id, res.url, id);
-  act(d, 'ypublish', res.privacy === 'public' ? `Upload Shorts #${id} ke Zataa Story (Publik via Zernio)` : `Upload Shorts #${id} ke Zataa Story (Private), nunggu Owner ubah ke Publik`);
+  act(d, T.publish, res.privacy === 'public' ? `Upload Shorts #${id} ke ${B.name} (Publik via Zernio)` : `Upload Shorts #${id} ke ${B.name} (Private), nunggu Owner ubah ke Publik`);
   return { ok: true, id, youtube_id: res.id, url: res.url, privacy: res.privacy };
 }
 
-// cross-post TikTok: video yang sama ke akun TikTok Zataa Story (BUKAN zataa.topup) → peluang viral dobel tanpa produksi tambahan.
-// Cuma jalan kalau ZERNIO_STORY_TIKTOK_ACCOUNT diisi; nggak pernah jatuh ke akun TikTok default.
-const storyTikTok = () => loadEnv().ZERNIO_STORY_TIKTOK_ACCOUNT || null;
+// cross-post TikTok: video yang sama ke TikTok brand ini → peluang viral dobel tanpa produksi tambahan.
+// Cuma brand dengan B.tiktok (Zataa Story, akun TikTok di Zernio akun 2); History nggak pernah posting TikTok.
 export async function crossTikTok(id) {
-  const acc = storyTikTok();
-  if (!acc || !zernioOn()) return { ok: false, skip: 'ZERNIO_STORY_TIKTOK_ACCOUNT belum diisi' };
+  if (!B.tiktok || !zernioOn()) return { ok: false, skip: `${B.name} nggak pakai TikTok / ${B.zernioEnv} kosong` };
   const d = await db();
   const c = getShort(d, id);
   if (!c?.asset_path) throw new Error(`Shorts #${id} belum dirender`);
   if (c.tiktok_id) return { ok: true, id, tiktok_id: c.tiktok_id, already: true };
   const tags = [...new Set([...(c.hashtags ?? '').split(/\s+/).filter((t) => t.startsWith('#') && t.toLowerCase() !== '#shorts'), '#misteri', '#horor', '#nusantara', '#fyp'])].slice(0, 6);
   const caption = [c.title, String(c.caption ?? '').split('\n')[0], tags.join(' ')].filter(Boolean).join('\n\n');
-  const r = await tiktokPost(join(ROOT, JSON.parse(c.asset_path).video), caption, `tt-${id}`, acc);
+  const r = await tiktokPost(join(ROOT, JSON.parse(c.asset_path).video), caption, `tt-${B.key}-${id}`);
   d.prepare("UPDATE contents SET tiktok_id = ?, updated_at = datetime('now') WHERE id = ?").run(String(r.id ?? ''), id);
-  act(d, 'ypublish', `Cross-post Shorts #${id} ke TikTok Zataa Story`);
+  act(d, T.publish, `Cross-post Shorts #${id} ke TikTok ${B.name}`);
   return { ok: true, id, tiktok_id: r.id, url: r.url };
 }
 async function doTikTok(id, log) {
-  if (!storyTikTok()) return;
+  if (!B.tiktok) return;
   try {
     const r = await crossTikTok(id);
-    if (r.ok && !r.already) await sayAs('ypublish', `🎵 Shorts #${id} juga udah tayang di TikTok Zataa Story${r.url ? `\n🔗 ${r.url}` : ''}`);
+    if (r.ok && !r.already) await sayAs(T.publish, `🎵 Shorts #${id} juga udah tayang di TikTok ${B.name}${r.url ? `\n🔗 ${r.url}` : ''}`);
   } catch (e) {
     log(`shorts #${id} tiktok gagal: ${e.message}`);
-    await sayAs('ypublish', `⚠️ Cross-post TikTok Shorts #${id} gagal: ${esc(e.message.slice(0, 200))}. YouTube aman. Coba lagi: <code>shorts-bot.mjs tiktok ${id}</code>`).catch(() => {});
+    await sayAs(T.publish, `⚠️ Cross-post TikTok Shorts #${id} gagal: ${esc(e.message.slice(0, 200))}. YouTube aman. Coba lagi: <code>shorts-bot.mjs tiktok ${id}</code>`).catch(() => {});
   }
 }
 
@@ -235,14 +240,14 @@ const slotAt = (c) => new Date(`${c.day}T${jamOf(c)}:00+07:00`).getTime();
 async function approve(id, log, { now = false } = {}) {
   const d = await db();
   const c = getShort(d, id);
-  if (!c) return sayAs('ypublish', `Shorts #${id} nggak ketemu, Bos 🤔`);
-  if (c.youtube_id) return sayAs('ypublish', `Shorts #${id} udah ke-upload kok: https://youtube.com/shorts/${c.youtube_id}`, { reply_markup: PUB_BTN(id) });
-  if (!['pending_approval', 'upload_failed', 'approved'].includes(c.status)) return sayAs('ypublish', `Shorts #${id} statusnya "${esc(c.status)}", belum bisa di-approve.`);
+  if (!c) return sayAs(T.publish, `Shorts #${id} nggak ketemu, Bos 🤔`);
+  if (c.youtube_id) return sayAs(T.publish, `Shorts #${id} udah ke-upload kok: https://youtube.com/shorts/${c.youtube_id}`, { reply_markup: PUB_BTN(id) });
+  if (!['pending_approval', 'upload_failed', 'approved'].includes(c.status)) return sayAs(T.publish, `Shorts #${id} statusnya "${esc(c.status)}", belum bisa di-approve.`);
   d.prepare("UPDATE contents SET status = 'approved', updated_at = datetime('now') WHERE id = ?").run(id);
   act(d, 'owner', `Approve Shorts #${id} ✅`);
   if (now || c.status === 'upload_failed' || Date.now() >= slotAt(c)) return doUpload(id, log);
   const hari = DAYS[new Date(`${c.day}T00:00:00Z`).getUTCDay()];
-  return sayAs('ypublish', `Siap Bos! ✅ Shorts #${id} dijadwalkan upload <b>${hari} ${c.day.slice(8)}/${c.day.slice(5, 7)} jam ${jamOf(c)} WIB</b>. Begitu ke-upload aku kabarin + ingetin ubah ke Publik.`);
+  return sayAs(T.publish, `Siap Bos! ✅ Shorts #${id} dijadwalkan upload <b>${hari} ${c.day.slice(8)}/${c.day.slice(5, 7)} jam ${jamOf(c)} WIB</b>. Begitu ke-upload aku kabarin + ingetin ubah ke Publik.`);
 }
 
 const uploading = new Set();
@@ -250,38 +255,38 @@ async function doUpload(id, log) {
   if (uploading.has(id)) return;
   uploading.add(id);
   const d = await db();
-  await sayAs('ypublish', `⏫ Shorts #${id} lagi aku upload ke Zataa Story…`).catch(() => {});
+  await sayAs(T.publish, `⏫ Shorts #${id} lagi aku upload ke ${B.name}…`).catch(() => {});
   try {
     const r = await upload(id);
     log(`shorts #${id} ke-upload: ${r.url}`);
     if (r.privacy === 'public') { // lolos audit: langsung tayang, nggak perlu diingetin
       d.prepare("UPDATE contents SET status = 'posted', posted_at = datetime('now'), updated_at = datetime('now') WHERE id = ?").run(id);
       syncTopic(d, dataOf(getShort(d, id))._topic, 'published', { url: r.url });
-      await sayAs('ypublish', `🎉 Shorts #${id} udah tayang Publik di Zataa Story!\n🔗 ${r.url}`);
+      await sayAs(T.publish, `🎉 Shorts #${id} udah tayang Publik di YouTube ${B.name}!\n🔗 ${r.url}`);
       await doTikTok(id, log);
     } else if (r.privacy === 'unlisted' || (r.privacy === 'private' && privOf(getShort(d, id)) === 'private' && loadEnv().YT_AUDITED === '1')) {
-      await sayAs('ypublish', `✅ Shorts #${id} ke-upload sebagai <b>${PRIV[r.privacy]}</b> sesuai pilihan Bos.\n🔗 ${r.url}`);
+      await sayAs(T.publish, `✅ Shorts #${id} ke-upload sebagai <b>${PRIV[r.privacy]}</b> sesuai pilihan Bos.\n🔗 ${r.url}`);
     } else {
-      await sayAs('ypublish', `✅ Udah ke-upload!\n${remindText(getShort(d, id))}`, { reply_markup: PUB_BTN(id) });
+      await sayAs(T.publish, `✅ Udah ke-upload!\n${remindText(getShort(d, id))}`, { reply_markup: PUB_BTN(id) });
       patchState((s) => { (s.remind ??= {})[id] = { n: 0, at: Date.now() }; });
     }
   } catch (e) {
     log(`shorts #${id} upload gagal: ${e.message}`);
-    await sayAs('ypublish', `⚠️ Upload Shorts #${id} gagal: ${esc(e.message)}`, { reply_markup: { inline_keyboard: [[{ text: '🔁 Coba upload lagi', callback_data: `yok:${id}` }]] } });
+    await sayAs(T.publish, `⚠️ Upload Shorts #${id} gagal: ${esc(e.message)}`, { reply_markup: { inline_keyboard: [[{ text: '🔁 Coba upload lagi', callback_data: `yok:${id}` }]] } });
   } finally { uploading.delete(id); }
 }
 
 async function markPublic(id) {
   const d = await db();
   const c = getShort(d, id);
-  if (!c?.youtube_id) return sayAs('ypublish', `Shorts #${id} belum di-upload, Bos.`);
+  if (!c?.youtube_id) return sayAs(T.publish, `Shorts #${id} belum di-upload, Bos.`);
   if (c.status !== 'posted') {
     d.prepare("UPDATE contents SET status = 'posted', posted_at = datetime('now'), updated_at = datetime('now') WHERE id = ?").run(id);
     syncTopic(d, dataOf(c)._topic, 'published', { url: `https://youtube.com/shorts/${c.youtube_id}` });
-    act(d, 'ypublish', `Shorts #${id} udah Publik di Zataa Story 🎉`);
+    act(d, T.publish, `Shorts #${id} udah Publik di ${B.name} 🎉`);
   }
   patchState((s) => { delete (s.remind ??= {})[id]; });
-  return sayAs('ypublish', `Mantap Bos, Shorts #${id} dicatat udah tayang 🎉 Nanti aku pantau views-nya.\n🔗 https://youtube.com/shorts/${c.youtube_id}`);
+  return sayAs(T.publish, `Mantap Bos, Shorts #${id} dicatat udah tayang 🎉 Nanti aku pantau views-nya.\n🔗 https://youtube.com/shorts/${c.youtube_id}`);
 }
 
 // revisi: Claude CLI (tim YouTube) ubah naskah/visual/judul → render ulang di laptop (atau langsung kirim kalau cuma judul/deskripsi)
@@ -292,13 +297,14 @@ async function revise(id, note, log) {
   if (!c) return;
   d.prepare("UPDATE contents SET status = 'revision', owner_note = ?, revisions = revisions + 1, updated_at = datetime('now') WHERE id = ?").run(note, id);
   act(d, 'owner', `Minta revisi Shorts #${id}: ${note}`);
-  lesson(d, ['yscript', 'yvisual', 'ypublish'], `✏️ revisi Shorts "${String(c.title).slice(0, 60)}": ${note}`);
-  await sayAs('yscript', `🛠️ Siap Bos, revisi Shorts #${id} lagi dikerjain…`).catch(() => {});
-  const r = await claude(`Kamu tim YouTube Shorts Zataa Story (misteri & horor Nusantara berbasis sejarah, pilar di office/youtube.md) di folder ini. Owner minta REVISI Shorts #${id}:
+  lesson(d, [T.script, T.visual, T.publish], `✏️ revisi Shorts "${String(c.title).slice(0, 60)}": ${note}`);
+  await sayAs(T.script, `🛠️ Siap Bos, revisi Shorts #${id} lagi dikerjain…`).catch(() => {});
+  const r = await claude(`Kamu tim Shorts ${B.name} (${B.niche}, pilar di ${B.sop}) di folder ini. Owner minta REVISI Shorts #${id}:
+BRAND: tambahkan ${BR} di SETIAP perintah scripts/shorts-bot.mjs & scripts/shorts-topics.mjs.
 "${note}"
 
 Langkah:
-1. Baca office/youtube.md, lalu playbook yang kepakai: office/roles/yscript.md (naskah), yvisual.md (gambar), ypublish.md (judul/deskripsi).
+1. Baca ${B.sop}, lalu playbook yang kepakai: office/roles/${T.script}.md (naskah), office/roles/${T.visual}.md (gambar), office/roles/${T.publish}.md (judul/deskripsi).
 2. node scripts/shorts-bot.mjs get ${id}
 3. Ubah seperlunya (tulis JSON ke file sementara di tmp/ lalu: node scripts/shorts-bot.mjs set ${id} <file.json>; kunci: title, caption, hashtags, sources, data_json = spec render lengkap { voice, speed, tag, mood, scenes[{img, vo, sub, place?, credit?, move?}] }).
    Path img relatif dari root repo (mis. assets/shorts/<topik>/s1.jpg). Durasi 30–40 dtk (5–6 adegan, 55–70 kata narasi, spec.hook wajib). Aturan fakta/teori/mitos & kredit visual tetap berlaku.
@@ -307,15 +313,15 @@ Kalau yang diubah cuma judul/deskripsi/hashtag (naskah & gambar tetap), tulis pe
 Akhiri dengan SATU kalimat ringkas (santai) tentang apa yang diubah.`, 20);
   if (!r.ok) {
     log(`revisi shorts #${id} gagal: ${r.text.slice(0, 200)}`);
-    return sayAs('yscript', `⚠️ Revisi Shorts #${id} belum bisa dikerjain otomatis (${esc(r.text.slice(0, 150))}). Dilanjut di sesi harian.`).catch(() => {});
+    return sayAs(T.script, `⚠️ Revisi Shorts #${id} belum bisa dikerjain otomatis (${esc(r.text.slice(0, 150))}). Dilanjut di sesi harian.`).catch(() => {});
   }
   const summary = r.text.split('\n').filter((l) => l.trim() && !l.includes(NO_RENDER)).pop() ?? '';
-  act(d, 'yscript', `Revisi Shorts #${id} kelar: ${summary.slice(0, 120)}`);
+  act(d, T.script, `Revisi Shorts #${id} kelar: ${summary.slice(0, 120)}`);
   if (r.text.includes(NO_RENDER) && getShort(d, id).asset_path) {
-    await submit(id, { note: `Hasil revisi: ${summary}` }).catch((e) => sayAs('ypublish', `⚠️ Gagal kirim ulang #${id}: ${esc(e.message)}`));
+    await submit(id, { note: `Hasil revisi: ${summary}` }).catch((e) => sayAs(T.publish, `⚠️ Gagal kirim ulang #${id}: ${esc(e.message)}`));
   } else {
     await queue(id);
-    await sayAs('yvideo', `🎙️ Revisi #${id} kelar (${esc(summary.slice(0, 200))}). Videonya dirender ulang di laptop (suara OmniVoice), nanti Kirana kirim lagi ke sini.`).catch(() => {});
+    await sayAs(T.video, `🎙️ Revisi #${id} kelar (${esc(summary.slice(0, 200))}). Videonya dirender ulang di laptop (suara OmniVoice), nanti ${NAMA[T.publish]} kirim lagi ke sini.`).catch(() => {});
   }
   log(`revisi shorts #${id} beres`);
 }
@@ -325,21 +331,23 @@ async function reject(id, log) {
   const d = await db();
   const c = getShort(d, id);
   if (!c) return;
-  d.prepare("UPDATE contents SET status = 'rejected', updated_at = datetime('now') WHERE id = ? AND channel = 'youtube'").run(id);
+  d.prepare(`UPDATE contents SET status = 'rejected', updated_at = datetime('now') WHERE id = ? AND channel = '${CH}'`).run(id);
   syncTopic(d, dataOf(c)._topic, 'backlog', { note: `[ditolak Owner di Shorts #${id}]` });
   act(d, 'owner', `Tolak Shorts #${id}`);
-  lesson(d, ['ydir', 'yresearch'], `❌ ditolak Shorts "${String(c.title).slice(0, 60)}" — hindari angle/topik serupa`);
-  await sayAs('ydir', `Oke Bos, Shorts #${id} "${esc(c.title)}" nggak dipakai. Tim langsung bikin konten pengganti dengan topik lain 🔄`).catch(() => {});
+  lesson(d, [T.dir, T.research], `❌ ditolak Shorts "${String(c.title).slice(0, 60)}" — hindari angle/topik serupa`);
+  await sayAs(T.dir, `Oke Bos, Shorts #${id} "${esc(c.title)}" nggak dipakai. Tim langsung bikin konten pengganti dengan topik lain 🔄`).catch(() => {});
   later(() => replace(c, log), log);
 }
 
 async function replace(old, log) {
   const today = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Makassar' }).format(new Date());
   const day = old.day > today ? old.day : today;
-  const r = await claude(`Kamu tim YouTube Shorts Zataa Story (misteri & horor Nusantara berbasis sejarah, pilar di office/youtube.md) di folder ini. Owner MENOLAK Shorts #${old.id} "${old.title}". Bikin Shorts PENGGANTI dengan topik lain.
+  const r = await claude(`Kamu tim Shorts ${B.name} (${B.niche}, pilar di ${B.sop}) di folder ini.
+BRAND: tambahkan ${BR} di SETIAP perintah scripts/shorts-bot.mjs & scripts/shorts-topics.mjs.
+Owner MENOLAK Shorts #${old.id} "${old.title}". Bikin Shorts PENGGANTI dengan topik lain.
 
 Langkah:
-1. Baca office/youtube.md lalu playbook office/roles/ydir.md, yresearch.md, yscript.md, yvisual.md, ypublish.md.
+1. Baca ${B.sop} lalu playbook office/roles/${Object.values(T).join('.md, office/roles/')}.md.
 2. node scripts/shorts-bot.mjs list lalu node scripts/shorts-topics.mjs next ${day} → pilih topik approved dari bank (patuhi pilar wajib yang dicetak), JANGAN sama/mirip "${old.title}" atau Shorts 14 hari terakhir. Bank kosong untuk pilar itu → tambah topik lengkap (shorts-topics.mjs add) lalu set status approved.
 3. Riset (≤5 pencarian web), naskah 5–6 adegan 55–70 kata narasi + spec.hook (teks layar 3–6 kata) + pertanyaan komentar di akhir (label fakta/teori/mitos, ≥2 sumber), gambar berlisensi bebas (Wikimedia Commons dll.).
    Unduh gambar pakai node (fetch dengan header User-Agent) ke assets/shorts/<topik>/s1.jpg dst + credits.txt. Cek tiap gambar sesuai isinya.
@@ -348,21 +356,21 @@ Langkah:
 Akhiri dengan SATU kalimat ringkas (santai): topik penggantinya apa.`, 30);
   if (!r.ok) {
     log(`pengganti shorts #${old.id} gagal: ${r.text.slice(0, 200)}`);
-    return sayAs('ydir', `⚠️ Konten pengganti #${old.id} belum bisa dibikin otomatis (${esc(r.text.slice(0, 150))}). Dilanjut di sesi harian.`).catch(() => {});
+    return sayAs(T.dir, `⚠️ Konten pengganti #${old.id} belum bisa dibikin otomatis (${esc(r.text.slice(0, 150))}). Dilanjut di sesi harian.`).catch(() => {});
   }
   const summary = r.text.split('\n').filter((l) => l.trim()).pop() ?? '';
-  act(await db(), 'ydir', `Pengganti Shorts #${old.id}: ${summary.slice(0, 120)}`);
-  await sayAs('ydir', `🎬 Pengganti #${old.id} siap: ${esc(summary.slice(0, 200))}\nLagi dirender di laptop, nanti Kirana kirim ke sini buat di-✅.`).catch(() => {});
+  act(await db(), T.dir, `Pengganti Shorts #${old.id}: ${summary.slice(0, 120)}`);
+  await sayAs(T.dir, `🎬 Pengganti #${old.id} siap: ${esc(summary.slice(0, 200))}\nLagi dirender di laptop, nanti ${NAMA[T.publish]} kirim ke sini buat di-✅.`).catch(() => {});
   log(`pengganti shorts #${old.id} beres`);
 }
 
 async function statusText() {
   const d = await db();
-  const rows = d.prepare("SELECT id, day, title, status, youtube_id, json_extract(data_json, '$._laptop') lap FROM contents WHERE channel = 'youtube' AND day >= date('now', '-7 days') ORDER BY day, id").all();
+  const rows = d.prepare(`SELECT id, day, title, status, youtube_id, json_extract(data_json, '$._laptop') lap FROM contents WHERE channel = '${CH}' AND day >= date('now', '-7 days') ORDER BY day, id`).all();
   const ST = { draft: 'draft', revision: 'revisi', pending_approval: 'nunggu ✅ Bos', approved: '✅, nunggu jam tayang', uploading: 'lagi upload', uploaded: 'Private, nunggu Bos ubah Publik', upload_failed: 'upload gagal', posted: 'tayang', rejected: 'ditolak' };
   const lap = { 1: '⏳ antre render laptop', 2: '🎙️ lagi dirender di laptop', 3: '⚠️ render gagal' };
-  if (!rows.length) return `<b>${NAMA.ydir}</b>: Belum ada Shorts minggu ini, Bos. Produksi tiap hari, 1 Shorts per hari (jam tayang dicek tiap hari).`;
-  return `<b>${NAMA.ydir}</b>: Rekap Shorts 7 hari terakhir:\n${rows.map((r) => `• #${r.id} ${r.day.slice(8)}/${r.day.slice(5, 7)} ${esc(r.title)} — ${lap[r.lap] ?? ST[r.status] ?? r.status}`).join('\n')}`;
+  if (!rows.length) return `<b>${NAMA[T.dir]}</b>: Belum ada Shorts ${B.name} minggu ini, Bos. Kuota ${B.week} Shorts/minggu, maks 1 per hari.`;
+  return `<b>${NAMA[T.dir]}</b>: Rekap Shorts ${B.name} 7 hari terakhir:\n${rows.map((r) => `• #${r.id} ${r.day.slice(8)}/${r.day.slice(5, 7)} ${esc(r.title)} — ${lap[r.lap] ?? ST[r.status] ?? r.status}`).join('\n')}`;
 }
 
 // ---------- laporan Kirana di bot ini (0 token): harian 19:00 WITA, mingguan Minggu 19:30 WITA
@@ -376,7 +384,7 @@ const PROD = { draft: '📝 naskah/visual', revision: '✏️ revisi', pending_a
 const LAP = { 1: '⏳ antre render laptop', 2: '🎙️ dirender di laptop', 3: '⚠️ render gagal' };
 const prodLine = (c) => `#${c.id} ${esc(c.title.slice(0, 45))} — ${LAP[c.lap] ?? PROD[c.status] ?? esc(c.status)}`;
 async function ytStats() {
-  const r = await run(['scripts/youtube.mjs', 'stats'], 3);
+  const r = await run(['scripts/youtube.mjs', 'stats', BR], 3);
   if (!r.ok) throw new Error((r.err || r.out).split('\n').pop().slice(0, 200));
   const st = JSON.parse(r.out.split('\n').pop());
   return { st, views: st.list.reduce((a, v) => a + v.views, 0) }; // total channel dari API telat update → jumlahkan per video
@@ -384,8 +392,25 @@ async function ytStats() {
 
 // retensi per video dari YouTube Analytics (telat ±2 hari). Target: bertahan (engaged/views) ≥70%, ditonton ≥90% (>100% = diulang)
 const STAY_MIN = 70, APV_MIN = 90;
+// TikTok brand ini (Zernio /analytics akun brand): followers + views/likes/komentar per post
+async function ttStats() {
+  if (!B.tiktok) return null;
+  try {
+    const from = new Date(Date.now() - 365 * 864e5).toISOString().slice(0, 10);
+    const j = await zernioApi(`/analytics?platform=tiktok&fromDate=${from}&limit=100`);
+    const acc = j.accounts?.find((a) => a.platform === 'tiktok');
+    const posts = (j.posts ?? []).filter((p) => p.status === 'published').map((p) => ({ title: String(p.content ?? '').split('\n')[0], views: p.analytics?.views ?? 0, likes: p.analytics?.likes ?? 0, comments: p.analytics?.comments ?? 0 }));
+    return { handle: acc?.username, followers: acc?.followersCount ?? null, posts, views: posts.reduce((a, p) => a + p.views, 0), likes: posts.reduce((a, p) => a + p.likes, 0) };
+  } catch (e) { return { error: e.message.slice(0, 150) }; }
+}
+function tiktokLines(tt) {
+  if (!tt) return [];
+  if (tt.error) return ['', '<b>TikTok</b>', `⚠️ data TikTok gagal diambil: ${esc(tt.error)}`];
+  return ['', `<b>TikTok @${esc(tt.handle ?? '')}</b>`, `👥 Followers: <b>${num(tt.followers)}</b> · 🎬 ${tt.posts.length} video · 👁️ ${num(tt.views)} views · 👍 ${num(tt.likes)}`,
+    ...[...tt.posts].sort((a, b) => b.views - a.views).slice(0, 3).map((p, i) => `${i + 1}. ${esc(p.title.slice(0, 45))} · 👁️ ${num(p.views)} · 👍 ${num(p.likes)} · 💬 ${num(p.comments)}`)];
+}
 async function ytRetention() {
-  const r = await run(['scripts/youtube.mjs', 'analytics'], 3);
+  const r = await run(['scripts/youtube.mjs', 'analytics', BR], 3);
   if (r.ok) return JSON.parse(r.out.split('\n').pop()).videos;
   const msg = (r.err || r.out).split('\n').find((l) => /Error|error/.test(l)) ?? '';
   if (/disabled|not been used|SERVICE_DISABLED/i.test(r.err)) return { _off: 'YouTube Analytics API belum aktif di Google Cloud (project zataa-shorts), Bos tolong klik Enable: https://console.developers.google.com/apis/api/youtubeanalytics.googleapis.com/overview?project=566338684407' };
@@ -410,6 +435,7 @@ function retentionLines(ret, list, n = 7) {
 export async function dailyReport({ dry = false } = {}) {
   const { st, views } = await ytStats();
   const ret = await ytRetention().catch(() => null);
+  const tt = await ttStats();
   const d = await db();
   const prev = state().snap;
   const t = wita(new Date());
@@ -419,36 +445,38 @@ export async function dailyReport({ dry = false } = {}) {
     .map((v) => ({ ...v, dv: vPrev[v.id] ? v.views - vPrev[v.id].v : null }))
     .sort((a, b) => (b.dv ?? b.views) - (a.dv ?? a.views));
   const prodOf = (day) => d.prepare(`SELECT id, title, status, json_extract(data_json, '$._laptop') lap FROM contents
-    WHERE channel = 'youtube' AND day = ? AND status != 'rejected' AND COALESCE(json_extract(data_json, '$._test'), 0) = 0 ORDER BY id`).all(day);
+    WHERE channel = '${CH}' AND day = ? AND status != 'rejected' AND COALESCE(json_extract(data_json, '$._test'), 0) = 0 ORDER BY id`).all(day);
   const today = prodOf(t.date), tomorrow = prodOf(addDays(t.date, 1));
   const wk = weekStats(d, t.date);
-  const ready = d.prepare("SELECT COUNT(*) n FROM shorts_topics WHERE status = 'approved'").get().n;
+  const ready = d.prepare(`SELECT COUNT(*) n FROM shorts_topics WHERE status = 'approved' AND pillar IN (${OWN})`).get().n;
   const lines = [
-    `📊 <b>Laporan harian YouTube Shorts</b> · ${hari} ${dm(t.date)}`, '',
-    '<b>Channel Zataa Story</b>',
+    `📊 <b>Laporan harian ${B.name}</b> · ${hari} ${dm(t.date)}`, '',
+    `<b>YouTube ${esc(st.title ?? B.name)}</b>`,
     `👥 Subscriber: <b>${num(st.subscribers)}</b>${prev ? plus(st.subscribers - prev.subs) : ''}`,
     `👁️ Views: <b>${num(views)}</b>${prev ? plus(views - prev.views) : ''}`,
     `👍 Likes: <b>${num(st.likes)}</b>${prev ? plus(st.likes - prev.likes) : ''}`,
     `🎬 Video tayang: ${st.list.filter((v) => v.privacy === 'public').length}`,
     ...rows.slice(0, 5).map((v, i) => `${i + 1}. ${esc(v.title.slice(0, 45))} · 👁️ ${num(v.views)}${plus(v.dv)} · 👍 ${num(v.likes)}${v.privacy !== 'public' ? ` · <i>${v.privacy}</i>` : ''}`),
-    ...retentionLines(ret, st.list, 5), '',
+    ...retentionLines(ret, st.list, 5),
+    ...tiktokLines(tt), '',
     '<b>Produksi</b>',
     `Hari ini: ${today.length ? today.map(prodLine).join('; ') : '⚠️ belum ada Shorts'}`,
     `Besok: ${tomorrow.length ? tomorrow.map(prodLine).join('; ') : 'belum disiapkan (dikerjain sesi pagi)'}`,
-    `Kuota minggu ini: ${wk.rows.length}/${WEEK_TOTAL} Shorts · ${wk.quota ? `Horor Bersejarah ${wk.core}/${CORE_MIN} · Misteri Dunia ${wk.foreign}/${FOREIGN_MAX}` : 'kuota niche Nusantara mulai 26 Okt'} · bank topik siap: ${ready}`,
-    ...(st.subscribers >= LONGFORM_SUBS && !state().longform ? [`\n🎉 <b>Tembus ${num(LONGFORM_SUBS)} subscriber!</b> Sesuai rencana Bos, waktunya nambah video panjang 5–10 menit (Shorts tetap jalan seperti biasa). Bagas siapin rencananya ya.`] : []),
+    `Kuota minggu ini: ${wk.rows.length}/${WEEK_TOTAL} Shorts · ${wk.quota ? `${PILLARS[CORE].label} ${wk.core}/${CORE_MIN}` : 'kuota baru mulai 26 Okt'} · bank topik siap: ${ready}`,
+    ...(st.subscribers >= LONGFORM_SUBS && !state().longform ? [`\n🎉 <b>Tembus ${num(LONGFORM_SUBS)} subscriber!</b> Sesuai rencana Bos, waktunya nambah video panjang 5–10 menit (Shorts tetap jalan seperti biasa). ${NAMA[T.dir]} siapin rencananya ya.`] : []),
     prev ? `\n<i>(angka dalam kurung = kenaikan sejak laporan ${dm(prev.date)})</i>` : '\n<i>Laporan pertama, kenaikan harian mulai muncul besok.</i>',
   ];
   if (dry) return lines.join('\n');
-  await sayAs('ypublish', lines.join('\n'));
+  await sayAs(T.publish, lines.join('\n'));
   patchState((s) => { s.snap = { date: t.date, subs: st.subscribers, views, likes: st.likes, videos: Object.fromEntries(st.list.map((v) => [v.id, { v: v.views, l: v.likes }])) }; s.reportDate = t.date; if (st.subscribers >= LONGFORM_SUBS) s.longform = s.longform ?? t.date; });
   return { ok: true, subscribers: st.subscribers, views, likes: st.likes };
 }
 
-// rekap mingguan (Senin–Minggu): target 7 Shorts & ≥3 Horor Bersejarah, top video, pilar paling ditonton → bahan evaluasi Bagas
+// rekap mingguan (Senin–Minggu): target kuota brand (B.week, ≥B.coreMin pilar inti), top video, pilar paling ditonton → bahan evaluasi Bagas
 export async function weeklyReport({ dry = false } = {}) {
   const { st, views } = await ytStats();
   const ret = await ytRetention().catch(() => null);
+  const tt = await ttStats();
   const d = await db();
   const t = wita(new Date());
   const wk = weekStats(d, t.date);
@@ -458,53 +486,55 @@ export async function weeklyReport({ dry = false } = {}) {
   const info = ids.length ? Object.fromEntries(d.prepare(`SELECT id, status, youtube_id, revisions FROM contents WHERE id IN (${ids.join(',')})`).all().map((c) => [c.id, c])) : {};
   const rows = wk.rows.map((r) => ({ ...r, ...info[r.id], v: byId[info[r.id]?.youtube_id] }));
   const live = rows.filter((r) => r.v);
-  const rejected = d.prepare("SELECT COUNT(*) n FROM contents WHERE channel = 'youtube' AND status = 'rejected' AND day BETWEEN ? AND ?").get(wk.mon, wk.sun).n;
+  const rejected = d.prepare(`SELECT COUNT(*) n FROM contents WHERE channel = '${CH}' AND status = 'rejected' AND day BETWEEN ? AND ?`).get(wk.mon, wk.sun).n;
   const pil = {};
   for (const r of live) if (r.pillar) (pil[r.pillar] ??= []).push(r.v.views); // Shorts lama (sebelum bank topik) tanpa pilar → nggak dihitung
   const tagged = rows.some((r) => r.pillar);
   const avg = Object.entries(pil).map(([k, v]) => [k, v.reduce((a, b) => a + b, 0) / v.length]).sort((a, b) => b[1] - a[1]);
   const label = (k) => PILLARS[k]?.label ?? k;
-  const ready = d.prepare("SELECT COUNT(*) n FROM shorts_topics WHERE status = 'approved'").get().n;
+  const ready = d.prepare(`SELECT COUNT(*) n FROM shorts_topics WHERE status = 'approved' AND pillar IN (${OWN})`).get().n;
   const lines = [
-    `🗓️ <b>Laporan mingguan YouTube Shorts</b> · ${dm(wk.mon)}–${dm(wk.sun)}`, '',
-    '<b>Channel Zataa Story</b>',
+    `🗓️ <b>Laporan mingguan ${B.name}</b> · ${dm(wk.mon)}–${dm(wk.sun)}`, '',
+    `<b>YouTube ${esc(st.title ?? B.name)}</b>`,
     `👥 Subscriber: <b>${num(st.subscribers)}</b>${prev ? plus(st.subscribers - prev.subs) : ''} · target video panjang ${num(LONGFORM_SUBS)}`,
     `👁️ Views: <b>${num(views)}</b>${prev ? plus(views - prev.views) : ''}`, '',
     '<b>Produksi</b>',
-    `🎬 ${rows.length}/${WEEK_TOTAL} Shorts · 📢 tayang ${live.length} · Horor Bersejarah ${!wk.quota ? '– (niche Nusantara mulai 26 Okt)' : tagged ? `${wk.core}/${CORE_MIN}${wk.core >= CORE_MIN ? ' ✅' : ' ⚠️'}` : '– (belum lewat bank topik)'} · ❌ ditolak ${rejected} · ✏️ revisi ${rows.reduce((a, r) => a + (r.revisions ?? 0), 0)}×`,
+    `🎬 ${rows.length}/${WEEK_TOTAL} Shorts · 📢 tayang ${live.length} · ${PILLARS[CORE].label} ${!wk.quota ? '– (kuota baru mulai 26 Okt)' : tagged ? `${wk.core}/${CORE_MIN}${wk.core >= CORE_MIN ? ' ✅' : ' ⚠️'}` : '– (belum lewat bank topik)'} · ❌ ditolak ${rejected} · ✏️ revisi ${rows.reduce((a, r) => a + (r.revisions ?? 0), 0)}×`,
     ...(live.length ? ['', '<b>Top video minggu ini</b>', ...[...live].sort((a, b) => b.v.views - a.v.views).slice(0, 3).map((r, i) => `${i + 1}. #${r.id} ${esc(r.title.slice(0, 45))} · 👁️ ${num(r.v.views)} · 👍 ${num(r.v.likes)}`)] : []),
     ...retentionLines(ret, st.list, 7),
+    ...tiktokLines(tt),
     ...(avg.length ? ['', '<b>Pilar paling ditonton</b>', ...avg.map(([k, v]) => `• ${esc(label(k))}: rata-rata ${num(Math.round(v))} views`)] : []), '',
-    `📚 Bank topik siap produksi: ${ready}${ready < WEEK_TOTAL ? ' (kurang buat seminggu, Nadhira tambah riset)' : ''}`,
-    avg.length ? `Saran: perbanyak <b>${esc(label(avg[0][0]))}</b> di slot bebas minggu depan. Bagas pakai ini buat antrean topik.` : '',
+    `📚 Bank topik siap produksi: ${ready}${ready < WEEK_TOTAL ? ` (kurang buat seminggu, ${NAMA[T.research]} tambah riset)` : ''}`,
+    avg.length ? `Saran: perbanyak <b>${esc(label(avg[0][0]))}</b> di slot bebas minggu depan. ${NAMA[T.dir]} pakai ini buat antrean topik.` : '',
     prev ? `<i>(angka dalam kurung = kenaikan sejak laporan ${dm(prev.date)})</i>` : '',
   ].filter((l, i, a) => l !== '' || a[i - 1] !== '');
   if (dry) return lines.join('\n').trim();
-  await sayAs('ypublish', lines.join('\n').trim());
+  await sayAs(T.publish, lines.join('\n').trim());
   patchState((s) => { s.weekSnap = { date: t.date, subs: st.subscribers, views }; s.weeklyDate = t.date; });
   return { ok: true, shorts: rows.length, core: wk.core };
 }
 
 // pesan bebas Owner → Haiku duluan (jawab apa aja); butuh kerja Shorts beneran → model utama
 async function talk(msg, log) {
-  const quick = await haiku(`Kamu tim YouTube Shorts "Zataa Story" (misteri & horor Nusantara berbasis sejarah), ngobrol dengan Owner (Bos Zamiir) lewat bot Telegram @zataashortbot.
+  const quick = await haiku(`Kamu tim Shorts "${B.name}" (${B.niche}), ngobrol dengan Owner (Bos Zamiir) lewat bot Telegram ${B.bot}.
 Pesan Owner: "${msg}"
 ${OFFICE}
 ${ANSWER_ANY}
 Kalau pesannya minta BIKIN/UBAH sesuatu (Shorts baru, ganti topik, revisi, upload): JANGAN dikerjakan, tulis persis ${ESCALATE} lalu berhenti.
 Akhiri dengan baris "BALASAN:" lalu 1–3 baris, TIAP baris diawali nama pegawai tim Shorts: "Nama: pesan". Santai, sopan.`);
-  if (quick.ok && !quick.escalate) return send(formatReply(quick.text, 'ydir'));
+  if (quick.ok && !quick.escalate) return send(formatReply(quick.text, T.dir));
   if (!quick.ok) log(`bot shorts: haiku gagal, pakai model utama: ${quick.text.slice(0, 200)}`);
-  const r = await claude(`Kamu tim YouTube Shorts "Zataa Story" (misteri & horor Nusantara berbasis sejarah) di folder ini, ngobrol dengan Owner (Bos Zamiir) lewat bot Telegram @zataashortbot.
+  const r = await claude(`Kamu tim Shorts "${B.name}" (${B.niche}) di folder ini, ngobrol dengan Owner (Bos Zamiir) lewat bot Telegram ${B.bot}.
+BRAND: tambahkan ${BR} di SETIAP perintah scripts/shorts-bot.mjs & scripts/shorts-topics.mjs.
 Pesan Owner: "${msg}"
-Tim: Bagas (ydir, Manajer YouTube), Nadhira (yresearch, riset), Laras (yscript, naskah + cek fakta), Galih (yvisual, visual berlisensi), Yoga (yvideo, render + VO), Kirana (ypublish, upload & SEO).
-SOP & cara kerja: office/youtube.md (baca kalau perlu). Data Shorts: node scripts/shorts-bot.mjs list. Jangan ngarang angka views.
-Tugas (mis. bikin Shorts baru / ganti topik): kerjakan sesuai office/youtube.md (new → render otomatis di laptop → Kirana kirim ke sini). Jangan kirim Telegram sendiri.
+Tim: ${NAMA[T.dir]} (${T.dir}, manajer), ${NAMA[T.research]} (${T.research}, riset), ${NAMA[T.script]} (${T.script}, naskah + cek fakta), ${NAMA[T.visual]} (${T.visual}, visual berlisensi), ${NAMA[T.video]} (${T.video}, render + VO), ${NAMA[T.publish]} (${T.publish}, upload & SEO${B.tiktok ? ', YouTube + TikTok' : ''}).
+SOP & cara kerja: ${B.sop} (baca kalau perlu). Data Shorts: node scripts/shorts-bot.mjs list ${BR}. Jangan ngarang angka views.
+Tugas (mis. bikin Shorts baru / ganti topik): kerjakan sesuai ${B.sop} (new → render otomatis di laptop → ${NAMA[T.publish]} kirim ke sini). Jangan kirim Telegram sendiri.
 Perintah KERJA buat divisi lain (bikin konten IG, perintah trading, catat keuangan) → tulis persis ${ESCALATE} lalu berhenti. Pertanyaan soal divisi lain tetap dijawab.
 Akhiri dengan baris "BALASAN:" lalu 1–3 baris, TIAP baris diawali nama pegawai: "Nama: pesan". Santai, sopan.`, 25);
-  if (r.ok && r.text.includes(ESCALATE)) return sayAs('ydir', 'Kalau mau nyuruh kerja divisi lain, kirim di botnya ya Bos 🙏 Konten IG ke bot Zataa Office Marketing, trading ke bot Zataa Office Trading, keuangan ke @zataaaccountingbot. Kalau cuma nanya, tanya di sini aja juga bisa.');
-  if (!r.ok) { log(`bot shorts: claude gagal ${r.text.slice(0, 200)}`); return sayAs('ydir', '⚠️ Maaf Bos, lagi error. Coba lagi bentar ya.'); }
-  return send(formatReply(r.text, 'ydir'));
+  if (r.ok && r.text.includes(ESCALATE)) return sayAs(T.dir, 'Kalau mau nyuruh kerja divisi lain, kirim di botnya ya Bos 🙏 Konten IG ke bot Zataa Office Marketing, trading ke bot Zataa Office Trading, keuangan ke @zataaaccountingbot. Kalau cuma nanya, tanya di sini aja juga bisa.');
+  if (!r.ok) { log(`bot shorts: claude gagal ${r.text.slice(0, 200)}`); return sayAs(T.dir, '⚠️ Maaf Bos, lagi error. Coba lagi bentar ya.'); }
+  return send(formatReply(r.text, T.dir));
 }
 
 // ---------- jadwal (0 token, tiap menit): pengingat Publik + jaga antrean laptop
@@ -515,30 +545,30 @@ async function runJobs(log) {
   const remind = (s.remind ??= {});
   const t = wita(new Date());
   // klaim laptop macet >60 mnt (laptop mati di tengah render) → antre lagi
-  d.prepare("UPDATE contents SET data_json = json_set(data_json, '$._laptop', 1) WHERE channel = 'youtube' AND json_extract(data_json, '$._laptop') = 2 AND updated_at < datetime('now', '-60 minutes')").run();
-  for (const c of d.prepare("SELECT id, title, updated_at, json_extract(data_json, '$._laptop') lap, json_extract(data_json, '$._err') err FROM contents WHERE channel = 'youtube' AND status IN ('draft', 'revision') AND json_extract(data_json, '$._laptop') IN (1, 3)").all()) {
+  d.prepare(`UPDATE contents SET data_json = json_set(data_json, '$._laptop', 1) WHERE channel = '${CH}' AND json_extract(data_json, '$._laptop') = 2 AND updated_at < datetime('now', '-60 minutes')`).run();
+  for (const c of d.prepare(`SELECT id, title, updated_at, json_extract(data_json, '$._laptop') lap, json_extract(data_json, '$._err') err FROM contents WHERE channel = '${CH}' AND status IN ('draft', 'revision') AND json_extract(data_json, '$._laptop') IN (1, 3)`).all()) {
     if (c.lap === 3 && !notified[`err${c.id}`]) {
       notified[`err${c.id}`] = 1;
-      await sayAs('yvideo', `⚠️ Render Shorts #${c.id} "${esc(c.title)}" di laptop gagal: ${esc(String(c.err ?? '').slice(0, 300))}\nNanti dibenerin tim di sesi berikutnya, atau balas di sini kalau mau ubah sesuatu.`).catch(() => {});
+      await sayAs(T.video, `⚠️ Render Shorts #${c.id} "${esc(c.title)}" di laptop gagal: ${esc(String(c.err ?? '').slice(0, 300))}\nNanti dibenerin tim di sesi berikutnya, atau balas di sini kalau mau ubah sesuatu.`).catch(() => {});
       log(`shorts #${c.id}: render laptop gagal, Owner dikabari`);
     }
     if (c.lap === 1 && !notified[`wait${c.id}`] && new Date(`${c.updated_at.replace(' ', 'T')}Z`) < Date.now() - 3 * 3600e3) {
       notified[`wait${c.id}`] = 1;
-      await sayAs('yvideo', `💻 Shorts #${c.id} "${esc(c.title)}" udah 3 jam nunggu laptop nyala buat render suara OmniVoice, Bos. Begitu laptop on, otomatis aku render & kirim ke sini.`).catch(() => {});
+      await sayAs(T.video, `💻 Shorts #${c.id} "${esc(c.title)}" udah 3 jam nunggu laptop nyala buat render suara OmniVoice, Bos. Begitu laptop on, otomatis aku render & kirim ke sini.`).catch(() => {});
     }
   }
   // sudah di-✅ Owner → upload begitu masuk jam tayang
-  for (const c of d.prepare("SELECT * FROM contents WHERE channel = 'youtube' AND status = 'approved' AND youtube_id IS NULL").all()) {
+  for (const c of d.prepare(`SELECT * FROM contents WHERE channel = '${CH}' AND status = 'approved' AND youtube_id IS NULL`).all()) {
     if (Date.now() >= slotAt(c) && !uploading.has(c.id)) { uploading.add(c.id); later(() => { uploading.delete(c.id); return doUpload(c.id, log); }, log); }
   }
   // Private → Publik: ingatkan lagi di jam tayang (_jam, default 18:00 WIB) lalu tiap pagi 09:00 WITA, maks 3×
-  for (const c of d.prepare("SELECT * FROM contents WHERE channel = 'youtube' AND status = 'uploaded' AND youtube_id IS NOT NULL").all()) {
+  for (const c of d.prepare(`SELECT * FROM contents WHERE channel = '${CH}' AND status = 'uploaded' AND youtube_id IS NOT NULL`).all()) {
     const r = (remind[c.id] ??= { n: 0 });
     const slotDue = r.n === 0 && Date.now() >= Math.max(new Date(`${c.day}T${jamOf(c)}:00+07:00`).getTime(), (r.at ?? 0) + 2 * 3600e3);
     const morningDue = r.n > 0 && r.n < 3 && r.last !== t.date && t.minutes >= 9 * 60 && t.minutes < 12 * 60;
     if (!slotDue && !morningDue) continue;
     r.n += 1; r.last = t.date;
-    await sayAs('ypublish', `⏰ Pengingat ${r.n}/3\n${remindText(c)}`, { reply_markup: PUB_BTN(c.id) }).catch(() => {});
+    await sayAs(T.publish, `⏰ Pengingat ${r.n}/3\n${remindText(c)}`, { reply_markup: PUB_BTN(c.id) }).catch(() => {});
     log(`shorts #${c.id}: pengingat Publik ${r.n}/3`);
   }
   saveState({ ...state(), notified, remind });
@@ -559,10 +589,10 @@ const later = (fn, log) => { chain = chain.then(fn).catch((e) => log(`bot shorts
 
 export async function startShortsBot(log = console.log) {
   const env = loadEnv();
-  if (!env.SHORTS_BOT_TOKEN || !env.SHORTS_OWNER_ID) return log('bot shorts: SHORTS_BOT_TOKEN/SHORTS_OWNER_ID kosong, dilewati');
+  if (!env[B.tokenEnv] || !env.SHORTS_OWNER_ID) return log(`bot shorts ${B.key}: ${B.tokenEnv}/SHORTS_OWNER_ID kosong, dilewati`);
   await db(); // pastikan kolom channel/youtube_id ada
   let offset = 0, fails = 0;
-  log('bot YouTube Shorts (@zataashortbot) jalan');
+  log(`bot Shorts ${B.name} (${B.bot}) jalan`);
   setInterval(() => runJobs(log).catch((e) => log(`bot shorts jobs: ${e.message}`)), 60_000);
   for (;;) {
     let ups = [];
@@ -592,7 +622,7 @@ async function handle(u, log) {
     else if (kind === 'ypub') { await clear(); await markPublic(id); }
     else if (kind === 'yrev') {
       patchState((s) => { s.awaitRev = id; });
-      await sayAs('yscript', `✏️ Ketik catatan revisi buat Shorts #${id} ya, Bos (naskah, gambar, judul, apa aja).`, { reply_markup: { force_reply: true } });
+      await sayAs(T.script, `✏️ Ketik catatan revisi buat Shorts #${id} ya, Bos (naskah, gambar, judul, apa aja).`, { reply_markup: { force_reply: true } });
     }
     return;
   }
@@ -602,7 +632,7 @@ async function handle(u, log) {
   if (!text) return;
   const s = state();
   const replyId = s.msgs?.[m.reply_to_message?.message_id];
-  if (/^\/start\b/.test(text)) return sayAs('ydir', `Halo Bos 👋 Ini bot tim YouTube Shorts <b>Zataa Story</b>. Tiap hari Kirana kirim 1 Shorts ke sini buat di-✅. Tombolnya ✅ Approve / ✏️ Revisi / ❌ Tolak. Setelah ✅, video di-upload otomatis pas jam tayang, langsung Publik. ❌ = tim bikin konten pengganti. Ketik "status" buat rekap.`);
+  if (/^\/start\b/.test(text)) return sayAs(T.dir, `Halo Bos 👋 Ini bot tim Shorts <b>${B.name}</b> (${B.niche}). ${NAMA[T.publish]} kirim Shorts ke sini buat di-✅ (${B.week}/minggu${B.tiktok ? ', tayang YouTube + TikTok' : ''}). Tombolnya ✅ Approve / ✏️ Revisi / ❌ Tolak. Setelah ✅, video di-upload otomatis pas jam tayang, langsung Publik. ❌ = tim bikin konten pengganti. Ketik "status" buat rekap.`);
   if (s.awaitRev || replyId) {
     const id = s.awaitRev ?? replyId;
     patchState((x) => { delete x.awaitRev; });
@@ -611,20 +641,20 @@ async function handle(u, log) {
   if (isStatusQuestion(text) || /^\/?(status|rekap)$/i.test(text)) return send(await statusText());
   const d = await db();
   if (/\blangsung\s+(post|posting|upload|tayang)/i.test(text)) { // "langsung post" = approval
-    const p = d.prepare("SELECT id FROM contents WHERE channel = 'youtube' AND status IN ('pending_approval', 'upload_failed') ORDER BY id DESC").all();
+    const p = d.prepare(`SELECT id FROM contents WHERE channel = '${CH}' AND status IN ('pending_approval', 'upload_failed') ORDER BY id DESC`).all();
     const pick = (text.match(/#?(\d+)/)?.[1] && p.find((r) => r.id === +text.match(/#?(\d+)/)[1])) || (p.length === 1 ? p[0] : null);
     if (pick) return later(() => approve(pick.id, log, { now: true }), log);
   }
   const vis = text.match(/^(publik|public|unlisted|private|privat)\s*#?(\d+)?$/i);
   if (vis) { // pilih visibilitas Shorts (default: yang lagi nunggu ✅ / jam tayang)
     const p = { publik: 'public', public: 'public', unlisted: 'unlisted', private: 'private', privat: 'private' }[vis[1].toLowerCase()];
-    const c = vis[2] ? getShort(d, +vis[2]) : d.prepare("SELECT * FROM contents WHERE channel = 'youtube' AND status IN ('pending_approval', 'approved') ORDER BY day, id LIMIT 1").get();
-    if (!c || c.youtube_id) return sayAs('ypublish', c ? `Shorts #${c.id} udah ke-upload, ubah visibilitasnya di YouTube Studio ya Bos.` : 'Nggak ada Shorts yang nunggu upload, Bos.');
+    const c = vis[2] ? getShort(d, +vis[2]) : d.prepare(`SELECT * FROM contents WHERE channel = '${CH}' AND status IN ('pending_approval', 'approved') ORDER BY day, id LIMIT 1`).get();
+    if (!c || c.youtube_id) return sayAs(T.publish, c ? `Shorts #${c.id} udah ke-upload, ubah visibilitasnya di YouTube Studio ya Bos.` : 'Nggak ada Shorts yang nunggu upload, Bos.');
     d.prepare("UPDATE contents SET data_json = json_set(data_json, '$._privacy', ?), updated_at = datetime('now') WHERE id = ?").run(p, c.id);
-    return sayAs('ypublish', `Siap, Shorts #${c.id} nanti di-upload sebagai <b>${PRIV[p]}</b>.${loadEnv().YT_AUDITED === '1' ? '' : ' (Selama project API belum lolos audit YouTube, hasil upload tetap terkunci Private.)'}`);
+    return sayAs(T.publish, `Siap, Shorts #${c.id} nanti di-upload sebagai <b>${PRIV[p]}</b>.${loadEnv().YT_AUDITED === '1' ? '' : ' (Selama project API belum lolos audit YouTube, hasil upload tetap terkunci Private.)'}`);
   }
   if (/\b(udah|sudah|dah)\b.*\bpubli[ck]/i.test(text)) {
-    const p = d.prepare("SELECT id FROM contents WHERE channel = 'youtube' AND status = 'uploaded' ORDER BY id").all();
+    const p = d.prepare(`SELECT id FROM contents WHERE channel = '${CH}' AND status = 'uploaded' ORDER BY id`).all();
     const pick = (text.match(/#(\d+)/)?.[1] && p.find((r) => r.id === +text.match(/#(\d+)/)[1])) || (p.length === 1 ? p[0] : null);
     if (pick) return markPublic(pick.id);
   }
@@ -635,11 +665,11 @@ async function handle(u, log) {
 // ---------- CLI
 const isMain = process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1];
 if (isMain) {
-  const [cmd, a, b] = process.argv.slice(2);
+  const [cmd, a, b] = cliArgs();
   const json = (x) => JSON.parse(existsSync(x) ? readFileSync(x, 'utf8') : x);
   try {
     if (cmd === 'new') out(await newShort(json(a)));
-    else if (cmd === 'get') out((await db()).prepare("SELECT * FROM contents WHERE id = ? AND channel = 'youtube'").get(+a) ?? null);
+    else if (cmd === 'get') out((await db()).prepare(`SELECT * FROM contents WHERE id = ? AND channel = '${CH}'`).get(+a) ?? null);
     else if (cmd === 'set') {
       const d = await db();
       if (!getShort(d, +a)) throw new Error(`Shorts #${a} tidak ada`);
@@ -657,16 +687,17 @@ if (isMain) {
       }
       out('ok');
     } else if (cmd === 'list') {
-      out((await db()).prepare("SELECT id, day, title, status, youtube_id, json_extract(data_json, '$._laptop') laptop, json_extract(data_json, '$._jam') jam FROM contents WHERE channel = 'youtube' AND day >= ? ORDER BY day, id").all(a ?? new Date(Date.now() - 14 * 864e5).toISOString().slice(0, 10)));
+      out((await db()).prepare(`SELECT id, day, title, status, youtube_id, json_extract(data_json, '$._laptop') laptop, json_extract(data_json, '$._jam') jam FROM contents WHERE channel = '${CH}' AND day >= ? ORDER BY day, id`).all(a ?? new Date(Date.now() - 14 * 864e5).toISOString().slice(0, 10)));
     } else if (cmd === 'queue') out(await queue(+a));
     else if (cmd === 'submit') out(await submit(+a));
     else if (cmd === 'upload') {
       const r = await upload(+a);
       const c = getShort(await db(), +a);
-      if (!r.already) { await sayAs('ypublish', `✅ Udah ke-upload!\n${remindText(c)}`, { reply_markup: PUB_BTN(+a) }); patchState((s) => { (s.remind ??= {})[+a] = { n: 0, at: Date.now() }; }); }
+      if (!r.already) { await sayAs(T.publish, `✅ Udah ke-upload!\n${remindText(c)}`, { reply_markup: PUB_BTN(+a) }); patchState((s) => { (s.remind ??= {})[+a] = { n: 0, at: Date.now() }; }); }
       out(r);
     } else if (cmd === 'say') { await sayAs(a, esc(b)); out('ok'); }
     else if (cmd === 'tiktok') out(await crossTikTok(+a));
+    else if (cmd === 'bot') await startShortsBot();
     else if (cmd === 'report') out(await dailyReport({ dry: a === '--dry' }));
     else if (cmd === 'weekly') out(await weeklyReport({ dry: a === '--dry' }));
     else out('pakai: shorts-bot.mjs new <file.json> | get <id> | set <id> <json|file> | list [dari] | queue <id> | submit <id> | upload <id> | say <agent> "<teks>"');

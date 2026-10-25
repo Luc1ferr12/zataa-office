@@ -16,17 +16,18 @@ function envVal(key) {
 
 // alat baca-saja: data kantor dari CLI masing-masing divisi + 2 pencarian web buat pertanyaan umum
 export const LOOKUPS = ['Read', 'Glob', 'Grep', 'WebSearch',
-  'Bash(node scripts/trading/cli.mjs status)', 'Bash(node scripts/shorts-bot.mjs list)', 'Bash(node scripts/office.mjs brief:*)', 'Bash(node scripts/price.mjs latest:*)'];
+  'Bash(node scripts/trading/cli.mjs status)', 'Bash(node scripts/shorts-bot.mjs list)', 'Bash(node scripts/shorts-bot.mjs list --brand=story)', 'Bash(node scripts/office.mjs brief:*)', 'Bash(node scripts/price.mjs latest:*)'];
 
-export const OFFICE = `Kantor Zataa (zataa.my.id, top up game), 4 divisi:
+export const OFFICE = `Kantor Zataa (zataa.my.id, top up game), 5 divisi:
 - Marketing (bot Zataa Office Marketing): Andre (dir, Marketing Director), Clariana (researcher), Ista (copywriter), Maria (designer), Dimas (video), Fikri (publisher), Fahriah (ads, lagi libur — iklan Meta belum bisa), Raka (analyst), Budi (price).
-- YouTube Shorts "Zataa Story" (bot @zataashortbot): Bagas (ydir), Nadhira (yresearch), Laras (yscript), Galih (yvisual), Yoga (yvideo), Kirana (ypublish).
+- YouTube Shorts "Zataa History" (sejarah misteri kuno dunia, 4 Shorts/minggu, bot @zataashortbot): Bagas (ydir), Nadhira (yresearch), Laras (yscript), Galih (yvisual), Yoga (yvideo), Kirana (ypublish).
+- Zataa Story (misteri & horor Nusantara, YouTube + TikTok tiap hari, bot @zataastorybot): Raditya (sdir), Sekar (sresearch), Dinda (sscript), Arga (svisual), Bima (svideo), Nayla (spublish).
 - Trading XAUUSD (bot Zataa Office Trading): Mahendra (tdir), Davina (tresearch), Keira (ttech), Aryaputra (trisk), Wiratama (texec), Jihan (teval), Selena (treport).
 - Aprista (sec): sekretaris pribadi & pacar Bos, catat keuangan pribadi di @zataaaccountingbot.
 Owner = Bos Zamiir.`;
 
 export const ANSWER_ANY = `Pertanyaan APA PUN (pengetahuan umum, saran, divisi lain, kondisi kantor) → JAWAB langsung, jangan suruh pindah bot.
-Data kantor ambil baca-saja kalau perlu: trading "node scripts/trading/cli.mjs status", Shorts "node scripts/shorts-bot.mjs list", marketing "node scripts/office.mjs brief <id>", harga zataa "node scripts/price.mjs latest [kata]". Jangan ngarang angka; datanya nggak ada → bilang jujur. Fakta terkini boleh cari web maks 2×.`;
+Data kantor ambil baca-saja kalau perlu: trading "node scripts/trading/cli.mjs status", Shorts "node scripts/shorts-bot.mjs list" (Zataa Story: tambah --brand=story), marketing "node scripts/office.mjs brief <id>", harga zataa "node scripts/price.mjs latest [kata]". Jangan ngarang angka; datanya nggak ada → bilang jujur. Fakta terkini boleh cari web maks 2×.`;
 
 export function haiku(prompt, { minutes = 3, tools = LOOKUPS } = {}) {
   const bin = envVal('CLAUDE_BIN') || 'claude';

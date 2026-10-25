@@ -105,7 +105,8 @@ export const say = (text) => tg('sendMessage', { chat_id: env.TELEGRAM_CHAT_ID, 
 // nama pegawai yang ngomong selalu di depan pesan, biar Owner tahu siapa yang bales: "<b>Maria</b>: ..."
 export const NAMA = { dir: 'Andre', sec: 'Aprista', researcher: 'Clariana', copywriter: 'Ista', designer: 'Maria', video: 'Dimas', publisher: 'Fikri', ads: 'Fahriah', analyst: 'Raka', price: 'Budi', ob: 'Mbak Sari',
   tdir: 'Mahendra', tresearch: 'Davina', ttech: 'Keira', trisk: 'Aryaputra', texec: 'Wiratama', teval: 'Jihan', treport: 'Selena',
-  ydir: 'Bagas', yresearch: 'Nadhira', yscript: 'Laras', yvisual: 'Galih', yvideo: 'Yoga', ypublish: 'Kirana' };
+  ydir: 'Bagas', yresearch: 'Nadhira', yscript: 'Laras', yvisual: 'Galih', yvideo: 'Yoga', ypublish: 'Kirana',
+  sdir: 'Raditya', sresearch: 'Sekar', sscript: 'Dinda', svisual: 'Arga', svideo: 'Bima', spublish: 'Nayla' };
 export const sayAs = (agent, text) => say(`<b>${NAMA[agent] ?? agent}</b>: ${text}`);
 
 export const SLOT = { pagi: '10:00', siang: '12:00', sore: '16:00', malam: '19:00', petang: '21:00', kilat: 'langsung' }; // WIB; plan: siang (feed) & malam (video); ide briefing: pagi & petang (feed), sore (video)
@@ -127,7 +128,7 @@ export async function submit(id, { note = '', strict = false } = {}) {
   if (!c.asset_path) throw new Error(`konten ${id} belum dirender (node scripts/render.mjs ${id})`);
   // QA otomatis Fikri (scripts/qa.mjs): dari CLI sesi kerja = wajib lolos (kecuali --force); kiriman otomatis watcher tetap jalan, temuannya ditampilkan ke Owner
   const { qa } = await import('./qa.mjs');
-  const check = c.channel === 'youtube' ? { errors: [], warnings: [] } : await qa(c);
+  const check = ['youtube', 'story'].includes(c.channel) ? { errors: [], warnings: [] } : await qa(c);
   if (strict && check.errors.length) throw new Error(`QA Fikri belum lolos #${id}: ${check.errors.join(' · ')} (benerin dulu, atau --force kalau Owner yang minta)`);
   const qaNote = [...check.errors, ...check.warnings];
   const A = JSON.parse(c.asset_path);

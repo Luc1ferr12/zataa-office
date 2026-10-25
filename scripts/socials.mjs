@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 // Analytics semua sosmed untuk dashboard (docs/data/socials.json): IG (Graph API), TikTok (Zernio), YouTube Shorts (youtube.mjs stats).
+// Zataa Story punya akun sendiri: story_youtube (youtube.mjs stats --brand=story) & story_tiktok (Zernio akun 2, ZERNIO_STORY_API_KEY).
 // Per platform: jumlah post (video/foto/carousel), views, likes, komentar, follower/subscriber, top konten. Tanpa AI → 0 token.
 // Watcher panggil socialsTick() tiap menit, narik ulang kalau data sudah >1 jam.
 //   node scripts/socials.mjs collect     tarik sekarang + tulis docs/data/socials.json
@@ -61,13 +62,13 @@ async function instagram() {
 }
 
 // ---------- TikTok (Zernio analytics, termasuk post yang di-upload manual)
-async function tiktok() {
-  if (!env().ZERNIO_API_KEY) throw new Error('ZERNIO_API_KEY belum ada');
+async function tiktok(keyEnv = 'ZERNIO_API_KEY', fallback = 'zataa.topup') {
+  if (!env()[keyEnv]) throw new Error(`${keyEnv} belum ada`);
   const from = new Date(Date.now() - 365 * 86400_000).toISOString().slice(0, 10);
   const posts = [];
   let account = null;
   for (let page = 1; page <= 10; page++) {
-    const j = await zernio(`/analytics?platform=tiktok&fromDate=${from}&limit=100&page=${page}`);
+    const j = await zernio(`/analytics?platform=tiktok&fromDate=${from}&limit=100&page=${page}`, { keyEnv });
     posts.push(...(j.posts ?? []));
     account ??= j.accounts?.find((a) => a.platform === 'tiktok');
     if (page >= (j.pagination?.pages ?? 1)) break;
@@ -78,20 +79,21 @@ async function tiktok() {
     title: short(p.content), text: p.content ?? '', url: p.platformPostUrl?.split('?')[0] ?? null, thumb: p.thumbnailUrl ?? null, at: p.publishedAt,
     views: p.analytics?.views ?? null, likes: p.analytics?.likes ?? 0, comments: p.analytics?.comments ?? 0,
   }));
-  const handle = account?.username ?? 'zataa.topup';
+  const handle = account?.username ?? fallback;
   return summary(list, { handle: `@${handle}`, url: `https://www.tiktok.com/@${handle}`, followers: account?.followersCount ?? null });
 }
 
 // ---------- YouTube Shorts (youtube.mjs stats, token pemilik channel)
-const ytStats = () => new Promise((ok, no) => execFile(process.execPath, [join(ROOT, 'scripts', 'youtube.mjs'), 'stats'], { cwd: ROOT, timeout: 120_000, maxBuffer: 1 << 23 },
+const ytStats = (brand = 'history') => new Promise((ok, no) => execFile(process.execPath, [join(ROOT, 'scripts', 'youtube.mjs'), 'stats', `--brand=${brand}`], { cwd: ROOT, timeout: 120_000, maxBuffer: 1 << 23 },
   (e, so, se) => { if (e) return no(new Error(String(se || e.message).trim().split('\n').pop())); try { ok(JSON.parse(String(so).trim().split('\n').pop())); } catch (x) { no(x); } }));
-async function youtube() {
-  const s = await ytStats();
+async function youtube(brand = 'history') {
+  const s = await ytStats(brand);
   const list = (s.list ?? []).filter((v) => v.privacy === 'public').map((v) => ({
     pid: v.id, type: 'video', title: short(v.title), url: `https://youtube.com/shorts/${v.id}`, thumb: `https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`, at: v.published,
     views: v.views, likes: v.likes, comments: v.comments,
   }));
-  return { ...summary(list, { handle: '@zataastory', url: 'https://youtube.com/@zataastory', subscribers: s.subscribers }), views: Math.max(s.views ?? 0, sum(list, 'views')) }; // statistik channel YouTube sering telat, jumlah per video lebih segar
+  const handle = s.handle ?? (brand === 'story' ? '' : '@zataastory');
+  return { ...summary(list, { name: s.title ?? null, handle, url: handle ? `https://youtube.com/${handle}` : null, subscribers: s.subscribers }), views: Math.max(s.views ?? 0, sum(list, 'views')) }; // statistik channel YouTube sering telat, jumlah per video lebih segar
 }
 
 // snapshot views/likes/komentar per konten kantor ke tabel metrics (IG sudah dicatat Raka di analyst.mjs)
@@ -120,15 +122,18 @@ function linkTiktok(d, p) {
 export async function collect() {
   const out = { generated_at: new Date().toISOString() };
   const all = {};
-  for (const [k, fn] of [['instagram', instagram], ['tiktok', tiktok], ['youtube', youtube]]) {
+  const KEYS = [['instagram', instagram], ['tiktok', () => tiktok()], ['youtube', () => youtube()], ['story_youtube', () => youtube('story')], ['story_tiktok', () => tiktok('ZERNIO_STORY_API_KEY', 'zataa.story')]];
+  for (const [k, fn] of KEYS) {
     try { out[k] = await fn(); all[k] = out[k].list; delete out[k].list; } catch (e) { out[k] = { error: e.message.slice(0, 160) }; }
   }
   await record('tiktok', 'tiktok_id', all.tiktok ?? []).catch(() => {});
   await record('youtube', 'youtube_id', all.youtube ?? []).catch(() => {});
+  await record('youtube', 'youtube_id', all.story_youtube ?? []).catch(() => {});
+  await record('tiktok', 'tiktok_id', all.story_tiktok ?? []).catch(() => {});
   for (const k of Object.keys(all)) for (const p of out[k].top ?? []) { delete p.pid; delete p.text; }
   mkdirSync(dirname(OUT), { recursive: true });
   writeFileSync(OUT, `${JSON.stringify(out, null, 1)}\n`);
-  return Object.fromEntries(['instagram', 'tiktok', 'youtube'].map((k) => [k, out[k].error ? `gagal: ${out[k].error}` : `${out[k].posts.total} post`]));
+  return Object.fromEntries(KEYS.map(([k]) => k).map((k) => [k, out[k].error ? `gagal: ${out[k].error}` : `${out[k].posts.total} post`]));
 }
 
 // dipanggil watcher tiap menit: tarik ulang kalau file belum ada / sudah >1 jam

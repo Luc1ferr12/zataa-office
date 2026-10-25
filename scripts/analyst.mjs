@@ -30,7 +30,7 @@ async function graph(path, params) {
 
 export async function collect() {
   const d = await db();
-  const posts = d.prepare("SELECT id, title, ig_media_id FROM contents WHERE ig_media_id IS NOT NULL AND channel IS NOT 'youtube' AND posted_at >= datetime('now', '-14 days')").all();
+  const posts = d.prepare("SELECT id, title, ig_media_id FROM contents WHERE ig_media_id IS NOT NULL AND COALESCE(channel, '') NOT IN ('youtube', 'story') AND posted_at >= datetime('now', '-14 days')").all();
   if (!posts.length) return { collected: 0 };
   setRaka(d, 'working', `Narik data insight ${posts.length} post IG`);
   let n = 0;
@@ -51,7 +51,7 @@ export async function collect() {
 
 // ---------- laporan divisi Marketing ke bot kantor (0 token): harian 19:00 WITA, mingguan Minggu 19:30 WITA
 // Shorts YouTube dilaporkan Kirana di @zataashortbot, trading oleh Selena di bot trading → di sini cuma konten marketing.
-const MK = (p = '') => `${p}channel IS NOT 'youtube' AND COALESCE(json_extract(${p}data_json, '$._test'), 0) = 0`;
+const MK = (p = '') => `COALESCE(${p}channel, '') NOT IN ('youtube', 'story') AND COALESCE(json_extract(${p}data_json, '$._test'), 0) = 0`;
 const ST = { draft: '📝 draft', pending_approval: '⏳ nunggu ✅ Bos', revision: '✏️ revisi', approved: '✅ terjadwal', scheduled: '✅ terjadwal', posted: '📢 tayang', failed: '⚠️ gagal post' };
 const DAYS = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
 const num = (n) => Number(n ?? 0).toLocaleString('id-ID');

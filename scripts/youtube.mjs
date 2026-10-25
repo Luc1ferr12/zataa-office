@@ -5,11 +5,13 @@
 //   node scripts/youtube.mjs stats                     statistik channel + per video (subs, views, likes) dalam JSON
 //   node scripts/youtube.mjs analytics [hari]          retensi per video (YouTube Analytics, telat ±2 hari): views, engaged (yang bertahan), % ditonton, subs → JSON
 //   node scripts/youtube.mjs upload <mp4> <meta.json>  upload Shorts (meta: { title, description, tags[], synthetic?, privacy? })
+// --brand=story → token channel baru Zataa Story (STORY_YT_REFRESH_TOKEN); default = Zataa History (YT_REFRESH_TOKEN).
 // Catatan: project API yang belum diaudit YouTube → video yang di-upload lewat API otomatis Private (Owner ubah ke Publik di YouTube Studio).
 import { createServer } from 'node:http';
 import { readFileSync, existsSync, statSync, createReadStream } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { B, cliArgs } from './brand.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const env = { ...Object.fromEntries((existsSync(join(ROOT, '.env')) ? readFileSync(join(ROOT, '.env'), 'utf8') : '').split(/\r?\n/).filter((l) => /^[A-Z_]+=/.test(l)).map((l) => [l.slice(0, l.indexOf('=')), l.slice(l.indexOf('=') + 1)])), ...process.env };
@@ -17,13 +19,13 @@ const SCOPES = ['https://www.googleapis.com/auth/youtube.upload', 'https://www.g
 const need = (k) => env[k] || (console.error(`${k} kosong di .env`), process.exit(1));
 
 async function token() {
-  const r = await fetch('https://oauth2.googleapis.com/token', { method: 'POST', body: new URLSearchParams({ client_id: need('YT_CLIENT_ID'), client_secret: need('YT_CLIENT_SECRET'), refresh_token: need('YT_REFRESH_TOKEN'), grant_type: 'refresh_token' }) });
+  const r = await fetch('https://oauth2.googleapis.com/token', { method: 'POST', body: new URLSearchParams({ client_id: need('YT_CLIENT_ID'), client_secret: need('YT_CLIENT_SECRET'), refresh_token: need(B.ytTokenEnv), grant_type: 'refresh_token' }) });
   const j = await r.json();
   if (!j.access_token) throw new Error(`token YouTube gagal: ${j.error_description ?? j.error}`);
   return j.access_token;
 }
 
-const [cmd, a1, a2] = process.argv.slice(2);
+const [cmd, a1, a2] = cliArgs();
 if (cmd === 'auth') {
   // alur "loopback" untuk Desktop app: server kecil di 127.0.0.1 menangkap kode izin
   const srv = createServer(async (req, res) => {
@@ -34,12 +36,12 @@ if (cmd === 'auth') {
     const r = await fetch('https://oauth2.googleapis.com/token', { method: 'POST', body: new URLSearchParams({ code, client_id: need('YT_CLIENT_ID'), client_secret: need('YT_CLIENT_SECRET'), redirect_uri: redirect, grant_type: 'authorization_code' }) });
     const j = await r.json();
     res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' }).end(j.refresh_token ? '<h2>Zataa Shorts tersambung ke YouTube ✅</h2>Tab ini boleh ditutup.' : `<h2>Gagal</h2>${j.error_description ?? j.error}`);
-    if (j.refresh_token) console.log(`YT_REFRESH_TOKEN=${j.refresh_token}`);
+    if (j.refresh_token) console.log(`${B.ytTokenEnv}=${j.refresh_token}`);
     else console.error('gagal:', j.error_description ?? j.error);
     srv.close();
   }).listen(+(env.YT_AUTH_PORT ?? 0), '127.0.0.1', () => {
     const p = new URLSearchParams({ client_id: need('YT_CLIENT_ID'), redirect_uri: `http://127.0.0.1:${srv.address().port}`, response_type: 'code', scope: SCOPES.join(' '), access_type: 'offline', prompt: 'consent' });
-    console.error(`Buka link ini di browser dan pilih akun channel YouTube:\nhttps://accounts.google.com/o/oauth2/v2/auth?${p}`);
+    console.error(`Buka link ini di browser dan pilih akun channel YouTube ${B.name}:\nhttps://accounts.google.com/o/oauth2/v2/auth?${p}`);
   });
 } else if (cmd === 'whoami') {
   const r = await fetch('https://www.googleapis.com/youtube/v3/channels?part=snippet,statistics&mine=true', { headers: { Authorization: `Bearer ${await token()}` } });
@@ -49,7 +51,7 @@ if (cmd === 'auth') {
   // statistik channel + semua video di playlist upload (termasuk Private, pakai token pemilik) → laporan harian Kirana
   const H = { headers: { Authorization: `Bearer ${await token()}` } };
   const get = async (u) => { const r = await fetch(`https://www.googleapis.com/youtube/v3/${u}`, H); const j = await r.json(); if (j.error) throw new Error(j.error.message); return j; };
-  const c = (await get('channels?part=statistics,contentDetails&mine=true')).items?.[0];
+  const c = (await get('channels?part=snippet,statistics,contentDetails&mine=true')).items?.[0];
   if (!c) throw new Error('tidak ada channel di akun ini');
   const ids = [];
   let page = '';
@@ -65,7 +67,7 @@ if (cmd === 'auth') {
       views: +(x.statistics.viewCount ?? 0), likes: +(x.statistics.likeCount ?? 0), comments: +(x.statistics.commentCount ?? 0) })));
   }
   const s = c.statistics;
-  console.log(JSON.stringify({ subscribers: s.hiddenSubscriberCount ? null : +s.subscriberCount, views: +s.viewCount, videos: +s.videoCount,
+  console.log(JSON.stringify({ title: c.snippet?.title, handle: c.snippet?.customUrl, subscribers: s.hiddenSubscriberCount ? null : +s.subscriberCount, views: +s.viewCount, videos: +s.videoCount,
     likes: videos.reduce((a, v) => a + v.likes, 0), list: videos }));
 } else if (cmd === 'analytics') {
   // engagedViews/views = proxy "ditonton vs di-swipe" Studio (API nggak punya swipe langsung); averageViewPercentage >100% = diulang (loop)

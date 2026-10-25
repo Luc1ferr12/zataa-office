@@ -10,6 +10,7 @@ const STATUS = {
   rejected: 'Ditolak', scheduled: 'Terjadwal', posted: 'Terposting', failed: 'Gagal',
   uploading: 'Lagi upload', uploaded: 'Private, nunggu Owner ubah Publik', upload_failed: 'Upload gagal',
 };
+const SHORTS_4WEEK_FROM = '2026-10-26'; // Zataa History jadi 4/minggu (hari kosong = libur, bukan telat)
 const SHORTS_DAILY_FROM = '2026-10-19'; // mulai tanggal ini Shorts tiap hari (dulu Senin–Selasa libur)
 const NAMES = Object.fromEntries([['owner', 'Zamiir'], ...AGENTS.map((a) => [a.id, a.name])]);
 
@@ -80,7 +81,10 @@ function renderHealth() {
 const PLATFORMS = [
   { key: 'instagram', name: 'Instagram', icon: '📸', audience: 'followers', audLabel: 'Followers' },
   { key: 'tiktok', name: 'TikTok', icon: '🎵', audience: 'followers', audLabel: 'Followers' },
-  { key: 'youtube', name: 'YouTube Shorts', icon: '▶️', audience: 'subscribers', audLabel: 'Subscribers' },
+  { key: 'youtube', name: 'YouTube · Zataa History', icon: '▶️', audience: 'subscribers', audLabel: 'Subscribers' },
+  // divisi Zataa Story (akun sendiri: YouTube channel baru + TikTok @zataa.story)
+  { key: 'story_youtube', name: 'YouTube', icon: '▶️', audience: 'subscribers', audLabel: 'Subscribers', group: 'story' },
+  { key: 'story_tiktok', name: 'TikTok', icon: '🎵', audience: 'followers', audLabel: 'Followers', group: 'story' },
 ];
 const num = (n) => (n == null ? '—' : Number(n).toLocaleString('id-ID'));
 const safeUrl = (u) => (/^https:\/\//.test(u ?? '') ? u : null);
@@ -88,7 +92,8 @@ function renderSocials() {
   const s = socials;
   $('social-updated').textContent = s?.generated_at ? `update ${new Date(s.generated_at).toLocaleString('id-ID', { timeZone: 'Asia/Makassar', hour: '2-digit', minute: '2-digit', day: 'numeric', month: 'short' })} WITA` : '';
   if (!s) { $('social-grid').innerHTML = '<p class="muted">Belum ada data. Ditarik otomatis tiap 3 jam.</p>'; return; }
-  $('social-grid').innerHTML = PLATFORMS.map((pf) => {
+  const GROUP = { story: '<h3 class="social-group"><img src="assets/zataa-story-logo.png" alt="" width="28" height="28">Zataa Story <small>misteri & horor Nusantara · tim Raditya</small></h3>' };
+  $('social-grid').innerHTML = PLATFORMS.map((pf, i) => (pf.group && pf.group !== PLATFORMS[i - 1]?.group ? GROUP[pf.group] : '') + (() => {
     const p = s[pf.key];
     const head = `<h3><span>${pf.icon} ${pf.name}</span>${p?.url && safeUrl(p.url) ? `<a href="${esc(p.url)}" target="_blank" rel="noopener">${esc(p.handle ?? '')}</a>` : ''}</h3>`;
     if (!p || p.error) return `<section class="social-col">${head}<p class="muted">Data belum tersedia${p?.error ? `: ${esc(p.error)}` : ''}</p></section>`;
@@ -111,7 +116,7 @@ function renderSocials() {
       <h4>Top konten</h4>
       ${top ? `<ol class="social-top">${top}</ol>` : '<p class="muted">Belum ada postingan.</p>'}
     </section>`;
-  }).join('');
+  })()).join('');
 }
 
 function renderDashboard() {
@@ -133,13 +138,14 @@ function renderDashboard() {
   $('campaign-theme').textContent = s?.campaign?.theme ? `Tema: ${s.campaign.theme}` : 'Belum ada campaign';
   $('updated-at').textContent = s?.generated_at ? `update ${new Date(s.generated_at).toLocaleString('id-ID', { timeZone: 'Asia/Makassar', hour: '2-digit', minute: '2-digit', day: 'numeric', month: 'short' })}` : '';
 
-  // jadwal minggu: Marketing (IG/TikTok) & YouTube Shorts (channel 'youtube')
+  // jadwal minggu: Marketing (IG/TikTok), Zataa History (channel 'youtube', 4/minggu) & Zataa Story (channel 'story', tiap hari)
   const week = s?.week_start ?? null;
   const days = ['Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab', 'Min'];
   const isYT = (c) => c.channel === 'youtube';
+  const isShort = (c) => c.channel === 'youtube' || c.channel === 'story';
   $('week-grid').innerHTML = days.map((d, i) => {
     const date = week ? addDays(week, i) : null;
-    const items = (s?.week_contents ?? []).filter((c) => c.day === date && !isYT(c));
+    const items = (s?.week_contents ?? []).filter((c) => c.day === date && !isShort(c));
     const chips = items.length
         ? items.map((c) => `<div class="chip ${c.format === 'video' ? 'video' : ''} s-${c.status}" title="${esc(STATUS[c.status] ?? c.status)}">
             <b>${esc(c.slot)} · ${c.format === 'video' ? '🎬 video' : c.format === 'carousel' ? '🖼️ carousel' : '🖼️ feed'}${c.game ? ' · ' + esc(GAME[c.game] ?? c.game) : ''}</b>${esc(c.title)}</div>`).join('')
@@ -153,8 +159,16 @@ function renderDashboard() {
     const items = (s?.week_contents ?? []).filter((c) => c.day === date && isYT(c));
     const chips = off ? '<p class="empty">Libur</p>'
       : items.length ? items.map((c) => `<div class="chip yt s-${c.status}" title="${esc(STATUS[c.status] ?? c.status)}"><b>18:00 · 🎬 shorts</b>${esc(c.title)}</div>`).join('')
-        : '<div class="chip slot"><b>18:00 · 🎬 shorts</b>Belum ada konten</div>';
+        : date && date >= SHORTS_4WEEK_FROM ? '<p class="empty">—</p>' : '<div class="chip slot"><b>18:00 · 🎬 shorts</b>Belum ada konten</div>';
     return `<div class="day ${off ? 'off' : ''} ${date === s?.today ? 'today' : ''}"><h3>${d}<small>${date ? date.slice(8) : ''}</small></h3>${chips}</div>`;
+  }).join('');
+  // Zataa Story: 1 Shorts tiap hari (YouTube + TikTok)
+  $('week-grid-story').innerHTML = days.map((d, i) => {
+    const date = week ? addDays(week, i) : null;
+    const items = (s?.week_contents ?? []).filter((c) => c.day === date && c.channel === 'story');
+    const chips = items.length ? items.map((c) => `<div class="chip yt s-${c.status}" title="${esc(STATUS[c.status] ?? c.status)}"><b>👻 shorts + TikTok</b>${esc(c.title)}</div>`).join('')
+      : '<div class="chip slot"><b>👻 shorts + TikTok</b>Belum ada konten</div>';
+    return `<div class="day ${date === s?.today ? 'today' : ''}"><h3>${d}<small>${date ? date.slice(8) : ''}</small></h3>${chips}</div>`;
   }).join('');
 
   // aktivitas

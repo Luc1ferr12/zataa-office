@@ -1,5 +1,5 @@
 // Pekerja laptop: ambil antrean video bersuara OmniVoice dari VPS → render-laptop.mjs <id> --submit (video Marketing)
-// atau shorts-laptop.mjs <id> --submit (YouTube Shorts, channel 'youtube').
+// atau shorts-laptop.mjs <id> --submit (Shorts: channel 'youtube' = Zataa History, 'story' = Zataa Story).
 // Dijalankan Task Scheduler Windows tiap 10 menit (scripts/laptop-worker.vbs, tanpa jendela).
 //   node scripts/laptop-worker.mjs           # 1 putaran
 // Antrean = konten draft/revision bertanda data_json._laptop = 1 (video: render.mjs VPS, Shorts: shorts-bot.mjs new/queue).
@@ -45,7 +45,7 @@ try { fd = openSync(LOCK, 'wx'); } catch {
 writeFileSync(fd, String(process.pid));
 try {
   const QUERY = `${DB_SNIPPET}
-    let yt = ''; try { db.prepare('SELECT channel FROM contents LIMIT 1').get(); yt = "OR channel = 'youtube'"; } catch {}
+    let yt = ''; try { db.prepare('SELECT channel FROM contents LIMIT 1').get(); yt = "OR channel IN ('youtube', 'story')"; } catch {}
     console.log(JSON.stringify(db.prepare("SELECT id, format FROM contents WHERE (format = 'video' " + yt + ") AND status IN ('draft', 'revision') AND json_extract(data_json, '$._laptop') = 1 ORDER BY day, id").all()));`;
   let q;
   for (const h of HOSTS) {

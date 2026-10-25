@@ -23,10 +23,18 @@ export const NEXT = {
   yvisual: ['yvideo'],
   yvideo: ['ypublish'],
   ypublish: ['owner'],
+  // tim Zataa Story
+  sdir: ['sresearch'],
+  sresearch: ['sscript'],
+  sscript: ['svisual'],
+  svisual: ['svideo'],
+  svideo: ['spublish'],
+  spublish: ['owner'],
 };
 export const NAMES = { dir: 'Andre', sec: 'Aprista', researcher: 'Clariana', copywriter: 'Ista', designer: 'Maria', video: 'Dimas', publisher: 'Fikri', ads: 'Fahriah', analyst: 'Raka', price: 'Budi', ob: 'Mbak Sari', owner: 'Bos Zamiir',
   tdir: 'Mahendra', tresearch: 'Davina', ttech: 'Keira', trisk: 'Aryaputra', texec: 'Wiratama', teval: 'Jihan', treport: 'Selena',
-  ydir: 'Bagas', yresearch: 'Nadhira', yscript: 'Laras', yvisual: 'Galih', yvideo: 'Yoga', ypublish: 'Kirana' };
+  ydir: 'Bagas', yresearch: 'Nadhira', yscript: 'Laras', yvisual: 'Galih', yvideo: 'Yoga', ypublish: 'Kirana',
+  sdir: 'Raditya', sresearch: 'Sekar', sscript: 'Dinda', svisual: 'Arga', svideo: 'Bima', spublish: 'Nayla' };
 
 const pick = (arr, seed) => arr[Math.abs(seed) % arr.length];
 const seedOf = (s) => [...String(s)].reduce((a, c) => (a * 31 + c.charCodeAt(0)) | 0, 7);
@@ -46,6 +54,12 @@ const HANDOFF = {
   yvisual: ['{to}, visual "{task}" udah lengkap + kredit lisensinya. Siap dirakit 🖼️', 'Aset adegan "{task}" kelar, {to}. Gas edit!'],
   yvideo: ['{to}, Shorts "{task}" udah render 9:16 + VO. Cek judul & tag ya', 'Video "{task}" kelar, {to}. Durasinya pas di bawah 60 detik'],
   ypublish: ['Bos, Shorts "{task}" udah aku kirim ke Telegram. Ditunggu ✅ buat upload 🙏'],
+  sdir: ['{to}, topik Zataa Story hari ini: "{task}". Cari sisi sejarahnya ya, jangan cuma seremnya 👻', 'Brief "{task}" udah jadi. {to}, gas riset!'],
+  sresearch: ['{to}, bahan "{task}" udah aku rangkum. Yang "konon" sama yang fakta udah aku pisahin 📜', 'Riset "{task}" beres, {to}. Lanjut naskah ya'],
+  sscript: ['{to}, naskah "{task}" udah jadi, hook-nya serem di detik pertama 😶', 'Script "{task}" ready, {to}. Tolong cariin foto arsip yang gelap ya'],
+  svisual: ['{to}, visual "{task}" lengkap + kredit lisensi. Nggak ada foto penampakan palsu ya 🖼️', 'Aset "{task}" kelar, {to}. Gas edit!'],
+  svideo: ['{to}, Shorts "{task}" udah render 9:16 + VO. Siap ke YouTube & TikTok', 'Video "{task}" kelar, {to}. Cek judul & caption TikTok ya'],
+  spublish: ['Bos, Shorts "{task}" udah aku kirim ke @zataastorybot. Ditunggu ✅ buat tayang YouTube + TikTok 🙏'],
   price: ['{to}, harga buat "{task}" udah aku cek di web. Angkanya aman dipake 💰', '{to}, cek harga "{task}" kelar, jangan sampe salah angka ya'],
 };
 const REVISION = [

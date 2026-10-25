@@ -22,7 +22,7 @@ function onVps(js) {
 }
 const DB = DB_SNIPPET;
 
-const c = JSON.parse(onVps(`${DB} console.log(JSON.stringify(db.prepare("SELECT id, title, day, data_json FROM contents WHERE id = ? AND channel = 'youtube'").get(${+id}) ?? null));`));
+const c = JSON.parse(onVps(`${DB} console.log(JSON.stringify(db.prepare("SELECT id, title, day, channel, data_json FROM contents WHERE id = ? AND channel IN ('youtube', 'story')").get(${+id}) ?? null));`));
 if (!c?.data_json) throw new Error(`Shorts ${id} tidak ada di VPS / belum punya spec`);
 const spec = JSON.parse(c.data_json);
 const queued = spec._laptop != null;
@@ -62,7 +62,7 @@ try {
   }
   const out = { ok: true, id: c.id, ...paths, duration: res.duration, mood: res.mood };
   if (flag === '--submit') {
-    const r2 = spawnSync('ssh', [VPS, `cd ~/zataa-office && node scripts/shorts-bot.mjs submit ${c.id}`], { encoding: 'utf8' });
+    const r2 = spawnSync('ssh', [VPS, `cd ~/zataa-office && node scripts/shorts-bot.mjs submit ${c.id} --brand=${c.channel === 'story' ? 'story' : 'history'}`], { encoding: 'utf8' });
     out.submit = r2.status === 0 ? r2.stdout.trim() : `gagal: ${(r2.stderr || r2.stdout || '').trim().slice(-200)}`;
   }
   console.log(JSON.stringify(out));

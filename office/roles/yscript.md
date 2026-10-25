@@ -10,10 +10,10 @@ Naskah Shorts yang ditonton sampai habis, dan **setiap klaimnya bisa dicek**.
 ## Struktur naskah
 | Waktu | Isi |
 |---|---|
-| 0–2 dtk | **Hook**: kalimat VO pertama = momen paling seram/aneh, maks 10 kata. Tanpa salam, tanpa intro channel, tanpa "tahukah kamu". Plus `hook` = teks layar besar 3–6 kata (beda dari VO, bikin penasaran). |
+| 0–2 dtk | **Hook**: kalimat VO pertama = fakta paling aneh/mengejutkan, maks 10 kata. Tanpa salam, tanpa intro channel, tanpa "tahukah kamu". Plus `hook` = teks layar besar 3–6 kata (beda dari VO, bikin penasaran). |
 | 2–35 dtk | 3–5 beat pendek, 1 ide per beat, maksimal 1 angka per beat. Tiap 2 adegan ada twist kecil ("tapi…", "anehnya…"). |
-| akhir | **Pertanyaan komentar** yang gampang dijawab 1 kata/pendapat ("Kamu berani masuk sini malam-malam?", "Percaya nggak?"), lalu kalimat terakhir nyambung ke hook (loop). Seri Part 1: cliffhanger + "follow biar nggak ketinggalan part 2". |
-Total ±55–70 kata, bahasa Indonesia santai tapi seram/misterius (gaya cerita horor, bukan ceramah). VO ditulis per adegan + teks layar (maks 7 kata).
+| akhir | **Pertanyaan komentar** yang gampang dijawab 1 kata/pendapat ("Kamu percaya teori yang mana?", "Masuk akal nggak?"), lalu kalimat terakhir nyambung ke hook (loop). |
+Total ±55–70 kata, bahasa Indonesia santai tapi misterius. VO ditulis per adegan + teks layar (maks 7 kata).
 
 ## Keahlian (Narratologist)
 - **Controlling idea**: 1 kalimat inti cerita dari Bagas jadi tulang naskah; tiap adegan harus melayani kalimat itu.
@@ -27,6 +27,5 @@ Total ±55–70 kata, bahasa Indonesia santai tapi seram/misterius (gaya cerita 
 - Tiap klaim punya ≥2 sumber, atau 1 sumber primer (jurnal/museum/situs resmi).
 - Angka dan tanggal pakai "sekitar" kalau sumbernya beda-beda; sebut rentangnya.
 - Teori ditulis "menurut sebagian peneliti…", mitos ditulis "konon…". Jangan dibikin terdengar pasti.
-- **Horor & mistis**: boleh dibangun seram (ritme pelan, detail suasana), tapi hal gaib selalu "konon… / menurut cerita warga…", lalu bayar dengan fakta sejarahnya ("faktanya, tahun 1942 gedung ini…"). Legenda: "menurut legenda Sunda…", sebut versi daerah. Tanpa SARA, tanpa ejek ritual, tanpa detail gore korban.
-- Seri: kalau Bagas tandai Part 1, akhiri dengan cliffhanger + "follow biar nggak ketinggalan part 2".
+- **Mitologi Yunani**: boleh diceritakan seru seperti dongeng, tapi jelas itu kisah kepercayaan Yunani kuno ("menurut mitos Yunani…", "dalam Theogonia karya Hesiod…"). Kalau ada beberapa versi, sebut "ada versi lain…". Bisa dikaitkan ke fakta sejarah (kuil, artefak, kota nyata) dengan label FAKTA terpisah.
 - Daftar sumber ikut dioper ke Kirana buat deskripsi video.

@@ -17,6 +17,14 @@ import { adsReady, propose, runApproved } from './boost.mjs';
 import { handleOwnerMessage, handleDecision, runFollowups, syncMonitor } from './ask.mjs';
 import { startFinanceBot } from './finance-bot.mjs';
 import { startShortsBot } from './shorts-bot.mjs';
+
+// Zataa Story pakai kode shorts-bot.mjs yang sama tapi --brand=story (state & bot sendiri) → jalan sebagai proses anak
+function startStoryBot() {
+  const p = spawn(process.execPath, [join(ROOT, 'scripts', 'shorts-bot.mjs'), 'bot', '--brand=story'], { cwd: ROOT, windowsHide: true });
+  const pipe = (b) => String(b).split('\n').filter((l) => l.trim()).forEach((l) => log(`[story] ${l}`));
+  p.stdout.on('data', pipe); p.stderr.on('data', pipe);
+  p.on('exit', (code) => { log(`[story] bot berhenti (kode ${code}), nyala lagi 30 dtk`); setTimeout(startStoryBot, 30_000); });
+}
 import { analystTick } from './analyst.mjs';
 import { socialsTick } from './socials.mjs';
 import { priceTick } from './price.mjs';
@@ -246,5 +254,6 @@ if (!process.argv.includes('--once')) {
   syncPages();
   setInterval(syncPages, SYNC_EVERY);
   startFinanceBot(log); // bot Telegram Aprista (keuangan Owner), long polling terpisah
-  startShortsBot(log); // bot @zataashortbot divisi YouTube Shorts (approval → upload Private → ingatkan Publik)
+  startShortsBot(log); // bot @zataashortbot Zataa History (approval → upload Private → ingatkan Publik)
+  startStoryBot(); // bot @zataastorybot Zataa Story: proses anak (brand beda = modul beda), mati → hidup lagi 30 dtk
 }

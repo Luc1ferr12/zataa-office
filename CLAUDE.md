@@ -30,16 +30,29 @@ Kantor marketing virtual untuk **zataa.my.id** (top up game). Claude memerankan 
 | texec | Wiratama | Eksekusi order ke EA MT5, SL/TP |
 | teval | Jihan | Evaluasi trade, backtest, usulan perbaikan |
 | treport | Selena | Laporan trading ke Telegram |
-| ydir | Bagas | Manajer YouTube Shorts: antrean topik, briefing, evaluasi Minggu |
+| ydir | Bagas | Manajer YouTube Shorts **Zataa History** (sejarah kuno dunia): antrean topik, briefing, evaluasi Minggu |
 | yresearch | Nadhira | Riset misteri & horor Nusantara + sumber (≤5 pencarian/hari) |
 | yscript | Laras | Naskah Shorts + cek fakta (label fakta/teori/mitos) |
 | yvisual | Galih | Visual berlisensi bebas / gambar kode / Blender |
 | yvideo | Yoga | Render Shorts 9:16 + VO OmniVoice |
 | ypublish | Kirana | ✅ Owner di @zataashortbot, judul/deskripsi/SEO, upload YouTube (Publik via Zernio), laporan Shorts harian 19:00 & mingguan Minggu 19:30 WITA (channel + produksi + kuota) |
+| sdir | Raditya | Manajer **Zataa Story** (misteri & horor Nusantara): antrean topik, briefing, evaluasi Minggu |
+| sresearch | Sekar | Riset misteri & horor Nusantara + sumber (≤5 pencarian/hari) |
+| sscript | Dinda | Naskah + hook + cek fakta (label fakta/teori/mitos) |
+| svisual | Arga | Foto arsip & lokasi berlisensi bebas / gambar kode / Blender |
+| svideo | Bima | Render Shorts 9:16 + VO OmniVoice |
+| spublish | Nayla | ✅ Owner di @zataastorybot, tayang YouTube + TikTok Zataa Story (Zernio akun 2), laporan harian 19:00 & mingguan Minggu 19:30 WITA |
 
-## Tim YouTube Shorts (misteri & horor Nusantara berbasis sejarah)
-Divisi terpisah dari Marketing, ruang di Lt.2 (bilik + R. Manajer), meeting di Lt.3. Niche sejak 26 Okt 2026: **misteri & horor Nusantara berbasis sejarah** (cerita seram/mistis, tapi dibedah pakai fakta + sumber; gaib selalu "konon"). **7 Shorts/minggu, 1 per hari tanpa libur**, minimal **3 Horor Bersejarah**/minggu, **maks 1 Misteri Dunia**, sisanya dari pilar Legenda & Mitos, Sejarah Kelam, Misteri Kuno, Ritual & Tradisi Mistis, Peristiwa Aneh Nusantara; jam tayang dari riset harian Kirana. Tiap ide wajib dari **bank topik** `scripts/shorts-topics.mjs` (topic_id, pillar, subject, core_question, angle, hook, sources, evergreen_score, status, published_url); kuota dicek otomatis. Target berikutnya: **±500 subscriber → tambah video panjang 5–10 menit**; Shorts tetap jalan bareng. SOP: `office/youtube.md`.
-Alur: sesi harian `node scripts/shorts-bot.mjs new <file.json>` (DB `channel: 'youtube'`) → render OmniVoice otomatis di laptop (`laptop-worker.mjs` → `shorts-laptop.mjs`) → Kirana kirim ke Owner di bot @zataashortbot (`scripts/shorts-bot.mjs`, di watcher; `SHORTS_BOT_TOKEN`, `SHORTS_OWNER_ID`) → Owner ✅ Approve / ✏️ Revisi / ❌ Tolak (❌ = tim bikin pengganti) → upload YouTube otomatis di jam tayang **langsung Publik lewat Zernio** (`scripts/zernio.mjs`, `ZERNIO_API_KEY` di .env VPS) → `posted` → cross-post otomatis ke **TikTok Zataa Story** kalau `ZERNIO_STORY_TIKTOK_ACCOUNT` diisi (jangan pernah ke TikTok zataa.topup). Tanpa key: fallback `youtube.mjs` Private + bot ingatkan Owner ubah ke Publik. Semua urusan Shorts lewat bot itu, bukan bot kantor.
+## Shorts: dua divisi, kode sama (`scripts/brand.mjs`, pilih `--brand=history|story`)
+| | **Zataa History** (tim Bagas, `y*`) | **Zataa Story** (tim Raditya, `s*`) |
+|---|---|---|
+| Niche | sejarah misteri kuno dunia + mitologi Yunani | misteri & horor Nusantara berbasis sejarah (gaib selalu "konon") |
+| Platform | YouTube channel lama (dulu @zataastory, ganti nama 25 Okt), akun zataatopup | YouTube channel baru + TikTok @zataa.story, akun zataastory |
+| Kuota | **4/minggu** (maks 1/hari), ≥2 Hidden History | **7/minggu** (1/hari), ≥3 Horor Bersejarah |
+| Bot / Zernio | @zataashortbot `SHORTS_BOT_TOKEN` · Zernio akun 1 `ZERNIO_API_KEY` | @zataastorybot `STORY_BOT_TOKEN` · Zernio akun 2 `ZERNIO_STORY_API_KEY` |
+| DB / SOP | `channel 'youtube'` · `office/youtube.md` | `channel 'story'` · `office/story.md` (semua perintah `--brand=story`) |
+Ruang di Lt.2, meeting di Lt.3. Tiap ide wajib dari **bank topik** `scripts/shorts-topics.mjs` (pilar milik satu brand; topic_id, pillar, subject, core_question, angle, hook, sources, evergreen_score, status, published_url); kuota dicek otomatis per brand. Target: **±500 subscriber → tambah video panjang 5–10 menit**; Shorts tetap jalan bareng.
+Alur: sesi harian `node scripts/shorts-bot.mjs new <file.json> [--brand=story]` → render OmniVoice otomatis di laptop (`laptop-worker.mjs` → `shorts-laptop.mjs`, submit ikut brand) → publisher kirim ke Owner di bot brand itu → ✅ Approve / ✏️ Revisi / ❌ Tolak (❌ = tim bikin pengganti) → upload YouTube di jam tayang **langsung Publik lewat Zernio** akun brand → `posted` → Story otomatis juga posting TikTok. Bot History jalan di watcher, bot Story = proses anak watcher. Tanpa Zernio: fallback `youtube.mjs` Private + pengingat. Statistik/retensi YouTube: `youtube.mjs stats|analytics [--brand=story]` (token `YT_REFRESH_TOKEN` / `STORY_YT_REFRESH_TOKEN`). TikTok zataa.topup (akun 1) = Marketing saja, dikunci `ZERNIO_TIKTOK_ACCOUNT`.
 
 ## Tim Trading (XAUUSD saja)
 Jalan otomatis 0 token di VPS: service `zataa-trading` (`scripts/trading/run.mjs`), siklus tiap candle M15: Mahendra → Davina → Keira → Aryaputra → Wiratama → Jihan → Selena. Laporan Selena di bot trading: harian 19:00 WITA, mingguan Sabtu 07:00 WITA.
