@@ -1,7 +1,7 @@
 // Render YouTube Shorts di laptop (OmniVoice butuh GPU laptop), lalu kirim hasilnya ke VPS.
 //   node scripts/shorts-laptop.mjs <content_id> [--submit]
 // 1) ambil spec (data_json) dari DB VPS + klaim antrean (_laptop 1 → 2)  2) gambar yang belum ada di laptop diambil dari VPS (scp)
-// 3) scripts/shorts.mjs (durasi 40–59 dtk; _test = --test)  4) scp mp4 + cover ke out/shorts/ VPS, isi asset_path
+// 3) scripts/shorts.mjs (durasi 28–45 dtk; _test = --test)  4) scp mp4 + cover ke out/shorts/ VPS, isi asset_path
 // 5) --submit → shorts-bot.mjs submit <id> di VPS (Kirana kirim ke Owner di @zataashortbot). Gagal → _laptop 3 + _err (bot kabari Owner).
 import { spawnSync } from 'node:child_process';
 import { mkdtempSync, writeFileSync, rmSync, existsSync, mkdirSync, copyFileSync } from 'node:fs';

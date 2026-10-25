@@ -53,7 +53,7 @@ async function post(platform, file, content, extra, key) {
   const body = {
     content, publishNow: true,
     mediaItems: [{ type: 'video', url: await uploadMedia(file) }],
-    platforms: [{ platform, accountId: await accountId(platform), ...(extra.platformSpecificData ? { platformSpecificData: extra.platformSpecificData } : {}) }],
+    platforms: [{ platform, accountId: extra.accountId ?? await accountId(platform), ...(extra.platformSpecificData ? { platformSpecificData: extra.platformSpecificData } : {}) }],
     ...(extra.root ?? {}),
   };
   let { post: p } = await api('/posts', { method: 'POST', body, headers: key ? { 'Idempotency-Key': idemKey(key) } : {} });
@@ -76,8 +76,10 @@ export async function youtubeUpload(file, meta, key) {
   return { ok: true, id, url: r.url ?? `https://youtube.com/shorts/${id}`, privacy: r.status === 'published' ? 'public' : 'processing', zernio_post: r.postId };
 }
 
-export async function tiktokPost(file, caption, key) {
+// account: id akun Zernio tertentu (mis. TikTok Zataa Story), kosong = akun TikTok default (zataa.topup)
+export async function tiktokPost(file, caption, key, account = null) {
   const r = await post('tiktok', file, caption.slice(0, 2200), {
+    accountId: account ?? undefined,
     root: { tiktokSettings: { privacy_level: 'PUBLIC_TO_EVERYONE', allow_comment: true, allow_duet: true, allow_stitch: true, content_preview_confirmed: true, express_consent_given: true } },
   }, key);
   return { ok: true, id: r.platformPostId ?? r.postId, url: r.url, status: r.status };

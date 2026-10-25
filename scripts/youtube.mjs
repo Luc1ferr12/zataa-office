@@ -3,6 +3,7 @@
 //   node scripts/youtube.mjs auth                      izin sekali dari akun channel (buka link di browser, laptop) → cetak refresh token
 //   node scripts/youtube.mjs whoami                    cek channel yang tersambung
 //   node scripts/youtube.mjs stats                     statistik channel + per video (subs, views, likes) dalam JSON
+//   node scripts/youtube.mjs analytics [hari]          retensi per video (YouTube Analytics, telat ±2 hari): views, engaged (yang bertahan), % ditonton, subs → JSON
 //   node scripts/youtube.mjs upload <mp4> <meta.json>  upload Shorts (meta: { title, description, tags[], synthetic?, privacy? })
 // Catatan: project API yang belum diaudit YouTube → video yang di-upload lewat API otomatis Private (Owner ubah ke Publik di YouTube Studio).
 import { createServer } from 'node:http';
@@ -66,6 +67,27 @@ if (cmd === 'auth') {
   const s = c.statistics;
   console.log(JSON.stringify({ subscribers: s.hiddenSubscriberCount ? null : +s.subscriberCount, views: +s.viewCount, videos: +s.videoCount,
     likes: videos.reduce((a, v) => a + v.likes, 0), list: videos }));
+} else if (cmd === 'analytics') {
+  // engagedViews/views = proxy "ditonton vs di-swipe" Studio (API nggak punya swipe langsung); averageViewPercentage >100% = diulang (loop)
+  const H = { headers: { Authorization: `Bearer ${await token()}` } };
+  const end = new Date().toISOString().slice(0, 10), start = new Date(Date.now() - (+a1 || 90) * 864e5).toISOString().slice(0, 10);
+  const report = async (metrics) => {
+    const q = new URLSearchParams({ ids: 'channel==MINE', startDate: start, endDate: end, dimensions: 'video', metrics, sort: '-views', maxResults: '200' });
+    const r = await fetch(`https://youtubeanalytics.googleapis.com/v2/reports?${q}`, H);
+    const j = await r.json();
+    if (j.error) throw Object.assign(new Error(j.error.message), { code: j.error.code, reason: j.error.details?.find((x) => x.reason)?.reason ?? j.error.errors?.[0]?.reason });
+    return j;
+  };
+  const base = 'views,averageViewPercentage,averageViewDuration,subscribersGained,comments,shares';
+  let j;
+  try { j = await report(`${base},engagedViews`); } catch (e) { if (e.code !== 400) throw e; j = await report(base); } // engagedViews belum ada di semua akun → tanpa itu
+  const cols = j.columnHeaders.map((c) => c.name);
+  const videos = Object.fromEntries((j.rows ?? []).map((r) => {
+    const o = Object.fromEntries(cols.map((c, i) => [c, r[i]]));
+    return [o.video, { views: o.views, engaged: o.engagedViews ?? null, stay: o.engagedViews != null && o.views ? Math.round((o.engagedViews / o.views) * 100) : null,
+      apv: Math.round(o.averageViewPercentage), avd: Math.round(o.averageViewDuration), subs: o.subscribersGained, comments: o.comments, shares: o.shares }];
+  }));
+  console.log(JSON.stringify({ start, end, videos }));
 } else if (cmd === 'upload') {
   if (!a1 || !existsSync(a1)) { console.error('pakai: upload <file.mp4> <meta.json>'); process.exit(1); }
   const meta = a2 ? JSON.parse(readFileSync(a2, 'utf8')) : {};
@@ -84,5 +106,5 @@ if (cmd === 'auth') {
   if (!v.id) throw new Error(`upload gagal: ${JSON.stringify(v).slice(0, 300)}`);
   console.log(JSON.stringify({ ok: true, id: v.id, url: `https://youtube.com/shorts/${v.id}`, privacy: v.status?.privacyStatus }));
 } else {
-  console.error('pakai: youtube.mjs auth | whoami | stats | upload <mp4> <meta.json>');
+  console.error('pakai: youtube.mjs auth | whoami | stats | analytics [hari] | upload <mp4> <meta.json>');
 }

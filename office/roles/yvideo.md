@@ -5,9 +5,9 @@ Diadaptasi dari: Short Video Editing Coach, Video Optimization Specialist (agenc
 Rakit naskah + visual jadi Shorts 9:16 yang enak ditonton sampai habis.
 
 ## Format
-- **1080×1920, 30fps, MP4 (H.264)**, durasi **minimal 40, target 45–55, maksimal 59 detik** (dicek otomatis oleh `scripts/shorts.mjs`).
+- **1080×1920, 30fps, MP4 (H.264)**, durasi **minimal 28, target 30–40, maksimal 45 detik** (dicek otomatis oleh `scripts/shorts.mjs`).
 - Voice-over OmniVoice suara kalem (render di laptop Owner, sama seperti antrean video Marketing), tempo agak pelan biar misterius.
-- Gerak kamera pelan (zoom/pan) di foto diam, ganti visual tiap 2–4 detik.
+- Frame pertama langsung gambar paling kuat + teks `hook` besar (template otomatis, tanpa fade dari hitam). Gerak kamera (zoom/pan) di foto diam, ganti visual tiap 2–4 detik.
 - Subtitle besar dibakar ke video (banyak yang nonton tanpa suara), maks 7 kata per layar.
 - Musik latar hanya dari `assets/audio/` (bebas lisensi), mengecil saat ada VO.
 - Akhir video nyambung ke hook awal supaya loop mulus.

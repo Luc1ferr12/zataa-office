@@ -10,7 +10,7 @@
    file.json = `{ topic_id (wajib, status approved), title (≤60 karakter), caption (deskripsi: ringkasan + sumber + kredit visual), hashtags ("#Shorts #sejarah …"), sources, tags?, synthetic?, day?, jam? ("HH:MM" WIB), test?, spec: { voice, speed, tag, mood, scenes[{ img, vo, sub, place?, credit?, move? }] } }`. Path `img` relatif dari root repo.
 2. **Laptop** (Task Scheduler "Zataa Laptop Worker" tiap 10 mnt → `scripts/laptop-worker.mjs` → `scripts/shorts-laptop.mjs <id> --submit`): gambar yang belum ada diambil dari VPS, render `scripts/shorts.mjs` (OmniVoice, 40–59 dtk), hasil ke `out/shorts/` VPS. Tidak ada fallback suara VPS: laptop mati >3 jam → Yoga kabari Owner; render gagal → `_laptop: 3` + Owner dikabari.
 3. **Kirana** kirim video + judul/deskripsi ke Owner di @zataashortbot: ✅ Approve / ✏️ Revisi / ❌ Tolak (aturan Owner: tidak ada tombol upload). Owner bilang "langsung post/upload" = ✅ + upload saat itu juga.
-4. ✅ → status `approved`, bot **upload otomatis di jam tayang** (`jam`; sudah lewat jam → langsung) **langsung Publik lewat Zernio** (`scripts/zernio.mjs`, keputusan Owner 18 Okt) → status `posted` + Kirana kirim link; topik di bank otomatis `published` + `published_url`.
+4. ✅ → status `approved`, bot **upload otomatis di jam tayang** (`jam`; sudah lewat jam → langsung) **langsung Publik lewat Zernio** (`scripts/zernio.mjs`, keputusan Owner 18 Okt) → status `posted` + Kirana kirim link; topik di bank otomatis `published` + `published_url`. Lalu **cross-post TikTok Zataa Story** otomatis (video sama, caption = judul + pertanyaan + hashtag) kalau `ZERNIO_STORY_TIKTOK_ACCOUNT` (id akun di `zernio.mjs accounts`) diisi di .env VPS; gagal → Kirana kabari, YouTube tetap aman, ulang: `shorts-bot.mjs tiktok <id>`. Tidak pernah pakai akun TikTok zataa.topup.
 5. Fallback tanpa `ZERNIO_API_KEY`: `scripts/youtube.mjs` Private → `uploaded` + pengingat ubah ke Publik → Owner tekan **✅ Sudah Publik** → `posted`.
 6. ❌ Tolak → topik balik `backlog` (catatan "ditolak Owner"), Claude CLI (tim YouTube) langsung bikin **Shorts pengganti** dari topik approved lain (patuhi kuota pilar) untuk hari & jam yang sama → render laptop → dikirim lagi.
 7. ✏️ Revisi → Claude CLI (tim YouTube) ubah lewat `shorts-bot.mjs set` → render ulang di laptop → dikirim lagi (cuma judul/deskripsi → langsung dikirim ulang tanpa render).
@@ -20,8 +20,8 @@
 
 ## Render
 `node scripts/shorts.mjs <spec.json> [out.mp4]` (laptop: butuh OmniVoice). Contoh: `templates/samples/shorts-baalbek.json` (versi uji 30 dtk, render pakai `--test`).
-- spec: `voice` (`misteri-cewe`, pilihan Owner), `speed` 0.9, `tag`, `mood` (`misteri | gurun | epik | tragis | alam`), `seed` (kosong = acak), `scenes[]` = `{ img, vo, sub, place?, credit?, move? }`.
-- `vo` = teks yang dibacakan (angka ditulis huruf), `sub` = teks layar (angka boleh digit, `*kata*` = emas). **Durasi: minimal 40 dtk, target 45–55, maksimal 59** (6–7 adegan, 75–95 kata). Di luar itu render ditolak; `--test` untuk uji coba pendek.
+- spec: `voice` (`misteri-cewe`, pilihan Owner), `speed` 0.9, `tag`, `mood` (`misteri | gurun | epik | tragis | alam`), `seed` (kosong = acak), `hook` (teks layar besar 3–6 kata di 0–2,6 dtk, **wajib**), `scenes[]` = `{ img, vo, sub, place?, credit?, move? }`.
+- `vo` = teks yang dibacakan (angka ditulis huruf), `sub` = teks layar (angka boleh digit, `*kata*` = emas). **Durasi: minimal 28 dtk, target 30–40, maksimal 45** (5–6 adegan, 55–70 kata). Di luar itu render ditolak; `--test` untuk uji coba pendek.
 - Foto disimpan di `assets/shorts/<topik>/` + `credits.txt` (kredit masuk deskripsi YouTube).
 
 ## Ritme
@@ -51,6 +51,14 @@ Tiap ide video wajib masuk bank dulu, lengkap dengan: `topic_id` (otomatis, mis.
 7. `misteri_dunia` (MD) — **maks 1/minggu**: misteri & sejarah kuno luar Nusantara (stok topik lama: Voynich, Nan Madol, wabah menari, Talos, dll.).
 
 Pilar lama (Hidden History, Lost Civilizations, Historical Figures, Historical Mysteries, Ancient Secrets, Strange Events, Mitologi Yunani) sudah nggak dipakai buat topik baru; topik approved lama yang Nusantara dipindah ke `misteri_kuno`, sisanya ke `misteri_dunia`. Gilir pilar 2–6, jangan pilar sama 2 hari berturut-turut (kecuali seri Part 1/2).
+
+## Retensi & hook (aturan 25 Okt, setelah semua video mentok ±1.000 views)
+Masalah channel bukan topik/jumlah upload, tapi **3 detik pertama**: YouTube cuma dorong video yang lolos tes ±1.000 penonton pertama.
+- **Target tiap video**: bertahan (engaged/views, proxy "ditonton vs di-swipe") **≥70%**, rata-rata ditonton **≥90%** (>100% = diulang). Angkanya otomatis di laporan harian/mingguan Kirana (YouTube Analytics, telat ±2 hari).
+- **Frame pertama**: gambar paling kuat (close-up gelap/aneh, bukan pemandangan lebar) + teks `hook` besar langsung tampil, VO mulai di 0,15 dtk. Template sudah tanpa fade dari hitam.
+- **Durasi 30–40 dtk** (5–6 adegan, 55–70 kata). Jangan nambah kalimat cuma buat ngejar durasi.
+- **Komentar**: tiap video ditutup pertanyaan yang gampang dijawab; baris pertama deskripsi = pertanyaan yang sama.
+- **Evaluasi**: bertahan <70% → yang salah hook/gambar pertama; ditonton <90% → tengah video kepanjangan/lambat. Bagas catat 1 pelajaran per minggu (`office.mjs memory ydir`).
 
 ## Aturan wajib
 - **Horor tetap berbasis fakta:** hal gaib/penampakan selalu ditulis "konon / menurut cerita warga / kepercayaan setempat", tidak pernah sebagai fakta. Sisi sejarahnya (tahun, peristiwa, tokoh) wajib bersumber.
