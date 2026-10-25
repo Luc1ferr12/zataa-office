@@ -5,7 +5,7 @@
 //   node scripts/youtube.mjs stats                     statistik channel + per video (subs, views, likes) dalam JSON
 //   node scripts/youtube.mjs analytics [hari]          retensi per video (YouTube Analytics, telat ±2 hari): views, engaged (yang bertahan), % ditonton, subs → JSON
 //   node scripts/youtube.mjs upload <mp4> <meta.json>  upload Shorts (meta: { title, description, tags[], synthetic?, privacy? })
-// --brand=story → token channel baru Zataa Story (STORY_YT_REFRESH_TOKEN); default = Zataa History (YT_REFRESH_TOKEN).
+// --brand=story → OAuth client + token channel baru Zataa Story (STORY_YT_CLIENT_ID/SECRET/REFRESH_TOKEN, project Google akun zataastory); default = Zataa History (YT_*).
 // Catatan: project API yang belum diaudit YouTube → video yang di-upload lewat API otomatis Private (Owner ubah ke Publik di YouTube Studio).
 import { createServer } from 'node:http';
 import { readFileSync, existsSync, statSync, createReadStream } from 'node:fs';
@@ -19,7 +19,7 @@ const SCOPES = ['https://www.googleapis.com/auth/youtube.upload', 'https://www.g
 const need = (k) => env[k] || (console.error(`${k} kosong di .env`), process.exit(1));
 
 async function token() {
-  const r = await fetch('https://oauth2.googleapis.com/token', { method: 'POST', body: new URLSearchParams({ client_id: need('YT_CLIENT_ID'), client_secret: need('YT_CLIENT_SECRET'), refresh_token: need(B.ytTokenEnv), grant_type: 'refresh_token' }) });
+  const r = await fetch('https://oauth2.googleapis.com/token', { method: 'POST', body: new URLSearchParams({ client_id: need(B.ytClientEnv), client_secret: need(B.ytSecretEnv), refresh_token: need(B.ytTokenEnv), grant_type: 'refresh_token' }) });
   const j = await r.json();
   if (!j.access_token) throw new Error(`token YouTube gagal: ${j.error_description ?? j.error}`);
   return j.access_token;
@@ -33,14 +33,14 @@ if (cmd === 'auth') {
     const code = u.searchParams.get('code');
     if (!code) return res.writeHead(404).end();
     const redirect = `http://127.0.0.1:${srv.address().port}`;
-    const r = await fetch('https://oauth2.googleapis.com/token', { method: 'POST', body: new URLSearchParams({ code, client_id: need('YT_CLIENT_ID'), client_secret: need('YT_CLIENT_SECRET'), redirect_uri: redirect, grant_type: 'authorization_code' }) });
+    const r = await fetch('https://oauth2.googleapis.com/token', { method: 'POST', body: new URLSearchParams({ code, client_id: need(B.ytClientEnv), client_secret: need(B.ytSecretEnv), redirect_uri: redirect, grant_type: 'authorization_code' }) });
     const j = await r.json();
     res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' }).end(j.refresh_token ? '<h2>Zataa Shorts tersambung ke YouTube ✅</h2>Tab ini boleh ditutup.' : `<h2>Gagal</h2>${j.error_description ?? j.error}`);
     if (j.refresh_token) console.log(`${B.ytTokenEnv}=${j.refresh_token}`);
     else console.error('gagal:', j.error_description ?? j.error);
     srv.close();
   }).listen(+(env.YT_AUTH_PORT ?? 0), '127.0.0.1', () => {
-    const p = new URLSearchParams({ client_id: need('YT_CLIENT_ID'), redirect_uri: `http://127.0.0.1:${srv.address().port}`, response_type: 'code', scope: SCOPES.join(' '), access_type: 'offline', prompt: 'consent' });
+    const p = new URLSearchParams({ client_id: need(B.ytClientEnv), redirect_uri: `http://127.0.0.1:${srv.address().port}`, response_type: 'code', scope: SCOPES.join(' '), access_type: 'offline', prompt: 'consent' });
     console.error(`Buka link ini di browser dan pilih akun channel YouTube ${B.name}:\nhttps://accounts.google.com/o/oauth2/v2/auth?${p}`);
   });
 } else if (cmd === 'whoami') {

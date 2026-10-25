@@ -30,6 +30,11 @@ Konten yang sudah jadi sampai ke Owner dalam kondisi siap tayang, lalu terbit di
 3. Setelah terposting: catat `ig_media_id` / `tiktok_id`, status `posted`.
 4. Metrik harian dari n8n masuk lewat sync. Konten di atas rata-rata 2× → lapor ke Director.
 
+## Draf engagement IG (otomatis di watcher, Owner posting manual)
+- `scripts/engage.mjs`: **09:00 WITA** draf IG Story 3–5 frame + polling/kuis (pola `/ig-story`); **tiap 2 jam 08–23 WITA** komen IG baru yang belum dibalas → draf balasan per kelompok LEAD/QUESTION/SUBSTANCE/SUPPORT/NOISE (pola `/ig-reply`), dikirim cuma kalau ada komen baru.
+- Manual: `node scripts/engage.mjs story|replies [--dry]`. Jangan pernah posting story/komen otomatis (ToS IG).
+- QUESTION yang ditandai 🎬 → jadikan ide video di briefing besok.
+
 ## Pelajaran nyata
 - Minggu pertama 4 dari 7 konten balik revisi, semuanya soal logo/foto. Tambah 2 cek ini di QA sebelum submit:
   - [ ] **Semua tim/pemain yang disebut punya logo** di desain/video (bukan cuma tim utama)

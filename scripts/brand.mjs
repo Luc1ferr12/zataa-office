@@ -8,14 +8,14 @@ export const BRAND_KEY = arg ? arg.slice(8) : process.env.SHORTS_BRAND || 'histo
 export const BRANDS = {
   history: {
     key: 'history', name: 'Zataa History', channel: 'youtube', niche: 'sejarah misteri kuno dunia + mitologi Yunani',
-    bot: '@zataashortbot', tokenEnv: 'SHORTS_BOT_TOKEN', zernioEnv: 'ZERNIO_API_KEY', ytTokenEnv: 'YT_REFRESH_TOKEN', tiktok: false,
+    bot: '@zataashortbot', tokenEnv: 'SHORTS_BOT_TOKEN', zernioEnv: 'ZERNIO_API_KEY', ytTokenEnv: 'YT_REFRESH_TOKEN', ytClientEnv: 'YT_CLIENT_ID', ytSecretEnv: 'YT_CLIENT_SECRET', tiktok: false,
     sop: 'office/youtube.md', state: 'tmp/shorts-bot.json', hashtags: '#Shorts #sejarah #misteri', tag: 'MISTERI KUNO',
     team: { dir: 'ydir', research: 'yresearch', script: 'yscript', visual: 'yvisual', video: 'yvideo', publish: 'ypublish' },
     week: 4, core: 'hidden_history', coreMin: 2, quotaStart: '2026-10-26',
   },
   story: {
     key: 'story', name: 'Zataa Story', channel: 'story', niche: 'misteri & horor Nusantara berbasis sejarah',
-    bot: '@zataastorybot', tokenEnv: 'STORY_BOT_TOKEN', zernioEnv: 'ZERNIO_STORY_API_KEY', ytTokenEnv: 'STORY_YT_REFRESH_TOKEN', tiktok: true,
+    bot: '@zataastorybot', tokenEnv: 'STORY_BOT_TOKEN', zernioEnv: 'ZERNIO_STORY_API_KEY', ytTokenEnv: 'STORY_YT_REFRESH_TOKEN', ytClientEnv: 'STORY_YT_CLIENT_ID', ytSecretEnv: 'STORY_YT_CLIENT_SECRET', tiktok: true,
     sop: 'office/story.md', state: 'tmp/story-bot.json', hashtags: '#Shorts #misteri #nusantara #horor', tag: 'MISTERI NUSANTARA',
     team: { dir: 'sdir', research: 'sresearch', script: 'sscript', visual: 'svisual', video: 'svideo', publish: 'spublish' },
     week: 7, core: 'horor_sejarah', coreMin: 3, quotaStart: '2026-10-26',

@@ -32,9 +32,10 @@ export async function api(path, { method = 'GET', body, headers = {}, keyEnv = B
   return { status: r.status, ...j };
 }
 
-// akun per platform: ZERNIO_TIKTOK_ACCOUNT / ZERNIO_YOUTUBE_ACCOUNT kalau diisi, kalau tidak ambil akun aktif pertama
+// akun per platform: id tetap dari .env kalau diisi (lihat di bawah), kalau tidak ambil akun aktif pertama di login Zernio itu
 async function accountId(platform) {
-  const fixed = env()[`ZERNIO_${platform.toUpperCase()}_ACCOUNT`];
+  // kunci akun per Zernio login: akun 1 ZERNIO_<PLATFORM>_ACCOUNT, akun 2 (Story) ZERNIO_STORY_<PLATFORM>_ACCOUNT — jangan sampai id akun 1 dipakai di akun 2
+  const fixed = env()[B.zernioEnv === 'ZERNIO_API_KEY' ? `ZERNIO_${platform.toUpperCase()}_ACCOUNT` : `ZERNIO_STORY_${platform.toUpperCase()}_ACCOUNT`];
   if (fixed) return fixed;
   const { accounts = [] } = await api('/accounts');
   const a = accounts.find((x) => x.platform === platform && x.isActive !== false);

@@ -26,6 +26,7 @@ function startStoryBot() {
   p.on('exit', (code) => { log(`[story] bot berhenti (kode ${code}), nyala lagi 30 dtk`); setTimeout(startStoryBot, 30_000); });
 }
 import { analystTick } from './analyst.mjs';
+import { engageTick } from './engage.mjs';
 import { socialsTick } from './socials.mjs';
 import { priceTick } from './price.mjs';
 import { limitsTick } from './limits.mjs';
@@ -214,11 +215,24 @@ async function staff() {
   crunching = false;
 }
 
+// Fikri: draf IG Story harian + balasan komen buat Owner posting manual (Haiku, bisa ±3 menit → jalan sendiri)
+let engaging = false;
+async function engage() {
+  if (engaging) return;
+  engaging = true;
+  try {
+    const r = await engageTick();
+    if (r) { log(`fikri engage: ${JSON.stringify(r)}`); exportState(); }
+  } catch (e) { log(`fikri engage gagal: ${e.message}`); }
+  engaging = false;
+}
+
 async function tick() {
   autopost();
   ads();
   talk();
   staff();
+  engage();
   beat('watcher', true, 'jalan');
   laptopFallback(log).catch((e) => log(`fallback laptop gagal: ${e.message}`));
   try {
