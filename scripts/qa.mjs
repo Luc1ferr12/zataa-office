@@ -25,6 +25,9 @@ export async function qa(c) {
   const words = [c.title, c.caption, data].filter(Boolean).join('\n');
 
   if (!/zataa\.my\.id/i.test(`${c.caption ?? ''}\n${c.hashtags ?? ''}`)) errors.push('caption belum ada CTA/link zataa.my.id');
+  // IG batasi 5 hashtag per post sejak Des 2025 (lihat .claude/skills/ig-caption)
+  const tags = new Set(`${c.caption ?? ''}\n${c.hashtags ?? ''}`.match(/#[\p{L}\p{N}_]+/gu) ?? []);
+  if (tags.size > 5) warnings.push(`hashtag ${tags.size}, IG maks 5 — sisain yang paling spesifik`);
 
   if (/esport|news|berita/i.test(c.pillar ?? '')) {
     const urls = new Set(String(c.sources ?? '').match(/https?:\/\/[^\s"',\]]+/g) ?? []);

@@ -27,8 +27,19 @@ Maksimal 8 kata di gambar/teks pertama.
 Baris 1: ulang hook / pertanyaan pancingan komentar
 Baris 2–3: konteks singkat
 CTA: "Top up [game] murah & instan di zataa.my.id ⚡ (link di bio)"
-Hashtag: 5–8 → 2 besar (#mobilelegends) + 3 niche (#mplid #draftpick) + 1 brand (#zataatopup)
+Hashtag: MAKS 5 (batas IG sejak Des 2025) → 1 besar (#mobilelegends) + 2–3 niche (#mplid #draftpick) + 1 brand (#zataatopup)
 ```
+- **125 karakter pertama** = yang kelihatan sebelum "...selengkapnya". Feed/carousel: hook di situ. Reel: video udah nge-hook, baris 1 cukup ajakan + konteks.
+- **Kata yang dicari orang** (mis. "jadwal MPL ID", "top up diamond ML") tulis di kalimat caption, bukan cuma di hashtag: search IG baca teks caption.
+- **1 ajakan interaksi** (komen / simpan / kirim ke temen) + CTA zataa lembut. Dua ajakan interaksi = nggak ada yang jalan.
+- Hashtag kosong makna (#fyp #viral #explorepage) jangan dipakai.
+
+## Skill IG (`.claude/skills/ig-*`, MIT)
+Pakai prinsipnya; tool Python-nya dilatih bahasa Inggris, jadi skor buat bahasa Indonesia cuma panduan kasar.
+- Hook feed/video: tulis **3 hook beda formula** (`ig-reel/hooks.json`, 26 formula) → pilih terbaik, sebut nomor formulanya di `concept`.
+- Caption: alur `/ig-caption` (job A/B, 125 karakter, 1 ajakan). Cek: `python3 .claude/skills/ig-caption/caption.py cap.txt --keywords "mpl id,top up diamond"`.
+- Sebelum `content set`: `python3 .claude/skills/ig-human/humanize.py cap.txt --report` (buang em dash, karakter siluman, kutip miring). Daftar kata slop-nya Inggris, abaikan.
+- Suara akun: `office/instagram/voice.md`.
 - TikTok: caption lebih pendek (≤150 karakter + hashtag).
 - Konten berita/esport: CTA lembut ("mau push rank? amankan diamond dulu 😉"), bukan jualan keras.
 

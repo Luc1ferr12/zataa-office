@@ -34,6 +34,12 @@ Bagian akhir dibuat nyambung ke awal supaya video **loop** mulus (menaikkan watc
 3. Cek cover JPG-nya; kalau ragu, ambil frame tengah & akhir. Teks tidak terpotong, tidak ada typo, CTA terbaca.
 4. Lanjut ke Publisher.
 
+## Cek naskah ala `/ig-reel` (`.claude/skills/`, MIT)
+- Gabung semua `vo` jadi 1 baris per adegan di `vo.txt` → `python3 .claude/skills/ig-reel/beats.py vo.txt --target 25 --wpm 150`. Beresin flag-nya: hook >3 dtk, 1 beat >4 dtk, beberapa beat tanpa hal konkret (angka/nama), nggak ada loop.
+- **Loop**: kalimat terakhir ulang 1 kata dari hook, biar tonton ulang mulus.
+- Teks hook muncul di frame 1, bukan setelah jeda. Reels safe zone: jangan taruh teks di atas y=230 / bawah y=1440 / 230px kanan.
+- 1 video = 1 ide. Dua ide → pecah jadi 2 video.
+
 ## Pelajaran nyata
 - **Framing MPL (catatan Owner):** klasemen MPL pakai **Match Point (MP)**: 1 MP = menang 1 seri Bo3. Selalu sebut **"Match Point"** (atau "MP"), jangan "poin" polos (kesannya poin per game), dan jangan "kemenangan" (kaku). Contoh: "sama-sama 11 Match Point", "ONIC butuh 1 Match Point lagi", "beda 1 MP". Detail: `office/esport.md`.
 - Video #20 (matchday, Top 4 Champions) kena revisi cuma karena **logo Vitality & G2 belum ada**. Sebelum render, cek tiap adegan `versus`/`score`/`headline`/`player`: semua tim punya `logoL`/`logoR`/`logo`.

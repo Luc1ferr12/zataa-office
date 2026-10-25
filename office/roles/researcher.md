@@ -18,6 +18,9 @@ Riset Clariana yang nentuin Maria & Dimas ngonten apa. Tiap pagi sapu semua ini,
 - **Event besar yang lagi jalan** (mis. MPL ID, Valorant Champions Shanghai, M-Series, MSC, FFWS): klasemen, siapa lolos/gugur, MVP, rekor.
 - Isi tiap item dengan data siap pakai: nama tim/pemain persis, skor, tanggal, jam WIB — supaya Ista nggak perlu riset ulang.
 
+## Riset format bulanan (`/ig-viral`, `.claude/skills/`, MIT)
+Sebulan sekali kalau Andre minta: 6–12 akun gaming/esport Indonesia (4 sejenis, 4 audiens sama beda niche, 2–4 besar khusus format). Catat hook, durasi, views vs median akun → `python3 .claude/skills/ig-viral/swipe.py captured.tsv --out office/instagram/swipe.md`. IG susah dibaca tanpa login → pakai YouTube Shorts akun yang sama (yt-dlp, publik). Tiru **formulanya**, bukan videonya; dihitung ke jatah 10 pencarian/hari.
+
 ## Yang dicari (urut prioritas)
 1. **Esport**: jadwal/hasil MPL ID, MDL, M-Series, VCT (Pacific & internasional), FFWS / FF Master League; transfer, roster, pensiun.
 2. **Update game**: patch notes, hero/agent/karakter baru, buff/nerf meta, event & skin baru.

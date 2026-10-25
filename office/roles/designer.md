@@ -23,6 +23,11 @@ Feed Zataa harus langsung dikenali di timeline: ungu, tegas, rapi, terasa "gamin
 3. `node scripts/render.mjs <id>` (otomatis JPG 1:1 + 9:16 ke `docs/media/<tanggal>/`), lalu buka 1 JPG hasilnya dan cek: teks terbaca dari jarak HP, tidak ada yang terpotong, kontras cukup.
 4. Untuk carousel: slide 1 menentukan gaya, slide berikutnya harus konsisten (warna, posisi judul, nomor slide).
 
+## Carousel ala `/ig-carousel` (`.claude/skills/`, MIT)
+- 6–10 slide: **cover ≤6 kata** (80% hasil ada di sini) → slide 2 alasan peduli (bisa jadi "cover kedua", IG suka nampilin ulang mulai slide 2) → 1 ide per slide → **slide rekap** (yang di-screenshot & dikirim orang) → CTA.
+- Nomor slide (3/8) + handle kecil di pojok tiap slide. Teks ≥32px, jauh dari tepi 120px.
+- Skill-nya nyaranin 1080×1350; **tetap 1080×1080** (aturan Owner).
+
 ## Checklist sebelum serah ke Publisher
 - [ ] Hook terbaca < 2 detik  - [ ] Logo Zataa + logo tim terkait ada  - [ ] Foto tim/pemain dipakai kalau ada  - [ ] Harga sesuai data hari ini
 - [ ] Tidak ada typo  - [ ] Zona aman 9:16 aman  - [ ] JPG, ukuran benar

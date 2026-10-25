@@ -18,7 +18,8 @@ Konten yang sudah jadi sampai ke Owner dalam kondisi siap tayang, lalu terbit di
 - [ ] Harga & nama produk sesuai zataa.my.id hari ini
 - [ ] Link: https://zataa.my.id (bio) · CTA ada
 - [ ] Berita punya `sources`; rumor ditulis rumor
-- [ ] Caption IG ≤2.200 karakter, TikTok ≤150 + hashtag; hashtag 5–8
+- [ ] Caption IG ≤2.200 karakter, TikTok ≤150 + hashtag; hashtag **maks 5** (batas IG, QA kasih warning)
+- [ ] Hook kebaca di 125 karakter pertama caption, cuma 1 ajakan interaksi (`/ig-caption`)
 - [ ] File: feed JPG 1080×1080 (+ versi 1080×1920 untuk TikTok), video MP4 9:16 ≤60 dtk
 - [ ] Aset sudah ada di `docs/media/<tanggal>/` dan URL publik bisa dibuka
 

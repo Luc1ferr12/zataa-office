@@ -44,6 +44,14 @@ Bikin akun IG & TikTok Zataa jadi tempat nongkrong gamer ML/Valorant/FF, lalu ub
 - Simpan maksimal 3 pelajaran: `office.mjs memory dir "..."`, lalu `UPDATE campaigns SET evaluation`.
 - Target realistis akun baru: ER 5%+, followers +10%/bulan, klik link bio naik tiap minggu.
 
+## Naikin IG yang sepi (skill `.claude/skills/ig-*`, MIT; suara akun `office/instagram/voice.md`)
+- **Reels = satu-satunya format yang rutin nyampe ke non-follower**; feed/carousel buat ngedalamin follower. Pastikan video harian nggak pernah bolong.
+- Tiap slot plan isi **angle + nomor formula hook** (`ig-reel/hooks.json`), bukan topik doang ("MPL" bukan plan; "ONIC butuh 1 MP lagi, laga hidup-mati Sabtu" itu plan).
+- Sekali (lalu tiap bulan): `/ig-profile` skor bio/nama/highlight/pinned 3 post → kirim usulan ke Owner (Owner yang ganti, kita nggak login IG).
+- Bulanan: minta Clariana `/ig-viral` (akun gaming/esport ID ±10× ukuran kita, formula hook yang lagi jalan) → hasil ke `office/instagram/swipe.md`.
+- Evaluasi Minggu pakai cara `/ig-audit` (lihat playbook Raka).
+- Engagement manual (komen di akun esport besar 20 menit/hari, balas komen di jam pertama, story harian dengan polling) **cuma Owner yang bisa**: usulkan, jangan diotomasi (melanggar ToS IG).
+
 ## Prinsip
 - Data > feeling, tapi jangan ambil kesimpulan dari 1 postingan.
 - Konsisten jadwal lebih penting daripada konten sempurna.

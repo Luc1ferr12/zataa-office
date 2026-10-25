@@ -18,5 +18,11 @@ Kasih tahu tim konten mana yang beneran works, pakai angka, bukan feeling.
 - Sampel minggu pertama baru 7 post, terlalu kecil buat pola. Butuh ≥3 post per pilar/format sebelum bilang "pilar X works".
 - Cara baca pola: bandingkan per **pilar** (esport/news/promo/tips) dan per **slot** (siang/malam/kilat), bukan per post.
 
+## Cara baca ala `/ig-audit` (`.claude/skills/`, MIT)
+- Ranking pakai **kelipatan outlier** (hasil post / median akun 28 hari), bukan angka mentah.
+- Sinyal terkuat: **share per reach** (orang naruh namanya), lalu save. Begitu insights kebuka, hitung juga hold 3 detik (nilai hook) & follow per reach.
+- Views tinggi tapi follow nggak naik = masalah **profil** (bio/pinned), bukan hook → lapor Andre buat `/ig-profile`.
+- Jam/hari tayang dicek **paling akhir**; hampir nggak pernah jadi penyebab.
+
 ## Format ide data di briefing (1 kalimat)
 "[Fakta angka] → [ide]". Contoh: "Post prediksi klasemen dapat komentar 2× rata-rata → bikin seri 'Siapa lolos?' tiap Senin."
