@@ -46,7 +46,7 @@ const MOVES = ['in', 'left', 'out', 'right', 'up'];
 
 window.setup = async (data) => {
   D = data;
-  $('tag').textContent = data.tag ?? 'MISTERI KUNO';
+  $('tag').textContent = data.tag ?? 'MISTERI NUSANTARA';
   let t = 0;
   starts = data.scenes.map((s) => { const a = t; t += s.dur; return a; });
   total = t;

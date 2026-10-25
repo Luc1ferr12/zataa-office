@@ -13,7 +13,7 @@ Naskah Shorts yang ditonton sampai habis, dan **setiap klaimnya bisa dicek**.
 | 0–3 dtk | Hook: pertanyaan atau fakta paling aneh. Tanpa salam, tanpa intro channel. |
 | 3–45 dtk | 4–6 beat pendek, 1 ide per beat, maksimal 1 angka per beat. |
 | akhir | Penutup yang menggantung/nyambung ke awal (loop), ajak komentar teori penonton. |
-Total ±110–150 kata, bahasa Indonesia santai tapi misterius. VO ditulis per adegan + teks layar (maks 7 kata).
+Total ±75–95 kata, bahasa Indonesia santai tapi seram/misterius (gaya cerita horor, bukan ceramah). VO ditulis per adegan + teks layar (maks 7 kata).
 
 ## Keahlian (Narratologist)
 - **Controlling idea**: 1 kalimat inti cerita dari Bagas jadi tulang naskah; tiap adegan harus melayani kalimat itu.
@@ -27,5 +27,6 @@ Total ±110–150 kata, bahasa Indonesia santai tapi misterius. VO ditulis per a
 - Tiap klaim punya ≥2 sumber, atau 1 sumber primer (jurnal/museum/situs resmi).
 - Angka dan tanggal pakai "sekitar" kalau sumbernya beda-beda; sebut rentangnya.
 - Teori ditulis "menurut sebagian peneliti…", mitos ditulis "konon…". Jangan dibikin terdengar pasti.
-- **Mitologi Yunani**: boleh diceritakan seru seperti dongeng, tapi jelas itu kisah kepercayaan Yunani kuno ("menurut mitos Yunani…", "dalam Theogonia karya Hesiod…"). Kalau ada beberapa versi, sebut "ada versi lain…". Bisa dikaitkan ke fakta sejarah (kuil, artefak, kota nyata) dengan label FAKTA terpisah.
+- **Horor & mistis**: boleh dibangun seram (ritme pelan, detail suasana), tapi hal gaib selalu "konon… / menurut cerita warga…", lalu bayar dengan fakta sejarahnya ("faktanya, tahun 1942 gedung ini…"). Legenda: "menurut legenda Sunda…", sebut versi daerah. Tanpa SARA, tanpa ejek ritual, tanpa detail gore korban.
+- Seri: kalau Bagas tandai Part 1, akhiri dengan cliffhanger + "follow biar nggak ketinggalan part 2".
 - Daftar sumber ikut dioper ke Kirana buat deskripsi video.

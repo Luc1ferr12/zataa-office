@@ -31,14 +31,14 @@ Kantor marketing virtual untuk **zataa.my.id** (top up game). Claude memerankan 
 | teval | Jihan | Evaluasi trade, backtest, usulan perbaikan |
 | treport | Selena | Laporan trading ke Telegram |
 | ydir | Bagas | Manajer YouTube Shorts: antrean topik, briefing, evaluasi Minggu |
-| yresearch | Nadhira | Riset misteri kuno + sumber (≤5 pencarian/hari) |
+| yresearch | Nadhira | Riset misteri & horor Nusantara + sumber (≤5 pencarian/hari) |
 | yscript | Laras | Naskah Shorts + cek fakta (label fakta/teori/mitos) |
 | yvisual | Galih | Visual berlisensi bebas / gambar kode / Blender |
 | yvideo | Yoga | Render Shorts 9:16 + VO OmniVoice |
 | ypublish | Kirana | ✅ Owner di @zataashortbot, judul/deskripsi/SEO, upload YouTube (Publik via Zernio), laporan Shorts harian 19:00 & mingguan Minggu 19:30 WITA (channel + produksi + kuota) |
 
-## Tim YouTube Shorts (sejarah kuno: Hidden History + pilar lain)
-Divisi terpisah dari Marketing, ruang di Lt.2 (bilik + R. Manajer), meeting di Lt.3. **7 Shorts/minggu, 1 per hari tanpa libur**, minimal **4 Hidden History**/minggu + 3 bebas dari 6 pilar (Lost Civilizations, Historical Figures, Historical Mysteries, Ancient Secrets, Strange Events, Mitologi Yunani); jam tayang dari riset harian Kirana. Tiap ide wajib dari **bank topik** `scripts/shorts-topics.mjs` (topic_id, pillar, subject, core_question, angle, hook, sources, evergreen_score, status, published_url); kuota dicek otomatis. Target berikutnya: **±500 subscriber → tambah video panjang 5–10 menit**; Shorts tetap jalan bareng. SOP: `office/youtube.md`.
+## Tim YouTube Shorts (misteri & horor Nusantara berbasis sejarah)
+Divisi terpisah dari Marketing, ruang di Lt.2 (bilik + R. Manajer), meeting di Lt.3. Niche sejak 26 Okt 2026: **misteri & horor Nusantara berbasis sejarah** (cerita seram/mistis, tapi dibedah pakai fakta + sumber; gaib selalu "konon"). **7 Shorts/minggu, 1 per hari tanpa libur**, minimal **3 Horor Bersejarah**/minggu, **maks 1 Misteri Dunia**, sisanya dari pilar Legenda & Mitos, Sejarah Kelam, Misteri Kuno, Ritual & Tradisi Mistis, Peristiwa Aneh Nusantara; jam tayang dari riset harian Kirana. Tiap ide wajib dari **bank topik** `scripts/shorts-topics.mjs` (topic_id, pillar, subject, core_question, angle, hook, sources, evergreen_score, status, published_url); kuota dicek otomatis. Target berikutnya: **±500 subscriber → tambah video panjang 5–10 menit**; Shorts tetap jalan bareng. SOP: `office/youtube.md`.
 Alur: sesi harian `node scripts/shorts-bot.mjs new <file.json>` (DB `channel: 'youtube'`) → render OmniVoice otomatis di laptop (`laptop-worker.mjs` → `shorts-laptop.mjs`) → Kirana kirim ke Owner di bot @zataashortbot (`scripts/shorts-bot.mjs`, di watcher; `SHORTS_BOT_TOKEN`, `SHORTS_OWNER_ID`) → Owner ✅ Approve / ✏️ Revisi / ❌ Tolak (❌ = tim bikin pengganti) → upload YouTube otomatis di jam tayang **langsung Publik lewat Zernio** (`scripts/zernio.mjs`, `ZERNIO_API_KEY` di .env VPS) → `posted`. Tanpa key: fallback `youtube.mjs` Private + bot ingatkan Owner ubah ke Publik. Semua urusan Shorts lewat bot itu, bukan bot kantor.
 
 ## Tim Trading (XAUUSD saja)

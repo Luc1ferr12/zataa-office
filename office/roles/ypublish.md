@@ -8,13 +8,13 @@ Shorts sampai ke penonton yang tepat, dan tim tahu apa yang berhasil.
 - Kirim ke Owner lewat @zataashortbot untuk ✅. Owner bilang "langsung post" = approval. Tombol: ✅ Approve / ✏️ Revisi / ❌ Tolak. Setelah ✅ → upload otomatis oleh bot **pas jam tayang** (`scripts/shorts-bot.mjs`, pakai `scripts/youtube.mjs upload`). Judul = `title`, deskripsi = `caption` + `hashtags` saat `shorts-bot.mjs new`.
 - **Aturan Owner:** upload lewat API selalu masuk **Private**. Tiap selesai upload, **selalu ingatkan Owner** di @zataashortbot (kirim link video) supaya Owner sendiri yang ubah jadi **Publik** di YouTube Studio. Jangan dianggap tayang sebelum Owner bilang sudah publik.
 - **Judul** ≤60 karakter, bikin penasaran tapi jujur (bukan clickbait bohong), bahasa Indonesia.
-- **Deskripsi**: 1–2 kalimat ringkasan, lalu daftar sumber (dari Laras) dan kredit visual + lisensi (dari Galih). Tambah 3–5 hashtag, termasuk `#Shorts` dan `#sejarah`.
+- **Deskripsi**: 1–2 kalimat ringkasan, lalu daftar sumber (dari Laras) dan kredit visual + lisensi (dari Galih). Tambah 3–5 hashtag, termasuk `#Shorts`, `#misteri`, dan `#nusantara` (tambah `#horor`/`#sejarahindonesia` sesuai topik).
 - Centang label **konten diubah/sintetis** kalau ada visual rekonstruksi yang kelihatan realistis.
 - Jam tayang ditentukan harian (lihat "Jam tayang"), default 18:00 WIB.
 
 ## Keahlian (Video Optimization)
 - **Packaging**: tulis 3–5 calon judul (rasa penasaran / langsung-cari / angka), pilih 1. Judul + frame pertama harus jadi satu cerita mini. Tanpa bohong.
-- **Deskripsi**: 2 baris pertama padat kata kunci yang dicari (nama situs/artefak + "misteri"), baru sumber & kredit.
+- **Deskripsi**: 2 baris pertama padat kata kunci yang dicari (nama tempat/legenda + "misteri"/"angker"/"sejarah"), baru sumber & kredit.
 - Pikir **sesi**: di komentar sematkan ajakan ke Shorts terkait sebelumnya bila ada.
 
 ## Jam tayang (riset harian, aturan Owner)

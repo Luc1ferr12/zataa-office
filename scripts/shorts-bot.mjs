@@ -24,7 +24,7 @@ import { execFile } from 'node:child_process';
 import ffmpegPath from 'ffmpeg-static';
 import { loadEnv, NAMA, lesson } from './approval.mjs';
 import { zernioOn, youtubeUpload } from './zernio.mjs';
-import { tdb, getTopic, checkQuota, syncTopic, weekStats, WEEK_TOTAL, HH_MIN, PILLARS } from './shorts-topics.mjs';
+import { tdb, getTopic, checkQuota, syncTopic, weekStats, WEEK_TOTAL, CORE_MIN, FOREIGN_MAX, PILLARS } from './shorts-topics.mjs';
 import { claude, formatReply, ESCALATE, isStatusQuestion } from './ask.mjs';
 import { haiku, OFFICE, ANSWER_ANY } from './haiku.mjs';
 import { wita } from '../docs/js/schedule.js';
@@ -95,7 +95,7 @@ export async function newShort(p) {
   const d = await db();
   const today = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Makassar' }).format(new Date());
   const day = p.day ?? today;
-  // tiap Shorts wajib dari bank topik (status approved) + lolos kuota mingguan (≥4 Hidden History dari 7)
+  // tiap Shorts wajib dari bank topik (status approved) + lolos kuota mingguan (≥3 Horor Bersejarah, maks 1 Misteri Dunia dari 7)
   let topic = null;
   if (!p.test) {
     if (!p.topic_id) throw new Error('butuh topic_id dari bank topik (node scripts/shorts-topics.mjs next)');
@@ -106,7 +106,7 @@ export async function newShort(p) {
   }
   const data = { ...p.spec, ...(p.tags ? { tags: p.tags } : {}), ...(p.synthetic ? { synthetic: true } : {}), ...(p.test ? { _test: 1 } : {}), ...(p.jam ? { _jam: p.jam } : {}), ...(topic ? { _topic: topic.topic_id } : {}), _laptop: 1 };
   const r = d.prepare("INSERT INTO contents (channel, day, slot, format, game, pillar, title, data_json, caption, hashtags, sources, template) VALUES ('youtube', ?, 'shorts', 'shorts', 'sejarah', ?, ?, ?, ?, ?, ?, 'shorts')")
-    .run(day, topic?.pillar ?? 'misteri', String(p.title).slice(0, 100), JSON.stringify(data), p.caption ?? '', p.hashtags ?? '#Shorts #sejarah', p.sources ?? null);
+    .run(day, topic?.pillar ?? 'misteri', String(p.title).slice(0, 100), JSON.stringify(data), p.caption ?? '', p.hashtags ?? '#Shorts #misteri #nusantara', p.sources ?? null);
   const id = Number(r.lastInsertRowid);
   if (topic) syncTopic(d, topic.topic_id, 'production', { contentId: id });
   act(d, 'yvideo', `Shorts #${id} "${p.title}" masuk antrean render laptop (OmniVoice)`);
@@ -264,7 +264,7 @@ async function revise(id, note, log) {
   act(d, 'owner', `Minta revisi Shorts #${id}: ${note}`);
   lesson(d, ['yscript', 'yvisual', 'ypublish'], `✏️ revisi Shorts "${String(c.title).slice(0, 60)}": ${note}`);
   await sayAs('yscript', `🛠️ Siap Bos, revisi Shorts #${id} lagi dikerjain…`).catch(() => {});
-  const r = await claude(`Kamu tim YouTube Shorts Zataa Story (sejarah kuno, pilar di office/youtube.md) di folder ini. Owner minta REVISI Shorts #${id}:
+  const r = await claude(`Kamu tim YouTube Shorts Zataa Story (misteri & horor Nusantara berbasis sejarah, pilar di office/youtube.md) di folder ini. Owner minta REVISI Shorts #${id}:
 "${note}"
 
 Langkah:
@@ -306,7 +306,7 @@ async function reject(id, log) {
 async function replace(old, log) {
   const today = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Makassar' }).format(new Date());
   const day = old.day > today ? old.day : today;
-  const r = await claude(`Kamu tim YouTube Shorts Zataa Story (sejarah kuno, pilar di office/youtube.md) di folder ini. Owner MENOLAK Shorts #${old.id} "${old.title}". Bikin Shorts PENGGANTI dengan topik lain.
+  const r = await claude(`Kamu tim YouTube Shorts Zataa Story (misteri & horor Nusantara berbasis sejarah, pilar di office/youtube.md) di folder ini. Owner MENOLAK Shorts #${old.id} "${old.title}". Bikin Shorts PENGGANTI dengan topik lain.
 
 Langkah:
 1. Baca office/youtube.md lalu playbook office/roles/ydir.md, yresearch.md, yscript.md, yvisual.md, ypublish.md.
@@ -378,7 +378,7 @@ export async function dailyReport({ dry = false } = {}) {
     '<b>Produksi</b>',
     `Hari ini: ${today.length ? today.map(prodLine).join('; ') : '⚠️ belum ada Shorts'}`,
     `Besok: ${tomorrow.length ? tomorrow.map(prodLine).join('; ') : 'belum disiapkan (dikerjain sesi pagi)'}`,
-    `Kuota minggu ini: ${wk.rows.length}/${WEEK_TOTAL} Shorts · Hidden History ${wk.hh}/${HH_MIN} · bank topik siap: ${ready}`,
+    `Kuota minggu ini: ${wk.rows.length}/${WEEK_TOTAL} Shorts · Horor Bersejarah ${wk.core}/${CORE_MIN} · Misteri Dunia ${wk.foreign}/${FOREIGN_MAX} · bank topik siap: ${ready}`,
     ...(st.subscribers >= LONGFORM_SUBS && !state().longform ? [`\n🎉 <b>Tembus ${num(LONGFORM_SUBS)} subscriber!</b> Sesuai rencana Bos, waktunya nambah video panjang 5–10 menit (Shorts tetap jalan seperti biasa). Bagas siapin rencananya ya.`] : []),
     prev ? `\n<i>(angka dalam kurung = kenaikan sejak laporan ${dm(prev.date)})</i>` : '\n<i>Laporan pertama, kenaikan harian mulai muncul besok.</i>',
   ];
@@ -388,7 +388,7 @@ export async function dailyReport({ dry = false } = {}) {
   return { ok: true, subscribers: st.subscribers, views, likes: st.likes };
 }
 
-// rekap mingguan (Senin–Minggu): target 7 Shorts & ≥4 Hidden History, top video, pilar paling ditonton → bahan evaluasi Bagas
+// rekap mingguan (Senin–Minggu): target 7 Shorts & ≥3 Horor Bersejarah, top video, pilar paling ditonton → bahan evaluasi Bagas
 export async function weeklyReport({ dry = false } = {}) {
   const { st, views } = await ytStats();
   const d = await db();
@@ -413,7 +413,7 @@ export async function weeklyReport({ dry = false } = {}) {
     `👥 Subscriber: <b>${num(st.subscribers)}</b>${prev ? plus(st.subscribers - prev.subs) : ''} · target video panjang ${num(LONGFORM_SUBS)}`,
     `👁️ Views: <b>${num(views)}</b>${prev ? plus(views - prev.views) : ''}`, '',
     '<b>Produksi</b>',
-    `🎬 ${rows.length}/${WEEK_TOTAL} Shorts · 📢 tayang ${live.length} · Hidden History ${tagged ? `${wk.hh}/${HH_MIN}${wk.hh >= HH_MIN ? ' ✅' : ' ⚠️'}` : '– (belum lewat bank topik)'} · ❌ ditolak ${rejected} · ✏️ revisi ${rows.reduce((a, r) => a + (r.revisions ?? 0), 0)}×`,
+    `🎬 ${rows.length}/${WEEK_TOTAL} Shorts · 📢 tayang ${live.length} · Horor Bersejarah ${tagged ? `${wk.core}/${CORE_MIN}${wk.core >= CORE_MIN ? ' ✅' : ' ⚠️'}` : '– (belum lewat bank topik)'} · ❌ ditolak ${rejected} · ✏️ revisi ${rows.reduce((a, r) => a + (r.revisions ?? 0), 0)}×`,
     ...(live.length ? ['', '<b>Top video minggu ini</b>', ...[...live].sort((a, b) => b.v.views - a.v.views).slice(0, 3).map((r, i) => `${i + 1}. #${r.id} ${esc(r.title.slice(0, 45))} · 👁️ ${num(r.v.views)} · 👍 ${num(r.v.likes)}`)] : []),
     ...(avg.length ? ['', '<b>Pilar paling ditonton</b>', ...avg.map(([k, v]) => `• ${esc(label(k))}: rata-rata ${num(Math.round(v))} views`)] : []), '',
     `📚 Bank topik siap produksi: ${ready}${ready < WEEK_TOTAL ? ' (kurang buat seminggu, Nadhira tambah riset)' : ''}`,
@@ -423,12 +423,12 @@ export async function weeklyReport({ dry = false } = {}) {
   if (dry) return lines.join('\n').trim();
   await sayAs('ypublish', lines.join('\n').trim());
   patchState((s) => { s.weekSnap = { date: t.date, subs: st.subscribers, views }; s.weeklyDate = t.date; });
-  return { ok: true, shorts: rows.length, hh: wk.hh };
+  return { ok: true, shorts: rows.length, core: wk.core };
 }
 
 // pesan bebas Owner → Haiku duluan (jawab apa aja); butuh kerja Shorts beneran → model utama
 async function talk(msg, log) {
-  const quick = await haiku(`Kamu tim YouTube Shorts "Zataa Story" (sejarah misteri kuno + mitologi Yunani), ngobrol dengan Owner (Bos Zamiir) lewat bot Telegram @zataashortbot.
+  const quick = await haiku(`Kamu tim YouTube Shorts "Zataa Story" (misteri & horor Nusantara berbasis sejarah), ngobrol dengan Owner (Bos Zamiir) lewat bot Telegram @zataashortbot.
 Pesan Owner: "${msg}"
 ${OFFICE}
 ${ANSWER_ANY}
@@ -436,7 +436,7 @@ Kalau pesannya minta BIKIN/UBAH sesuatu (Shorts baru, ganti topik, revisi, uploa
 Akhiri dengan baris "BALASAN:" lalu 1–3 baris, TIAP baris diawali nama pegawai tim Shorts: "Nama: pesan". Santai, sopan.`);
   if (quick.ok && !quick.escalate) return send(formatReply(quick.text, 'ydir'));
   if (!quick.ok) log(`bot shorts: haiku gagal, pakai model utama: ${quick.text.slice(0, 200)}`);
-  const r = await claude(`Kamu tim YouTube Shorts "Zataa Story" (sejarah misteri kuno + mitologi Yunani) di folder ini, ngobrol dengan Owner (Bos Zamiir) lewat bot Telegram @zataashortbot.
+  const r = await claude(`Kamu tim YouTube Shorts "Zataa Story" (misteri & horor Nusantara berbasis sejarah) di folder ini, ngobrol dengan Owner (Bos Zamiir) lewat bot Telegram @zataashortbot.
 Pesan Owner: "${msg}"
 Tim: Bagas (ydir, Manajer YouTube), Nadhira (yresearch, riset), Laras (yscript, naskah + cek fakta), Galih (yvisual, visual berlisensi), Yoga (yvideo, render + VO), Kirana (ypublish, upload & SEO).
 SOP & cara kerja: office/youtube.md (baca kalau perlu). Data Shorts: node scripts/shorts-bot.mjs list. Jangan ngarang angka views.

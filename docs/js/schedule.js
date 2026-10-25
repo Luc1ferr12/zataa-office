@@ -30,9 +30,9 @@ export const AGENTS = [
   { id: 'treport',    name: 'Selena',    avatar: '#7e22ce', title: 'Reporting',              gender: 'f', team: 'trd', desk: 13, nyShift: true },
   // Aprista: sekretaris pribadi Bos (catat keuangan), numpang komputer Bos
   { id: 'sec',        name: 'Aprista',   avatar: '#8a5a3c', title: 'Sekretaris Pribadi',     gender: 'f', partner: 'owner', sec: true },
-  // tim YouTube Shorts (sejarah kuno): produksi tiap hari, 1 Shorts/hari (tanpa libur, keputusan Owner 18 Okt)
+  // tim YouTube Shorts (misteri & horor Nusantara): produksi tiap hari, 1 Shorts/hari (tanpa libur, keputusan Owner 18 Okt)
   { id: 'ydir',       name: 'Bagas',     avatar: '#991b1b', title: 'Manajer YouTube',        gender: 'm', team: 'yt', lead: true },
-  { id: 'yresearch',  name: 'Nadhira',   avatar: '#a16207', title: 'Riset Sejarah & Tren',   gender: 'f', team: 'yt', desk: 14 },
+  { id: 'yresearch',  name: 'Nadhira',   avatar: '#a16207', title: 'Riset Misteri & Tren',   gender: 'f', team: 'yt', desk: 14 },
   { id: 'yscript',    name: 'Laras',     avatar: '#7c2d12', title: 'Scriptwriter & Fact Checker', gender: 'f', team: 'yt', desk: 15 },
   { id: 'yvisual',    name: 'Galih',     avatar: '#365314', title: 'Visual & Creative',      gender: 'm', team: 'yt', desk: 16 },
   { id: 'yvideo',     name: 'Yoga',      avatar: '#1e3a8a', title: 'Video Producer',         gender: 'm', team: 'yt', desk: 17 },
@@ -60,8 +60,8 @@ const RESEARCH = {
   ads: 'Riset iklan kompetitor', analyst: 'Rekap data kemarin', price: 'Cek harga web & kompetitor',
   tdir: 'Cek status semua agent trading', tresearch: 'Baca kalender ekonomi & berita USD', ttech: 'Scan chart XAUUSD multi-timeframe',
   trisk: 'Cek limit risiko & ekuitas', texec: 'Cek koneksi EA MT5', teval: 'Evaluasi trade kemarin', treport: 'Siapin laporan pagi',
-  ydir: 'Cek retention Shorts kemarin', yresearch: 'Gali misteri kuno & sumbernya', yscript: 'Baca jurnal & arsip sejarah',
-  yvisual: 'Kumpulin foto situs & artefak', yvideo: 'Cek referensi editing Shorts', ypublish: 'Cek trending & komentar YouTube',
+  ydir: 'Cek retention Shorts kemarin', yresearch: 'Gali misteri Nusantara & sumbernya', yscript: 'Baca arsip & cerita rakyat',
+  yvisual: 'Kumpulin foto arsip & lokasi', yvideo: 'Cek referensi editing Shorts', ypublish: 'Cek trending & komentar YouTube',
 };
 // Aprista punya meja sendiri di ruang Bos (px/scene.js SEC_DESK)
 const SEC_TASK = ['Nyatet pengeluaran Bos', 'Rekap uang masuk & keluar', 'Cek tagihan bulanan Bos', 'Rapihin catatan keuangan'];
@@ -448,7 +448,7 @@ export function describe(agent, sched, real) {
     analyst: 'Ngulik data insight IG', price: 'Mantau harga di web', owner: 'Review konten & cek approval',
     tdir: 'Ngatur alur agent trading', tresearch: 'Pantau berita Fed, CPI, NFP', ttech: 'Analisa trend & S/R XAUUSD',
     trisk: 'Hitung entry, SL, TP & lot', texec: 'Pantau status order MT5', teval: 'Backtest perbaikan strategi', treport: 'Rekap performa trading',
-    ydir: 'Review naskah & antrean Shorts', yresearch: 'Riset misteri kuno buat Shorts', yscript: 'Nulis naskah & cek fakta',
+    ydir: 'Review naskah & antrean Shorts', yresearch: 'Riset misteri Nusantara buat Shorts', yscript: 'Nulis naskah & cek fakta',
     yvisual: 'Nyusun visual adegan Shorts', yvideo: 'Edit Shorts 9:16 + voice-over', ypublish: 'Judul, deskripsi & tag YouTube',
   };
   return { ...sched, label: idle[agent.id] ?? 'Kerja', emoji: '💻' };

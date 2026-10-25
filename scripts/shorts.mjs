@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Render YouTube Shorts sejarah misteri: narasi OmniVoice per adegan + musik ambient (shorts-music.mjs) + template templates/shorts/player.html.
 //   node scripts/shorts.mjs <spec.json> [out.mp4] [--test]   (durasi wajib 40–59 dtk; --test = lewati batas, buat uji coba)
-// spec = { voice: "misteri-cewe", speed?: 0.9, tag?: "MISTERI KUNO", mood?: misteri|gurun|epik|tragis|alam, seed?: angka (kosong = acak),
+// spec = { voice: "misteri-cewe", speed?: 0.9, tag?: "MISTERI NUSANTARA", mood?: misteri|gurun|epik|tragis|alam, seed?: angka (kosong = acak),
 //          scenes: [{ img: "path/foto.jpg", vo: "teks narasi", sub: "teks layar (*kata* = emas)", place?, credit?, move? }] }
 import { createServer } from 'node:http';
 import { readFile, writeFile } from 'node:fs/promises';
