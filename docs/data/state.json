@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-25T22:10:01.972Z",
+ "generated_at": "2026-10-25T22:20:01.972Z",
  "today": "2026-10-26",
  "week_start": "2026-10-26",
  "campaign": null,
@@ -98,7 +98,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-25 22:01:02"
+   "updated_at": "2026-10-25 22:16:01"
   },
   {
    "id": "tresearch",
@@ -106,15 +106,15 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
-   "updated_at": "2026-10-25 22:01:01"
+   "updated_at": "2026-10-25 22:16:01"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-10-25 22:01:02"
+   "current_task": "Setup SELL di band (MACD+divergensi)",
+   "updated_at": "2026-10-25 22:16:01"
   },
   {
    "id": "trisk",
@@ -122,7 +122,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
-   "updated_at": "2026-10-25 22:01:02"
+   "updated_at": "2026-10-25 22:16:01"
   },
   {
    "id": "texec",
@@ -257,6 +257,11 @@
  "today_tasks": [],
  "activity": [
   {
+   "ts": "2026-10-25 22:11:01",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: bearish → bullish"
+  },
+  {
    "ts": "2026-10-25 22:01:02",
    "agent_id": "trisk",
    "message": "NO TRADE · jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
@@ -375,11 +380,6 @@
    "ts": "2026-10-25 05:41:34",
    "agent_id": "publisher",
    "message": "Posting #72 ke IG ✅"
-  },
-  {
-   "ts": "2026-10-25 05:38:23",
-   "agent_id": "owner",
-   "message": "Approve konten #72 ✅"
   }
  ],
  "chats": [
@@ -693,12 +693,12 @@
    "yt_posted": 7,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 34850,
+   "views": 34891,
    "likes": 263,
    "comments": 6,
    "shares": 26,
    "saves": 5,
-   "yt_views": 8589,
+   "yt_views": 8630,
    "top": [
     {
      "title": "Hall of Champions Valorant 2021-2026",
@@ -726,9 +726,14 @@
   "paused": false,
   "balance": 1687.5099999999998,
   "today_pnl": 0,
-  "price": 3997.699951,
+  "price": 4004.199951,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-25 22:16:01",
+    "decision": "NO TRADE",
+    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
+   },
    {
     "ts": "2026-10-25 22:01:02",
     "decision": "NO TRADE",
@@ -753,11 +758,6 @@
     "ts": "2026-10-23 20:00:53",
     "decision": "NO TRADE",
     "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
-   },
-   {
-    "ts": "2026-10-23 19:45:53",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
   ],
   "trades": [
@@ -791,7 +791,7 @@
    1687.5099999999995
   ],
   "last": {
-   "ts": "2026-10-25 22:01:02",
+   "ts": "2026-10-25 22:16:01",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -809,10 +809,13 @@
    },
    "tech": {
     "bias": "bearish",
-    "score": 0,
-    "trigger": null,
-    "confirm": [],
-    "note": "M15 3996.90 di bawah tengah band (3996.9–3996.9) · RSI 43 · Stoch 50 · MACD +0.00 · H1 bearish"
+    "score": 2,
+    "trigger": "sell",
+    "confirm": [
+     "MACD",
+     "divergensi"
+    ],
+    "note": "M15 3994.70 di bawah band bawah (3995.4–3998.0) · RSI 0 · Stoch 19 · MACD -0.21 · H1 bearish · setup SELL (MACD+divergensi)"
    }
   },
   "fund": null,
@@ -903,26 +906,26 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "bearish",
-    "score": -2,
-    "price": 3996.9,
-    "ema20": 3996.9,
-    "ema50": 3996.9,
-    "rsi": 41.2,
+    "bias": "bullish",
+    "score": 2,
+    "price": 3997.7,
+    "ema20": 3996.98,
+    "ema50": 3996.93,
+    "rsi": 100,
     "n": 299,
-    "slot": 2988276,
-    "at": 1792965661770
+    "slot": 2988277,
+    "at": 1792966261763
    },
    "M15": {
     "bias": "bearish",
     "score": -3,
-    "price": 3996.9,
-    "ema20": 3996.9,
-    "ema50": 3996.9,
-    "rsi": 43.2,
+    "price": 3995.1,
+    "ema20": 3996.73,
+    "ema50": 3996.83,
+    "rsi": 0,
     "n": 299,
-    "slot": 1992184,
-    "at": 1792965661776
+    "slot": 1992185,
+    "at": 1792966561835
    },
    "M30": {
     "bias": "bearish",
