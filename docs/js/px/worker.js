@@ -1,10 +1,12 @@
 // Hitung data mesin pixel (kedalaman, layar, cahaya malam) di background thread supaya halaman tidak macet.
-import { renderScene } from './engine.js';
-import { buildScene } from './scene.js';
+import { renderScene, ramp } from './engine.js';
+import { buildScene, MAT } from './scene.js';
+import { applyPixelTheme } from './themes.js';
 
 self.onmessage = (e) => {
-  const { logo } = e.data;
+  const { logo, theme } = e.data;
   const { prims, lights } = buildScene(logo);
+  applyPixelTheme(MAT, ramp, theme);   // mode Pixel Art HD: palet tema
   const R = renderScene(prims, lights);
   const dyn = {};
   for (const [k, d] of R.dyn) dyn[k] = { idx: Int32Array.from(d.idx), a: Float32Array.from(d.a), b: Float32Array.from(d.b), x: Int16Array.from(d.x), y: Int16Array.from(d.y) };

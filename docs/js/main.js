@@ -479,31 +479,49 @@ setInterval(loadState, 60_000);
 loadState();
 
 try {
-  const { Office, loadThemes } = await import('./pixoffice.js');
-  // tema kantor: daftar dari bg/themes/themes.json, pilihan diingat per browser
+  const { Office, loadThemes, PIXEL_THEME_LIST } = await import('./pixoffice.js');
+  // mode tampilan (3D / Pixel Art HD) + tema per mode: 3D dari bg/themes/themes.json, pixel = palet (px/themes.js); diingat per browser
   const DEFAULT_THEME = 'vanilla';   // tema bawaan (keputusan Owner 26 Okt); pilihan pengunjung diingat per browser
-  let theme = DEFAULT_THEME;
-  try { theme = localStorage.getItem('officeTheme') || DEFAULT_THEME; } catch { /* storage diblokir */ }
-  const themes = await loadThemes();
-  if (!themes.some((t) => t.id === theme)) theme = themes.some((t) => t.id === DEFAULT_THEME) ? DEFAULT_THEME : 'klasik';
-  const sel = $('office-theme');
-  sel.innerHTML = themes.map((t) => `<option value="${esc(t.id)}">${esc(t.label)}</option>`).join('');
-  sel.value = theme;
-  sel.disabled = themes.length < 2;
+  const KEY = { '3d': 'officeTheme', pixel: 'officeThemePx' };
+  const store = (k, v) => { try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); } catch { /* storage diblokir */ } return null; };
+  const lists = { '3d': await loadThemes(), pixel: PIXEL_THEME_LIST };
+  const pick = (m) => {
+    const L = lists[m], t = store(KEY[m]) || DEFAULT_THEME;
+    return L.some((x) => x.id === t) ? t : L.some((x) => x.id === DEFAULT_THEME) ? DEFAULT_THEME : 'klasik';
+  };
+  let mode = store('officeMode') === 'pixel' ? 'pixel' : '3d';
+  const modeSel = $('office-mode'), sel = $('office-theme');
+  const fill = (m, t) => {
+    sel.innerHTML = lists[m].map((x) => `<option value="${esc(x.id)}">${esc(x.label)}</option>`).join('');
+    sel.value = t;
+    sel.disabled = lists[m].length < 2;
+  };
+  const busy = async (fn) => {
+    sel.disabled = modeSel.disabled = true;
+    try { return await fn(); } finally { modeSel.disabled = false; sel.disabled = lists[office.mode].length < 2; }
+  };
+  modeSel.value = mode;
+  fill(mode, pick(mode));
+  modeSel.addEventListener('change', async () => {
+    const m = modeSel.value, t = pick(m);
+    store('officeMode', m);
+    fill(m, t);
+    const ok = await busy(() => office.setMode(m, t));
+    if (!ok && office.mode !== m) { modeSel.value = office.mode; fill(office.mode, office.theme); }
+  });
   sel.addEventListener('change', async () => {
     const t = sel.value;
-    try { localStorage.setItem('officeTheme', t); } catch { /* storage diblokir */ }
-    sel.disabled = true;
-    const ok = await office.setTheme(t);
-    sel.disabled = false;
+    store(KEY[office.mode], t);
+    const ok = await busy(() => office.setTheme(t));
     if (!ok) sel.value = office.theme;
   });
-  office = new Office($('office-canvas'), $('office'), now().dow === 1 ? 'formal' : 'kerja', theme);
+  office = new Office($('office-canvas'), $('office'), now().dow === 1 ? 'formal' : 'kerja', pick(mode), mode);
   office.onSelect = (id) => select(id);
   window.office = office; // memudahkan debug dari console
   $('loading').textContent = 'Lagi ngegambar kantor…';
   await office.ready;
-  sel.value = office.theme;
+  modeSel.value = office.mode;
+  fill(office.mode, office.theme);
   $('loading').remove();
   office.setCampaign(state?.campaign?.theme, state?.stats?.this_week?.pending ?? 0);
   tick('init');

@@ -8,7 +8,9 @@ import { textBitmap } from './px/font.js';
 import { AGENTS } from './schedule.js';
 import { locationFor, route } from './nav.js';
 import { DS, DW, DH, Tiles, loadSprites, toySprite } from './px/toy.js';
+import { PIXEL_THEMES } from './px/themes.js';
 export { loadThemes } from './px/toy.js';
+export { PIXEL_THEME_LIST } from './px/themes.js';
 
 const clamp = (v, a = 0, b = 1) => Math.max(a, Math.min(b, v));
 const smooth = (a, b, x) => { const t = clamp((x - a) / (b - a)); return t * t * (3 - 2 * t); };
@@ -59,9 +61,11 @@ function toCanvas(u32, w, h) {
 }
 
 export class Office {
-  constructor(container, labelHost, outfit = 'kerja', theme = 'klasik') {
+  // mode: '3d' (latar & karakter render Blender) | 'pixel' (Pixel Art HD: mesin pixel + sprite pixel, tema = palet)
+  constructor(container, labelHost, outfit = 'kerja', theme = 'klasik', mode = '3d') {
     this.outfit = outfit;
     this.theme = theme;
+    this.mode = mode;
     this.chars = new Map();
     this.selected = null;
     this.onSelect = null;
@@ -97,13 +101,17 @@ export class Office {
     this.toy = loadSprites(AGENTS.map((a) => a.id)).then(() => true).catch((e) => { console.warn('sprite 3D belum ada, pakai pixel art', e); return false; });
     this.ready = (async () => {
       this.logo = await loadLogo();
-      const [base, tiles] = await Promise.all([this.renderBase(), Tiles.load(theme).catch(() => (theme !== 'klasik' ? Tiles.load() : null)).catch((e) => { console.warn('latar 3D belum ada', e); return null; })]);
-      this.base = base;
+      const px = mode === 'pixel';
+      const [base, tiles] = await Promise.all([
+        this.renderBase(px ? theme : 'klasik'),
+        px ? null : Tiles.load(theme).catch(() => (theme !== 'klasik' ? Tiles.load() : null)).catch((e) => { console.warn('latar 3D belum ada', e); return null; }),
+      ]);
+      this.setBase(base, px ? theme : 'klasik');
       this.tiles = tiles;
       if (tiles?.dir === 'bg/') this.theme = 'klasik';   // tema yang diminta belum ada → jatuh ke latar klasik
       if (tiles) tiles.onLoad = () => { this.dirty = true; };
-      else { this.fbDay = toCanvas(base.day, W, H); this.fbNight = toCanvas(base.night, W, H); }
-      this.toyOn = await this.toy;
+      else this.mode = 'pixel';
+      this.toyOn = this.mode === '3d' && await this.toy;
       this.buildPeople();
       this.fit();
     })();
@@ -116,6 +124,7 @@ export class Office {
   // ---------- ganti tema latar kantor (tile render Blender per tema); latar lama tetap tampil sampai tema baru siap
   async setTheme(theme) {
     await this.ready;
+    if (this.mode === 'pixel') return this.setPixel(theme);
     if (theme === this.theme && this.tiles) return true;
     const want = theme; this.theme = theme;
     try {
@@ -132,16 +141,52 @@ export class Office {
     }
   }
 
+  // ---------- ganti mode tampilan: '3d' ↔ 'pixel'; tampilan lama tetap jalan sampai yang baru siap
+  async setMode(mode, theme) {
+    await this.ready;
+    if (mode === 'pixel') { this.mode = 'pixel'; return this.setPixel(theme); }
+    const want = theme; this.mode = '3d'; this.theme = theme;
+    try {
+      const [t, toy] = await Promise.all([Tiles.load(theme), this.toy]);
+      if (this.mode !== '3d' || this.theme !== want) { t.close(); return false; }
+      t.onLoad = () => { this.dirty = true; };
+      this.tiles?.close();
+      this.tiles = t; this.toyOn = toy; this.dirty = true;
+      return true;
+    } catch (e) {
+      console.warn('mode 3D gagal dimuat', theme, e);
+      if (!this.tiles) { this.mode = 'pixel'; this.theme = this.pxTheme; }
+      return false;
+    }
+  }
+  // Pixel Art HD: render ulang gedung dengan palet tema (worker), karakter pakai sprite pixel
+  async setPixel(theme) {
+    if (!this.tiles && theme === this.theme && this.pxTheme === theme) return true;
+    const want = theme; this.theme = theme;
+    const base = await this.renderBase(theme);
+    if (this.mode !== 'pixel' || this.theme !== want) return false;
+    this.setBase(base, theme);
+    this.tiles?.close();
+    this.tiles = null; this.toyOn = false; this.dirty = true;
+    return true;
+  }
+  setBase(base, theme) {
+    this.base = base;
+    this.fbDay = toCanvas(base.day, W, H); this.fbNight = toCanvas(base.night, W, H);
+    this.pxTheme = theme;
+  }
+
   // ---------- data mesin pixel (kedalaman, layar, cahaya) di worker; fallback ke thread utama
-  renderBase() {
+  renderBase(theme = 'klasik') {
     return new Promise((resolve) => {
       try {
         const worker = new Worker(new URL('./px/worker.js', import.meta.url), { type: 'module' });
         worker.onmessage = (e) => { worker.terminate(); resolve(e.data); };
-        worker.postMessage({ logo: this.logo });
+        worker.postMessage({ logo: this.logo, theme });
       } catch {
-        Promise.all([import('./px/engine.js'), import('./px/scene.js')]).then(([E, S]) => {
+        Promise.all([import('./px/engine.js'), import('./px/scene.js'), import('./px/themes.js')]).then(([E, S, TH]) => {
           const { prims, lights } = S.buildScene(this.logo);
+          TH.applyPixelTheme(S.MAT, E.ramp, theme);
           const R = E.renderScene(prims, lights);
           const dyn = {};
           for (const [k, d] of R.dyn) dyn[k] = d;
@@ -445,7 +490,8 @@ export class Office {
     // area tampilan yang kelihatan
     const vx0 = -this.tx / z, vy0 = -this.ty / z, vx1 = vx0 + this.cw / z, vy1 = vy0 + this.ch / z;
     g.setTransform(1, 0, 0, 1, 0, 0);
-    g.fillStyle = nf > 0.5 ? SKY.night : SKY.day;
+    const pt = this.tiles ? null : PIXEL_THEMES[this.theme];
+    g.fillStyle = nf > 0.5 ? pt?.night ?? SKY.night : pt?.sky ?? SKY.day;
     g.fillRect(0, 0, this.cv.width, this.cv.height);
     g.setTransform(dpr * z, 0, 0, dpr * z, dpr * this.tx, dpr * this.ty);
     g.imageSmoothingEnabled = true;
