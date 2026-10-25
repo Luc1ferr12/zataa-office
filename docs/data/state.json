@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-25T04:47:23.195Z",
+ "generated_at": "2026-10-25T04:57:23.198Z",
  "today": "2026-10-25",
  "week_start": "2026-10-19",
  "campaign": {
@@ -62,8 +62,8 @@
    "name": "Fikri",
    "title": "Social Media Publisher",
    "status": "done",
-   "current_task": "Kirim feed #70 ke Owner, video #71 nunggu render laptop",
-   "updated_at": "2026-10-25 04:46:39"
+   "current_task": "undefined",
+   "updated_at": "2026-10-25 04:49:23"
   },
   {
    "id": "ads",
@@ -653,8 +653,8 @@
    "game": "valorant",
    "pillar": "news",
    "title": "Evil Geniuses bubar 2 Nov: tribute juara Valorant Champions 2023",
-   "status": "draft",
-   "asset_url": null,
+   "status": "pending_approval",
+   "asset_url": "{\"video\":\"https://luc1ferr12.github.io/zataa-office/media/2026-10-25/71-evil-geniuses-bubar-2-nov-tribute-juara--ov.mp4\",\"cover\":\"https://luc1ferr12.github.io/zataa-office/media/2026-10-25/71-evil-geniuses-bubar-2-nov-tribute-juara--ov-cover.jpg\"}",
    "scheduled_at": null,
    "posted_at": null,
    "channel": null
@@ -695,7 +695,7 @@
    "game": "mlbb",
    "pillar": "esport",
    "title": "ONIC PH tersingkir dari MPL PH S18, gagal ke M8",
-   "status": "pending_approval",
+   "status": "approved",
    "asset_url": "{\"feed\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-25/70-onic-ph-tersingkir-dari-mpl-ph-s18-gagal.jpg\"],\"story\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-25/70-onic-ph-tersingkir-dari-mpl-ph-s18-gagal-916.jpg\"]}",
    "scheduled_at": null,
    "posted_at": null,
@@ -741,6 +741,21 @@
   }
  ],
  "activity": [
+  {
+   "ts": "2026-10-25 04:56:20",
+   "agent_id": "video",
+   "message": "video #71 dirender di laptop (suara OmniVoice) & dikirim ke Owner"
+  },
+  {
+   "ts": "2026-10-25 04:56:18",
+   "agent_id": "publisher",
+   "message": "Kirim #71 ke Owner buat approval"
+  },
+  {
+   "ts": "2026-10-25 04:49:23",
+   "agent_id": "owner",
+   "message": "Approve konten #70 ✅"
+  },
   {
    "ts": "2026-10-25 04:46:39",
    "agent_id": "publisher",
@@ -850,21 +865,6 @@
    "ts": "2026-10-24 23:03:51",
    "agent_id": "dir",
    "message": "Pilih 3 ide terbaik dari briefing (2 feed + 1 video)"
-  },
-  {
-   "ts": "2026-10-24 23:03:25",
-   "agent_id": "analyst",
-   "message": "Score 48 post: video eng 4 & 167 views vs feed 1; news Valorant teratas, promo polos 0"
-  },
-  {
-   "ts": "2026-10-24 23:03:17",
-   "agent_id": "price",
-   "message": "zataa.my.id normal: 100 Diamonds ML Rp29.266, 1000 VP Rp111.617"
-  },
-  {
-   "ts": "2026-10-24 23:03:08",
-   "agent_id": "researcher",
-   "message": "9 item riset: TLID & NAVI bye upper, R1 AE-ONIC & BTR-EVOS 4 Nov, Evil Geniuses bubar 2 Nov"
   }
  ],
  "chats": [
@@ -1155,7 +1155,7 @@
    "total": 35,
    "posted": 28,
    "pending": 1,
-   "scheduled": 3,
+   "scheduled": 4,
    "yt_total": 7,
    "yt_posted": 6,
    "yt_pending": 0,
