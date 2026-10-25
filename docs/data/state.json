@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-25T23:30:02.079Z",
+ "generated_at": "2026-10-25T23:40:02.031Z",
  "today": "2026-10-26",
  "week_start": "2026-10-26",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-25 23:16:01"
+   "updated_at": "2026-10-25 23:31:01"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Tak ada berita 24 jam baru. Fed naik 25bp (16 Sep), DXY ~100,8, konflik Timteng mereda: bias bearish ringan. Data lama, hati-hati.",
-   "updated_at": "2026-10-25 23:16:01"
+   "updated_at": "2026-10-25 23:31:01"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-10-25 23:16:01"
+   "updated_at": "2026-10-25 23:31:01"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
-   "updated_at": "2026-10-25 23:16:01"
+   "updated_at": "2026-10-25 23:31:01"
   },
   {
    "id": "texec",
@@ -524,6 +524,21 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-25 23:31:01",
+   "agent_id": "ttech",
+   "message": "M30 berubah arah: sideways → bullish"
+  },
+  {
+   "ts": "2026-10-25 23:31:01",
+   "agent_id": "ttech",
+   "message": "M15 berubah arah: sideways → bullish"
+  },
+  {
+   "ts": "2026-10-25 23:31:01",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: sideways → bullish"
+  },
+  {
    "ts": "2026-10-25 23:11:01",
    "agent_id": "ttech",
    "message": "M10 berubah arah: bullish → sideways"
@@ -632,21 +647,6 @@
    "ts": "2026-10-25 16:01:27",
    "agent_id": "analyst",
    "message": "Update data 50 post IG 📈"
-  },
-  {
-   "ts": "2026-10-25 15:29:58",
-   "agent_id": "publisher",
-   "message": "Kirim draf balasan 1 komen IG ke Bos 💬"
-  },
-  {
-   "ts": "2026-10-25 15:29:13",
-   "agent_id": "publisher",
-   "message": "Kirim draf IG Story ke Bos 📱"
-  },
-  {
-   "ts": "2026-10-25 15:28:29",
-   "agent_id": "dir",
-   "message": "Kode kantor diperbarui, restart otomatis: scripts/watch.mjs, scripts/trading/run.mjs"
   }
  ],
  "chats": [
@@ -993,9 +993,14 @@
   "paused": false,
   "balance": 1687.5099999999998,
   "today_pnl": 0,
-  "price": 3999.300049,
+  "price": 4002.199951,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-25 23:31:01",
+    "decision": "NO TRADE",
+    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
+   },
    {
     "ts": "2026-10-25 23:16:01",
     "decision": "NO TRADE",
@@ -1018,11 +1023,6 @@
    },
    {
     "ts": "2026-10-25 22:16:01",
-    "decision": "NO TRADE",
-    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
-   },
-   {
-    "ts": "2026-10-25 22:01:02",
     "decision": "NO TRADE",
     "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
    }
@@ -1058,7 +1058,7 @@
    1687.5099999999995
   ],
   "last": {
-   "ts": "2026-10-25 23:16:01",
+   "ts": "2026-10-25 23:31:01",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1079,7 +1079,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3999.70 di atas tengah band (3993.4–4002.2) · RSI 58 · Stoch 59 · MACD +0.40 · H1 bearish"
+    "note": "M15 4000.20 di atas tengah band (3993.5–4002.5) · RSI 59 · Stoch 52 · MACD +0.33 · H1 bearish"
    }
   },
   "fund": {
@@ -1173,37 +1173,37 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "sideways",
-    "score": 0,
-    "price": 3998,
-    "ema20": 3998.71,
-    "ema50": 3997.84,
-    "rsi": 48.9,
+    "bias": "bullish",
+    "score": 2,
+    "price": 3999.3,
+    "ema20": 3998.77,
+    "ema50": 3997.9,
+    "rsi": 52.2,
     "n": 299,
-    "slot": 2988284,
-    "at": 1792970461832
+    "slot": 2988285,
+    "at": 1792971061840
    },
    "M15": {
-    "bias": "sideways",
-    "score": 1,
-    "price": 3999.8,
-    "ema20": 3998.21,
-    "ema50": 3997.48,
-    "rsi": 58.3,
+    "bias": "bullish",
+    "score": 2,
+    "price": 3999.3,
+    "ema20": 3998.31,
+    "ema50": 3997.56,
+    "rsi": 55.8,
     "n": 299,
-    "slot": 1992189,
-    "at": 1792970161836
+    "slot": 1992190,
+    "at": 1792971061851
    },
    "M30": {
-    "bias": "sideways",
-    "score": -1,
-    "price": 4001.8,
-    "ema20": 3997.61,
-    "ema50": 3997.62,
-    "rsi": 99.5,
+    "bias": "bullish",
+    "score": 2,
+    "price": 3999.3,
+    "ema20": 3997.77,
+    "ema50": 3997.68,
+    "rsi": 63.5,
     "n": 299,
-    "slot": 996094,
-    "at": 1792969261989
+    "slot": 996095,
+    "at": 1792971061856
    },
    "H1": {
     "bias": "sideways",
