@@ -26,7 +26,7 @@ const c = JSON.parse(onVps(`${DB} console.log(JSON.stringify(db.prepare('SELECT 
 if (!c) throw new Error(`konten ${id} tidak ada di VPS`);
 if (c.format !== 'video' || !c.data_json) throw new Error(`konten ${id} bukan video atau belum punya data_json`);
 
-// klaim antrean (_laptop 1 → 2) supaya fallback Gadis di VPS tidak ikut jalan; manual (tanpa antrean) tetap boleh
+// klaim antrean (_laptop 1 → 2) supaya pengawas VPS (laptop-fallback.mjs) tahu sedang dirender; manual (tanpa antrean) tetap boleh
 const queued = JSON.parse(c.data_json)._laptop != null;
 if (queued) onVps(`${DB} db.prepare("UPDATE contents SET data_json = json_set(data_json, '$._laptop', 2), updated_at = datetime('now') WHERE id = ? AND json_extract(data_json, '$._laptop') = 1").run(${c.id});`);
 
@@ -43,7 +43,7 @@ try {
   if (r.status !== 0) throw new Error(`render gagal: ${errLine(r.stderr || r.stdout)}`);
   const res = JSON.parse(r.stdout.trim().split('\n').pop());
 
-  // nama file = render.mjs <id> + '-ov' (tidak menimpa hasil fallback Gadis)
+  // nama file = render.mjs <id> + '-ov' (tidak menimpa render VPS lama)
   const slug = String(c.title).toLowerCase().normalize('NFD').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 40);
   const base = `${c.id}-${slug}-ov`;
   const files = { video: `${base}.mp4`, cover: `${base}-cover.jpg` };
@@ -72,7 +72,7 @@ try {
   }
   console.log(JSON.stringify(out));
 } catch (e) {
-  // tandai gagal (_laptop 3 + _err) → watcher langsung alihkan ke suara Gadis di VPS & kabari Owner; worker nggak ngulang terus
+  // tandai gagal (_laptop 3 + _err) → watcher kabari Owner, Dimas antre ulang; worker nggak ngulang terus
   if (queued) try { onVps(`${DB} db.prepare("UPDATE contents SET data_json = json_set(data_json, '$._laptop', 3, '$._err', ?), updated_at = datetime('now') WHERE id = ? AND json_extract(data_json, '$._laptop') = 2").run(${JSON.stringify(String(e.message).slice(0, 300))}, ${c.id});`); } catch { /* VPS putus: klaim 2 dilepas fallback setelah 30 mnt */ }
   throw e;
 } finally {

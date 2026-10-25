@@ -92,7 +92,7 @@ Akhiri jawaban dengan SATU kalimat ringkas (bahasa santai) tentang apa yang diub
     const summary = r.text.split('\n').filter(Boolean).pop() ?? '';
     setAgent(maker, 'done', task);
     note(maker, `Revisi #${x.id} kelar: ${summary.slice(0, 120)}`);
-    let queued = false; // video suara OmniVoice → laptop yang render & kirim (atau fallback Gadis di VPS)
+    let queued = false; // video suara OmniVoice → laptop yang render & kirim (laptop mati = nunggu)
     try { queued = JSON.parse(JSON.parse(office('content', 'get', String(x.id))).data_json ?? '{}')._laptop != null; } catch { /* abaikan */ }
     if (queued) await sayAs('video', `🎙️ Revisi #${x.id} kelar, videonya dirender di laptop (suara natural) lalu dikirim otomatis.`).catch(() => {});
     else {

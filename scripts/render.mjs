@@ -273,7 +273,7 @@ if (a1 === 'try') {
   const voice = template === 'video' ? voiceOf(JSON.parse(c.data_json)) : null;
   if (voice && voice !== 'gadis' && !omniPython()) { // suara OmniVoice hanya di laptop Owner (VPS tanpa GPU)
     // tandai antre: scripts/laptop-worker.mjs di laptop ambil, render, upload, lalu submit ke Owner
-    db.prepare("UPDATE contents SET data_json = json_remove(json_set(data_json, '$._laptop', 1), '$._err'), asset_path = NULL, updated_at = datetime('now') WHERE id = ?").run(c.id);
+    db.prepare("UPDATE contents SET data_json = json_remove(json_set(data_json, '$._laptop', 1), '$._err', '$._warned'), asset_path = NULL, updated_at = datetime('now') WHERE id = ?").run(c.id);
     out(`konten ${c.id} pakai suara "${voice}" → masuk antrean render laptop (otomatis render + kirim ke Owner saat laptop nyala). Jangan submit manual.`);
     process.exit(0);
   }
