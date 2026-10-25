@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-25T22:00:01.976Z",
+ "generated_at": "2026-10-25T22:10:01.972Z",
  "today": "2026-10-26",
  "week_start": "2026-10-26",
  "campaign": null,
@@ -72,9 +72,9 @@
    "id": "analyst",
    "name": "Raka",
    "title": "Data Analyst",
-   "status": "working",
-   "current_task": "Narik data insight 51 post IG",
-   "updated_at": "2026-10-25 22:00:01"
+   "status": "done",
+   "current_task": null,
+   "updated_at": "2026-10-25 22:00:54"
   },
   {
    "id": "price",
@@ -98,15 +98,15 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-23 20:45:53"
+   "updated_at": "2026-10-25 22:01:02"
   },
   {
    "id": "tresearch",
    "name": "Davina",
    "title": "Research & Fundamental",
    "status": "done",
-   "current_task": "Fundamental: Geopolitik Iran/Lebanon & safe-haven menopang emas; tapi wacana Fed hawkish & USD kuat menekan. Tanggal berita belum terverifikasi.",
-   "updated_at": "2026-10-23 20:45:53"
+   "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
+   "updated_at": "2026-10-25 22:01:01"
   },
   {
    "id": "ttech",
@@ -114,7 +114,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-10-23 20:45:53"
+   "updated_at": "2026-10-25 22:01:02"
   },
   {
    "id": "trisk",
@@ -122,7 +122,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
-   "updated_at": "2026-10-23 20:45:53"
+   "updated_at": "2026-10-25 22:01:02"
   },
   {
    "id": "texec",
@@ -257,6 +257,16 @@
  "today_tasks": [],
  "activity": [
   {
+   "ts": "2026-10-25 22:01:02",
+   "agent_id": "trisk",
+   "message": "NO TRADE · jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
+  },
+  {
+   "ts": "2026-10-25 22:00:54",
+   "agent_id": "analyst",
+   "message": "Update data 50 post IG 📈"
+  },
+  {
    "ts": "2026-10-25 20:59:45",
    "agent_id": "dir",
    "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs"
@@ -370,16 +380,6 @@
    "ts": "2026-10-25 05:38:23",
    "agent_id": "owner",
    "message": "Approve konten #72 ✅"
-  },
-  {
-   "ts": "2026-10-25 05:25:08",
-   "agent_id": "publisher",
-   "message": "Kirim #72 ke Owner buat approval · revisi ke-1"
-  },
-  {
-   "ts": "2026-10-25 05:25:04",
-   "agent_id": "designer",
-   "message": "Revisi #72 kelar: Intinya: #72 sekarang carousel 7 slide, tiap pemain PRX dapat foto sendiri plus logo tim, dan caption-nya ditambah ajaka"
   }
  ],
  "chats": [
@@ -693,7 +693,7 @@
    "yt_posted": 7,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 34830,
+   "views": 34850,
    "likes": 263,
    "comments": 6,
    "shares": 26,
@@ -726,9 +726,14 @@
   "paused": false,
   "balance": 1687.5099999999998,
   "today_pnl": 0,
-  "price": 3996.899902,
+  "price": 3997.699951,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-25 22:01:02",
+    "decision": "NO TRADE",
+    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
+   },
    {
     "ts": "2026-10-23 20:45:53",
     "decision": "NO TRADE",
@@ -751,11 +756,6 @@
    },
    {
     "ts": "2026-10-23 19:45:53",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-10-23 19:30:53",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -791,7 +791,7 @@
    1687.5099999999995
   ],
   "last": {
-   "ts": "2026-10-23 20:45:53",
+   "ts": "2026-10-25 22:01:02",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -802,8 +802,8 @@
    "risk_usd": null,
    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
    "fund": {
-    "bias": 0.1,
-    "note": "Geopolitik Iran/Lebanon & safe-haven menopang emas; tapi wacana Fed hawkish & USD kuat menekan. Tanggal berita belum terverifikasi.",
+    "bias": 0,
+    "note": "netral (belum ada ringkasan hari ini)",
     "danger": null,
     "blackout": null
    },
@@ -812,11 +812,75 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3995.30 di bawah tengah band (3992.9–4006.0) · RSI 41 · Stoch 39 · MACD +0.36 · H1 bearish"
+    "note": "M15 3996.90 di bawah tengah band (3996.9–3996.9) · RSI 43 · Stoch 50 · MACD +0.00 · H1 bearish"
    }
   },
   "fund": null,
-  "calendar": [],
+  "calendar": [
+   {
+    "title": "Federal Funds Rate",
+    "impact": "High",
+    "at": 1793210400000,
+    "forecast": "4.00%",
+    "previous": "4.00%",
+    "wb": 120,
+    "wa": 90
+   },
+   {
+    "title": "FOMC Statement",
+    "impact": "High",
+    "at": 1793210400000,
+    "forecast": "",
+    "previous": "",
+    "wb": 120,
+    "wa": 90
+   },
+   {
+    "title": "FOMC Press Conference",
+    "impact": "High",
+    "at": 1793212200000,
+    "forecast": "",
+    "previous": "",
+    "wb": 120,
+    "wa": 90
+   },
+   {
+    "title": "Advance GDP q/q",
+    "impact": "High",
+    "at": 1793277000000,
+    "forecast": "3.2%",
+    "previous": "1.5%",
+    "wb": 60,
+    "wa": 45
+   },
+   {
+    "title": "Core PCE Price Index m/m",
+    "impact": "High",
+    "at": 1793277000000,
+    "forecast": "0.3%",
+    "previous": "0.2%",
+    "wb": 60,
+    "wa": 45
+   },
+   {
+    "title": "Advance GDP Price Index q/q",
+    "impact": "Medium",
+    "at": 1793277000000,
+    "forecast": "3.5%",
+    "previous": "6.2%",
+    "wb": 20,
+    "wa": 20
+   },
+   {
+    "title": "Unemployment Claims",
+    "impact": "Medium",
+    "at": 1793277000000,
+    "forecast": "198K",
+    "previous": "194K",
+    "wb": 20,
+    "wa": 20
+   }
+  ],
   "ea": {
    "connected": false,
    "demo": null
@@ -841,46 +905,46 @@
    "M10": {
     "bias": "bearish",
     "score": -2,
-    "price": 3994.5,
-    "ema20": 3998.78,
-    "ema50": 4003.85,
-    "rsi": 40.9,
+    "price": 3996.9,
+    "ema20": 3996.9,
+    "ema50": 3996.9,
+    "rsi": 41.2,
     "n": 299,
-    "slot": 2987981,
-    "at": 1792788653704
+    "slot": 2988276,
+    "at": 1792965661770
    },
    "M15": {
     "bias": "bearish",
-    "score": -2,
-    "price": 3994.9,
-    "ema20": 4000.74,
-    "ema50": 4007.98,
-    "rsi": 40.3,
+    "score": -3,
+    "price": 3996.9,
+    "ema20": 3996.9,
+    "ema50": 3996.9,
+    "rsi": 43.2,
     "n": 299,
-    "slot": 1991987,
-    "at": 1792788353520
+    "slot": 1992184,
+    "at": 1792965661776
    },
    "M30": {
     "bias": "bearish",
-    "score": -2,
-    "price": 3998.5,
-    "ema20": 4006.36,
-    "ema50": 4020.76,
-    "rsi": 41.6,
+    "score": -3,
+    "price": 3996.9,
+    "ema20": 3996.9,
+    "ema50": 3997.35,
+    "rsi": 40.6,
     "n": 299,
-    "slot": 995993,
-    "at": 1792787453497
+    "slot": 996092,
+    "at": 1792965661779
    },
    "H1": {
     "bias": "sideways",
     "score": -1,
-    "price": 4001.8,
-    "ema20": 4017.02,
-    "ema50": 4046.43,
-    "rsi": 38.1,
+    "price": 3996.9,
+    "ema20": 3997.03,
+    "ema50": 4003.6,
+    "rsi": 36.2,
     "n": 299,
-    "slot": 497996,
-    "at": 1792785653484
+    "slot": 498046,
+    "at": 1792965661790
    }
   },
   "currency": "USC",
