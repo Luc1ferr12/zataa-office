@@ -36,8 +36,8 @@ export async function laptopFallback(log) {
   try {
     const rows = db.prepare("SELECT id, day, slot, updated_at, json_extract(data_json, '$._laptop') st, json_extract(data_json, '$.voice') voice, json_extract(data_json, '$._err') err, title FROM contents WHERE format = 'video' AND status IN ('draft', 'revision') AND json_extract(data_json, '$._laptop') IN (1, 2, 3)").all();
     for (const c of rows.filter((r) => Date.now() >= deadline(r))) {
-      // ambil alih: hapus voice + tanda antre (atomik, supaya hasil laptop yang telat ditolak)
-      const took = db.prepare("UPDATE contents SET data_json = json_remove(data_json, '$._laptop', '$.voice'), updated_at = datetime('now') WHERE id = ? AND json_extract(data_json, '$._laptop') = ?").run(c.id, c.st).changes;
+      // ambil alih: voice → gadis + hapus tanda antre (atomik, supaya hasil laptop yang telat ditolak)
+      const took = db.prepare("UPDATE contents SET data_json = json_set(json_remove(data_json, '$._laptop'), '$.voice', 'gadis'), updated_at = datetime('now') WHERE id = ? AND json_extract(data_json, '$._laptop') = ?").run(c.id, c.st).changes;
       if (!took) continue;
       const why = c.st === 3 ? `render di laptop gagal (${c.err ?? '?'})` : c.st === 2 ? 'render di laptop macet >30 menit' : 'laptop belum ambil antrean (offline?)';
       log(`#${c.id}: ${why} → render Gadis di VPS`);
@@ -45,7 +45,7 @@ export async function laptopFallback(log) {
       await sayAs('video', `⚠️ Video #${c.id} "${esc(c.title)}": ${esc(why)}. Aku alihin render pakai suara Gadis di VPS ya Bos.`).catch(() => {});
       try {
         await render(c.id);
-        await submit(c.id, { note: `💻 ${why} → video ini pakai suara Gadis (bukan ${c.voice}).` });
+        await submit(c.id, { note: `💻 ${why} → video ini pakai suara Gadis (bukan ${c.voice ?? process.env.VIDEO_VOICE ?? 'kalem-1'}).` });
         log(`#${c.id} dikirim (fallback Gadis)`);
       } catch (e) {
         log(`fallback #${c.id} gagal: ${e.message}`);

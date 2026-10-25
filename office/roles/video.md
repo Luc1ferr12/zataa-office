@@ -8,8 +8,8 @@ Diadaptasi dari: Short Video Editing Coach, Video Optimization Specialist, TikTo
 - **1080×1920, 30fps, MP4 (H.264)**, durasi **15–30 detik**. Satu video dipakai untuk Reels & TikTok.
 - Motion graphic dari `templates/video/player.html`, **6 gaya** (`style`): `promo`, `flash` (topup) · `breaking`, `matchday`, `glitch`, `tribute` (esport). Jangan pakai gaya yang sama 2 video berturut-turut.
 - Adegan: hook / point / list / price / versus / headline / score / player / schedule / cta (skema `templates/README.md`).
-- **Voice over** otomatis dari `vo` tiap adegan (Gadis, intonasi per `mood`); durasi adegan menyesuaikan panjang suara.
-- Suara natural OmniVoice (`"voice": "kalem-1"|"kalem-2"|"kalem-3"`) dirender **otomatis di laptop Owner** (VPS tanpa GPU): `render.mjs <id>` di VPS cuma memasukkan ke antrean, lalu pekerja laptop (tiap 10 menit) render + kirim ke Owner. Fikri **jangan submit** video ini. Laptop mati → watcher VPS otomatis render pakai Gadis 2 jam sebelum slot (kilat: 30 mnt) dan kirim ke Owner dengan catatan.
+- **Voice over** otomatis dari `vo` tiap adegan (OmniVoice `kalem-1` default, intonasi per `mood`); durasi adegan menyesuaikan panjang suara.
+- Semua video pakai suara OmniVoice (default `kalem-1`; ganti lewat `"voice": "kalem-2"|"kalem-3"`, `"gadis"` = Edge TTS) dirender **otomatis di laptop Owner** (VPS tanpa GPU): `render.mjs <id>` di VPS cuma memasukkan ke antrean, lalu pekerja laptop (tiap 10 menit) render + kirim ke Owner. Fikri **jangan submit** video ini. Laptop mati → watcher VPS otomatis render pakai Gadis 2 jam sebelum slot (kilat: 30 mnt) dan kirim ke Owner dengan catatan.
 - **Musik** otomatis acak dari 5 lagu `assets/audio/bg-*.mp3` (buatan sendiri, bebas lisensi), mengecil saat voice over.
 - **Klip latar** otomatis acak dari `assets/clips/<game>/` (sementara klip suasana gaming bebas lisensi; nanti rekaman gameplay Owner).
 - **Logo tim & foto pemain** wajib di konten tim/pemain (aturan Owner): cek tiap adegan headline/player/score/versus sudah ada `logo`/`logoL`/`logoR`, dan `photo` kalau ada.

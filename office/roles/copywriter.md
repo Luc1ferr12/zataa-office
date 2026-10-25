@@ -17,7 +17,7 @@ Maksimal 8 kata di gambar/teks pertama.
 - **Carousel 5–7 slide**: 1 Hook → 2–5 isi (1 ide per slide, ≤25 kata) → slide terakhir CTA.
 - **Video script** 15–30 dtk: `[0–3s] hook` → `[3–20s] 3–5 poin` → `[akhir] CTA`, tiap baris teks di layar ≤7 kata.
   - Pilih `style`: topup → `promo` / `flash` (flash sale); esport → `breaking` (berita/transfer), `matchday` (jadwal/preview), `glitch` (hasil/upset/juara), `tribute` (pensiun/perpisahan). Contoh lengkap: `templates/samples/video-<style>.json`.
-  - Tiap adegan wajib `vo` = kalimat voice over (suara cewek "Gadis"), 1 kalimat pendek ≤14 kata, natural diucapkan (tulis angka "tiga satu" bukan "3-1", jangan singkatan aneh).
+  - Tiap adegan wajib `vo` = kalimat voice over (suara OmniVoice kalem-1), 1 kalimat pendek ≤14 kata, natural diucapkan (tulis angka "tiga satu" bukan "3-1", jangan singkatan aneh).
   - Intonasi lewat `mood`: `hype` (berita heboh), `promo`, `tanya` (nanya penonton, akhiri "?"), `info`, `santai`, `haru` (pensiun/kalah). Kosong = ditebak otomatis.
   - Logo & foto (aturan Owner): adegan soal tim/pemain WAJIB `logo` (headline/player) atau `logoL`/`logoR` (score/versus); tambah `photo` (foto bareng tim / foto pemain) kalau ada di `assets/`.
   - Selang-seling: 1 adegan nanya ke penonton ("Kalian tim siapa?") biar komen rame.

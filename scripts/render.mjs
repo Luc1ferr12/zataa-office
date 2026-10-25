@@ -88,7 +88,8 @@ const mediaDur = (file) => {
   const m = [...(r.stderr ?? '').matchAll(/time=(\d+):(\d+):([\d.]+)/g)].pop();
   return m ? +m[1] * 3600 + +m[2] * 60 + +m[3] : 0;
 };
-// data.voice = nama profil di assets/voices/ → OmniVoice (lebih natural, butuh venv + GPU disarankan); kosong = Gadis
+// data.voice = nama profil di assets/voices/ → OmniVoice (lebih natural, butuh venv + GPU disarankan); kosong = VIDEO_VOICE (default kalem-1); "gadis" = Edge TTS
+const voiceOf = (data) => data.voice || process.env.VIDEO_VOICE || 'kalem-1';
 const OMNI_SPEED = { hype: 1.12, promo: 1.08, tanya: 1.0, info: 1.04, santai: 0.97, haru: 0.9 };
 function omniPython() {
   const c = [process.env.OMNIVOICE_PY, 'D:/.venv-omnivoice/Scripts/python.exe', join(homedir(), '.venv-omnivoice', 'bin', 'python')];
@@ -178,7 +179,7 @@ async function renderVideo(ctx, data, dir, base) {
     const scenes = [...(data.scenes ?? [])];
     const anyVo = scenes.some((s) => s.vo);
     if (!scenes.some((s) => s.t === 'cta')) scenes.push({ t: 'cta', ...(anyVo ? { vo: 'Top up sekarang, cuma di Zataa!' } : {}) });
-    const vo = anyVo ? await voiceOver(scenes, data.style, tmp, data.voice) : [];
+    const vo = anyVo ? await voiceOver(scenes, data.style, tmp, voiceOf(data)) : [];
     if (anyVo) { // adegan minimal sepanjang suaranya
       scenes.forEach((s, i) => { if (vo[i]) s.dur = Math.max(s.dur ?? 0, vo[i].dur + 0.55); });
       data.fixed = true;
@@ -269,7 +270,7 @@ if (a1 === 'try') {
   if (!c) { out(`konten ${a1} tidak ada`); process.exit(1); }
   if (!c.data_json) { out(`konten ${a1} belum punya data_json (tugas Copywriter)`); process.exit(1); }
   const template = c.format === 'video' ? 'video' : c.template ?? (c.format === 'carousel' ? 'carousel' : null);
-  const voice = template === 'video' ? JSON.parse(c.data_json).voice : null;
+  const voice = template === 'video' ? voiceOf(JSON.parse(c.data_json)) : null;
   if (voice && voice !== 'gadis' && !omniPython()) { // suara OmniVoice hanya di laptop Owner (VPS tanpa GPU)
     // tandai antre: scripts/laptop-worker.mjs di laptop ambil, render, upload, lalu submit ke Owner
     db.prepare("UPDATE contents SET data_json = json_remove(json_set(data_json, '$._laptop', 1), '$._err'), asset_path = NULL, updated_at = datetime('now') WHERE id = ?").run(c.id);
