@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-25T05:07:23.203Z",
+ "generated_at": "2026-10-25T05:17:23.208Z",
  "today": "2026-10-25",
  "week_start": "2026-10-19",
  "campaign": {
@@ -22,32 +22,32 @@
    "name": "Andre",
    "title": "Marketing Director",
    "status": "done",
-   "current_task": "Pilih 3 ide: EG tribute, RRQ magnet penonton, ONIC PH gagal M8",
-   "updated_at": "2026-10-24 23:03:52"
+   "current_task": "Bagi tugas: Bikin coba rumor roster prx",
+   "updated_at": "2026-10-25 05:14:02"
   },
   {
    "id": "researcher",
    "name": "Clariana",
    "title": "Researcher",
    "status": "done",
-   "current_task": "Cek silang ONIC PH gugur MPL PH S18 + EG bubar",
-   "updated_at": "2026-10-25 04:46:11"
+   "current_task": "Verifikasi rumor roster PRX 2027",
+   "updated_at": "2026-10-25 05:13:12"
   },
   {
    "id": "copywriter",
    "name": "Ista",
    "title": "Copywriter",
    "status": "done",
-   "current_task": "Teks feed ONIC PH + naskah tribute EG",
-   "updated_at": "2026-10-25 04:46:15"
+   "current_task": "Copy feed rumor roster PRX",
+   "updated_at": "2026-10-25 05:13:42"
   },
   {
    "id": "designer",
    "name": "Maria",
    "title": "Graphic Designer",
    "status": "done",
-   "current_task": "Render feed news ONIC PH #70",
-   "updated_at": "2026-10-25 04:46:27"
+   "current_task": "Render feed rumor roster PRX",
+   "updated_at": "2026-10-25 05:13:50"
   },
   {
    "id": "video",
@@ -62,8 +62,8 @@
    "name": "Fikri",
    "title": "Social Media Publisher",
    "status": "done",
-   "current_task": "undefined",
-   "updated_at": "2026-10-25 05:05:23"
+   "current_task": "QA & kirim feed #72 PRX",
+   "updated_at": "2026-10-25 05:13:53"
   },
   {
    "id": "ads",
@@ -646,6 +646,20 @@
    "channel": null
   },
   {
+   "id": 72,
+   "day": "2026-10-25",
+   "slot": "kilat",
+   "format": "feed",
+   "game": "valorant",
+   "pillar": "esport",
+   "title": "Rumor roster PRX 2027",
+   "status": "pending_approval",
+   "asset_url": "{\"feed\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-25/72-rumor-roster-prx-2027.jpg\"],\"story\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-25/72-rumor-roster-prx-2027-916.jpg\"]}",
+   "scheduled_at": null,
+   "posted_at": null,
+   "channel": null
+  },
+  {
    "id": 71,
    "day": "2026-10-25",
    "slot": "sore",
@@ -741,6 +755,26 @@
   }
  ],
  "activity": [
+  {
+   "ts": "2026-10-25 05:13:53",
+   "agent_id": "publisher",
+   "message": "Kirim #72 ke Owner buat approval"
+  },
+  {
+   "ts": "2026-10-25 05:12:23",
+   "agent_id": "owner",
+   "message": "Chat: Bikin coba rumor roster prx"
+  },
+  {
+   "ts": "2026-10-25 05:08:18",
+   "agent_id": "researcher",
+   "message": "Nemu 2 topik baru"
+  },
+  {
+   "ts": "2026-10-25 05:07:29",
+   "agent_id": "owner",
+   "message": "Chat: Clariana, cek mendalam soal update prx akhir akhir ini"
+  },
   {
    "ts": "2026-10-25 05:05:23",
    "agent_id": "owner",
@@ -845,29 +879,114 @@
    "ts": "2026-10-24 23:15:21",
    "agent_id": "publisher",
    "message": "Kirim #50 ke Owner buat approval"
-  },
-  {
-   "ts": "2026-10-24 23:09:24",
-   "agent_id": "yresearch",
-   "message": "Bank topik +2: HH-012 Sriwijaya, HF-002 Cheng Ho (approved Bagas)"
-  },
-  {
-   "ts": "2026-10-24 23:09:24",
-   "agent_id": "ypublish",
-   "message": "Jam 18:00 WIB: 5 dari 6 Shorts minggu ini tayang 18:00, top #52 (1.618 views) juga 18:00; pertahankan"
-  },
-  {
-   "ts": "2026-10-24 23:09:06",
-   "agent_id": "yvideo",
-   "message": "Shorts #69 \"Raja Terlalu Kaya Sampai Harga Emas Kairo Anjlok\" masuk antrean render laptop (OmniVoice)"
-  },
-  {
-   "ts": "2026-10-24 23:04:36",
-   "agent_id": "copywriter",
-   "message": "Isi #50 carousel profil TLID & NAVI + #51 video prediksi juara (hook pertanyaan)"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-10-25 05:14:03",
+   "agent_id": "publisher",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Udah lolos QA Bos, slot kilat, jadi begitu di-✅ langsung tayang 👍"
+  },
+  {
+   "ts": "2026-10-25 05:14:03",
+   "agent_id": "copywriter",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Isinya f0rsakeN & something kabarnya dipertahankan (+ invy kontrak sampai 2027), d4v41 lagi cari tim baru, Jinggg masih nego. Captionnya ada pancingan komen + CTA top up VP 🔥"
+  },
+  {
+   "ts": "2026-10-25 05:14:03",
+   "agent_id": "researcher",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Bos, feed rumor roster PRX udah meluncur ke Telegram, tinggal ✅! Cuma Sheep Esports yang lapor, jadi aku tulis jelas RUMOR & belum resmi."
+  },
+  {
+   "ts": "2026-10-25 05:13:53",
+   "agent_id": "publisher",
+   "to_id": "owner",
+   "kind": "oper",
+   "message": "Bos, \"QA & kirim feed #72 PRX\" udah aku kirim ke Telegram. Ditunggu approve-nya 🙏"
+  },
+  {
+   "ts": "2026-10-25 05:13:50",
+   "agent_id": "designer",
+   "to_id": "publisher",
+   "kind": "oper",
+   "message": "Visual \"Render feed rumor roster PRX\" kelar! Fikri, cek typo-nya sekalian ya 🙏"
+  },
+  {
+   "ts": "2026-10-25 05:13:42",
+   "agent_id": "copywriter",
+   "to_id": "designer",
+   "kind": "oper",
+   "message": "Maria, copy \"Copy feed rumor roster PRX\" udah masuk. Headline-nya jangan dikecilin ya 😆"
+  },
+  {
+   "ts": "2026-10-25 05:13:12",
+   "agent_id": "researcher",
+   "to_id": "copywriter",
+   "kind": "oper",
+   "message": "Ista, bahan buat \"Verifikasi rumor roster PRX 2027\" udah aku rangkum + sumbernya. Tinggal kamu racik captionnya ✍️"
+  },
+  {
+   "ts": "2026-10-25 05:12:23",
+   "agent_id": "dir",
+   "to_id": null,
+   "kind": "oper",
+   "message": "Oke tim, ada titah dari Bos. Aku bagi tugasnya ya 👇"
+  },
+  {
+   "ts": "2026-10-25 05:12:23",
+   "agent_id": "owner",
+   "to_id": "researcher",
+   "kind": "bos",
+   "message": "Bikin coba rumor roster prx"
+  },
+  {
+   "ts": "2026-10-25 05:08:33",
+   "agent_id": "researcher",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Ralat info sebelumnya ya Bos, roster mereka nggak aman semua. Kalau mau dibikin feed \"rumor roster PRX\", bilang aja, langsung aku oper ke Ista 👍"
+  },
+  {
+   "ts": "2026-10-25 05:08:33",
+   "agent_id": "researcher",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Yang lagi rame RUMOR roster 2027 (Sheep Esports): f0rsakeN & something kabarnya dipertahankan, Jinggg & d4v41 lagi cari opsi lain. Cuma invy yang kontraknya sampai 2027, PRX belum ada pengumuman resmi."
+  },
+  {
+   "ts": "2026-10-25 05:08:33",
+   "agent_id": "researcher",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Bos, update PRX: gugur 9 Okt di Champions Shanghai (finis 7–8), kalah 1-2 dari T1 padahal udah unggul 9-3 di Summit. Musim 2026 cuma juara Pacific Stage 1, Masters Santiago & London runner-up."
+  },
+  {
+   "ts": "2026-10-25 05:08:18",
+   "agent_id": "researcher",
+   "to_id": "copywriter",
+   "kind": "oper",
+   "message": "Riset \"Riset mendalam update PRX (Owner)\" beres, udah dicek 2 sumber. Ista, lanjut ya~"
+  },
+  {
+   "ts": "2026-10-25 05:07:29",
+   "agent_id": "dir",
+   "to_id": null,
+   "kind": "oper",
+   "message": "Oke tim, ada titah dari Bos. Aku bagi tugasnya ya 👇"
+  },
+  {
+   "ts": "2026-10-25 05:07:29",
+   "agent_id": "owner",
+   "to_id": "researcher",
+   "kind": "bos",
+   "message": "Clariana, cek mendalam soal update prx akhir akhir ini"
+  },
   {
    "ts": "2026-10-25 05:05:55",
    "agent_id": "publisher",
@@ -1042,119 +1161,14 @@
    "to_id": "researcher",
    "kind": "oper",
    "message": "Brief \"Pilih 3 ide: EG tribute, RRQ magnet penonton, ONIC PH gagal \" udah jadi. Clariana, gas riset ya!"
-  },
-  {
-   "ts": "2026-10-24 23:03:25",
-   "agent_id": "analyst",
-   "to_id": "dir",
-   "kind": "oper",
-   "message": "Rekap \"Pola: video Valorant news paling hidup\" beres, Andre. Bisa buat bahan plan"
-  },
-  {
-   "ts": "2026-10-24 23:03:17",
-   "agent_id": "price",
-   "to_id": "copywriter",
-   "kind": "oper",
-   "message": "Ista, harga buat \"Harga zataa.my.id live\" udah aku cek di web. Angkanya aman dipake 💰"
-  },
-  {
-   "ts": "2026-10-24 23:03:08",
-   "agent_id": "researcher",
-   "to_id": "copywriter",
-   "kind": "oper",
-   "message": "Riset \"Riset esport: bracket playoff MPL, roster TLID/NAVI, EG buba\" beres, udah dicek 2 sumber. Ista, lanjut ya~"
-  },
-  {
-   "ts": "2026-10-24 12:02:23",
-   "agent_id": "publisher",
-   "to_id": null,
-   "kind": "oper",
-   "message": "\"Diamond FF weekend dari zataa.my.id + hype FFWS\" udah tayang di IG + TikTok 🚀 Makasih semua!"
-  },
-  {
-   "ts": "2026-10-24 11:00:23",
-   "agent_id": "analyst",
-   "to_id": "dir",
-   "kind": "oper",
-   "message": "Laporan harian marketing udah aku kirim ke Bos, 3 konten tayang hari ini 📊"
-  },
-  {
-   "ts": "2026-10-24 09:01:32",
-   "agent_id": "publisher",
-   "to_id": null,
-   "kind": "oper",
-   "message": "\"Hall of Champions MPL ID: juara S1 sampai S17\" udah tayang di IG + TikTok 🚀 Makasih semua!"
-  },
-  {
-   "ts": "2026-10-24 05:00:47",
-   "agent_id": "publisher",
-   "to_id": null,
-   "kind": "oper",
-   "message": "\"Kuis: tebak pemain MPL ID dari stat musim ini\" udah tayang di IG 🚀 Makasih semua!"
-  },
-  {
-   "ts": "2026-10-24 04:01:16",
-   "agent_id": "publisher",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Video Hall of Champions MPL masih dirender Dimas di laptop, nanti aku kirim buat di-approve ya 🙏"
-  },
-  {
-   "ts": "2026-10-24 04:01:16",
-   "agent_id": "publisher",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Siap Bos, feed BOOM #67 udah tayang di IG sekarang ✅"
-  },
-  {
-   "ts": "2026-10-24 04:01:08",
-   "agent_id": "publisher",
-   "to_id": null,
-   "kind": "oper",
-   "message": "\"BOOM nggak jadi partner VCT 2027: nasib Indonesia \" udah tayang di IG 🚀 Makasih semua!"
-  },
-  {
-   "ts": "2026-10-24 04:01:05",
-   "agent_id": "publisher",
-   "to_id": null,
-   "kind": "oper",
-   "message": "\"BOOM nggak jadi partner VCT 2027: nasib Indonesia \" udah tayang di IG 🚀 Makasih semua!"
-  },
-  {
-   "ts": "2026-10-24 03:59:34",
-   "agent_id": "dir",
-   "to_id": null,
-   "kind": "oper",
-   "message": "Oke tim, ada titah dari Bos. Aku bagi tugasnya ya 👇"
-  },
-  {
-   "ts": "2026-10-24 03:59:34",
-   "agent_id": "owner",
-   "to_id": "dir",
-   "kind": "bos",
-   "message": "#67 langsung upload aja"
-  },
-  {
-   "ts": "2026-10-24 02:40:39",
-   "agent_id": "video",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Video Hall of Champions MPL dibikin beda dari yang tgl 20: 4 mantan juara vs NAVI & AE yang belum pernah juara. Lagi dirender suara kalem di laptop, nanti langsung dikirim ke Bos ya 🙏"
-  },
-  {
-   "ts": "2026-10-24 02:40:39",
-   "agent_id": "designer",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Feed BOOM udah jadi pakai logo resminya, udah dikirim ke Bos. Tinggal ✅ buat tayang jam 10:00!"
   }
  ],
  "stats": {
   "this_week": {
    "week": "2026-10-19",
-   "total": 35,
+   "total": 36,
    "posted": 29,
-   "pending": 0,
+   "pending": 1,
    "scheduled": 4,
    "yt_total": 7,
    "yt_posted": 6,
