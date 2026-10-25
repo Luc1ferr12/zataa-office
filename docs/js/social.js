@@ -22,6 +22,7 @@ export const BIRTHDAYS = {
   dir: '07-09', researcher: '03-17', copywriter: '10-27', designer: '12-05', video: '01-21', publisher: '11-03', ads: '05-30', analyst: '09-14', price: '08-08',
   tdir: '01-04', tresearch: '06-02', ttech: '11-19', trisk: '03-29', texec: '08-25', teval: '12-24', treport: '02-27',
   ydir: '05-11', yresearch: '09-01', yscript: '04-07', yvisual: '07-23', yvideo: '10-30', ypublish: '01-15',
+  sdir: '03-08', sresearch: '10-31', sscript: '06-21', svisual: '02-03', svideo: '09-27', spublish: '12-13',
 };
 export const birthdaysOn = (date) => Object.keys(BIRTHDAYS).filter((id) => BIRTHDAYS[id] === date.slice(5));
 export const CAKE = { start: at(17, 5), end: at(17, 25) };   // tiup lilin di cafe (abis Ashar & evaluasi Minggu)

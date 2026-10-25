@@ -233,7 +233,8 @@ const DIVISIONS = [
   { name: 'Pimpinan', color: 'boss', flow: '', ids: ['owner', 'sec'] },
   { name: 'Umum', color: 'gen', flow: '', ids: ['ob'] },
   { name: 'Marketing', color: 'mkt', flow: 'plan → riset → konten → publish → iklan → data', ids: ['dir', 'researcher', 'price', 'copywriter', 'designer', 'video', 'publisher', 'ads', 'analyst'] },
-  { name: 'YouTube Shorts', color: 'yt', flow: 'riset → naskah & cek fakta → visual → video → upload · tiap hari', ids: ['ydir', 'yresearch', 'yscript', 'yvisual', 'yvideo', 'ypublish'] },
+  { name: 'YouTube · Zataa History', color: 'yt', flow: 'riset → naskah & cek fakta → visual → video → upload · 4/minggu', ids: ['ydir', 'yresearch', 'yscript', 'yvisual', 'yvideo', 'ypublish'] },
+  { name: 'Zataa Story', color: 'story', flow: 'riset → naskah → visual → video → YouTube + TikTok · tiap hari', ids: ['sdir', 'sresearch', 'sscript', 'svisual', 'svideo', 'spublish'] },
   { name: 'Trading XAUUSD', color: 'trd', flow: 'siklus tiap candle M15', ids: ['tdir', 'tresearch', 'ttech', 'trisk', 'texec', 'teval', 'treport'] },
 ];
 

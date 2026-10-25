@@ -686,10 +686,11 @@ export class Office {
     for (let i = 0; i < DESKS; i++) {
       const on = this.screens[i];
       const kind = AGENTS.find((a) => a.desk === i)?.id;
-      const trd = DESK_LIST[i].team === 'trd', yt = DESK_LIST[i].team === 'yt';
+      const trd = DESK_LIST[i].team === 'trd', yt = DESK_LIST[i].team === 'yt', st = DESK_LIST[i].team === 'st';
       surf(`scr${i}`, 12, 5, (X, Y, px) => {
         if (!on) return X === 1 && Y === 1 ? C.glare : C.scrOff;
         if (trd) return candle(X, Y, t, i, px);
+        if (st) return Y === 4 ? ((X + Math.floor(t * 2)) % 6 === 0 ? C.white : C.violet) : Y < 3 ? (X > 4 && X < 8 && Y > 0 ? (hash2(Math.floor(t * 3), i) < 0.12 ? C.white : C.dim) : C.cine) : C.dim;   // timeline edit horor (kilat sesekali)
         if (yt) return Y === 4 ? ((X + Math.floor(t * 3)) % 7 === 0 ? C.white : C.red) : Y < 3 ? (X > 3 && X < 8 ? C.amber : C.scrBg) : C.dim;   // timeline edit Shorts
         const side = px % 2;
         if (kind === 'designer') return (X + Y + Math.floor(t)) % 5 === 0 ? C.code3 : X > 6 ? (Y > 2 ? C.code4 : C.code2) : C.code1;
@@ -704,6 +705,7 @@ export class Office {
     const dirOn = (id) => { const c = this.chars.get(id); return c && !c.path.length && /Desk/.test(c.locKey); };
     surf('tvDir', 12, 5, (X, Y) => (dirOn('dir') ? ((X + Y + Math.floor(t)) % 4 === 0 ? C.code1 : Y === 0 ? C.violet : C.scrBg) : C.scrOff));
     surf('tvTdir', 12, 5, (X, Y, px) => (dirOn('tdir') ? candle(X, Y, t, 20, px) : C.scrOff));
+    surf('tvSdir', 12, 5, (X, Y) => (dirOn('sdir') ? (Y === 4 ? (X < ((t * 2) % 12) ? C.violet : C.dim) : (X > 4 && X < 8 && Y < 4 ? C.code1 : C.cine)) : C.scrOff));
     surf('tvYdir', 12, 5, (X, Y) => (dirOn('ydir') ? (Y === 4 ? (X < ((t * 2) % 12) ? C.red : C.dim) : (X > 4 && X < 8 && Y < 4 ? C.amber : C.scrBg)) : C.scrOff));
     // TV ruang santai (50×19)
     const zt = (this.zt ??= textBitmap('ZATAA', 2)), sub = (this.sub ??= textBitmap('TOP UP GAME'));

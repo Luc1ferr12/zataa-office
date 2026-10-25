@@ -139,7 +139,7 @@ export function locationFor(spots, agent, idx, loc, info) {
       const s = spots.secDesk, back = s.z - 0.75;
       return { pos: P(s), rot: s.rot, pose: 'type', anchor: 'R:boss', approach: [V(s.x + 1.4, s.y, RZ(3, -1.6)), V(s.x + 1.4, s.y, back), V(s.x, s.y, back)] };
     }
-    case 'dirDesk': case 'tdirDesk': case 'ydirDesk': case 'boss': {
+    case 'dirDesk': case 'tdirDesk': case 'ydirDesk': case 'sdirDesk': case 'boss': {
       const mgr = key.replace('Desk', '');
       const room = key === 'boss' ? 'boss' : MGR_ROOM[mgr];
       const s = key === 'boss' ? spots.bossDesk : spots[key];
@@ -147,7 +147,7 @@ export function locationFor(spots, agent, idx, loc, info) {
       const sideX = key === 'boss' ? 10.6 : mgrX(mgr) + 1.9;
       return { pos: P(s), rot: s.rot, pose: 'type', anchor: `R:${room}`, approach: [V(sideX, s.y, RZ(r.L, -2.4)), V(sideX, s.y, back), V(s.x, s.y, back)] };
     }
-    case 'bossSofa': case 'dirSofa': case 'tdirSofa': case 'ydirSofa': {
+    case 'bossSofa': case 'dirSofa': case 'tdirSofa': case 'ydirSofa': case 'sdirSofa': {
       const list = spots[key];
       const s = list[(info?.slot ?? 0) % list.length];
       const room = key === 'bossSofa' ? 'boss' : MGR_ROOM[key.replace('Sofa', '')];
@@ -189,6 +189,7 @@ export function locationFor(spots, agent, idx, loc, info) {
       const c = spots.cafe[k % spots.cafe.length];
       const approach = c.cafe
         ? [V(-1.8, 0, RZ(1, -0.6)), V(-1.8, 0, RZ(1, c.lane)), V(c.x, 0, RZ(1, c.lane))]
+        : c.via === 'kitchen' ? [V(6.4, 0, RZ(1, -1.4)), V(8.4, 0, RZ(1, -1.4)), V(8.4, 0, RZ(1, c.lane)), V(c.x, 0, RZ(1, c.lane))]   // meja bar sisi dapur
         : c.lane < -3 ? [V(6.4, 0, RZ(1, -1.4)), V(6.4, 0, RZ(1, c.lane)), V(c.x, 0, RZ(1, c.lane))] : [V(c.x, 0, RZ(1, c.lane))];
       return { pos: V(c.x, 0, c.z), rot: c.rot, pose: 'eat', anchor: 'R:cafe', approach };
     }

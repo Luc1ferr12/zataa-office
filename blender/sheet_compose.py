@@ -29,6 +29,12 @@ INFO = {   # judul, peran, gaya, warna
     'texec': ('MALE', 'Execution (Wiratama)', 'Modern Casual', 'Deep Purple - Black'),
     'teval': ('FEMALE', 'Evaluation (Jihan)', 'Modern Casual', 'Purple - Black - White'),
     'treport': ('FEMALE', 'Reporting (Selena)', 'Modern Casual', 'Black - Purple'),
+    'sdir': ('MALE', 'Manajer Zataa Story (Raditya)', 'Modern Casual', 'Black - Purple'),
+    'sresearch': ('FEMALE', 'Riset Misteri (Sekar)', 'Modern Casual', 'Black - Deep Purple'),
+    'sscript': ('FEMALE', 'Naskah & Hook (Dinda)', 'Modern Casual', 'Purple - Black - White'),
+    'svisual': ('MALE', 'Visual & Foto Arsip (Arga)', 'Street Casual', 'Black - Purple'),
+    'svideo': ('MALE', 'Video Producer (Bima)', 'Street Casual', 'Black - Deep Purple'),
+    'spublish': ('FEMALE', 'Publisher YT & TikTok (Nayla)', 'Modern Casual', 'Purple - Black - White'),
 }
 SRC, OUT, IDS = sys.argv[1], sys.argv[2], sys.argv[3:]
 BG, LINE, ACC, TXT, SUB = (22, 18, 30), (74, 58, 120), (139, 92, 246), (236, 232, 245), (176, 168, 196)

@@ -5,7 +5,7 @@
 set -e
 BL="${BLENDER:-/c/Program Files/Blender Foundation/Blender 5.2/blender.exe}"
 D="$PWD/blender/out/sheet"
-IDS="${IDS:-ob dir researcher price copywriter designer publisher video ads analyst ydir yresearch yscript yvisual yvideo ypublish tdir tresearch ttech trisk texec teval treport owner sec}"
+IDS="${IDS:-ob dir researcher price copywriter designer publisher video ads analyst ydir yresearch yscript yvisual yvideo ypublish tdir tresearch ttech trisk texec teval treport sdir sresearch sscript svisual svideo spublish owner sec}"
 for c in $IDS; do
   TOY_STYLE=chibi "$BL" --background --factory-startup --python blender/toy_sheet.py -- "$D" "${SAMPLES:-160}" "$c" 1.0 2>&1 | grep -E "Error|Traceback" | grep -v HIP || true
   echo "KARAKTER OK $c"
@@ -17,6 +17,8 @@ python blender/sheet_compose.py "$D" blender/out/cast_youtube1.png ydir yresearc
 python blender/sheet_compose.py "$D" blender/out/cast_youtube2.png yvisual yvideo ypublish
 python blender/sheet_compose.py "$D" blender/out/cast_trading1.png tdir tresearch ttech trisk
 python blender/sheet_compose.py "$D" blender/out/cast_trading2.png texec teval treport
+python blender/sheet_compose.py "$D" blender/out/cast_story1.png sdir sresearch sscript
+python blender/sheet_compose.py "$D" blender/out/cast_story2.png svisual svideo spublish
 # foto profil chibi (avatar Chit-chat & card Tim)
 TOY_STYLE=chibi "$BL" --background --factory-startup --python blender/toy_portraits.py -- "$PWD/blender/out/faces_chibi" 128 2>&1 | grep -E "Error|Traceback|PORTRAIT" | grep -v HIP || true
 python blender/faces_webp.py "$PWD/blender/out/faces_chibi"

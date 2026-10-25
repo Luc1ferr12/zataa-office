@@ -19,4 +19,6 @@ python blender/sheet_compose.py "$D" blender/out/cast_youtube1.png ydir yresearc
 python blender/sheet_compose.py "$D" blender/out/cast_youtube2.png yvisual yvideo ypublish
 python blender/sheet_compose.py "$D" blender/out/cast_trading1.png tdir tresearch ttech trisk
 python blender/sheet_compose.py "$D" blender/out/cast_trading2.png texec teval treport
+python blender/sheet_compose.py "$D" blender/out/cast_story1.png sdir sresearch sscript
+python blender/sheet_compose.py "$D" blender/out/cast_story2.png svisual svideo spublish
 echo ALL FIX DONE

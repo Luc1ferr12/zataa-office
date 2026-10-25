@@ -285,6 +285,25 @@ CHARS = {
                      bottom=dict(kind='skirt', color='#17151d', length='knee', cut='pleated'), shoe=dict(kind='flat', color='#111014'),
                      props=['phone'], pose=dict(head=(5, 5, 4), twist=2, el={1: (0.168, -0.012, 0.548)}, wr={1: (0.085, -0.135, 0.56)},
                                                 foot={-1: (0, 0, 8), 1: (0, -0.015, 8)})),
+    # ---------------- tim Zataa Story (misteri & horor Nusantara, 25 Okt 2026) — dasar gaya toy, tampilan web dari CHIBI di bawah
+    'sdir': dict(name='Raditya', g='m', skin='#cf9a74', hair='#120e0e', brow='#100d0d', hair_style='short_neat',
+                 top=dict(kind='tee', color='#1a181e'), outer=dict(kind='jacket', color='#1d1b22'), bottom=dict(kind='cargo', color='#141216'),
+                 shoe=dict(kind='sneaker', color='#f4f2ee'), props=['watch'], pose=dict(head=(2, 2, 3), twist=2, pocket=[1], el={1: (0.16, 0.035, 0.53)}, wr={1: (0.118, 0.01, 0.43)}, foot={-1: (-0.012, 0, 12), 1: (0.012, 0, 12)}), scale=1.02),
+    'sresearch': dict(name='Sekar', g='f', skin='#ecbf9a', hair='#2a1a14', brow='#22140f', hair_style='wavy_long',
+                      top=dict(kind='tee', color='#1a181e'), outer=dict(kind='cardigan', color='#3b1a6b'), bottom=dict(kind='pants', color='#1a181e'),
+                      shoe=dict(kind='flat', color='#111014'), props=['notebook'], pose=dict(head=(-5, 4, -6), twist=-4, el={1: (0.168, -0.012, 0.548)}, wr={1: (0.085, -0.13, 0.565)}, foot={-1: (0, 0, 8), 1: (0, -0.015, 8)})),
+    'sscript': dict(name='Dinda', g='f', skin='#f0c8a6', hair='#3a2418', brow='#2e1a10', hair_style='bob', glasses='#3b1a6b', glasses_thin=True,
+                    top=dict(kind='tee', color='#6d4bb3'), bottom=dict(kind='skirt', color='#17151d', length='knee', cut='aline'),
+                    shoe=dict(kind='loafer', color='#111014'), props=['notebook'], pose=dict(head=(-5, 4, -6), twist=-4, el={1: (0.168, -0.012, 0.548)}, wr={1: (0.085, -0.13, 0.565)}, foot={-1: (0, 0, 8), 1: (0, -0.015, 8)})),
+    'svisual': dict(name='Arga', g='m', skin='#d29a72', hair='#141010', brow='#120e0e', hair_style='casual', props=['camera'],
+                    top=dict(kind='hoodie', color='#1c1a22', accent='#8b5cf6'), bottom=dict(kind='cargo', color='#141216'),
+                    shoe=dict(kind='sneaker', color='#f4f2ee'), pose=dict(head=(2, 2, 3), twist=2, pocket=[1], el={1: (0.16, 0.035, 0.53)}, wr={1: (0.118, 0.01, 0.43)}, foot={-1: (-0.012, 0, 12), 1: (0.012, 0, 12)})),
+    'svideo': dict(name='Bima', g='m', skin='#c49470', hair='#100d0d', brow='#100d0d', hair_style='messy', props=['headphones'],
+                   top=dict(kind='tee', color='#1a181e'), outer=dict(kind='bomber', color='#2a1a48'), bottom=dict(kind='cargo', color='#141216'),
+                   shoe=dict(kind='sneaker', color='#f4f2ee'), pose=dict(head=(2, 2, 3), twist=2, pocket=[1], el={1: (0.16, 0.035, 0.53)}, wr={1: (0.118, 0.01, 0.43)}, foot={-1: (-0.012, 0, 12), 1: (0.012, 0, 12)})),
+    'spublish': dict(name='Nayla', g='f', skin='#efc4a0', hair='#1d1414', brow='#1a1212', hair_style='pony_high', scrunchie='#c4b5fd',
+                     top=dict(kind='tee', color='#6d4bb3'), outer=dict(kind='cardigan', color='#151318'), bottom=dict(kind='pants', color='#efecf4'),
+                     shoe=dict(kind='sneaker', color='#f4f2ee'), props=['phone'], pose=dict(head=(-5, 4, -6), twist=-4, el={1: (0.168, -0.012, 0.548)}, wr={1: (0.085, -0.13, 0.565)}, foot={-1: (0, 0, 8), 1: (0, -0.015, 8)})),
 }
 LOW_SHOES = ('flat', 'slipon', 'pump', 'lowheel', 'loafer', 'oxford')
 
@@ -363,6 +382,19 @@ CHIBI = {
                  dict(_HOLD_TAB, head=(-4, 3, 5)), glasses='#2a2a30', hair_seed=76),
     'treport': _ch('#eabb96', '#100d0d', '#100d0d', 'long_wavy', dict(kind='tee', color=_TEE), _BO(), _WD('#1a181e'), ['tablet'],
                    dict(_HOLD_TAB, head=(5, 5, 4)), hair_seed=79, hair_wave=0.008),
+    # ---- Zataa Story (hitam-ungu kayak logo; Raditya manajer: tangan bersedekap)
+    'sdir': _ch('#cf9a74', '#120e0e', '#100d0d', 'wavy_crop', dict(kind='tee', color=_TEE), _OV('#1d1b22'), _CG(), ['watch'],
+                dict(_ARMS_CROSS, head=(2, 3, 4), twist=2, foot={-1: (-0.014, 0, 14), 1: (0.014, -0.01, 14)}), hair_seed=81, hair_vol=0.9),
+    'sresearch': _ch('#ecbf9a', '#2a1a14', '#22140f', 'long_wavy', dict(kind='tee', color=_TEE), _BO('#2a1a48'), _WD('#1a181e'), ['tablet'],
+                     dict(_HOLD_TAB, head=(-5, 4, -6)), hair_seed=84),
+    'sscript': _ch('#f0c8a6', '#3a2418', '#2e1a10', 'bob_soft', dict(kind='tee', color=_PUR), _OV('#1d1b22'), _WD(), ['tablet'],
+                   dict(_HOLD_TAB, head=(-4, 3, 5)), glasses='#3b1a6b', glasses_thin=True, hair_seed=87),
+    'svisual': _ch('#d29a72', '#141010', '#120e0e', 'wavy_crop', dict(kind='hoodie', color='#1c1a22', accent='#8b5cf6'), None, _CG(), ['camera'],
+                   dict(_DOWN, head=(-4, 5, 5)), hair_seed=90),
+    'svideo': _ch('#c49470', '#100d0d', '#100d0d', 'wavy_crop', dict(kind='tee', color=_TEE), _BO('#2a1a48'), _CG(), ['headphones'],
+                  dict(_POCKETS, head=(3, 3, -5)), hair_seed=93, hair_vol=1.1),
+    'spublish': _ch('#efc4a0', '#1d1414', '#1a1212', 'pony_wavy', dict(kind='tee', color=_PUR), _BO(), _WD(), ['phone'],
+                    dict(_PHONE_UP, head=(5, 5, 4)), scrunchie='#c4b5fd', hair_seed=96),
 }
 
 # ---------------------------------------------------------------- preset pose (digabung ke pose khas tiap karakter)

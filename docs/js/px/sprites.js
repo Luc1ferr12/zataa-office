@@ -33,6 +33,13 @@ const LOOK = {
   yvisual:    { g: 'm', skin: '#d4a07a', hair: '#262222', style: 'short', kerja: { top: '#4d5d2a', bot: '#2c3038', shoe: '#f4f2ee', sleeve: 'short' } },
   yvideo:     { g: 'm', skin: '#bd8f6b', hair: '#141111', style: 'short2', kerja: { top: '#1e3a8a', bot: '#22222a', shoe: '#f4f2ee', sleeve: 'long', acc: '#f87171' } },
   ypublish:   { g: 'f', skin: '#ecc4a0', hair: '#5a3d2e', style: 'pony', kerja: { top: '#be185d', bot: '#17151d', skirt: 'short', shoe: '#111014', sleeve: 'long', inner: '#f4f2ee' } },
+  // tim Zataa Story (hitam-ungu kayak logo)
+  sdir:       { g: 'm', skin: '#cf9a74', hair: '#120e0e', style: 'short2', kerja: { top: '#1a1622', bot: '#141216', shoe: '#efecf4', sleeve: 'long', inner: '#6d3fc4' } },
+  sresearch:  { g: 'f', skin: '#ecbf9a', hair: '#2a1a14', style: 'long', kerja: { top: '#3b1a6b', bot: '#1a181e', skirt: 'long', shoe: '#efecf4', sleeve: 'long', inner: '#d8c8f0' } },
+  sscript:    { g: 'f', skin: '#f0c8a6', hair: '#3a2418', style: 'bob',  kerja: { top: '#6d3fc4', bot: '#17151d', skirt: 'short', shoe: '#111014', sleeve: 'short', collar: true } },
+  svisual:    { g: 'm', skin: '#d29a72', hair: '#141010', style: 'short', kerja: { top: '#17151d', bot: '#24212a', shoe: '#efecf4', sleeve: 'short', acc: '#9b6bff' } },
+  svideo:     { g: 'm', skin: '#c49470', hair: '#100d0d', style: 'short2', kerja: { top: '#2e1a47', bot: '#141216', shoe: '#efecf4', sleeve: 'long', acc: '#c084fc' } },
+  spublish:   { g: 'f', skin: '#efc4a0', hair: '#1d1414', style: 'pony', kerja: { top: '#141216', bot: '#3b1a6b', skirt: 'short', shoe: '#111014', sleeve: 'long', inner: '#c084fc' } },
 };
 // Senin: jas (cowok), kemeja sekretaris + rok pensil (cewek)
 const FORMAL_M = { top: '#1f2433', bot: '#1f2433', shoe: '#111014', sleeve: 'long', inner: '#f4f2ee', tie: '#7c3aed' };

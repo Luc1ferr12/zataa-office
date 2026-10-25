@@ -16,12 +16,14 @@ export const RZ = (L, lz) => RF(L) + lz;     // lz: 0 = muka ruang, −8 = dindi
 export const SPAN = [[-32, 32], [-32, 32], [-32, 32]];
 export const CORR_SPAN = [[-32, 32], [-32, 32], [-32, 32]];
 // ruang per tingkat: [id, x0, x1, nama]
-// Lt.1 publik (indoor) · Lt.2 kerja (tangga ke Lt.3 di pojok kiri, 3 ruang manajer, 3 bilik divisi) · Lt.3 hiburan, meeting & Bos
+// Lt.1 publik (indoor) · Lt.2 kerja (tangga ke Lt.3 di pojok kiri, 4 ruang manajer, 4 bilik divisi) · Lt.3 hiburan, meeting & Bos
 export const ROOMDEF = {
   1: [['mushola', -32, -20, 'Mushola'], ['wudhu', -20, -17, 'Tempat Wudhu'], ['gudang', -17, -14, 'Gudang Mbak Sari'], ['tangga1', -14, -10, 'Tangga'],
     ['cafe', -10, 13, 'Cafe & Resto'], ['santai', 13, 32, 'Ruang Santai']],
-  2: [['tangga2', -32, -28, 'Tangga'], ['ydirRoom', -28, -21.5, 'R. Manajer YouTube'], ['dirRoom', -21.5, -15, 'R. Marketing Director'], ['tdirRoom', -15, -8.5, 'R. Trading Director'],
-    ['yt', -8.5, 3, 'Bilik YouTube'], ['mkt', 3, 17.5, 'Bilik Marketing'], ['trd', 17.5, 32, 'Bilik Trading']],
+  // 25 Okt 2026: divisi Zataa Story masuk → ruang manajer jadi 4,5 m & bilik dipadatkan (kolom 2,6 m, Trading 2,8 m)
+  2: [['tangga2', -32, -28, 'Tangga'], ['ydirRoom', -28, -23.5, 'R. Manajer YouTube'], ['sdirRoom', -23.5, -19, 'R. Manajer Story'], ['dirRoom', -19, -14.5, 'R. Marketing Director'],
+    ['tdirRoom', -14.5, -10, 'R. Trading Director'], ['yt', -10, -0.7, 'Bilik YouTube'], ['st', -0.7, 8.6, 'Bilik Zataa Story'], ['mkt', 8.6, 20.45, 'Bilik Marketing'],
+    ['trd', 20.45, 32, 'Bilik Trading']],
   3: [['meetM', -32, -24, 'Meeting Marketing'], ['meetT', -24, -18, 'Meeting Trading'], ['meetY', -18, -14, 'Meeting YouTube'],
     ['billiard', -14, 2, 'Billiard'], ['boss', 2, 16, 'Ruang Boss'], ['bioskop', 16, 32, 'Bioskop Mini']],
 };
@@ -125,6 +127,9 @@ mk('meetCarpet', '#3b3656', { tex: noise(5, 0.07), base: 0.47 });
 mk('trdCarpet', '#26323d', { tex: tiles(0.6, 0.04, 0.05), base: 0.46 });
 mk('ytCarpet', '#3a2a30', { tex: tiles(0.6, 0.04, 0.05), base: 0.46 });
 mk('ytRed', '#b91c1c', { base: 0.5 });
+mk('stCarpet', '#1d1527', { tex: tiles(0.6, 0.04, 0.05), base: 0.45 });   // Zataa Story: hitam-ungu (logo docs/assets/zataa-story-logo.png)
+mk('stPanel', '#3b1a6b', { base: 0.47 });
+mk('stPurple', '#6d3fc4', { base: 0.5 });
 mk('cineCarpet', '#2a1f3d', { tex: noise(6, 0.06), base: 0.44 });
 mk('cineWall', '#231a30', { tex: slats(0.5, 0.08), base: 0.44 });
 mk('seatRed', '#9b2335', { base: 0.5 });
@@ -183,26 +188,27 @@ em('candle', '#ffb347', 0.7, 0.7);
 const rgb = ['#7c3aed', '#0891b2', '#db2777', '#65a30d', '#d97706', '#2563eb', '#e11d48', '#0d9488', '#ea580c', '#9333ea'];
 rgb.forEach((c, i) => { em(`rgb${i}`, c, 0.6, 0.9); mk(`acc${i}`, c, { base: 0.5 }); });
 
-// ---------------------------------------------------------------- meja kerja: 8 Marketing (0–7) + 6 Trading (8–13) + 6 YouTube (14–19)
+// ---------------------------------------------------------------- meja kerja: 8 Marketing (0–7) + 6 Trading (8–13) + 6 YouTube (14–19) + 6 Zataa Story (20–25)
 // tiap meja: { x, z, rot, row, team, cell } — orang duduk menghadap monitor (−z)
 // xs = tengah kolom bilik, w = lebar bilik, side = lorong samping (x) dekat pintu
 export const TEAM_DESK = {
-  mkt: { xs: [4.75, 8.0, 11.25, 14.5], w: 3.25, side: 16.8, panel: 'purple' },
-  trd: { xs: [19.5, 23.2, 26.9], w: 3.7, side: 29.3, panel: 'navy' },
-  yt: { xs: [-6.65, -3.35, -0.05], w: 3.3, side: 2.25, panel: 'ytRed' },
+  mkt: { xs: [10.05, 12.65, 15.25, 17.85], w: 2.6, side: 19.7, panel: 'purple' },
+  trd: { xs: [22.0, 24.8, 27.6], w: 2.8, side: 29.65, panel: 'navy' },
+  yt: { xs: [-8.5, -5.9, -3.3], w: 2.6, side: -1.45, panel: 'ytRed' },
+  st: { xs: [0.8, 3.4, 6.0], w: 2.6, side: 7.85, panel: 'stPanel' },
 };
 export const AISLE = { A: -4.8, B: -1.2 };   // lorong baris (lz)
 const ROW_DESK = { A: -7.25, B: -3.6 };   // lz tengah meja
 export const DESK_LIST = [];
-for (const team of ['mkt', 'trd', 'yt']) for (const row of ['A', 'B']) for (const x of TEAM_DESK[team].xs) DESK_LIST.push({ x, lz: ROW_DESK[row], row, team, w: TEAM_DESK[team].w });
+for (const team of ['mkt', 'trd', 'yt', 'st']) for (const row of ['A', 'B']) for (const x of TEAM_DESK[team].xs) DESK_LIST.push({ x, lz: ROW_DESK[row], row, team, w: TEAM_DESK[team].w });
 export const DESKS = DESK_LIST.length;
 // kapasitas tiap tempat (dipakai schedule.js supaya nggak ada yang duduk numpuk)
-export const CAP = { cafe: 28, counter: 8, lounge: 10, garden: 10, lounger: 6, meeting: 10, meetingT: 8, meetingY: 6, cinema: 28, billiard: 8, arcade: 5, waitBoss: 3 };
+export const CAP = { cafe: 28, counter: 8, lounge: 10, garden: 10, lounger: 6, meeting: 10, meetingT: 8, meetingY: 6, cinema: 32, billiard: 8, arcade: 5, waitBoss: 4 };
 // permukaan dinamis (digambar ulang tiap frame oleh pixoffice.js)
 const dynM = (name, color) => mk(name, color, { emissive: true, dyn: name });
 dynM('water', '#2fb3d6');
 for (let i = 0; i < DESKS; i++) dynM(`scr${i}`, '#0b0a14');
-for (const n of ['tvLounge', 'tvMeet', 'tvMeetT', 'tvMeetY', 'tvBoss', 'racks', 'ticker', 'cinema', 'tvDir', 'tvTdir', 'tvYdir']) dynM(n, '#120a26');
+for (const n of ['tvLounge', 'tvMeet', 'tvMeetT', 'tvMeetY', 'tvBoss', 'racks', 'ticker', 'cinema', 'tvDir', 'tvTdir', 'tvYdir', 'tvSdir']) dynM(n, '#120a26');
 export { M as MAT };
 
 // ---------------------------------------------------------------- papan nama: teks 1:1 piksel di bidang yang menghadap kamera
@@ -437,10 +443,13 @@ export function makeSpots() {
     S.cafe.push({ x: tx - 0.85, z: RZ(1, tz), rot: Math.PI / 2, lane: side, cafe: true }, { x: tx + 0.85, z: RZ(1, tz), rot: -Math.PI / 2, lane: side, cafe: true });
     S.cafe.push({ x: tx, z: RZ(1, tz - 0.85), rot: 0, lane: row1 ? -6.0 : -3.15, cafe: true }, { x: tx, z: RZ(1, tz + 0.85), rot: Math.PI, lane: row1 ? -3.15 : -0.4, cafe: true });
   }
-  for (let i = 0; i < 6; i++) {
+  for (let i = 0; i < RESTO.n; i++) {
     const x = RESTO.x0 + 0.5 + i * 1.05;
     S.cafe.push({ x, z: RZ(1, RESTO.lz - 1.0), rot: 0, lane: -5.0 }, { x, z: RZ(1, RESTO.lz + 1.0), rot: Math.PI, lane: -1.2 });
   }
+  // meja bar depan dapur (kursi 28–33): 4 kursi sisi depan, 2 sisi dapur (lewat jalur dapur)
+  for (const x of BAR.front) S.cafe.push({ x, z: RZ(1, BAR.lz + 0.75), rot: 0, lane: -0.25 });
+  for (const x of BAR.back) S.cafe.push({ x, z: RZ(1, BAR.lz - 0.75), rot: Math.PI, lane: BAR.lz - 0.75, via: 'kitchen' });
   S.counter = [0, 1, 2, 3, 4, 5, 6, 7].map((k) => ({ x: -8.6 + k * 0.9, z: RZ(1, -6.3), rot: Math.PI }));
   S.kitchen = { x: -11.5 + CAFE_DX, z: RZ(1, -6.4), rot: Math.PI };
   S.gudang = { x: -7.5 + GUDANG_DX, z: RZ(1, -5.0), rot: -Math.PI / 2 };
@@ -482,19 +491,20 @@ export function makeSpots() {
 
 // angka tata letak per ruangan (dipakai builder & makeSpots)
 const CAFE_TABLES = [[-29.6, -4.6], [-25.9, -4.6], [-29.6, -1.7], [-25.9, -1.7]].map(([x, z]) => [x + CAFE_DX, z]);
-const RESTO = { x0: -22.6 + CAFE_DX, x1: -16.2 + CAFE_DX, lz: -3.2 };
-const CINE_X = [5.2, 6.3, 7.4, 8.5, 9.6, 10.7, 11.8].map((x) => x + CINE_DX);
+const RESTO = { x0: -22.6 + CAFE_DX, x1: -16.2 + CAFE_DX, lz: -3.2, n: 6 };
+const BAR = { x0: 9.0, x1: 12.0, lz: -1.65, front: [9.35, 10.15, 10.95, 11.75], back: [9.8, 11.2] };   // meja bar depan dapur (31 pegawai)
+const CINE_X = [5.0, 6.0, 7.0, 8.0, 9.0, 10.0, 11.0, 12.0].map((x) => x + CINE_DX);   // 4 baris × 8 kursi
 const CINE_ROWS = [{ lz: -5.0, h: 0 }, { lz: -3.65, h: 0.25 }, { lz: -2.3, h: 0.5 }, { lz: -0.95, h: 0.75 }];
 export const CINE_AISLE = 28.4;   // lorong kanan bioskop (x), di atas undakan kursi
 // meja billiard (x tengah, lz tengah): 2 baris × 2
 export const BILLIARD = [[-9.8, -6.0], [-3.6, -6.0], [-9.8, -2.8], [-3.6, -2.8]];
 const ARCADE_X = [25.8, 26.7, 27.6];
 const PINGPONG = { x: 29.8, lz: -3.5 };
-const WAIT_X = [12.6, 11.8, 11.0];
+const WAIT_X = [12.6, 11.8, 11.0, 10.2];
 // meja sekretaris (Aprista) di ruang Bos, kiri depan; kursi di belakang meja menghadap kamera
 export const SEC_DESK = { x: 4.6, lz: -3.2 };
 // ruang manajer Lt.2 (id pegawai → ruang); meja di tengah ruang
-export const MGR_ROOM = { ydir: 'ydirRoom', dir: 'dirRoom', tdir: 'tdirRoom' };
+export const MGR_ROOM = { ydir: 'ydirRoom', sdir: 'sdirRoom', dir: 'dirRoom', tdir: 'tdirRoom' };
 export const mgrX = (id) => (ROOM[MGR_ROOM[id]].x0 + ROOM[MGR_ROOM[id]].x1) / 2;
 // ruang meeting Lt.3: kursi sisi (xs), kursi ujung, lz tengah meja, lorong belakang (east)
 export const MEET = {
@@ -515,7 +525,7 @@ const LOUNGER_X = [10, 11.8, 13.6, 15.4, 17.2, 19.0];
 // label ruangan (posisi dunia) — ditampilkan sebagai HTML di atas canvas
 const ICON = {
   mushola: '🕌', wudhu: '💧', gudang: '🧹', cafe: '☕', santai: '🛋️',
-  ydirRoom: '💼', dirRoom: '💼', tdirRoom: '💼', yt: '🎬', mkt: '💻', trd: '📈',
+  ydirRoom: '💼', sdirRoom: '💼', dirRoom: '💼', tdirRoom: '💼', yt: '🎬', st: '👻', mkt: '💻', trd: '📈',
   meetM: '🗣️', meetT: '🗣️', meetY: '🗣️', billiard: '🎱', boss: '👔', bioskop: '🍿',
 };
 export const ROOMS = [
@@ -633,7 +643,7 @@ export function buildScene(logo) {
     B.ell(MIHRAB_X, y + 2.2, z(-7.8), 0.55, 0.55, 0.02, M.signGold, { cast: false });
     B.ell(MIHRAB_X, y + 2.2, z(-7.78), 0.42, 0.42, 0.02, M.mihrab, { cast: false });
     for (const sx of [-1.2, 1.2]) B.box(0.06, 2.6, 0.05, MIHRAB_X + sx, y + 1.3, z(-7.78), M.lampWarm, { cast: false });
-    const saj = (x, zz, mat) => B.poly([[x - 0.34, y + 0.012, zz + 0.58], [x + 0.34, y + 0.012, zz + 0.58], [x + 0.34, y + 0.012, zz - 0.58], [x - 0.34, y + 0.012, zz - 0.58]], mat, { two: true, cast: false });
+    const saj = (x, zz, mat) => B.poly([[x - 0.3, y + 0.012, zz + 0.58], [x + 0.3, y + 0.012, zz + 0.58], [x + 0.3, y + 0.012, zz - 0.58], [x - 0.3, y + 0.012, zz - 0.58]], mat, { two: true, cast: false });
     const SP = makeSpotsMushola();
     saj(SP.imam.x, SP.imam.z, M.sajadah);
     for (const s of SP.men) saj(s.x, s.z, M.sajadah);
@@ -694,11 +704,18 @@ export function buildScene(logo) {
     // meja makan panjang resto
     B.box(RESTO.x1 - RESTO.x0, 0.07, 1.2, (RESTO.x0 + RESTO.x1) / 2, 0.76, z(RESTO.lz), M.walnut);
     for (const lx of [RESTO.x0 + 0.3, RESTO.x1 - 0.3]) B.box(0.1, 0.72, 1.0, lx, 0.37, z(RESTO.lz), M.dark);
-    for (let i = 0; i < 6; i++) {
+    for (let i = 0; i < RESTO.n; i++) {
       const x = RESTO.x0 + 0.5 + i * 1.05;
       for (const [dz, ry] of [[-1.0, 0], [1.0, Math.PI]]) officeChair(B, x, 0, z(RESTO.lz + dz), ry, M.sofa, 0.9);
       B.box(0.3, 0.02, 0.25, x, 0.8, z(RESTO.lz - 0.3), M.white);
     }
+    // meja bar depan dapur (tambahan kursi makan sejak divisi Zataa Story)
+    const bc = (BAR.x0 + BAR.x1) / 2;
+    B.box(BAR.x1 - BAR.x0, 0.07, 0.7, bc, 0.76, z(BAR.lz), M.walnut);
+    for (const lx of [BAR.x0 + 0.15, BAR.x1 - 0.15]) B.box(0.1, 0.72, 0.6, lx, 0.37, z(BAR.lz), M.dark);
+    for (const x of BAR.front) stool(B, x, 0, z(BAR.lz + 0.75));
+    for (const x of BAR.back) stool(B, x, 0, z(BAR.lz - 0.75));
+    B.ell(bc, 2.7, z(BAR.lz), 0.2, 0.15, 0.2, M.bulb, { cast: false }); L(bc, 2.5, z(BAR.lz), WARM, 3.0, 0.8);
     for (let i = 0; i < 3; i++) { B.ell(RESTO.x0 + 1.2 + i * 2.1, 2.7, z(RESTO.lz), 0.2, 0.15, 0.2, M.bulb, { cast: false }); L(RESTO.x0 + 1.2 + i * 2.1, 2.5, z(RESTO.lz), WARM, 3.2, 1.0); }
     pottedPlant(B, cx(-31.4), z(-0.6), 1.5);
     pottedPlant(B, 12.4, z(-0.7), 1.3, 0, true);
@@ -742,13 +759,15 @@ export function buildScene(logo) {
   }
 
   // ================================================================ LANTAI 2 · KERJA
-  // kiri → kanan: tangga ke Lt.3 · R. Manajer YouTube · R. Marketing Director · R. Trading Director · bilik YouTube · bilik Marketing · bilik Trading
+  // kiri → kanan: tangga ke Lt.3 · R. Manajer YouTube · R. Manajer Story · R. Marketing Director · R. Trading Director
+  //               · bilik YouTube · bilik Zataa Story · bilik Marketing · bilik Trading
   {
     const y = LY[1], z = (lz) => RZ(2, lz);
-    for (const [id, mat] of [['tangga2', M.oak], ['ydirRoom', M.walnut], ['dirRoom', M.walnut], ['tdirRoom', M.walnut], ['yt', M.ytCarpet], ['mkt', M.workwood], ['trd', M.trdCarpet]]) {
+    for (const [id, mat] of [['tangga2', M.oak], ['ydirRoom', M.walnut], ['sdirRoom', M.walnut], ['dirRoom', M.walnut], ['tdirRoom', M.walnut], ['yt', M.ytCarpet], ['st', M.stCarpet], ['mkt', M.workwood], ['trd', M.trdCarpet]]) {
       B.floor(ROOM[id].x0, ROOM[id].x1, z(-8), z(0), mat, y + 0.004);
     }
-    // ---- RUANG MANAJER (Bagas · Andre · Mahendra): meja tengah, kursi menghadap kamera, sofa tamu depan kiri
+    // ---- RUANG MANAJER (Bagas · Raditya · Andre · Mahendra, lebar 4,5 m): meja tengah, kursi menghadap kamera, sofa tamu depan kiri
+    //      jalur masuk ke kursi lewat sisi kanan meja (nav.js: mgrX + 1.9) → pot tanaman di pojok depan kanan
     const mgrRoom = (id, chair, chairScale, sofaMat) => {
       const r = ROOM[MGR_ROOM[id]], cx = mgrX(id);
       B.box(2.4, 0.08, 1.0, cx, y + 0.77, z(-6.0), M.walnut);
@@ -757,7 +776,7 @@ export function buildScene(logo) {
       officeChair(B, cx, y, z(-6.95), 0, chair, chairScale);
       sofa(B, r.x0 + 1.8, z(-1.3), 2.2, sofaMat, 2, y, false);
       B.cyl(0.4, 0.05, r.x0 + 1.8, y + 0.4, z(-2.6), M.marble, 12);
-      pottedPlant(B, r.x1 - 0.55, z(-7.2), 1.4, y, true);
+      pottedPlant(B, r.x1 - 0.4, z(-0.55), 1.2, y, true);
       L(cx, y + 2.6, z(-4), WARM, 4, 0.9);
       return { r, cx };
     };
@@ -766,8 +785,19 @@ export function buildScene(logo) {
       B.box(0.9, 0.52, 0.05, cx, y + 1.15, z(-6.25), M.black);
       B.vquad(0.82, 0.44, cx, y + 1.15, z(-6.22), M.tvYdir, Math.PI);
       bookshelf(B, r.x0 + 0.2, r.x0 + 2.2, y, z(-8) + 0.1);
-      B.box(2.2, 0.75, 0.08, cx + 1.4, y + 2.35, z(-7.9), M.black);
-      label(B, 2.1, 0.65, cx + 1.4, y + 2.35, z(-7.85), M.black, 'SHORTS', M.signRed, 1);
+      B.box(1.8, 0.7, 0.08, cx + 1.15, y + 2.35, z(-7.9), M.black);
+      label(B, 1.7, 0.6, cx + 1.15, y + 2.35, z(-7.85), M.black, 'SHORTS', M.signRed, 1);
+    }
+    {   // Manajer Zataa Story (Raditya): hitam-ungu kayak logo, lilin di meja, papan STORY
+      const { r, cx } = mgrRoom('sdir', M.stPurple, 1.1, M.sofa);
+      B.box(0.9, 0.52, 0.05, cx, y + 1.15, z(-6.25), M.black);
+      B.vquad(0.82, 0.44, cx, y + 1.15, z(-6.22), M.tvSdir, Math.PI);
+      bookshelf(B, r.x0 + 0.2, r.x0 + 2.2, y, z(-8) + 0.1);
+      B.box(1.8, 0.7, 0.08, cx + 1.15, y + 2.35, z(-7.9), M.black);
+      label(B, 1.7, 0.6, cx + 1.15, y + 2.35, z(-7.85), M.black, 'STORY', M.signViolet, 1);
+      B.box(0.08, 0.14, 0.08, cx + 0.95, y + 0.88, z(-5.85), M.candle, { cast: false });
+      B.box(0.12, 0.04, 0.12, cx + 0.95, y + 0.81, z(-5.85), M.brass);
+      L(cx + 0.95, y + 1.2, z(-5.85), PURP, 2.2, 0.7);
     }
     {   // Marketing Director (Andre)
       const { r, cx } = mgrRoom('dir', M.pink, 1.1, M.blanket2);
@@ -779,12 +809,12 @@ export function buildScene(logo) {
     {   // Trading Director (Mahendra): 2 monitor, papan XAUUSD, brankas
       const { r, cx } = mgrRoom('tdir', M.leather, 1.15, M.bossSofa);
       for (const [dx, ry] of [[-0.7, 0.3], [0.7, -0.3]]) { B.box(0.9, 0.52, 0.05, cx + dx, y + 1.15, z(-6.25), M.black, { ry }); B.vquad(0.82, 0.44, cx + dx, y + 1.15, z(-6.22), M.tvTdir, Math.PI + ry); }
-      B.box(4.4, 1.2, 0.08, cx, y + 2.3, z(-7.9), M.black);
-      label(B, 4.2, 1.05, cx, y + 2.3, z(-7.85), M.plaster, 'XAUUSD', M.signGold, 2, M.black);
-      B.box(0.6, 1.0, 0.6, r.x0 + 3.6, y + 0.5, z(-1.0), M.dark);   // brankas
-      B.box(0.2, 0.2, 0.05, r.x0 + 3.6, y + 0.7, z(-0.68), M.brass);
+      B.box(3.5, 1.2, 0.08, cx, y + 2.3, z(-7.9), M.black);
+      label(B, 3.3, 1.05, cx, y + 2.3, z(-7.85), M.plaster, 'XAUUSD', M.signGold, 2, M.black);
+      B.box(0.6, 1.0, 0.6, r.x0 + 0.45, y + 0.5, z(-3.8), M.dark);   // brankas (dinding barat)
+      B.box(0.05, 0.2, 0.2, r.x0 + 0.77, y + 0.7, z(-3.8), M.brass);
     }
-    // ---- BILIK YOUTUBE (6 meja) · MARKETING (8 meja) · TRADING (6 meja)
+    // ---- BILIK YOUTUBE (6 meja) · ZATAA STORY (6 meja) · MARKETING (8 meja) · TRADING (6 meja)
     DESK_LIST.forEach((d, i) => {
       const dz = z(d.lz), trd = d.team === 'trd';
       const w = trd ? 2.6 : 1.9;
@@ -805,15 +835,23 @@ export function buildScene(logo) {
       L(d.x, y + 2.5, dz + 0.5, COOL, 3.4, 0.8);
     });
     for (const T of Object.values(TEAM_DESK)) for (const x of T.xs) B.box(T.w, 1.25, 0.06, x, y + 0.62, z(ROW_DESK.B - 0.48), M[T.panel]);
-    // dinding fitur: YOUTUBE (merah), MARKETING (ungu), video wall harga emas (trading)
-    const mid = (id) => (ROOM[id].x0 + ROOM[id].x1) / 2;
-    B.box(10.6, 0.05, 0.05, mid('yt'), y + 2.9, z(-7.94), M.signRed, { cast: false });
+    // dinding fitur: YOUTUBE (merah), ZATAA STORY (ungu gelap + lampu dinding), MARKETING (ungu), video wall harga emas (trading)
+    const mid = (id) => (ROOM[id].x0 + ROOM[id].x1) / 2, wid = (id) => ROOM[id].x1 - ROOM[id].x0;
+    B.box(wid('yt') - 0.7, 0.05, 0.05, mid('yt'), y + 2.9, z(-7.94), M.signRed, { cast: false });
     label(B, 5.2, 0.9, mid('yt'), y + 2.85, z(-7.92), M.plaster, 'YOUTUBE', M.signRed, 2);
-    B.box(13.6, 0.05, 0.05, mid('mkt'), y + 2.9, z(-7.94), M.lampPurple, { cast: false });
+    B.box(wid('st') - 0.7, 0.05, 0.05, mid('st'), y + 2.9, z(-7.94), M.lampPurple, { cast: false });
+    B.box(6.4, 1.0, 0.06, mid('st'), y + 2.85, z(-7.95), M.black);
+    label(B, 6.2, 0.9, mid('st'), y + 2.85, z(-7.9), M.black, 'ZATAA STORY', M.signViolet, 2);
+    for (const dx of [-3.9, 3.9]) {   // lampu dinding ungu temaram
+      B.box(0.18, 0.4, 0.12, mid('st') + dx, y + 2.85, z(-7.88), M.lampPurple, { cast: false });
+      L(mid('st') + dx, y + 2.6, z(-7.3), PURP, 2.6, 0.7);
+    }
+    B.box(wid('mkt') - 0.7, 0.05, 0.05, mid('mkt'), y + 2.9, z(-7.94), M.lampPurple, { cast: false });
     label(B, 5.2, 0.9, mid('mkt'), y + 2.85, z(-7.92), M.plaster, 'MARKETING', M.signPurple, 2);
     const tx = (ROOM.trd.x0 + TEAM_DESK.trd.xs.at(-1) + TEAM_DESK.trd.w / 2) / 2;
-    B.box(10.4, 1.6, 0.1, tx, y + 2.45, z(-7.9), M.black);
-    B.vquad(10.2, 1.45, tx, y + 2.45, z(-7.84), M.ticker);
+    const tw = TEAM_DESK.trd.xs.at(-1) + TEAM_DESK.trd.w / 2 - ROOM.trd.x0 - 0.5;
+    B.box(tw + 0.2, 1.6, 0.1, tx, y + 2.45, z(-7.9), M.black);
+    B.vquad(tw, 1.45, tx, y + 2.45, z(-7.84), M.ticker);
     // ---- RAK SERVER BOT TRADING (pojok kanan bilik trading)
     for (const rz of [-7.3, -5.9]) {
       B.box(1.4, 2.2, 1.0, 31.0, y + 1.1, z(rz), M.rack);
@@ -918,7 +956,7 @@ export function buildScene(logo) {
     CINE_ROWS.forEach((row, ri) => {
       if (row.h) B.box(8.6, row.h, 1.3, bx(8.9), y + row.h / 2, z(row.lz + 0.15), M.cineCarpet);
       CINE_X.forEach((x, k) => {
-        const love = ri === 3 && (k === 2 || k === 3);
+        const love = ri === 3 && (k === 3 || k === 4);
         const mat = love ? M.purple : M.seatRed;
         B.box(0.82, 0.42, 0.72, x, y + row.h + 0.21, z(row.lz + 0.05), mat);
         B.box(0.82, 0.6, 0.16, x, y + row.h + 0.62, z(row.lz + 0.42), mat);
@@ -1050,7 +1088,8 @@ export function buildScene(logo) {
 function makeSpotsMushola() {
   return {
     imam: { x: MIHRAB_X, z: RZ(1, -6.3) },
-    men: [0, -1, 1, -2, 2, -3, 3, -4, 4, -5, 5, -6].map((k) => ({ x: MIHRAB_X + k * 0.8, z: RZ(1, -5.0) })),
-    women: [0, -1, 1, -2, 2, -3, 3, -4, 4, -5, 5, -6, 6].map((k) => ({ x: MIHRAB_X + k * 0.8, z: RZ(1, -2.5) })),
+    // 31 pegawai: 14 makmum pria, 16 wanita (rapat 0,72 / 0,66 m)
+    men: [0, -1, 1, -2, 2, -3, 3, -4, 4, -5, 5, -6, 6, -7].map((k) => ({ x: MIHRAB_X + k * 0.72, z: RZ(1, -5.0) })),
+    women: [0, -1, 1, -2, 2, -3, 3, -4, 4, -5, 5, -6, 6, -7, 7, 8].map((k) => ({ x: MIHRAB_X + k * 0.66, z: RZ(1, -2.5) })),
   };
 }

@@ -99,6 +99,14 @@ const BANK = {
     [[0, 'Voice-over-nya kecepetan nggak?'], [1, 'Dikit, turunin 5% biar misteriusnya kerasa 🕯️']],
     [[0, 'Topik mitologi Yunani minggu ini apa?'], [1, 'Kotak Pandora aja, orang banyak salah paham']],
   ],
+  story: [   // tim Zataa Story (misteri & horor Nusantara)
+    [[0, 'Ini kejadian beneran atau cuma legenda, {b}?'], [1, 'Legenda. Tulis "konon" ya, jangan diklaim fakta'], [0, 'Siap, aman 👻']],
+    [[0, 'Hook-nya: "Kenapa warga nggak berani lewat jembatan ini lewat jam 12?"'], [1, 'Nah gitu, langsung merinding'], [0, 'Hehe']],
+    [[0, 'Foto arsip KITLV-nya lisensi bebas kan?'], [1, 'Iya, public domain. Kreditnya tetep dicantumin']],
+    [[0, 'VO-nya pelanin dikit, biar kerasa seremnya'], [1, 'Oke, aku turunin tempo + kasih jeda sebelum twist']],
+    [[0, 'TikTok kemarin banyak yang nanya lokasinya'], [1, 'Bikin part 2 aja, sekalian sejarah tempatnya'], [0, 'Gas, aku masukin antrean']],
+    [[0, 'Musiknya jangan yang kena klaim lagi ya'], [1, 'Pakai ambience bikinan sendiri aja, aman']],
+  ],
   // hubungan
   pacaran: [   // Zamiir & Aprista
     [[0, 'Udah makan belum? Jangan kerja mulu 🥺'], [1, 'Belum, nungguin kamu dong'], [0, 'Gombal ah 🙈']],
@@ -212,7 +220,7 @@ const BANK = {
     [[0, 'Ide lagi buntu nih'], [1, 'Coba jalan ke taman 10 menit, biasanya muncul'], [0, 'Oke aku coba']],
   ],
 };
-const KIND_OF = { kerja: 'kerja', trading: 'kerja', youtube: 'kerja', curhat: 'curhat', curhatPutus: 'curhat', pacaran: 'pacaran', pacaran2: 'pacaran', pdkt: 'pdkt',
+const KIND_OF = { kerja: 'kerja', trading: 'kerja', youtube: 'kerja', story: 'kerja', curhat: 'curhat', curhatPutus: 'curhat', pacaran: 'pacaran', pacaran2: 'pacaran', pdkt: 'pdkt',
   gosip: 'gosip', gosipPacaran: 'gosip', jadian: 'gosip', putusGosip: 'gosip', ledek: 'gosip', ultah: 'ultah', ultahSaya: 'ultah', ultahAbis: 'ultah', eventPre: 'event', eventPost: 'event' };
 
 const idxOf = (id) => AGENTS.findIndex((a) => a.id === id);
@@ -252,7 +260,8 @@ function topicOf(p1, p2, ctx, r) {
   if (p1.act === 'coffee' || p1.loc === 'cafe') return r < 0.45 ? 'ngopi' : r < 0.75 ? 'acak' : 'game';
   if (p1.act === 'work' && p2.act === 'work') {
     if (r < 0.25) return 'acak';
-    return p1.a.team === 'trd' && p2.a.team === 'trd' ? 'trading' : p1.a.team === 'yt' && p2.a.team === 'yt' ? 'youtube' : 'kerja';
+    return p1.a.team === 'trd' && p2.a.team === 'trd' ? 'trading' : p1.a.team === 'yt' && p2.a.team === 'yt' ? 'youtube'
+      : p1.a.team === 'st' && p2.a.team === 'st' ? 'story' : 'kerja';
   }
   if (['free', 'break'].includes(p1.act)) return r < 0.3 ? 'santai' : r < 0.6 ? 'game' : 'acak';
   return null;
