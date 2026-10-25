@@ -384,6 +384,10 @@ const PROD = { draft: '📝 naskah/visual', revision: '✏️ revisi', pending_a
 const LAP = { 1: '⏳ antre render laptop', 2: '🎙️ dirender di laptop', 3: '⚠️ render gagal' };
 const prodLine = (c) => `#${c.id} ${esc(c.title.slice(0, 45))} — ${LAP[c.lap] ?? PROD[c.status] ?? esc(c.status)}`;
 async function ytStats() {
+  return ytStatsRaw().catch((e) => ({ st: { list: [], subscribers: null, likes: null, err: e.message }, views: null }));
+}
+const ytOff = (st) => [`⚠️ YouTube belum bisa dibaca: ${esc(st.err.slice(0, 150))}${/kosong di \.env/.test(st.err) ? ` (Bos izinkan sekali di laptop: <code>node scripts/youtube.mjs auth ${BR}</code>, login akun channel ${B.name})` : ''}`];
+async function ytStatsRaw() {
   const r = await run(['scripts/youtube.mjs', 'stats', BR], 3);
   if (!r.ok) throw new Error((r.err || r.out).split('\n').pop().slice(0, 200));
   const st = JSON.parse(r.out.split('\n').pop());
@@ -434,7 +438,7 @@ function retentionLines(ret, list, n = 7) {
 
 export async function dailyReport({ dry = false } = {}) {
   const { st, views } = await ytStats();
-  const ret = await ytRetention().catch(() => null);
+  const ret = st.err ? null : await ytRetention().catch(() => null);
   const tt = await ttStats();
   const d = await db();
   const prev = state().snap;
@@ -452,10 +456,11 @@ export async function dailyReport({ dry = false } = {}) {
   const lines = [
     `📊 <b>Laporan harian ${B.name}</b> · ${hari} ${dm(t.date)}`, '',
     `<b>YouTube ${esc(st.title ?? B.name)}</b>`,
-    `👥 Subscriber: <b>${num(st.subscribers)}</b>${prev ? plus(st.subscribers - prev.subs) : ''}`,
-    `👁️ Views: <b>${num(views)}</b>${prev ? plus(views - prev.views) : ''}`,
-    `👍 Likes: <b>${num(st.likes)}</b>${prev ? plus(st.likes - prev.likes) : ''}`,
-    `🎬 Video tayang: ${st.list.filter((v) => v.privacy === 'public').length}`,
+    ...(st.err ? ytOff(st) : [
+    `👥 Subscriber: <b>${num(st.subscribers)}</b>${prev?.subs != null ? plus(st.subscribers - prev.subs) : ''}`,
+    `👁️ Views: <b>${num(views)}</b>${prev?.views != null ? plus(views - prev.views) : ''}`,
+    `👍 Likes: <b>${num(st.likes)}</b>${prev?.likes != null ? plus(st.likes - prev.likes) : ''}`,
+    `🎬 Video tayang: ${st.list.filter((v) => v.privacy === 'public').length}`]),
     ...rows.slice(0, 5).map((v, i) => `${i + 1}. ${esc(v.title.slice(0, 45))} · 👁️ ${num(v.views)}${plus(v.dv)} · 👍 ${num(v.likes)}${v.privacy !== 'public' ? ` · <i>${v.privacy}</i>` : ''}`),
     ...retentionLines(ret, st.list, 5),
     ...tiktokLines(tt), '',
@@ -468,14 +473,15 @@ export async function dailyReport({ dry = false } = {}) {
   ];
   if (dry) return lines.join('\n');
   await sayAs(T.publish, lines.join('\n'));
-  patchState((s) => { s.snap = { date: t.date, subs: st.subscribers, views, likes: st.likes, videos: Object.fromEntries(st.list.map((v) => [v.id, { v: v.views, l: v.likes }])) }; s.reportDate = t.date; if (st.subscribers >= LONGFORM_SUBS) s.longform = s.longform ?? t.date; });
+  if (!st.err) patchState((s) => { s.snap = { date: t.date, subs: st.subscribers, views, likes: st.likes, videos: Object.fromEntries(st.list.map((v) => [v.id, { v: v.views, l: v.likes }])) }; s.reportDate = t.date; if (st.subscribers >= LONGFORM_SUBS) s.longform = s.longform ?? t.date; });
+  else patchState((s) => { s.reportDate = t.date; }); // tanpa angka YouTube tetap ditandai terkirim (biar nggak dikirim ulang tiap menit)
   return { ok: true, subscribers: st.subscribers, views, likes: st.likes };
 }
 
 // rekap mingguan (Senin–Minggu): target kuota brand (B.week, ≥B.coreMin pilar inti), top video, pilar paling ditonton → bahan evaluasi Bagas
 export async function weeklyReport({ dry = false } = {}) {
   const { st, views } = await ytStats();
-  const ret = await ytRetention().catch(() => null);
+  const ret = st.err ? null : await ytRetention().catch(() => null);
   const tt = await ttStats();
   const d = await db();
   const t = wita(new Date());
@@ -496,8 +502,8 @@ export async function weeklyReport({ dry = false } = {}) {
   const lines = [
     `🗓️ <b>Laporan mingguan ${B.name}</b> · ${dm(wk.mon)}–${dm(wk.sun)}`, '',
     `<b>YouTube ${esc(st.title ?? B.name)}</b>`,
-    `👥 Subscriber: <b>${num(st.subscribers)}</b>${prev ? plus(st.subscribers - prev.subs) : ''} · target video panjang ${num(LONGFORM_SUBS)}`,
-    `👁️ Views: <b>${num(views)}</b>${prev ? plus(views - prev.views) : ''}`, '',
+    ...(st.err ? ytOff(st) : [`👥 Subscriber: <b>${num(st.subscribers)}</b>${prev?.subs != null ? plus(st.subscribers - prev.subs) : ''} · target video panjang ${num(LONGFORM_SUBS)}`,
+    `👁️ Views: <b>${num(views)}</b>${prev?.views != null ? plus(views - prev.views) : ''}`]), '',
     '<b>Produksi</b>',
     `🎬 ${rows.length}/${WEEK_TOTAL} Shorts · 📢 tayang ${live.length} · ${PILLARS[CORE].label} ${!wk.quota ? '– (kuota baru mulai 26 Okt)' : tagged ? `${wk.core}/${CORE_MIN}${wk.core >= CORE_MIN ? ' ✅' : ' ⚠️'}` : '– (belum lewat bank topik)'} · ❌ ditolak ${rejected} · ✏️ revisi ${rows.reduce((a, r) => a + (r.revisions ?? 0), 0)}×`,
     ...(live.length ? ['', '<b>Top video minggu ini</b>', ...[...live].sort((a, b) => b.v.views - a.v.views).slice(0, 3).map((r, i) => `${i + 1}. #${r.id} ${esc(r.title.slice(0, 45))} · 👁️ ${num(r.v.views)} · 👍 ${num(r.v.likes)}`)] : []),
@@ -510,7 +516,7 @@ export async function weeklyReport({ dry = false } = {}) {
   ].filter((l, i, a) => l !== '' || a[i - 1] !== '');
   if (dry) return lines.join('\n').trim();
   await sayAs(T.publish, lines.join('\n').trim());
-  patchState((s) => { s.weekSnap = { date: t.date, subs: st.subscribers, views }; s.weeklyDate = t.date; });
+  patchState((s) => { if (!st.err) s.weekSnap = { date: t.date, subs: st.subscribers, views }; s.weeklyDate = t.date; });
   return { ok: true, shorts: rows.length, core: wk.core };
 }
 
