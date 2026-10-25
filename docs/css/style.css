@@ -90,6 +90,9 @@ main { padding: 20px 24px 40px; max-width: 1440px; margin: 0 auto; display: grid
 .panel { display: grid; gap: 14px; animation: panel-in .25s ease; }
 .panel[hidden] { display: none; }
 .panel.two { grid-template-columns: 1fr 1fr; align-items: stretch; }
+.panel.three { grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: stretch; }
+@media (max-width: 1300px) { .panel.three { grid-template-columns: 1fr 1fr; } .panel.three .chat.fun { grid-column: 1 / -1; } }
+@media (max-width: 900px) { .panel.three { grid-template-columns: 1fr; } }
 @keyframes panel-in { from { opacity: 0; transform: translateY(6px); } }
 /* aktivitas & chit-chat sama tinggi (list di dalamnya scroll) */
 .week, .activity, .chat { display: flex; flex-direction: column; }
@@ -101,8 +104,9 @@ main { padding: 20px 24px 40px; max-width: 1440px; margin: 0 auto; display: grid
 .week-sub small { color: var(--muted); font-weight: 500; text-transform: none; letter-spacing: 0; font-size: 11px; }
 .activity-list, .chat-list { height: 420px; max-height: none; }
 .chat-list { list-style: none; margin: 0; padding: 0 4px 0 0; display: flex; flex-direction: column; gap: 10px; overflow: auto; }
-.chat-list li { display: grid; grid-template-columns: 28px 1fr; gap: 8px; align-items: start; }
-.chat-list .av { width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; font-size: 12px; font-weight: 700; color: #fff; }
+.chat-list li { display: grid; grid-template-columns: 40px 1fr; gap: 9px; align-items: start; }
+.chat-list .av { position: relative; width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; font-size: 15px; font-weight: 700; color: #fff; overflow: hidden; box-shadow: 0 0 0 2px var(--panel, #1a1726); }
+.chat-list .av img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; transform: scale(1.12); background: inherit; }
 .chat-list .msg { background: var(--panel-2, rgba(127, 127, 160, 0.12)); border-radius: 4px 12px 12px 12px; padding: 7px 10px; font-size: 13px; line-height: 1.45; min-width: 0; overflow-wrap: anywhere; }
 .chat-list .meta { display: flex; gap: 6px; align-items: baseline; font-size: 11.5px; color: var(--muted); margin-bottom: 2px; }
 .chat-list .meta b { color: var(--text, inherit); font-size: 12px; }
@@ -110,6 +114,10 @@ main { padding: 20px 24px 40px; max-width: 1440px; margin: 0 auto; display: grid
 .chat-list li.curhat .msg { box-shadow: inset 3px 0 0 #db2777; }
 .chat-list li.bos .msg { box-shadow: inset 3px 0 0 #d4a63a; }
 .chat-list li.pacaran .msg { box-shadow: inset 3px 0 0 #f472b6; }
+.chat-list li.pdkt .msg { box-shadow: inset 3px 0 0 #fb7185; }
+.chat-list li.gosip .msg { box-shadow: inset 3px 0 0 #a78bfa; }
+.chat-list li.ultah .msg { box-shadow: inset 3px 0 0 #fbbf24; background: rgba(251, 191, 36, 0.1); }
+.chat-list li.event .msg { box-shadow: inset 3px 0 0 #22d3ee; background: rgba(34, 211, 238, 0.08); }
 .chat-list .empty { color: var(--muted); font-size: 12.5px; display: block; }
 .card {
   --acc: var(--brand); position: relative; overflow: hidden;
@@ -118,7 +126,7 @@ main { padding: 20px 24px 40px; max-width: 1440px; margin: 0 auto; display: grid
 }
 .card::before { content: ''; position: absolute; inset: 0 0 auto; height: 2px; background: linear-gradient(90deg, var(--acc), transparent 80%); }
 .card.week { --acc: var(--c-mkt); } .card.social { --acc: var(--c-pink); } .card.team { --acc: var(--c-boss); }
-.card.activity { --acc: var(--c-teal); } .card.chat { --acc: var(--c-pink); } .card.trading { --acc: var(--c-trd); }
+.card.activity { --acc: var(--c-teal); } .card.chat { --acc: var(--c-pink); } .card.chat.work { --acc: var(--c-mkt); } .card.trading { --acc: var(--c-trd); }
 .card-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; margin-bottom: 12px; }
 
 .week-grid { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 8px; }
@@ -150,7 +158,7 @@ main { padding: 20px 24px 40px; max-width: 1440px; margin: 0 auto; display: grid
 .team-list .division b { font: 600 10.5px Sora, sans-serif; color: var(--acc); background: color-mix(in srgb, var(--acc) 16%, transparent); border-radius: 99px; padding: 0 7px; }
 .team-list .division small { margin-left: auto; color: var(--muted); font-size: 10.5px; line-height: 1.35; }
 .member {
-  position: relative; display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 9px; align-items: center;
+  position: relative; display: grid; grid-template-columns: 66px minmax(0, 1fr); gap: 10px; align-items: center;
   padding: 6px 8px; border-radius: 10px; cursor: pointer; border: 1px solid transparent;
   background: color-mix(in srgb, var(--acc) 5%, transparent); transition: background .15s, border-color .15s;
 }
@@ -162,7 +170,11 @@ main { padding: 20px 24px 40px; max-width: 1440px; margin: 0 auto; display: grid
 .member .who strong { display: block; font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .member .who strong small { color: var(--muted); font-weight: 400; font-size: 11px; }
 .member .who span { color: var(--muted); font-size: 11.5px; display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.member .mood { position: absolute; left: 30px; top: 26px; font-size: 12px; font-style: normal; line-height: 1; filter: drop-shadow(0 1px 1px #000a); }
+/* potret setengah badan chibi (blender/toy_portraits.py PORTRAIT=bust); belum ada → muka; gagal → inisial */
+.bust { width: 66px; height: 78px; border-radius: 10px; position: relative; overflow: hidden; display: grid; place-items: center; font: 700 18px Sora, sans-serif; color: #fff;
+  background: radial-gradient(circle at 50% 35%, color-mix(in srgb, var(--av) 70%, #fff 8%), color-mix(in srgb, var(--av) 55%, #0b0814)); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--acc, var(--brand)) 55%, transparent); }
+.bust img { position: absolute; left: 50%; top: -4%; width: 150%; height: auto; transform: translateX(-50%); object-fit: contain; }
+.member .mood { position: absolute; left: 60px; top: 62px; font-size: 12px; font-style: normal; line-height: 1; filter: drop-shadow(0 1px 1px #000a); }
 .activity-list { overflow: auto; align-content: start; }
 .activity-list li { font-size: 12.5px; padding: 6px 0; border-bottom: 1px dashed var(--line); }
 .activity-list time { color: var(--muted); font-size: 11.5px; margin-right: 6px; font-variant-numeric: tabular-nums; }
@@ -175,6 +187,7 @@ main { padding: 20px 24px 40px; max-width: 1440px; margin: 0 auto; display: grid
 .sim select { background: var(--panel-2); color: var(--text); border: 1px solid var(--line); border-radius: 8px; padding: 3px 6px; font: inherit; }
 .sim output { font: 600 13px Sora, sans-serif; min-width: 44px; font-variant-numeric: tabular-nums; }
 .sim .sep { width: 1px; height: 18px; background: var(--line); }
+.theme-pick { display: flex; align-items: center; gap: 6px; font-size: 13px; }
 .play { background: var(--brand); color: #fff; border: 0; border-radius: 999px; width: 28px; height: 28px; cursor: pointer; font-size: 12px; }
 .play:disabled { opacity: .4; cursor: default; }
 .insp-mood { margin: -4px 0 10px; }
@@ -191,12 +204,6 @@ main { padding: 20px 24px 40px; max-width: 1440px; margin: 0 auto; display: grid
 .px-labels { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
 .px-labels > * { position: absolute; left: 0; top: 0; will-change: transform; }
 .px-labels > [hidden] { display: none; }
-.room-label {
-  display: flex; align-items: center; gap: 4px; padding: 1px 8px 2px; border-radius: 4px; white-space: nowrap;
-  font: 700 12px 'Pixelify Sans', Sora, sans-serif; letter-spacing: 0.02em; color: #fff;
-  background: #160b34e0; border: 2px solid #8b5cf6; box-shadow: 0 2px 0 #0008; pointer-events: none;
-}
-.room-label span { font-size: 11px; }
 .office-title {
   position: absolute; top: 12px; left: 14px; z-index: 3; pointer-events: none; display: grid; gap: 2px;
   padding: 8px 12px 9px; border-radius: 6px; background: #12082bd9; border: 2px solid #7c3aed; box-shadow: 0 3px 0 #0009;

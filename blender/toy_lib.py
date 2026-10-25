@@ -1,11 +1,16 @@
 # Library karakter gaya "3D mainan" (toy / vinyl chibi) kantor Zataa.
 # Semua bentuk dibuat dari primitif membulat yang dilebur (voxel remesh + smooth) → kesan dipahat.
 # Data tiap pegawai ada di CHARS (rambut, kacamata, baju dalam/luar, bawahan, sepatu, properti, pose).
-import bpy, bmesh, math, random
+import bpy, bmesh, math, random, os
 from math import radians, sqrt
 from mathutils import Vector, Matrix
 
+# gaya: 'toy' (lama, dipakai sprite kantor) | 'chibi' (gaya poster roster: seragam hitam-ungu, mata anime, rambut helaian)
+STYLE = os.environ.get('TOY_STYLE', 'toy')
 COLL = None
+VOX = 1.0    # pengali ukuran voxel fuse (chibi: lebih rapat = lebih halus)
+CHIN = 0.0   # chibi: dagu meruncing (0 = kepala bola)
+HEAD_NOD = 0.0   # sprite kantor: kamera tinggi → kepala chibi didongakkan biar muka kelihatan (diatur toy_sprites.py)
 def setup(collection):
     global COLL
     COLL = collection
@@ -142,7 +147,7 @@ def fuse(objs, voxel=0.0045, smooth=10):
     bpy.context.view_layer.objects.active = objs[0]
     bpy.ops.object.join()
     ob = objs[0]
-    r = ob.modifiers.new('rm', 'REMESH'); r.mode = 'VOXEL'; r.voxel_size = voxel
+    r = ob.modifiers.new('rm', 'REMESH'); r.mode = 'VOXEL'; r.voxel_size = voxel * VOX
     bpy.ops.object.modifier_apply(modifier='rm')
     if smooth:
         sm = ob.modifiers.new('sm', 'SMOOTH'); sm.factor = 0.9; sm.iterations = smooth
@@ -283,6 +288,83 @@ CHARS = {
 }
 LOW_SHOES = ('flat', 'slipon', 'pump', 'lowheel', 'loafer', 'oxford')
 
+# ---------------------------------------------------------------- gaya chibi poster (override CHARS kalau STYLE == 'chibi')
+_CH = dict(chibi=True, eyes='pixar', head_scale=0.86, neck_up=0.02, leg=1.0, shoe_scale=1.14)
+_J1 = dict(kind='sneaker', jordan=True, color='#f4f2ee', sole='#f4f2ee', accent='#7c3aed', dark='#1d1b22')
+_POCKETS = dict(pocket=[-1, 1], el={-1: (-0.168, 0.012, 0.55), 1: (0.168, 0.012, 0.55)},
+                wr={-1: (-0.112, -0.05, 0.448), 1: (0.112, -0.05, 0.448)})
+_ARMS_CROSS = dict(cross=True, pocket=[-1, 1], el={-1: (-0.158, -0.05, 0.56), 1: (0.158, -0.07, 0.55)},
+                   wr={-1: (0.07, -0.13, 0.565), 1: (-0.075, -0.172, 0.585)})
+_BLK, _TEE, _PUR, _WHT = '#151318', '#1a181e', '#6d4bb3', '#efecf4'
+_HOLD_TAB = dict(pocket=[], el={-1: (-0.15, -0.045, 0.54), 1: (0.155, -0.03, 0.53)}, wr={-1: (-0.055, -0.15, 0.565), 1: (0.07, -0.15, 0.59)})
+_PHONE_UP = dict(pocket=[-1], el={-1: (-0.168, 0.012, 0.55), 1: (0.168, -0.012, 0.548)}, wr={-1: (-0.112, -0.05, 0.448), 1: (0.085, -0.135, 0.56)})
+_DOWN = dict(pocket=[], el={-1: (-0.147, 0.022, 0.548), 1: (0.147, 0.022, 0.548)}, wr={-1: (-0.15, -0.035, 0.458), 1: (0.15, -0.035, 0.458)})
+_ONE_POCKET = dict(pocket=[1], el={-1: (-0.147, 0.022, 0.548), 1: (0.168, 0.012, 0.55)}, wr={-1: (-0.15, -0.035, 0.458), 1: (0.112, -0.05, 0.448)})
+def _ch(skin, hair, brow, style, top, outer, bottom, props, pose, **kw):
+    return dict(_CH, skin=skin, hair=hair, brow=brow, iris='#3a2418', hair_style=style, top=top, outer=outer, bottom=bottom,
+                shoe=kw.pop('shoe', _J1), props=['lanyard'] + props, card='#24212a', pose=pose, **kw)
+_OV = lambda c=_BLK: dict(kind='overshirt', color=c, accent='#8b5cf6')
+_BO = lambda c='#1f1a28': dict(kind='bomber_open', color=c, accent='#8b5cf6')
+_CG = lambda c='#141216': dict(kind='cargo', color=c, baggy=True)
+_WD = lambda c=_WHT: dict(kind='wide', color=c, cargo=True)
+CHIBI = {
+    # ---- Owner & sekretaris (lembar referensi Owner)
+    'owner': _ch('#eab48e', '#110c0b', '#191311', 'wavy_crop', dict(kind='tee', color='#0f0e12'), _OV(), _CG(), ['watch'],
+                 dict(_POCKETS, head=(1, 2, 0), twist=0, foot={-1: (-0.03, 0, 12), 1: (0.03, 0, 12)}), watch_side=1),
+    'sec': _ch('#efbe9c', '#2b1a14', '#2a1b15', 'pony_wavy', dict(kind='tee', color=_TEE), _BO(), _WD(), ['sling'],
+               dict(_POCKETS, head=(2, 2, 0), twist=0, foot={-1: (-0.022, 0, 10), 1: (0.022, 0, 10)}), scrunchie='#8b5cf6'),
+    'ob': _ch('#d9a27c', '#1d1616', '#1a1414', 'pony_wavy', dict(kind='shirt', color=_WHT, sleeve='rolled'), None, dict(kind='pants', color='#1a181e'),
+              ['apron'], dict(_DOWN, el={**_DOWN['el'], 1: (0.15, -0.07, 0.53)}, wr={**_DOWN['wr'], 1: (0.07, -0.17, 0.72)}, hold={1: 'cup'}, head=(4, 2, 0)),
+              scrunchie='#8b5cf6', hair_seed=8),
+    # ---- Marketing
+    'dir': _ch('#e6b08a', '#1a1412', '#171210', 'wavy_crop', dict(kind='tee', color=_PUR), _OV('#1d1b22'), _CG(), [],
+               dict(_ARMS_CROSS, head=(-3, 3, -6), twist=-3, foot={-1: (-0.014, 0, 14), 1: (0.014, -0.01, 14)}), hair_seed=5),
+    'researcher': _ch('#efc29f', '#3a2418', '#2e1c14', 'long_wavy', dict(kind='tee', color=_TEE), _BO(), _WD('#1a181e'), ['tablet'],
+                      dict(_HOLD_TAB, head=(-4, 3, -5)), glasses='#2a2030', hair_seed=12),
+    'price': _ch('#d29a72', '#141010', '#120e0e', 'wavy_crop', dict(kind='tee', color=_PUR), _OV(), _CG(), ['phone'],
+                 dict(_PHONE_UP, head=(-3, 8, 4)), glasses='#1d1d22', hair_seed=14, hair_vol=0.8),
+    'copywriter': _ch('#ecbc98', '#5a2a18', '#4a2214', 'long_wavy', dict(kind='tee', color=_PUR), _BO(), _WD(), ['tablet'],
+                      dict(_HOLD_TAB, head=(5, 3, 4)), hair_seed=21),
+    'designer': _ch('#f0c6a4', '#4b2f7a', '#3a2460', 'bob_soft', dict(kind='hoodie', color='#5b3fa0', accent='#c4b5fd'), None, _WD('#1a181e'), ['tablet'],
+                    dict(_HOLD_TAB, head=(-5, 2, 6)), hair_seed=31),
+    'publisher': _ch('#d8a47c', '#151111', '#131010', 'wavy_crop', dict(kind='hoodie', color='#1c1a22', accent='#8b5cf6'), None, _CG(), ['camera'],
+                     dict(_DOWN, head=(-4, 4, 5)), hair_seed=9),
+    'video': _ch('#cf9a72', '#120f0f', '#110e0e', 'wavy_crop', dict(kind='tee', color=_TEE), _BO(), _CG(), ['headphones', 'phone'],
+                 dict(_PHONE_UP, head=(3, 6, -5)), hair_seed=17, hair_vol=1.15),
+    'ads': _ch('#efc4a2', '#6d4bb3', '#3a2a22', 'hijab_soft', dict(kind='tee', color=_TEE), _BO(), _WD('#1a181e'), ['phone'],
+               dict(_PHONE_UP, head=(5, 6, 4))),
+    'analyst': _ch('#d8a47e', '#2a1c14', '#22160f', 'wavy_crop', dict(kind='tee', color=_PUR), _OV(), _CG(), ['tablet'],
+                   dict(_HOLD_TAB, head=(4, 4, -6)), glasses='#2563eb', hair_seed=23, hair_vol=0.9),
+    # ---- YouTube Shorts
+    'ydir': _ch('#cf9a74', '#141010', '#120e0e', 'wavy_crop', dict(kind='tee', color=_TEE), _OV(), _CG(), ['watch'],
+                dict(_POCKETS, head=(2, 2, 3)), hair_seed=41, hair_vol=0.85),
+    'yresearch': _ch('#ecbf9a', '#3b3566', '#3a2416', 'hijab_soft', dict(kind='tee', color=_TEE), _BO(), _WD(), ['tablet'],
+                     dict(_HOLD_TAB, head=(-5, 4, -6)), glasses='#3b2a22'),
+    'yscript': _ch('#f0c8a6', '#2b211c', '#1f1814', 'bob_soft', dict(kind='tee', color=_PUR), _BO(), _WD('#1a181e'), ['tablet'],
+                   dict(_HOLD_TAB, head=(-4, 3, 5)), glasses='#7c2d12', glasses_thin=True, hair_seed=44),
+    'yvisual': _ch('#d4a07a', '#1d1a1a', '#1a1717', 'wavy_crop', dict(kind='tee', color=_TEE), _OV(), _CG(), ['camera'],
+                   dict(_DOWN, head=(-4, 5, 5)), hair_seed=47),
+    'yvideo': _ch('#c49470', '#100d0d', '#100d0d', 'wavy_crop', dict(kind='hoodie', color='#1c1a22', accent='#8b5cf6'), None, _CG(), ['headphones'],
+                  dict(_POCKETS, head=(3, 3, -5)), hair_seed=52, hair_vol=1.1),
+    'ypublish': _ch('#efc4a0', '#3e2a20', '#2e1d16', 'pony_wavy', dict(kind='tee', color=_PUR), _BO(), _WD(), ['phone'],
+                    dict(_PHONE_UP, head=(5, 5, 4)), scrunchie='#c4b5fd', hair_seed=55),
+    # ---- Trading XAUUSD
+    'tdir': _ch('#d2a07a', '#0f0c0c', '#0f0c0c', 'wavy_crop', dict(kind='shirt', color=_PUR, sleeve='long'), dict(kind='blazer', color='#151318'),
+                dict(kind='pants', color='#151318'), ['tie', 'watch'], dict(_ONE_POCKET, head=(2, 2, 3)), tie='#1d1b22', hair_seed=61, hair_vol=0.8),
+    'tresearch': _ch('#efc29e', '#2a1810', '#24140c', 'long_wavy', dict(kind='shirt', color=_WHT, sleeve='long'), dict(kind='blazer', color='#2a1d44'),
+                     _WD('#151318'), ['tablet'], dict(_HOLD_TAB, head=(-5, 4, -6)), glasses='#2a2a30', glasses_thin=True, hair_seed=64),
+    'ttech': _ch('#ecbe98', '#100d0d', '#100d0d', 'pony_wavy', dict(kind='tee', color=_TEE), _BO(), _WD(), ['tablet'],
+                 dict(_HOLD_TAB, head=(4, 3, 6)), scrunchie='#8b5cf6', hair_seed=67),
+    'trisk': _ch('#c89270', '#100d0d', '#100d0d', 'wavy_crop', dict(kind='hoodie', color='#151318', accent='#8b5cf6'), None, _CG(), [],
+                 dict(_POCKETS, head=(3, 6, 4)), glasses='#1d1d22', hair_seed=71, hair_vol=0.9),
+    'texec': _ch('#d4a07a', '#3a2418', '#2e1a10', 'wavy_crop', dict(kind='tee', color=_TEE), _BO('#2a1a48'), _CG(), ['headphones', 'watch'],
+                 dict(_POCKETS, head=(-3, 3, -5)), hair_seed=73),
+    'teval': _ch('#f0c6a2', '#6e5a48', '#4a3a2c', 'bob_soft', dict(kind='tee', color=_PUR), _OV('#1d1b22'), _WD(), ['tablet'],
+                 dict(_HOLD_TAB, head=(-4, 3, 5)), glasses='#2a2a30', hair_seed=76),
+    'treport': _ch('#eabb96', '#100d0d', '#100d0d', 'long_wavy', dict(kind='tee', color=_TEE), _BO(), _WD('#1a181e'), ['tablet'],
+                   dict(_HOLD_TAB, head=(5, 5, 4)), hair_seed=79, hair_wave=0.008),
+}
+
 # ---------------------------------------------------------------- preset pose (digabung ke pose khas tiap karakter)
 SIT_DROP = 0.16
 _SIT_LEGS = dict(sit=True, drop=SIT_DROP, knee={-1: (-0.062, -0.2, 0.44), 1: (0.062, -0.2, 0.44)},
@@ -351,19 +433,26 @@ def shade(hex_, k):
 # ---------------------------------------------------------------- karakter
 H = Vector((0, 0, 0.9)); R = (0.185, 0.17, 0.185)
 BODY_SCALE = 1.7   # skala karakter di dunia kantor (tinggi ±1,9 m termasuk kepala besar)
+def chin_f(z):
+    zz = (z - H.z) / R[2]
+    return 1.0 if zz >= 0 else 1 - CHIN * min(-zz, 1.0) ** 1.6
+
 def surf(x, z, out=0.0):
-    k = 1 - (x / R[0]) ** 2 - ((z - H.z) / R[2]) ** 2
-    return Vector((x, -R[1] * sqrt(max(k, 0)) - out, z))
+    k = 1 - (x / (R[0] * chin_f(z))) ** 2 - ((z - H.z) / R[2]) ** 2
+    return Vector((x, -R[1] * (1 - (1 - chin_f(z)) * 0.4) * sqrt(max(k, 0)) - out, z))
 
 def build(cid, loc=(0, 0, 0), yaw=0.0, pose_name='stand'):
     cfg = CHARS[cid]
-    root = bpy.data.objects.new(cfg['name'], None); COLL.objects.link(root)
+    if STYLE == 'chibi' and cid in CHIBI: cfg = {**cfg, **CHIBI[cid]}
+    global VOX, CHIN
+    VOX, CHIN = (0.7, 0.15) if cfg.get('chibi') else (1.0, 0.0)
+    root =bpy.data.objects.new(cfg['name'], None); COLL.objects.link(root)
     P = root; g = cfg['g']; props = list(cfg.get('props', []))
     base = cfg.get('pose', {})
     over = POSES[pose_name]
     if over:   # pose aktivitas: kaki/lengan diganti, gaya kepala karakter tetap
         base = {k: v for k, v in base.items() if k in ('head', 'twist', 'lean')}
-        props = [p for p in props if p not in ('notebook', 'phone', 'duster')]   # dasi & jam tangan tetap dipakai
+        props = [p for p in props if p not in ('notebook', 'phone', 'duster', 'tablet', 'camera')]   # dasi, jam, lanyard, tas tetap dipakai
         if 'head' in over and 'head' in base:   # gabung miringnya kepala khas karakter dengan pose
             over = {**over, 'head': tuple(a + b * 0.5 for a, b in zip(over['head'], base['head']))}
     pose = {**base, **over}
@@ -375,15 +464,17 @@ def build(cid, loc=(0, 0, 0), yaw=0.0, pose_name='stand'):
             cfg.update(hair_style='mukena', hair='#f7f5f0', outer=None, top=dict(kind='tunic', color='#f7f5f0', color2='#f7f5f0'),
                        bottom=dict(kind='skirt', color='#f7f5f0', length='ankle'))
         else:
-            cfg['peci'] = True; cfg['outer'] = None; cfg['hair_style'] = 'short_neat'
+            cfg['peci'] = True; cfg['outer'] = None
+            if not cfg.get('chibi'): cfg['hair_style'] = 'short_neat'
     nm = cfg['name']
-    skin = mat('skin', cfg['skin'], 0.5, sss=0.15)
+    skin = mat('skin', cfg['skin'], 0.5, sss=0.15 if not cfg.get('chibi') else 0.3)
     skinD = mat('skinD', shade(cfg['skin'], -0.08), 0.5, sss=0.1)
-    hair = mat('hair', cfg['hair'], 0.5, coat=0.12)
+    hair = mat('hair', cfg['hair'], 0.5, coat=0.12) if not cfg.get('chibi') else mat('hairS', cfg['hair'], 0.42, sheen=0.05, coat=0.1)
     T, O, B, S = cfg['top'], cfg.get('outer'), cfg['bottom'], cfg['shoe']
+    SH_ = 0.08 if cfg.get('chibi') else 1.0
     top = (pattern_mat('tunic_' + nm, 'stripe', T['color'], T['color2'], 70) if T['kind'] == 'tunic' and T['color'] != T['color2']
-           else mat('top', T['color'], 0.8, sheen=0.4))
-    bot = mat('bot', B['color'], 0.75, sheen=0.3)
+           else mat('top', T['color'], 0.8, sheen=0.4 * SH_))
+    bot = mat('bot', B['color'], 0.75, sheen=0.3 * SH_)
     POCKET = pose.get('pocket', [])
 
     SH = {s: Vector((0.118 * s, 0.0, 0.652)) for s in (-1, 1)}
@@ -436,19 +527,33 @@ def build(cid, loc=(0, 0, 0), yaw=0.0, pose_name='stand'):
         torus('waistband', (0, 0, 0.468), (0, 0, 1), 0.101, 0.0085, bot, P)
     else:
         parts = [ellipsoid('hips', (0, 0.0, 0.44), (0.11, 0.08, 0.065), bot, P)]
-        wide = 0.004 if B['kind'] == 'cargo' else 0.0
+        wide = (0.014 if B.get('baggy') else 0.004) if B['kind'] == 'cargo' else 0.0
+        flare = 0.017 if B['kind'] == 'wide' else 0.0   # celana kulot: makin ke bawah makin lebar
         for s in (-1, 1):
-            parts.append(capsule('pleg', HIP[s], KN[s], 0.052 + wide, bot, P, r2=0.047 + wide))
-            parts.append(capsule('pleg2', KN[s], AK[s], 0.047 + wide, bot, P, r2=0.044 + wide))
+            parts.append(capsule('pleg', HIP[s], KN[s], 0.052 + wide + flare * 0.3, bot, P, r2=0.047 + wide + flare * 0.7))
+            parts.append(capsule('pleg2', KN[s], AK[s] + Vector((0, 0, -0.012 if flare else 0)), 0.047 + wide + flare * 0.7, bot, P, r2=0.044 + wide + flare))
         fuse(parts, 0.0035, 8)
-        for s in (-1, 1): torus('pcuff', AK[s] + Vector((0, 0, 0.005)), (KN[s] - AK[s]).normalized(), 0.043 + wide, 0.006, bot, P)
-        if B['kind'] == 'cargo':  # saku samping
+        if flare:
+            for s in (-1, 1): boolean_cut(parts[0], AK[s] + Vector((0, 0, -0.06)), (0.2, 0.2, 0.1))   # ujung rata
+        if not cfg.get('chibi'):
+            for s in (-1, 1): torus('pcuff', AK[s] + Vector((0, 0, 0.005)), (KN[s] - AK[s]).normalized(), 0.043 + wide, 0.006, bot, P)
+        if cfg.get('chibi') and (B['kind'] == 'cargo' or B.get('cargo')):   # saku cargo berpenutup, saku depan, lipatan di mata kaki
+            pk = mat('cargo2', shade(B['color'], -0.06), 0.85, sheen=0.3)
+            for s in (-1, 1):
+                x0 = KN[s].x + (0.046 + wide + flare * 0.6) * s
+                rbox('cargopocket', (x0, 0.0, 0.29), (0.026, 0.08, 0.09), pk, 0.012, P)
+                rbox('cargoflap', (x0 + 0.004 * s, 0.0, 0.337), (0.032, 0.086, 0.026), pk, 0.009, P)
+                capsule('fpocket', (0.068 * s, -0.075, 0.455), (0.1 * s, -0.05, 0.38), 0.003, mat('pseam', shade(B['color'], -0.25), 0.8), P)
+                leg_r = 0.044 + wide + flare
+                torus('stack', AK[s] + Vector((0, 0, 0.018)), (KN[s] - AK[s]).normalized() + Vector((0.12 * s, 0, 0)), leg_r - 0.002, 0.007 if not flare else 0.011, bot, P)
+        elif B['kind'] == 'cargo':  # saku samping
             for s in (-1, 1):
                 rbox('cargopocket', (0.105 * s, -0.01, 0.31), (0.022, 0.07, 0.08), mat('cargo2', shade(B['color'], -0.08), 0.8), 0.01, P)
         if B['kind'] == 'jeans':  # jahitan kuning khas jeans
             for s in (-1, 1):
                 capsule('seam', HIP[s] + Vector((0.043 * s, -0.01, -0.01)), KN[s] + Vector((0.046 * s, 0, 0)), 0.0022, mat('seam', '#d9a441', 0.6), P)
                 capsule('seam', KN[s] + Vector((0.046 * s, 0, 0)), AK[s] + Vector((0.042 * s, 0, 0.015)), 0.0022, mat('seam', '#d9a441', 0.6), P)
+    pre_shoe = set(o.name for o in P.children)
     # sepatu
     shoe = mat('shoe', S['color'], 0.4 if S['kind'] != 'sneaker' else 0.6, coat=0.8 if S['kind'] in ('pump', 'oxford', 'lowheel') else 0.5 if S['kind'] != 'sneaker' else 0.1)
     sole = mat('sole', S.get('sole', '#f2efe9' if S['kind'] != 'sneaker' else '#ffffff'), 0.6)
@@ -487,10 +592,29 @@ def build(cid, loc=(0, 0, 0), yaw=0.0, pose_name='stand'):
             for i in range(3):
                 objs.append(capsule('lace', (-0.018, -0.03 - i * 0.017, 0.07 - i * 0.006), (0.018, -0.03 - i * 0.017, 0.07 - i * 0.006), 0.004, lace, P))
             objs.append(ellipsoid('toecap', (0, -0.085, 0.03), (0.04, 0.03, 0.022), sole, P))
+            if S.get('jordan'):
+                pm = mat('j1p', S['accent'], 0.45, coat=0.2); dk = mat('j1d', S.get('dark', '#1d1b22'), 0.45, coat=0.2)
+                objs.append(ellipsoid('j1toe', (0, -0.07, 0.038), (0.0488, 0.05, 0.017), pm, P))
+                objs.append(ellipsoid('j1heel', (0, 0.034, 0.046), (0.0465, 0.034, 0.042), dk, P))
+                objs.append(torus('j1collar', (0, 0.006, 0.112), (0, 0.15, 1), 0.039, 0.009, dk, P))
+                for sx in (-1, 1):
+                    objs.append(rbox('j1eye', (0.026 * sx, -0.035, 0.066), (0.012, 0.06, 0.012), dk, 0.005, P, rot=Matrix.Rotation(radians(-16), 4, 'X').to_quaternion()))
+            if S.get('accent'):
+                ac = mat('snkacc', S['accent'], 0.5, coat=0.2)
+                for sx in (-1, 1):
+                    objs += [capsule('swoosh', (0.046 * sx, -0.07, 0.03), (0.047 * sx, -0.02, 0.042), 0.004, ac, P, r2=0.007),
+                             capsule('swoosh', (0.047 * sx, -0.02, 0.042), (0.042 * sx, 0.03, 0.05), 0.007, ac, P, r2=0.003)]
+                if not S.get('jordan'): objs.append(ellipsoid('heeltab', (0, 0.06, 0.06), (0.026, 0.012, 0.03), ac, P))
         Rz = Matrix.Rotation(radians(FT[s][2] * s), 4, 'Z') @ Matrix.Rotation(radians(pose.get('toe', {}).get(s, 0)), 4, 'X')
         base = Vector((AK[s].x, AK[s].y, AK[s].z - ankle_h))
-        for o in objs: o.matrix_basis = Matrix.Translation(base) @ Rz @ o.matrix_basis
+        Ssh = Matrix.Scale(cfg.get('shoe_scale', 1.0), 4)
+        for o in objs: o.matrix_basis = Matrix.Translation(base) @ Rz @ Ssh @ o.matrix_basis
     lower = set(o.name for o in P.children)
+    Ls = cfg.get('leg', 1.0)   # chibi: kaki dipendekkan dari mata kaki ke atas
+    if Ls != 1.0:
+        Mz = Matrix.Translation((0, 0, 0.075)) @ Matrix.Diagonal((1, 1, Ls, 1)) @ Matrix.Translation((0, 0, -0.075))
+        for o in P.children:
+            if o.name in pre_shoe: o.matrix_basis = Mz @ o.matrix_basis
 
     # ================= ATAS
     capsule('neck', (0, 0, 0.64), (0, 0.004, 0.74), 0.04, skin, P)
@@ -606,16 +730,21 @@ def build(cid, loc=(0, 0, 0), yaw=0.0, pose_name='stand'):
     # ---- baju luar (terbuka di depan, kecuali bomber)
     if O:
         ok = O['kind']
-        oc = pattern_mat('flannel_' + nm, 'plaid', O['color'], O['color2'], 55) if ok == 'flannel' else mat('outer', O['color'], 0.8, sheen=0.35)
-        oz0 = {'blazer': 0.38, 'cardigan': 0.36, 'flannel': 0.38, 'parka': 0.33, 'jacket': 0.39, 'bomber': 0.42, 'vest': 0.4, 'techwear': 0.37}[ok]
-        outer = garment(oc, oz0, 1.07, 'none' if ok == 'vest' else 'long', sr=0.004)
+        oc = pattern_mat('flannel_' + nm, 'plaid', O['color'], O['color2'], 55) if ok == 'flannel' else mat('outer', O['color'], 0.8, sheen=0.35 * SH_)
+        oz0 = {'blazer': 0.38, 'cardigan': 0.36, 'flannel': 0.38, 'parka': 0.33, 'jacket': 0.39, 'bomber': 0.42, 'vest': 0.4, 'techwear': 0.37, 'overshirt': 0.385, 'bomber_open': 0.415}[ok]
+        outer = garment(oc, oz0, 1.07, 'none' if ok == 'vest' else 'rolled' if ok == 'overshirt' else 'long', sr=0.004)
         trim = mat('otrim', shade(O['color'], -0.15 if O['color'] != '#1c1b22' else 0.12), 0.8)
         if ok != 'bomber':
             wb, wt = {'blazer': (0.012, 0.056), 'cardigan': (0.02, 0.046), 'flannel': (0.026, 0.046), 'jacket': (0.028, 0.04), 'parka': (0.03, 0.044),
-                      'vest': (0.016, 0.06), 'techwear': (0.026, 0.038)}[ok]
+                      'vest': (0.016, 0.06), 'techwear': (0.026, 0.038), 'overshirt': (0.03, 0.05), 'bomber_open': (0.034, 0.048)}[ok]
             edge_m = mat('zip', '#c9c9c9', 0.3, metal=0.7) if ok in ('jacket', 'parka', 'techwear') else trim
-            front_opening(outer, top, oz0 + 0.03, 0.716, wb, wt, edge_m, 0.0042 if ok != 'blazer' else 0.0055)
-        if ok != 'vest': cuffs('long', trim if ok in ('bomber', 'cardigan', 'techwear') else oc, 0.035, 0.0065 if ok != 'bomber' else 0.01, sr=0.004)
+            if pose.get('cross'):   # lengan bersilang di depan: bukaan dihitung dari badan saja, bukan lengan
+                tmp = garment(oc, oz0, 1.07, 'none', sr=0.004)
+                front_opening(tmp, top, oz0 + 0.03, 0.716, wb, wt, edge_m, 0.0042)
+                bpy.data.objects.remove(tmp, do_unlink=True)
+            else: front_opening(outer, top, oz0 + 0.03, 0.716, wb, wt, edge_m, 0.0042 if ok != 'blazer' else 0.0055)
+        if ok == 'overshirt': cuffs('rolled', oc)
+        elif ok != 'vest': cuffs('long', trim if ok in ('bomber', 'cardigan', 'techwear', 'bomber_open') else oc, 0.035, 0.0065 if ok != 'bomber' else 0.01, sr=0.004)
         if ok == 'vest':   # rompi: kancing + saku welt
             for j in range(3): ellipsoid('vbtn', (0.026, -0.097, 0.56 - j * 0.05), (0.006, 0.004, 0.006), mat('vbtnc', '#3a3a40', 0.3, coat=0.6), P)
             for s_ in (-1, 1): rbox('vwelt', (0.06 * s_, -0.094, 0.5), (0.04, 0.008, 0.007), trim, 0.003, P)
@@ -628,6 +757,30 @@ def build(cid, loc=(0, 0, 0), yaw=0.0, pose_name='stand'):
             for s_ in (-1, 1):
                 rbox('tpocket', (0.07 * s_, -0.096, 0.47), (0.045, 0.012, 0.05), trim, 0.006, P)
                 capsule('trefl', SH[s_].lerp(EL[s_], 0.55) + Vector((0.038 * s_, -0.005, 0)), SH[s_].lerp(EL[s_], 0.55) + Vector((0.034 * s_, -0.03, -0.004)), 0.004, mat('trefl', '#a78bfa', 0.3, emit=0.6), P)
+        acc = mat('oacc', O.get('accent', '#8b5cf6'), 0.5, sheen=0.3)
+        if ok == 'overshirt':   # hood di punggung, aksen ungu (dalam gulungan lengan, tab ujung), logo Z di dada kiri
+            ellipsoid('ohood', (0, 0.082, 0.68), (0.115, 0.04, 0.07), oc, P)
+            torus('ohoodrim', (0, 0.012, 0.7), (0, 0.45, 1), 0.066, 0.011, oc, P)
+            for s_ in (-1, 1):
+                torus('rollp', EL[s_].lerp(WR[s_], 0.4), WR[s_] - EL[s_], 0.033, 0.004, acc, P)
+                rbox('hemtab', (0.075 * s_, -0.1, oz0 + 0.022), (0.018, 0.008, 0.012), acc, 0.003, P)
+            zmark((0.068, -0.101, 0.64), 0.022, acc, P, normal=(0.25, -1, 0), r=0.0028)
+        if ok == 'bomber_open':   # bomber: kerah & ujung rib, garis + logo Z ungu di lengan
+            torus('bcollar', (0, 0.0, 0.704), (0, 0.32, 1), 0.066, 0.014, trim, P)
+            vs = [outer.matrix_basis @ v.co for v in outer.data.vertices if abs(v.co.z - oz0 - 0.012) < 0.006]
+            rx = max((abs(v.x) for v in vs), default=0.12); ry = max((abs(v.y) for v in vs), default=0.09)
+            ring = [Vector((math.sin(math.radians(a)) * rx, -math.cos(math.radians(a)) * ry, oz0 + 0.012)) for a in range(24, 337, 12)]
+            for a_, b_ in zip(ring, ring[1:]): capsule('bhem', a_, b_, 0.009, trim, P)
+            for s_ in (-1, 1):
+                for f_ in (0.15, 0.5):
+                    a_ = SH[s_].lerp(EL[s_], f_) + Vector((0.044 * s_, -0.006, 0)); b_ = SH[s_].lerp(EL[s_], f_ + 0.38) + Vector((0.042 * s_, -0.006, 0))
+                    capsule('bstripe', a_, b_, 0.0065, acc, P)
+                zmark(SH[s_].lerp(EL[s_], 0.45) + Vector((0.026 * s_, -0.038, 0)), 0.03, acc, P, normal=(0.6 * s_, -1, 0), r=0.0034)
+        if ok == 'blazer' and cfg.get('chibi'):
+            lap_ = mat('lapelC', shade(O['color'], 0.12), 0.6, sheen=0.4)
+            for s_ in (-1, 1):
+                rbox('lapel', (0.046 * s_, -0.095, 0.615), (0.03, 0.007, 0.15), lap_, 0.006, P,
+                     rot=(Matrix.Rotation(radians(22 * s_), 4, 'Z') @ Matrix.Rotation(radians(18 * s_), 4, 'Y')).to_quaternion())
         if ok == 'blazer':
             lap = mat('lapel', shade(O['color'], 0.1), 0.7)
             ellipsoid('btn', (0.034, -0.096, 0.47), (0.009, 0.005, 0.009), mat('btnd', '#c8a25a', 0.3, metal=0.6), P)
@@ -662,9 +815,42 @@ def build(cid, loc=(0, 0, 0), yaw=0.0, pose_name='stand'):
         ellipsoid('tieknot', (0, -0.088, 0.688), (0.014, 0.009, 0.013), tm, P)
         rbox('tie1', (0, -0.094, 0.625), (0.026, 0.006, 0.11), tm, 0.004, P)
         rbox('tie2', (0, -0.096, 0.545), (0.034, 0.006, 0.07), tm, 0.006, P)
+    if 'lanyard' in props and not pose.get('pray'):   # tali ID ungu + kartu pegawai
+        ly = mat('lanyard', '#7c3aed', 0.55, sheen=0.3)
+        zc = 0.52
+        for s in (-1, 1):
+            pts = [Vector((0.062 * s, 0.01, 0.712)), Vector((0.058 * s, -0.07, 0.695)), Vector((0.034 * s, -0.106, 0.62)), Vector((0.008 * s, -0.113, zc + 0.05))]
+            for a, b in zip(pts, pts[1:]): capsule('lany', a, b, 0.0045, ly, P)
+        rbox('idclip', (0, -0.114, zc + 0.045), (0.014, 0.008, 0.016), mat('idclip', '#b8bcc4', 0.3, metal=0.8), 0.003, P)
+        rbox('idcard', (0, -0.116, zc), (0.056, 0.006, 0.076), mat('idcard', cfg.get('card', '#f7f5fb'), 0.4, coat=0.4), 0.006, P)
+        if cfg.get('card'):   # kartu gelap + logo Z
+            zmark((0, -0.1195, zc - 0.004), 0.026, mat('zlogo', '#a78bfa', 0.4, emit=0.6), P, r=0.0026)
+        else:
+            rbox('idband', (0, -0.1195, zc + 0.024), (0.056, 0.002, 0.02), ly, 0.002, P)
+            rbox('idphoto', (-0.013, -0.1195, zc - 0.008), (0.018, 0.002, 0.024), mat('idphoto', '#c9c3d6', 0.5), 0.002, P)
+            for j in range(2): rbox('idline', (0.012, -0.1195, zc - 0.002 - j * 0.012), (0.018, 0.002, 0.004), mat('idline', '#a8a2b8', 0.5), 0.001, P)
+    if 'bag' in props and not pose.get('pray'):   # tas selempang ungu di pinggul kanan
+        bg_ = mat('bag', '#4c2f8a', 0.45, coat=0.3)
+        capsule('bstrap', (-0.1, 0.01, 0.705), (0.18, -0.03, 0.47), 0.006, mat('bstrap', '#1d1b22', 0.6), P)
+        rbox('bag', (0.185, -0.03, 0.42), (0.045, 0.11, 0.1), bg_, 0.018, P, rot=Matrix.Rotation(radians(8), 4, 'Y').to_quaternion())
+        rbox('bagflap', (0.21, -0.03, 0.445), (0.006, 0.105, 0.06), mat('bagflap', '#5b3fa0', 0.45, coat=0.3), 0.004, P, rot=Matrix.Rotation(radians(8), 4, 'Y').to_quaternion())
+        rbox('bagbuckle', (0.215, -0.03, 0.43), (0.006, 0.018, 0.012), mat('idclip', '#b8bcc4', 0.3, metal=0.8), 0.002, P)
+    if 'sling' in props and not pose.get('pray'):   # tas selempang hitam: tali dari bahu kiri menyilang ke pinggul kanan
+        bk = mat('sling', '#1c1a20', 0.5, coat=0.2)
+        for a_, b_ in (((-0.1, 0.0, 0.725), (-0.135, -0.075, 0.64)), ((-0.135, -0.075, 0.64), (-0.165, -0.06, 0.49)),
+                       ((-0.1, 0.0, 0.725), (-0.14, 0.08, 0.62)), ((-0.14, 0.08, 0.62), (-0.175, 0.05, 0.49))):
+            capsule('sstrap', a_, b_, 0.009, bk, P)
+        rbox('slingbag', (-0.175, -0.01, 0.43), (0.05, 0.12, 0.11), bk, 0.022, P, rot=Matrix.Rotation(radians(-8), 4, 'Y').to_quaternion())
+        rbox('slingflap', (-0.2, -0.012, 0.455), (0.008, 0.116, 0.065), mat('slingf', '#26232b', 0.45, coat=0.3), 0.006, P, rot=Matrix.Rotation(radians(-8), 4, 'Y').to_quaternion())
+        rbox('slingbuckle', (-0.206, -0.012, 0.432), (0.006, 0.016, 0.014), mat('idclip', '#b8bcc4', 0.3, metal=0.8), 0.002, P)
+    if 'tablet' in props and not pose.get('pray'):   # tablet hitam dipeluk di depan dada, dipegang dua tangan
+        c = (WR[-1] + WR[1]) / 2 + Vector((0, -0.012, 0.045))
+        rq = Matrix.Rotation(radians(-14), 4, 'X') @ Matrix.Rotation(radians(-8), 4, 'Y')
+        rbox('tablet', c, (0.14, 0.011, 0.19), mat('tablet', '#1a1820', 0.3, coat=0.7), 0.012, P, rot=rq.to_quaternion())
+        rbox('tabletlogo', c + rq.to_3x3() @ Vector((0, -0.0065, 0.02)), (0.022, 0.002, 0.022), mat('tablogo', '#7c3aed', 0.3, emit=0.4), 0.004, P, rot=rq.to_quaternion())
     if 'watch' in props and not pose.get('pray'):
-        s_ = -1
-        if s_ not in POCKET:
+        s_ = cfg.get('watch_side', -1)
+        if s_ not in POCKET or cfg.get('chibi'):
             d = (WR[s_] - EL[s_]).normalized(); c = WR[s_] - d * 0.03
             torus('wband', c, d, 0.03, 0.0065, mat('wband', '#141218', 0.5), P)
             out_ = Vector((s_ * 0.9, -0.45, 0.2)).normalized()
@@ -759,9 +945,14 @@ def build(cid, loc=(0, 0, 0), yaw=0.0, pose_name='stand'):
     lip = mat('lip', '#b8525a' if g == 'f' else '#8a4a42', 0.4); blush = mat('blush', '#f08c8c', 0.6)
     brow = mat('brow', cfg['brow'], 0.6)
     style = cfg['hair_style']
-    ellipsoid('head', H, R, skin, P)
+    hd = ellipsoid('head', H, R, skin, P, seg=64)
+    if CHIN:
+        for v in hd.data.vertices: v.co.x *= chin_f(v.co.z + H.z); v.co.y *= 1 - (1 - chin_f(v.co.z + H.z)) * 0.4
+    anime = cfg.get('eyes') in ('anime', 'pixar')
     for s in (-1, 1):
-        if style != 'hijab': ellipsoid('ear', (0.182 * s, 0.01, 0.885), (0.025, 0.02, 0.035), skin, P)
+        if not style.startswith('hijab'): ellipsoid('ear', (0.182 * s, 0.01, 0.875), (0.025, 0.02, 0.035) if not cfg.get('chibi') else (0.03, 0.021, 0.042), skin, P)
+        if anime: continue
+
         ellipsoid('eye', surf(0.062 * s, 0.885, -0.004), (0.019, 0.012, 0.028), eye, P)
         ellipsoid('hl', surf(0.068 * s, 0.898, 0.004), (0.006, 0.004, 0.007), hl, P)
         bp = surf(0.064 * s, 0.937, 0.002)
@@ -771,27 +962,37 @@ def build(cid, loc=(0, 0, 0), yaw=0.0, pose_name='stand'):
             ellipsoid('blush', surf(0.1 * s, 0.85, -0.002), (0.024, 0.006, 0.014), blush, P)
             for k in range(3):
                 capsule('lash', surf((0.074 + k * 0.006) * s, 0.903 + k * 0.002, 0.0), surf((0.082 + k * 0.008) * s, 0.91 + k * 0.004, 0.006), 0.0028, eye, P)
-    ellipsoid('nose', surf(0, 0.853, -0.006), (0.016, 0.012, 0.013), skinD, P)
-    pts = [surf(((i / 8 - 0.5) * 2) * 0.026, 0.815 + 0.009 * ((i / 8 - 0.5) * 2) ** 2, 0.001) for i in range(9)]
-    for i in range(8): capsule('mouth', pts[i], pts[i + 1], 0.0045, lip, P)
+    if anime: pixar_face(cfg, g, P, skin, skinD) if cfg.get('eyes') == 'pixar' else anime_face(cfg, g, P, skinD)
+    else:
+        ellipsoid('nose', surf(0, 0.853, -0.006), (0.016, 0.012, 0.013), skinD, P)
+        pts = [surf(((i / 8 - 0.5) * 2) * 0.026, 0.815 + 0.009 * ((i / 8 - 0.5) * 2) ** 2, 0.001) for i in range(9)]
+        for i in range(8): capsule('mouth', pts[i], pts[i + 1], 0.0045, lip, P)
 
     if cfg.get('glasses'):
         fr = mat('glassframe', cfg['glasses'], 0.3, coat=0.6)
         thick = 0.0055 if cfg['glasses'] == '#2563eb' else 0.0032 if cfg.get('glasses_thin') else 0.0042
+        GX, GZ, GR = (0.068, 0.86, 0.042) if cfg.get('eyes') == 'pixar' else (0.062, 0.888, 0.034)   # chibi: mata lebih besar
         for s in (-1, 1):
-            c = surf(0.062 * s, 0.888, 0.016)
-            torus('lensring', c, (0.22 * s, -1, 0), 0.034, thick, fr, P)
-            capsule('temple', c + Vector((0.033 * s, 0.004, 0.004)), Vector((0.178 * s, 0.0, 0.9)), thick * 0.8, fr, P)
-        capsule('bridge', surf(0.03, 0.895, 0.02), surf(-0.03, 0.895, 0.02), thick * 0.8, fr, P)
+            c = surf(GX * s, GZ, 0.018)
+            torus('lensring', c, (0.22 * s, -1, 0), GR, thick, fr, P)
+            capsule('temple', c + Vector((GR * s, 0.004, 0.004)), Vector((0.178 * s, 0.0, GZ + 0.012)), thick * 0.8, fr, P)
+        capsule('bridge', surf(GX - GR + 0.004, GZ + 0.007, 0.022), surf(-(GX - GR + 0.004), GZ + 0.007, 0.022), thick * 0.8, fr, P)
 
     hair_style(style, cfg, hair, P)
     if cfg.get('peci'):
-        frustum('peci', (0, 0.01, 1.075), 0.165, 0.158, 0.08, mat('peci', '#17151d', 0.6, sheen=0.5), P, bevel=0.012, seg=48)
+        pz, pr = (1.075, 0.165) if not cfg.get('chibi') else (1.13, 0.17)
+        frustum('peci', (0, 0.012, pz), pr, pr - 0.007, 0.085, mat('peci', '#17151d', 0.6, sheen=0.5), P, bevel=0.012, seg=48)
+
+    hs = cfg.get('head_scale', 1.0)   # chibi: kepala lebih besar (skala dari pangkal leher)
+    if hs != 1.0 or cfg.get('neck_up'):
+        S_ = Matrix.Translation((0, 0, 0.7 + cfg.get('neck_up', 0))) @ Matrix.Scale(hs, 4) @ Matrix.Translation((0, 0, -0.7))
+        for o in [o for o in P.children if o.name not in before_head]: o.matrix_basis = S_ @ o.matrix_basis
 
     # ================= POSE: kepala miring/nengok, badan atas muter & condong
     def rot_about(ob, pivot, M):
         ob.matrix_basis = Matrix.Translation(pivot) @ M @ Matrix.Translation(-Vector(pivot)) @ ob.matrix_basis
     roll, nod, turn = pose.get('head', (0, 0, 0))
+    if cfg.get('chibi') and not pose.get('lie'): nod += HEAD_NOD
     RH = Matrix.Rotation(radians(turn), 4, 'Z') @ Matrix.Rotation(radians(roll), 4, 'Y') @ Matrix.Rotation(radians(nod), 4, 'X')
     for o in [o for o in P.children if o.name not in before_head]: rot_about(o, Vector((0, 0, 0.73)), RH)
     for o in P.children:
@@ -804,11 +1005,353 @@ def build(cid, loc=(0, 0, 0), yaw=0.0, pose_name='stand'):
         zmin = min(p.z for p in pts); ymid = (min(p.y for p in pts) + max(p.y for p in pts)) / 2
         lift = pose.get('lie_z', 0.40) / (cfg.get('scale', 1.0) * BODY_SCALE)
         for o in P.children: o.matrix_basis = Matrix.Translation(Vector((0, -ymid, lift - zmin))) @ o.matrix_basis
+    if Ls != 1.0:
+        dz = (0.45 - 0.075) * (1 - Ls)
+        for o in P.children:
+            if o.name not in lower: o.matrix_basis = Matrix.Translation((0, 0, -dz)) @ o.matrix_basis
     root.location = Vector(loc) - Vector((0, 0, pose.get('drop', 0) * sc)); root.rotation_euler = (0, 0, radians(yaw))
     root.scale = (sc, sc, sc)
     return root
 
+# ---------------------------------------------------------------- wajah chibi (mata besar berkilau ala poster)
+def face_pt(x, z, out=0.0):
+    """titik di permukaan muka + normalnya"""
+    p = surf(x, z)
+    n = Vector((p.x / R[0] ** 2, p.y / R[1] ** 2, (p.z - H.z) / R[2] ** 2)).normalized()
+    return p + n * out, n
+
+def anime_face(cfg, g, P, skinD):
+    white = mat('sclera', '#fbf8f6', 0.3, coat=0.6)
+    iris = mat('iris_' + cfg.get('iris', '#5a3423'), cfg.get('iris', '#5a3423'), 0.15, coat=1.0)
+    irisL = mat('irisL_' + cfg.get('iris', '#5a3423'), shade(cfg.get('iris', '#5a3423'), 0.35), 0.15, coat=1.0)
+    pupil = mat('pupil', '#140c09', 0.1, coat=1.0); hl = mat('eyehl', '#ffffff', 0.3, emit=2.0)
+    lid = mat('lid', '#1a1210', 0.4); brow = mat('brow', cfg['brow'], 0.6)
+    blush = mat('blushC', '#f2a0a0', 0.6); lip = mat('lipC', '#c0666a' if g == 'f' else '#a8615a', 0.4)
+    EX, EZ = 0.066, 0.872
+    def put(name, x, z, out, r, m):
+        p, n = face_pt(x, z, out)
+        return ellipsoid(name, p, r, m, P, rot=n.to_track_quat('Y', 'Z'), seg=40)
+    for s in (-1, 1):
+        x = EX * s
+        put('sclera', x, EZ, -0.002, (0.031, 0.006, 0.04), white)
+        put('iris', x - 0.002 * s, EZ - 0.003, 0.0012, (0.026, 0.0065, 0.035), iris)
+        put('irisL', x - 0.002 * s, EZ - 0.014, 0.0022, (0.019, 0.006, 0.013), irisL)   # pantulan bawah iris lebih terang
+        put('pupil', x - 0.002 * s, EZ + 0.002, 0.0032, (0.012, 0.006, 0.017), pupil)
+        put('hl', x + 0.009 * s, EZ + 0.012, 0.006, (0.009, 0.004, 0.011), hl)
+        put('hl2', x - 0.011 * s, EZ - 0.015, 0.0055, (0.0045, 0.003, 0.0045), hl)
+        # kelopak atas tebal melengkung (+ ekor bulu mata untuk cewek)
+        arc = [face_pt(x + t * 0.033 * s, EZ + 0.037 - 0.013 * t * t - (0.004 * t if t > 0 else 0), 0.002)[0] for t in [i / 6 - 1 for i in range(13)]]
+        for a, b in zip(arc, arc[1:]): capsule('lid', a, b, 0.0048 if g == 'f' else 0.0038, lid, P)
+        if g == 'f':
+            tip = face_pt(x + 0.043 * s, EZ + 0.024, 0.004)[0]
+            capsule('lash', arc[-1], tip, 0.0035, lid, P, r2=0.0015)
+        bp = face_pt(x + 0.002 * s, EZ + 0.072, 0.002)[0]
+        capsule('brow', bp + Vector((-0.024 * s, 0, 0.001)), bp + Vector((0.022 * s, 0, -0.003)), 0.0055 if g == 'm' else 0.0042, brow, P, r2=0.0035)
+        put('blush', 0.1 * s, 0.825, -0.001, (0.024, 0.004, 0.013), blush)
+    put('nose', 0, 0.835, -0.004, (0.009, 0.007, 0.008), skinD)
+    pts = [face_pt(t * 0.016, 0.8 + 0.006 * t * t, 0.0)[0] for t in [i / 4 - 1 for i in range(9)]]
+    for a, b in zip(pts, pts[1:]): capsule('mouth', a, b, 0.0035, lip, P)
+
+def pixar_face(cfg, g, P, skin, skinD):
+    """mata besar bulat gelap, alis tebal, hidung kecil, senyum tipis (gaya figur 3D Pixar)"""
+    ic = cfg.get('iris', '#3a2418')
+    white = mat('sclera', '#fbf8f6', 0.3, coat=0.6)
+    iris = mat('irisP_' + ic, ic, 0.12, coat=1.0); irisL = mat('irisPL_' + ic, shade(ic, 0.35), 0.15, coat=1.0)
+    pupil = mat('pupil', '#0d0807', 0.1, coat=1.0); hl = mat('eyehl', '#ffffff', 0.3, emit=2.0)
+    lid = mat('lid', '#17100e', 0.4); brow = mat('browP', cfg['brow'], 0.75, sheen=0.4)
+    blush = mat('blushP', '#f0aaa2', 0.7); lip = mat('lipP', '#c47c76' if g == 'f' else '#b47a6e', 0.45)
+    EX, EZ = 0.068, 0.858
+    def put(name, x, z, out, r, m):
+        p, n = face_pt(x, z, out)
+        return ellipsoid(name, p, r, m, P, rot=n.to_track_quat('Y', 'Z'), seg=40)
+    for s in (-1, 1):
+        x = EX * s
+        put('sclera', x, EZ, -0.003, (0.034, 0.006, 0.037), white)
+        put('iris', x - 0.002 * s, EZ - 0.001, 0.001, (0.0285, 0.0065, 0.033), iris)
+        put('irisL', x - 0.002 * s, EZ - 0.015, 0.002, (0.019, 0.006, 0.012), irisL)
+        put('pupil', x - 0.002 * s, EZ + 0.001, 0.003, (0.0145, 0.006, 0.0165), pupil)
+        put('hl', x + 0.009 * s, EZ + 0.012, 0.0055, (0.009, 0.004, 0.01), hl)
+        put('hl2', x - 0.011 * s, EZ - 0.014, 0.005, (0.004, 0.003, 0.004), hl)
+        ts = [i / 7 - 1 for i in range(15)]
+        arc = [face_pt(x + t * 0.036 * s, EZ + 0.032 - 0.015 * t * t + 0.002 * t, 0.0025)[0] for t in ts]
+        for i, (a, b) in enumerate(zip(arc, arc[1:])):
+            r_ = 0.0026 + 0.0026 * math.sin(math.pi * min(i / (len(arc) - 2) * 1.15, 1))
+            capsule('lid', a, b, r_, lid, P, r2=r_)
+        if g == 'f':
+            for j in range(3):
+                b0 = arc[-1 - j * 2]
+                capsule('lash', b0, b0 + Vector((0.008 * s, -0.004, 0.006 + j * 0.002)), 0.0022, lid, P, r2=0.0008)
+        bz = EZ + (0.064 if g == 'm' else 0.068)
+        bpts = [face_pt(x + t * 0.026 * s, bz + 0.004 * (1 - t * t) + (0.0 if g == 'm' else 0.003 * (1 - t * t)) - 0.003 * t, 0.002)[0] for t in [i / 5 - 1 for i in range(11)]]
+        for i, (a, b) in enumerate(zip(bpts, bpts[1:])):
+            r_ = (0.0072 if g == 'm' else 0.0042) * (1 - 0.45 * i / 9)
+            capsule('brow', a, b, r_, brow, P, r2=r_)
+        put('blush', 0.098 * s, 0.82, -0.002, (0.024, 0.004, 0.013), blush)
+    put('nose', 0, 0.826, -0.003, (0.012, 0.013, 0.011), skin)
+    put('noseS', 0, 0.818, -0.005, (0.011, 0.01, 0.006), skinD)
+    pts = [face_pt(t * 0.015, 0.795 + 0.0045 * t * t, 0.0)[0] for t in [i / 4 - 1 for i in range(9)]]
+    for a, b in zip(pts, pts[1:]): capsule('mouth', a, b, 0.0026, lip, P)
+    put('lowlip', 0, 0.789, -0.003, (0.008, 0.004, 0.004), mat('lowlip', '#e3a89c', 0.5))
+
+def zmark(c, size, m, P, normal=(0, -1, 0), r=None):
+    """huruf Z (logo Zataa) menempel di permukaan menghadap normal"""
+    q = Vector(normal).normalized().to_track_quat('-Y', 'Z')
+    c = Vector(c); h = size / 2; r = r or size * 0.11
+    pts = [(-h * 0.9, h), (h, h), (-h, -h), (h * 0.9, -h)]
+    for (x0, z0), (x1, z1) in zip(pts, pts[1:]):
+        capsule('zlogo', c + q @ Vector((x0, 0, z0)), c + q @ Vector((x1, 0, z1)), r, m, P)
+
 # ---------------------------------------------------------------- gaya rambut
+def lock(pts, r0, r1, m, P):
+    """seikat rambut: rantai kapsul yang makin ke ujung makin tipis"""
+    pts = [Vector(p) for p in pts]; n = len(pts) - 1
+    return [capsule('lock', pts[i], pts[i + 1], r0 + (r1 - r0) * i / n, m, P, r2=r0 + (r1 - r0) * (i + 1) / n) for i in range(n)]
+
+def bez(a, b, c, n=5):
+    a, b, c = Vector(a), Vector(b), Vector(c)
+    return [a * (1 - t) ** 2 + b * 2 * t * (1 - t) + c * t * t for t in [i / (n - 1) for i in range(n)]]
+
+# ---- helai rambut halus (chibi): pita pipih melengkung, ujung lancip, + subdivision
+def catmull(pts, n):
+    Q = [Vector(p) for p in pts]; Q = [Q[0] * 2 - Q[1]] + Q + [Q[-1] * 2 - Q[-2]]
+    segs = len(Q) - 3; out = []
+    for i in range(n):
+        u = i / (n - 1) * segs; k = min(int(u), segs - 1); t = u - k
+        p0, p1, p2, p3 = Q[k:k + 4]
+        out.append(0.5 * ((2 * p1) + (p2 - p0) * t + (2 * p0 - 5 * p1 + 4 * p2 - p3) * t * t + (3 * p1 - p0 - 3 * p2 + p3) * t ** 3))
+    return out
+
+def _frames(C, center):
+    out = []
+    for i, p in enumerate(C):
+        T = (C[min(i + 1, len(C) - 1)] - C[max(i - 1, 0)]).normalized()
+        o = p - center; o -= T * o.dot(T)
+        o = o.normalized() if o.length > 1e-6 else Vector((0, 0, 1))
+        out.append((T, o, T.cross(o).normalized()))
+    return out
+
+def strand(pts, w, th, m, P, center=None, n=30, k=12, root=0.75, sub=2, wave=0.0, freq=2.0, phase=0.0, curl=0.0):
+    """seikat rambut sepanjang kurva lewat titik2 pts; penampang elips pipih (lebar w, tebal th) menghadap keluar dari center.
+    wave: amplitudo gelombang ke samping; curl > 0: gelombang jadi spiral (ikal)"""
+    center = Vector(center) if center is not None else H
+    C = catmull(pts, n); verts = []; faces = []
+    if wave:
+        F = _frames(C, center)
+        C = [p + (B * math.sin(2 * math.pi * freq * (i / (n - 1)) + phase) + o * curl * 0.6 * math.cos(2 * math.pi * freq * (i / (n - 1)) + phase))
+             * wave * min(i / (n - 1) * 3, 1) for i, (p, (T, o, B)) in enumerate(zip(C, F))]
+    for i, p in enumerate(C):
+        t = i / (n - 1)
+        T = (C[min(i + 1, n - 1)] - C[max(i - 1, 0)]).normalized()
+        o = p - center; o -= T * o.dot(T)
+        o = o.normalized() if o.length > 1e-6 else Vector((0, 0, 1))
+        B = T.cross(o).normalized()
+        prof = (root + (1 - root) * min(t * 4, 1)) * (1 - t) ** 0.7
+        for j in range(k):
+            a = 2 * math.pi * j / k
+            ca, sa = math.cos(a), math.sin(a)
+            verts.append(p + B * ca * w * prof + o * (sa * th * prof + th * 0.35 * prof * ca * ca))   # sedikit cembung keluar
+    tip = len(verts); verts.append(C[-1] + (C[-1] - C[-2]).normalized() * 0.006)
+    rt = len(verts); verts.append(C[0] - (C[1] - C[0]).normalized() * 0.004)
+    for i in range(n - 1):
+        for j in range(k):
+            a_, b_ = i * k + j, i * k + (j + 1) % k
+            faces.append((a_, b_, b_ + k, a_ + k))
+    L = (n - 1) * k
+    for j in range(k): faces.append((L + j, L + (j + 1) % k, tip))
+    for j in range(k): faces.append(((j + 1) % k, j, rt))
+    me = bpy.data.meshes.new('strand'); me.from_pydata([tuple(v) for v in verts], [], faces); me.validate()
+    for f in me.polygons: f.use_smooth = True
+    ob = bpy.data.objects.new('strand', me); COLL.objects.link(ob); me.materials.append(m); ob.parent = P
+    if sub:
+        sd = ob.modifiers.new('sd', 'SUBSURF'); sd.levels = 1; sd.render_levels = sub
+    return ob
+
+SURF = None   # (pusat, jari2) massa rambut; None = kulit kepala
+def on_head(d, off, c=None):
+    """titik di atas permukaan kepala / massa rambut (elipsoid) searah d, berjarak off"""
+    d = Vector(d).normalized()
+    c0, rr = SURF if SURF else (H, R)
+    r = 1 / sqrt((d.x / rr[0]) ** 2 + (d.y / rr[1]) ** 2 + (d.z / rr[2]) ** 2)
+    return (c or c0) + d * (r + off)
+
+def head_arc(d0, d1, n, off0, off1, puff):
+    """jalur nempel kepala dari arah d0 ke d1, mengembang (puff) di tengah"""
+    d0, d1 = Vector(d0).normalized(), Vector(d1).normalized(); out = []
+    for i in range(n):
+        s = i / (n - 1)
+        ease = min(s / 0.28, 1.0); ease = ease * ease * (3 - 2 * ease)
+        out.append(on_head(d0.lerp(d1, s), off0 + (off1 - off0) * s + puff * math.sin(math.pi * s) ** 0.8 * ease))
+    return out
+
+def sph(az, el):
+    """arah dari pusat kepala: az 0 = depan (-y), 90 = kanan (+x); el dari ekuator"""
+    az, el = math.radians(az), math.radians(el)
+    return Vector((math.sin(az) * math.cos(el), -math.cos(az) * math.cos(el), math.sin(el)))
+
+def soft_hair(style, cfg, hair, P):
+    """rambut chibi halus: batok tipis + puluhan helai pipih berlapis"""
+    global SURF
+    SURF = None
+    random.seed(cfg.get('hair_seed', 3))
+    J = lambda a: random.uniform(-a, a)
+    # batok dasar (biar kulit kepala gak keliatan di sela helai)
+    cap = ellipsoid('hcap', H + Vector((0, 0.008, 0.012)), (R[0] + 0.012, R[1] + 0.014, R[2] + 0.012), hair, P, seg=64)
+    if style == 'hijab_soft':   # hijab kain lembut: membungkus kepala, bukaan wajah oval, kain jatuh menutup bahu & dada
+        bpy.data.objects.remove(cap, do_unlink=True)
+        cloth = mat('hijab_' + cfg['hair'], cfg['hair'], 0.82, sheen=0.6)
+        hood = ellipsoid('hjhood', H + Vector((0, 0.012, 0.014)), (R[0] + 0.014, R[1] + 0.016, R[2] + 0.02), cloth, P, seg=64)
+        chin = ellipsoid('hjchin', (0, -0.005, 0.745), (0.145, 0.13, 0.065), cloth, P, seg=48)
+        drape = frustum('hjdrape', (0, 0.01, 0.645), 0.205, 0.145, 0.17, cloth, P, bevel=0.03, seg=64); drape.scale = (1, 0.72, 1)
+        front = ellipsoid('hjfront', (0, -0.07, 0.6), (0.13, 0.04, 0.1), cloth, P, seg=40)
+        c = fuse([hood, chin, drape, front], 0.0036, 12)
+        boolean_cut(c, (0, -0.2, 0.852), (0.142, 0.14, 0.148), shape='ell')   # bukaan wajah (dahi sampai dagu kelihatan)
+        ellipsoid('hjpin', (0.1, -0.118, 0.735), (0.009, 0.006, 0.009), mat('pin', '#f4f2ee', 0.2, coat=1.0), P)
+        return
+    if style == 'wavy_crop':   # cowok: massa rambut tebal mengembang ke atas, helai bergelombang di permukaannya, poni ikal di dahi
+        hv = cfg.get('hair_vol', 1.0)   # <1 lebih tipis/rapi, >1 lebih mengembang
+        MC = H + Vector((0, 0.02, 0.052 * hv)); MR = (R[0] + 0.012, R[1] + 0.026 * hv, R[2] + 0.05 * hv)
+        bpy.data.objects.remove(cap, do_unlink=True)
+        cap = ellipsoid('hmass', MC, MR, hair, P, seg=64)
+        boolean_cut(cap, (0, -0.215, 0.885), (0.33, 0.22, 0.27), shape='ell')   # muka (garis rambut tinggi, volume naik ke atas)
+        boolean_cut(cap, (0, 0.02, 0.68), (0.5, 0.5, 0.18))                   # tengkuk
+        for sx in (-1, 1):   # samping: lengkung halus di sekitar telinga sampai belakang
+            boolean_cut(cap, (0.2 * sx, -0.05, 0.79), (0.085, 0.16, 0.1), shape='ell')
+            boolean_cut(cap, (0.17 * sx, 0.06, 0.73), (0.1, 0.12, 0.06), shape='ell')
+        SURF = (MC, MR)
+        for row, el in enumerate((30, 4, -20)):   # belakang: helai bergelombang turun ke tengkuk
+            n_ = 11 - row
+            for k_ in range(n_):
+                az = 180 + (k_ - (n_ - 1) / 2) * (190 / n_) + J(5) + row * 8
+                pts = head_arc(sph(az, el + 24), sph(az + J(8), el - 12), 5, 0.006, 0.004, 0.006)
+                pts.append(pts[-1] + (pts[-1] - MC).normalized() * 0.005 + Vector((0, 0, -0.012)))
+                strand(pts, 0.05, 0.016, hair, P, center=MC, root=0.95, wave=0.009, freq=1.8, phase=J(3), curl=0.6)
+        for sx in (-1, 1):   # samping: disisir ke belakang
+            for j in range(4):
+                el = 40 - j * 11 + J(3)
+                pts = head_arc(sph(sx * (40 + j * 5 + J(4)), el + 10), sph(sx * (118 + j * 8), el - 16), 6, 0.004, 0.004, 0.006)
+                strand(pts, 0.056, 0.016, hair, P, center=MC, root=0.9, wave=0.006, freq=2, phase=J(3))
+        for i in range(18):   # atas: dari garis rambut depan menyapu ke atas-belakang, berlapis
+            u = i / 17
+            d0 = sph(-64 + u * 128 + J(4), 6 + 12 * (1 - abs(u - 0.5) * 2) + J(3))
+            d1 = sph(180 + (u - 0.5) * 110 + 28 + J(10), 30 + J(8))   # disisir miring ke belakang-samping
+            pts = head_arc(d0, d1, 8, 0.0, 0.006, 0.018 + J(0.008))
+            pts[0] = pts[0] + (pts[0] - MC).normalized() * 0.004 + Vector((0, -0.006, -0.008))
+            strand(pts, 0.058 + J(0.008), 0.022, hair, P, center=MC, root=0.95, wave=0.012, freq=2.2, phase=J(3))
+        for k_ in range(6):   # helai pendek terangkat di atas biar teksturnya bergelombang
+            d0 = sph(-30 + k_ * 12 + J(5), 40 + J(6))
+            pts = head_arc(d0, sph(140 + k_ * 12, 62), 5, 0.008, 0.006, 0.012)
+            strand(pts, 0.05, 0.02, hair, P, center=MC, root=0.9, wave=0.01, freq=1.5, phase=J(3), curl=0.5)
+        SURF = None
+        for x, tz in ((-0.085, 0.958), (-0.045, 0.945), (-0.005, 0.958), (0.04, 0.975)):   # poni: beberapa helai jatuh miring ke dahi
+            tip = Vector((x - 0.03, surf(x - 0.03, tz).y - 0.012, tz))
+            start = MC + Vector((x + 0.02, -0.15, 0.12))
+            mid = Vector((x - 0.005, surf(x, 1.0).y - 0.022, 1.0))
+            pts = [start, mid, tip, tip + Vector((-0.004, -0.01, -0.012))]
+            strand(pts, 0.05, 0.016, hair, P, root=0.9, wave=0.004, freq=1.2, phase=J(3))
+    elif style == 'pony_wavy':   # cewek: rambut licin ditarik ke ponytail tinggi, ikal bergelombang sampai pinggang, helai depan wajah
+        T0 = Vector((0, 0.168, 1.02)); dT = (T0 - H).normalized()
+        bpy.data.objects.remove(cap, do_unlink=True)
+        cap = ellipsoid('hcap', H + Vector((0, 0.006, 0.006)), (R[0] + 0.007, R[1] + 0.008, R[2] + 0.007), hair, P, seg=64)
+        boolean_cut(cap, (0, -0.2, 0.855), (0.29, 0.2, 0.215), shape='ell')
+        boolean_cut(cap, (0, -0.02, 0.69), (0.5, 0.5, 0.14))
+        for i in range(24):   # dari garis rambut (belah tengah) ditarik ke ikatan
+            u = i / 23; az = -105 + u * 210 + J(3)
+            el = 34 - 30 * abs(az) / 105 + J(2) + (5 if abs(az) < 14 else 0)
+            pts = head_arc(sph(az, el - 3), dT, 7, -0.002, 0.02, 0.01 + (0.01 if abs(az) < 45 else 0))
+            pts.append(T0 + Vector((J(0.01), 0.02, 0)))
+            strand(pts, 0.05, 0.015, hair, P, root=1.0)
+        for k_ in range(8):   # tengkuk ke ikatan
+            pts = head_arc(sph(120 + k_ * 17, -18), dT, 6, 0.006, 0.02, 0.01); pts.append(T0)
+            strand(pts, 0.055, 0.016, hair, P, root=0.9)
+        torus('scrunchie', T0 + Vector((0, 0.014, 0)), (0, 1, 0.45), 0.033, 0.017, mat('scr', cfg.get('scrunchie', '#8b5cf6'), 0.8, sheen=0.6), P)
+        for k_ in range(28):   # ekor kuda: naik sedikit lalu jatuh ikal sampai pinggang, mengembang
+            a = k_ / 28 * 2 * math.pi + J(0.1); sx, sy = math.cos(a), math.sin(a)
+            sp = 0.075 + 0.05 * random.random()
+            pp = [T0 + Vector((sx * 0.012, 0.03 + sy * 0.01, sy * 0.012)), T0 + Vector((sx * 0.04, 0.085, 0.0)),
+                  Vector((sx * sp, 0.2 + sy * 0.03, 0.88)), Vector((sx * (sp + 0.03), 0.19 + sy * 0.03, 0.74)),
+                  Vector((sx * (sp + 0.02) + J(0.02), 0.17 + sy * 0.03, 0.6)), Vector((sx * sp + J(0.03), 0.16 + sy * 0.03, 0.47 + J(0.03)))]
+            strand(pp, 0.05 + J(0.008), 0.022, hair, P, center=Vector((0, 0.13, 0.7)), root=0.7, n=48, wave=0.02, freq=3.2, phase=J(3), curl=1)
+        for sx in (-1, 1):   # helai depan wajah: dari belahan, lewat pelipis, ikal sampai dada
+            for j in range(2):
+                arc = head_arc(sph(sx * (16 + j * 14), 32 - j * 6), sph(sx * (72 + j * 8), -6), 5, 0.012, 0.018, 0.014)
+                pts = arc + [Vector((sx * (0.162 + j * 0.016), -0.06 + j * 0.022, 0.76)), Vector((sx * (0.152 + j * 0.012), -0.08 + j * 0.022, 0.66)),
+                             Vector((sx * (0.142 + j * 0.01), -0.086 + j * 0.022, 0.58))]
+                strand(pts, 0.054, 0.021, hair, P, root=0.85, n=40, wave=0.013, freq=2.4, phase=J(3), curl=1)
+    elif style == 'soft_m':
+        boolean_cut(cap, (0, -0.2, 0.9), (0.34, 0.2, 0.2), shape='ell')
+        boolean_cut(cap, (0, 0.0, 0.7), (0.5, 0.5, 0.2))
+        for sx in (-1, 1): boolean_cut(cap, (0.2 * sx, -0.02, 0.83), (0.06, 0.09, 0.07), shape='ell')
+        W = sph(180, 72)   # pusaran di ubun-ubun belakang
+        # poni: helai dari pusaran lewat atas kepala, jatuh ke dahi, disisir ke satu sisi
+        for i in range(8):
+            x = -0.15 + i * 0.043 + J(0.008)
+            tz = 0.95 + J(0.01) + (0.03 if i in (2, 6) else 0) - (0.015 if i == 4 else 0)
+            tx = x - 0.04 - abs(x) * 0.12
+            tip = Vector((tx, surf(max(min(tx, 0.17), -0.17), tz).y - 0.016, tz))
+            pts = head_arc(W + Vector((J(0.15), J(0.1), 0)), (tip - H).normalized(), 6, 0.022, 0.018, 0.055 + J(0.012))
+            pts[-2] += Vector((0.012, -0.006, 0))   # lengkung S: helai nyapu ke samping lalu jatuh
+            pts.append(tip + Vector((-0.012, -0.006, -0.014)))
+            strand(pts, 0.056 + J(0.008), 0.019, hair, P, root=0.9)
+        # samping & belakang: jatuh ke bawah, ujung sedikit mencuat
+        for k_ in range(26):
+            az = 60 + k_ * (240 / 25) + J(4)
+            side = abs(math.sin(math.radians(az)))
+            d1 = sph(az, 2 - 22 * (1 - side) + J(4))   # samping: atas telinga · belakang: tengkuk
+            pts = head_arc(W + Vector((J(0.12), J(0.12), 0)), d1, 6, 0.024, 0.014, 0.05 + J(0.01))
+            out = pts[-1] - H; out.z = 0; out = out.normalized()
+            pts.append(pts[-1] + out * 0.014 + Vector((0, 0, -0.022)))
+            strand(pts, 0.05 + J(0.008), 0.018, hair, P, root=0.9)
+        # lapisan atas: helai pendek mengembang biar bervolume & gak rata
+        for k_ in range(14):
+            d1 = sph(-55 + k_ * 8.5 + J(4), 26 + J(6))
+            pts = head_arc(W + Vector((J(0.1), 0, 0)), d1, 5, 0.05, 0.03, 0.045)
+            pts.append(pts[-1] + (pts[-1] - pts[-2]).normalized() * 0.03 + Vector((0, 0, -0.01)))
+            strand(pts, 0.045, 0.016, hair, P, root=0.9)
+    else:   # soft_f / long_wavy / bob_soft: belah tengah, poni tirai; panjang (lurus/bergelombang) atau bob sedagu
+        WV = cfg.get('hair_wave', 0.016 if style == 'long_wavy' else 0.0)
+        BOB = style == 'bob_soft'
+        boolean_cut(cap, (0, -0.2, 0.86), (0.3, 0.2, 0.22), shape='ell')
+        boolean_cut(cap, (0, -0.02, 0.69), (0.5, 0.5, 0.14))
+        def part_dir(t): return Vector((0, -0.75 + 1.25 * t, 1.0)).normalized()
+        # poni tirai
+        for i in range(8):
+            sgn = -1 if i < 4 else 1; u = (i % 4) / 3
+            x = sgn * (0.045 + u * 0.1)
+            tz = 0.965 - u * 0.085 + J(0.008)
+            tip = Vector((x, surf(x, tz).y - 0.012, tz))
+            d0 = part_dir(0.05 + J(0.04)) + Vector((sgn * 0.08, 0, 0))
+            pts = head_arc(d0, (tip - H).normalized(), 6, 0.016, 0.014, 0.035)
+            pts.append(tip + Vector((sgn * 0.012, -0.004, -0.014)))
+            strand(pts, 0.046 + J(0.005), 0.015, hair, P, root=0.85)
+        # rambut belakang panjang: dari belahan -> sisi kepala -> jatuh lurus di punggung
+        for k_ in range(24):
+            sgn = -1 if k_ % 2 else 1; u = (k_ // 2) / 11
+            d0 = part_dir(0.2 + u * 0.7) + Vector((sgn * 0.05, 0, 0))
+            arc = head_arc(d0, sph(sgn * (100 + u * 80), -8), 5, 0.016, 0.022, 0.03)
+            e = arc[-1]
+            hx = e.x * 0.95; hy = max(e.y, 0.08) + 0.02
+            if BOB:   # bob: berhenti di dagu, ujung melengkung ke dalam
+                pts = arc + [Vector((hx * 1.08, hy + 0.01, 0.8 + J(0.012))), Vector((hx * 0.94, hy - 0.012, 0.75 + J(0.025)))]
+            else:
+                pts = arc + [Vector((hx * 1.02, hy + 0.012, 0.75)), Vector((hx * 0.96, hy + 0.03, 0.63)), Vector((hx * 0.86 + J(0.01), hy + 0.025, 0.52 + J(0.02)))]
+            strand(pts, 0.066 + J(0.008), 0.024, hair, P, root=0.9, n=40, wave=WV, freq=2.6, phase=J(3), curl=1 if WV else 0)
+        # helai depan bahu (2 per sisi)
+        for sgn in (-1, 1):
+            for j in range(2):
+                d0 = part_dir(0.12 + j * 0.1) + Vector((sgn * 0.06, 0, 0))
+                arc = head_arc(d0, sph(sgn * (78 + j * 10), 2), 5, 0.016, 0.02, 0.03)
+                if BOB:
+                    pts = arc + [Vector((sgn * (0.185 + j * 0.01), -0.05 + j * 0.03, 0.8)), Vector((sgn * (0.16 + j * 0.01), -0.07 + j * 0.03, 0.755))]
+                else:
+                    pts = arc + [Vector((sgn * (0.165 + j * 0.012), -0.07 + j * 0.02, 0.76)), Vector((sgn * (0.158 + j * 0.012), -0.088 + j * 0.02, 0.65)),
+                                 Vector((sgn * (0.15 + j * 0.01), -0.09 + j * 0.02, 0.56 + j * 0.03))]
+                strand(pts, 0.054, 0.02, hair, P, root=0.9, n=40, wave=WV, freq=2.4, phase=J(3), curl=1 if WV else 0)
+        # lapisan atas sisi (nutup batok)
+        for k_ in range(14):
+            sgn = -1 if k_ % 2 else 1; u = (k_ // 2) / 6
+            arc = head_arc(part_dir(0.08 + u * 0.84), sph(sgn * (70 + u * 95), -10), 6, 0.012, 0.03, 0.022)
+            strand(arc + [arc[-1] + Vector((0, 0.004 * sgn, -0.05))], 0.066, 0.02, hair, P, root=0.95)
+
 def chain(pts, r, m, P, wob=0.0, r2=None):
     """rantai elipsoid (buat helai bergelombang/ikal)"""
     out = []
@@ -834,6 +1377,7 @@ def hair_style(style, cfg, hair, P):
         for sx in (-1, 1): boolean_cut(c, (0.21 * sx, -0.03, 0.85), (0.07, 0.13, 0.11))
         for sx in (-1, 1): ellipsoid('sideburn', (0.172 * sx, -0.04, 0.875), (0.016, 0.028, 0.04), hair, P)
 
+    if style in ('soft_m', 'soft_f', 'wavy_crop', 'pony_wavy', 'long_wavy', 'bob_soft', 'hijab_soft'): return soft_hair(style, cfg, hair, P)
     if style == 'side_part':
         parts = [cap(), ellipsoid('swoop', (0.025, -0.075, 1.035), (0.17, 0.1, 0.07), hair, P, rot=rotY(-9)),
                  ellipsoid('swoop2', (-0.09, -0.06, 1.0), (0.08, 0.1, 0.06), hair, P)]
@@ -962,6 +1506,54 @@ def hair_style(style, cfg, hair, P):
         c = fuse(parts, 0.0048, 14)
         boolean_cut(c, (0, -0.2, 0.93), (0.3, 0.12, 0.09))
         boolean_cut(c, (0, 0.0, 0.86), (0.5, 0.5, 0.2))
+    elif style == 'fluffy':   # chibi cowok: rambut tebal mengembang, poni berhelai disisir ke samping, ujung mencuat
+        random.seed(cfg.get('hair_seed', 3))
+        c0 = cap((0.026, 0.028, 0.034), (0, 0.016, 0.036))
+        boolean_cut(c0, (0, -0.2, 0.93), (0.32, 0.16, 0.16))   # batok dipotong di dahi → tepi depan dibentuk ujung poni (tidak rata)
+        parts = [c0]
+        for i in range(7):   # poni: helai tebal dari ubun-ubun, condong ke kiri, ujung tidak rata & sebagian terangkat
+            x = -0.14 + i * 0.047; sw = -0.03 + x * 0.25 + random.uniform(-0.012, 0.012)
+            tz = 0.955 + (0.03 if i in (1, 5) else 0) + random.uniform(-0.006, 0.008)
+            dy = -0.012 * (i % 2)   # helai selang-seling maju/mundur biar berlapis
+            parts += lock(bez((x * 0.3 + 0.02, -0.01, 1.13), (x * 1.05 + 0.01, -0.185 + dy, 1.09), (x * 1.1 + sw, -0.2 + dy, tz)), 0.046, 0.009, hair, P)
+        for el in (18, 48):   # helai sekeliling kepala, ujung jatuh ke bawah/belakang & sedikit mencuat
+            n = 13 if el < 30 else 9
+            for k in range(n):
+                az = math.radians(k * 360 / n + random.uniform(-10, 10) + el)
+                d = Vector((math.sin(az) * math.cos(math.radians(el)), math.cos(az) * math.cos(math.radians(el)), math.sin(math.radians(el))))
+                if d.y < -0.3: continue            # depan = poni
+                root = H + Vector((0, 0.016, 0.036)) + Vector((d.x * R[0], d.y * R[1], d.z * R[2])) * 0.88
+                tip = root + d * (0.06 if el < 30 else 0.075) + Vector((0, 0.03, -0.12 if el < 30 else -0.085)) + Vector((random.uniform(-0.02, 0.02), 0, 0))
+                parts += lock(bez(root, root + d * 0.07 + Vector((0, 0, 0.01)), tip, 5), 0.045, 0.008, hair, P)
+        for k in range(4):   # jambul di ubun-ubun biar mengembang
+            d = Vector((random.uniform(-0.5, 0.5), random.uniform(0.0, 0.6), 1)).normalized()
+            root = H + Vector((0, 0.02, 0.2))
+            parts += lock(bez(root, root + d * 0.05 + Vector((0, -0.03, 0)), root + d * 0.08 + Vector((0, 0.03, -0.02)), 4), 0.05, 0.016, hair, P)
+        c = fuse(parts, 0.0038, 4)
+        boolean_cut(c, (0, -0.17, 0.81), (0.44, 0.2, 0.22))     # muka
+        boolean_cut(c, (0, -0.2, 0.9), (0.3, 0.12, 0.09))       # dahi (ujung poni di atasnya tetap)
+        boolean_cut(c, (0, 0.04, 0.74), (0.5, 0.5, 0.12))       # tengkuk
+        for sx in (-1, 1): boolean_cut(c, (0.215 * sx, -0.03, 0.855), (0.07, 0.2, 0.11))   # telinga keliatan
+    elif style == 'long_bangs':   # chibi cewek: panjang lurus sampai punggung, poni tirai, helai depan jatuh ke dada
+        random.seed(cfg.get('hair_seed', 4))
+        c0 = cap((0.02, 0.024, 0.018), (0, 0.014, 0.02))
+        boolean_cut(c0, (0, -0.2, 0.93), (0.3, 0.16, 0.16))
+        parts = [c0, ellipsoid('hairback2', (0, 0.07, 0.9), (0.2, 0.14, 0.18), hair, P)]
+        for i in range(9):   # poni tirai: belah tengah, melengkung ke samping
+            t = (i - 4) / 4; x = t * 0.15
+            tz = 0.95 - abs(t) * 0.05 + random.uniform(-0.005, 0.005)
+            parts += lock(bez((t * 0.03, -0.04, 1.1), (x * 0.9, -0.17, 1.06), (x * 1.08, -0.192 + abs(t) * 0.03, tz)), 0.045, 0.011, hair, P)
+        for i in range(11):   # rambut belakang panjang
+            x = -0.19 + i * 0.038; y = 0.07 + 0.05 * (1 - abs(x) / 0.19)
+            parts += lock(bez((x * 0.85, y - 0.02, 0.96), (x * 1.08, y + 0.04, 0.76), (x * 1.0 + random.uniform(-0.015, 0.015), y + 0.02, 0.52 + random.uniform(-0.02, 0.02)), 6),
+                          0.05, 0.016, hair, P)
+        for sx in (-1, 1):   # helai depan bahu
+            for j in range(2):
+                x0 = (0.15 + j * 0.02) * sx
+                parts += lock(bez((x0 * 0.9, -0.04 + j * 0.03, 1.02), (x0 * 1.18, -0.07 + j * 0.03, 0.82), (x0 * 1.02, -0.09 + j * 0.03, 0.58 + j * 0.03), 6),
+                              0.042, 0.012, hair, P)
+        c = fuse(parts, 0.0042, 5)
+        boolean_cut(c, (0, -0.2, 0.82), (0.25, 0.2, 0.19))
     elif style == 'mukena':   # mukena: penutup kepala putih yang jatuh lebar menutup bahu sampai pinggang
         parts = [ellipsoid('mk', H + Vector((0, 0.01, 0.006)), (R[0] + 0.02, R[1] + 0.022, R[2] + 0.016), hair, P),
                  ellipsoid('mkwrap', (0, 0.0, 0.73), (0.15, 0.13, 0.08), hair, P),

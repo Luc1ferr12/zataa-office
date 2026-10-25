@@ -2,12 +2,13 @@
 // Web Worker untuk kedalaman/layar/cahaya); tiap frame cuma bagian yang kelihatan di layar yang digambar:
 // tile latar sesuai zoom, lapisan layar/air, lalu sprite pegawai yang sudah ditutup perabot di depannya.
 import { W, H, PXH, VW, proj, depthOf, pack, bayer, hash2, RES } from './px/engine.js';
-import { makeSpots, ROOMS, DESKS, DESK_LIST, FRONT, LY } from './px/scene.js';
+import { makeSpots, DESKS, DESK_LIST, FRONT, LY } from './px/scene.js';
 import { sprite, flamingoSprite } from './px/sprites.js';
 import { textBitmap } from './px/font.js';
 import { AGENTS } from './schedule.js';
 import { locationFor, route } from './nav.js';
 import { DS, DW, DH, Tiles, loadSprites, toySprite } from './px/toy.js';
+export { loadThemes } from './px/toy.js';
 
 const clamp = (v, a = 0, b = 1) => Math.max(a, Math.min(b, v));
 const smooth = (a, b, x) => { const t = clamp((x - a) / (b - a)); return t * t * (3 - 2 * t); };
@@ -58,8 +59,9 @@ function toCanvas(u32, w, h) {
 }
 
 export class Office {
-  constructor(container, labelHost, outfit = 'kerja') {
+  constructor(container, labelHost, outfit = 'kerja', theme = 'klasik') {
     this.outfit = outfit;
+    this.theme = theme;
     this.chars = new Map();
     this.selected = null;
     this.onSelect = null;
@@ -84,13 +86,6 @@ export class Office {
     this.labels = document.createElement('div');
     this.labels.className = 'px-labels';
     labelHost.appendChild(this.labels);
-    this.roomEls = ROOMS.map((r) => {
-      const el = document.createElement('div');
-      el.className = 'room-label';
-      el.innerHTML = `<span>${r.icon}</span>${r.name}`;
-      this.labels.appendChild(el);
-      return { r, el };
-    });
     this.buildZoomUI(labelHost);
 
     // tampilan: zoom & geser (z = px layar per px tampilan)
@@ -102,9 +97,10 @@ export class Office {
     this.toy = loadSprites(AGENTS.map((a) => a.id)).then(() => true).catch((e) => { console.warn('sprite 3D belum ada, pakai pixel art', e); return false; });
     this.ready = (async () => {
       this.logo = await loadLogo();
-      const [base, tiles] = await Promise.all([this.renderBase(), Tiles.load().catch((e) => { console.warn('latar 3D belum ada', e); return null; })]);
+      const [base, tiles] = await Promise.all([this.renderBase(), Tiles.load(theme).catch(() => (theme !== 'klasik' ? Tiles.load() : null)).catch((e) => { console.warn('latar 3D belum ada', e); return null; })]);
       this.base = base;
       this.tiles = tiles;
+      if (tiles?.dir === 'bg/') this.theme = 'klasik';   // tema yang diminta belum ada → jatuh ke latar klasik
       if (tiles) tiles.onLoad = () => { this.dirty = true; };
       else { this.fbDay = toCanvas(base.day, W, H); this.fbNight = toCanvas(base.night, W, H); }
       this.toyOn = await this.toy;
@@ -115,6 +111,25 @@ export class Office {
     this.lastDraw = 0;
     const loop = (now) => { this.frame(now); requestAnimationFrame(loop); };
     requestAnimationFrame(loop);
+  }
+
+  // ---------- ganti tema latar kantor (tile render Blender per tema); latar lama tetap tampil sampai tema baru siap
+  async setTheme(theme) {
+    await this.ready;
+    if (theme === this.theme && this.tiles) return true;
+    const want = theme; this.theme = theme;
+    try {
+      const t = await Tiles.load(theme);
+      if (this.theme !== want) { t.close(); return false; }   // keburu ganti tema lain
+      const old = this.tiles;
+      t.onLoad = () => { this.dirty = true; };
+      this.tiles = t; this.dirty = true;
+      old?.close();
+      return true;
+    } catch (e) {
+      console.warn('tema latar gagal dimuat', theme, e);
+      return false;
+    }
   }
 
   // ---------- data mesin pixel (kedalaman, layar, cahaya) di worker; fallback ke thread utama
@@ -362,14 +377,8 @@ export class Office {
     this.select(best?.c.agent.id ?? null);
   }
 
-  // ---------- label HTML (nama pegawai & ruangan)
+  // ---------- label HTML (nama pegawai; nama ruangan cukup dari papan LED di render)
   placeLabels() {
-    const put = (el, x, y) => { el.style.transform = `translate(${Math.round(this.tx + x * DS * this.z)}px, ${Math.round(this.ty + y * DS * this.z)}px) translate(-50%, -100%)`; };
-    const showRooms = this.base && this.z > (this.minZ ?? 0.1) * 1.35;
-    for (const { r, el } of this.roomEls) {
-      el.hidden = !showRooms;
-      if (showRooms) { const [x, y] = proj(...r.p); put(el, x, y); }
-    }
     // bubble nama: geser ke atas kalau bertumpuk dengan bubble lain
     const placed = [];
     const list = [...this.chars.values()].map((c) => {

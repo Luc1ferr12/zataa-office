@@ -20,16 +20,16 @@ n = len(IDS)
 for i, spec in enumerate(IDS):
     cid, pose = (spec.split(':') + ['stand'])[:2]   # id:pose
     x = (i - (n - 1) / 2) * GAP
-    T.build(cid, (x, (i % 2) * 0.05, 0), yaw=-x * 6, pose_name=pose)
+    T.build(cid, (x, (i % 2) * 0.05, 0), yaw=-x * 6 + float(os.environ.get('TOY_YAW', 0)), pose_name=pose)
     if pose in ('sit', 'type'):   # kursi bulat sederhana biar kebaca duduk
         T.frustum('stool', (x, (i % 2) * 0.05 + 0.02, 0.2), 0.13, 0.15, 0.4, T.mat('stool', '#7c3aed', 0.5), bevel=0.02)
 
 floor = T.rbox('floor', (0, 0.5, -0.05), (n * GAP + 6, 6, 0.1), T.mat('floor', '#ece4d6', 0.9), 0.01)
 
-tgt = bpy.data.objects.new('target', None); scene.collection.objects.link(tgt); tgt.location = (0, 0, 0.56)
-cam_d = bpy.data.cameras.new('cam'); cam_d.type = 'ORTHO'; cam_d.ortho_scale = n * GAP + 0.25
+tgt = bpy.data.objects.new('target', None); scene.collection.objects.link(tgt); FH = float(os.environ.get('TOY_FRAME_H', 1.3)); tgt.location = (0, 0, FH * 0.43)
+cam_d = bpy.data.cameras.new('cam'); cam_d.type = 'ORTHO'; cam_d.ortho_scale = max(n * GAP + 0.25, FH)
 cam = bpy.data.objects.new('cam', cam_d); scene.collection.objects.link(cam)
-az, el = radians(0), radians(10)
+az, el = radians(0), radians(float(os.environ.get('TOY_ELEV', 10)))
 cam.location = tgt.location + 12 * Vector((math.sin(az) * math.cos(el), -math.cos(az) * math.cos(el), math.sin(el)))
 c = cam.constraints.new('TRACK_TO'); c.target = tgt; c.track_axis = 'TRACK_NEGATIVE_Z'; c.up_axis = 'UP_Y'
 scene.camera = cam
@@ -40,7 +40,7 @@ fill = bpy.data.lights.new('fill', 'AREA'); fill.energy = 400; fill.size = 6; fi
 fo = bpy.data.objects.new('fill', fill); scene.collection.objects.link(fo); fo.location = (2.0, -4.0, 3.0)
 fc = fo.constraints.new('TRACK_TO'); fc.target = tgt; fc.track_axis = 'TRACK_NEGATIVE_Z'; fc.up_axis = 'UP_Y'
 world = bpy.data.worlds.new('w'); scene.world = world; world.use_nodes = True
-bg = world.node_tree.nodes['Background']; bg.inputs['Color'].default_value = T.hexc('#efe8dc'); bg.inputs['Strength'].default_value = 0.9
+bg = world.node_tree.nodes['Background']; bg.inputs['Color'].default_value = T.hexc(os.environ.get('TOY_BG', '#efe8dc')); bg.inputs['Strength'].default_value = 0.9
 
 scene.render.engine = 'CYCLES'
 cy = scene.cycles; cy.samples = SAMPLES; cy.use_denoising = True
@@ -51,8 +51,8 @@ try:
     cy.device = 'GPU'
 except Exception as e:
     print('GPU off:', e)
-aspect = (n * GAP + 0.25) / 1.3
-scene.render.resolution_x = int(600 * n)
+aspect = (n * GAP + 0.25) / FH
+scene.render.resolution_x = int(600 * n * float(os.environ.get('TOY_RES', 1)))
 scene.render.resolution_y = int(scene.render.resolution_x / aspect)
 try:
     scene.view_settings.view_transform = 'AgX'; scene.view_settings.look = 'AgX - Punchy'
@@ -60,4 +60,5 @@ except Exception:
     pass
 scene.render.filepath = OUT
 bpy.ops.render.render(write_still=True)
+if os.environ.get('TOY_BLEND'): bpy.ops.wm.save_as_mainfile(filepath=os.environ['TOY_BLEND'])   # buat dibuka & diputar di Blender
 print('RENDER OK', OUT)

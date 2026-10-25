@@ -15,6 +15,7 @@ IDS = argv[2].split(',') if len(argv) > 2 and argv[2] else list(TL.CHARS)
 SAMPLES = int(argv[3]) if len(argv) > 3 else 40
 ONLY = argv[4].split(',') if len(argv) > 4 and argv[4] else None
 os.makedirs(OUT, exist_ok=True)
+if TL.STYLE == 'chibi': TL.HEAD_NOD = -16   # kamera web ±49° dari atas: dongak dikit biar muka nggak ketutup poni
 TMP = os.path.join(OUT, '_tmp'); os.makedirs(TMP, exist_ok=True)
 
 FW, FH, AX, AY = 170, 250, 85, 185

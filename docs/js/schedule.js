@@ -6,6 +6,7 @@
 // Tim Trading (XAUUSD) ikut jam pasar: Senin–Jumat, sebagian jaga sesi New York sampai malam; Sabtu review mingguan.
 // Deterministik: jam yang sama selalu menghasilkan keadaan yang sama, jadi dashboard & kantor selalu sinkron.
 import { CAP as SCENE_CAP } from './px/scene.js';
+import { socialActivity, coupleDate } from './social.js';
 
 // desk = nomor meja di bilik (px/scene.js DESK_LIST: 0–7 Marketing, 8–13 Trading, 14–19 YouTube)
 export const AGENTS = [
@@ -175,6 +176,8 @@ function freeTime(idx, agent, t) {
     const [loc, label, emoji] = pick(b, r);
     return billiardWish(idx, t, { act: 'free', loc, label, emoji, slot: ['cafe', 'cinema'].includes(loc) ? order(loc) : 0 });
   }
+  const cd = coupleDate(agent, t);   // pasangan yang lagi pacaran: kencan malam di tempat yang sama
+  if (cd && (cd.loc === 'cafe' || order(cd.loc) < capOf(cd.loc))) return { act: 'free', loc: cd.loc, label: cd.label, emoji: cd.emoji, slot: order(cd.loc) };
   const opts = [
     ['cafe', late ? 'Ngopi begadang' : m < at(7) ? 'Ngeteh pagi' : 'Ngopi santai', late ? '🌙' : '☕'],
     ['lounge', night ? 'Nonton TV bareng' : 'Rebahan sambil scroll HP', night ? '📺' : '📱'],
@@ -199,13 +202,14 @@ function billiardWish(idx, t, alt) {
 export function pairBilliard(infos, t) {
   const g = Math.floor(t.minutes / 10), day = t.dayNum ?? t.dow;
   const key = (i) => hash(i * 9.1 + g * 1.3 + day * 0.7);
-  const want = infos.map((x, i) => i).filter((i) => infos[i]?.loc === 'billiard').sort((a, b) => key(a) - key(b));
-  const n = Math.min(want.length - (want.length % 2), CAP.billiard);
+  const want = infos.map((x, i) => i).filter((i) => infos[i]?.loc === 'billiard' && !infos[i].event).sort((a, b) => key(a) - key(b));
+  const busy = infos.filter((x) => x?.loc === 'billiard' && x.event).length;   // meja turnamen nggak diganggu
+  const n = Math.min(want.length - (want.length % 2), CAP.billiard - busy);
   want.forEach((i, k) => {
     const x = infos[i];
     if (k >= n) { Object.assign(x, x.alt); delete x.alt; return; }
     const lawan = AGENTS[want[k ^ 1]]?.name ?? 'teman';
-    Object.assign(x, { slot: k, label: `Main billiard lawan ${lawan} (1 game 10 menit)` });
+    Object.assign(x, { slot: k + busy, label: `Main billiard lawan ${lawan} (1 game 10 menit)` });
     delete x.alt;
   });
   return infos;
@@ -338,6 +342,9 @@ export function activityAt(idx, agent, t, real, ctx = {}) {
   if (prayer) return withMood(prayer);
   // manajer divisi nunggu approval Owner: duduk di kursi tunggu depan ruang Bos sampai di-✅
   if (ctx.waitApproval && WAIT_SLOT[agent.id] != null) return withMood({ act: 'wait', loc: 'waitBoss', slot: WAIT_SLOT[agent.id], label: 'Nunggu approval Owner di depan ruang Bos', emoji: '⏳' });
+  // ultah (tiup lilin di cafe) & event mingguan (turnamen, lomba, karaoke) — lihat social.js
+  const soc = socialActivity(agent, t, AGENTS, seatOf(idx, agent));
+  if (soc) return withMood(soc, true);
 
   // dini hari & pagi sebelum kerja: bebas (nggak ada yang tidur/pulang), sarapan 06:20–07:00
   if (m < at(7)) {

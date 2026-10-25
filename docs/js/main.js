@@ -1,5 +1,6 @@
 import { AGENTS, wita, activityAt, describe, officeStatus, approvalWaits, pairBilliard } from './schedule.js';
 import { chatFeed } from './chatter.js';
+import { BIRTHDAYS, birthdaysOn, relationsOn, STAGE_LABEL, dateOf } from './social.js';
 
 const $ = (id) => document.getElementById(id);
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
@@ -171,22 +172,27 @@ function renderDashboard() {
 
 // chit-chat: diperbarui tiap ganti menit (live) atau tiap geser waktu simulasi
 const AVATAR = Object.fromEntries([['owner', '#5b1fd6'], ...AGENTS.map((a) => [a.id, a.avatar])]);
-const KIND = { oper: '🔁', santai: '☕', kerja: '💻', curhat: '💭', bos: '👑', pacaran: '💕' };
+const KIND = { oper: '🔁', santai: '☕', kerja: '💻', curhat: '💭', bos: '👑', pacaran: '💕', pdkt: '💘', gosip: '👀', ultah: '🎂', event: '🏆' };
 let lastChatKey = null;
 function renderChat(t) {
   const sim = $('sim-toggle').checked;
   const key = `${sim}|${t.dow}|${Math.floor(t.minutes)}`;
   if (key === lastChatKey) return;
   lastChatKey = key;
-  const feed = chatFeed(t, state, state?.today, sim).reverse(); // lama di atas, baru di bawah
-  const box = $('chat');
+  const all = chatFeed(t, state, state?.today, sim);
+  const isWork = (c) => WORK_KINDS.has(c.kind);
+  fillChat($('chat-work'), all.filter(isWork).slice(0, 70).reverse(), 'Belum ada obrolan kerja. Oper kerjaan & diskusi muncul pas jam kerja.');
+  fillChat($('chat'), all.filter((c) => !isWork(c)).slice(0, 90).reverse(), 'Kantor masih sepi. Obrolan muncul pas ada yang nongkrong bareng.');
+}
+const WORK_KINDS = new Set(['oper', 'kerja', 'bos']);
+function fillChat(box, feed, empty) {   // lama di atas, baru di bawah; tetap nempel bawah kalau user lagi di bawah
   const atBottom = box.scrollHeight - box.scrollTop - box.clientHeight < 40;
   box.innerHTML = feed.length
     ? feed.map((c) => `<li class="${c.kind}">
-        <div class="av" style="background:${AVATAR[c.from] ?? '#555'}">${esc((NAMES[c.from] ?? '?')[0])}</div>
+        <div class="av" style="background:${AVATAR[c.from] ?? '#555'}" title="${esc(NAMES[c.from] ?? c.from)}">${esc((NAMES[c.from] ?? '?')[0])}<img src="assets/office/faces/${esc(c.from)}.webp" alt="" loading="lazy" onerror="this.remove()"></div>
         <div class="msg"><div class="meta"><b>${esc(NAMES[c.from] ?? c.from)}</b>${c.to ? `→ ${esc(NAMES[c.to] ?? c.to)}` : ''}<span>${KIND[c.kind] ?? ''} ${c.time}</span></div>${esc(c.message)}</div>
       </li>`).join('')
-    : '<li><span class="empty">Kantor masih sepi. Obrolan muncul pas jam kerja 07:00–21:00 WITA.</span></li>';
+    : `<li><span class="empty">${empty}</span></li>`;
   if (atBottom || !box.dataset.ready) { box.scrollTop = box.scrollHeight; box.dataset.ready = '1'; }
 }
 
@@ -248,10 +254,11 @@ function tick(force = false) {
   pill.className = `pill ${os.tone}`;
 
   const byId = Object.fromEntries(list.map((l) => [l.a.id, l]));
+  const bdayIds = birthdaysOn(dateOf(t));
   const row = ({ a, info }) => `
     <li class="member ${selected === a.id ? 'active' : ''}" data-id="${a.id}" title="${esc(`${a.name} · ${a.title}`)}">
-      <div class="avatar" style="background:${a.avatar}">${a.name[0]}<img src="assets/office/faces/${a.id}.webp" alt="" loading="lazy" onerror="this.remove()"></div>
-      <div class="who"><strong>${a.name} <small>${a.title}</small></strong><span>${info.emoji} ${esc(info.label)}</span></div>
+      <div class="bust" style="--av:${a.avatar}">${a.name[0]}<img src="assets/office/busts/${a.id}.webp" alt="" loading="lazy" onerror="this.onerror=()=>this.remove();this.src='assets/office/faces/${a.id}.webp'"></div>
+      <div class="who"><strong>${a.name}${bdayIds.includes(a.id) ? ' 🎂' : ''} <small>${a.title}</small></strong><span>${info.emoji} ${esc(info.label)}</span></div>
       <i class="mood" title="${esc(info.mood?.label ?? '')}">${info.mood?.emoji ?? ''}</i>
     </li>`;
   const division = (d) => {
@@ -401,7 +408,12 @@ function renderInspector(id, info) {
   $('insp-name').textContent = a.name;
   $('insp-title').textContent = a.title;
   $('insp-act').textContent = `${info?.emoji ?? ''} ${info?.label ?? ''}`;
-  $('insp-mood').textContent = info?.mood ? `Mood: ${info.mood.emoji} ${info.mood.label}` : '';
+  const BULAN = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'];
+  const [bm, bd] = (BIRTHDAYS[id] ?? '').split('-').map(Number);
+  const rel = relationsOn(dateOf(now())).filter((r) => r.a === id || r.b === id)
+    .map((r) => `${STAGE_LABEL[r.stage]} sama ${AGENTS.find((x) => x.id === (r.a === id ? r.b : r.a))?.name ?? ''}`);
+  $('insp-mood').innerHTML = [info?.mood ? `Mood: ${info.mood.emoji} ${esc(info.mood.label)}` : '', bm ? `🎂 Ultah ${bd} ${BULAN[bm - 1]}` : '', ...rel.map(esc)]
+    .filter(Boolean).join('<br>');
   const tasks = (state?.today_tasks ?? []).filter((t) => t.agent_id === id);
   $('insp-tasks').innerHTML = tasks.length
     ? '<div class="muted">Tugas hari ini</div>' + tasks.map((t) => `<div><span>${esc(t.title)}</span><span class="muted">${t.status === 'done' ? '✅' : t.status === 'doing' ? '⚡' : '•'}</span></div>`).join('')
@@ -422,7 +434,7 @@ function showTab(name) {
   const on = TABS.find((b) => b.dataset.tab === name), bar = on.parentElement;   // HP: tab aktif digeser kelihatan
   bar.scrollLeft = on.offsetLeft - (bar.clientWidth - on.offsetWidth) / 2;
   for (const p of document.querySelectorAll('[data-panel]')) p.hidden = p.dataset.panel !== name;
-  if (name === 'ringkasan') { const box = $('chat'); box.scrollTop = box.scrollHeight; }
+  if (name === 'ringkasan') for (const box of [$('chat'), $('chat-work')]) box.scrollTop = box.scrollHeight;
   try { localStorage.setItem('tab', name); } catch { /* storage diblokir */ }
 }
 for (const b of TABS) b.addEventListener('click', () => { showTab(b.dataset.tab); history.replaceState(null, '', `#${b.dataset.tab}`); });
@@ -467,12 +479,31 @@ setInterval(loadState, 60_000);
 loadState();
 
 try {
-  const { Office } = await import('./pixoffice.js');
-  office = new Office($('office-canvas'), $('office'), now().dow === 1 ? 'formal' : 'kerja');
+  const { Office, loadThemes } = await import('./pixoffice.js');
+  // tema kantor: daftar dari bg/themes/themes.json, pilihan diingat per browser
+  const DEFAULT_THEME = 'vanilla';   // tema bawaan (keputusan Owner 26 Okt); pilihan pengunjung diingat per browser
+  let theme = DEFAULT_THEME;
+  try { theme = localStorage.getItem('officeTheme') || DEFAULT_THEME; } catch { /* storage diblokir */ }
+  const themes = await loadThemes();
+  if (!themes.some((t) => t.id === theme)) theme = themes.some((t) => t.id === DEFAULT_THEME) ? DEFAULT_THEME : 'klasik';
+  const sel = $('office-theme');
+  sel.innerHTML = themes.map((t) => `<option value="${esc(t.id)}">${esc(t.label)}</option>`).join('');
+  sel.value = theme;
+  sel.disabled = themes.length < 2;
+  sel.addEventListener('change', async () => {
+    const t = sel.value;
+    try { localStorage.setItem('officeTheme', t); } catch { /* storage diblokir */ }
+    sel.disabled = true;
+    const ok = await office.setTheme(t);
+    sel.disabled = false;
+    if (!ok) sel.value = office.theme;
+  });
+  office = new Office($('office-canvas'), $('office'), now().dow === 1 ? 'formal' : 'kerja', theme);
   office.onSelect = (id) => select(id);
   window.office = office; // memudahkan debug dari console
   $('loading').textContent = 'Lagi ngegambar kantor…';
   await office.ready;
+  sel.value = office.theme;
   $('loading').remove();
   office.setCampaign(state?.campaign?.theme, state?.stats?.this_week?.pending ?? 0);
   tick('init');

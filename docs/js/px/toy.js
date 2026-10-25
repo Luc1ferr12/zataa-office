@@ -21,19 +21,30 @@ async function decode(url) {
 
 // ---------------------------------------------------------------- tile latar (siang & malam)
 // manifest: { w, h, tile, levels: [f…] } — level f = 1/f resolusi tampilan; tile: bg/<mode>/<f>/<col>_<row>.webp
+// tema kantor (blender/render_themes.sh): bg/themes/<tema>/… dengan struktur sama; 'klasik' = bg/ langsung
+export const themeDir = (theme) => (!theme || theme === 'klasik' ? 'bg/' : `bg/themes/${theme}/`);
+export async function loadThemes() {
+  try {
+    const r = await fetch(`${BASE}bg/themes/themes.json`, { cache: 'no-cache' });
+    if (r.ok) return await r.json();
+  } catch { /* belum ada tema */ }
+  return [{ id: 'klasik', label: 'Klasik' }];
+}
 export class Tiles {
-  constructor(manifest) {
+  constructor(manifest, dir = 'bg/') {
     this.m = manifest;
+    this.dir = dir;
     this.cache = new Map();   // key → { bmp, used } | { loading }
     this.max = 220;
     this.frame = 0;
   }
-  static async load() {
-    const r = await fetch(`${BASE}bg/manifest.json`, { cache: 'no-cache' });
-    if (!r.ok) throw new Error('manifest latar belum ada');
+  static async load(theme = 'klasik') {
+    const dir = themeDir(theme);
+    const r = await fetch(`${BASE}${dir}manifest.json`, { cache: 'no-cache' });
+    if (!r.ok) throw new Error(`manifest latar ${theme} belum ada`);
     const m = await r.json();
     if (m.w !== DW || m.h !== DH) throw new Error(`ukuran latar ${m.w}×${m.h}, harusnya ${DW}×${DH}`);
-    const t = new Tiles(m);
+    const t = new Tiles(m, dir);
     await t.preload(Math.max(...m.levels));   // level paling kasar selalu ada (cadangan saat tile detail belum datang)
     return t;
   }
@@ -48,7 +59,7 @@ export class Tiles {
   fetch(k) {
     const e = { loading: true, used: this.frame };
     this.cache.set(k, e);
-    return fetch(`${BASE}bg/${k}.webp`).then((r) => (r.ok ? r.blob() : Promise.reject(r.status))).then(createImageBitmap)
+    return fetch(`${BASE}${this.dir}${k}.webp`).then((r) => (r.ok ? r.blob() : Promise.reject(r.status))).then(createImageBitmap)
       .then((bmp) => { e.bmp = bmp; e.loading = false; this.onLoad?.(); this.evict(); })
       .catch(() => { e.loading = false; e.failed = true; });
   }
@@ -63,6 +74,7 @@ export class Tiles {
     }
     await Promise.all(jobs);
   }
+  close() { for (const e of this.cache.values()) e.bmp?.close?.(); this.cache.clear(); }
   evict() {
     if (this.cache.size <= this.max) return;
     const list = [...this.cache.entries()].filter(([, e]) => e.bmp && !e.pin).sort((a, b) => a[1].used - b[1].used);

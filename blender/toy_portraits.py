@@ -11,7 +11,8 @@ argv = sys.argv[sys.argv.index('--') + 1:] if '--' in sys.argv else []
 OUT = argv[0] if argv else '//faces'
 SAMPLES = int(argv[1]) if len(argv) > 1 else 96
 IDS = argv[2].split(',') if len(argv) > 2 else list(T.CHARS)
-SIZE = 0.62   # lebar bingkai (meter) di sekitar kepala
+BUST = os.environ.get('PORTRAIT') == 'bust'   # setengah badan (kartu Tim) — default: wajah saja (avatar chat)
+SIZE = 1.0 if BUST else 0.62 if T.STYLE != 'chibi' else 0.56   # lebar bingkai (meter) di sekitar kepala
 os.makedirs(bpy.path.abspath(OUT), exist_ok=True)
 
 scene = bpy.context.scene
@@ -54,7 +55,12 @@ for cid in IDS:
     clear()
     T.setup(scene.collection)
     T.build(cid, (0, 0, 0), yaw=0.0, pose_name='stand')
-    head = top_z() - 0.26   # kira-kira tengah wajah (kepala chibi besar, ±0.45 m)
+    hd = next((o for o in scene.objects if o.type == 'MESH' and o.name.startswith('head')), None)
+    if T.STYLE == 'chibi' and hd:   # chibi: rambut/ponytail/hijab bikin puncak kepala nggak bisa jadi patokan → pakai bola kepala
+        bpy.context.view_layer.update()
+        head = sum((hd.matrix_world @ Vector(c) for c in hd.bound_box), Vector()).z / 8 + (0.03 if not BUST else -0.22)
+    else:
+        head = top_z() - 0.26   # kira-kira tengah wajah (kepala chibi besar, ±0.45 m)
     tgt = bpy.data.objects.new('target', None); scene.collection.objects.link(tgt); tgt.location = (0, 0, head)
     cam_d = bpy.data.cameras.new('cam'); cam_d.type = 'ORTHO'; cam_d.ortho_scale = SIZE
     cam = bpy.data.objects.new('cam', cam_d); scene.collection.objects.link(cam)
