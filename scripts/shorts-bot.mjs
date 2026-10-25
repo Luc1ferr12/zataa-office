@@ -378,7 +378,7 @@ export async function dailyReport({ dry = false } = {}) {
     '<b>Produksi</b>',
     `Hari ini: ${today.length ? today.map(prodLine).join('; ') : '⚠️ belum ada Shorts'}`,
     `Besok: ${tomorrow.length ? tomorrow.map(prodLine).join('; ') : 'belum disiapkan (dikerjain sesi pagi)'}`,
-    `Kuota minggu ini: ${wk.rows.length}/${WEEK_TOTAL} Shorts · Horor Bersejarah ${wk.core}/${CORE_MIN} · Misteri Dunia ${wk.foreign}/${FOREIGN_MAX} · bank topik siap: ${ready}`,
+    `Kuota minggu ini: ${wk.rows.length}/${WEEK_TOTAL} Shorts · ${wk.quota ? `Horor Bersejarah ${wk.core}/${CORE_MIN} · Misteri Dunia ${wk.foreign}/${FOREIGN_MAX}` : 'kuota niche Nusantara mulai 26 Okt'} · bank topik siap: ${ready}`,
     ...(st.subscribers >= LONGFORM_SUBS && !state().longform ? [`\n🎉 <b>Tembus ${num(LONGFORM_SUBS)} subscriber!</b> Sesuai rencana Bos, waktunya nambah video panjang 5–10 menit (Shorts tetap jalan seperti biasa). Bagas siapin rencananya ya.`] : []),
     prev ? `\n<i>(angka dalam kurung = kenaikan sejak laporan ${dm(prev.date)})</i>` : '\n<i>Laporan pertama, kenaikan harian mulai muncul besok.</i>',
   ];
@@ -413,7 +413,7 @@ export async function weeklyReport({ dry = false } = {}) {
     `👥 Subscriber: <b>${num(st.subscribers)}</b>${prev ? plus(st.subscribers - prev.subs) : ''} · target video panjang ${num(LONGFORM_SUBS)}`,
     `👁️ Views: <b>${num(views)}</b>${prev ? plus(views - prev.views) : ''}`, '',
     '<b>Produksi</b>',
-    `🎬 ${rows.length}/${WEEK_TOTAL} Shorts · 📢 tayang ${live.length} · Horor Bersejarah ${tagged ? `${wk.core}/${CORE_MIN}${wk.core >= CORE_MIN ? ' ✅' : ' ⚠️'}` : '– (belum lewat bank topik)'} · ❌ ditolak ${rejected} · ✏️ revisi ${rows.reduce((a, r) => a + (r.revisions ?? 0), 0)}×`,
+    `🎬 ${rows.length}/${WEEK_TOTAL} Shorts · 📢 tayang ${live.length} · Horor Bersejarah ${!wk.quota ? '– (niche Nusantara mulai 26 Okt)' : tagged ? `${wk.core}/${CORE_MIN}${wk.core >= CORE_MIN ? ' ✅' : ' ⚠️'}` : '– (belum lewat bank topik)'} · ❌ ditolak ${rejected} · ✏️ revisi ${rows.reduce((a, r) => a + (r.revisions ?? 0), 0)}×`,
     ...(live.length ? ['', '<b>Top video minggu ini</b>', ...[...live].sort((a, b) => b.v.views - a.v.views).slice(0, 3).map((r, i) => `${i + 1}. #${r.id} ${esc(r.title.slice(0, 45))} · 👁️ ${num(r.v.views)} · 👍 ${num(r.v.likes)}`)] : []),
     ...(avg.length ? ['', '<b>Pilar paling ditonton</b>', ...avg.map(([k, v]) => `• ${esc(label(k))}: rata-rata ${num(Math.round(v))} views`)] : []), '',
     `📚 Bank topik siap produksi: ${ready}${ready < WEEK_TOTAL ? ' (kurang buat seminggu, Nadhira tambah riset)' : ''}`,

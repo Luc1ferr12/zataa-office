@@ -123,7 +123,7 @@ export function weekStats(d, day, excludeId = null) {
   const core = rows.filter((r) => r.pillar === CORE).length, foreign = rows.filter((r) => r.pillar === FOREIGN).length;
   const left = Math.max(0, WEEK_TOTAL - rows.length);
   const needCore = Math.max(0, CORE_MIN - core);
-  return { mon, sun, rows, core, foreign, left, needCore, mustCore: mon >= QUOTA_START && needCore > 0 && needCore >= left };
+  return { mon, sun, rows, core, foreign, left, needCore, quota: mon >= QUOTA_START, mustCore: mon >= QUOTA_START && needCore > 0 && needCore >= left };
 }
 // lempar error kalau Shorts dengan pilar ini melanggar kuota minggu itu (Horor Bersejarah ≥3, Misteri Dunia maks 1, pilar lama ditolak)
 export function checkQuota(d, day, pillar, excludeId = null) {
