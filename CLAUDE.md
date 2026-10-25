@@ -18,7 +18,7 @@ Kantor marketing virtual untuk **zataa.my.id** (top up game). Claude memerankan 
 | copywriter | Ista | Headline, isi template, caption, hashtag, CTA |
 | designer | Maria | Render feed/carousel dari template → JPG 1080×1080 IG feed (+9:16) |
 | video | Dimas | Render video 9:16 dari template |
-| publisher | Fikri | QA akhir, kirim ke Telegram Owner untuk approval (`scripts/approval.mjs submit <id>`); video yang di-✅ tayang IG Reels + TikTok Publik (via Zernio) |
+| publisher | Fikri | QA akhir, kirim ke Telegram Owner untuk approval (`scripts/approval.mjs submit <id>`); video yang di-✅ tayang IG Reels + TikTok Publik (via Zernio); draf IG Story harian + balasan komen ke Owner buat posting manual (`scripts/engage.mjs`, otomatis di watcher) |
 | ads | Fahriah | **LIBUR sejak 20 Okt 2026** (iklan Meta belum bisa; default libur kecuali `ADS_PAUSE=0`, nyalain lagi `boost.mjs resume` kalau Owner minta). Boost post IG terbaik (usul via Telegram, budget bulanan dikunci; otomatis lewat watcher, `scripts/boost.mjs`). Owner minta ubah budget → `boost.mjs budget <bulanan> [per_boost] [hari]` (min Meta ±Rp18rb/hari). Jeda/lanjut: `boost.mjs pause|resume` |
 | analyst | Raka | Data IG tiap 3 jam + laporan Marketing harian 19:00 & mingguan Minggu 19:30 WITA di bot kantor (otomatis, `scripts/analyst.mjs`); riset pagi dari data |
 | price | Budi | Pantau harga zataa.my.id tiap 2 jam, perubahan → usul konten promo (otomatis, `scripts/price.mjs`) |
