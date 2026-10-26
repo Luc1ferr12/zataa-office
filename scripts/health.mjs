@@ -16,15 +16,17 @@ export function beat(key, ok, msg = '', state = null) {
   const h = read();
   const now = Date.now();
   const s = h.services[key] ?? { fails: [] };
-  const was = s.state;
+  const was = s.state, lastAt = s.at ?? 0;
   s.fails = (s.fails ?? []).filter((t) => now - t < 86400_000);
   if (ok === false) s.fails.push(now);
   Object.assign(s, { name: SERVICES[key] ?? key, state: state ?? (ok ? 'ok' : 'error'), at: now, msg: String(msg).replace(/\s+/g, ' ').slice(0, 140) });
   if (ok) s.okAt = now;
   h.services[key] = s;
   h.at = now;
-  // status nggak berubah → cukup simpan tiap 5 menit (biar git nggak commit tiap menit)
-  if (was === s.state && ok !== false && now - (h.savedAt ?? 0) < 5 * 60_000) return;
+  // status nggak berubah → cukup simpan tiap 5 menit per layanan (biar git nggak commit tiap menit).
+  // Patokannya jam simpan layanan itu sendiri, bukan h.savedAt global: dulu beat Fahriah tiap menit selalu duluan
+  // nyimpen → beat watcher selalu dilewati → kartu "Watcher kantor" merah padahal jalan (26 Okt)
+  if (was === s.state && ok !== false && now - lastAt < 5 * 60_000) return;
   h.savedAt = now;
   try { mkdirSync(dirname(FILE), { recursive: true }); writeFileSync(FILE, JSON.stringify(h)); } catch { /* abaikan */ }
 }
