@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-26T06:26:50.240Z",
+ "generated_at": "2026-10-26T06:31:05.234Z",
  "today": "2026-10-26",
  "week_start": "2026-10-26",
  "campaign": {
@@ -524,6 +524,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-26 06:31:05",
+   "agent_id": "ttech",
+   "message": "M15 berubah arah: bullish → sideways"
+  },
+  {
    "ts": "2026-10-26 06:26:49",
    "agent_id": "dir",
    "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs"
@@ -642,14 +647,37 @@
    "ts": "2026-10-26 01:46:02",
    "agent_id": "ttech",
    "message": "M15 berubah arah: sideways → bearish"
-  },
-  {
-   "ts": "2026-10-26 01:43:22",
-   "agent_id": "owner",
-   "message": "Approve Shorts #87 ✅"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-10-26 06:27:19",
+   "agent_id": "copywriter",
+   "to_id": "owner",
+   "kind": "nimbrung",
+   "message": "Ceritain dong Bos eh Clar, aku juga mau denger! Tadi Ista lagi nunggu kopi nih 🤭"
+  },
+  {
+   "ts": "2026-10-26 06:27:19",
+   "agent_id": "researcher",
+   "to_id": "owner",
+   "kind": "nimbrung",
+   "message": "Aku sampe teriak di pantry, untung nggak ada yang ngusir hehe."
+  },
+  {
+   "ts": "2026-10-26 06:27:19",
+   "agent_id": "researcher",
+   "to_id": "owner",
+   "kind": "nimbrung",
+   "message": "Yesss, sini Bos, duduk di sebelah aku ☕ Jadi kemarin tuh ada tim yang comeback dari 0-2 di game 3, serius deh bikin deg-degan 😆"
+  },
+  {
+   "ts": "2026-10-26 06:27:19",
+   "agent_id": "owner",
+   "to_id": "researcher",
+   "kind": "nimbrung",
+   "message": "Ikutlahh, mau ikutan dnger critanyaa"
+  },
   {
    "ts": "2026-10-26 06:26:35",
    "agent_id": "researcher",
@@ -901,34 +929,6 @@
    "to_id": "owner",
    "kind": "oper",
    "message": "Bos, \"QA & kirim carousel #72 PRX\" udah aku kirim ke Telegram. Ditunggu approve-nya 🙏"
-  },
-  {
-   "ts": "2026-10-25 05:23:24",
-   "agent_id": "designer",
-   "to_id": "publisher",
-   "kind": "oper",
-   "message": "Fikri, desain \"Render carousel #72 PRX\" udah render 1080×1080. QA dulu ya sebelum ke bos"
-  },
-  {
-   "ts": "2026-10-25 05:23:11",
-   "agent_id": "copywriter",
-   "to_id": "designer",
-   "kind": "oper",
-   "message": "Teks buat \"Teks carousel rumor roster PRX\" ready. Maria, giliranmu bikin cakep!"
-  },
-  {
-   "ts": "2026-10-25 05:23:01",
-   "agent_id": "designer",
-   "to_id": "publisher",
-   "kind": "oper",
-   "message": "Visual \"Template carousel: slide poin pakai foto pemain\" kelar! Fikri, cek typo-nya sekalian ya 🙏"
-  },
-  {
-   "ts": "2026-10-25 05:22:51",
-   "agent_id": "researcher",
-   "to_id": "copywriter",
-   "kind": "oper",
-   "message": "Ista, bahan buat \"Foto 5 pemain PRX (Liquipedia, Champions 2026)\" udah aku rangkum + sumbernya. Tinggal kamu racik captionnya ✍️"
   }
  ],
  "stats": {
@@ -993,7 +993,7 @@
   "paused": false,
   "balance": 1687.5099999999998,
   "today_pnl": 0,
-  "price": 4007,
+  "price": 4006,
   "open": [],
   "signals": [
    {
@@ -1175,35 +1175,35 @@
    "M10": {
     "bias": "sideways",
     "score": 0,
-    "price": 4007.2,
-    "ema20": 4010.48,
-    "ema50": 4004.94,
-    "rsi": 47.2,
+    "price": 4005.8,
+    "ema20": 4010.03,
+    "ema50": 4004.98,
+    "rsi": 45,
     "n": 299,
-    "slot": 2988326,
-    "at": 1792995662934
+    "slot": 2988327,
+    "at": 1792996265172
    },
    "M15": {
-    "bias": "bullish",
-    "score": 3,
-    "price": 4009.3,
-    "ema20": 4007.73,
-    "ema50": 4002.54,
-    "rsi": 55.2,
+    "bias": "sideways",
+    "score": 1,
+    "price": 4005.8,
+    "ema20": 4007.55,
+    "ema50": 4002.67,
+    "rsi": 49.9,
     "n": 299,
-    "slot": 1992217,
-    "at": 1792995362884
+    "slot": 1992218,
+    "at": 1792996265177
    },
    "M30": {
     "bias": "bullish",
     "score": 2,
-    "price": 4013.6,
-    "ema20": 4003.53,
-    "ema50": 4000.08,
-    "rsi": 65.6,
+    "price": 4005.8,
+    "ema20": 4003.74,
+    "ema50": 4000.31,
+    "rsi": 54.2,
     "n": 299,
-    "slot": 996108,
-    "at": 1792994463110
+    "slot": 996109,
+    "at": 1792996265182
    },
    "H1": {
     "bias": "sideways",
