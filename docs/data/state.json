@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-26T22:26:50.755Z",
+ "generated_at": "2026-10-26T22:36:50.759Z",
  "today": "2026-10-27",
  "week_start": "2026-10-26",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-26 22:16:06"
+   "updated_at": "2026-10-26 22:31:05"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
-   "updated_at": "2026-10-26 22:16:06"
+   "updated_at": "2026-10-26 22:31:05"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-10-26 22:16:06"
+   "updated_at": "2026-10-26 22:31:05"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
-   "updated_at": "2026-10-26 22:16:06"
+   "updated_at": "2026-10-26 22:31:05"
   },
   {
    "id": "texec",
@@ -524,6 +524,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-26 22:31:05",
+   "agent_id": "ttech",
+   "message": "M30 berubah arah: bullish → sideways"
+  },
+  {
    "ts": "2026-10-26 22:21:05",
    "agent_id": "ttech",
    "message": "M10 berubah arah: bullish → sideways"
@@ -642,11 +647,6 @@
    "ts": "2026-10-26 15:01:05",
    "agent_id": "ttech",
    "message": "M30 berubah arah: sideways → bullish"
-  },
-  {
-   "ts": "2026-10-26 15:01:05",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: sideways → bullish"
   }
  ],
  "chats": [
@@ -1012,9 +1012,14 @@
   "paused": false,
   "balance": 1687.5099999999998,
   "today_pnl": 0,
-  "price": 4015.600098,
+  "price": 4015,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-26 22:31:05",
+    "decision": "NO TRADE",
+    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
+   },
    {
     "ts": "2026-10-26 22:16:06",
     "decision": "NO TRADE",
@@ -1037,11 +1042,6 @@
    },
    {
     "ts": "2026-10-26 20:16:05",
-    "decision": "NO TRADE",
-    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
-   },
-   {
-    "ts": "2026-10-26 20:01:05",
     "decision": "NO TRADE",
     "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
    }
@@ -1077,7 +1077,7 @@
    1687.5099999999995
   ],
   "last": {
-   "ts": "2026-10-26 22:16:06",
+   "ts": "2026-10-26 22:31:05",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1098,7 +1098,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4016.80 di atas tengah band (4010.2–4023.3) · RSI 50 · Stoch 75 · MACD +0.08 · H1 sideways"
+    "note": "M15 4015.80 di bawah tengah band (4010.3–4022.6) · RSI 47 · Stoch 65 · MACD -0.04 · H1 sideways"
    }
   },
   "fund": null,
@@ -1190,36 +1190,36 @@
   "tf": {
    "M10": {
     "bias": "sideways",
-    "score": 0,
-    "price": 4016.5,
-    "ema20": 4017.03,
-    "ema50": 4016.74,
-    "rsi": 48.1,
+    "score": 1,
+    "price": 4016.1,
+    "ema20": 4016.94,
+    "ema50": 4016.71,
+    "rsi": 46.8,
     "n": 299,
-    "slot": 2988422,
-    "at": 1793053265861
+    "slot": 2988423,
+    "at": 1793053865850
    },
    "M15": {
     "bias": "sideways",
     "score": 0,
-    "price": 4016.9,
-    "ema20": 4017.11,
-    "ema50": 4015.8,
-    "rsi": 49.7,
+    "price": 4016.1,
+    "ema20": 4017.01,
+    "ema50": 4015.81,
+    "rsi": 48.1,
     "n": 299,
-    "slot": 1992281,
-    "at": 1793052965926
+    "slot": 1992282,
+    "at": 1793053865854
    },
    "M30": {
-    "bias": "bullish",
-    "score": 2,
-    "price": 4018.2,
-    "ema20": 4016.54,
-    "ema50": 4011.96,
-    "rsi": 52.9,
+    "bias": "sideways",
+    "score": 0,
+    "price": 4016.1,
+    "ema20": 4016.5,
+    "ema50": 4012.12,
+    "rsi": 50.6,
     "n": 299,
-    "slot": 996140,
-    "at": 1793052065868
+    "slot": 996141,
+    "at": 1793053865856
    },
    "H1": {
     "bias": "bullish",
