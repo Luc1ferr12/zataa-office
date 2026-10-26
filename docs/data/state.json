@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-26T17:56:50.623Z",
+ "generated_at": "2026-10-26T18:06:50.629Z",
  "today": "2026-10-27",
  "week_start": "2026-10-26",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-26 17:46:05"
+   "updated_at": "2026-10-26 18:01:05"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Fed diperkirakan tahan 28 Okt (3.75–4%), risiko hike Des bikin emas tertekan. Geopolitik (Timteng, Rusia-Ukraina) menopang. Berita 24 jam belum terverifikasi.",
-   "updated_at": "2026-10-26 17:46:05"
+   "updated_at": "2026-10-26 18:01:05"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-10-26 17:46:05"
+   "updated_at": "2026-10-26 18:01:05"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-10-26 17:46:05"
+   "updated_at": "2026-10-26 18:01:05"
   },
   {
    "id": "texec",
@@ -524,6 +524,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-26 18:01:05",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: sideways → bullish"
+  },
+  {
    "ts": "2026-10-26 17:51:05",
    "agent_id": "ttech",
    "message": "M10 berubah arah: bullish → sideways"
@@ -642,11 +647,6 @@
    "ts": "2026-10-26 12:01:35",
    "agent_id": "spublish",
    "message": "Upload Shorts #88 ke Zataa Story (Publik via Zernio)"
-  },
-  {
-   "ts": "2026-10-26 12:01:05",
-   "agent_id": "ttech",
-   "message": "M15 berubah arah: bullish → sideways"
   }
  ],
  "chats": [
@@ -1016,6 +1016,11 @@
   "open": [],
   "signals": [
    {
+    "ts": "2026-10-26 18:01:05",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
+   {
     "ts": "2026-10-26 17:46:05",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
@@ -1037,11 +1042,6 @@
    },
    {
     "ts": "2026-10-26 16:46:05",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-10-26 16:31:05",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1077,7 +1077,7 @@
    1687.5099999999995
   ],
   "last": {
-   "ts": "2026-10-26 17:46:05",
+   "ts": "2026-10-26 18:01:05",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1098,7 +1098,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4020.90 di atas tengah band (3996.9–4037.0) · RSI 53 · Stoch 69 · MACD +0.35 · H1 sideways"
+    "note": "M15 4021.60 di atas tengah band (3997.3–4037.6) · RSI 53 · Stoch 53 · MACD +0.19 · H1 sideways"
    }
   },
   "fund": {
@@ -1192,48 +1192,48 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "sideways",
-    "score": 1,
-    "price": 4019.4,
-    "ema20": 4020.61,
-    "ema50": 4017.23,
-    "rsi": 49.7,
+    "bias": "bullish",
+    "score": 3,
+    "price": 4022.1,
+    "ema20": 4020.75,
+    "ema50": 4017.42,
+    "rsi": 53.1,
     "n": 299,
-    "slot": 2988395,
-    "at": 1793037065665
+    "slot": 2988396,
+    "at": 1793037665682
    },
    "M15": {
     "bias": "bullish",
     "score": 3,
-    "price": 4020.9,
-    "ema20": 4019.44,
-    "ema50": 4015.03,
-    "rsi": 52.7,
+    "price": 4022.1,
+    "ema20": 4019.69,
+    "ema50": 4015.31,
+    "rsi": 53.8,
     "n": 299,
-    "slot": 1992263,
-    "at": 1793036765669
+    "slot": 1992264,
+    "at": 1793037665689
    },
    "M30": {
     "bias": "bullish",
     "score": 3,
-    "price": 4026.5,
-    "ema20": 4015.93,
-    "ema50": 4009.78,
-    "rsi": 59.3,
+    "price": 4022.1,
+    "ema20": 4016.52,
+    "ema50": 4010.26,
+    "rsi": 55.6,
     "n": 299,
-    "slot": 996131,
-    "at": 1793035865675
+    "slot": 996132,
+    "at": 1793037665691
    },
    "H1": {
     "bias": "bullish",
     "score": 3,
-    "price": 4021,
-    "ema20": 4010.64,
-    "ema50": 4007.57,
-    "rsi": 57.5,
+    "price": 4022.1,
+    "ema20": 4011.73,
+    "ema50": 4008.14,
+    "rsi": 58,
     "n": 299,
-    "slot": 498065,
-    "at": 1793034065849
+    "slot": 498066,
+    "at": 1793037665694
    }
   },
   "currency": "USC",
