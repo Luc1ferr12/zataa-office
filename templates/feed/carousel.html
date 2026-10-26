@@ -30,6 +30,10 @@
   .with-photo .pre { color: var(--white); text-shadow: 0 4px 20px #000a; }
   .with-photo .sub { font-size: 30px; color: #e6dcff; max-width: 92%; }
   .with-photo .swipe { text-align: right; }
+  /* point + photo: foto pemain, nomor kecil, judul & isi di bawah */
+  .with-photo .pt-n { font-size: 90px; -webkit-text-stroke: 3px var(--accent); }
+  .with-photo .h2.pt { font-size: 84px; text-transform: uppercase; text-shadow: 0 6px 30px #0009; }
+  .with-photo .body { font-size: 32px; max-width: 92%; text-shadow: 0 4px 20px #000a; }
   .cta-logo { width: 220px; height: 220px; border-radius: 48px; box-shadow: 0 20px 60px #0009, 0 0 0 4px #ffffff22; }
 </style></head>
 <body><div id="root"></div>
@@ -45,7 +49,8 @@ window.render = async (d, size, opts = {}) => {
   const logos = [s.logo ?? []].flat().filter(Boolean);
   const logoRow = logos.length ? `<div class="tlogos">${logos.map((l) => `<img src="/${esc(l.replace(/^\/+/, ''))}" alt="">`).join('')}</div>` : '';
   let inner;
-  document.body.classList.toggle('with-photo', !!(s.kind === 'hook' && s.photo));
+  const withPhoto = !!(s.kind !== 'cta' && s.photo);
+  document.body.classList.toggle('with-photo', withPhoto);
   if (s.kind === 'hook') {
     // photo = foto tim/pemain (mis. assets/photos/x.jpg) → layout foto; pre = teks kecil di atas judul; logo tanpa foto tampil besar (maks 3 logo, lebih dari itu ukuran biasa biar nggak kepotong)
     const row = s.photo || logos.length > 3 ? logoRow : logoRow.replace('class="tlogos"', 'class="tlogos big"');
@@ -58,7 +63,7 @@ window.render = async (d, size, opts = {}) => {
     inner = `<div class="grow">${logoRow}<div class="pt-n">${esc(String(num).padStart(2, '0'))}</div><h2 class="h2 pt">${md(s.title)}</h2>${s.body ? `<p class="body">${md(s.body)}</p>` : ''}</div><div class="swipe">Geser ➜</div>`;
   }
   let html = shell(d, g, top + inner, { foot: false });
-  if (s.kind === 'hook' && s.photo) html = html.replace('<div class="bg"></div>', `<div class="bg"></div><div class="photo"><img src="/${esc(s.photo.replace(/^\/+/, ''))}" alt=""></div>`);
+  if (withPhoto) html = html.replace('<div class="bg"></div>', `<div class="bg"></div><div class="photo"><img src="/${esc(s.photo.replace(/^\/+/, ''))}" alt=""></div>`);
   document.getElementById('root').innerHTML = html;
   await ready();
   fit(document.querySelector('.h1, .h2'), 52);
