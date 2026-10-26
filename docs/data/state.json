@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-26T09:06:50.388Z",
+ "generated_at": "2026-10-26T09:16:50.396Z",
  "today": "2026-10-26",
  "week_start": "2026-10-26",
  "campaign": {
@@ -103,31 +103,31 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-26 09:01:05"
+   "updated_at": "2026-10-26 09:16:07"
   },
   {
    "id": "tresearch",
    "name": "Davina",
    "title": "Research & Fundamental",
    "status": "done",
-   "current_task": "Fundamental: Tak ada berita 24 jam baru. Fed naik 25bp (16 Sep), DXY ~100,8, konflik Timteng mereda: bias bearish ringan. Data lama, hati-hati.",
-   "updated_at": "2026-10-26 09:01:05"
+   "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
+   "updated_at": "2026-10-26 09:16:07"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Setup SELL di band (RSI)",
-   "updated_at": "2026-10-26 09:01:05"
+   "current_task": "Setup SELL di band (RSI+MACD)",
+   "updated_at": "2026-10-26 09:16:07"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: setup SELL di band, konfirmasi baru 1/3 (RSI) · London–NY (mode aman)",
-   "updated_at": "2026-10-26 09:01:05"
+   "current_task": "NO TRADE: setup SELL di band, konfirmasi baru 2/3 (RSI+MACD) · London–NY (mode aman)",
+   "updated_at": "2026-10-26 09:16:07"
   },
   {
    "id": "texec",
@@ -1000,9 +1000,14 @@
   "paused": false,
   "balance": 1687.5099999999998,
   "today_pnl": 0,
-  "price": 4018.800049,
+  "price": 4016.5,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-26 09:16:07",
+    "decision": "NO TRADE",
+    "reason": "setup SELL di band, konfirmasi baru 2/3 (RSI+MACD) · London–NY (mode aman)"
+   },
    {
     "ts": "2026-10-26 09:01:05",
     "decision": "NO TRADE",
@@ -1025,11 +1030,6 @@
    },
    {
     "ts": "2026-10-26 08:01:05",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-10-26 07:46:05",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1065,7 +1065,7 @@
    1687.5099999999995
   ],
   "last": {
-   "ts": "2026-10-26 09:01:05",
+   "ts": "2026-10-26 09:16:07",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1074,21 +1074,22 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "setup SELL di band, konfirmasi baru 1/3 (RSI) · London–NY (mode aman)",
+   "reason": "setup SELL di band, konfirmasi baru 2/3 (RSI+MACD) · London–NY (mode aman)",
    "fund": {
-    "bias": -0.3,
-    "note": "Tak ada berita 24 jam baru. Fed naik 25bp (16 Sep), DXY ~100,8, konflik Timteng mereda: bias bearish ringan. Data lama, hati-hati.",
+    "bias": 0,
+    "note": "netral (belum ada ringkasan hari ini)",
     "danger": null,
     "blackout": null
    },
    "tech": {
     "bias": "sideways",
-    "score": 1,
+    "score": 2,
     "trigger": "sell",
     "confirm": [
-     "RSI"
+     "RSI",
+     "MACD"
     ],
-    "note": "M15 4017.90 di atas tengah band (4004.3–4021.0) · RSI 64 · Stoch 80 · MACD +0.40 · H1 sideways · setup SELL (RSI)"
+    "note": "M15 4016.10 di atas tengah band (4004.4–4021.2) · RSI 60 · Stoch 69 · MACD +0.22 · H1 sideways · setup SELL (RSI+MACD)"
    }
   },
   "fund": null,
@@ -1181,24 +1182,24 @@
    "M10": {
     "bias": "bullish",
     "score": 3,
-    "price": 4018.6,
-    "ema20": 4013.07,
-    "ema50": 4008.55,
-    "rsi": 65.6,
+    "price": 4017.9,
+    "ema20": 4013.53,
+    "ema50": 4008.91,
+    "rsi": 63.5,
     "n": 299,
-    "slot": 2988342,
-    "at": 1793005265287
+    "slot": 2988343,
+    "at": 1793005865308
    },
    "M15": {
     "bias": "sideways",
     "score": 1,
-    "price": 4018.6,
-    "ema20": 4011.2,
-    "ema50": 4005.96,
-    "rsi": 65.8,
+    "price": 4017,
+    "ema20": 4011.75,
+    "ema50": 4006.39,
+    "rsi": 62.3,
     "n": 299,
-    "slot": 1992228,
-    "at": 1793005265291
+    "slot": 1992229,
+    "at": 1793006167488
    },
    "M30": {
     "bias": "bullish",
