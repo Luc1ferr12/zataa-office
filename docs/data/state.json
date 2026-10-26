@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-26T11:06:50.453Z",
+ "generated_at": "2026-10-26T11:16:50.463Z",
  "today": "2026-10-26",
  "week_start": "2026-10-26",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-26 11:01:25"
+   "updated_at": "2026-10-26 11:16:05"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Fed diperkirakan tahan 28 Okt (3.75–4%), risiko hike Des bikin emas tertekan. Geopolitik (Timteng, Rusia-Ukraina) menopang. Berita 24 jam belum terverifikasi.",
-   "updated_at": "2026-10-26 11:01:24"
+   "updated_at": "2026-10-26 11:16:05"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-10-26 11:01:25"
+   "updated_at": "2026-10-26 11:16:05"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-10-26 11:01:25"
+   "updated_at": "2026-10-26 11:16:05"
   },
   {
    "id": "texec",
@@ -524,6 +524,16 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-26 11:16:05",
+   "agent_id": "ttech",
+   "message": "M15 berubah arah: bullish → sideways"
+  },
+  {
+   "ts": "2026-10-26 11:11:05",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: bullish → sideways"
+  },
+  {
    "ts": "2026-10-26 11:01:05",
    "agent_id": "ypublish",
    "message": "Upload Shorts #87 ke Zataa History (Publik via Zernio)"
@@ -635,16 +645,6 @@
   },
   {
    "ts": "2026-10-26 05:02:02",
-   "agent_id": "publisher",
-   "message": "Gagal posting #73: Command failed: git commit -m media: aset konten siap posting\nerror: Committing is not possible because you have unmerge"
-  },
-  {
-   "ts": "2026-10-26 05:01:02",
-   "agent_id": "publisher",
-   "message": "Gagal posting #73: Command failed: git commit -m media: aset konten siap posting\nerror: Committing is not possible because you have unmerge"
-  },
-  {
-   "ts": "2026-10-26 05:00:03",
    "agent_id": "publisher",
    "message": "Gagal posting #73: Command failed: git commit -m media: aset konten siap posting\nerror: Committing is not possible because you have unmerge"
   }
@@ -1000,9 +1000,14 @@
   "paused": false,
   "balance": 1687.5099999999998,
   "today_pnl": 0,
-  "price": 4015.300049,
+  "price": 4012.399902,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-26 11:16:05",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
    {
     "ts": "2026-10-26 11:01:25",
     "decision": "NO TRADE",
@@ -1025,11 +1030,6 @@
    },
    {
     "ts": "2026-10-26 10:01:05",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-10-26 09:46:05",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1065,7 +1065,7 @@
    1687.5099999999995
   ],
   "last": {
-   "ts": "2026-10-26 11:01:25",
+   "ts": "2026-10-26 11:16:05",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1086,7 +1086,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4016.30 di atas tengah band (4004.4–4023.8) · RSI 56 · Stoch 53 · MACD -0.52 · H1 sideways"
+    "note": "M15 4012.60 di bawah tengah band (4005.4–4023.0) · RSI 49 · Stoch 34 · MACD -0.91 · H1 sideways"
    }
   },
   "fund": {
@@ -1180,26 +1180,26 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "bullish",
-    "score": 2,
-    "price": 4016.2,
-    "ema20": 4015.59,
-    "ema50": 4011.73,
-    "rsi": 53.4,
+    "bias": "sideways",
+    "score": 0,
+    "price": 4012.7,
+    "ema20": 4015.31,
+    "ema50": 4011.77,
+    "rsi": 45.8,
     "n": 299,
-    "slot": 2988354,
-    "at": 1793012465384
+    "slot": 2988355,
+    "at": 1793013065503
    },
    "M15": {
-    "bias": "bullish",
-    "score": 2,
-    "price": 4016.2,
-    "ema20": 4014.35,
-    "ema50": 4009.01,
-    "rsi": 56,
+    "bias": "sideways",
+    "score": 0,
+    "price": 4012.5,
+    "ema20": 4014.17,
+    "ema50": 4009.14,
+    "rsi": 49.3,
     "n": 299,
-    "slot": 1992236,
-    "at": 1793012465392
+    "slot": 1992237,
+    "at": 1793013365413
    },
    "M30": {
     "bias": "bullish",
