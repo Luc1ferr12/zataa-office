@@ -31,7 +31,7 @@ Kantor marketing virtual untuk **zataa.my.id** (top up game). Claude memerankan 
 | teval | Jihan | Evaluasi trade, backtest, usulan perbaikan |
 | treport | Selena | Laporan trading ke Telegram |
 | ydir | Bagas | Manajer YouTube Shorts **Zataa History** (sejarah kuno dunia): antrean topik, briefing, evaluasi Minggu |
-| yresearch | Nadhira | Riset misteri & horor Nusantara + sumber (≤5 pencarian/hari) |
+| yresearch | Nadhira | Riset misteri kuno dunia + sumber (≤5 pencarian/hari) |
 | yscript | Laras | Naskah Shorts + cek fakta (label fakta/teori/mitos) |
 | yvisual | Galih | Visual berlisensi bebas / gambar kode / Blender |
 | yvideo | Yoga | Render Shorts 9:16 + VO OmniVoice |
