@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-26T00:55:46.758Z",
+ "generated_at": "2026-10-26T01:05:46.849Z",
  "today": "2026-10-26",
  "week_start": "2026-10-26",
  "campaign": {
@@ -62,8 +62,8 @@
    "name": "Fikri",
    "title": "Social Media Publisher",
    "status": "done",
-   "current_task": "undefined",
-   "updated_at": "2026-10-25 23:59:02"
+   "current_task": null,
+   "updated_at": "2026-10-26 01:01:06"
   },
   {
    "id": "ads",
@@ -79,7 +79,7 @@
    "title": "Data Analyst",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-10-25 22:00:54"
+   "updated_at": "2026-10-26 01:01:59"
   },
   {
    "id": "price",
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-26 00:46:02"
+   "updated_at": "2026-10-26 01:01:02"
   },
   {
    "id": "tresearch",
@@ -111,23 +111,23 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Tak ada berita 24 jam baru. Fed naik 25bp (16 Sep), DXY ~100,8, konflik Timteng mereda: bias bearish ringan. Data lama, hati-hati.",
-   "updated_at": "2026-10-26 00:46:02"
+   "updated_at": "2026-10-26 01:01:02"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Setup BUY di band (RSI)",
-   "updated_at": "2026-10-26 00:46:02"
+   "current_task": "Belum ada pantulan band · H1 bearish",
+   "updated_at": "2026-10-26 01:01:02"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: Bollinger Band melebar kencang (breakout), pantulan berisiko",
-   "updated_at": "2026-10-26 00:46:02"
+   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
+   "updated_at": "2026-10-26 01:01:02"
   },
   {
    "id": "texec",
@@ -524,6 +524,21 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-26 01:01:59",
+   "agent_id": "analyst",
+   "message": "Update data 50 post IG 📈"
+  },
+  {
+   "ts": "2026-10-26 01:01:06",
+   "agent_id": "publisher",
+   "message": "Kirim draf IG Story ke Bos 📱"
+  },
+  {
+   "ts": "2026-10-26 01:01:02",
+   "agent_id": "ttech",
+   "message": "M60 berubah arah: sideways → bearish"
+  },
+  {
    "ts": "2026-10-26 00:55:46",
    "agent_id": "dir",
    "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs"
@@ -632,21 +647,6 @@
    "ts": "2026-10-25 23:01:53",
    "agent_id": "dir",
    "message": "Plan 14 slot minggu 26 Okt-1 Nov dikirim, tema Road to Surabaya, nunggu ✅ Owner"
-  },
-  {
-   "ts": "2026-10-25 23:01:48",
-   "agent_id": "dir",
-   "message": "Kirim plan minggu 2026-10-26 ke Owner (14 konten)"
-  },
-  {
-   "ts": "2026-10-25 23:01:47",
-   "agent_id": "dir",
-   "message": "Plan minggu 2026-10-26 dibuat: Road to Surabaya: hitung mundur playoff MPL ID S18 (4-8 Nov) + bursa transfer VCT 2027 (14 konten)"
-  },
-  {
-   "ts": "2026-10-25 23:01:22",
-   "agent_id": "trisk",
-   "message": "NO TRADE · jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
   }
  ],
  "chats": [
@@ -960,7 +960,7 @@
    "yt_posted": 7,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 34926,
+   "views": 34990,
    "likes": 263,
    "comments": 6,
    "shares": 26,
@@ -993,9 +993,14 @@
   "paused": false,
   "balance": 1687.5099999999998,
   "today_pnl": 0,
-  "price": 3985.300049,
+  "price": 3982.800049,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-26 01:01:02",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
+   },
    {
     "ts": "2026-10-26 00:46:02",
     "decision": "NO TRADE",
@@ -1018,11 +1023,6 @@
    },
    {
     "ts": "2026-10-25 23:46:01",
-    "decision": "NO TRADE",
-    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
-   },
-   {
-    "ts": "2026-10-25 23:31:01",
     "decision": "NO TRADE",
     "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
    }
@@ -1058,7 +1058,7 @@
    1687.5099999999995
   ],
   "last": {
-   "ts": "2026-10-26 00:46:02",
+   "ts": "2026-10-26 01:01:02",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1067,7 +1067,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "Bollinger Band melebar kencang (breakout), pantulan berisiko",
+   "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)",
    "fund": {
     "bias": -0.3,
     "note": "Tak ada berita 24 jam baru. Fed naik 25bp (16 Sep), DXY ~100,8, konflik Timteng mereda: bias bearish ringan. Data lama, hati-hati.",
@@ -1076,12 +1076,10 @@
    },
    "tech": {
     "bias": "bearish",
-    "score": 1,
-    "trigger": "buy",
-    "confirm": [
-     "RSI"
-    ],
-    "note": "M15 3991.10 di bawah tengah band (3988.7–4004.8) · RSI 34 · Stoch 26 · MACD -1.05 · H1 bearish · setup BUY (RSI)"
+    "score": 0,
+    "trigger": null,
+    "confirm": [],
+    "note": "M15 3986.40 di bawah tengah band (3986.1–4006.0) · RSI 26 · Stoch 16 · MACD -1.41 · H1 bearish"
    }
   },
   "fund": {
@@ -1177,46 +1175,46 @@
    "M10": {
     "bias": "bearish",
     "score": -3,
-    "price": 3989.3,
-    "ema20": 3995.28,
-    "ema50": 3996.56,
-    "rsi": 41.7,
+    "price": 3988.1,
+    "ema20": 3994.6,
+    "ema50": 3996.22,
+    "rsi": 40.5,
     "n": 299,
-    "slot": 2988293,
-    "at": 1792975861903
+    "slot": 2988294,
+    "at": 1792976462211
    },
    "M15": {
     "bias": "sideways",
     "score": -1,
-    "price": 3990.6,
-    "ema20": 3996.34,
-    "ema50": 3996.84,
-    "rsi": 32.1,
+    "price": 3988.1,
+    "ema20": 3995.55,
+    "ema50": 3996.5,
+    "rsi": 27.9,
     "n": 299,
-    "slot": 1992195,
-    "at": 1792975562066
+    "slot": 1992196,
+    "at": 1792976462216
    },
    "M30": {
     "bias": "sideways",
     "score": -1,
-    "price": 3989.6,
-    "ema20": 3997.05,
-    "ema50": 3997.39,
-    "rsi": 24.2,
+    "price": 3988.1,
+    "ema20": 3996.19,
+    "ema50": 3997.03,
+    "rsi": 22,
     "n": 299,
-    "slot": 996097,
-    "at": 1792974661890
+    "slot": 996098,
+    "at": 1792976462218
    },
    "H1": {
-    "bias": "sideways",
-    "score": 1,
-    "price": 3998.4,
-    "ema20": 3997.58,
-    "ema50": 4003.33,
-    "rsi": 52.6,
+    "bias": "bearish",
+    "score": -2,
+    "price": 3988.1,
+    "ema20": 3996.67,
+    "ema50": 4002.73,
+    "rsi": 25.2,
     "n": 299,
-    "slot": 498048,
-    "at": 1792972841367
+    "slot": 498049,
+    "at": 1792976462223
    }
   },
   "currency": "USC",
