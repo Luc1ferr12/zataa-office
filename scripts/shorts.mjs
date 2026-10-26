@@ -43,6 +43,7 @@ try {
   const scenes = spec.scenes.map((s, i) => {
     const vd = dur(items[i].out), lead = i === 0 ? LEAD : 0.35;
     const tail = i === spec.scenes.length - 1 ? TAIL : GAP - 0.35;
+    if (!existsSync(resolve(dirname(specPath), s.img))) throw new Error(`gambar tidak ada: ${s.img}`);
     return { ...s, img: '/' + relative(ROOT, resolve(dirname(specPath), s.img)).replaceAll('\\', '/'), voStart: 0, voDur: vd, lead, dur: lead + vd + tail };
   });
   let t = 0;

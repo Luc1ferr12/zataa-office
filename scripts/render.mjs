@@ -237,7 +237,16 @@ async function renderVideo(ctx, data, dir, base) {
   } finally { rmSync(tmp, { recursive: true, force: true }); }
 }
 
+// semua logo/foto assets/... di data wajib ada; kalau nggak, <img> rusak ikut ke-render (kasus #74)
+function missingAssets(v, acc = new Set()) {
+  if (typeof v === 'string') { const p = v.replace(/^\/+/, ''); if (/^assets\/.+\.(png|jpe?g|webp|svg|gif)$/i.test(p) && !existsSync(join(ROOT, p))) acc.add(p); }
+  else if (v && typeof v === 'object') for (const x of Object.values(v)) missingAssets(x, acc);
+  return acc;
+}
+
 async function run(template, data, dir, base) {
+  const miss = [...missingAssets(data)];
+  if (miss.length) throw new Error(`gambar tidak ada: ${miss.join(', ')} (ambil dulu: asset.mjs get <url> <folder>/<nama>)`);
   await mkdir(dir, { recursive: true });
   const srv = await serve();
   const b = await browser();
