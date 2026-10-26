@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-26T21:56:50.745Z",
+ "generated_at": "2026-10-26T22:06:50.748Z",
  "today": "2026-10-27",
  "week_start": "2026-10-26",
  "campaign": {
@@ -79,7 +79,7 @@
    "title": "Data Analyst",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-10-26 19:01:41"
+   "updated_at": "2026-10-26 22:01:31"
   },
   {
    "id": "price",
@@ -103,15 +103,15 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-26 20:46:05"
+   "updated_at": "2026-10-26 22:01:06"
   },
   {
    "id": "tresearch",
    "name": "Davina",
    "title": "Research & Fundamental",
    "status": "done",
-   "current_task": "Fundamental: Fed diperkirakan tahan 28 Okt (3.75–4%), risiko hike Des bikin emas tertekan. Geopolitik (Timteng, Rusia-Ukraina) menopang. Berita 24 jam belum terverifikasi.",
-   "updated_at": "2026-10-26 20:46:05"
+   "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
+   "updated_at": "2026-10-26 22:01:06"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-10-26 20:46:05"
+   "updated_at": "2026-10-26 22:01:06"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
-   "updated_at": "2026-10-26 20:46:05"
+   "updated_at": "2026-10-26 22:01:06"
   },
   {
    "id": "texec",
@@ -524,6 +524,31 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-26 22:01:31",
+   "agent_id": "analyst",
+   "message": "Update data 48 post IG 📈"
+  },
+  {
+   "ts": "2026-10-26 22:01:06",
+   "agent_id": "trisk",
+   "message": "NO TRADE · jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
+  },
+  {
+   "ts": "2026-10-26 22:01:05",
+   "agent_id": "ttech",
+   "message": "M30 berubah arah: sideways → bullish"
+  },
+  {
+   "ts": "2026-10-26 22:01:05",
+   "agent_id": "ttech",
+   "message": "M15 berubah arah: sideways → bullish"
+  },
+  {
+   "ts": "2026-10-26 22:01:05",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: sideways → bullish"
+  },
+  {
    "ts": "2026-10-26 20:51:06",
    "agent_id": "ttech",
    "message": "M10 berubah arah: bearish → sideways"
@@ -622,31 +647,6 @@
    "ts": "2026-10-26 14:46:05",
    "agent_id": "ttech",
    "message": "M15 berubah arah: sideways → bullish"
-  },
-  {
-   "ts": "2026-10-26 14:41:05",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: bearish → sideways"
-  },
-  {
-   "ts": "2026-10-26 14:31:05",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: sideways → bearish"
-  },
-  {
-   "ts": "2026-10-26 14:21:05",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: bearish → sideways"
-  },
-  {
-   "ts": "2026-10-26 14:01:05",
-   "agent_id": "ttech",
-   "message": "M60 berubah arah: bullish → sideways"
-  },
-  {
-   "ts": "2026-10-26 14:01:05",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: sideways → bearish"
   }
  ],
  "chats": [
@@ -979,7 +979,7 @@
    "yt_posted": 7,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 36310,
+   "views": 36311,
    "likes": 280,
    "comments": 6,
    "shares": 26,
@@ -1012,9 +1012,14 @@
   "paused": false,
   "balance": 1687.5099999999998,
   "today_pnl": 0,
-  "price": 4018.199951,
+  "price": 4017.300049,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-26 22:01:06",
+    "decision": "NO TRADE",
+    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
+   },
    {
     "ts": "2026-10-26 20:46:05",
     "decision": "NO TRADE",
@@ -1037,11 +1042,6 @@
    },
    {
     "ts": "2026-10-26 19:46:05",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-10-26 19:31:05",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1077,7 +1077,7 @@
    1687.5099999999995
   ],
   "last": {
-   "ts": "2026-10-26 20:46:05",
+   "ts": "2026-10-26 22:01:06",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1088,8 +1088,8 @@
    "risk_usd": null,
    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
    "fund": {
-    "bias": -0.1,
-    "note": "Fed diperkirakan tahan 28 Okt (3.75–4%), risiko hike Des bikin emas tertekan. Geopolitik (Timteng, Rusia-Ukraina) menopang. Berita 24 jam belum terverifikasi.",
+    "bias": 0,
+    "note": "netral (belum ada ringkasan hari ini)",
     "danger": null,
     "blackout": null
    },
@@ -1098,7 +1098,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4015.20 di bawah tengah band (4007.6–4028.8) · RSI 48 · Stoch 27 · MACD -0.58 · H1 sideways"
+    "note": "M15 4019.60 di atas tengah band (4009.3–4025.5) · RSI 55 · Stoch 84 · MACD +0.30 · H1 sideways"
    }
   },
   "fund": null,
@@ -1152,7 +1152,7 @@
     "title": "Advance GDP Price Index q/q",
     "impact": "Medium",
     "at": 1793277000000,
-    "forecast": "3.5%",
+    "forecast": "3.3%",
     "previous": "6.2%",
     "wb": 20,
     "wa": 20
@@ -1189,48 +1189,48 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "sideways",
-    "score": 0,
-    "price": 4016.7,
-    "ema20": 4015.83,
-    "ema50": 4016.22,
-    "rsi": 51,
+    "bias": "bullish",
+    "score": 2,
+    "price": 4018.2,
+    "ema20": 4017.03,
+    "ema50": 4016.71,
+    "rsi": 53.9,
     "n": 299,
-    "slot": 2988413,
-    "at": 1793047866010
+    "slot": 2988420,
+    "at": 1793052065857
    },
    "M15": {
-    "bias": "sideways",
-    "score": 0,
-    "price": 4015,
-    "ema20": 4016.43,
-    "ema50": 4015.21,
-    "rsi": 47.6,
+    "bias": "bullish",
+    "score": 2,
+    "price": 4018.2,
+    "ema20": 4017.13,
+    "ema50": 4015.75,
+    "rsi": 52.4,
     "n": 299,
-    "slot": 1992275,
-    "at": 1793047565865
+    "slot": 1992280,
+    "at": 1793052065865
    },
    "M30": {
-    "bias": "sideways",
-    "score": 0,
-    "price": 4014.3,
-    "ema20": 4015.96,
-    "ema50": 4011.16,
-    "rsi": 49.5,
+    "bias": "bullish",
+    "score": 2,
+    "price": 4018.2,
+    "ema20": 4016.54,
+    "ema50": 4011.96,
+    "rsi": 52.9,
     "n": 299,
-    "slot": 996137,
-    "at": 1793046665791
+    "slot": 996140,
+    "at": 1793052065868
    },
    "H1": {
     "bias": "bullish",
     "score": 3,
-    "price": 4014.9,
-    "ema20": 4012.2,
-    "ema50": 4008.62,
-    "rsi": 53.1,
+    "price": 4018.2,
+    "ema20": 4013.29,
+    "ema50": 4009.35,
+    "rsi": 55.1,
     "n": 299,
-    "slot": 498068,
-    "at": 1793044865761
+    "slot": 498070,
+    "at": 1793052065876
    }
   },
   "currency": "USC",
