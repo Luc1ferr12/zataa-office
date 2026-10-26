@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-26T01:35:46.854Z",
+ "generated_at": "2026-10-26T01:45:46.987Z",
  "today": "2026-10-26",
  "week_start": "2026-10-26",
  "campaign": {
@@ -37,9 +37,9 @@
    "id": "copywriter",
    "name": "Ista",
    "title": "Copywriter",
-   "status": "done",
-   "current_task": "Teks carousel Road to Surabaya & video rumor PRX",
-   "updated_at": "2026-10-25 23:54:07"
+   "status": "working",
+   "current_task": "Revisi #74: RUMOR PRX 2027: f0rsakeN & something bertahan, sisa roster cari opsi lain (hook 8 Insider Leak, label RUMOR)",
+   "updated_at": "2026-10-26 01:41:47"
   },
   {
    "id": "designer",
@@ -53,9 +53,9 @@
    "id": "video",
    "name": "Dimas",
    "title": "Video Production",
-   "status": "done",
-   "current_task": "Video rumor PRX 2027 masuk antrean render laptop",
-   "updated_at": "2026-10-25 23:54:31"
+   "status": "working",
+   "current_task": "Revisi #74: RUMOR PRX 2027: f0rsakeN & something bertahan, sisa roster cari opsi lain (hook 8 Insider Leak, label RUMOR)",
+   "updated_at": "2026-10-26 01:41:47"
   },
   {
    "id": "publisher",
@@ -281,7 +281,7 @@
    "game": "valorant",
    "pillar": "news",
    "title": "RUMOR PRX 2027: f0rsakeN & something bertahan, sisa roster cari opsi lain (hook 8 Insider Leak, label RUMOR)",
-   "status": "pending_approval",
+   "status": "revision",
    "asset_url": "{\"video\":\"https://luc1ferr12.github.io/zataa-office/media/2026-10-26/74-rumor-prx-2027-f0rsaken-something-bertah-ov.mp4\",\"cover\":\"https://luc1ferr12.github.io/zataa-office/media/2026-10-26/74-rumor-prx-2027-f0rsaken-something-bertah-ov-cover.jpg\"}",
    "scheduled_at": null,
    "posted_at": null,
@@ -295,7 +295,7 @@
    "game": "sejarah",
    "pillar": "hidden_history",
    "title": "Operasi Otak Zaman Batu, dan Pasiennya Selamat",
-   "status": "pending_approval",
+   "status": "approved",
    "asset_url": null,
    "scheduled_at": null,
    "posted_at": null,
@@ -309,7 +309,7 @@
    "game": "sejarah",
    "pillar": "horor_sejarah",
    "title": "Lawang Sewu: Apa yang Sebenarnya Ada di Bawah Tanahnya?",
-   "status": "draft",
+   "status": "approved",
    "asset_url": null,
    "scheduled_at": null,
    "posted_at": null,
@@ -524,6 +524,36 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-26 01:43:22",
+   "agent_id": "owner",
+   "message": "Approve Shorts #87 ✅"
+  },
+  {
+   "ts": "2026-10-26 01:43:14",
+   "agent_id": "owner",
+   "message": "Approve Shorts #88 ✅"
+  },
+  {
+   "ts": "2026-10-26 01:41:47",
+   "agent_id": "video",
+   "message": "Balik ke komputer, ngerjain revisi #74"
+  },
+  {
+   "ts": "2026-10-26 01:41:47",
+   "agent_id": "owner",
+   "message": "Minta revisi #74: Kok ada kaya gambar ga di temukan gitu"
+  },
+  {
+   "ts": "2026-10-26 01:37:10",
+   "agent_id": "yvideo",
+   "message": "Shorts #88 dirender di laptop (suara OmniVoice) & dikirim ke Owner"
+  },
+  {
+   "ts": "2026-10-26 01:37:09",
+   "agent_id": "spublish",
+   "message": "Kirim Shorts #88 ke Owner buat approval"
+  },
+  {
    "ts": "2026-10-26 01:34:45",
    "agent_id": "yvideo",
    "message": "Shorts #87 dirender di laptop (suara OmniVoice) & dikirim ke Owner"
@@ -617,39 +647,16 @@
    "ts": "2026-10-25 23:52:02",
    "agent_id": "owner",
    "message": "Approve plan mingguan ✅"
-  },
-  {
-   "ts": "2026-10-25 23:51:01",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: bullish → sideways"
-  },
-  {
-   "ts": "2026-10-25 23:31:01",
-   "agent_id": "ttech",
-   "message": "M30 berubah arah: sideways → bullish"
-  },
-  {
-   "ts": "2026-10-25 23:31:01",
-   "agent_id": "ttech",
-   "message": "M15 berubah arah: sideways → bullish"
-  },
-  {
-   "ts": "2026-10-25 23:31:01",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: sideways → bullish"
-  },
-  {
-   "ts": "2026-10-25 23:11:01",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: bullish → sideways"
-  },
-  {
-   "ts": "2026-10-25 23:07:44",
-   "agent_id": "spublish",
-   "message": "Jam 19:00 WIB: channel baru belum ada data, uji prime time dulu"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-10-26 01:41:47",
+   "agent_id": "video",
+   "to_id": null,
+   "kind": "curhat",
+   "message": "Siap, revisi dikerjain! Bos-nya teliti banget 😅"
+  },
   {
    "ts": "2026-10-25 23:54:52",
    "agent_id": "researcher",
@@ -922,13 +929,6 @@
    "to_id": "owner",
    "kind": "santai",
    "message": "Isinya f0rsakeN & something kabarnya dipertahankan (+ invy kontrak sampai 2027), d4v41 lagi cari tim baru, Jinggg masih nego. Captionnya ada pancingan komen + CTA top up VP 🔥"
-  },
-  {
-   "ts": "2026-10-25 05:14:03",
-   "agent_id": "researcher",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Bos, feed rumor roster PRX udah meluncur ke Telegram, tinggal ✅! Cuma Sheep Esports yang lapor, jadi aku tulis jelas RUMOR & belum resmi."
   }
  ],
  "stats": {
@@ -936,12 +936,12 @@
    "week": "2026-10-26",
    "total": 16,
    "posted": 0,
-   "pending": 2,
-   "scheduled": 1,
+   "pending": 0,
+   "scheduled": 3,
    "yt_total": 2,
    "yt_posted": 0,
-   "yt_pending": 1,
-   "yt_scheduled": 0,
+   "yt_pending": 0,
+   "yt_scheduled": 2,
    "views": 0,
    "likes": 0,
    "comments": 0,
@@ -993,7 +993,7 @@
   "paused": false,
   "balance": 1687.5099999999998,
   "today_pnl": 0,
-  "price": 3987.399902,
+  "price": 3987.199951,
   "open": [],
   "signals": [
    {
@@ -1175,13 +1175,13 @@
    "M10": {
     "bias": "bearish",
     "score": -3,
-    "price": 3990.4,
-    "ema20": 3993.95,
-    "ema50": 3995.75,
-    "rsi": 46.1,
+    "price": 3987.9,
+    "ema20": 3993.37,
+    "ema50": 3995.44,
+    "rsi": 44.2,
     "n": 299,
-    "slot": 2988297,
-    "at": 1792978262177
+    "slot": 2988298,
+    "at": 1792978862190
    },
    "M15": {
     "bias": "sideways",
