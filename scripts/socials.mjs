@@ -85,7 +85,7 @@ async function tiktok(keyEnv = 'ZERNIO_API_KEY', fallback = 'zataa.topup') {
 
 // ---------- YouTube Shorts (youtube.mjs stats, token pemilik channel)
 const ytStats = (brand = 'history') => new Promise((ok, no) => execFile(process.execPath, [join(ROOT, 'scripts', 'youtube.mjs'), 'stats', `--brand=${brand}`], { cwd: ROOT, timeout: 120_000, maxBuffer: 1 << 23 },
-  (e, so, se) => { if (e) return no(new Error(String(se || e.message).trim().split('\n').pop())); try { ok(JSON.parse(String(so).trim().split('\n').pop())); } catch (x) { no(x); } }));
+  (e, so, se) => { if (e) { const l = String(se || e.message).trim().split('\n'); return no(new Error((l.find((x) => /Error:/.test(x)) ?? l.pop()).replace(/^.*?Error: /, ''))); } try { ok(JSON.parse(String(so).trim().split('\n').pop())); } catch (x) { no(x); } }));
 async function youtube(brand = 'history') {
   const s = await ytStats(brand);
   const list = (s.list ?? []).filter((v) => v.privacy === 'public').map((v) => ({

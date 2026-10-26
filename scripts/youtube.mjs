@@ -40,7 +40,7 @@ if (cmd === 'auth') {
     else console.error('gagal:', j.error_description ?? j.error);
     srv.close();
   }).listen(+(env.YT_AUTH_PORT ?? 0), '127.0.0.1', () => {
-    const p = new URLSearchParams({ client_id: need(B.ytClientEnv), redirect_uri: `http://127.0.0.1:${srv.address().port}`, response_type: 'code', scope: SCOPES.join(' '), access_type: 'offline', prompt: 'consent' });
+    const p = new URLSearchParams({ client_id: need(B.ytClientEnv), redirect_uri: `http://127.0.0.1:${srv.address().port}`, response_type: 'code', scope: SCOPES.join(' '), access_type: 'offline', prompt: 'select_account consent' }); // select_account: channel Brand Account harus dipilih sendiri, bukan akun Google pribadinya
     console.error(`Buka link ini di browser dan pilih akun channel YouTube ${B.name}:\nhttps://accounts.google.com/o/oauth2/v2/auth?${p}`);
   });
 } else if (cmd === 'whoami') {
@@ -52,7 +52,7 @@ if (cmd === 'auth') {
   const H = { headers: { Authorization: `Bearer ${await token()}` } };
   const get = async (u) => { const r = await fetch(`https://www.googleapis.com/youtube/v3/${u}`, H); const j = await r.json(); if (j.error) throw new Error(j.error.message); return j; };
   const c = (await get('channels?part=snippet,statistics,contentDetails&mine=true')).items?.[0];
-  if (!c) throw new Error('tidak ada channel di akun ini');
+  if (!c) throw new Error(`tidak ada channel di akun ini (login ulang: youtube.mjs auth --brand=${B.key}, pilih channel ${B.name}, bukan akun pribadi)`);
   const ids = [];
   let page = '';
   do {

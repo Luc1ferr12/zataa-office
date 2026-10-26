@@ -387,9 +387,11 @@ async function ytStats() {
   return ytStatsRaw().catch((e) => ({ st: { list: [], subscribers: null, likes: null, err: e.message }, views: null }));
 }
 const ytOff = (st) => [`⚠️ YouTube belum bisa dibaca: ${esc(st.err.slice(0, 150))}${/kosong di \.env/.test(st.err) ? ` (Bos izinkan sekali di laptop: <code>node scripts/youtube.mjs auth ${BR}</code>, login akun channel ${B.name})` : ''}`];
+// error proses anak: ambil baris "Error: …" (baris terakhir stderr node cuma versi Node)
+const errLine = (t) => { const l = String(t).split('\n'); return (l.find((x) => /Error:/.test(x)) ?? l.pop()).replace(/^.*?Error: /, '').slice(0, 200); };
 async function ytStatsRaw() {
   const r = await run(['scripts/youtube.mjs', 'stats', BR], 3);
-  if (!r.ok) throw new Error((r.err || r.out).split('\n').pop().slice(0, 200));
+  if (!r.ok) throw new Error(errLine(r.err || r.out));
   const st = JSON.parse(r.out.split('\n').pop());
   return { st, views: st.list.reduce((a, v) => a + v.views, 0) }; // total channel dari API telat update → jumlahkan per video
 }
