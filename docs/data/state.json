@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-26T00:40:02.019Z",
+ "generated_at": "2026-10-26T00:50:02.012Z",
  "today": "2026-10-26",
  "week_start": "2026-10-26",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-26 00:31:02"
+   "updated_at": "2026-10-26 00:46:02"
   },
   {
    "id": "tresearch",
@@ -111,23 +111,23 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Tak ada berita 24 jam baru. Fed naik 25bp (16 Sep), DXY ~100,8, konflik Timteng mereda: bias bearish ringan. Data lama, hati-hati.",
-   "updated_at": "2026-10-26 00:31:01"
+   "updated_at": "2026-10-26 00:46:02"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Setup BUY di band (RSI+divergensi)",
-   "updated_at": "2026-10-26 00:31:02"
+   "current_task": "Setup BUY di band (RSI)",
+   "updated_at": "2026-10-26 00:46:02"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: ada candle spike di M15 (kemungkinan berita dadakan), tunggu tenang",
-   "updated_at": "2026-10-26 00:31:02"
+   "current_task": "NO TRADE: Bollinger Band melebar kencang (breakout), pantulan berisiko",
+   "updated_at": "2026-10-26 00:46:02"
   },
   {
    "id": "texec",
@@ -993,9 +993,14 @@
   "paused": false,
   "balance": 1687.5099999999998,
   "today_pnl": 0,
-  "price": 3986.800049,
+  "price": 3989.300049,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-26 00:46:02",
+    "decision": "NO TRADE",
+    "reason": "Bollinger Band melebar kencang (breakout), pantulan berisiko"
+   },
    {
     "ts": "2026-10-26 00:31:02",
     "decision": "NO TRADE",
@@ -1018,11 +1023,6 @@
    },
    {
     "ts": "2026-10-25 23:31:01",
-    "decision": "NO TRADE",
-    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
-   },
-   {
-    "ts": "2026-10-25 23:16:01",
     "decision": "NO TRADE",
     "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
    }
@@ -1058,7 +1058,7 @@
    1687.5099999999995
   ],
   "last": {
-   "ts": "2026-10-26 00:31:02",
+   "ts": "2026-10-26 00:46:02",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1067,7 +1067,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "ada candle spike di M15 (kemungkinan berita dadakan), tunggu tenang",
+   "reason": "Bollinger Band melebar kencang (breakout), pantulan berisiko",
    "fund": {
     "bias": -0.3,
     "note": "Tak ada berita 24 jam baru. Fed naik 25bp (16 Sep), DXY ~100,8, konflik Timteng mereda: bias bearish ringan. Data lama, hati-hati.",
@@ -1076,13 +1076,12 @@
    },
    "tech": {
     "bias": "bearish",
-    "score": 2,
+    "score": 1,
     "trigger": "buy",
     "confirm": [
-     "RSI",
-     "divergensi"
+     "RSI"
     ],
-    "note": "M15 3991.50 di bawah tengah band (3989.7–4004.4) · RSI 35 · Stoch 27 · MACD -0.98 · H1 bearish · setup BUY (RSI+divergensi)"
+    "note": "M15 3991.10 di bawah tengah band (3988.7–4004.8) · RSI 34 · Stoch 26 · MACD -1.05 · H1 bearish · setup BUY (RSI)"
    }
   },
   "fund": {
@@ -1178,24 +1177,24 @@
    "M10": {
     "bias": "bearish",
     "score": -2,
-    "price": 3989.6,
-    "ema20": 3996.87,
-    "ema50": 3997.26,
-    "rsi": 40.7,
+    "price": 3986.8,
+    "ema20": 3995.91,
+    "ema50": 3996.85,
+    "rsi": 38.1,
     "n": 299,
-    "slot": 2988291,
-    "at": 1792974661880
+    "slot": 2988292,
+    "at": 1792975261885
    },
    "M15": {
     "bias": "sideways",
     "score": -1,
-    "price": 3989.6,
-    "ema20": 3996.94,
-    "ema50": 3997.09,
-    "rsi": 28.1,
+    "price": 3990.6,
+    "ema20": 3996.34,
+    "ema50": 3996.84,
+    "rsi": 32.1,
     "n": 299,
-    "slot": 1992194,
-    "at": 1792974661888
+    "slot": 1992195,
+    "at": 1792975562066
    },
    "M30": {
     "bias": "sideways",
