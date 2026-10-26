@@ -1,11 +1,11 @@
 // Render video bersuara OmniVoice di laptop (VPS tidak punya GPU), lalu kirim hasilnya ke VPS.
 //   node scripts/render-laptop.mjs <content_id> [--submit]
-// 1) ambil data konten dari DB VPS  2) render.mjs try (lokal, OmniVoice)  3) scp ke docs/media/<tgl>/ di VPS
+// 1) ambil data konten dari DB VPS (+ logo/foto asset.mjs yang cuma ada di VPS → scp)  2) render.mjs try (lokal, OmniVoice)  3) scp ke docs/media/<tgl>/ di VPS
 // 4) isi asset_path/asset_url di DB VPS  5) --submit → approval.mjs submit <id> (kirim ke Telegram Owner)
 import { spawnSync } from 'node:child_process';
-import { mkdtempSync, writeFileSync, renameSync, rmSync } from 'node:fs';
+import { mkdtempSync, writeFileSync, renameSync, rmSync, existsSync, mkdirSync, copyFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
-import { join, dirname } from 'node:path';
+import { join, dirname, basename } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { DB_SNIPPET } from './db.mjs';
 
@@ -38,6 +38,18 @@ const errLine = (s) => {
 
 const tmp = mkdtempSync(join(tmpdir(), 'zataa-laptop-'));
 try {
+  // logo/foto dari asset.mjs (sesi harian VPS, nggak ke-commit) yang belum ada di laptop → ambil lewat scp,
+  // kalau nggak: <img> rusak ikut ke-render (kasus #74 prx.svg). Lewat folder tmp, path repo laptop ada spasinya
+  const imgs = (JSON.parse(c.data_json).scenes ?? []).flatMap((s) => ['logo', 'logoL', 'logoR', 'photo'].flatMap((k) => [s[k] ?? []].flat()));
+  for (const img of [...new Set(imgs.filter((p) => typeof p === 'string' && p).map((p) => p.replace(/^\/+/, '')))]) {
+    const dst = join(ROOT, img);
+    if (existsSync(dst)) continue;
+    const t = join(tmp, basename(img));
+    const r = spawnSync('scp', ['-q', `${VPS}:zataa-office/${img}`, t], { stdio: 'inherit' });
+    if (r.status !== 0) throw new Error(`gambar ${img} tidak ada di laptop maupun VPS`);
+    mkdirSync(dirname(dst), { recursive: true });
+    copyFileSync(t, dst);
+  }
   writeFileSync(join(tmp, 'data.json'), c.data_json);
   const r = spawnSync(process.execPath, [join(ROOT, 'scripts', 'render.mjs'), 'try', 'video', join(tmp, 'data.json'), tmp], { stdio: ['ignore', 'pipe', 'pipe'], encoding: 'utf8' });
   if (r.status !== 0) throw new Error(`render gagal: ${errLine(r.stderr || r.stdout)}`);

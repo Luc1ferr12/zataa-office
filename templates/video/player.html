@@ -145,7 +145,7 @@ const outCubic = (p) => 1 - (1 - p) ** 3;
 let scenes = [], total = 0, style = 'promo', clip = null;
 
 // ---- isi tiap jenis adegan; data-a = jenis animasi masuk, data-d = jeda (detik)
-const img = (p) => (p ? `<img src="/${esc(String(p).replace(/^\/+/, ''))}" alt="">` : '');
+const img = (p) => (p ? `<img src="/${esc(String(p).replace(/^\/+/, ''))}" alt="" onerror="this.remove()">` : ''); // file hilang → jangan tampil ikon rusak
 const logos = (l, d = 0) => { const a = [l ?? []].flat().filter(Boolean); return a.length ? `<div class="tlogos" data-a="pop" data-d="${d}">${a.map(img).join('')}</div>` : ''; };
 function html(s, i) {
   switch (s.t) {
