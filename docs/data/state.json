@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-26T01:25:46.847Z",
+ "generated_at": "2026-10-26T01:35:46.854Z",
  "today": "2026-10-26",
  "week_start": "2026-10-26",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-26 01:16:02"
+   "updated_at": "2026-10-26 01:31:02"
   },
   {
    "id": "tresearch",
@@ -111,23 +111,23 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Tak ada berita 24 jam baru. Fed naik 25bp (16 Sep), DXY ~100,8, konflik Timteng mereda: bias bearish ringan. Data lama, hati-hati.",
-   "updated_at": "2026-10-26 01:16:02"
+   "updated_at": "2026-10-26 01:31:02"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Setup BUY di band (RSI+MACD+divergensi)",
-   "updated_at": "2026-10-26 01:16:02"
+   "current_task": "Belum ada pantulan band · H1 bearish",
+   "updated_at": "2026-10-26 01:31:02"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: ada candle spike di M15 (kemungkinan berita dadakan), tunggu tenang",
-   "updated_at": "2026-10-26 01:16:02"
+   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
+   "updated_at": "2026-10-26 01:31:02"
   },
   {
    "id": "texec",
@@ -281,8 +281,8 @@
    "game": "valorant",
    "pillar": "news",
    "title": "RUMOR PRX 2027: f0rsakeN & something bertahan, sisa roster cari opsi lain (hook 8 Insider Leak, label RUMOR)",
-   "status": "draft",
-   "asset_url": null,
+   "status": "pending_approval",
+   "asset_url": "{\"video\":\"https://luc1ferr12.github.io/zataa-office/media/2026-10-26/74-rumor-prx-2027-f0rsaken-something-bertah-ov.mp4\",\"cover\":\"https://luc1ferr12.github.io/zataa-office/media/2026-10-26/74-rumor-prx-2027-f0rsaken-something-bertah-ov-cover.jpg\"}",
    "scheduled_at": null,
    "posted_at": null,
    "channel": null
@@ -295,7 +295,7 @@
    "game": "sejarah",
    "pillar": "hidden_history",
    "title": "Operasi Otak Zaman Batu, dan Pasiennya Selamat",
-   "status": "draft",
+   "status": "pending_approval",
    "asset_url": null,
    "scheduled_at": null,
    "posted_at": null,
@@ -524,6 +524,31 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-26 01:34:45",
+   "agent_id": "yvideo",
+   "message": "Shorts #87 dirender di laptop (suara OmniVoice) & dikirim ke Owner"
+  },
+  {
+   "ts": "2026-10-26 01:34:44",
+   "agent_id": "ypublish",
+   "message": "Kirim Shorts #87 ke Owner buat approval"
+  },
+  {
+   "ts": "2026-10-26 01:32:13",
+   "agent_id": "video",
+   "message": "video #74 dirender di laptop (suara OmniVoice) & dikirim ke Owner"
+  },
+  {
+   "ts": "2026-10-26 01:32:12",
+   "agent_id": "publisher",
+   "message": "Kirim #74 ke Owner buat approval"
+  },
+  {
+   "ts": "2026-10-26 01:31:02",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: sideways → bearish"
+  },
+  {
    "ts": "2026-10-26 01:21:02",
    "agent_id": "ttech",
    "message": "M10 berubah arah: bearish → sideways"
@@ -622,31 +647,6 @@
    "ts": "2026-10-25 23:07:44",
    "agent_id": "spublish",
    "message": "Jam 19:00 WIB: channel baru belum ada data, uji prime time dulu"
-  },
-  {
-   "ts": "2026-10-25 23:07:44",
-   "agent_id": "sdir",
-   "message": "Video perdana Zataa Story: Lawang Sewu (HS-001), tayang 19:00 WIB; HS-006 Lubang Jepang masuk backlog"
-  },
-  {
-   "ts": "2026-10-25 23:07:17",
-   "agent_id": "svideo",
-   "message": "Shorts #88 \"Lawang Sewu: Apa yang Sebenarnya Ada di Bawah Tanahnya?\" masuk antrean render laptop (OmniVoice)"
-  },
-  {
-   "ts": "2026-10-25 23:05:45",
-   "agent_id": "ydir",
-   "message": "Approve HH-013 & SE-004; stok approved History 8"
-  },
-  {
-   "ts": "2026-10-25 23:05:26",
-   "agent_id": "yvideo",
-   "message": "Shorts #87 \"Operasi Otak Zaman Batu, dan Pasiennya Selamat\" masuk antrean render laptop (OmniVoice)"
-  },
-  {
-   "ts": "2026-10-25 23:05:16",
-   "agent_id": "ypublish",
-   "message": "Jam tayang 18:00 WIB: data channel 7 hari, slot 18:00 rata-rata views tertinggi (8.000 Prajurit 1.656)"
   }
  ],
  "chats": [
@@ -936,11 +936,11 @@
    "week": "2026-10-26",
    "total": 16,
    "posted": 0,
-   "pending": 0,
+   "pending": 2,
    "scheduled": 1,
    "yt_total": 2,
    "yt_posted": 0,
-   "yt_pending": 0,
+   "yt_pending": 1,
    "yt_scheduled": 0,
    "views": 0,
    "likes": 0,
@@ -993,9 +993,14 @@
   "paused": false,
   "balance": 1687.5099999999998,
   "today_pnl": 0,
-  "price": 3995.199951,
+  "price": 3987.399902,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-26 01:31:02",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
+   },
    {
     "ts": "2026-10-26 01:16:02",
     "decision": "NO TRADE",
@@ -1018,11 +1023,6 @@
    },
    {
     "ts": "2026-10-26 00:16:02",
-    "decision": "NO TRADE",
-    "reason": "ada candle spike di M15 (kemungkinan berita dadakan), tunggu tenang"
-   },
-   {
-    "ts": "2026-10-26 00:00:41",
     "decision": "NO TRADE",
     "reason": "ada candle spike di M15 (kemungkinan berita dadakan), tunggu tenang"
    }
@@ -1058,7 +1058,7 @@
    1687.5099999999995
   ],
   "last": {
-   "ts": "2026-10-26 01:16:02",
+   "ts": "2026-10-26 01:31:02",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1067,7 +1067,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "ada candle spike di M15 (kemungkinan berita dadakan), tunggu tenang",
+   "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)",
    "fund": {
     "bias": -0.3,
     "note": "Tak ada berita 24 jam baru. Fed naik 25bp (16 Sep), DXY ~100,8, konflik Timteng mereda: bias bearish ringan. Data lama, hati-hati.",
@@ -1076,14 +1076,10 @@
    },
    "tech": {
     "bias": "bearish",
-    "score": 3,
-    "trigger": "buy",
-    "confirm": [
-     "RSI",
-     "MACD",
-     "divergensi"
-    ],
-    "note": "M15 3996.20 di bawah tengah band (3987.8–4005.2) · RSI 50 · Stoch 47 · MACD -0.47 · H1 bearish · setup BUY (RSI+MACD+divergensi)"
+    "score": 0,
+    "trigger": null,
+    "confirm": [],
+    "note": "M15 3989.20 di bawah tengah band (3986.1–4005.6) · RSI 39 · Stoch 45 · MACD -0.89 · H1 bearish"
    }
   },
   "fund": {
@@ -1177,37 +1173,37 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "sideways",
-    "score": -1,
-    "price": 4000.4,
-    "ema20": 3994.32,
-    "ema50": 3995.97,
-    "rsi": 55.4,
+    "bias": "bearish",
+    "score": -3,
+    "price": 3990.4,
+    "ema20": 3993.95,
+    "ema50": 3995.75,
+    "rsi": 46.1,
     "n": 299,
-    "slot": 2988296,
-    "at": 1792977662159
+    "slot": 2988297,
+    "at": 1792978262177
    },
    "M15": {
     "bias": "sideways",
-    "score": 1,
-    "price": 3995.8,
-    "ema20": 3995.58,
-    "ema50": 3996.47,
-    "rsi": 49.6,
+    "score": -1,
+    "price": 3990.4,
+    "ema20": 3995.08,
+    "ema50": 3996.23,
+    "rsi": 40.4,
     "n": 299,
-    "slot": 1992197,
-    "at": 1792977362365
+    "slot": 1992198,
+    "at": 1792978262187
    },
    "M30": {
     "bias": "sideways",
     "score": -1,
-    "price": 3988.1,
-    "ema20": 3996.19,
-    "ema50": 3997.03,
-    "rsi": 22,
+    "price": 3990.4,
+    "ema20": 3995.64,
+    "ema50": 3996.77,
+    "rsi": 32.4,
     "n": 299,
-    "slot": 996098,
-    "at": 1792976462218
+    "slot": 996099,
+    "at": 1792978262189
    },
    "H1": {
     "bias": "bearish",
