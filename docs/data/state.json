@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-26T06:56:50.336Z",
+ "generated_at": "2026-10-26T07:06:50.339Z",
  "today": "2026-10-26",
  "week_start": "2026-10-26",
  "campaign": {
@@ -79,7 +79,7 @@
    "title": "Data Analyst",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-10-26 04:00:41"
+   "updated_at": "2026-10-26 07:01:28"
   },
   {
    "id": "price",
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-26 06:46:05"
+   "updated_at": "2026-10-26 07:01:05"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Tak ada berita 24 jam baru. Fed naik 25bp (16 Sep), DXY ~100,8, konflik Timteng mereda: bias bearish ringan. Data lama, hati-hati.",
-   "updated_at": "2026-10-26 06:46:05"
+   "updated_at": "2026-10-26 07:01:05"
   },
   {
    "id": "ttech",
@@ -119,15 +119,15 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-10-26 06:46:05"
+   "updated_at": "2026-10-26 07:01:05"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
-   "updated_at": "2026-10-26 06:46:05"
+   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
+   "updated_at": "2026-10-26 07:01:05"
   },
   {
    "id": "texec",
@@ -524,6 +524,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-26 07:01:28",
+   "agent_id": "analyst",
+   "message": "Update data 48 post IG 📈"
+  },
+  {
    "ts": "2026-10-26 06:46:05",
    "agent_id": "ttech",
    "message": "M15 berubah arah: sideways → bullish"
@@ -642,14 +647,93 @@
    "ts": "2026-10-26 01:57:47",
    "agent_id": "owner",
    "message": "Approve konten #74 ✅"
-  },
-  {
-   "ts": "2026-10-26 01:54:36",
-   "agent_id": "video",
-   "message": "video #74 dirender di laptop (suara OmniVoice) & dikirim ke Owner"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-10-26 07:03:27",
+   "agent_id": "researcher",
+   "to_id": "owner",
+   "kind": "nimbrung",
+   "message": "Hehe comeback Winterfell mirip comeback game 3 kemarin ya Bos ☕ Seru banget, nanti ceritain juga favoritmu pas nonton bareng."
+  },
+  {
+   "ts": "2026-10-26 07:03:27",
+   "agent_id": "video",
+   "to_id": "owner",
+   "kind": "nimbrung",
+   "message": "Itu adegan paling epik sih Bos 😆 Aku sampe lompat dari bean bag. Ntar malem kita bahas abis nonton, popcorn-nya aku bawa banyak 🍿"
+  },
+  {
+   "ts": "2026-10-26 07:03:27",
+   "agent_id": "copywriter",
+   "to_id": "owner",
+   "kind": "nimbrung",
+   "message": "Ihh Bos jangan spoil dulu dong 😭 Tapi iya, pas Winterfell balik aku sampe nahan napas, deg-degannya kerasa banget!"
+  },
+  {
+   "ts": "2026-10-26 07:03:27",
+   "agent_id": "owner",
+   "to_id": null,
+   "kind": "nimbrung",
+   "message": "S6, pas ambil balik winterfell seru bgt sihh"
+  },
+  {
+   "ts": "2026-10-26 07:02:26",
+   "agent_id": "researcher",
+   "to_id": "owner",
+   "kind": "nimbrung",
+   "message": "Aku suka banget sih hehe ☕ Nanti pas nonton bareng ceritain yang mana favoritnya Bos."
+  },
+  {
+   "ts": "2026-10-26 07:02:26",
+   "agent_id": "video",
+   "to_id": "owner",
+   "kind": "nimbrung",
+   "message": "Suka dong! Cuma karakternya banyak banget, aku sampe harus catet silsilah keluarga biar nggak nyasar 🍿"
+  },
+  {
+   "ts": "2026-10-26 07:02:26",
+   "agent_id": "copywriter",
+   "to_id": "owner",
+   "kind": "nimbrung",
+   "message": "Sukaaa Bos! Tapi pas Red Wedding aku sampe nutup mata 😭 Jangan spoil ya 😆"
+  },
+  {
+   "ts": "2026-10-26 07:02:26",
+   "agent_id": "owner",
+   "to_id": null,
+   "kind": "nimbrung",
+   "message": "Game of throne, pada suka ga"
+  },
+  {
+   "ts": "2026-10-26 07:01:07",
+   "agent_id": "researcher",
+   "to_id": "owner",
+   "kind": "nimbrung",
+   "message": "Ajak-ajak dong! Nanti sekalian ceritain comeback game 3-nya di bioskop ya hehe ☕"
+  },
+  {
+   "ts": "2026-10-26 07:01:07",
+   "agent_id": "video",
+   "to_id": "owner",
+   "kind": "nimbrung",
+   "message": "Wih ajakan mendadak nih Bos 😆 Aku bawa popcorn, habis berenang langsung meluncur deh! 🍿"
+  },
+  {
+   "ts": "2026-10-26 07:01:07",
+   "agent_id": "copywriter",
+   "to_id": "owner",
+   "kind": "nimbrung",
+   "message": "Yesss, filmnya apa Bos? Aku ikut dong, tapi jangan horor ya 😭"
+  },
+  {
+   "ts": "2026-10-26 07:01:07",
+   "agent_id": "owner",
+   "to_id": null,
+   "kind": "nimbrung",
+   "message": "Ntar malem nonton yuk di bioskop mini"
+  },
   {
    "ts": "2026-10-26 06:32:17",
    "agent_id": "publisher",
@@ -845,90 +929,6 @@
    "to_id": "researcher",
    "kind": "santai",
    "message": "Mantap Clar, riset playoff-nya pas. Logo Falcons PH sama Aurora PH tolong amankan dari pagi ya."
-  },
-  {
-   "ts": "2026-10-25 23:01:53",
-   "agent_id": "dir",
-   "to_id": "researcher",
-   "kind": "oper",
-   "message": "Brief \"Plan mingguan Road to Surabaya dikirim ke Owner\" udah jadi. Clariana, gas riset ya!"
-  },
-  {
-   "ts": "2026-10-25 23:01:12",
-   "agent_id": "researcher",
-   "to_id": "copywriter",
-   "kind": "oper",
-   "message": "Ista, bahan buat \"Riset mingguan esport: playoff MPL ID, M8, transfer VCT, FFW\" udah aku rangkum + sumbernya. Tinggal kamu racik captionnya ✍️"
-  },
-  {
-   "ts": "2026-10-25 14:00:31",
-   "agent_id": "publisher",
-   "to_id": null,
-   "kind": "oper",
-   "message": "\"ONIC PH tersingkir dari MPL PH S18, gagal ke M8\" udah tayang di IG 🚀 Makasih semua!"
-  },
-  {
-   "ts": "2026-10-25 12:01:27",
-   "agent_id": "publisher",
-   "to_id": null,
-   "kind": "oper",
-   "message": "\"10 hari lagi playoff: prediksi juara versi kamu?\" udah tayang di IG + TikTok 🚀 Makasih semua!"
-  },
-  {
-   "ts": "2026-10-25 11:30:11",
-   "agent_id": "analyst",
-   "to_id": "dir",
-   "kind": "oper",
-   "message": "Kak, laporan minggu ini udah aku kirim ke Bos. Jam tayang IG & TikTok udah aku pisah ya 📈"
-  },
-  {
-   "ts": "2026-10-25 11:00:11",
-   "agent_id": "analyst",
-   "to_id": "dir",
-   "kind": "oper",
-   "message": "Laporan harian marketing udah aku kirim ke Bos, 3 konten tayang hari ini 📊"
-  },
-  {
-   "ts": "2026-10-25 09:01:18",
-   "agent_id": "publisher",
-   "to_id": null,
-   "kind": "oper",
-   "message": "\"Evil Geniuses bubar 2 Nov: tribute juara Valorant \" udah tayang di IG + TikTok 🚀 Makasih semua!"
-  },
-  {
-   "ts": "2026-10-25 05:41:34",
-   "agent_id": "publisher",
-   "to_id": null,
-   "kind": "oper",
-   "message": "\"Rumor roster PRX 2027\" udah tayang di IG 🚀 Makasih semua!"
-  },
-  {
-   "ts": "2026-10-25 05:23:44",
-   "agent_id": "researcher",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Fotonya dari Liquipedia (Champions 2026), tetap aku tulis jelas RUMOR ya Bos 👍"
-  },
-  {
-   "ts": "2026-10-25 05:23:44",
-   "agent_id": "designer",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Tiap pemain dapet 1 slide sendiri pakai fotonya + logo PRX: f0rsakeN, something, invy aman, d4v41 cari tim, Jinggg masih nego."
-  },
-  {
-   "ts": "2026-10-25 05:23:44",
-   "agent_id": "publisher",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Siap Bos, #72 udah jadi carousel 7 slide dan udah aku kirim ke Telegram. Lolos QA, tinggal ✅ 🙏"
-  },
-  {
-   "ts": "2026-10-25 05:23:35",
-   "agent_id": "designer",
-   "to_id": "copywriter",
-   "kind": "santai",
-   "message": "Foto d4v41 senyumnya bikin nggak tega nulis 'cari tim' 😭"
   }
  ],
  "stats": {
@@ -942,13 +942,20 @@
    "yt_posted": 0,
    "yt_pending": 0,
    "yt_scheduled": 2,
-   "views": 0,
+   "views": 3,
    "likes": 0,
    "comments": 0,
    "shares": 0,
    "saves": 0,
    "yt_views": 0,
-   "top": []
+   "top": [
+    {
+     "title": "Road to Surabaya: 6 tim playoff MPL ID S18, TLID & NAVI bye, siapa paling siap? (hook 11 Numbered with a favourite)",
+     "format": "carousel",
+     "pillar": "esport",
+     "views": 3
+    }
+   ]
   },
   "last_week": {
    "week": "2026-10-19",
@@ -960,7 +967,7 @@
    "yt_posted": 7,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 35586,
+   "views": 35644,
    "likes": 272,
    "comments": 6,
    "shares": 26,
@@ -993,9 +1000,14 @@
   "paused": false,
   "balance": 1687.5099999999998,
   "today_pnl": 0,
-  "price": 4008.399902,
+  "price": 4009.600098,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-26 07:01:05",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
    {
     "ts": "2026-10-26 06:46:05",
     "decision": "NO TRADE",
@@ -1018,11 +1030,6 @@
    },
    {
     "ts": "2026-10-26 05:46:03",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-   },
-   {
-    "ts": "2026-10-26 05:31:03",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
    }
@@ -1058,7 +1065,7 @@
    1687.5099999999995
   ],
   "last": {
-   "ts": "2026-10-26 06:46:05",
+   "ts": "2026-10-26 07:01:05",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1067,7 +1074,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)",
+   "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
    "fund": {
     "bias": -0.3,
     "note": "Tak ada berita 24 jam baru. Fed naik 25bp (16 Sep), DXY ~100,8, konflik Timteng mereda: bias bearish ringan. Data lama, hati-hati.",
@@ -1079,7 +1086,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4007.50 di bawah tengah band (3993.6–4023.4) · RSI 52 · Stoch 22 · MACD -0.86 · H1 sideways"
+    "note": "M15 4007.60 di bawah tengah band (3995.9–4022.5) · RSI 52 · Stoch 20 · MACD -0.93 · H1 sideways"
    }
   },
   "fund": {
@@ -1174,47 +1181,47 @@
   "tf": {
    "M10": {
     "bias": "sideways",
-    "score": 0,
-    "price": 4009.3,
-    "ema20": 4009.61,
-    "ema50": 4005.19,
-    "rsi": 51.6,
+    "score": -1,
+    "price": 4008.5,
+    "ema20": 4009.51,
+    "ema50": 4005.32,
+    "rsi": 50.1,
     "n": 299,
-    "slot": 2988329,
-    "at": 1792997465329
+    "slot": 2988330,
+    "at": 1792998065169
    },
    "M15": {
     "bias": "bullish",
     "score": 3,
-    "price": 4008.2,
-    "ema20": 4007.61,
-    "ema50": 4002.89,
-    "rsi": 53.2,
+    "price": 4008.5,
+    "ema20": 4007.7,
+    "ema50": 4003.11,
+    "rsi": 53.6,
     "n": 299,
-    "slot": 1992219,
-    "at": 1792997165144
+    "slot": 1992220,
+    "at": 1792998065174
    },
    "M30": {
     "bias": "bullish",
     "score": 2,
-    "price": 4005.8,
-    "ema20": 4003.74,
-    "ema50": 4000.31,
-    "rsi": 54.2,
+    "price": 4008.5,
+    "ema20": 4004.2,
+    "ema50": 4000.63,
+    "rsi": 57,
     "n": 299,
-    "slot": 996109,
-    "at": 1792996265182
+    "slot": 996110,
+    "at": 1792998065175
    },
    "H1": {
     "bias": "sideways",
     "score": -1,
-    "price": 4013.6,
-    "ema20": 4000.62,
-    "ema50": 4003.3,
-    "rsi": 67.4,
+    "price": 4008.5,
+    "ema20": 4001.37,
+    "ema50": 4003.51,
+    "rsi": 59.6,
     "n": 299,
-    "slot": 498054,
-    "at": 1792994463115
+    "slot": 498055,
+    "at": 1792998065181
    }
   },
   "currency": "USC",
