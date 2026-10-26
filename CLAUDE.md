@@ -67,6 +67,7 @@ Update status visual: `office.mjs agent <id> working "<tugas>"` → selesai `off
 `done` otomatis menulis obrolan oper kerjaan ke panel Chit-chat. Boleh tambah 1–2 obrolan natural per sesi (santai/curhat, singkat): `office.mjs chat <dari> <ke|all> <oper|santai|curhat> "<pesan>"`.
 
 ## Chat Owner via Telegram
+Bot **chit-chat** (`scripts/chitchat-bot.mjs`, di watcher, `CHITCHAT_BOT_TOKEN`): pure ngobrol santai, bukan kerja. Obrolan santai web diterusin (deterministik, 0 token; /santai default · /rame · /diem · /siapa), Owner nimbrung → pegawai bales via Haiku, masuk `chats` kind `nimbrung` → panel Chit-chat web.
 Semua bot (Marketing, Shorts, Trading, Aprista) jawab pertama pakai **Haiku** (`scripts/haiku.mjs`): pertanyaan apa pun dijawab langsung (data kantor read-only), cuma perintah kerja yang dioper ke model utama / bot divisinya. ❌/✏️ Owner otomatis jadi `owner_feedback` di `office.mjs brief`. Pesan bebas Owner di Telegram dikerjakan watcher lewat `scripts/ask.mjs`: "lagi pada ngapain" dijawab tanpa AI; tugas lain dijalankan Claude CLI. Konten dadakan: `office.mjs content new '<json>'` (slot `kilat` = tayang begitu approved). Owner bilang "langsung post" = approval. Tugas pantau: `office.mjs followup <menit> "<konteks>"` (maks 16×/hari).
 
 ## Server (VPS)

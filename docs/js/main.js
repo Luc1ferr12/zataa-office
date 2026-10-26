@@ -186,7 +186,7 @@ function renderDashboard() {
 
 // chit-chat: diperbarui tiap ganti menit (live) atau tiap geser waktu simulasi
 const AVATAR = Object.fromEntries([['owner', '#5b1fd6'], ...AGENTS.map((a) => [a.id, a.avatar])]);
-const KIND = { oper: '🔁', santai: '☕', kerja: '💻', curhat: '💭', bos: '👑', pacaran: '💕', pdkt: '💘', gosip: '👀', ultah: '🎂', event: '🏆' };
+const KIND = { oper: '🔁', santai: '☕', kerja: '💻', curhat: '💭', bos: '👑', nimbrung: '🗣️', pacaran: '💕', pdkt: '💘', gosip: '👀', ultah: '🎂', event: '🏆' };
 let lastChatKey = null;
 function renderChat(t) {
   const sim = $('sim-toggle').checked;

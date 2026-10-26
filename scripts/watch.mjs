@@ -2,7 +2,7 @@
 // Watcher approval (tanpa AI, 0 token saat diam): tiap 60 dtk tarik keputusan Owner dari n8n.
 // Revisi → jalankan Claude Code CLI untuk memperbaiki + render ulang → kirim lagi ke Telegram.
 // Approved → auto-post ke IG/TikTok saat jam slot (scripts/publish.mjs). Pesan bebas Owner → scripts/ask.mjs.
-// Bot terpisah: Aprista keuangan (finance-bot.mjs) & YouTube Shorts @zataashortbot (shorts-bot.mjs).
+// Bot terpisah: Aprista keuangan (finance-bot.mjs), chit-chat Owner ↔ pegawai (chitchat-bot.mjs) & YouTube Shorts @zataashortbot (shorts-bot.mjs).
 //   node scripts/watch.mjs          (biarkan jalan; di VPS = service systemd scripts/vps/zataa-watcher.service)
 //   node scripts/watch.mjs --once   (sekali cek, untuk tes)
 process.removeAllListeners('warning');
@@ -16,6 +16,7 @@ import { revisionText } from './chatter.mjs';
 import { adsReady, propose, runApproved } from './boost.mjs';
 import { handleOwnerMessage, handleDecision, runFollowups, syncMonitor } from './ask.mjs';
 import { startFinanceBot } from './finance-bot.mjs';
+import { startChitchatBot } from './chitchat-bot.mjs';
 import { startShortsBot } from './shorts-bot.mjs';
 
 // Zataa Story pakai kode shorts-bot.mjs yang sama tapi --brand=story (state & bot sendiri) → jalan sebagai proses anak
@@ -268,6 +269,7 @@ if (!process.argv.includes('--once')) {
   syncPages();
   setInterval(syncPages, SYNC_EVERY);
   startFinanceBot(log); // bot Telegram Aprista (keuangan Owner), long polling terpisah
+  startChitchatBot(log, exportState); // bot chit-chat: obrolan santai pegawai ↔ Owner nimbrung
   startShortsBot(log); // bot @zataashortbot Zataa History (approval → upload Private → ingatkan Publik)
   startStoryBot(); // bot @zataastorybot Zataa Story: proses anak (brand beda = modul beda), mati → hidup lagi 30 dtk
 }
