@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-26T23:16:50.779Z",
+ "generated_at": "2026-10-26T23:26:50.798Z",
  "today": "2026-10-27",
  "week_start": "2026-10-26",
  "campaign": {
@@ -351,8 +351,8 @@
    "game": "valorant",
    "pillar": "news",
    "title": "RRQ aman! Tetap partner VCT Pacific 2027-2028, slot jadi 8",
-   "status": "draft",
-   "asset_url": null,
+   "status": "pending_approval",
+   "asset_url": "{\"video\":\"https://luc1ferr12.github.io/zataa-office/media/2026-10-27/91-rrq-aman-tetap-partner-vct-pacific-2027--ov.mp4\",\"cover\":\"https://luc1ferr12.github.io/zataa-office/media/2026-10-27/91-rrq-aman-tetap-partner-vct-pacific-2027--ov-cover.jpg\"}",
    "scheduled_at": null,
    "posted_at": null,
    "channel": null
@@ -379,7 +379,7 @@
    "game": "sejarah",
    "pillar": "legenda_mitos",
    "title": "Kamar 308: Kamar Hotel yang Disiapkan untuk Nyi Roro Kidul",
-   "status": "draft",
+   "status": "pending_approval",
    "asset_url": null,
    "scheduled_at": null,
    "posted_at": null,
@@ -566,6 +566,26 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-26 23:25:13",
+   "agent_id": "video",
+   "message": "video #91 dirender di laptop (suara OmniVoice) & dikirim ke Owner"
+  },
+  {
+   "ts": "2026-10-26 23:25:11",
+   "agent_id": "publisher",
+   "message": "Kirim #91 ke Owner buat approval"
+  },
+  {
+   "ts": "2026-10-26 23:20:11",
+   "agent_id": "yvideo",
+   "message": "Shorts #89 dirender di laptop (suara OmniVoice) & dikirim ke Owner"
+  },
+  {
+   "ts": "2026-10-26 23:20:10",
+   "agent_id": "spublish",
+   "message": "Kirim Shorts #89 ke Owner buat approval"
+  },
+  {
    "ts": "2026-10-26 23:16:36",
    "agent_id": "video",
    "message": "video #76 dirender di laptop (suara OmniVoice) & dikirim ke Owner"
@@ -669,26 +689,6 @@
    "ts": "2026-10-26 23:03:05",
    "agent_id": "dir",
    "message": "Pilih 3 ide terbaik dari briefing (2 feed + 1 video)"
-  },
-  {
-   "ts": "2026-10-26 23:02:34",
-   "agent_id": "analyst",
-   "message": "Minggu ini 3.950 views; RUMOR PRX 1.319 views. Video news/Valorant eng 7-11, feed promo/engagement ~0"
-  },
-  {
-   "ts": "2026-10-26 23:02:31",
-   "agent_id": "price",
-   "message": "zataa.my.id live, harga ML normal (100 DM Rp29.266)"
-  },
-  {
-   "ts": "2026-10-26 23:02:25",
-   "agent_id": "researcher",
-   "message": "8 item riset: Aurora PH juara MPL PH S18 (4-2 Falcons), RRQ tetap partner VCT Pacific, rumor transfer EMEA, GYC FF 31 Okt"
-  },
-  {
-   "ts": "2026-10-26 23:02:25",
-   "agent_id": "researcher",
-   "message": "Nemu 8 topik baru"
   }
  ],
  "chats": [
@@ -978,11 +978,11 @@
    "week": "2026-10-26",
    "total": 18,
    "posted": 4,
-   "pending": 1,
+   "pending": 3,
    "scheduled": 1,
    "yt_total": 3,
    "yt_posted": 2,
-   "yt_pending": 0,
+   "yt_pending": 1,
    "yt_scheduled": 0,
    "views": 3950,
    "likes": 52,
@@ -1054,7 +1054,7 @@
   "paused": false,
   "balance": 1687.5099999999998,
   "today_pnl": 0,
-  "price": 4013.899902,
+  "price": 4013.5,
   "open": [],
   "signals": [
    {
@@ -1236,13 +1236,13 @@
    "M10": {
     "bias": "sideways",
     "score": -1,
-    "price": 4012.6,
-    "ema20": 4015.79,
-    "ema50": 4016.23,
-    "rsi": 38,
+    "price": 4012.7,
+    "ema20": 4015.49,
+    "ema50": 4016.09,
+    "rsi": 38.4,
     "n": 299,
-    "slot": 2988427,
-    "at": 1793056265887
+    "slot": 2988428,
+    "at": 1793056865898
    },
    "M15": {
     "bias": "sideways",
