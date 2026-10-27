@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-26T23:56:50.798Z",
+ "generated_at": "2026-10-27T00:06:50.798Z",
  "today": "2026-10-27",
  "week_start": "2026-10-26",
  "campaign": {
@@ -86,8 +86,8 @@
    "name": "Budi",
    "title": "Price Watcher",
    "status": "done",
-   "current_task": "Harga live zataa.my.id OK",
-   "updated_at": "2026-10-26 23:02:31"
+   "current_task": null,
+   "updated_at": "2026-10-27 00:00:52"
   },
   {
    "id": "ob",
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-26 23:46:05"
+   "updated_at": "2026-10-27 00:00:45"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Fed tahan 3,75–4% (risiko hike Des), NFP Sep cuma 29k, PCE Agu 3,4%. FOMC 27–28 Okt tidak ada di kalender, cek!",
-   "updated_at": "2026-10-26 23:46:05"
+   "updated_at": "2026-10-27 00:00:45"
   },
   {
    "id": "ttech",
@@ -119,15 +119,15 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-10-26 23:46:05"
+   "updated_at": "2026-10-27 00:00:45"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
-   "updated_at": "2026-10-26 23:46:05"
+   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
+   "updated_at": "2026-10-27 00:00:45"
   },
   {
    "id": "texec",
@@ -566,6 +566,16 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-27 00:00:45",
+   "agent_id": "ttech",
+   "message": "M60 berubah arah: bullish → sideways"
+  },
+  {
+   "ts": "2026-10-27 00:00:45",
+   "agent_id": "ttech",
+   "message": "M15 berubah arah: sideways → bearish"
+  },
+  {
    "ts": "2026-10-26 23:41:17",
    "agent_id": "owner",
    "message": "Approve Shorts #89 ✅"
@@ -679,16 +689,6 @@
    "ts": "2026-10-26 23:04:45",
    "agent_id": "video",
    "message": "Video #76 Aurora PH (glitch) antre render laptop"
-  },
-  {
-   "ts": "2026-10-26 23:04:45",
-   "agent_id": "publisher",
-   "message": "QA lolos, feed #75 Aurora PH juara MPL PH dikirim ke Owner"
-  },
-  {
-   "ts": "2026-10-26 23:04:41",
-   "agent_id": "publisher",
-   "message": "Kirim #75 ke Owner buat approval"
   }
  ],
  "chats": [
@@ -1054,9 +1054,14 @@
   "paused": false,
   "balance": 1687.5099999999998,
   "today_pnl": 0,
-  "price": 4006,
+  "price": 4008.600098,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-27 00:00:45",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
+   },
    {
     "ts": "2026-10-26 23:46:05",
     "decision": "NO TRADE",
@@ -1079,11 +1084,6 @@
    },
    {
     "ts": "2026-10-26 22:46:06",
-    "decision": "NO TRADE",
-    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
-   },
-   {
-    "ts": "2026-10-26 22:31:05",
     "decision": "NO TRADE",
     "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
    }
@@ -1119,7 +1119,7 @@
    1687.5099999999995
   ],
   "last": {
-   "ts": "2026-10-26 23:46:05",
+   "ts": "2026-10-27 00:00:45",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1128,7 +1128,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
+   "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)",
    "fund": {
     "bias": 0.1,
     "note": "Fed tahan 3,75–4% (risiko hike Des), NFP Sep cuma 29k, PCE Agu 3,4%. FOMC 27–28 Okt tidak ada di kalender, cek!",
@@ -1140,7 +1140,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4010.60 di bawah tengah band (4009.5–4020.4) · RSI 39 · Stoch 17 · MACD -0.63 · H1 sideways"
+    "note": "M15 4007.60 di bawah band bawah (4007.8–4021.4) · RSI 35 · Stoch 13 · MACD -0.96 · H1 sideways"
    }
   },
   "fund": {
@@ -1236,46 +1236,46 @@
    "M10": {
     "bias": "sideways",
     "score": -1,
-    "price": 4008.5,
-    "ema20": 4014.48,
-    "ema50": 4015.6,
-    "rsi": 32.6,
+    "price": 4007.6,
+    "ema20": 4013.82,
+    "ema50": 4015.28,
+    "rsi": 31.1,
     "n": 299,
-    "slot": 2988431,
-    "at": 1793058665924
+    "slot": 2988432,
+    "at": 1793059245717
    },
    "M15": {
-    "bias": "sideways",
-    "score": -1,
-    "price": 4010.9,
-    "ema20": 4015.59,
-    "ema50": 4015.39,
-    "rsi": 39.9,
+    "bias": "bearish",
+    "score": -3,
+    "price": 4007.6,
+    "ema20": 4014.83,
+    "ema50": 4015.08,
+    "rsi": 35.2,
     "n": 299,
-    "slot": 1992287,
-    "at": 1793058365912
+    "slot": 1992288,
+    "at": 1793059245722
    },
    "M30": {
     "bias": "sideways",
     "score": -1,
-    "price": 4015.1,
-    "ema20": 4016.16,
-    "ema50": 4012.31,
-    "rsi": 49.6,
+    "price": 4007.6,
+    "ema20": 4015.34,
+    "ema50": 4012.13,
+    "rsi": 42,
     "n": 299,
-    "slot": 996143,
-    "at": 1793057465912
+    "slot": 996144,
+    "at": 1793059245724
    },
    "H1": {
-    "bias": "bullish",
-    "score": 3,
-    "price": 4014.1,
-    "ema20": 4013.37,
-    "ema50": 4009.54,
-    "rsi": 51.9,
+    "bias": "sideways",
+    "score": 1,
+    "price": 4007.6,
+    "ema20": 4012.82,
+    "ema50": 4009.46,
+    "rsi": 47.3,
     "n": 299,
-    "slot": 498071,
-    "at": 1793055666122
+    "slot": 498072,
+    "at": 1793059245728
    }
   },
   "currency": "USC",
