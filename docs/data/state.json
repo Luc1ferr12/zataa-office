@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-27T04:36:50.932Z",
+ "generated_at": "2026-10-27T04:46:50.933Z",
  "today": "2026-10-27",
  "week_start": "2026-10-26",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-27 04:31:06"
+   "updated_at": "2026-10-27 04:46:06"
   },
   {
    "id": "tresearch",
@@ -111,23 +111,23 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Fed tahan 3,75–4% (risiko hike Des), NFP Sep cuma 29k, PCE Agu 3,4%. FOMC 27–28 Okt tidak ada di kalender, cek!",
-   "updated_at": "2026-10-27 04:31:06"
+   "updated_at": "2026-10-27 04:46:06"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Setup SELL di band (Stokastik+MACD)",
-   "updated_at": "2026-10-27 04:31:06"
+   "current_task": "Belum ada pantulan band · H1 sideways",
+   "updated_at": "2026-10-27 04:46:06"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: fundamental berlawanan (Fed tahan 3,75–4% (risiko hike Des), NFP Sep cuma 29k, PCE Agu 3,4%. FOMC 27–28 Okt tidak ada di kalender, cek!)",
-   "updated_at": "2026-10-27 04:31:06"
+   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
+   "updated_at": "2026-10-27 04:46:06"
   },
   {
    "id": "texec",
@@ -566,6 +566,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-27 04:46:06",
+   "agent_id": "ttech",
+   "message": "M15 berubah arah: bullish → sideways"
+  },
+  {
    "ts": "2026-10-27 04:16:06",
    "agent_id": "trisk",
    "message": "NO TRADE · setup SELL di band, konfirmasi baru 0/2 (-) · sesi Asia"
@@ -684,11 +689,6 @@
    "ts": "2026-10-27 00:46:06",
    "agent_id": "ttech",
    "message": "M15 berubah arah: sideways → bearish"
-  },
-  {
-   "ts": "2026-10-27 00:41:05",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: sideways → bearish"
   }
  ],
  "chats": [
@@ -984,12 +984,12 @@
    "yt_posted": 2,
    "yt_pending": 0,
    "yt_scheduled": 1,
-   "views": 4018,
+   "views": 4032,
    "likes": 54,
    "comments": 1,
    "shares": 5,
    "saves": 1,
-   "yt_views": 2683,
+   "yt_views": 2697,
    "top": [
     {
      "title": "Lawang Sewu: Apa yang Sebenarnya Ada di Bawah Tanahnya?",
@@ -1007,7 +1007,7 @@
      "title": "Operasi Otak Zaman Batu, dan Pasiennya Selamat",
      "format": "shorts",
      "pillar": "hidden_history",
-     "views": 1239
+     "views": 1253
     }
    ]
   },
@@ -1021,12 +1021,12 @@
    "yt_posted": 7,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 36379,
-   "likes": 280,
+   "views": 36404,
+   "likes": 283,
    "comments": 6,
    "shares": 26,
    "saves": 5,
-   "yt_views": 9154,
+   "yt_views": 9179,
    "top": [
     {
      "title": "Hall of Champions Valorant 2021-2026",
@@ -1054,9 +1054,14 @@
   "paused": false,
   "balance": 1687.5099999999998,
   "today_pnl": 0,
-  "price": 4020.5,
+  "price": 4014.800049,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-27 04:46:06",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
+   },
    {
     "ts": "2026-10-27 04:31:06",
     "decision": "NO TRADE",
@@ -1079,11 +1084,6 @@
    },
    {
     "ts": "2026-10-27 03:31:06",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-   },
-   {
-    "ts": "2026-10-27 03:16:06",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
    }
@@ -1119,7 +1119,7 @@
    1687.5099999999995
   ],
   "last": {
-   "ts": "2026-10-27 04:31:06",
+   "ts": "2026-10-27 04:46:06",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1128,7 +1128,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "fundamental berlawanan (Fed tahan 3,75–4% (risiko hike Des), NFP Sep cuma 29k, PCE Agu 3,4%. FOMC 27–28 Okt tidak ada di kalender, cek!)",
+   "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)",
    "fund": {
     "bias": 0.1,
     "note": "Fed tahan 3,75–4% (risiko hike Des), NFP Sep cuma 29k, PCE Agu 3,4%. FOMC 27–28 Okt tidak ada di kalender, cek!",
@@ -1137,13 +1137,10 @@
    },
    "tech": {
     "bias": "sideways",
-    "score": 2,
-    "trigger": "sell",
-    "confirm": [
-     "Stokastik",
-     "MACD"
-    ],
-    "note": "M15 4020.50 di atas tengah band (4005.2–4025.1) · RSI 56 · Stoch 82 · MACD +1.06 · H1 sideways · setup SELL (Stokastik+MACD)"
+    "score": 0,
+    "trigger": null,
+    "confirm": [],
+    "note": "M15 4015.30 di atas tengah band (4006.4–4024.1) · RSI 50 · Stoch 56 · MACD +0.46 · H1 sideways"
    }
   },
   "fund": {
@@ -1239,24 +1236,24 @@
    "M10": {
     "bias": "bullish",
     "score": 2,
-    "price": 4021.4,
-    "ema20": 4016.25,
-    "ema50": 4015.27,
-    "rsi": 58.1,
+    "price": 4018.8,
+    "ema20": 4016.49,
+    "ema50": 4015.41,
+    "rsi": 54.1,
     "n": 299,
-    "slot": 2988459,
-    "at": 1793075466381
+    "slot": 2988460,
+    "at": 1793076066135
    },
    "M15": {
-    "bias": "bullish",
-    "score": 2,
-    "price": 4021.4,
-    "ema20": 4015.92,
+    "bias": "sideways",
+    "score": 0,
+    "price": 4015.3,
+    "ema20": 4015.86,
     "ema50": 4015.32,
-    "rsi": 56.7,
+    "rsi": 49.6,
     "n": 299,
-    "slot": 1992306,
-    "at": 1793075466386
+    "slot": 1992307,
+    "at": 1793076366389
    },
    "M30": {
     "bias": "bullish",
