@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-27T02:46:50.883Z",
+ "generated_at": "2026-10-27T02:56:50.886Z",
  "today": "2026-10-27",
  "week_start": "2026-10-26",
  "campaign": {
@@ -566,6 +566,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-27 02:51:06",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: sideways → bearish"
+  },
+  {
    "ts": "2026-10-27 02:31:06",
    "agent_id": "ttech",
    "message": "M30 berubah arah: sideways → bullish"
@@ -684,11 +689,6 @@
    "ts": "2026-10-26 23:20:10",
    "agent_id": "spublish",
    "message": "Kirim Shorts #89 ke Owner buat approval"
-  },
-  {
-   "ts": "2026-10-26 23:16:36",
-   "agent_id": "video",
-   "message": "video #76 dirender di laptop (suara OmniVoice) & dikirim ke Owner"
   }
  ],
  "chats": [
@@ -1054,7 +1054,7 @@
   "paused": false,
   "balance": 1687.5099999999998,
   "today_pnl": 0,
-  "price": 4013.300049,
+  "price": 4009.800049,
   "open": [],
   "signals": [
    {
@@ -1234,15 +1234,15 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "sideways",
-    "score": 0,
-    "price": 4014.6,
-    "ema20": 4014.09,
-    "ema50": 4014.68,
-    "rsi": 50.7,
+    "bias": "bearish",
+    "score": -2,
+    "price": 4010.1,
+    "ema20": 4013.71,
+    "ema50": 4014.5,
+    "rsi": 44,
     "n": 299,
-    "slot": 2988448,
-    "at": 1793068866256
+    "slot": 2988449,
+    "at": 1793069466063
    },
    "M15": {
     "bias": "sideways",
