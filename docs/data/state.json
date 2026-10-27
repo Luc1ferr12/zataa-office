@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-27T23:46:51.403Z",
+ "generated_at": "2026-10-27T23:56:51.409Z",
  "today": "2026-10-28",
  "week_start": "2026-10-26",
  "campaign": {
@@ -622,6 +622,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-27 23:51:07",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: sideways → bullish"
+  },
+  {
    "ts": "2026-10-27 23:31:07",
    "agent_id": "ttech",
    "message": "M10 berubah arah: bullish → sideways"
@@ -740,11 +745,6 @@
    "ts": "2026-10-27 22:01:28",
    "agent_id": "analyst",
    "message": "Update data 48 post IG 📈"
-  },
-  {
-   "ts": "2026-10-27 22:01:07",
-   "agent_id": "trisk",
-   "message": "NO TRADE · jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
   }
  ],
  "chats": [
@@ -1110,7 +1110,7 @@
   "paused": false,
   "balance": 1687.5099999999998,
   "today_pnl": 0,
-  "price": 4061.199951,
+  "price": 4063.5,
   "open": [],
   "signals": [
    {
@@ -1290,15 +1290,15 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "sideways",
-    "score": 1,
-    "price": 4059.4,
-    "ema20": 4061.95,
-    "ema50": 4056.47,
-    "rsi": 43.3,
+    "bias": "bullish",
+    "score": 3,
+    "price": 4063.1,
+    "ema20": 4062.06,
+    "ema50": 4056.73,
+    "rsi": 55.4,
     "n": 299,
-    "slot": 2988574,
-    "at": 1793144467245
+    "slot": 2988575,
+    "at": 1793145067024
    },
    "M15": {
     "bias": "bullish",
