@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-27T01:26:50.841Z",
+ "generated_at": "2026-10-27T01:36:50.849Z",
  "today": "2026-10-27",
  "week_start": "2026-10-26",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-27 01:16:06"
+   "updated_at": "2026-10-27 01:31:06"
   },
   {
    "id": "tresearch",
@@ -111,23 +111,23 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Fed tahan 3,75–4% (risiko hike Des), NFP Sep cuma 29k, PCE Agu 3,4%. FOMC 27–28 Okt tidak ada di kalender, cek!",
-   "updated_at": "2026-10-27 01:16:06"
+   "updated_at": "2026-10-27 01:31:06"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-10-27 01:16:06"
+   "current_task": "Setup BUY di band (MACD)",
+   "updated_at": "2026-10-27 01:31:06"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
-   "updated_at": "2026-10-27 01:16:06"
+   "current_task": "NO TRADE: setup BUY di band, konfirmasi baru 1/2 (MACD) · sesi Asia",
+   "updated_at": "2026-10-27 01:31:06"
   },
   {
    "id": "texec",
@@ -1054,9 +1054,14 @@
   "paused": false,
   "balance": 1687.5099999999998,
   "today_pnl": 0,
-  "price": 4005.600098,
+  "price": 4020,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-27 01:31:06",
+    "decision": "NO TRADE",
+    "reason": "setup BUY di band, konfirmasi baru 1/2 (MACD) · sesi Asia"
+   },
    {
     "ts": "2026-10-27 01:16:06",
     "decision": "NO TRADE",
@@ -1081,11 +1086,6 @@
     "ts": "2026-10-27 00:16:06",
     "decision": "NO TRADE",
     "reason": "ada candle spike di M15 (kemungkinan berita dadakan), tunggu tenang"
-   },
-   {
-    "ts": "2026-10-27 00:00:45",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
    }
   ],
   "trades": [
@@ -1119,7 +1119,7 @@
    1687.5099999999995
   ],
   "last": {
-   "ts": "2026-10-27 01:16:06",
+   "ts": "2026-10-27 01:31:06",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1128,7 +1128,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)",
+   "reason": "setup BUY di band, konfirmasi baru 1/2 (MACD) · sesi Asia",
    "fund": {
     "bias": 0.1,
     "note": "Fed tahan 3,75–4% (risiko hike Des), NFP Sep cuma 29k, PCE Agu 3,4%. FOMC 27–28 Okt tidak ada di kalender, cek!",
@@ -1137,10 +1137,12 @@
    },
    "tech": {
     "bias": "sideways",
-    "score": 0,
-    "trigger": null,
-    "confirm": [],
-    "note": "M15 4014.60 di bawah tengah band (4008.1–4022.0) · RSI 50 · Stoch 50 · MACD -0.03 · H1 sideways"
+    "score": 1,
+    "trigger": "buy",
+    "confirm": [
+     "MACD"
+    ],
+    "note": "M15 4016.00 di atas tengah band (4008.1–4022.1) · RSI 51 · Stoch 61 · MACD +0.14 · H1 sideways · setup BUY (MACD)"
    }
   },
   "fund": {
@@ -1235,36 +1237,36 @@
   "tf": {
    "M10": {
     "bias": "sideways",
-    "score": -1,
-    "price": 4010.4,
-    "ema20": 4013.03,
-    "ema50": 4014.57,
-    "rsi": 43.1,
+    "score": 1,
+    "price": 4014.1,
+    "ema20": 4013.13,
+    "ema50": 4014.55,
+    "rsi": 51,
     "n": 299,
-    "slot": 2988440,
-    "at": 1793064066044
+    "slot": 2988441,
+    "at": 1793064665987
    },
    "M15": {
     "bias": "bearish",
     "score": -3,
-    "price": 4014.3,
-    "ema20": 4014.55,
-    "ema50": 4014.95,
-    "rsi": 49.2,
+    "price": 4014.1,
+    "ema20": 4014.51,
+    "ema50": 4014.91,
+    "rsi": 48.9,
     "n": 299,
-    "slot": 1992293,
-    "at": 1793063765996
+    "slot": 1992294,
+    "at": 1793064665991
    },
    "M30": {
     "bias": "sideways",
-    "score": -1,
-    "price": 4010.1,
-    "ema20": 4014.76,
-    "ema50": 4012.13,
-    "rsi": 45.5,
+    "score": 0,
+    "price": 4014.1,
+    "ema20": 4014.7,
+    "ema50": 4012.21,
+    "rsi": 49.6,
     "n": 299,
-    "slot": 996146,
-    "at": 1793062865975
+    "slot": 996147,
+    "at": 1793064665992
    },
    "H1": {
     "bias": "sideways",
