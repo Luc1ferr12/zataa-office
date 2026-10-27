@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-27T05:36:50.949Z",
+ "generated_at": "2026-10-27T05:46:50.956Z",
  "today": "2026-10-27",
  "week_start": "2026-10-26",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-27 05:31:06"
+   "updated_at": "2026-10-27 05:46:06"
   },
   {
    "id": "tresearch",
@@ -111,23 +111,23 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Fed tahan 3,75–4% (risiko hike Des), NFP Sep cuma 29k, PCE Agu 3,4%. FOMC 27–28 Okt tidak ada di kalender, cek!",
-   "updated_at": "2026-10-27 05:31:06"
+   "updated_at": "2026-10-27 05:46:06"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-10-27 05:31:06"
+   "current_task": "Setup BUY di band (Stokastik+MACD+divergensi)",
+   "updated_at": "2026-10-27 05:46:06"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
-   "updated_at": "2026-10-27 05:31:06"
+   "current_task": "NO TRADE: tengah band terlalu dekat buat target (RR 0.4 < 1.2)",
+   "updated_at": "2026-10-27 05:46:06"
   },
   {
    "id": "texec",
@@ -984,18 +984,18 @@
    "yt_posted": 2,
    "yt_pending": 0,
    "yt_scheduled": 1,
-   "views": 4032,
-   "likes": 54,
+   "views": 4045,
+   "likes": 55,
    "comments": 1,
    "shares": 5,
    "saves": 1,
-   "yt_views": 2697,
+   "yt_views": 2710,
    "top": [
     {
      "title": "Lawang Sewu: Apa yang Sebenarnya Ada di Bawah Tanahnya?",
      "format": "shorts",
      "pillar": "horor_sejarah",
-     "views": 1444
+     "views": 1457
     },
     {
      "title": "RUMOR PRX 2027: f0rsakeN & something bertahan, sisa roster cari opsi lain (hook 8 Insider Leak, label RUMOR)",
@@ -1021,12 +1021,12 @@
    "yt_posted": 7,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 36404,
+   "views": 36408,
    "likes": 283,
    "comments": 6,
    "shares": 26,
    "saves": 5,
-   "yt_views": 9179,
+   "yt_views": 9180,
    "top": [
     {
      "title": "Hall of Champions Valorant 2021-2026",
@@ -1044,7 +1044,7 @@
      "title": "8.000 Prajurit Penjaga Makam yang Belum Dibuka",
      "format": "shorts",
      "pillar": "hidden_history",
-     "views": 1671
+     "views": 1672
     }
    ]
   }
@@ -1054,9 +1054,14 @@
   "paused": false,
   "balance": 1687.5099999999998,
   "today_pnl": 0,
-  "price": 4009.199951,
+  "price": 4007,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-27 05:46:06",
+    "decision": "NO TRADE",
+    "reason": "tengah band terlalu dekat buat target (RR 0.4 < 1.2)"
+   },
    {
     "ts": "2026-10-27 05:31:06",
     "decision": "NO TRADE",
@@ -1081,11 +1086,6 @@
     "ts": "2026-10-27 04:31:06",
     "decision": "NO TRADE",
     "reason": "fundamental berlawanan (Fed tahan 3,75–4% (risiko hike Des), NFP Sep cuma 29k, PCE Agu 3,4%. FOMC 27–28 Okt tidak ada di kalender, cek!)"
-   },
-   {
-    "ts": "2026-10-27 04:16:06",
-    "decision": "NO TRADE",
-    "reason": "setup SELL di band, konfirmasi baru 0/2 (-) · sesi Asia"
    }
   ],
   "trades": [
@@ -1119,7 +1119,7 @@
    1687.5099999999995
   ],
   "last": {
-   "ts": "2026-10-27 05:31:06",
+   "ts": "2026-10-27 05:46:06",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1128,7 +1128,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)",
+   "reason": "tengah band terlalu dekat buat target (RR 0.4 < 1.2)",
    "fund": {
     "bias": 0.1,
     "note": "Fed tahan 3,75–4% (risiko hike Des), NFP Sep cuma 29k, PCE Agu 3,4%. FOMC 27–28 Okt tidak ada di kalender, cek!",
@@ -1137,10 +1137,14 @@
    },
    "tech": {
     "bias": "bearish",
-    "score": 0,
-    "trigger": null,
-    "confirm": [],
-    "note": "M15 4006.30 di bawah tengah band (4003.4–4024.2) · RSI 41 · Stoch 3 · MACD -1.00 · H1 bearish"
+    "score": 3,
+    "trigger": "buy",
+    "confirm": [
+     "Stokastik",
+     "MACD",
+     "divergensi"
+    ],
+    "note": "M15 4009.40 di bawah tengah band (4003.8–4024.0) · RSI 45 · Stoch 20 · MACD -0.81 · H1 bearish · setup BUY (Stokastik+MACD+divergensi)"
    }
   },
   "fund": {
@@ -1236,24 +1240,24 @@
    "M10": {
     "bias": "bearish",
     "score": -2,
-    "price": 4006.5,
-    "ema20": 4014.04,
-    "ema50": 4014.52,
-    "rsi": 38.6,
+    "price": 4010.7,
+    "ema20": 4013.72,
+    "ema50": 4014.37,
+    "rsi": 45.4,
     "n": 299,
-    "slot": 2988465,
-    "at": 1793079066180
+    "slot": 2988466,
+    "at": 1793079666250
    },
    "M15": {
     "bias": "sideways",
     "score": -1,
-    "price": 4006.5,
-    "ema20": 4014.06,
-    "ema50": 4014.61,
-    "rsi": 41,
+    "price": 4009.1,
+    "ema20": 4013.59,
+    "ema50": 4014.4,
+    "rsi": 44.3,
     "n": 299,
-    "slot": 1992310,
-    "at": 1793079066184
+    "slot": 1992311,
+    "at": 1793079966180
    },
    "M30": {
     "bias": "sideways",
