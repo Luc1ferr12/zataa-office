@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-27T10:56:51.079Z",
+ "generated_at": "2026-10-27T11:06:51.075Z",
  "today": "2026-10-27",
  "week_start": "2026-10-26",
  "campaign": {
@@ -103,31 +103,31 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-27 10:46:06"
+   "updated_at": "2026-10-27 11:01:33"
   },
   {
    "id": "tresearch",
    "name": "Davina",
    "title": "Research & Fundamental",
    "status": "done",
-   "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
-   "updated_at": "2026-10-27 10:46:06"
+   "current_task": "Fundamental: Fed diperkirakan tahan 28 Okt, risiko hike Des; DXY ~102 kuat; CPI ~3,6%: tekanan turun. Berita 24 jam belum terverifikasi.",
+   "updated_at": "2026-10-27 11:01:33"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-10-27 10:46:06"
+   "current_task": "Setup SELL di band (tanpa konfirmasi)",
+   "updated_at": "2026-10-27 11:01:33"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-10-27 10:46:06"
+   "current_task": "NO TRADE: setup SELL di band, konfirmasi baru 0/3 (-) · London–NY (mode aman)",
+   "updated_at": "2026-10-27 11:01:33"
   },
   {
    "id": "texec",
@@ -379,10 +379,10 @@
    "game": "sejarah",
    "pillar": "legenda_mitos",
    "title": "Kamar 308: Kamar Hotel yang Disiapkan untuk Nyi Roro Kidul",
-   "status": "approved",
-   "asset_url": null,
+   "status": "posted",
+   "asset_url": "https://www.youtube.com/watch?v=GV3hF_zYoko",
    "scheduled_at": null,
-   "posted_at": null,
+   "posted_at": "2026-10-27 11:01:07",
    "channel": "story"
   },
   {
@@ -566,6 +566,26 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-27 11:01:31",
+   "agent_id": "spublish",
+   "message": "Cross-post Shorts #89 ke TikTok Zataa Story"
+  },
+  {
+   "ts": "2026-10-27 11:01:07",
+   "agent_id": "spublish",
+   "message": "Upload Shorts #89 ke Zataa Story (Publik via Zernio)"
+  },
+  {
+   "ts": "2026-10-27 11:01:06",
+   "agent_id": "ttech",
+   "message": "M60 berubah arah: bearish → sideways"
+  },
+  {
+   "ts": "2026-10-27 11:01:06",
+   "agent_id": "ttech",
+   "message": "M30 berubah arah: bearish → sideways"
+  },
+  {
    "ts": "2026-10-27 10:46:06",
    "agent_id": "ttech",
    "message": "M15 berubah arah: bearish → sideways"
@@ -669,29 +689,16 @@
    "ts": "2026-10-27 05:16:06",
    "agent_id": "trisk",
    "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-  },
-  {
-   "ts": "2026-10-27 05:01:06",
-   "agent_id": "ttech",
-   "message": "M30 berubah arah: bullish → sideways"
-  },
-  {
-   "ts": "2026-10-27 04:51:06",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: bullish → sideways"
-  },
-  {
-   "ts": "2026-10-27 04:46:06",
-   "agent_id": "ttech",
-   "message": "M15 berubah arah: bullish → sideways"
-  },
-  {
-   "ts": "2026-10-27 04:16:06",
-   "agent_id": "trisk",
-   "message": "NO TRADE · setup SELL di band, konfirmasi baru 0/2 (-) · sesi Asia"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-10-27 11:00:51",
+   "agent_id": "analyst",
+   "to_id": "dir",
+   "kind": "oper",
+   "message": "Laporan harian marketing udah aku kirim ke Bos, 2 konten tayang hari ini 📊"
+  },
   {
    "ts": "2026-10-27 09:51:51",
    "agent_id": "researcher",
@@ -964,26 +971,19 @@
    "to_id": "copywriter",
    "kind": "oper",
    "message": "Ista, harga buat \"Harga live zataa.my.id OK\" udah aku cek di web. Angkanya aman dipake 💰"
-  },
-  {
-   "ts": "2026-10-26 23:02:25",
-   "agent_id": "researcher",
-   "to_id": "copywriter",
-   "kind": "oper",
-   "message": "Riset \"Riset pagi: Aurora juara MPL PH, RRQ partner VCT 2027\" beres, udah dicek 2 sumber. Ista, lanjut ya~"
   }
  ],
  "stats": {
   "this_week": {
    "week": "2026-10-26",
    "total": 18,
-   "posted": 6,
+   "posted": 7,
    "pending": 0,
-   "scheduled": 2,
+   "scheduled": 1,
    "yt_total": 3,
-   "yt_posted": 2,
+   "yt_posted": 3,
    "yt_pending": 0,
-   "yt_scheduled": 1,
+   "yt_scheduled": 0,
    "views": 4221,
    "likes": 58,
    "comments": 1,
@@ -1054,9 +1054,14 @@
   "paused": false,
   "balance": 1687.5099999999998,
   "today_pnl": 0,
-  "price": 4006.699951,
+  "price": 4013.300049,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-27 11:01:33",
+    "decision": "NO TRADE",
+    "reason": "setup SELL di band, konfirmasi baru 0/3 (-) · London–NY (mode aman)"
+   },
    {
     "ts": "2026-10-27 10:46:06",
     "decision": "NO TRADE",
@@ -1079,11 +1084,6 @@
    },
    {
     "ts": "2026-10-27 09:46:06",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-10-27 09:31:06",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1119,7 +1119,7 @@
    1687.5099999999995
   ],
   "last": {
-   "ts": "2026-10-27 10:46:06",
+   "ts": "2026-10-27 11:01:33",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1128,22 +1128,25 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
+   "reason": "setup SELL di band, konfirmasi baru 0/3 (-) · London–NY (mode aman)",
    "fund": {
-    "bias": 0,
-    "note": "netral (belum ada ringkasan hari ini)",
+    "bias": -0.2,
+    "note": "Fed diperkirakan tahan 28 Okt, risiko hike Des; DXY ~102 kuat; CPI ~3,6%: tekanan turun. Berita 24 jam belum terverifikasi.",
     "danger": null,
     "blackout": null
    },
    "tech": {
     "bias": "sideways",
     "score": 0,
-    "trigger": null,
+    "trigger": "sell",
     "confirm": [],
-    "note": "M15 4008.70 di atas tengah band (3990.9–4011.5) · RSI 56 · Stoch 62 · MACD +1.13 · H1 sideways"
+    "note": "M15 4010.00 di atas tengah band (3990.7–4011.9) · RSI 56 · Stoch 74 · MACD +1.67 · H1 sideways · setup SELL (tanpa konfirmasi)"
    }
   },
-  "fund": null,
+  "fund": {
+   "bias": -0.2,
+   "note": "Fed diperkirakan tahan 28 Okt, risiko hike Des; DXY ~102 kuat; CPI ~3,6%: tekanan turun. Berita 24 jam belum terverifikasi."
+  },
   "calendar": [
    {
     "title": "Federal Funds Rate",
@@ -1233,46 +1236,46 @@
    "M10": {
     "bias": "sideways",
     "score": 0,
-    "price": 4011.4,
-    "ema20": 4001.11,
-    "ema50": 4004.83,
-    "rsi": 60.6,
+    "price": 4010.9,
+    "ema20": 4002.04,
+    "ema50": 4005.07,
+    "rsi": 60,
     "n": 299,
-    "slot": 2988497,
-    "at": 1793098266392
+    "slot": 2988498,
+    "at": 1793098866401
    },
    "M15": {
     "bias": "sideways",
-    "score": -1,
-    "price": 4002.2,
-    "ema20": 4001.81,
-    "ema50": 4006.85,
-    "rsi": 48.6,
+    "score": 0,
+    "price": 4010.9,
+    "ema20": 4002.68,
+    "ema50": 4007.01,
+    "rsi": 57.6,
     "n": 299,
-    "slot": 1992331,
-    "at": 1793097966388
+    "slot": 1992332,
+    "at": 1793098866406
    },
    "M30": {
-    "bias": "bearish",
-    "score": -2,
-    "price": 3995.5,
-    "ema20": 4005.09,
-    "ema50": 4008.56,
-    "rsi": 40.5,
+    "bias": "sideways",
+    "score": 0,
+    "price": 4010.9,
+    "ema20": 4005.64,
+    "ema50": 4008.65,
+    "rsi": 52.8,
     "n": 299,
-    "slot": 996165,
-    "at": 1793097066444
+    "slot": 996166,
+    "at": 1793098866407
    },
    "H1": {
-    "bias": "bearish",
-    "score": -2,
-    "price": 4003.1,
-    "ema20": 4008.34,
-    "ema50": 4008.53,
-    "rsi": 45.9,
+    "bias": "sideways",
+    "score": 0,
+    "price": 4010.9,
+    "ema20": 4008.59,
+    "ema50": 4008.63,
+    "rsi": 51.6,
     "n": 299,
-    "slot": 498082,
-    "at": 1793095266632
+    "slot": 498083,
+    "at": 1793098866414
    }
   },
   "currency": "USC",
