@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-27T04:26:50.928Z",
+ "generated_at": "2026-10-27T04:36:50.932Z",
  "today": "2026-10-27",
  "week_start": "2026-10-26",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-27 04:16:06"
+   "updated_at": "2026-10-27 04:31:06"
   },
   {
    "id": "tresearch",
@@ -111,23 +111,23 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Fed tahan 3,75–4% (risiko hike Des), NFP Sep cuma 29k, PCE Agu 3,4%. FOMC 27–28 Okt tidak ada di kalender, cek!",
-   "updated_at": "2026-10-27 04:16:06"
+   "updated_at": "2026-10-27 04:31:06"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Setup SELL di band (tanpa konfirmasi)",
-   "updated_at": "2026-10-27 04:16:06"
+   "current_task": "Setup SELL di band (Stokastik+MACD)",
+   "updated_at": "2026-10-27 04:31:06"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: setup SELL di band, konfirmasi baru 0/2 (-) · sesi Asia",
-   "updated_at": "2026-10-27 04:16:06"
+   "current_task": "NO TRADE: fundamental berlawanan (Fed tahan 3,75–4% (risiko hike Des), NFP Sep cuma 29k, PCE Agu 3,4%. FOMC 27–28 Okt tidak ada di kalender, cek!)",
+   "updated_at": "2026-10-27 04:31:06"
   },
   {
    "id": "texec",
@@ -1054,9 +1054,14 @@
   "paused": false,
   "balance": 1687.5099999999998,
   "today_pnl": 0,
-  "price": 4022.800049,
+  "price": 4020.5,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-27 04:31:06",
+    "decision": "NO TRADE",
+    "reason": "fundamental berlawanan (Fed tahan 3,75–4% (risiko hike Des), NFP Sep cuma 29k, PCE Agu 3,4%. FOMC 27–28 Okt tidak ada di kalender, cek!)"
+   },
    {
     "ts": "2026-10-27 04:16:06",
     "decision": "NO TRADE",
@@ -1079,11 +1084,6 @@
    },
    {
     "ts": "2026-10-27 03:16:06",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-   },
-   {
-    "ts": "2026-10-27 03:01:06",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
    }
@@ -1119,7 +1119,7 @@
    1687.5099999999995
   ],
   "last": {
-   "ts": "2026-10-27 04:16:06",
+   "ts": "2026-10-27 04:31:06",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1128,7 +1128,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "setup SELL di band, konfirmasi baru 0/2 (-) · sesi Asia",
+   "reason": "fundamental berlawanan (Fed tahan 3,75–4% (risiko hike Des), NFP Sep cuma 29k, PCE Agu 3,4%. FOMC 27–28 Okt tidak ada di kalender, cek!)",
    "fund": {
     "bias": 0.1,
     "note": "Fed tahan 3,75–4% (risiko hike Des), NFP Sep cuma 29k, PCE Agu 3,4%. FOMC 27–28 Okt tidak ada di kalender, cek!",
@@ -1137,10 +1137,13 @@
    },
    "tech": {
     "bias": "sideways",
-    "score": 0,
+    "score": 2,
     "trigger": "sell",
-    "confirm": [],
-    "note": "M15 4022.60 di atas tengah band (4004.8–4024.7) · RSI 58 · Stoch 88 · MACD +1.17 · H1 sideways · setup SELL (tanpa konfirmasi)"
+    "confirm": [
+     "Stokastik",
+     "MACD"
+    ],
+    "note": "M15 4020.50 di atas tengah band (4005.2–4025.1) · RSI 56 · Stoch 82 · MACD +1.06 · H1 sideways · setup SELL (Stokastik+MACD)"
    }
   },
   "fund": {
@@ -1236,35 +1239,35 @@
    "M10": {
     "bias": "bullish",
     "score": 2,
-    "price": 4025.4,
-    "ema20": 4015.7,
-    "ema50": 4015.02,
-    "rsi": 65,
+    "price": 4021.4,
+    "ema20": 4016.25,
+    "ema50": 4015.27,
+    "rsi": 58.1,
     "n": 299,
-    "slot": 2988458,
-    "at": 1793074866132
+    "slot": 2988459,
+    "at": 1793075466381
    },
    "M15": {
     "bias": "bullish",
     "score": 2,
-    "price": 4023,
-    "ema20": 4015.34,
-    "ema50": 4015.08,
-    "rsi": 58.8,
+    "price": 4021.4,
+    "ema20": 4015.92,
+    "ema50": 4015.32,
+    "rsi": 56.7,
     "n": 299,
-    "slot": 1992305,
-    "at": 1793074566185
+    "slot": 1992306,
+    "at": 1793075466386
    },
    "M30": {
     "bias": "bullish",
     "score": 3,
-    "price": 4018,
-    "ema20": 4014.19,
-    "ema50": 4012.41,
-    "rsi": 53.9,
+    "price": 4021.4,
+    "ema20": 4014.88,
+    "ema50": 4012.77,
+    "rsi": 56.8,
     "n": 299,
-    "slot": 996152,
-    "at": 1793073666126
+    "slot": 996153,
+    "at": 1793075466386
    },
    "H1": {
     "bias": "sideways",
