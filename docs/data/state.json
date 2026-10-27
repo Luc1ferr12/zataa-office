@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-27T19:56:51.296Z",
+ "generated_at": "2026-10-27T20:06:51.298Z",
  "today": "2026-10-28",
  "week_start": "2026-10-26",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-27 19:46:06"
+   "updated_at": "2026-10-27 20:01:07"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Fed diperkirakan tahan 28 Okt, risiko hike Des; DXY ~102 kuat; CPI ~3,6%: tekanan turun. Berita 24 jam belum terverifikasi.",
-   "updated_at": "2026-10-27 19:46:06"
+   "updated_at": "2026-10-27 20:01:07"
   },
   {
    "id": "ttech",
@@ -119,15 +119,15 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-10-27 19:46:06"
+   "updated_at": "2026-10-27 20:01:07"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-10-27 19:46:06"
+   "current_task": "NO TRADE: jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
+   "updated_at": "2026-10-27 20:01:07"
   },
   {
    "id": "texec",
@@ -566,6 +566,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-27 20:01:07",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: bullish → sideways"
+  },
+  {
    "ts": "2026-10-27 19:16:06",
    "agent_id": "trisk",
    "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
@@ -684,11 +689,6 @@
    "ts": "2026-10-27 10:16:06",
    "agent_id": "trisk",
    "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-  },
-  {
-   "ts": "2026-10-27 10:16:06",
-   "agent_id": "ttech",
-   "message": "M15 berubah arah: sideways → bearish"
   }
  ],
  "chats": [
@@ -984,24 +984,24 @@
    "yt_posted": 3,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 6159,
-   "likes": 85,
+   "views": 6236,
+   "likes": 87,
    "comments": 2,
    "shares": 7,
    "saves": 1,
-   "yt_views": 4297,
+   "yt_views": 4345,
    "top": [
     {
      "title": "Lawang Sewu: Apa yang Sebenarnya Ada di Bawah Tanahnya?",
      "format": "shorts",
      "pillar": "horor_sejarah",
-     "views": 1588
+     "views": 1590
     },
     {
      "title": "Kamar 308: Kamar Hotel yang Disiapkan untuk Nyi Roro Kidul",
      "format": "shorts",
      "pillar": "legenda_mitos",
-     "views": 1392
+     "views": 1417
     },
     {
      "title": "RUMOR PRX 2027: f0rsakeN & something bertahan, sisa roster cari opsi lain (hook 8 Insider Leak, label RUMOR)",
@@ -1021,12 +1021,12 @@
    "yt_posted": 7,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 36618,
+   "views": 36622,
    "likes": 283,
    "comments": 6,
    "shares": 26,
    "saves": 5,
-   "yt_views": 9369,
+   "yt_views": 9373,
    "top": [
     {
      "title": "Hall of Champions Valorant 2021-2026",
@@ -1054,9 +1054,14 @@
   "paused": false,
   "balance": 1687.5099999999998,
   "today_pnl": 0,
-  "price": 4062,
+  "price": 4061.699951,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-27 20:01:07",
+    "decision": "NO TRADE",
+    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
+   },
    {
     "ts": "2026-10-27 19:46:06",
     "decision": "NO TRADE",
@@ -1079,11 +1084,6 @@
    },
    {
     "ts": "2026-10-27 18:46:06",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-10-27 18:31:06",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1119,7 +1119,7 @@
    1687.5099999999995
   ],
   "last": {
-   "ts": "2026-10-27 19:46:06",
+   "ts": "2026-10-27 20:01:07",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1128,7 +1128,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
+   "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
    "fund": {
     "bias": -0.2,
     "note": "Fed diperkirakan tahan 28 Okt, risiko hike Des; DXY ~102 kuat; CPI ~3,6%: tekanan turun. Berita 24 jam belum terverifikasi.",
@@ -1140,7 +1140,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4063.90 di atas tengah band (4054.6–4066.2) · RSI 69 · Stoch 72 · MACD -1.34 · H1 sideways"
+    "note": "M15 4063.30 di atas tengah band (4054.9–4066.3) · RSI 67 · Stoch 73 · MACD -1.34 · H1 sideways"
    }
   },
   "fund": {
@@ -1234,48 +1234,48 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "bullish",
-    "score": 2,
-    "price": 4063.4,
-    "ema20": 4059.13,
-    "ema50": 4047.92,
-    "rsi": 64.4,
+    "bias": "sideways",
+    "score": 1,
+    "price": 4063,
+    "ema20": 4059.5,
+    "ema50": 4048.51,
+    "rsi": 63.3,
     "n": 299,
-    "slot": 2988551,
-    "at": 1793130666805
+    "slot": 2988552,
+    "at": 1793131267151
    },
    "M15": {
     "bias": "bullish",
     "score": 3,
-    "price": 4064,
-    "ema20": 4055.28,
-    "ema50": 4040.27,
-    "rsi": 69,
+    "price": 4063,
+    "ema20": 4056.01,
+    "ema50": 4041.16,
+    "rsi": 67,
     "n": 299,
-    "slot": 1992367,
-    "at": 1793130366878
+    "slot": 1992368,
+    "at": 1793131267158
    },
    "M30": {
     "bias": "bullish",
-    "score": 2,
-    "price": 4061.9,
-    "ema20": 4043.22,
-    "ema50": 4027.91,
-    "rsi": 70.2,
+    "score": 3,
+    "price": 4063,
+    "ema20": 4045.11,
+    "ema50": 4029.29,
+    "rsi": 70.7,
     "n": 299,
-    "slot": 996183,
-    "at": 1793129466802
+    "slot": 996184,
+    "at": 1793131267159
    },
    "H1": {
     "bias": "bullish",
     "score": 2,
-    "price": 4057.7,
-    "ema20": 4030.62,
-    "ema50": 4019.02,
-    "rsi": 69.8,
+    "price": 4063,
+    "ema20": 4033.7,
+    "ema50": 4020.74,
+    "rsi": 71.7,
     "n": 299,
-    "slot": 498091,
-    "at": 1793127666853
+    "slot": 498092,
+    "at": 1793131267163
    }
   },
   "currency": "USC",
