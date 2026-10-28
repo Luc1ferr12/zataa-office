@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-28T03:56:51.521Z",
+ "generated_at": "2026-10-28T04:06:51.824Z",
  "today": "2026-10-28",
  "week_start": "2026-10-26",
  "campaign": {
@@ -79,7 +79,7 @@
    "title": "Data Analyst",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-10-28 01:01:46"
+   "updated_at": "2026-10-28 04:01:29"
   },
   {
    "id": "price",
@@ -87,7 +87,7 @@
    "title": "Price Watcher",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-10-28 02:00:53"
+   "updated_at": "2026-10-28 04:01:32"
   },
   {
    "id": "ob",
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-28 03:46:07"
+   "updated_at": "2026-10-28 04:01:07"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Fed diperkirakan tahan; pasar pasang hike Desember. Inflasi panas & yield menekan emas, geopolitik Hormuz menahan turun. Data terakhir 21 Okt.",
-   "updated_at": "2026-10-28 03:46:07"
+   "updated_at": "2026-10-28 04:01:07"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-10-28 03:46:07"
+   "updated_at": "2026-10-28 04:01:07"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
-   "updated_at": "2026-10-28 03:46:07"
+   "updated_at": "2026-10-28 04:01:07"
   },
   {
    "id": "texec",
@@ -622,6 +622,26 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-28 04:06:51",
+   "agent_id": "owner",
+   "message": "Minta konten promo dari perubahan harga 💰"
+  },
+  {
+   "ts": "2026-10-28 04:01:31",
+   "agent_id": "price",
+   "message": "Harga di web berubah (6 baris)"
+  },
+  {
+   "ts": "2026-10-28 04:01:29",
+   "agent_id": "analyst",
+   "message": "Update data 48 post IG 📈"
+  },
+  {
+   "ts": "2026-10-28 04:01:07",
+   "agent_id": "ttech",
+   "message": "M60 berubah arah: bullish → sideways"
+  },
+  {
    "ts": "2026-10-28 03:16:07",
    "agent_id": "trisk",
    "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (sesi Asia)"
@@ -725,29 +745,16 @@
    "ts": "2026-10-28 00:41:07",
    "agent_id": "ttech",
    "message": "M10 berubah arah: sideways → bullish"
-  },
-  {
-   "ts": "2026-10-28 00:31:07",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: bullish → sideways"
-  },
-  {
-   "ts": "2026-10-28 00:16:07",
-   "agent_id": "trisk",
-   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-  },
-  {
-   "ts": "2026-10-27 23:51:07",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: sideways → bullish"
-  },
-  {
-   "ts": "2026-10-27 23:31:07",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: bullish → sideways"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-10-28 04:01:31",
+   "agent_id": "price",
+   "to_id": "dir",
+   "kind": "oper",
+   "message": "Kak, ada perubahan harga di web! Udah aku laporin ke Bos 💰"
+  },
   {
    "ts": "2026-10-28 03:03:05",
    "agent_id": "publisher",
@@ -1020,13 +1027,6 @@
    "to_id": "owner",
    "kind": "santai",
    "message": "Info RRQ udah aku cek silang Bos, partner lain aku tulis \"dilaporkan\" soalnya belum semua resmi."
-  },
-  {
-   "ts": "2026-10-26 23:14:24",
-   "agent_id": "video",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Video RRQ VCT Pacific lagi antre render suara di laptop, begitu laptop nyala langsung dikirim ke Bos buat slot sore."
   }
  ],
  "stats": {
@@ -1040,7 +1040,7 @@
    "yt_posted": 3,
    "yt_pending": 0,
    "yt_scheduled": 2,
-   "views": 6671,
+   "views": 6680,
    "likes": 89,
    "comments": 2,
    "shares": 7,
@@ -1110,9 +1110,14 @@
   "paused": false,
   "balance": 1687.5099999999998,
   "today_pnl": 0,
-  "price": 4044.600098,
+  "price": 4044.100098,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-28 04:01:07",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
+   },
    {
     "ts": "2026-10-28 03:46:07",
     "decision": "NO TRADE",
@@ -1135,11 +1140,6 @@
    },
    {
     "ts": "2026-10-28 02:46:07",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-   },
-   {
-    "ts": "2026-10-28 02:31:07",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
    }
@@ -1175,7 +1175,7 @@
    1687.5099999999995
   ],
   "last": {
-   "ts": "2026-10-28 03:46:07",
+   "ts": "2026-10-28 04:01:07",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1196,7 +1196,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4046.60 di bawah tengah band (4039.1–4072.3) · RSI 35 · Stoch 7 · MACD -1.33 · H1 sideways"
+    "note": "M15 4043.90 di bawah tengah band (4037.2–4072.0) · RSI 32 · Stoch 3 · MACD -1.40 · H1 sideways"
    }
   },
   "fund": {
@@ -1253,7 +1253,7 @@
     "title": "Advance GDP Price Index q/q",
     "impact": "Medium",
     "at": 1793277000000,
-    "forecast": "3.3%",
+    "forecast": "3.2%",
     "previous": "6.2%",
     "wb": 20,
     "wa": 20
@@ -1292,46 +1292,46 @@
    "M10": {
     "bias": "bearish",
     "score": -3,
-    "price": 4045.9,
-    "ema20": 4051.41,
-    "ema50": 4054.18,
-    "rsi": 34.3,
+    "price": 4043.9,
+    "ema20": 4050.69,
+    "ema50": 4053.78,
+    "rsi": 31.5,
     "n": 299,
-    "slot": 2988599,
-    "at": 1793159467238
+    "slot": 2988600,
+    "at": 1793160067256
    },
    "M15": {
     "bias": "sideways",
     "score": -1,
-    "price": 4046.7,
-    "ema20": 4053.9,
-    "ema50": 4052.14,
-    "rsi": 35.3,
+    "price": 4043.9,
+    "ema20": 4052.95,
+    "ema50": 4051.82,
+    "rsi": 31.9,
     "n": 299,
-    "slot": 1992399,
-    "at": 1793159167307
+    "slot": 1992400,
+    "at": 1793160067261
    },
    "M30": {
     "bias": "sideways",
     "score": 0,
-    "price": 4046.9,
-    "ema20": 4053.48,
-    "ema50": 4041.92,
-    "rsi": 44.9,
+    "price": 4043.9,
+    "ema20": 4052.56,
+    "ema50": 4042,
+    "rsi": 41.8,
     "n": 299,
-    "slot": 996199,
-    "at": 1793158267229
+    "slot": 996200,
+    "at": 1793160067264
    },
    "H1": {
-    "bias": "bullish",
-    "score": 3,
-    "price": 4048.9,
-    "ema20": 4045.66,
-    "ema50": 4029.86,
-    "rsi": 56.5,
+    "bias": "sideways",
+    "score": 1,
+    "price": 4043.9,
+    "ema20": 4045.49,
+    "ema50": 4030.41,
+    "rsi": 52.4,
     "n": 299,
-    "slot": 498099,
-    "at": 1793156467276
+    "slot": 498100,
+    "at": 1793160067268
    }
   },
   "currency": "USC",
