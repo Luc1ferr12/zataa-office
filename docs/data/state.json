@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-28T18:56:51.963Z",
+ "generated_at": "2026-10-28T19:06:51.970Z",
  "today": "2026-10-29",
  "week_start": "2026-10-26",
  "campaign": {
@@ -79,7 +79,7 @@
    "title": "Data Analyst",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-10-28 16:01:37"
+   "updated_at": "2026-10-28 19:01:38"
   },
   {
    "id": "price",
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-28 18:46:07"
+   "updated_at": "2026-10-28 19:01:08"
   },
   {
    "id": "tresearch",
@@ -111,15 +111,15 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Waspada rilis Federal Funds Rate (02.00 WITA)",
-   "updated_at": "2026-10-28 18:46:07"
+   "updated_at": "2026-10-28 19:01:07"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Setup SELL di band (RSI)",
-   "updated_at": "2026-10-28 18:46:07"
+   "current_task": "Setup SELL di band (RSI+MACD)",
+   "updated_at": "2026-10-28 19:01:08"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: berita berdampak tinggi: Federal Funds Rate (02.00 WITA)",
-   "updated_at": "2026-10-28 18:46:07"
+   "updated_at": "2026-10-28 19:01:08"
   },
   {
    "id": "texec",
@@ -650,6 +650,21 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-28 19:01:38",
+   "agent_id": "analyst",
+   "message": "Update data 50 post IG 📈"
+  },
+  {
+   "ts": "2026-10-28 19:01:07",
+   "agent_id": "ttech",
+   "message": "M15 berubah arah: sideways → bearish"
+  },
+  {
+   "ts": "2026-10-28 19:01:07",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: sideways → bearish"
+  },
+  {
    "ts": "2026-10-28 18:46:07",
    "agent_id": "trisk",
    "message": "NO TRADE · berita berdampak tinggi: Federal Funds Rate (02.00 WITA)"
@@ -758,21 +773,6 @@
    "ts": "2026-10-28 12:31:07",
    "agent_id": "ttech",
    "message": "M10 berubah arah: sideways → bullish"
-  },
-  {
-   "ts": "2026-10-28 12:16:07",
-   "agent_id": "ttech",
-   "message": "M15 berubah arah: sideways → bullish"
-  },
-  {
-   "ts": "2026-10-28 12:06:13",
-   "agent_id": "publisher",
-   "message": "Posting #78 ke TikTok ✅"
-  },
-  {
-   "ts": "2026-10-28 12:04:41",
-   "agent_id": "publisher",
-   "message": "Gagal posting #78: Zernio 503: Database connection error"
   }
  ],
  "chats": [
@@ -1068,7 +1068,7 @@
    "yt_posted": 5,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 9745,
+   "views": 9766,
    "likes": 136,
    "comments": 2,
    "shares": 7,
@@ -1138,9 +1138,14 @@
   "paused": false,
   "balance": 1687.5099999999998,
   "today_pnl": 0,
-  "price": 4042.5,
+  "price": 4040.5,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-28 19:01:08",
+    "decision": "NO TRADE",
+    "reason": "berita berdampak tinggi: Federal Funds Rate (02.00 WITA)"
+   },
    {
     "ts": "2026-10-28 18:46:07",
     "decision": "NO TRADE",
@@ -1163,11 +1168,6 @@
    },
    {
     "ts": "2026-10-28 17:46:07",
-    "decision": "NO TRADE",
-    "reason": "berita berdampak tinggi: Federal Funds Rate (02.00 WITA)"
-   },
-   {
-    "ts": "2026-10-28 17:31:08",
     "decision": "NO TRADE",
     "reason": "berita berdampak tinggi: Federal Funds Rate (02.00 WITA)"
    }
@@ -1203,7 +1203,7 @@
    1687.5099999999995
   ],
   "last": {
-   "ts": "2026-10-28 18:46:07",
+   "ts": "2026-10-28 19:01:08",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1221,12 +1221,13 @@
    },
    "tech": {
     "bias": "sideways",
-    "score": 1,
+    "score": 2,
     "trigger": "sell",
     "confirm": [
-     "RSI"
+     "RSI",
+     "MACD"
     ],
-    "note": "M15 4057.50 di atas tengah band (4029.5–4058.8) · RSI 60 · Stoch 71 · MACD +1.80 · H1 sideways · setup SELL (RSI)"
+    "note": "M15 4035.70 di bawah tengah band (4029.4–4055.9) · RSI 44 · Stoch 49 · MACD +0.14 · H1 sideways · setup SELL (RSI+MACD)"
    }
   },
   "fund": {
@@ -1320,48 +1321,48 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "sideways",
-    "score": 0,
-    "price": 4062.1,
-    "ema20": 4043.97,
-    "ema50": 4045.06,
-    "rsi": 69.9,
+    "bias": "bearish",
+    "score": -3,
+    "price": 4041.2,
+    "ema20": 4043.71,
+    "ema50": 4044.91,
+    "rsi": 47.8,
     "n": 299,
-    "slot": 2988689,
-    "at": 1793213467943
+    "slot": 2988690,
+    "at": 1793214067889
    },
    "M15": {
-    "bias": "sideways",
-    "score": 0,
-    "price": 4064.9,
-    "ema20": 4044.61,
-    "ema50": 4046.01,
-    "rsi": 67.8,
+    "bias": "bearish",
+    "score": -2,
+    "price": 4041.2,
+    "ema20": 4044.29,
+    "ema50": 4045.83,
+    "rsi": 47.6,
     "n": 299,
-    "slot": 1992459,
-    "at": 1793213167921
+    "slot": 1992460,
+    "at": 1793214067896
    },
    "M30": {
     "bias": "sideways",
     "score": 0,
-    "price": 4037.8,
-    "ema20": 4044.88,
-    "ema50": 4044.02,
-    "rsi": 41.2,
+    "price": 4041.2,
+    "ema20": 4044.53,
+    "ema50": 4043.91,
+    "rsi": 45.5,
     "n": 299,
-    "slot": 996229,
-    "at": 1793212267860
+    "slot": 996230,
+    "at": 1793214067900
    },
    "H1": {
     "bias": "sideways",
     "score": 0,
-    "price": 4041.3,
-    "ema20": 4045.2,
-    "ema50": 4036.63,
+    "price": 4041.2,
+    "ema20": 4044.82,
+    "ema50": 4036.81,
     "rsi": 48.1,
     "n": 299,
-    "slot": 498114,
-    "at": 1793210467864
+    "slot": 498115,
+    "at": 1793214067903
    }
   },
   "currency": "USC",
