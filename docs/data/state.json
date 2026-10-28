@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-28T00:36:51.425Z",
+ "generated_at": "2026-10-28T00:46:51.430Z",
  "today": "2026-10-28",
  "week_start": "2026-10-26",
  "campaign": {
@@ -63,7 +63,7 @@
    "title": "Social Media Publisher",
    "status": "done",
    "current_task": "undefined",
-   "updated_at": "2026-10-27 23:10:51"
+   "updated_at": "2026-10-28 00:45:51"
   },
   {
    "id": "ads",
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-28 00:31:07"
+   "updated_at": "2026-10-28 00:46:07"
   },
   {
    "id": "tresearch",
@@ -111,23 +111,23 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Fed diperkirakan tahan; pasar pasang hike Desember. Inflasi panas & yield menekan emas, geopolitik Hormuz menahan turun. Data terakhir 21 Okt.",
-   "updated_at": "2026-10-28 00:31:07"
+   "updated_at": "2026-10-28 00:46:07"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-10-28 00:31:07"
+   "current_task": "Setup SELL di band (divergensi)",
+   "updated_at": "2026-10-28 00:46:07"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
-   "updated_at": "2026-10-28 00:31:07"
+   "current_task": "NO TRADE: setup SELL di band, konfirmasi baru 1/2 (divergensi) · sesi Asia",
+   "updated_at": "2026-10-28 00:46:07"
   },
   {
    "id": "texec",
@@ -435,7 +435,7 @@
    "game": "valorant",
    "pillar": "esport",
    "title": "LOUD juara Champions 2x: 2022 lalu 2026, 3-1 atas Vitality di Shanghai (hook 26 Superlative)",
-   "status": "pending_approval",
+   "status": "approved",
    "asset_url": "{\"video\":\"https://luc1ferr12.github.io/zataa-office/media/2026-10-28/78-loud-juara-champions-2x-2022-lalu-2026-3-ov.mp4\",\"cover\":\"https://luc1ferr12.github.io/zataa-office/media/2026-10-28/78-loud-juara-champions-2x-2022-lalu-2026-3-ov-cover.jpg\"}",
    "scheduled_at": null,
    "posted_at": null,
@@ -622,6 +622,16 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-28 00:45:51",
+   "agent_id": "owner",
+   "message": "Approve konten #78 ✅"
+  },
+  {
+   "ts": "2026-10-28 00:41:07",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: sideways → bullish"
+  },
+  {
    "ts": "2026-10-28 00:31:07",
    "agent_id": "ttech",
    "message": "M10 berubah arah: bullish → sideways"
@@ -735,19 +745,30 @@
    "ts": "2026-10-27 23:02:06",
    "agent_id": "researcher",
    "message": "Nemu 6 topik baru"
-  },
-  {
-   "ts": "2026-10-27 23:01:42",
-   "agent_id": "researcher",
-   "message": "Nemu 6 topik baru"
-  },
-  {
-   "ts": "2026-10-27 23:01:27",
-   "agent_id": "trisk",
-   "message": "NO TRADE · jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-10-28 00:45:29",
+   "agent_id": "researcher",
+   "to_id": "owner",
+   "kind": "nimbrung",
+   "message": "Udah Bos, roti sama kopi hehe. Sisain kopinya buat Bos ya ☕"
+  },
+  {
+   "ts": "2026-10-28 00:45:29",
+   "agent_id": "teval",
+   "to_id": "owner",
+   "kind": "nimbrung",
+   "message": "Belum nih Bos, baru ngopi doang ☕ Bos sendiri udah sarapan belum?"
+  },
+  {
+   "ts": "2026-10-28 00:45:29",
+   "agent_id": "owner",
+   "to_id": null,
+   "kind": "nimbrung",
+   "message": "Uda pasa sarapann?"
+  },
   {
    "ts": "2026-10-27 23:10:49",
    "agent_id": "researcher",
@@ -1006,27 +1027,6 @@
    "to_id": "owner",
    "kind": "santai",
    "message": "Feed GYC Free Fire udah meluncur ke Telegram Bos, tinggal ✅ buat tayang pagi!"
-  },
-  {
-   "ts": "2026-10-26 23:14:11",
-   "agent_id": "copywriter",
-   "to_id": "researcher",
-   "kind": "santai",
-   "message": "Kak Clariana, finalis GYC masih SMA udah ngincer beasiswa, aku dulu SMA cuma ngincer wifi kantin 😭"
-  },
-  {
-   "ts": "2026-10-26 23:14:11",
-   "agent_id": "publisher",
-   "to_id": "owner",
-   "kind": "oper",
-   "message": "Bos, \"QA & kirim feed GYC FF\" udah aku kirim ke Telegram. Ditunggu approve-nya 🙏"
-  },
-  {
-   "ts": "2026-10-26 23:14:03",
-   "agent_id": "video",
-   "to_id": "publisher",
-   "kind": "oper",
-   "message": "Render \"Render video RRQ VCT Pacific\" selesai, Fikri. Cek cover-nya ya"
   }
  ],
  "stats": {
@@ -1034,8 +1034,8 @@
    "week": "2026-10-26",
    "total": 22,
    "posted": 8,
-   "pending": 1,
-   "scheduled": 2,
+   "pending": 0,
+   "scheduled": 3,
    "yt_total": 5,
    "yt_posted": 3,
    "yt_pending": 0,
@@ -1110,9 +1110,14 @@
   "paused": false,
   "balance": 1687.5099999999998,
   "today_pnl": 0,
-  "price": 4063.100098,
+  "price": 4063.800049,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-28 00:46:07",
+    "decision": "NO TRADE",
+    "reason": "setup SELL di band, konfirmasi baru 1/2 (divergensi) · sesi Asia"
+   },
    {
     "ts": "2026-10-28 00:31:07",
     "decision": "NO TRADE",
@@ -1135,11 +1140,6 @@
    },
    {
     "ts": "2026-10-27 23:31:07",
-    "decision": "NO TRADE",
-    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
-   },
-   {
-    "ts": "2026-10-27 23:16:07",
     "decision": "NO TRADE",
     "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
    }
@@ -1175,7 +1175,7 @@
    1687.5099999999995
   ],
   "last": {
-   "ts": "2026-10-28 00:31:07",
+   "ts": "2026-10-28 00:46:07",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1184,7 +1184,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)",
+   "reason": "setup SELL di band, konfirmasi baru 1/2 (divergensi) · sesi Asia",
    "fund": {
     "bias": -0.2,
     "note": "Fed diperkirakan tahan; pasar pasang hike Desember. Inflasi panas & yield menekan emas, geopolitik Hormuz menahan turun. Data terakhir 21 Okt.",
@@ -1193,10 +1193,12 @@
    },
    "tech": {
     "bias": "sideways",
-    "score": 0,
-    "trigger": null,
-    "confirm": [],
-    "note": "M15 4063.10 di atas tengah band (4058.1–4067.3) · RSI 55 · Stoch 50 · MACD -0.68 · H1 sideways"
+    "score": 1,
+    "trigger": "sell",
+    "confirm": [
+     "divergensi"
+    ],
+    "note": "M15 4062.60 di bawah tengah band (4058.0–4067.3) · RSI 54 · Stoch 30 · MACD -0.75 · H1 sideways · setup SELL (divergensi)"
    }
   },
   "fund": {
@@ -1290,26 +1292,26 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "sideways",
-    "score": 0,
-    "price": 4062.1,
-    "ema20": 4063.01,
-    "ema50": 4057.95,
-    "rsi": 49.6,
+    "bias": "bullish",
+    "score": 2,
+    "price": 4063.8,
+    "ema20": 4063.09,
+    "ema50": 4058.18,
+    "rsi": 53.2,
     "n": 299,
-    "slot": 2988579,
-    "at": 1793147467116
+    "slot": 2988580,
+    "at": 1793148067304
    },
    "M15": {
     "bias": "bullish",
     "score": 3,
-    "price": 4062.1,
-    "ema20": 4062.04,
-    "ema50": 4052.31,
-    "rsi": 53.3,
+    "price": 4063.1,
+    "ema20": 4062.14,
+    "ema50": 4052.73,
+    "rsi": 54.9,
     "n": 299,
-    "slot": 1992386,
-    "at": 1793147467123
+    "slot": 1992387,
+    "at": 1793148367095
    },
    "M30": {
     "bias": "bullish",
