@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-27T23:56:51.409Z",
+ "generated_at": "2026-10-28T00:06:51.421Z",
  "today": "2026-10-28",
  "week_start": "2026-10-26",
  "campaign": {
@@ -86,8 +86,8 @@
    "name": "Budi",
    "title": "Price Watcher",
    "status": "done",
-   "current_task": "Cek harga pagi",
-   "updated_at": "2026-10-27 23:02:21"
+   "current_task": null,
+   "updated_at": "2026-10-28 00:00:52"
   },
   {
    "id": "ob",
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-27 23:46:07"
+   "updated_at": "2026-10-28 00:00:44"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Fed diperkirakan tahan; pasar pasang hike Desember. Inflasi panas & yield menekan emas, geopolitik Hormuz menahan turun. Data terakhir 21 Okt.",
-   "updated_at": "2026-10-27 23:46:07"
+   "updated_at": "2026-10-28 00:00:44"
   },
   {
    "id": "ttech",
@@ -119,15 +119,15 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-10-27 23:46:07"
+   "updated_at": "2026-10-28 00:00:44"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
-   "updated_at": "2026-10-27 23:46:07"
+   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
+   "updated_at": "2026-10-28 00:00:44"
   },
   {
    "id": "texec",
@@ -1040,24 +1040,24 @@
    "yt_posted": 3,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 6359,
-   "likes": 88,
+   "views": 6464,
+   "likes": 89,
    "comments": 2,
    "shares": 7,
    "saves": 1,
-   "yt_views": 4447,
+   "yt_views": 4512,
    "top": [
     {
      "title": "Lawang Sewu: Apa yang Sebenarnya Ada di Bawah Tanahnya?",
      "format": "shorts",
      "pillar": "horor_sejarah",
-     "views": 1656
+     "views": 1660
     },
     {
      "title": "Kamar 308: Kamar Hotel yang Disiapkan untuk Nyi Roro Kidul",
      "format": "shorts",
      "pillar": "legenda_mitos",
-     "views": 1448
+     "views": 1509
     },
     {
      "title": "RUMOR PRX 2027: f0rsakeN & something bertahan, sisa roster cari opsi lain (hook 8 Insider Leak, label RUMOR)",
@@ -1077,12 +1077,12 @@
    "yt_posted": 7,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 36638,
+   "views": 36641,
    "likes": 283,
    "comments": 6,
    "shares": 26,
    "saves": 5,
-   "yt_views": 9388,
+   "yt_views": 9391,
    "top": [
     {
      "title": "Hall of Champions Valorant 2021-2026",
@@ -1110,9 +1110,14 @@
   "paused": false,
   "balance": 1687.5099999999998,
   "today_pnl": 0,
-  "price": 4063.5,
+  "price": 4066.899902,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-28 00:00:44",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
+   },
    {
     "ts": "2026-10-27 23:46:07",
     "decision": "NO TRADE",
@@ -1137,11 +1142,6 @@
     "ts": "2026-10-27 22:46:07",
     "decision": "NO TRADE",
     "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
-   },
-   {
-    "ts": "2026-10-27 22:31:07",
-    "decision": "NO TRADE",
-    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
    }
   ],
   "trades": [
@@ -1161,7 +1161,7 @@
    "wins": 1,
    "losses": 0,
    "pnl": 10.91,
-   "week_pnl": 10.91,
+   "week_pnl": 0,
    "gross_win": 10.91,
    "gross_loss": 0,
    "max_loss": 0,
@@ -1175,7 +1175,7 @@
    1687.5099999999995
   ],
   "last": {
-   "ts": "2026-10-27 23:46:07",
+   "ts": "2026-10-28 00:00:44",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1184,7 +1184,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
+   "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)",
    "fund": {
     "bias": -0.2,
     "note": "Fed diperkirakan tahan; pasar pasang hike Desember. Inflasi panas & yield menekan emas, geopolitik Hormuz menahan turun. Data terakhir 21 Okt.",
@@ -1196,7 +1196,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4061.30 di bawah tengah band (4059.3–4065.0) · RSI 57 · Stoch 37 · MACD -1.03 · H1 sideways"
+    "note": "M15 4063.90 di atas tengah band (4059.4–4065.4) · RSI 62 · Stoch 63 · MACD -0.78 · H1 sideways"
    }
   },
   "fund": {
@@ -1291,47 +1291,47 @@
   "tf": {
    "M10": {
     "bias": "bullish",
-    "score": 3,
-    "price": 4063.1,
-    "ema20": 4062.06,
-    "ema50": 4056.73,
-    "rsi": 55.4,
+    "score": 2,
+    "price": 4063.8,
+    "ema20": 4062.23,
+    "ema50": 4057.01,
+    "rsi": 57.2,
     "n": 299,
-    "slot": 2988575,
-    "at": 1793145067024
+    "slot": 2988576,
+    "at": 1793145644852
    },
    "M15": {
     "bias": "bullish",
     "score": 3,
-    "price": 4061.3,
-    "ema20": 4060.93,
-    "ema50": 4050.66,
-    "rsi": 56.6,
+    "price": 4063.8,
+    "ema20": 4061.21,
+    "ema50": 4051.17,
+    "rsi": 61.8,
     "n": 299,
-    "slot": 1992383,
-    "at": 1793144767092
+    "slot": 1992384,
+    "at": 1793145644856
    },
    "M30": {
     "bias": "bullish",
-    "score": 2,
-    "price": 4062.1,
-    "ema20": 4053.71,
-    "ema50": 4037.3,
-    "rsi": 66.5,
+    "score": 3,
+    "price": 4063.8,
+    "ema20": 4054.67,
+    "ema50": 4038.34,
+    "rsi": 67.8,
     "n": 299,
-    "slot": 996191,
-    "at": 1793143867025
+    "slot": 996192,
+    "at": 1793145644857
    },
    "H1": {
     "bias": "bullish",
     "score": 3,
-    "price": 4063.7,
-    "ema20": 4041.1,
-    "ema50": 4025.43,
+    "price": 4063.8,
+    "ema20": 4043.26,
+    "ema50": 4026.93,
     "rsi": 71.2,
     "n": 299,
-    "slot": 498095,
-    "at": 1793142067021
+    "slot": 498096,
+    "at": 1793145644861
    }
   },
   "currency": "USC",
