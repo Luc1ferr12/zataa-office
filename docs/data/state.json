@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-28T08:26:51.639Z",
+ "generated_at": "2026-10-28T08:36:51.651Z",
  "today": "2026-10-28",
  "week_start": "2026-10-26",
  "campaign": {
@@ -30,24 +30,24 @@
    "name": "Clariana",
    "title": "Researcher",
    "status": "done",
-   "current_task": "Cek ulang harga MLBB di zataa.my.id",
-   "updated_at": "2026-10-28 04:08:18"
+   "current_task": "Harga 518 DM terverifikasi Rp150.601",
+   "updated_at": "2026-10-28 08:32:28"
   },
   {
    "id": "copywriter",
    "name": "Ista",
    "title": "Copywriter",
    "status": "done",
-   "current_task": "Teks feed promo kilat diamond ML",
-   "updated_at": "2026-10-28 04:08:27"
+   "current_task": "Teks promo kilat 518 DM",
+   "updated_at": "2026-10-28 08:32:47"
   },
   {
    "id": "designer",
    "name": "Maria",
    "title": "Graphic Designer",
    "status": "done",
-   "current_task": "Render feed promo kilat #96",
-   "updated_at": "2026-10-28 04:08:32"
+   "current_task": "Render feed promo 518 DM",
+   "updated_at": "2026-10-28 08:32:55"
   },
   {
    "id": "video",
@@ -62,8 +62,8 @@
    "name": "Fikri",
    "title": "Social Media Publisher",
    "status": "done",
-   "current_task": null,
-   "updated_at": "2026-10-28 05:01:13"
+   "current_task": "QA & kirim promo 518 DM ke Owner",
+   "updated_at": "2026-10-28 08:33:02"
   },
   {
    "id": "ads",
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-28 08:16:07"
+   "updated_at": "2026-10-28 08:31:07"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Fed diperkirakan tahan; pasar pasang hike Desember. Inflasi panas & yield menekan emas, geopolitik Hormuz menahan turun. Data terakhir 21 Okt.",
-   "updated_at": "2026-10-28 08:16:07"
+   "updated_at": "2026-10-28 08:31:07"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-10-28 08:16:07"
+   "updated_at": "2026-10-28 08:31:07"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-10-28 08:16:07"
+   "updated_at": "2026-10-28 08:31:07"
   },
   {
    "id": "texec",
@@ -428,6 +428,20 @@
    "channel": null
   },
   {
+   "id": 97,
+   "day": "2026-10-28",
+   "slot": "kilat",
+   "format": "feed",
+   "game": "mlbb",
+   "pillar": "promo",
+   "title": "Promo kilat 518 Diamonds ML Rp150.601",
+   "status": "pending_approval",
+   "asset_url": "{\"feed\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-28/97-promo-kilat-518-diamonds-ml-rp150-601.jpg\"],\"story\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-10-28/97-promo-kilat-518-diamonds-ml-rp150-601-916.jpg\"]}",
+   "scheduled_at": null,
+   "posted_at": null,
+   "channel": null
+  },
+  {
    "id": 95,
    "day": "2026-10-28",
    "slot": "sore",
@@ -636,6 +650,21 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-28 08:32:58",
+   "agent_id": "publisher",
+   "message": "Kirim #97 ke Owner buat approval"
+  },
+  {
+   "ts": "2026-10-28 08:31:51",
+   "agent_id": "owner",
+   "message": "Minta konten promo dari perubahan harga 💰"
+  },
+  {
+   "ts": "2026-10-28 08:31:07",
+   "agent_id": "trisk",
+   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+  },
+  {
    "ts": "2026-10-28 08:01:07",
    "agent_id": "ttech",
    "message": "M60 berubah arah: sideways → bullish"
@@ -744,24 +773,72 @@
    "ts": "2026-10-28 03:03:05",
    "agent_id": "publisher",
    "message": "Posting #94 ke IG ✅"
-  },
-  {
-   "ts": "2026-10-28 02:31:07",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: sideways → bearish"
-  },
-  {
-   "ts": "2026-10-28 02:16:07",
-   "agent_id": "trisk",
-   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-  },
-  {
-   "ts": "2026-10-28 02:01:07",
-   "agent_id": "ttech",
-   "message": "M30 berubah arah: bullish → sideways"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-10-28 08:33:10",
+   "agent_id": "publisher",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "QA lolos, udah aku kirim ke Telegram Bos. Tinggal ✅, langsung tayang!"
+  },
+  {
+   "ts": "2026-10-28 08:33:10",
+   "agent_id": "designer",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Desain promo kilatnya udah jadi, 518 DM-nya aku sorot gede bareng 3 paket pembanding."
+  },
+  {
+   "ts": "2026-10-28 08:33:10",
+   "agent_id": "researcher",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Harga 518 DM udah aku cek langsung di web, bener Rp150.601 Bos. Tapi paket 522 DM harganya sama persis, mungkin mau dicek dulu."
+  },
+  {
+   "ts": "2026-10-28 08:33:02",
+   "agent_id": "designer",
+   "to_id": "copywriter",
+   "kind": "santai",
+   "message": "Ista, angka 518-nya gede banget ya di layout, puas aku 😆"
+  },
+  {
+   "ts": "2026-10-28 08:33:02",
+   "agent_id": "publisher",
+   "to_id": "owner",
+   "kind": "oper",
+   "message": "Bos, \"QA & kirim promo 518 DM ke Owner\" udah aku kirim ke Telegram. Ditunggu approve-nya 🙏"
+  },
+  {
+   "ts": "2026-10-28 08:32:55",
+   "agent_id": "designer",
+   "to_id": "publisher",
+   "kind": "oper",
+   "message": "Visual \"Render feed promo 518 DM\" kelar! Fikri, cek typo-nya sekalian ya 🙏"
+  },
+  {
+   "ts": "2026-10-28 08:32:47",
+   "agent_id": "copywriter",
+   "to_id": "designer",
+   "kind": "oper",
+   "message": "Maria, copy \"Teks promo kilat 518 DM\" udah masuk. Headline-nya jangan dikecilin ya 😆"
+  },
+  {
+   "ts": "2026-10-28 08:32:28",
+   "agent_id": "researcher",
+   "to_id": "copywriter",
+   "kind": "oper",
+   "message": "Ista, bahan buat \"Harga 518 DM terverifikasi Rp150.601\" udah aku rangkum + sumbernya. Tinggal kamu racik captionnya ✍️"
+  },
+  {
+   "ts": "2026-10-28 08:31:51",
+   "agent_id": "price",
+   "to_id": "copywriter",
+   "kind": "oper",
+   "message": "Ista, harga di web berubah nih, Bos minta dibikinin konten promo! 💰"
+  },
   {
    "ts": "2026-10-28 08:00:53",
    "agent_id": "price",
@@ -978,77 +1055,14 @@
    "to_id": "publisher",
    "kind": "oper",
    "message": "Render \"Video #78 masuk antrean render laptop\" selesai, Fikri. Cek cover-nya ya"
-  },
-  {
-   "ts": "2026-10-27 23:03:39",
-   "agent_id": "designer",
-   "to_id": "publisher",
-   "kind": "oper",
-   "message": "Fikri, desain \"Render feed #77\" udah render 1080×1080. QA dulu ya sebelum ke bos"
-  },
-  {
-   "ts": "2026-10-27 23:02:44",
-   "agent_id": "dir",
-   "to_id": "researcher",
-   "kind": "oper",
-   "message": "Brief \"Briefing ide, 3 ide dikirim ke Owner\" udah jadi. Clariana, gas riset ya!"
-  },
-  {
-   "ts": "2026-10-27 23:02:24",
-   "agent_id": "analyst",
-   "to_id": "dir",
-   "kind": "oper",
-   "message": "Rekap \"Baca pola data\" beres, Andre. Bisa buat bahan plan"
-  },
-  {
-   "ts": "2026-10-27 23:02:21",
-   "agent_id": "researcher",
-   "to_id": "copywriter",
-   "kind": "oper",
-   "message": "Ista, bahan buat \"Riset esport pagi (6 item)\" udah aku rangkum + sumbernya. Tinggal kamu racik captionnya ✍️"
-  },
-  {
-   "ts": "2026-10-27 12:02:49",
-   "agent_id": "publisher",
-   "to_id": null,
-   "kind": "oper",
-   "message": "\"Aurora PH comeback 4-3 singkirkan juara bertahan T\" udah tayang di IG + TikTok 🚀 Makasih semua!"
-  },
-  {
-   "ts": "2026-10-27 11:00:51",
-   "agent_id": "analyst",
-   "to_id": "dir",
-   "kind": "oper",
-   "message": "Laporan harian marketing udah aku kirim ke Bos, 2 konten tayang hari ini 📊"
-  },
-  {
-   "ts": "2026-10-27 09:51:51",
-   "agent_id": "researcher",
-   "to_id": "owner",
-   "kind": "nimbrung",
-   "message": "Happy birthday Ista ☕🎂 Semoga tahun ini banyak rejeki dan hari-harinya manis kayak kue ulang tahunnya, hehe."
-  },
-  {
-   "ts": "2026-10-27 09:51:51",
-   "agent_id": "video",
-   "to_id": "owner",
-   "kind": "nimbrung",
-   "message": "HBD Ista! Traktirannya jangan lupa ya, popcorn bioskop mini udah siap nemenin 🎉🍿"
-  },
-  {
-   "ts": "2026-10-27 09:51:51",
-   "agent_id": "teval",
-   "to_id": "owner",
-   "kind": "nimbrung",
-   "message": "Hbd Ista!! Semoga makin jago bikin caption dan makin cakep pas tiup lilin lagi 🎂🥳"
   }
  ],
  "stats": {
   "this_week": {
    "week": "2026-10-26",
-   "total": 23,
+   "total": 24,
    "posted": 11,
-   "pending": 0,
+   "pending": 1,
    "scheduled": 4,
    "yt_total": 5,
    "yt_posted": 3,
@@ -1124,9 +1138,14 @@
   "paused": false,
   "balance": 1687.5099999999998,
   "today_pnl": 0,
-  "price": 4050.800049,
+  "price": 4050.300049,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-28 08:31:07",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
    {
     "ts": "2026-10-28 08:16:07",
     "decision": "NO TRADE",
@@ -1149,11 +1168,6 @@
    },
    {
     "ts": "2026-10-28 07:16:07",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-10-28 07:01:07",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1189,7 +1203,7 @@
    1687.5099999999995
   ],
   "last": {
-   "ts": "2026-10-28 08:16:07",
+   "ts": "2026-10-28 08:31:07",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1210,7 +1224,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4048.10 di atas tengah band (4026.9–4051.2) · RSI 59 · Stoch 96 · MACD +2.21 · H1 sideways"
+    "note": "M15 4052.10 di atas tengah band (4025.8–4053.3) · RSI 63 · Stoch 96 · MACD +2.69 · H1 sideways"
    }
   },
   "fund": {
@@ -1306,35 +1320,35 @@
    "M10": {
     "bias": "sideways",
     "score": -1,
-    "price": 4051.6,
-    "ema20": 4040.13,
-    "ema50": 4043.67,
-    "rsi": 68.7,
+    "price": 4051.1,
+    "ema20": 4041.18,
+    "ema50": 4043.97,
+    "rsi": 67.5,
     "n": 299,
-    "slot": 2988626,
-    "at": 1793175667501
+    "slot": 2988627,
+    "at": 1793176267433
    },
    "M15": {
     "bias": "sideways",
     "score": -1,
-    "price": 4047.4,
-    "ema20": 4041.02,
-    "ema50": 4044.97,
-    "rsi": 57.7,
+    "price": 4051.1,
+    "ema20": 4041.98,
+    "ema50": 4045.21,
+    "rsi": 62.2,
     "n": 299,
-    "slot": 1992417,
-    "at": 1793175367436
+    "slot": 1992418,
+    "at": 1793176267438
    },
    "M30": {
     "bias": "bullish",
     "score": 2,
-    "price": 4044.9,
-    "ema20": 4044.15,
-    "ema50": 4040.68,
-    "rsi": 50.4,
+    "price": 4051.1,
+    "ema20": 4044.82,
+    "ema50": 4041.09,
+    "rsi": 56.1,
     "n": 299,
-    "slot": 996208,
-    "at": 1793174467420
+    "slot": 996209,
+    "at": 1793176267439
    },
    "H1": {
     "bias": "bullish",
