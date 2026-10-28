@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-28T19:56:51.991Z",
+ "generated_at": "2026-10-28T20:06:51.995Z",
  "today": "2026-10-29",
  "week_start": "2026-10-26",
  "campaign": {
@@ -103,15 +103,15 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-28 19:46:08"
+   "updated_at": "2026-10-28 20:01:08"
   },
   {
    "id": "tresearch",
    "name": "Davina",
    "title": "Research & Fundamental",
    "status": "done",
-   "current_task": "Waspada rilis FOMC Press Conference (02.30 WITA)",
-   "updated_at": "2026-10-28 19:46:08"
+   "current_task": "Fundamental: Bearish: Fed hawkish (hike Sep ke 3.75-4%), USD kuat, emas -26% dari ATH. Berita 24 jam minim; FOMC 28 Okt diharap hold.",
+   "updated_at": "2026-10-28 20:01:08"
   },
   {
    "id": "ttech",
@@ -119,15 +119,15 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-10-28 19:46:08"
+   "updated_at": "2026-10-28 20:01:08"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: berita berdampak tinggi: FOMC Press Conference (02.30 WITA)",
-   "updated_at": "2026-10-28 19:46:08"
+   "current_task": "NO TRADE: jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
+   "updated_at": "2026-10-28 20:01:08"
   },
   {
    "id": "texec",
@@ -650,6 +650,16 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-28 20:01:08",
+   "agent_id": "ttech",
+   "message": "M60 berubah arah: sideways → bullish"
+  },
+  {
+   "ts": "2026-10-28 20:01:08",
+   "agent_id": "ttech",
+   "message": "M30 berubah arah: bullish → sideways"
+  },
+  {
    "ts": "2026-10-28 19:46:08",
    "agent_id": "trisk",
    "message": "NO TRADE · berita berdampak tinggi: FOMC Press Conference (02.30 WITA)"
@@ -763,16 +773,6 @@
    "ts": "2026-10-28 13:46:07",
    "agent_id": "ttech",
    "message": "M15 berubah arah: bullish → sideways"
-  },
-  {
-   "ts": "2026-10-28 13:41:07",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: bullish → sideways"
-  },
-  {
-   "ts": "2026-10-28 13:31:07",
-   "agent_id": "trisk",
-   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
   }
  ],
  "chats": [
@@ -1138,9 +1138,14 @@
   "paused": false,
   "balance": 1687.5099999999998,
   "today_pnl": 0,
-  "price": 4064.699951,
+  "price": 4070.5,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-28 20:01:08",
+    "decision": "NO TRADE",
+    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
+   },
    {
     "ts": "2026-10-28 19:46:08",
     "decision": "NO TRADE",
@@ -1163,11 +1168,6 @@
    },
    {
     "ts": "2026-10-28 18:46:07",
-    "decision": "NO TRADE",
-    "reason": "berita berdampak tinggi: Federal Funds Rate (02.00 WITA)"
-   },
-   {
-    "ts": "2026-10-28 18:31:07",
     "decision": "NO TRADE",
     "reason": "berita berdampak tinggi: Federal Funds Rate (02.00 WITA)"
    }
@@ -1203,7 +1203,7 @@
    1687.5099999999995
   ],
   "last": {
-   "ts": "2026-10-28 19:46:08",
+   "ts": "2026-10-28 20:01:08",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1212,19 +1212,19 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "berita berdampak tinggi: FOMC Press Conference (02.30 WITA)",
+   "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
    "fund": {
     "bias": -0.4,
     "note": "Bearish: Fed hawkish (hike Sep ke 3.75-4%), USD kuat, emas -26% dari ATH. Berita 24 jam minim; FOMC 28 Okt diharap hold.",
     "danger": null,
-    "blackout": "FOMC Press Conference (02.30 WITA)"
+    "blackout": null
    },
    "tech": {
     "bias": "sideways",
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4061.00 di atas tengah band (4028.2–4062.7) · RSI 59 · Stoch 77 · MACD +2.21 · H1 sideways"
+    "note": "M15 4075.40 di atas band atas (4022.9–4072.1) · RSI 66 · Stoch 92 · MACD +3.67 · H1 sideways"
    }
   },
   "fund": {
@@ -1320,46 +1320,46 @@
    "M10": {
     "bias": "bullish",
     "score": 3,
-    "price": 4062.5,
-    "ema20": 4047.89,
-    "ema50": 4046.55,
-    "rsi": 61.9,
+    "price": 4071.9,
+    "ema20": 4050.18,
+    "ema50": 4047.54,
+    "rsi": 66.8,
     "n": 299,
-    "slot": 2988695,
-    "at": 1793217067987
+    "slot": 2988696,
+    "at": 1793217667994
    },
    "M15": {
     "bias": "bullish",
     "score": 2,
-    "price": 4056.8,
-    "ema20": 4046.72,
-    "ema50": 4046.69,
-    "rsi": 57.1,
+    "price": 4071.9,
+    "ema20": 4049.11,
+    "ema50": 4047.68,
+    "rsi": 64.5,
     "n": 299,
-    "slot": 1992463,
-    "at": 1793216767920
+    "slot": 1992464,
+    "at": 1793217667999
    },
    "M30": {
-    "bias": "bullish",
-    "score": 2,
-    "price": 4054.3,
-    "ema20": 4045.46,
-    "ema50": 4044.31,
-    "rsi": 58.2,
+    "bias": "sideways",
+    "score": 1,
+    "price": 4071.9,
+    "ema20": 4047.98,
+    "ema50": 4045.4,
+    "rsi": 68.7,
     "n": 299,
-    "slot": 996231,
-    "at": 1793215867911
+    "slot": 996232,
+    "at": 1793217668000
    },
    "H1": {
-    "bias": "sideways",
-    "score": 0,
-    "price": 4041.2,
-    "ema20": 4044.82,
-    "ema50": 4036.81,
-    "rsi": 48.1,
+    "bias": "bullish",
+    "score": 2,
+    "price": 4071.9,
+    "ema20": 4047.4,
+    "ema50": 4038.18,
+    "rsi": 66.5,
     "n": 299,
-    "slot": 498115,
-    "at": 1793214067903
+    "slot": 498116,
+    "at": 1793217668007
    }
   },
   "currency": "USC",
