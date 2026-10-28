@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-28T10:06:51.684Z",
+ "generated_at": "2026-10-28T10:16:51.695Z",
  "today": "2026-10-28",
  "week_start": "2026-10-26",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-28 10:01:07"
+   "updated_at": "2026-10-28 10:16:07"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
-   "updated_at": "2026-10-28 10:01:07"
+   "updated_at": "2026-10-28 10:16:07"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-10-28 10:01:07"
+   "updated_at": "2026-10-28 10:16:07"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-10-28 10:01:07"
+   "updated_at": "2026-10-28 10:16:07"
   },
   {
    "id": "texec",
@@ -1068,12 +1068,12 @@
    "yt_posted": 3,
    "yt_pending": 0,
    "yt_scheduled": 2,
-   "views": 7064,
-   "likes": 91,
+   "views": 7174,
+   "likes": 94,
    "comments": 2,
    "shares": 7,
    "saves": 1,
-   "yt_views": 4695,
+   "yt_views": 4714,
    "top": [
     {
      "title": "Lawang Sewu: Apa yang Sebenarnya Ada di Bawah Tanahnya?",
@@ -1085,13 +1085,13 @@
      "title": "Kamar 308: Kamar Hotel yang Disiapkan untuk Nyi Roro Kidul",
      "format": "shorts",
      "pillar": "legenda_mitos",
-     "views": 1560
+     "views": 1567
     },
     {
      "title": "Operasi Otak Zaman Batu, dan Pasiennya Selamat",
      "format": "shorts",
      "pillar": "hidden_history",
-     "views": 1426
+     "views": 1438
     }
    ]
   },
@@ -1105,7 +1105,7 @@
    "yt_posted": 7,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 36659,
+   "views": 36661,
    "likes": 283,
    "comments": 6,
    "shares": 26,
@@ -1138,9 +1138,14 @@
   "paused": false,
   "balance": 1687.5099999999998,
   "today_pnl": 0,
-  "price": 4053.899902,
+  "price": 4050.100098,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-28 10:16:07",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
    {
     "ts": "2026-10-28 10:01:07",
     "decision": "NO TRADE",
@@ -1165,11 +1170,6 @@
     "ts": "2026-10-28 09:01:07",
     "decision": "NO TRADE",
     "reason": "SELL lawan tren H1 (sideways), di luar jam Asia cari aman"
-   },
-   {
-    "ts": "2026-10-28 08:46:07",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
   ],
   "trades": [
@@ -1203,7 +1203,7 @@
    1687.5099999999995
   ],
   "last": {
-   "ts": "2026-10-28 10:01:07",
+   "ts": "2026-10-28 10:16:07",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1224,7 +1224,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4056.80 di atas tengah band (4022.4–4064.8) · RSI 66 · Stoch 90 · MACD +2.20 · H1 sideways"
+    "note": "M15 4051.00 di atas tengah band (4023.8–4064.4) · RSI 55 · Stoch 77 · MACD +1.36 · H1 sideways"
    }
   },
   "fund": null,
@@ -1317,24 +1317,24 @@
    "M10": {
     "bias": "bullish",
     "score": 3,
-    "price": 4055.9,
-    "ema20": 4049.13,
-    "ema50": 4047.15,
-    "rsi": 63.4,
+    "price": 4051.7,
+    "ema20": 4049.38,
+    "ema50": 4047.33,
+    "rsi": 55.7,
     "n": 299,
-    "slot": 2988636,
-    "at": 1793181667498
+    "slot": 2988637,
+    "at": 1793182267495
    },
    "M15": {
     "bias": "bullish",
     "score": 2,
-    "price": 4055.9,
-    "ema20": 4047.63,
-    "ema50": 4047.17,
-    "rsi": 65.2,
+    "price": 4050.2,
+    "ema20": 4047.87,
+    "ema50": 4047.29,
+    "rsi": 54.3,
     "n": 299,
-    "slot": 1992424,
-    "at": 1793181667503
+    "slot": 1992425,
+    "at": 1793182567519
    },
    "M30": {
     "bias": "sideways",
