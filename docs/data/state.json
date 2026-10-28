@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-28T16:26:51.887Z",
+ "generated_at": "2026-10-28T16:36:51.892Z",
  "today": "2026-10-29",
  "week_start": "2026-10-26",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-28 16:16:07"
+   "updated_at": "2026-10-28 16:31:07"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Waspada rilis Federal Funds Rate (02.00 WITA)",
-   "updated_at": "2026-10-28 16:16:07"
+   "updated_at": "2026-10-28 16:31:07"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-10-28 16:16:07"
+   "updated_at": "2026-10-28 16:31:07"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: berita berdampak tinggi: Federal Funds Rate (02.00 WITA)",
-   "updated_at": "2026-10-28 16:16:07"
+   "updated_at": "2026-10-28 16:31:07"
   },
   {
    "id": "texec",
@@ -650,6 +650,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-28 16:31:07",
+   "agent_id": "trisk",
+   "message": "NO TRADE · berita berdampak tinggi: Federal Funds Rate (02.00 WITA)"
+  },
+  {
    "ts": "2026-10-28 16:01:37",
    "agent_id": "analyst",
    "message": "Update data 50 post IG 📈"
@@ -768,11 +773,6 @@
    "ts": "2026-10-28 11:46:07",
    "agent_id": "ttech",
    "message": "M15 berubah arah: sideways → bullish"
-  },
-  {
-   "ts": "2026-10-28 11:31:07",
-   "agent_id": "trisk",
-   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
   }
  ],
  "chats": [
@@ -1138,9 +1138,14 @@
   "paused": false,
   "balance": 1687.5099999999998,
   "today_pnl": 0,
-  "price": 4039.899902,
+  "price": 4041.100098,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-28 16:31:07",
+    "decision": "NO TRADE",
+    "reason": "berita berdampak tinggi: Federal Funds Rate (02.00 WITA)"
+   },
    {
     "ts": "2026-10-28 16:16:07",
     "decision": "NO TRADE",
@@ -1165,11 +1170,6 @@
     "ts": "2026-10-28 15:16:07",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-10-28 15:01:07",
-    "decision": "NO TRADE",
-    "reason": "setup BUY di band, konfirmasi baru 1/3 (Stokastik) · London–NY (mode aman)"
    }
   ],
   "trades": [
@@ -1203,7 +1203,7 @@
    1687.5099999999995
   ],
   "last": {
-   "ts": "2026-10-28 16:16:07",
+   "ts": "2026-10-28 16:31:07",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1224,7 +1224,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4038.90 di bawah tengah band (4036.9–4059.3) · RSI 36 · Stoch 11 · MACD -1.19 · H1 sideways"
+    "note": "M15 4041.30 di bawah tengah band (4036.6–4059.1) · RSI 40 · Stoch 14 · MACD -0.95 · H1 sideways"
    }
   },
   "fund": {
@@ -1319,36 +1319,36 @@
   "tf": {
    "M10": {
     "bias": "bearish",
-    "score": -3,
-    "price": 4040,
-    "ema20": 4045.03,
-    "ema50": 4046.9,
-    "rsi": 39.2,
+    "score": -2,
+    "price": 4041.5,
+    "ema20": 4044.69,
+    "ema50": 4046.69,
+    "rsi": 42.4,
     "n": 299,
-    "slot": 2988674,
-    "at": 1793204467777
+    "slot": 2988675,
+    "at": 1793205067801
    },
    "M15": {
     "bias": "bearish",
     "score": -3,
-    "price": 4040,
-    "ema20": 4046.75,
-    "ema50": 4047.57,
-    "rsi": 37.2,
+    "price": 4041.5,
+    "ema20": 4046.25,
+    "ema50": 4047.33,
+    "rsi": 40.4,
     "n": 299,
-    "slot": 1992449,
-    "at": 1793204167778
+    "slot": 1992450,
+    "at": 1793205067807
    },
    "M30": {
     "bias": "sideways",
     "score": 0,
-    "price": 4042.9,
-    "ema20": 4047.6,
-    "ema50": 4044.73,
-    "rsi": 45.2,
+    "price": 4041.5,
+    "ema20": 4047.02,
+    "ema50": 4044.6,
+    "rsi": 43.9,
     "n": 299,
-    "slot": 996224,
-    "at": 1793203267835
+    "slot": 996225,
+    "at": 1793205067808
    },
    "H1": {
     "bias": "sideways",
