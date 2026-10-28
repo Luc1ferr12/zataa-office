@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-28T11:16:51.726Z",
+ "generated_at": "2026-10-28T11:26:51.731Z",
  "today": "2026-10-28",
  "week_start": "2026-10-26",
  "campaign": {
@@ -22,8 +22,8 @@
    "name": "Andre",
    "title": "Marketing Director",
    "status": "done",
-   "current_task": "Briefing ide, 3 ide dikirim ke Owner",
-   "updated_at": "2026-10-27 23:02:44"
+   "current_task": "Evaluasi IG + plan naikin followers & views",
+   "updated_at": "2026-10-28 11:23:16"
   },
   {
    "id": "researcher",
@@ -78,8 +78,8 @@
    "name": "Raka",
    "title": "Data Analyst",
    "status": "done",
-   "current_task": null,
-   "updated_at": "2026-10-28 10:01:33"
+   "current_task": "Tarik data IG 28 hari buat Andre",
+   "updated_at": "2026-10-28 11:23:01"
   },
   {
    "id": "price",
@@ -501,10 +501,10 @@
    "id": 79,
    "day": "2026-10-29",
    "slot": "siang",
-   "format": "feed",
+   "format": "carousel",
    "game": "mlbb",
    "pillar": "engagement",
-   "title": "Polling: siapa juara MPL ID S18? Tulis prediksi skor Grand Final Bo7 di komen",
+   "title": "Swipe 6 tim playoff MPL ID S18, pilih jagoanmu + tebak skor Grand Final Bo7 di komen",
    "status": "draft",
    "asset_url": null,
    "scheduled_at": null,
@@ -517,8 +517,8 @@
    "slot": "malam",
    "format": "video",
    "game": "mlbb",
-   "pillar": "promo",
-   "title": "Nonton playoff sambil push rank: paket diamond ML paling hemat di zataa.my.id (harga live, hook 23 The Statistic)",
+   "pillar": "esport",
+   "title": "NAVI belum pernah menang di playoff MPL ID, kini seed 2: kutukan pecah di Surabaya? (hook 16 pertanyaan, CTA diamond zataa.my.id 1 baris di akhir)",
    "status": "draft",
    "asset_url": null,
    "scheduled_at": null,
@@ -650,6 +650,26 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-28 11:23:00",
+   "agent_id": "dir",
+   "message": "Evaluasi IG + growth plan ditulis, slot 29 Okt diubah ke carousel + Reels esport"
+  },
+  {
+   "ts": "2026-10-28 11:21:51",
+   "agent_id": "owner",
+   "message": "Chat: Andre, evaluasi konten nya, gimana plan nya biar naik, besok pagi harus uda ada result caramu naikin followers + views ig"
+  },
+  {
+   "ts": "2026-10-28 11:20:19",
+   "agent_id": "dir",
+   "message": "Evaluasi IG 28 hari: feed foto avg 11 views/1 eng, video 242 views/6 eng; usul geser ke Reels+carousel, kurangi feed polos, ronde engagement harian"
+  },
+  {
+   "ts": "2026-10-28 11:19:52",
+   "agent_id": "owner",
+   "message": "Chat: 0 like, 0 komen, apa yg salah ni. Apa yg harus di perbaiki. He manajer tim, coba evaluasi knapa konten ig susah skali naik"
+  },
+  {
    "ts": "2026-10-28 11:01:07",
    "agent_id": "ttech",
    "message": "M60 berubah arah: bullish → sideways"
@@ -753,29 +773,184 @@
    "ts": "2026-10-28 07:31:07",
    "agent_id": "trisk",
    "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-  },
-  {
-   "ts": "2026-10-28 07:31:07",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: bearish → sideways"
-  },
-  {
-   "ts": "2026-10-28 07:01:32",
-   "agent_id": "analyst",
-   "message": "Update data 50 post IG 📈"
-  },
-  {
-   "ts": "2026-10-28 06:16:11",
-   "agent_id": "trisk",
-   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-  },
-  {
-   "ts": "2026-10-28 05:16:07",
-   "agent_id": "trisk",
-   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (sesi Asia)"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-10-28 11:23:47",
+   "agent_id": "video",
+   "to_id": "owner",
+   "kind": "nimbrung",
+   "message": "Hotel mana pun, popcorn bioskop mini tetap jadi bekal Bos 🍿😆"
+  },
+  {
+   "ts": "2026-10-28 11:23:47",
+   "agent_id": "researcher",
+   "to_id": "owner",
+   "kind": "nimbrung",
+   "message": "Ciee ayang-ayangan nyari hotel 😆 Kopinya jangan lupa dibagi ya Bos ☕"
+  },
+  {
+   "ts": "2026-10-28 11:23:47",
+   "agent_id": "sec",
+   "to_id": "owner",
+   "kind": "nimbrung",
+   "message": "Hahaha sayang, mau nginep di mana nih? Jangan bilang di kantor ya, kan nggak ada kamar mandinya 😆🥰"
+  },
+  {
+   "ts": "2026-10-28 11:23:47",
+   "agent_id": "owner",
+   "to_id": null,
+   "kind": "nimbrung",
+   "message": "Sayang nyari hotel yuk , hahahah"
+  },
+  {
+   "ts": "2026-10-28 11:23:16",
+   "agent_id": "analyst",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Target realistis Reels ≥500 views dalam 2 minggu, followers 110 → 150+ sebulan. Mulai besok tiap hari aku laporin Reels vs feed, Minggu kita evaluasi hasilnya Bos."
+  },
+  {
+   "ts": "2026-10-28 11:23:16",
+   "agent_id": "dir",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Bagian Bos (±20 menit/hari): ganti nama profil jadi \"Zataa | Esport ML Valorant FF\", pin 3 Reels terbaik, pakai Trial Reels, ajak fanpage esport collab, komen di post MPL/VCT, taruh \"IG: @topup.zata\" di bio TikTok (TikTok kita 26rb views tapi baru 8 followers)."
+  },
+  {
+   "ts": "2026-10-28 11:23:16",
+   "agent_id": "dir",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Bos, udah aku evaluasi. Feed foto kita cuma 11 views/post, Reels 242 (22× lipat), dan promo polos 0 engagement. Mulai besok kita 2 Reels/hari, feed cuma 1 carousel, promo kilat polos stop, harga nempel jadi CTA di konten esport. Slot besok udah aku ganti."
+  },
+  {
+   "ts": "2026-10-28 11:23:03",
+   "agent_id": "researcher",
+   "to_id": "owner",
+   "kind": "nimbrung",
+   "message": "Aduh, ayang-ayangan di grup kantor 😆 Aprista, kopinya jangan lupa sisain buat aku ya ☕"
+  },
+  {
+   "ts": "2026-10-28 11:23:03",
+   "agent_id": "sec",
+   "to_id": "owner",
+   "kind": "nimbrung",
+   "message": "Ih sayang, aku di sini kok 🥰 Ngopi dulu yuk, jangan kangen mulu ☕"
+  },
+  {
+   "ts": "2026-10-28 11:23:03",
+   "agent_id": "owner",
+   "to_id": "sec",
+   "kind": "nimbrung",
+   "message": "Aprista aja deh, mana ayangku nih"
+  },
+  {
+   "ts": "2026-10-28 11:23:01",
+   "agent_id": "dir",
+   "to_id": "analyst",
+   "kind": "santai",
+   "message": "Rak, mulai besok tolong pisahin angka Reels vs feed di laporan harian ya, Minggu kita nilai bareng."
+  },
+  {
+   "ts": "2026-10-28 11:23:01",
+   "agent_id": "dir",
+   "to_id": "researcher",
+   "kind": "oper",
+   "message": "Clariana, plan minggu ini udah aku taruh ya. Fokus \"Evaluasi IG + plan naikin followers & views\". Tolong cariin bahan beritanya 🙏"
+  },
+  {
+   "ts": "2026-10-28 11:23:01",
+   "agent_id": "analyst",
+   "to_id": "dir",
+   "kind": "oper",
+   "message": "Rekap \"Tarik data IG 28 hari buat Andre\" beres, Andre. Bisa buat bahan plan"
+  },
+  {
+   "ts": "2026-10-28 11:22:25",
+   "agent_id": "ads",
+   "to_id": "owner",
+   "kind": "nimbrung",
+   "message": "Hahaha tour jalan-jalan kali Bos, ngopi dulu di cafe aja 🤭☕"
+  },
+  {
+   "ts": "2026-10-28 11:22:25",
+   "agent_id": "texec",
+   "to_id": "owner",
+   "kind": "nimbrung",
+   "message": "Kalau turnamen, aku siap nemenin nonton Bos, sekalian ngetes latihan kuis 😎"
+  },
+  {
+   "ts": "2026-10-28 11:22:25",
+   "agent_id": "researcher",
+   "to_id": "owner",
+   "kind": "nimbrung",
+   "message": "Maksudnya tour turnamen atau jalan-jalan nih, Bos? 😆"
+  },
+  {
+   "ts": "2026-10-28 11:22:25",
+   "agent_id": "owner",
+   "to_id": null,
+   "kind": "nimbrung",
+   "message": "Ada tour kah hari ini"
+  },
+  {
+   "ts": "2026-10-28 11:21:52",
+   "agent_id": "dir",
+   "to_id": null,
+   "kind": "oper",
+   "message": "Oke tim, ada titah dari Bos. Aku bagi tugasnya ya 👇"
+  },
+  {
+   "ts": "2026-10-28 11:21:52",
+   "agent_id": "owner",
+   "to_id": "dir",
+   "kind": "bos",
+   "message": "Andre, evaluasi konten nya, gimana plan nya biar naik, besok pagi harus uda ada result caramu naikin followers + views ig"
+  },
+  {
+   "ts": "2026-10-28 11:20:33",
+   "agent_id": "analyst",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Datanya jujur ya Bos, TikTok kita udah jalan (Hall of Champions 18rb views), jadi PR-nya bikin IG ikut kebagian. Mulai sekarang aku pantau angka Reels vs feed tiap hari."
+  },
+  {
+   "ts": "2026-10-28 11:20:33",
+   "agent_id": "dir",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Usulku: feed foto diganti Reels/carousel, promo cuma nempel jadi CTA di konten esport, tiap post ditutup pertanyaan/polling biar orang komen, plus 15 menit/hari komen di akun MPL/VCT besar (manual dari HP Bos). Kalau Bos ✅, plan sisa minggu ini langsung aku rombak."
+  },
+  {
+   "ts": "2026-10-28 11:20:33",
+   "agent_id": "dir",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Bos, aku udah cek 28 hari terakhir. Masalah utamanya feed foto: 36 post rata-rata cuma 11 views dan hampir 0 like, karena IG cuma nunjukin foto ke follower dan follower kita masih dikit. Video IG rata-rata 242 views dan promo polos selalu 0, jadi kontennya nggak jelek, formatnya yang salah."
+  },
+  {
+   "ts": "2026-10-28 11:20:19",
+   "agent_id": "dir",
+   "to_id": "researcher",
+   "kind": "oper",
+   "message": "Brief \"evaluasi IG kenapa sepi\" udah jadi. Clariana, gas riset ya!"
+  },
+  {
+   "ts": "2026-10-28 11:19:52",
+   "agent_id": "dir",
+   "to_id": null,
+   "kind": "oper",
+   "message": "Oke tim, ada titah dari Bos. Aku bagi tugasnya ya 👇"
+  },
+  {
+   "ts": "2026-10-28 11:19:52",
+   "agent_id": "owner",
+   "to_id": "dir",
+   "kind": "bos",
+   "message": "0 like, 0 komen, apa yg salah ni. Apa yg harus di perbaiki. He manajer tim, coba evaluasi knapa konten ig susah skali naik"
+  },
   {
    "ts": "2026-10-28 11:00:52",
    "agent_id": "analyst",
@@ -880,181 +1055,6 @@
    "to_id": null,
    "kind": "oper",
    "message": "\"Promo kilat diamond MLBB 28 Okt\" udah tayang di IG 🚀 Makasih semua!"
-  },
-  {
-   "ts": "2026-10-28 04:08:50",
-   "agent_id": "publisher",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Udah kukirim ke Telegram ya Bos. ✅ langsung tayang, kalau mau ganti paket tinggal ✏️ Revisi."
-  },
-  {
-   "ts": "2026-10-28 04:08:50",
-   "agent_id": "designer",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Feed promo kilatnya udah jadi: 54 Rp15.964, 371 Rp107.441, 522 Rp150.601, 1507 Rp423.118."
-  },
-  {
-   "ts": "2026-10-28 04:08:50",
-   "agent_id": "researcher",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Bos, 6 paket dari Budi udah nggak ada di zataa.my.id, namanya diganti (518 jadi 522, harganya tetep Rp150.601). Jadi kupakai harga web hari ini."
-  },
-  {
-   "ts": "2026-10-28 04:08:39",
-   "agent_id": "researcher",
-   "to_id": "price",
-   "kind": "santai",
-   "message": "Bud, 6 item di listmu udah ganti nama di web, kayaknya katalognya baru di-update. Cek lagi ya"
-  },
-  {
-   "ts": "2026-10-28 04:08:39",
-   "agent_id": "publisher",
-   "to_id": "owner",
-   "kind": "oper",
-   "message": "Bos, \"QA & kirim #96 ke Owner\" udah aku kirim ke Telegram. Ditunggu approve-nya 🙏"
-  },
-  {
-   "ts": "2026-10-28 04:08:32",
-   "agent_id": "designer",
-   "to_id": "publisher",
-   "kind": "oper",
-   "message": "Fikri, desain \"Render feed promo kilat #96\" udah render 1080×1080. QA dulu ya sebelum ke bos"
-  },
-  {
-   "ts": "2026-10-28 04:08:27",
-   "agent_id": "copywriter",
-   "to_id": "designer",
-   "kind": "oper",
-   "message": "Teks buat \"Teks feed promo kilat diamond ML\" ready. Maria, giliranmu bikin cakep!"
-  },
-  {
-   "ts": "2026-10-28 04:08:18",
-   "agent_id": "researcher",
-   "to_id": "copywriter",
-   "kind": "oper",
-   "message": "Riset \"Cek ulang harga MLBB di zataa.my.id\" beres, udah dicek 2 sumber. Ista, lanjut ya~"
-  },
-  {
-   "ts": "2026-10-28 04:06:51",
-   "agent_id": "price",
-   "to_id": "copywriter",
-   "kind": "oper",
-   "message": "Ista, harga di web berubah nih, Bos minta dibikinin konten promo! 💰"
-  },
-  {
-   "ts": "2026-10-28 04:01:31",
-   "agent_id": "price",
-   "to_id": "dir",
-   "kind": "oper",
-   "message": "Kak, ada perubahan harga di web! Udah aku laporin ke Bos 💰"
-  },
-  {
-   "ts": "2026-10-28 03:03:05",
-   "agent_id": "publisher",
-   "to_id": null,
-   "kind": "oper",
-   "message": "\"ONIC finis terburuk sepanjang sejarah, langsung ke\" udah tayang di IG 🚀 Makasih semua!"
-  },
-  {
-   "ts": "2026-10-28 00:45:29",
-   "agent_id": "researcher",
-   "to_id": "owner",
-   "kind": "nimbrung",
-   "message": "Udah Bos, roti sama kopi hehe. Sisain kopinya buat Bos ya ☕"
-  },
-  {
-   "ts": "2026-10-28 00:45:29",
-   "agent_id": "teval",
-   "to_id": "owner",
-   "kind": "nimbrung",
-   "message": "Belum nih Bos, baru ngopi doang ☕ Bos sendiri udah sarapan belum?"
-  },
-  {
-   "ts": "2026-10-28 00:45:29",
-   "agent_id": "owner",
-   "to_id": null,
-   "kind": "nimbrung",
-   "message": "Uda pasa sarapann?"
-  },
-  {
-   "ts": "2026-10-27 23:10:49",
-   "agent_id": "researcher",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "MIBR & ENVY aku tulis RESMI, yang RUMOR cuma OXY ke Sentinels. Semua udah dicek ke ≥2 sumber."
-  },
-  {
-   "ts": "2026-10-27 23:10:49",
-   "agent_id": "video",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Video bursa VCT Americas udah antre render suara di laptop, otomatis nyampe ke Bos begitu laptop nyala."
-  },
-  {
-   "ts": "2026-10-27 23:10:48",
-   "agent_id": "copywriter",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Bos, feed ONIC vs Alter Ego udah nunggu ✅ di Telegram. Rekor ONIC aku pakai angka final 7-9 (7 MP) ya, bukan 6-8."
-  },
-  {
-   "ts": "2026-10-27 23:10:38",
-   "agent_id": "researcher",
-   "to_id": "video",
-   "kind": "santai",
-   "message": "Dimas, logo MIBR aslinya item, udah aku bikinin versi putih biar nggak tenggelam di ungu 😄"
-  },
-  {
-   "ts": "2026-10-27 23:10:38",
-   "agent_id": "publisher",
-   "to_id": "owner",
-   "kind": "oper",
-   "message": "\"Feed ONIC vs AE dikirim ke Owner, video VCT nunggu laptop\" udah lolos QA, tinggal nunggu ✅ dari Bos"
-  },
-  {
-   "ts": "2026-10-27 23:10:32",
-   "agent_id": "video",
-   "to_id": "publisher",
-   "kind": "oper",
-   "message": "Render \"Video bursa VCT Americas masuk antrean render laptop\" selesai, Fikri. Cek cover-nya ya"
-  },
-  {
-   "ts": "2026-10-27 23:10:24",
-   "agent_id": "designer",
-   "to_id": "publisher",
-   "kind": "oper",
-   "message": "Fikri, desain \"Render feed ONIC vs Alter Ego\" udah render 1080×1080. QA dulu ya sebelum ke bos"
-  },
-  {
-   "ts": "2026-10-27 23:10:16",
-   "agent_id": "copywriter",
-   "to_id": "designer",
-   "kind": "oper",
-   "message": "Maria, copy \"Teks feed ONIC vs AE & video bursa VCT Americas\" udah masuk. Headline-nya jangan dikecilin ya 😆"
-  },
-  {
-   "ts": "2026-10-27 23:09:53",
-   "agent_id": "researcher",
-   "to_id": "copywriter",
-   "kind": "oper",
-   "message": "Ista, bahan buat \"Data ONIC vs AE & bursa VCT Americas dicek ulang\" udah aku rangkum + sumbernya. Tinggal kamu racik captionnya ✍️"
-  },
-  {
-   "ts": "2026-10-27 23:09:08",
-   "agent_id": "researcher",
-   "to_id": "copywriter",
-   "kind": "santai",
-   "message": "Ista, jadwal R1 playoff udah aku taro di riset ya, AE vs ONIC jam 13:00 WIB. Sabtu tinggal comot."
-  },
-  {
-   "ts": "2026-10-27 23:09:08",
-   "agent_id": "yvideo",
-   "to_id": "ypublish",
-   "kind": "oper",
-   "message": "Video \"Shorts #92 antre render laptop\" kelar, Kirana. Durasinya pas di bawah 60 detik"
   }
  ],
  "stats": {
@@ -1138,7 +1138,7 @@
   "paused": false,
   "balance": 1687.5099999999998,
   "today_pnl": 0,
-  "price": 4047.800049,
+  "price": 4048,
   "open": [],
   "signals": [
    {
@@ -1320,13 +1320,13 @@
    "M10": {
     "bias": "sideways",
     "score": -1,
-    "price": 4046.6,
-    "ema20": 4048.54,
-    "ema50": 4047.4,
-    "rsi": 47.6,
+    "price": 4047.2,
+    "ema20": 4048.41,
+    "ema50": 4047.39,
+    "rsi": 48.7,
     "n": 299,
-    "slot": 2988643,
-    "at": 1793185867556
+    "slot": 2988644,
+    "at": 1793186467737
    },
    "M15": {
     "bias": "sideways",
