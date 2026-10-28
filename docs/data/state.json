@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-28T07:56:51.632Z",
+ "generated_at": "2026-10-28T08:06:51.629Z",
  "today": "2026-10-28",
  "week_start": "2026-10-26",
  "campaign": {
@@ -87,7 +87,7 @@
    "title": "Price Watcher",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-10-28 06:00:53"
+   "updated_at": "2026-10-28 08:00:54"
   },
   {
    "id": "ob",
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-28 07:46:07"
+   "updated_at": "2026-10-28 08:01:07"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Fed diperkirakan tahan; pasar pasang hike Desember. Inflasi panas & yield menekan emas, geopolitik Hormuz menahan turun. Data terakhir 21 Okt.",
-   "updated_at": "2026-10-28 07:46:07"
+   "updated_at": "2026-10-28 08:01:07"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-10-28 07:46:07"
+   "updated_at": "2026-10-28 08:01:07"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-10-28 07:46:07"
+   "updated_at": "2026-10-28 08:01:07"
   },
   {
    "id": "texec",
@@ -636,6 +636,21 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-28 08:01:07",
+   "agent_id": "ttech",
+   "message": "M60 berubah arah: sideways → bullish"
+  },
+  {
+   "ts": "2026-10-28 08:01:07",
+   "agent_id": "ttech",
+   "message": "M30 berubah arah: sideways → bullish"
+  },
+  {
+   "ts": "2026-10-28 08:00:53",
+   "agent_id": "price",
+   "message": "Harga di web berubah (1 baris)"
+  },
+  {
    "ts": "2026-10-28 07:46:07",
    "agent_id": "ttech",
    "message": "M15 berubah arah: bearish → sideways"
@@ -744,24 +759,16 @@
    "ts": "2026-10-28 02:01:07",
    "agent_id": "ttech",
    "message": "M30 berubah arah: bullish → sideways"
-  },
-  {
-   "ts": "2026-10-28 01:16:07",
-   "agent_id": "trisk",
-   "message": "NO TRADE · setup BUY di band, konfirmasi baru 0/2 (-) · sesi Asia"
-  },
-  {
-   "ts": "2026-10-28 01:16:07",
-   "agent_id": "ttech",
-   "message": "M15 berubah arah: bullish → sideways"
-  },
-  {
-   "ts": "2026-10-28 01:15:51",
-   "agent_id": "owner",
-   "message": "Approve konten #95 ✅"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-10-28 08:00:53",
+   "agent_id": "price",
+   "to_id": "dir",
+   "kind": "oper",
+   "message": "Kak, ada perubahan harga di web! Udah aku laporin ke Bos 💰"
+  },
   {
    "ts": "2026-10-28 05:01:13",
    "agent_id": "publisher",
@@ -1034,13 +1041,6 @@
    "to_id": "owner",
    "kind": "nimbrung",
    "message": "Hbd Ista!! Semoga makin jago bikin caption dan makin cakep pas tiup lilin lagi 🎂🥳"
-  },
-  {
-   "ts": "2026-10-27 09:51:51",
-   "agent_id": "owner",
-   "to_id": null,
-   "kind": "nimbrung",
-   "message": "HBD ISTAAAA 🤧🤧🤧"
   }
  ],
  "stats": {
@@ -1124,9 +1124,14 @@
   "paused": false,
   "balance": 1687.5099999999998,
   "today_pnl": 0,
-  "price": 4041.100098,
+  "price": 4049,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-28 08:01:07",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
    {
     "ts": "2026-10-28 07:46:07",
     "decision": "NO TRADE",
@@ -1149,11 +1154,6 @@
    },
    {
     "ts": "2026-10-28 06:46:07",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-   },
-   {
-    "ts": "2026-10-28 06:30:43",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
    }
@@ -1189,7 +1189,7 @@
    1687.5099999999995
   ],
   "last": {
-   "ts": "2026-10-28 07:46:07",
+   "ts": "2026-10-28 08:01:07",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1210,7 +1210,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4040.40 di atas tengah band (4026.9–4051.0) · RSI 47 · Stoch 71 · MACD +1.11 · H1 sideways"
+    "note": "M15 4045.50 di atas tengah band (4027.3–4050.6) · RSI 55 · Stoch 93 · MACD +1.79 · H1 sideways"
    }
   },
   "fund": {
@@ -1306,46 +1306,46 @@
    "M10": {
     "bias": "sideways",
     "score": -1,
-    "price": 4039.6,
-    "ema20": 4037.15,
-    "ema50": 4043.06,
-    "rsi": 51.8,
+    "price": 4044.9,
+    "ema20": 4037.88,
+    "ema50": 4043.13,
+    "rsi": 60.6,
     "n": 299,
-    "slot": 2988623,
-    "at": 1793173867394
+    "slot": 2988624,
+    "at": 1793174467413
    },
    "M15": {
     "bias": "sideways",
     "score": -1,
-    "price": 4040.7,
-    "ema20": 4039.87,
+    "price": 4044.9,
+    "ema20": 4040.35,
     "ema50": 4044.87,
-    "rsi": 47.7,
+    "rsi": 54.3,
     "n": 299,
-    "slot": 1992415,
-    "at": 1793173567409
+    "slot": 1992416,
+    "at": 1793174467418
    },
    "M30": {
-    "bias": "sideways",
-    "score": 0,
-    "price": 4037.8,
-    "ema20": 4044.08,
-    "ema50": 4040.51,
-    "rsi": 42.4,
+    "bias": "bullish",
+    "score": 2,
+    "price": 4044.9,
+    "ema20": 4044.15,
+    "ema50": 4040.68,
+    "rsi": 50.4,
     "n": 299,
-    "slot": 996207,
-    "at": 1793172667474
+    "slot": 996208,
+    "at": 1793174467420
    },
    "H1": {
-    "bias": "sideways",
-    "score": 1,
-    "price": 4031.6,
-    "ema20": 4042.39,
-    "ema50": 4030.77,
-    "rsi": 43.8,
+    "bias": "bullish",
+    "score": 3,
+    "price": 4044.9,
+    "ema20": 4042.63,
+    "ema50": 4031.33,
+    "rsi": 53.7,
     "n": 299,
-    "slot": 498103,
-    "at": 1793170867439
+    "slot": 498104,
+    "at": 1793174467426
    }
   },
   "currency": "USC",
