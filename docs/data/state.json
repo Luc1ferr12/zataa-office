@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-28T09:06:51.654Z",
+ "generated_at": "2026-10-28T09:16:51.658Z",
  "today": "2026-10-28",
  "week_start": "2026-10-26",
  "campaign": {
@@ -103,31 +103,31 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-28 09:01:07"
+   "updated_at": "2026-10-28 09:16:07"
   },
   {
    "id": "tresearch",
    "name": "Davina",
    "title": "Research & Fundamental",
    "status": "done",
-   "current_task": "Fundamental: Fed diperkirakan tahan; pasar pasang hike Desember. Inflasi panas & yield menekan emas, geopolitik Hormuz menahan turun. Data terakhir 21 Okt.",
-   "updated_at": "2026-10-28 09:01:07"
+   "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
+   "updated_at": "2026-10-28 09:16:07"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Setup SELL di band (RSI+Stokastik+MACD)",
-   "updated_at": "2026-10-28 09:01:07"
+   "current_task": "Setup SELL di band (RSI+MACD)",
+   "updated_at": "2026-10-28 09:16:07"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: SELL lawan tren H1 (sideways), di luar jam Asia cari aman",
-   "updated_at": "2026-10-28 09:01:07"
+   "current_task": "NO TRADE: setup SELL di band, konfirmasi baru 2/3 (RSI+MACD) · London–NY (mode aman)",
+   "updated_at": "2026-10-28 09:16:07"
   },
   {
    "id": "texec",
@@ -1068,18 +1068,18 @@
    "yt_posted": 3,
    "yt_pending": 0,
    "yt_scheduled": 2,
-   "views": 7025,
+   "views": 7035,
    "likes": 91,
    "comments": 2,
    "shares": 7,
    "saves": 1,
-   "yt_views": 4685,
+   "yt_views": 4695,
    "top": [
     {
      "title": "Lawang Sewu: Apa yang Sebenarnya Ada di Bawah Tanahnya?",
      "format": "shorts",
      "pillar": "horor_sejarah",
-     "views": 1699
+     "views": 1709
     },
     {
      "title": "Kamar 308: Kamar Hotel yang Disiapkan untuk Nyi Roro Kidul",
@@ -1105,12 +1105,12 @@
    "yt_posted": 7,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 36657,
+   "views": 36659,
    "likes": 283,
    "comments": 6,
    "shares": 26,
    "saves": 5,
-   "yt_views": 9405,
+   "yt_views": 9407,
    "top": [
     {
      "title": "Hall of Champions Valorant 2021-2026",
@@ -1128,7 +1128,7 @@
      "title": "8.000 Prajurit Penjaga Makam yang Belum Dibuka",
      "format": "shorts",
      "pillar": "hidden_history",
-     "views": 1685
+     "views": 1686
     }
    ]
   }
@@ -1138,9 +1138,14 @@
   "paused": false,
   "balance": 1687.5099999999998,
   "today_pnl": 0,
-  "price": 4054.800049,
+  "price": 4055.300049,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-28 09:16:07",
+    "decision": "NO TRADE",
+    "reason": "setup SELL di band, konfirmasi baru 2/3 (RSI+MACD) · London–NY (mode aman)"
+   },
    {
     "ts": "2026-10-28 09:01:07",
     "decision": "NO TRADE",
@@ -1163,11 +1168,6 @@
    },
    {
     "ts": "2026-10-28 08:01:07",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-10-28 07:46:07",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1203,7 +1203,7 @@
    1687.5099999999995
   ],
   "last": {
-   "ts": "2026-10-28 09:01:07",
+   "ts": "2026-10-28 09:16:07",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1212,23 +1212,22 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "SELL lawan tren H1 (sideways), di luar jam Asia cari aman",
+   "reason": "setup SELL di band, konfirmasi baru 2/3 (RSI+MACD) · London–NY (mode aman)",
    "fund": {
-    "bias": -0.2,
-    "note": "Fed diperkirakan tahan; pasar pasang hike Desember. Inflasi panas & yield menekan emas, geopolitik Hormuz menahan turun. Data terakhir 21 Okt.",
+    "bias": 0,
+    "note": "netral (belum ada ringkasan hari ini)",
     "danger": null,
     "blackout": null
    },
    "tech": {
     "bias": "sideways",
-    "score": 3,
+    "score": 2,
     "trigger": "sell",
     "confirm": [
      "RSI",
-     "Stokastik",
      "MACD"
     ],
-    "note": "M15 4054.10 di atas tengah band (4023.4–4058.0) · RSI 65 · Stoch 89 · MACD +2.95 · H1 sideways · setup SELL (RSI+Stokastik+MACD)"
+    "note": "M15 4052.20 di atas tengah band (4023.2–4058.9) · RSI 61 · Stoch 80 · MACD +2.59 · H1 sideways · setup SELL (RSI+MACD)"
    }
   },
   "fund": null,
@@ -1320,25 +1319,25 @@
   "tf": {
    "M10": {
     "bias": "sideways",
-    "score": -1,
-    "price": 4054.9,
-    "ema20": 4044.65,
-    "ema50": 4045.16,
-    "rsi": 67.1,
+    "score": 0,
+    "price": 4052.6,
+    "ema20": 4045.41,
+    "ema50": 4045.45,
+    "rsi": 62.6,
     "n": 299,
-    "slot": 2988630,
-    "at": 1793178067455
+    "slot": 2988631,
+    "at": 1793178667515
    },
    "M15": {
     "bias": "sideways",
     "score": -1,
-    "price": 4054.9,
-    "ema20": 4044.28,
-    "ema50": 4045.93,
-    "rsi": 66.3,
+    "price": 4052.6,
+    "ema20": 4045.07,
+    "ema50": 4046.2,
+    "rsi": 61.7,
     "n": 299,
-    "slot": 1992420,
-    "at": 1793178067460
+    "slot": 1992421,
+    "at": 1793178967534
    },
    "M30": {
     "bias": "bullish",
