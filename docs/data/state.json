@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-28T08:59:51.579Z",
+ "generated_at": "2026-10-28T09:06:51.654Z",
  "today": "2026-10-28",
  "week_start": "2026-10-26",
  "campaign": {
@@ -63,7 +63,7 @@
    "title": "Social Media Publisher",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-10-28 08:47:55"
+   "updated_at": "2026-10-28 09:02:02"
   },
   {
    "id": "ads",
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-28 08:46:07"
+   "updated_at": "2026-10-28 09:01:07"
   },
   {
    "id": "tresearch",
@@ -111,23 +111,23 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Fed diperkirakan tahan; pasar pasang hike Desember. Inflasi panas & yield menekan emas, geopolitik Hormuz menahan turun. Data terakhir 21 Okt.",
-   "updated_at": "2026-10-28 08:46:07"
+   "updated_at": "2026-10-28 09:01:07"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-10-28 08:46:07"
+   "current_task": "Setup SELL di band (RSI+Stokastik+MACD)",
+   "updated_at": "2026-10-28 09:01:07"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-10-28 08:46:07"
+   "current_task": "NO TRADE: SELL lawan tren H1 (sideways), di luar jam Asia cari aman",
+   "updated_at": "2026-10-28 09:01:07"
   },
   {
    "id": "texec",
@@ -449,10 +449,10 @@
    "game": "valorant",
    "pillar": "news",
    "title": "RUMOR bursa VCT Americas: MIBR lepas semua pemain, ENVY izinkan Demon1 cs cari tim, OXY ke Sentinels",
-   "status": "approved",
+   "status": "posted",
    "asset_url": "{\"video\":\"https://luc1ferr12.github.io/zataa-office/media/2026-10-28/95-rumor-bursa-vct-americas-mibr-lepas-semu-ov.mp4\",\"cover\":\"https://luc1ferr12.github.io/zataa-office/media/2026-10-28/95-rumor-bursa-vct-americas-mibr-lepas-semu-ov-cover.jpg\"}",
    "scheduled_at": null,
-   "posted_at": null,
+   "posted_at": "2026-10-28 09:02:02",
    "channel": null
   },
   {
@@ -650,6 +650,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-28 09:02:02",
+   "agent_id": "publisher",
+   "message": "Posting #95 ke IG + TikTok ✅"
+  },
+  {
    "ts": "2026-10-28 08:47:55",
    "agent_id": "publisher",
    "message": "Posting #97 ke IG ✅"
@@ -768,14 +773,16 @@
    "ts": "2026-10-28 04:01:29",
    "agent_id": "analyst",
    "message": "Update data 48 post IG 📈"
-  },
-  {
-   "ts": "2026-10-28 04:01:07",
-   "agent_id": "ttech",
-   "message": "M60 berubah arah: bullish → sideways"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-10-28 09:02:02",
+   "agent_id": "publisher",
+   "to_id": null,
+   "kind": "oper",
+   "message": "\"RUMOR bursa VCT Americas: MIBR lepas semua pemain,\" udah tayang di IG + TikTok 🚀 Makasih semua!"
+  },
   {
    "ts": "2026-10-28 08:47:55",
    "agent_id": "publisher",
@@ -1048,22 +1055,15 @@
    "to_id": null,
    "kind": "oper",
    "message": "Bos ACC 2 ide tambahan! \"ONIC finis terburuk sepanjang sejarah, langsung ketemu Alter Ego di Round 1: bangkit atau tamat?\" & \"RUMOR bursa VCT Americas: MIBR lepas semua pemain, ENVY izinkan Demon1 cs cari tim, OXY ke Sentinels\" 🎉"
-  },
-  {
-   "ts": "2026-10-27 23:03:47",
-   "agent_id": "publisher",
-   "to_id": "owner",
-   "kind": "oper",
-   "message": "Bos, \"QA & kirim feed #77 ke Owner\" udah aku kirim ke Telegram. Ditunggu approve-nya 🙏"
   }
  ],
  "stats": {
   "this_week": {
    "week": "2026-10-26",
    "total": 24,
-   "posted": 12,
+   "posted": 13,
    "pending": 0,
-   "scheduled": 4,
+   "scheduled": 3,
    "yt_total": 5,
    "yt_posted": 3,
    "yt_pending": 0,
@@ -1138,9 +1138,14 @@
   "paused": false,
   "balance": 1687.5099999999998,
   "today_pnl": 0,
-  "price": 4054.899902,
+  "price": 4054.800049,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-28 09:01:07",
+    "decision": "NO TRADE",
+    "reason": "SELL lawan tren H1 (sideways), di luar jam Asia cari aman"
+   },
    {
     "ts": "2026-10-28 08:46:07",
     "decision": "NO TRADE",
@@ -1163,11 +1168,6 @@
    },
    {
     "ts": "2026-10-28 07:46:07",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-10-28 07:31:07",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1203,7 +1203,7 @@
    1687.5099999999995
   ],
   "last": {
-   "ts": "2026-10-28 08:46:07",
+   "ts": "2026-10-28 09:01:07",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1212,7 +1212,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
+   "reason": "SELL lawan tren H1 (sideways), di luar jam Asia cari aman",
    "fund": {
     "bias": -0.2,
     "note": "Fed diperkirakan tahan; pasar pasang hike Desember. Inflasi panas & yield menekan emas, geopolitik Hormuz menahan turun. Data terakhir 21 Okt.",
@@ -1221,16 +1221,17 @@
    },
    "tech": {
     "bias": "sideways",
-    "score": 0,
-    "trigger": null,
-    "confirm": [],
-    "note": "M15 4057.10 di atas band atas (4023.8–4056.8) · RSI 68 · Stoch 99 · MACD +3.16 · H1 sideways"
+    "score": 3,
+    "trigger": "sell",
+    "confirm": [
+     "RSI",
+     "Stokastik",
+     "MACD"
+    ],
+    "note": "M15 4054.10 di atas tengah band (4023.4–4058.0) · RSI 65 · Stoch 89 · MACD +2.95 · H1 sideways · setup SELL (RSI+Stokastik+MACD)"
    }
   },
-  "fund": {
-   "bias": -0.2,
-   "note": "Fed diperkirakan tahan; pasar pasang hike Desember. Inflasi panas & yield menekan emas, geopolitik Hormuz menahan turun. Data terakhir 21 Okt."
-  },
+  "fund": null,
   "calendar": [
    {
     "title": "Federal Funds Rate",
@@ -1320,46 +1321,46 @@
    "M10": {
     "bias": "sideways",
     "score": -1,
-    "price": 4057.9,
-    "ema20": 4043.57,
-    "ema50": 4044.76,
-    "rsi": 73.6,
+    "price": 4054.9,
+    "ema20": 4044.65,
+    "ema50": 4045.16,
+    "rsi": 67.1,
     "n": 299,
-    "slot": 2988629,
-    "at": 1793177467449
+    "slot": 2988630,
+    "at": 1793178067455
    },
    "M15": {
     "bias": "sideways",
     "score": -1,
-    "price": 4054.4,
-    "ema20": 4043.16,
-    "ema50": 4045.57,
-    "rsi": 65.7,
+    "price": 4054.9,
+    "ema20": 4044.28,
+    "ema50": 4045.93,
+    "rsi": 66.3,
     "n": 299,
-    "slot": 1992419,
-    "at": 1793177167451
+    "slot": 1992420,
+    "at": 1793178067460
    },
    "M30": {
     "bias": "bullish",
     "score": 2,
-    "price": 4051.1,
-    "ema20": 4044.82,
-    "ema50": 4041.09,
-    "rsi": 56.1,
+    "price": 4054.9,
+    "ema20": 4045.78,
+    "ema50": 4041.63,
+    "rsi": 59.2,
     "n": 299,
-    "slot": 996209,
-    "at": 1793176267439
+    "slot": 996210,
+    "at": 1793178067461
    },
    "H1": {
     "bias": "bullish",
-    "score": 3,
-    "price": 4044.9,
-    "ema20": 4042.63,
-    "ema50": 4031.33,
-    "rsi": 53.7,
+    "score": 2,
+    "price": 4054.9,
+    "ema20": 4043.8,
+    "ema50": 4032.25,
+    "rsi": 59.4,
     "n": 299,
-    "slot": 498104,
-    "at": 1793174467426
+    "slot": 498105,
+    "at": 1793178067465
    }
   },
   "currency": "USC",
