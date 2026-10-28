@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-28T05:56:51.558Z",
+ "generated_at": "2026-10-28T06:06:51.568Z",
  "today": "2026-10-28",
  "week_start": "2026-10-26",
  "campaign": {
@@ -87,7 +87,7 @@
    "title": "Price Watcher",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-10-28 04:01:32"
+   "updated_at": "2026-10-28 06:00:53"
   },
   {
    "id": "ob",
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-28 05:46:07"
+   "updated_at": "2026-10-28 06:01:07"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Fed diperkirakan tahan; pasar pasang hike Desember. Inflasi panas & yield menekan emas, geopolitik Hormuz menahan turun. Data terakhir 21 Okt.",
-   "updated_at": "2026-10-28 05:46:07"
+   "updated_at": "2026-10-28 06:01:07"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-10-28 05:46:07"
+   "updated_at": "2026-10-28 06:01:07"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
-   "updated_at": "2026-10-28 05:46:07"
+   "updated_at": "2026-10-28 06:01:07"
   },
   {
    "id": "texec",
@@ -1124,9 +1124,14 @@
   "paused": false,
   "balance": 1687.5099999999998,
   "today_pnl": 0,
-  "price": 4033.100098,
+  "price": 4030.800049,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-28 06:01:07",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
+   },
    {
     "ts": "2026-10-28 05:46:07",
     "decision": "NO TRADE",
@@ -1149,11 +1154,6 @@
    },
    {
     "ts": "2026-10-28 04:46:07",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-   },
-   {
-    "ts": "2026-10-28 04:31:07",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
    }
@@ -1189,7 +1189,7 @@
    1687.5099999999995
   ],
   "last": {
-   "ts": "2026-10-28 05:46:07",
+   "ts": "2026-10-28 06:01:07",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1210,7 +1210,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4036.70 di bawah tengah band (4030.3–4061.2) · RSI 28 · Stoch 9 · MACD -1.00 · H1 sideways"
+    "note": "M15 4031.20 di bawah tengah band (4027.9–4060.4) · RSI 21 · Stoch 4 · MACD -1.30 · H1 sideways"
    }
   },
   "fund": {
@@ -1306,46 +1306,46 @@
    "M10": {
     "bias": "bearish",
     "score": -3,
-    "price": 4036.8,
-    "ema20": 4042.48,
-    "ema50": 4048.49,
-    "rsi": 29.4,
+    "price": 4031.4,
+    "ema20": 4041.43,
+    "ema50": 4047.82,
+    "rsi": 23,
     "n": 299,
-    "slot": 2988611,
-    "at": 1793166667321
+    "slot": 2988612,
+    "at": 1793167267569
    },
    "M15": {
     "bias": "bearish",
     "score": -3,
-    "price": 4035.9,
-    "ema20": 4045.8,
-    "ema50": 4048.72,
-    "rsi": 25.3,
+    "price": 4031.4,
+    "ema20": 4044.43,
+    "ema50": 4048.04,
+    "rsi": 21.3,
     "n": 299,
-    "slot": 1992407,
-    "at": 1793166367327
+    "slot": 1992408,
+    "at": 1793167267574
    },
    "M30": {
     "bias": "sideways",
     "score": 0,
-    "price": 4035,
-    "ema20": 4048.94,
-    "ema50": 4041.63,
-    "rsi": 33.5,
+    "price": 4031.4,
+    "ema20": 4047.27,
+    "ema50": 4041.23,
+    "rsi": 30.7,
     "n": 299,
-    "slot": 996203,
-    "at": 1793165467319
+    "slot": 996204,
+    "at": 1793167267575
    },
    "H1": {
     "bias": "sideways",
     "score": 1,
-    "price": 4038.2,
-    "ema20": 4044.8,
-    "ema50": 4030.71,
-    "rsi": 48.2,
+    "price": 4031.4,
+    "ema20": 4043.52,
+    "ema50": 4030.74,
+    "rsi": 43.7,
     "n": 299,
-    "slot": 498101,
-    "at": 1793163667292
+    "slot": 498102,
+    "at": 1793167267580
    }
   },
   "currency": "USC",
