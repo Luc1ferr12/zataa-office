@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-29T10:56:52.430Z",
+ "generated_at": "2026-10-29T11:06:52.437Z",
  "today": "2026-10-29",
  "week_start": "2026-10-26",
  "campaign": {
@@ -103,23 +103,23 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-29 10:46:08"
+   "updated_at": "2026-10-29 11:01:26"
   },
   {
    "id": "tresearch",
    "name": "Davina",
    "title": "Research & Fundamental",
    "status": "done",
-   "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
-   "updated_at": "2026-10-29 10:46:08"
+   "current_task": "Fundamental: Fed hawkish (hike Sep, odds hike Des ~80%), DXY kuat, emas turun 4% pekan lalu; PCE inti 0.3 panas. Hasil FOMC 28 Okt belum terverifikasi.",
+   "updated_at": "2026-10-29 11:01:26"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-10-29 10:46:08"
+   "current_task": "Belum ada pantulan band · H1 bearish",
+   "updated_at": "2026-10-29 11:01:26"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-10-29 10:46:08"
+   "updated_at": "2026-10-29 11:01:26"
   },
   {
    "id": "texec",
@@ -692,6 +692,16 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-29 11:01:08",
+   "agent_id": "ttech",
+   "message": "M15 berubah arah: bearish → sideways"
+  },
+  {
+   "ts": "2026-10-29 11:01:08",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: bearish → sideways"
+  },
+  {
    "ts": "2026-10-29 10:41:08",
    "agent_id": "ttech",
    "message": "M10 berubah arah: sideways → bearish"
@@ -805,19 +815,16 @@
    "ts": "2026-10-29 05:16:08",
    "agent_id": "trisk",
    "message": "NO TRADE · kondisi berita bahaya: Hasil FOMC 28 Okt & PCE/GDP belum terverifikasi; berita basi"
-  },
-  {
-   "ts": "2026-10-29 05:11:08",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: bearish → sideways"
-  },
-  {
-   "ts": "2026-10-29 05:01:34",
-   "agent_id": "publisher",
-   "message": "Posting #79 ke IG ✅"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-10-29 11:00:53",
+   "agent_id": "analyst",
+   "to_id": "dir",
+   "kind": "oper",
+   "message": "Laporan harian marketing udah aku kirim ke Bos, 2 konten tayang hari ini 📊"
+  },
   {
    "ts": "2026-10-29 05:01:34",
    "agent_id": "publisher",
@@ -1090,13 +1097,6 @@
    "to_id": "sec",
    "kind": "nimbrung",
    "message": "Aprista aja deh, mana ayangku nih"
-  },
-  {
-   "ts": "2026-10-28 11:23:01",
-   "agent_id": "dir",
-   "to_id": "analyst",
-   "kind": "santai",
-   "message": "Rak, mulai besok tolong pisahin angka Reels vs feed di laporan harian ya, Minggu kita nilai bareng."
   }
  ],
  "stats": {
@@ -1180,9 +1180,14 @@
   "paused": false,
   "balance": 1687.5099999999998,
   "today_pnl": 0,
-  "price": 4031.399902,
+  "price": 4035.800049,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-29 11:01:26",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
    {
     "ts": "2026-10-29 10:46:08",
     "decision": "NO TRADE",
@@ -1205,11 +1210,6 @@
    },
    {
     "ts": "2026-10-29 09:46:08",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-10-29 09:31:08",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1245,7 +1245,7 @@
    1687.5099999999995
   ],
   "last": {
-   "ts": "2026-10-29 10:46:08",
+   "ts": "2026-10-29 11:01:26",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1256,20 +1256,23 @@
    "risk_usd": null,
    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
    "fund": {
-    "bias": 0,
-    "note": "netral (belum ada ringkasan hari ini)",
+    "bias": -0.4,
+    "note": "Fed hawkish (hike Sep, odds hike Des ~80%), DXY kuat, emas turun 4% pekan lalu; PCE inti 0.3 panas. Hasil FOMC 28 Okt belum terverifikasi.",
     "danger": null,
     "blackout": null
    },
    "tech": {
-    "bias": "sideways",
+    "bias": "bearish",
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4028.70 di bawah tengah band (4022.6–4036.9) · RSI 45 · Stoch 51 · MACD +0.60 · H1 sideways"
+    "note": "M15 4034.20 di atas tengah band (4023.1–4037.6) · RSI 51 · Stoch 69 · MACD +1.10 · H1 bearish"
    }
   },
-  "fund": null,
+  "fund": {
+   "bias": -0.4,
+   "note": "Fed hawkish (hike Sep, odds hike Des ~80%), DXY kuat, emas turun 4% pekan lalu; PCE inti 0.3 panas. Hasil FOMC 28 Okt belum terverifikasi."
+  },
   "calendar": [
    {
     "title": "Advance GDP q/q",
@@ -1330,48 +1333,48 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "bearish",
-    "score": -2,
-    "price": 4027.9,
-    "ema20": 4030.13,
-    "ema50": 4034.93,
-    "rsi": 45.6,
+    "bias": "sideways",
+    "score": 0,
+    "price": 4032.4,
+    "ema20": 4030.35,
+    "ema50": 4034.83,
+    "rsi": 51.5,
     "n": 299,
-    "slot": 2988785,
-    "at": 1793271068602
+    "slot": 2988786,
+    "at": 1793271668670
    },
    "M15": {
-    "bias": "bearish",
-    "score": -2,
-    "price": 4027.1,
-    "ema20": 4031.58,
-    "ema50": 4038.18,
-    "rsi": 43.7,
+    "bias": "sideways",
+    "score": -1,
+    "price": 4032.4,
+    "ema20": 4031.66,
+    "ema50": 4037.96,
+    "rsi": 49.1,
     "n": 299,
-    "slot": 1992523,
-    "at": 1793270768655
+    "slot": 1992524,
+    "at": 1793271668677
    },
    "M30": {
     "bias": "bearish",
     "score": -3,
-    "price": 4028,
-    "ema20": 4036.04,
-    "ema50": 4041.92,
-    "rsi": 42.4,
+    "price": 4032.4,
+    "ema20": 4035.69,
+    "ema50": 4041.55,
+    "rsi": 45.9,
     "n": 299,
-    "slot": 996261,
-    "at": 1793269868788
+    "slot": 996262,
+    "at": 1793271668681
    },
    "H1": {
     "bias": "sideways",
     "score": -1,
-    "price": 4029.9,
-    "ema20": 4041.26,
-    "ema50": 4039.92,
-    "rsi": 43.9,
+    "price": 4032.4,
+    "ema20": 4040.42,
+    "ema50": 4039.63,
+    "rsi": 45.2,
     "n": 299,
-    "slot": 498130,
-    "at": 1793268042081
+    "slot": 498131,
+    "at": 1793271668685
    }
   },
   "currency": "USC",
