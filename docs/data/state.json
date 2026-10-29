@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-29T19:36:52.677Z",
+ "generated_at": "2026-10-29T19:46:52.691Z",
  "today": "2026-10-30",
  "week_start": "2026-10-26",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-29 19:31:09"
+   "updated_at": "2026-10-29 19:46:09"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Fed hawkish (hike Sep, odds hike Des ~80%), DXY kuat, emas turun 4% pekan lalu; PCE inti 0.3 panas. Hasil FOMC 28 Okt belum terverifikasi.",
-   "updated_at": "2026-10-29 19:31:09"
+   "updated_at": "2026-10-29 19:46:08"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-10-29 19:31:09"
+   "updated_at": "2026-10-29 19:46:09"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-10-29 19:31:09"
+   "updated_at": "2026-10-29 19:46:09"
   },
   {
    "id": "texec",
@@ -1110,18 +1110,18 @@
    "yt_posted": 6,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 13085,
+   "views": 13133,
    "likes": 188,
    "comments": 3,
    "shares": 7,
    "saves": 1,
-   "yt_views": 8898,
+   "yt_views": 8946,
    "top": [
     {
      "title": "Lawang Sewu: Apa yang Sebenarnya Ada di Bawah Tanahnya?",
      "format": "shorts",
      "pillar": "horor_sejarah",
-     "views": 1803
+     "views": 1807
     },
     {
      "title": "Kamar 308: Kamar Hotel yang Disiapkan untuk Nyi Roro Kidul",
@@ -1133,7 +1133,7 @@
      "title": "Benteng Pendem Ngawi: Benteng yang Sengaja Dipendam",
      "format": "shorts",
      "pillar": "horor_sejarah",
-     "views": 1507
+     "views": 1514
     }
    ]
   },
@@ -1180,9 +1180,14 @@
   "paused": false,
   "balance": 1687.5099999999998,
   "today_pnl": 0,
-  "price": 4018.600098,
+  "price": 4020,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-29 19:46:09",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
    {
     "ts": "2026-10-29 19:31:09",
     "decision": "NO TRADE",
@@ -1205,11 +1210,6 @@
    },
    {
     "ts": "2026-10-29 18:31:09",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-10-29 18:16:10",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1245,7 +1245,7 @@
    1687.5099999999995
   ],
   "last": {
-   "ts": "2026-10-29 19:31:09",
+   "ts": "2026-10-29 19:46:09",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1266,7 +1266,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4017.90 di atas tengah band (4004.3–4030.9) · RSI 49 · Stoch 45 · MACD +0.48 · H1 bearish"
+    "note": "M15 4019.60 di atas tengah band (4004.9–4029.7) · RSI 50 · Stoch 64 · MACD +0.95 · H1 bearish"
    }
   },
   "fund": {
@@ -1298,24 +1298,24 @@
    "M10": {
     "bias": "sideways",
     "score": -1,
-    "price": 4018,
-    "ema20": 4015.55,
+    "price": 4021.1,
+    "ema20": 4016.08,
     "ema50": 4021.01,
-    "rsi": 51.6,
+    "rsi": 56,
     "n": 299,
-    "slot": 2988837,
-    "at": 1793302269262
+    "slot": 2988838,
+    "at": 1793302869002
    },
    "M15": {
     "bias": "sideways",
     "score": -1,
-    "price": 4018,
-    "ema20": 4017.24,
-    "ema50": 4024.32,
-    "rsi": 48.8,
+    "price": 4020.6,
+    "ema20": 4017.56,
+    "ema50": 4024.17,
+    "rsi": 51.5,
     "n": 299,
-    "slot": 1992558,
-    "at": 1793302269268
+    "slot": 1992559,
+    "at": 1793303168985
    },
    "M30": {
     "bias": "bearish",
