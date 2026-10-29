@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-29T01:16:52.158Z",
+ "generated_at": "2026-10-29T01:26:52.163Z",
  "today": "2026-10-29",
  "week_start": "2026-10-26",
  "campaign": {
@@ -664,6 +664,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-29 01:21:08",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: bearish → sideways"
+  },
+  {
    "ts": "2026-10-29 01:16:08",
    "agent_id": "trisk",
    "message": "NO TRADE · kondisi berita bahaya: Hasil FOMC 28 Okt & PCE/GDP belum terverifikasi; berita basi"
@@ -782,11 +787,6 @@
    "ts": "2026-10-28 23:01:08",
    "agent_id": "ttech",
    "message": "M30 berubah arah: bullish → sideways"
-  },
-  {
-   "ts": "2026-10-28 22:31:08",
-   "agent_id": "ttech",
-   "message": "M15 berubah arah: bullish → sideways"
   }
  ],
  "chats": [
@@ -1152,7 +1152,7 @@
   "paused": false,
   "balance": 1687.5099999999998,
   "today_pnl": 0,
-  "price": 4054.899902,
+  "price": 4067.300049,
   "open": [],
   "signals": [
    {
@@ -1305,15 +1305,15 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "bearish",
-    "score": -2,
-    "price": 4048.1,
-    "ema20": 4050.33,
-    "ema50": 4052.56,
-    "rsi": 46,
+    "bias": "sideways",
+    "score": 0,
+    "price": 4058,
+    "ema20": 4051.06,
+    "ema50": 4052.77,
+    "rsi": 55.7,
     "n": 299,
-    "slot": 2988727,
-    "at": 1793236268128
+    "slot": 2988728,
+    "at": 1793236868150
    },
    "M15": {
     "bias": "bullish",
