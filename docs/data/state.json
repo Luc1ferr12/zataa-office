@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-29T09:56:52.400Z",
+ "generated_at": "2026-10-29T10:06:52.402Z",
  "today": "2026-10-29",
  "week_start": "2026-10-26",
  "campaign": {
@@ -79,7 +79,7 @@
    "title": "Data Analyst",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-10-29 07:01:42"
+   "updated_at": "2026-10-29 10:01:39"
   },
   {
    "id": "price",
@@ -87,7 +87,7 @@
    "title": "Price Watcher",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-10-29 08:00:54"
+   "updated_at": "2026-10-29 10:01:42"
   },
   {
    "id": "ob",
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-29 09:46:08"
+   "updated_at": "2026-10-29 10:00:42"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
-   "updated_at": "2026-10-29 09:46:08"
+   "updated_at": "2026-10-29 10:00:42"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-10-29 09:46:08"
+   "updated_at": "2026-10-29 10:00:42"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-10-29 09:46:08"
+   "updated_at": "2026-10-29 10:00:42"
   },
   {
    "id": "texec",
@@ -561,10 +561,10 @@
    "game": "sejarah",
    "pillar": "sejarah_kelam",
    "title": "Letusan Tambora 1815: Kerajaan yang Dikubur Abu",
-   "status": "approved",
-   "asset_url": null,
+   "status": "posted",
+   "asset_url": "https://www.youtube.com/watch?v=0ABGgmNHvIg",
    "scheduled_at": null,
-   "posted_at": null,
+   "posted_at": "2026-10-29 10:01:07",
    "channel": "story"
   },
   {
@@ -692,6 +692,26 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-29 10:01:39",
+   "agent_id": "analyst",
+   "message": "Update data 50 post IG 📈"
+  },
+  {
+   "ts": "2026-10-29 10:01:31",
+   "agent_id": "spublish",
+   "message": "Cross-post Shorts #98 ke TikTok Zataa Story"
+  },
+  {
+   "ts": "2026-10-29 10:01:07",
+   "agent_id": "spublish",
+   "message": "Upload Shorts #98 ke Zataa Story (Publik via Zernio)"
+  },
+  {
+   "ts": "2026-10-29 10:00:42",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: bearish → sideways"
+  },
+  {
    "ts": "2026-10-29 09:21:08",
    "agent_id": "ttech",
    "message": "M10 berubah arah: sideways → bearish"
@@ -795,26 +815,6 @@
    "ts": "2026-10-29 03:16:08",
    "agent_id": "trisk",
    "message": "NO TRADE · kondisi berita bahaya: Hasil FOMC 28 Okt & PCE/GDP belum terverifikasi; berita basi"
-  },
-  {
-   "ts": "2026-10-29 03:16:08",
-   "agent_id": "ttech",
-   "message": "M15 berubah arah: sideways → bearish"
-  },
-  {
-   "ts": "2026-10-29 03:03:45",
-   "agent_id": "publisher",
-   "message": "Posting #99 ke IG ✅"
-  },
-  {
-   "ts": "2026-10-29 03:01:08",
-   "agent_id": "ttech",
-   "message": "M60 berubah arah: bullish → sideways"
-  },
-  {
-   "ts": "2026-10-29 03:01:08",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: sideways → bearish"
   }
  ],
  "chats": [
@@ -1103,14 +1103,14 @@
   "this_week": {
    "week": "2026-10-26",
    "total": 27,
-   "posted": 18,
+   "posted": 19,
    "pending": 1,
-   "scheduled": 2,
+   "scheduled": 1,
    "yt_total": 6,
-   "yt_posted": 5,
+   "yt_posted": 6,
    "yt_pending": 0,
-   "yt_scheduled": 1,
-   "views": 11321,
+   "yt_scheduled": 0,
+   "views": 11329,
    "likes": 162,
    "comments": 3,
    "shares": 7,
@@ -1180,9 +1180,14 @@
   "paused": false,
   "balance": 1687.5099999999998,
   "today_pnl": 0,
-  "price": 4030.699951,
+  "price": 4034,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-29 10:00:42",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
    {
     "ts": "2026-10-29 09:46:08",
     "decision": "NO TRADE",
@@ -1205,11 +1210,6 @@
    },
    {
     "ts": "2026-10-29 08:46:08",
-    "decision": "NO TRADE",
-    "reason": "kondisi berita bahaya: Hasil FOMC 28 Okt & PCE/GDP belum terverifikasi; berita basi"
-   },
-   {
-    "ts": "2026-10-29 08:31:08",
     "decision": "NO TRADE",
     "reason": "kondisi berita bahaya: Hasil FOMC 28 Okt & PCE/GDP belum terverifikasi; berita basi"
    }
@@ -1245,7 +1245,7 @@
    1687.5099999999995
   ],
   "last": {
-   "ts": "2026-10-29 09:46:08",
+   "ts": "2026-10-29 10:00:42",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1266,7 +1266,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4028.40 di bawah tengah band (4018.9–4044.4) · RSI 44 · Stoch 50 · MACD +0.45 · H1 sideways"
+    "note": "M15 4030.40 di bawah tengah band (4020.6–4041.4) · RSI 46 · Stoch 58 · MACD +0.69 · H1 sideways"
    }
   },
   "fund": null,
@@ -1330,48 +1330,48 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "bearish",
-    "score": -2,
-    "price": 4027.2,
-    "ema20": 4030.71,
-    "ema50": 4036.38,
-    "rsi": 44.7,
+    "bias": "sideways",
+    "score": -1,
+    "price": 4029.9,
+    "ema20": 4030.63,
+    "ema50": 4036.13,
+    "rsi": 47.8,
     "n": 299,
-    "slot": 2988779,
-    "at": 1793267468562
+    "slot": 2988780,
+    "at": 1793268042069
    },
    "M15": {
     "bias": "bearish",
     "score": -2,
-    "price": 4028.7,
-    "ema20": 4032.63,
-    "ema50": 4039.68,
-    "rsi": 44.5,
+    "price": 4029.9,
+    "ema20": 4032.37,
+    "ema50": 4039.3,
+    "rsi": 45.7,
     "n": 299,
-    "slot": 1992519,
-    "at": 1793267168633
+    "slot": 1992520,
+    "at": 1793268042075
    },
    "M30": {
     "bias": "bearish",
     "score": -3,
-    "price": 4027,
-    "ema20": 4037.62,
-    "ema50": 4043,
-    "rsi": 41.3,
+    "price": 4029.9,
+    "ema20": 4036.88,
+    "ema50": 4042.49,
+    "rsi": 43.5,
     "n": 299,
-    "slot": 996259,
-    "at": 1793266268616
+    "slot": 996260,
+    "at": 1793268042076
    },
    "H1": {
     "bias": "sideways",
     "score": -1,
-    "price": 4026.3,
-    "ema20": 4042.46,
-    "ema50": 4040.33,
-    "rsi": 42,
+    "price": 4029.9,
+    "ema20": 4041.26,
+    "ema50": 4039.92,
+    "rsi": 43.9,
     "n": 299,
-    "slot": 498129,
-    "at": 1793264468605
+    "slot": 498130,
+    "at": 1793268042081
    }
   },
   "currency": "USC",
