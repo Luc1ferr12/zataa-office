@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-29T00:56:52.144Z",
+ "generated_at": "2026-10-29T01:06:52.159Z",
  "today": "2026-10-29",
  "week_start": "2026-10-26",
  "campaign": {
@@ -62,8 +62,8 @@
    "name": "Fikri",
    "title": "Social Media Publisher",
    "status": "done",
-   "current_task": "QA & kirim #79",
-   "updated_at": "2026-10-28 23:04:28"
+   "current_task": null,
+   "updated_at": "2026-10-29 01:01:10"
   },
   {
    "id": "ads",
@@ -78,8 +78,8 @@
    "name": "Raka",
    "title": "Data Analyst",
    "status": "done",
-   "current_task": "Pola: video VCT/Shorts ratusan-ribuan views, feed 2-7 views",
-   "updated_at": "2026-10-28 23:02:49"
+   "current_task": null,
+   "updated_at": "2026-10-29 01:01:32"
   },
   {
    "id": "price",
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-29 00:46:08"
+   "updated_at": "2026-10-29 01:01:08"
   },
   {
    "id": "tresearch",
@@ -111,15 +111,15 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Berita terbaru tak terverifikasi (sumber basi). Bias negatif: Fed condong ketat & DXY kuat. Cek hasil FOMC & PCE sebelum entry.",
-   "updated_at": "2026-10-29 00:46:08"
+   "updated_at": "2026-10-29 01:01:08"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Setup BUY di band (tanpa konfirmasi)",
-   "updated_at": "2026-10-29 00:46:08"
+   "current_task": "Belum ada pantulan band · H1 bearish",
+   "updated_at": "2026-10-29 01:01:08"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: kondisi berita bahaya: Hasil FOMC 28 Okt & PCE/GDP belum terverifikasi; berita basi",
-   "updated_at": "2026-10-29 00:46:08"
+   "updated_at": "2026-10-29 01:01:08"
   },
   {
    "id": "texec",
@@ -664,6 +664,21 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-29 01:01:32",
+   "agent_id": "analyst",
+   "message": "Update data 50 post IG 📈"
+  },
+  {
+   "ts": "2026-10-29 01:01:10",
+   "agent_id": "publisher",
+   "message": "Kirim draf IG Story ke Bos 📱"
+  },
+  {
+   "ts": "2026-10-29 01:01:08",
+   "agent_id": "ttech",
+   "message": "M60 berubah arah: bullish → sideways"
+  },
+  {
    "ts": "2026-10-29 00:54:48",
    "agent_id": "yvideo",
    "message": "Shorts #98 dirender di laptop (suara OmniVoice) & dikirim ke Owner"
@@ -772,21 +787,6 @@
    "ts": "2026-10-28 22:01:37",
    "agent_id": "analyst",
    "message": "Update data 50 post IG 📈"
-  },
-  {
-   "ts": "2026-10-28 22:01:08",
-   "agent_id": "trisk",
-   "message": "NO TRADE · jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
-  },
-  {
-   "ts": "2026-10-28 22:01:08",
-   "agent_id": "ttech",
-   "message": "M30 berubah arah: sideways → bullish"
-  },
-  {
-   "ts": "2026-10-28 20:01:08",
-   "agent_id": "ttech",
-   "message": "M60 berubah arah: sideways → bullish"
   }
  ],
  "chats": [
@@ -1082,7 +1082,7 @@
    "yt_posted": 5,
    "yt_pending": 1,
    "yt_scheduled": 0,
-   "views": 10571,
+   "views": 10573,
    "likes": 155,
    "comments": 3,
    "shares": 7,
@@ -1152,9 +1152,14 @@
   "paused": false,
   "balance": 1687.5099999999998,
   "today_pnl": 0,
-  "price": 4038,
+  "price": 4043.5,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-29 01:01:08",
+    "decision": "NO TRADE",
+    "reason": "kondisi berita bahaya: Hasil FOMC 28 Okt & PCE/GDP belum terverifikasi; berita basi"
+   },
    {
     "ts": "2026-10-29 00:46:08",
     "decision": "NO TRADE",
@@ -1177,11 +1182,6 @@
    },
    {
     "ts": "2026-10-28 23:46:08",
-    "decision": "NO TRADE",
-    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
-   },
-   {
-    "ts": "2026-10-28 23:31:08",
     "decision": "NO TRADE",
     "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
    }
@@ -1217,7 +1217,7 @@
    1687.5099999999995
   ],
   "last": {
-   "ts": "2026-10-29 00:46:08",
+   "ts": "2026-10-29 01:01:08",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1236,9 +1236,9 @@
    "tech": {
     "bias": "bearish",
     "score": 0,
-    "trigger": "buy",
+    "trigger": null,
     "confirm": [],
-    "note": "M15 4040.70 di bawah tengah band (4037.1–4079.4) · RSI 37 · Stoch 10 · MACD -2.79 · H1 bearish · setup BUY (tanpa konfirmasi)"
+    "note": "M15 4038.10 di bawah tengah band (4033.9–4079.1) · RSI 35 · Stoch 3 · MACD -2.94 · H1 bearish"
    }
   },
   "fund": {
@@ -1307,46 +1307,46 @@
    "M10": {
     "bias": "bearish",
     "score": -2,
-    "price": 4039.1,
-    "ema20": 4051.8,
-    "ema50": 4053.31,
-    "rsi": 33.7,
+    "price": 4038.8,
+    "ema20": 4050.56,
+    "ema50": 4052.74,
+    "rsi": 33.5,
     "n": 299,
-    "slot": 2988725,
-    "at": 1793235068110
+    "slot": 2988726,
+    "at": 1793235668317
    },
    "M15": {
     "bias": "sideways",
     "score": 0,
-    "price": 4040.6,
-    "ema20": 4053.93,
-    "ema50": 4052.84,
-    "rsi": 37.2,
+    "price": 4038.8,
+    "ema20": 4052.49,
+    "ema50": 4052.29,
+    "rsi": 35.9,
     "n": 299,
-    "slot": 1992483,
-    "at": 1793234768113
+    "slot": 1992484,
+    "at": 1793235668322
    },
    "M30": {
     "bias": "sideways",
     "score": -1,
-    "price": 4045.9,
-    "ema20": 4053.52,
-    "ema50": 4049.29,
-    "rsi": 45.1,
+    "price": 4038.8,
+    "ema20": 4052.12,
+    "ema50": 4048.88,
+    "rsi": 40.8,
     "n": 299,
-    "slot": 996241,
-    "at": 1793233868102
+    "slot": 996242,
+    "at": 1793235668323
    },
    "H1": {
-    "bias": "bullish",
-    "score": 2,
-    "price": 4055.9,
-    "ema20": 4051.81,
-    "ema50": 4041.58,
-    "rsi": 54.1,
+    "bias": "sideways",
+    "score": 0,
+    "price": 4038.8,
+    "ema20": 4050.58,
+    "ema50": 4041.47,
+    "rsi": 44.5,
     "n": 299,
-    "slot": 498120,
-    "at": 1793232044476
+    "slot": 498121,
+    "at": 1793235668327
    }
   },
   "currency": "USC",
