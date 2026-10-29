@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-29T07:56:52.343Z",
+ "generated_at": "2026-10-29T08:06:52.352Z",
  "today": "2026-10-29",
  "week_start": "2026-10-26",
  "campaign": {
@@ -87,7 +87,7 @@
    "title": "Price Watcher",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-10-29 06:00:54"
+   "updated_at": "2026-10-29 08:00:54"
   },
   {
    "id": "ob",
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-29 07:46:08"
+   "updated_at": "2026-10-29 08:01:08"
   },
   {
    "id": "tresearch",
@@ -111,15 +111,15 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Berita terbaru tak terverifikasi (sumber basi). Bias negatif: Fed condong ketat & DXY kuat. Cek hasil FOMC & PCE sebelum entry.",
-   "updated_at": "2026-10-29 07:46:08"
+   "updated_at": "2026-10-29 08:01:08"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-10-29 07:46:08"
+   "current_task": "Belum ada pantulan band · H1 bearish",
+   "updated_at": "2026-10-29 08:01:08"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: kondisi berita bahaya: Hasil FOMC 28 Okt & PCE/GDP belum terverifikasi; berita basi",
-   "updated_at": "2026-10-29 07:46:08"
+   "updated_at": "2026-10-29 08:01:08"
   },
   {
    "id": "texec",
@@ -1180,9 +1180,14 @@
   "paused": false,
   "balance": 1687.5099999999998,
   "today_pnl": 0,
-  "price": 4024.699951,
+  "price": 4034.5,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-29 08:01:08",
+    "decision": "NO TRADE",
+    "reason": "kondisi berita bahaya: Hasil FOMC 28 Okt & PCE/GDP belum terverifikasi; berita basi"
+   },
    {
     "ts": "2026-10-29 07:46:08",
     "decision": "NO TRADE",
@@ -1205,11 +1210,6 @@
    },
    {
     "ts": "2026-10-29 06:46:08",
-    "decision": "NO TRADE",
-    "reason": "kondisi berita bahaya: Hasil FOMC 28 Okt & PCE/GDP belum terverifikasi; berita basi"
-   },
-   {
-    "ts": "2026-10-29 06:30:40",
     "decision": "NO TRADE",
     "reason": "kondisi berita bahaya: Hasil FOMC 28 Okt & PCE/GDP belum terverifikasi; berita basi"
    }
@@ -1245,7 +1245,7 @@
    1687.5099999999995
   ],
   "last": {
-   "ts": "2026-10-29 07:46:08",
+   "ts": "2026-10-29 08:01:08",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1262,11 +1262,11 @@
     "blackout": null
    },
    "tech": {
-    "bias": "sideways",
+    "bias": "bearish",
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4029.10 di bawah tengah band (4023.2–4049.6) · RSI 40 · Stoch 28 · MACD -0.23 · H1 sideways"
+    "note": "M15 4024.00 di bawah tengah band (4020.3–4050.4) · RSI 37 · Stoch 10 · MACD -0.68 · H1 bearish"
    }
   },
   "fund": {
@@ -1335,46 +1335,46 @@
    "M10": {
     "bias": "bearish",
     "score": -2,
-    "price": 4029.1,
-    "ema20": 4034.72,
-    "ema50": 4040.85,
-    "rsi": 39.8,
+    "price": 4024,
+    "ema20": 4033.7,
+    "ema50": 4040.19,
+    "rsi": 34.9,
     "n": 299,
-    "slot": 2988767,
-    "at": 1793260268540
+    "slot": 2988768,
+    "at": 1793260868470
    },
    "M15": {
     "bias": "bearish",
     "score": -3,
-    "price": 4029.2,
-    "ema20": 4037.46,
-    "ema50": 4043.83,
-    "rsi": 40.2,
+    "price": 4024,
+    "ema20": 4036.17,
+    "ema50": 4043.05,
+    "rsi": 36.6,
     "n": 299,
-    "slot": 1992511,
-    "at": 1793259968466
+    "slot": 1992512,
+    "at": 1793260868476
    },
    "M30": {
     "bias": "bearish",
     "score": -3,
-    "price": 4032.2,
-    "ema20": 4042.62,
-    "ema50": 4045.71,
-    "rsi": 42,
+    "price": 4024,
+    "ema20": 4040.85,
+    "ema50": 4044.86,
+    "rsi": 37.9,
     "n": 299,
-    "slot": 996255,
-    "at": 1793259042948
+    "slot": 996256,
+    "at": 1793260868476
    },
    "H1": {
     "bias": "sideways",
-    "score": 0,
-    "price": 4035.7,
-    "ema20": 4046.28,
-    "ema50": 4041.6,
-    "rsi": 45.2,
+    "score": -1,
+    "price": 4024,
+    "ema20": 4044.16,
+    "ema50": 4040.91,
+    "rsi": 40.7,
     "n": 299,
-    "slot": 498127,
-    "at": 1793257240033
+    "slot": 498128,
+    "at": 1793260868481
    }
   },
   "currency": "USC",
