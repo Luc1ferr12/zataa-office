@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-29T06:26:52.304Z",
+ "generated_at": "2026-10-29T06:36:52.305Z",
  "today": "2026-10-29",
  "week_start": "2026-10-26",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-29 06:16:08"
+   "updated_at": "2026-10-29 06:30:40"
   },
   {
    "id": "tresearch",
@@ -111,15 +111,15 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Berita terbaru tak terverifikasi (sumber basi). Bias negatif: Fed condong ketat & DXY kuat. Cek hasil FOMC & PCE sebelum entry.",
-   "updated_at": "2026-10-29 06:16:08"
+   "updated_at": "2026-10-29 06:30:40"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Setup BUY di band (tanpa konfirmasi)",
-   "updated_at": "2026-10-29 06:16:08"
+   "current_task": "Belum ada pantulan band · H1 sideways",
+   "updated_at": "2026-10-29 06:30:40"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: kondisi berita bahaya: Hasil FOMC 28 Okt & PCE/GDP belum terverifikasi; berita basi",
-   "updated_at": "2026-10-29 06:16:08"
+   "updated_at": "2026-10-29 06:30:40"
   },
   {
    "id": "texec",
@@ -692,6 +692,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-29 06:30:40",
+   "agent_id": "ttech",
+   "message": "M30 berubah arah: sideways → bearish"
+  },
+  {
    "ts": "2026-10-29 06:16:08",
    "agent_id": "trisk",
    "message": "NO TRADE · kondisi berita bahaya: Hasil FOMC 28 Okt & PCE/GDP belum terverifikasi; berita basi"
@@ -810,11 +815,6 @@
    "ts": "2026-10-29 01:37:52",
    "agent_id": "owner",
    "message": "Approve konten #99 ✅"
-  },
-  {
-   "ts": "2026-10-29 01:36:58",
-   "agent_id": "owner",
-   "message": "Approve konten #80 ✅"
   }
  ],
  "chats": [
@@ -1110,24 +1110,24 @@
    "yt_posted": 5,
    "yt_pending": 0,
    "yt_scheduled": 1,
-   "views": 11207,
-   "likes": 160,
+   "views": 11277,
+   "likes": 162,
    "comments": 3,
    "shares": 7,
    "saves": 1,
-   "yt_views": 7219,
+   "yt_views": 7236,
    "top": [
     {
      "title": "Lawang Sewu: Apa yang Sebenarnya Ada di Bawah Tanahnya?",
      "format": "shorts",
      "pillar": "horor_sejarah",
-     "views": 1772
+     "views": 1773
     },
     {
      "title": "Kamar 308: Kamar Hotel yang Disiapkan untuk Nyi Roro Kidul",
      "format": "shorts",
      "pillar": "legenda_mitos",
-     "views": 1622
+     "views": 1630
     },
     {
      "title": "Operasi Otak Zaman Batu, dan Pasiennya Selamat",
@@ -1180,9 +1180,14 @@
   "paused": false,
   "balance": 1687.5099999999998,
   "today_pnl": 0,
-  "price": 4029.199951,
+  "price": 4027.899902,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-29 06:30:40",
+    "decision": "NO TRADE",
+    "reason": "kondisi berita bahaya: Hasil FOMC 28 Okt & PCE/GDP belum terverifikasi; berita basi"
+   },
    {
     "ts": "2026-10-29 06:16:08",
     "decision": "NO TRADE",
@@ -1205,11 +1210,6 @@
    },
    {
     "ts": "2026-10-29 05:16:08",
-    "decision": "NO TRADE",
-    "reason": "kondisi berita bahaya: Hasil FOMC 28 Okt & PCE/GDP belum terverifikasi; berita basi"
-   },
-   {
-    "ts": "2026-10-29 05:01:08",
     "decision": "NO TRADE",
     "reason": "kondisi berita bahaya: Hasil FOMC 28 Okt & PCE/GDP belum terverifikasi; berita basi"
    }
@@ -1245,7 +1245,7 @@
    1687.5099999999995
   ],
   "last": {
-   "ts": "2026-10-29 06:16:08",
+   "ts": "2026-10-29 06:30:40",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1264,9 +1264,9 @@
    "tech": {
     "bias": "sideways",
     "score": 0,
-    "trigger": "buy",
+    "trigger": null,
     "confirm": [],
-    "note": "M15 4027.40 di bawah tengah band (4022.5–4062.7) · RSI 37 · Stoch 14 · MACD -1.49 · H1 sideways · setup BUY (tanpa konfirmasi)"
+    "note": "M15 4027.70 di bawah tengah band (4021.1–4061.3) · RSI 38 · Stoch 15 · MACD -1.43 · H1 sideways"
    }
   },
   "fund": {
@@ -1335,35 +1335,35 @@
    "M10": {
     "bias": "bearish",
     "score": -2,
-    "price": 4025.9,
-    "ema20": 4038.76,
-    "ema50": 4044.69,
-    "rsi": 33.2,
+    "price": 4027.7,
+    "ema20": 4037.7,
+    "ema50": 4044.02,
+    "rsi": 35.8,
     "n": 299,
-    "slot": 2988758,
-    "at": 1793254868465
+    "slot": 2988759,
+    "at": 1793255440624
    },
    "M15": {
     "bias": "bearish",
-    "score": -2,
-    "price": 4026.3,
-    "ema20": 4041.92,
-    "ema50": 4047.03,
-    "rsi": 36.2,
+    "score": -3,
+    "price": 4027.7,
+    "ema20": 4040.57,
+    "ema50": 4046.27,
+    "rsi": 37.6,
     "n": 299,
-    "slot": 1992505,
-    "at": 1793254568440
+    "slot": 1992506,
+    "at": 1793255440629
    },
    "M30": {
-    "bias": "sideways",
-    "score": -1,
-    "price": 4027.8,
-    "ema20": 4046.34,
-    "ema50": 4047.46,
+    "bias": "bearish",
+    "score": -2,
+    "price": 4027.7,
+    "ema20": 4044.57,
+    "ema50": 4046.69,
     "rsi": 38,
     "n": 299,
-    "slot": 996252,
-    "at": 1793253668384
+    "slot": 996253,
+    "at": 1793255440630
    },
    "H1": {
     "bias": "sideways",
