@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-29T11:36:52.448Z",
+ "generated_at": "2026-10-29T11:46:52.457Z",
  "today": "2026-10-29",
  "week_start": "2026-10-26",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-29 11:31:08"
+   "updated_at": "2026-10-29 11:46:08"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Waspada rilis Advance GDP q/q (20.30 WITA)",
-   "updated_at": "2026-10-29 11:31:08"
+   "updated_at": "2026-10-29 11:46:08"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-10-29 11:31:08"
+   "updated_at": "2026-10-29 11:46:08"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: berita berdampak tinggi: Advance GDP q/q (20.30 WITA)",
-   "updated_at": "2026-10-29 11:31:08"
+   "updated_at": "2026-10-29 11:46:08"
   },
   {
    "id": "texec",
@@ -1110,30 +1110,30 @@
    "yt_posted": 6,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 11350,
-   "likes": 164,
+   "views": 11372,
+   "likes": 167,
    "comments": 3,
    "shares": 7,
    "saves": 1,
-   "yt_views": 7288,
+   "yt_views": 7310,
    "top": [
     {
      "title": "Lawang Sewu: Apa yang Sebenarnya Ada di Bawah Tanahnya?",
      "format": "shorts",
      "pillar": "horor_sejarah",
-     "views": 1779
+     "views": 1785
     },
     {
      "title": "Kamar 308: Kamar Hotel yang Disiapkan untuk Nyi Roro Kidul",
      "format": "shorts",
      "pillar": "legenda_mitos",
-     "views": 1646
+     "views": 1653
     },
     {
      "title": "Operasi Otak Zaman Batu, dan Pasiennya Selamat",
      "format": "shorts",
      "pillar": "hidden_history",
-     "views": 1467
+     "views": 1476
     }
    ]
   },
@@ -1147,12 +1147,12 @@
    "yt_posted": 7,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 36700,
+   "views": 36701,
    "likes": 284,
    "comments": 6,
    "shares": 26,
    "saves": 5,
-   "yt_views": 9428,
+   "yt_views": 9429,
    "top": [
     {
      "title": "Hall of Champions Valorant 2021-2026",
@@ -1170,7 +1170,7 @@
      "title": "8.000 Prajurit Penjaga Makam yang Belum Dibuka",
      "format": "shorts",
      "pillar": "hidden_history",
-     "views": 1688
+     "views": 1689
     }
    ]
   }
@@ -1180,9 +1180,14 @@
   "paused": false,
   "balance": 1687.5099999999998,
   "today_pnl": 0,
-  "price": 4033.600098,
+  "price": 4027.800049,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-29 11:46:08",
+    "decision": "NO TRADE",
+    "reason": "berita berdampak tinggi: Advance GDP q/q (20.30 WITA)"
+   },
    {
     "ts": "2026-10-29 11:31:08",
     "decision": "NO TRADE",
@@ -1205,11 +1210,6 @@
    },
    {
     "ts": "2026-10-29 10:31:08",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-10-29 10:16:08",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1245,7 +1245,7 @@
    1687.5099999999995
   ],
   "last": {
-   "ts": "2026-10-29 11:31:08",
+   "ts": "2026-10-29 11:46:08",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1266,7 +1266,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4033.50 di atas tengah band (4023.0–4038.7) · RSI 50 · Stoch 80 · MACD +1.32 · H1 bearish"
+    "note": "M15 4027.80 di bawah tengah band (4022.8–4037.7) · RSI 45 · Stoch 61 · MACD +0.74 · H1 bearish"
    }
   },
   "fund": {
@@ -1334,25 +1334,25 @@
   "tf": {
    "M10": {
     "bias": "sideways",
-    "score": 0,
-    "price": 4035.2,
-    "ema20": 4031.71,
-    "ema50": 4034.92,
-    "rsi": 54.2,
+    "score": -1,
+    "price": 4029.1,
+    "ema20": 4031.46,
+    "ema50": 4034.69,
+    "rsi": 46.5,
     "n": 299,
-    "slot": 2988789,
-    "at": 1793273468601
+    "slot": 2988790,
+    "at": 1793274068607
    },
    "M15": {
     "bias": "sideways",
-    "score": 0,
-    "price": 4035.2,
-    "ema20": 4032.41,
-    "ema50": 4037.79,
-    "rsi": 51.6,
+    "score": -1,
+    "price": 4030,
+    "ema20": 4032.18,
+    "ema50": 4037.48,
+    "rsi": 46.6,
     "n": 299,
-    "slot": 1992526,
-    "at": 1793273468606
+    "slot": 1992527,
+    "at": 1793274368811
    },
    "M30": {
     "bias": "bearish",
