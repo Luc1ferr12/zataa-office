@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-29T05:36:52.284Z",
+ "generated_at": "2026-10-29T05:46:52.287Z",
  "today": "2026-10-29",
  "week_start": "2026-10-26",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-29 05:31:08"
+   "updated_at": "2026-10-29 05:46:08"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Berita terbaru tak terverifikasi (sumber basi). Bias negatif: Fed condong ketat & DXY kuat. Cek hasil FOMC & PCE sebelum entry.",
-   "updated_at": "2026-10-29 05:31:08"
+   "updated_at": "2026-10-29 05:46:08"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-10-29 05:31:08"
+   "updated_at": "2026-10-29 05:46:08"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: kondisi berita bahaya: Hasil FOMC 28 Okt & PCE/GDP belum terverifikasi; berita basi",
-   "updated_at": "2026-10-29 05:31:08"
+   "updated_at": "2026-10-29 05:46:08"
   },
   {
    "id": "texec",
@@ -1180,9 +1180,14 @@
   "paused": false,
   "balance": 1687.5099999999998,
   "today_pnl": 0,
-  "price": 4042.199951,
+  "price": 4035.399902,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-29 05:46:08",
+    "decision": "NO TRADE",
+    "reason": "kondisi berita bahaya: Hasil FOMC 28 Okt & PCE/GDP belum terverifikasi; berita basi"
+   },
    {
     "ts": "2026-10-29 05:31:08",
     "decision": "NO TRADE",
@@ -1205,11 +1210,6 @@
    },
    {
     "ts": "2026-10-29 04:31:08",
-    "decision": "NO TRADE",
-    "reason": "kondisi berita bahaya: Hasil FOMC 28 Okt & PCE/GDP belum terverifikasi; berita basi"
-   },
-   {
-    "ts": "2026-10-29 04:16:08",
     "decision": "NO TRADE",
     "reason": "kondisi berita bahaya: Hasil FOMC 28 Okt & PCE/GDP belum terverifikasi; berita basi"
    }
@@ -1245,7 +1245,7 @@
    1687.5099999999995
   ],
   "last": {
-   "ts": "2026-10-29 05:31:08",
+   "ts": "2026-10-29 05:46:08",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1266,7 +1266,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4044.20 di bawah tengah band (4028.8–4064.5) · RSI 48 · Stoch 31 · MACD +0.14 · H1 sideways"
+    "note": "M15 4036.90 di bawah tengah band (4028.1–4064.6) · RSI 42 · Stoch 13 · MACD -0.28 · H1 sideways"
    }
   },
   "fund": {
@@ -1335,24 +1335,24 @@
    "M10": {
     "bias": "bearish",
     "score": -3,
-    "price": 4042.9,
-    "ema20": 4043.67,
-    "ema50": 4047.59,
-    "rsi": 47.6,
+    "price": 4040.5,
+    "ema20": 4043.37,
+    "ema50": 4047.31,
+    "rsi": 45,
     "n": 299,
-    "slot": 2988753,
-    "at": 1793251868419
+    "slot": 2988754,
+    "at": 1793252468363
    },
    "M15": {
     "bias": "sideways",
     "score": -1,
-    "price": 4042.9,
-    "ema20": 4045.74,
-    "ema50": 4049.03,
-    "rsi": 46.6,
+    "price": 4040.4,
+    "ema20": 4045.23,
+    "ema50": 4048.69,
+    "rsi": 44.8,
     "n": 299,
-    "slot": 1992502,
-    "at": 1793251868426
+    "slot": 1992503,
+    "at": 1793252768434
    },
    "M30": {
     "bias": "sideways",
