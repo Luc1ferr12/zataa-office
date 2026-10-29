@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-29T00:46:52.144Z",
+ "generated_at": "2026-10-29T00:56:52.144Z",
  "today": "2026-10-29",
  "week_start": "2026-10-26",
  "campaign": {
@@ -519,8 +519,8 @@
    "game": "mlbb",
    "pillar": "esport",
    "title": "NAVI belum pernah menang di playoff MPL ID, kini seed 2: kutukan pecah di Surabaya? (hook 16 pertanyaan, CTA diamond zataa.my.id 1 baris di akhir)",
-   "status": "draft",
-   "asset_url": null,
+   "status": "pending_approval",
+   "asset_url": "{\"video\":\"https://luc1ferr12.github.io/zataa-office/media/2026-10-29/80-navi-belum-pernah-menang-di-playoff-mpl--ov.mp4\",\"cover\":\"https://luc1ferr12.github.io/zataa-office/media/2026-10-29/80-navi-belum-pernah-menang-di-playoff-mpl--ov-cover.jpg\"}",
    "scheduled_at": null,
    "posted_at": null,
    "channel": null
@@ -533,7 +533,7 @@
    "game": "sejarah",
    "pillar": "sejarah_kelam",
    "title": "Letusan Tambora 1815: Kerajaan yang Dikubur Abu",
-   "status": "draft",
+   "status": "pending_approval",
    "asset_url": null,
    "scheduled_at": null,
    "posted_at": null,
@@ -664,6 +664,26 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-29 00:54:48",
+   "agent_id": "yvideo",
+   "message": "Shorts #98 dirender di laptop (suara OmniVoice) & dikirim ke Owner"
+  },
+  {
+   "ts": "2026-10-29 00:54:47",
+   "agent_id": "spublish",
+   "message": "Kirim Shorts #98 ke Owner buat approval"
+  },
+  {
+   "ts": "2026-10-29 00:52:34",
+   "agent_id": "video",
+   "message": "video #80 dirender di laptop (suara OmniVoice) & dikirim ke Owner"
+  },
+  {
+   "ts": "2026-10-29 00:52:33",
+   "agent_id": "publisher",
+   "message": "Kirim #80 ke Owner buat approval"
+  },
+  {
    "ts": "2026-10-29 00:41:08",
    "agent_id": "ttech",
    "message": "M10 berubah arah: sideways → bearish"
@@ -767,26 +787,6 @@
    "ts": "2026-10-28 20:01:08",
    "agent_id": "ttech",
    "message": "M60 berubah arah: sideways → bullish"
-  },
-  {
-   "ts": "2026-10-28 20:01:08",
-   "agent_id": "ttech",
-   "message": "M30 berubah arah: bullish → sideways"
-  },
-  {
-   "ts": "2026-10-28 19:46:08",
-   "agent_id": "trisk",
-   "message": "NO TRADE · berita berdampak tinggi: FOMC Press Conference (02.30 WITA)"
-  },
-  {
-   "ts": "2026-10-28 19:46:07",
-   "agent_id": "ttech",
-   "message": "M15 berubah arah: sideways → bullish"
-  },
-  {
-   "ts": "2026-10-28 19:41:07",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: sideways → bullish"
   }
  ],
  "chats": [
@@ -1076,11 +1076,11 @@
    "week": "2026-10-26",
    "total": 25,
    "posted": 16,
-   "pending": 1,
+   "pending": 3,
    "scheduled": 0,
    "yt_total": 6,
    "yt_posted": 5,
-   "yt_pending": 0,
+   "yt_pending": 1,
    "yt_scheduled": 0,
    "views": 10571,
    "likes": 155,
@@ -1152,7 +1152,7 @@
   "paused": false,
   "balance": 1687.5099999999998,
   "today_pnl": 0,
-  "price": 4038.899902,
+  "price": 4038,
   "open": [],
   "signals": [
    {
@@ -1307,13 +1307,13 @@
    "M10": {
     "bias": "bearish",
     "score": -2,
-    "price": 4038.7,
-    "ema20": 4053.13,
-    "ema50": 4053.89,
-    "rsi": 33.1,
+    "price": 4039.1,
+    "ema20": 4051.8,
+    "ema50": 4053.31,
+    "rsi": 33.7,
     "n": 299,
-    "slot": 2988724,
-    "at": 1793234468102
+    "slot": 2988725,
+    "at": 1793235068110
    },
    "M15": {
     "bias": "sideways",
