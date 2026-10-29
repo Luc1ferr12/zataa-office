@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-29T12:26:52.485Z",
+ "generated_at": "2026-10-29T12:36:52.495Z",
  "today": "2026-10-29",
  "week_start": "2026-10-26",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-29 12:16:08"
+   "updated_at": "2026-10-29 12:31:08"
   },
   {
    "id": "tresearch",
@@ -111,15 +111,15 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Waspada rilis Advance GDP q/q (20.30 WITA)",
-   "updated_at": "2026-10-29 12:16:08"
+   "updated_at": "2026-10-29 12:31:08"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-10-29 12:16:08"
+   "current_task": "Setup BUY di band (tanpa konfirmasi)",
+   "updated_at": "2026-10-29 12:31:08"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: berita berdampak tinggi: Advance GDP q/q (20.30 WITA)",
-   "updated_at": "2026-10-29 12:16:08"
+   "updated_at": "2026-10-29 12:31:08"
   },
   {
    "id": "texec",
@@ -692,6 +692,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-29 12:31:08",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: sideways → bearish"
+  },
+  {
    "ts": "2026-10-29 12:16:08",
    "agent_id": "trisk",
    "message": "NO TRADE · berita berdampak tinggi: Advance GDP q/q (20.30 WITA)"
@@ -810,11 +815,6 @@
    "ts": "2026-10-29 07:01:42",
    "agent_id": "analyst",
    "message": "Update data 51 post IG 📈"
-  },
-  {
-   "ts": "2026-10-29 06:30:40",
-   "agent_id": "ttech",
-   "message": "M30 berubah arah: sideways → bearish"
   }
  ],
  "chats": [
@@ -1180,9 +1180,14 @@
   "paused": false,
   "balance": 1687.5099999999998,
   "today_pnl": 0,
-  "price": 4025.199951,
+  "price": 4025.300049,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-29 12:31:08",
+    "decision": "NO TRADE",
+    "reason": "berita berdampak tinggi: Advance GDP q/q (20.30 WITA)"
+   },
    {
     "ts": "2026-10-29 12:16:08",
     "decision": "NO TRADE",
@@ -1205,11 +1210,6 @@
    },
    {
     "ts": "2026-10-29 11:16:08",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-10-29 11:01:26",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1245,7 +1245,7 @@
    1687.5099999999995
   ],
   "last": {
-   "ts": "2026-10-29 12:16:08",
+   "ts": "2026-10-29 12:31:08",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1264,9 +1264,9 @@
    "tech": {
     "bias": "bearish",
     "score": 0,
-    "trigger": null,
+    "trigger": "buy",
     "confirm": [],
-    "note": "M15 4030.20 di atas tengah band (4021.1–4038.0) · RSI 48 · Stoch 40 · MACD +0.45 · H1 bearish"
+    "note": "M15 4026.60 di bawah tengah band (4020.5–4037.9) · RSI 46 · Stoch 42 · MACD +0.12 · H1 bearish · setup BUY (tanpa konfirmasi)"
    }
   },
   "fund": {
@@ -1333,37 +1333,37 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "sideways",
-    "score": 1,
-    "price": 4032.2,
-    "ema20": 4029.91,
-    "ema50": 4033.5,
-    "rsi": 51.7,
+    "bias": "bearish",
+    "score": -2,
+    "price": 4025.8,
+    "ema20": 4029.52,
+    "ema50": 4033.2,
+    "rsi": 45.6,
     "n": 299,
-    "slot": 2988794,
-    "at": 1793276470291
+    "slot": 2988795,
+    "at": 1793277068640
    },
    "M15": {
     "bias": "sideways",
     "score": -1,
-    "price": 4029.8,
-    "ema20": 4030.91,
-    "ema50": 4036.53,
-    "rsi": 48,
+    "price": 4025.8,
+    "ema20": 4030.42,
+    "ema50": 4036.11,
+    "rsi": 45,
     "n": 299,
-    "slot": 1992529,
-    "at": 1793276168701
+    "slot": 1992530,
+    "at": 1793277068647
    },
    "M30": {
     "bias": "bearish",
-    "score": -3,
-    "price": 4020.1,
-    "ema20": 4034.16,
-    "ema50": 4040.47,
-    "rsi": 39,
+    "score": -2,
+    "price": 4025.8,
+    "ema20": 4033.37,
+    "ema50": 4039.89,
+    "rsi": 43.3,
     "n": 299,
-    "slot": 996264,
-    "at": 1793275268615
+    "slot": 996265,
+    "at": 1793277068648
    },
    "H1": {
     "bias": "bearish",
