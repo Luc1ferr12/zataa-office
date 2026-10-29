@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-29T01:56:52.176Z",
+ "generated_at": "2026-10-29T02:06:52.182Z",
  "today": "2026-10-29",
  "week_start": "2026-10-26",
  "campaign": {
@@ -87,7 +87,7 @@
    "title": "Price Watcher",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-10-29 00:00:53"
+   "updated_at": "2026-10-29 02:00:53"
   },
   {
    "id": "ob",
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-29 01:46:08"
+   "updated_at": "2026-10-29 02:01:08"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Berita terbaru tak terverifikasi (sumber basi). Bias negatif: Fed condong ketat & DXY kuat. Cek hasil FOMC & PCE sebelum entry.",
-   "updated_at": "2026-10-29 01:46:08"
+   "updated_at": "2026-10-29 02:01:08"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-10-29 01:46:08"
+   "updated_at": "2026-10-29 02:01:08"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: kondisi berita bahaya: Hasil FOMC 28 Okt & PCE/GDP belum terverifikasi; berita basi",
-   "updated_at": "2026-10-29 01:46:08"
+   "updated_at": "2026-10-29 02:01:08"
   },
   {
    "id": "texec",
@@ -692,6 +692,21 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-29 02:01:08",
+   "agent_id": "ttech",
+   "message": "M60 berubah arah: sideways → bullish"
+  },
+  {
+   "ts": "2026-10-29 02:01:08",
+   "agent_id": "ttech",
+   "message": "M30 berubah arah: sideways → bullish"
+  },
+  {
+   "ts": "2026-10-29 02:01:08",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: sideways → bullish"
+  },
+  {
    "ts": "2026-10-29 01:44:54",
    "agent_id": "video",
    "message": "video #100 dirender di laptop (suara OmniVoice) & dikirim ke Owner"
@@ -800,21 +815,6 @@
    "ts": "2026-10-29 00:16:08",
    "agent_id": "trisk",
    "message": "NO TRADE · kondisi berita bahaya: Hasil FOMC 28 Okt & PCE/GDP belum terverifikasi; berita basi"
-  },
-  {
-   "ts": "2026-10-28 23:07:00",
-   "agent_id": "spublish",
-   "message": "Tambora #98 jam 17:00 WIB: uji jam baru (19:00/18:00 sudah, 20:00 paling rendah)"
-  },
-  {
-   "ts": "2026-10-28 23:06:48",
-   "agent_id": "svideo",
-   "message": "Shorts #98 \"Letusan Tambora 1815: Kerajaan yang Dikubur Abu\" masuk antrean render laptop (OmniVoice)"
-  },
-  {
-   "ts": "2026-10-28 23:04:52",
-   "agent_id": "sdir",
-   "message": "Topik hari ini SK-001 Tambora 1815 (kemarin HS, gilir ke Sejarah Kelam)"
   }
  ],
  "chats": [
@@ -1180,9 +1180,14 @@
   "paused": false,
   "balance": 1687.5099999999998,
   "today_pnl": 0,
-  "price": 4065,
+  "price": 4062,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-29 02:01:08",
+    "decision": "NO TRADE",
+    "reason": "kondisi berita bahaya: Hasil FOMC 28 Okt & PCE/GDP belum terverifikasi; berita basi"
+   },
    {
     "ts": "2026-10-29 01:46:08",
     "decision": "NO TRADE",
@@ -1205,11 +1210,6 @@
    },
    {
     "ts": "2026-10-29 00:46:08",
-    "decision": "NO TRADE",
-    "reason": "kondisi berita bahaya: Hasil FOMC 28 Okt & PCE/GDP belum terverifikasi; berita basi"
-   },
-   {
-    "ts": "2026-10-29 00:31:08",
     "decision": "NO TRADE",
     "reason": "kondisi berita bahaya: Hasil FOMC 28 Okt & PCE/GDP belum terverifikasi; berita basi"
    }
@@ -1245,7 +1245,7 @@
    1687.5099999999995
   ],
   "last": {
-   "ts": "2026-10-29 01:46:08",
+   "ts": "2026-10-29 02:01:08",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1266,7 +1266,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4056.90 di atas tengah band (4037.0–4075.7) · RSI 52 · Stoch 72 · MACD +0.15 · H1 sideways"
+    "note": "M15 4063.50 di atas tengah band (4037.3–4075.5) · RSI 56 · Stoch 78 · MACD +0.98 · H1 sideways"
    }
   },
   "fund": {
@@ -1333,48 +1333,48 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "sideways",
-    "score": 0,
-    "price": 4053.6,
-    "ema20": 4052.75,
-    "ema50": 4053.35,
-    "rsi": 50.3,
+    "bias": "bullish",
+    "score": 2,
+    "price": 4063.5,
+    "ema20": 4053.78,
+    "ema50": 4053.74,
+    "rsi": 57.5,
     "n": 299,
-    "slot": 2988731,
-    "at": 1793238668172
+    "slot": 2988732,
+    "at": 1793239268291
    },
    "M15": {
     "bias": "bullish",
     "score": 2,
-    "price": 4055.8,
-    "ema20": 4054.08,
-    "ema50": 4053,
-    "rsi": 51.2,
+    "price": 4063.5,
+    "ema20": 4054.98,
+    "ema50": 4053.41,
+    "rsi": 55.9,
     "n": 299,
-    "slot": 1992487,
-    "at": 1793238368228
+    "slot": 1992488,
+    "at": 1793239268298
    },
    "M30": {
-    "bias": "sideways",
-    "score": 1,
-    "price": 4066,
-    "ema20": 4053.44,
-    "ema50": 4049.55,
-    "rsi": 57.5,
+    "bias": "bullish",
+    "score": 2,
+    "price": 4063.5,
+    "ema20": 4054.4,
+    "ema50": 4050.1,
+    "rsi": 55.9,
     "n": 299,
-    "slot": 996243,
-    "at": 1793237468175
+    "slot": 996244,
+    "at": 1793239268299
    },
    "H1": {
-    "bias": "sideways",
-    "score": 0,
-    "price": 4038.8,
-    "ema20": 4050.58,
-    "ema50": 4041.47,
-    "rsi": 44.5,
+    "bias": "bullish",
+    "score": 2,
+    "price": 4063.5,
+    "ema20": 4051.81,
+    "ema50": 4042.34,
+    "rsi": 56.5,
     "n": 299,
-    "slot": 498121,
-    "at": 1793235668327
+    "slot": 498122,
+    "at": 1793239268305
    }
   },
   "currency": "USC",
