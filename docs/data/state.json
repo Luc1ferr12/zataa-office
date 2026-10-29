@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-29T18:36:52.646Z",
+ "generated_at": "2026-10-29T18:46:52.653Z",
  "today": "2026-10-30",
  "week_start": "2026-10-26",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-29 18:31:09"
+   "updated_at": "2026-10-29 18:46:09"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Fed hawkish (hike Sep, odds hike Des ~80%), DXY kuat, emas turun 4% pekan lalu; PCE inti 0.3 panas. Hasil FOMC 28 Okt belum terverifikasi.",
-   "updated_at": "2026-10-29 18:31:09"
+   "updated_at": "2026-10-29 18:46:09"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-10-29 18:31:09"
+   "updated_at": "2026-10-29 18:46:09"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-10-29 18:31:09"
+   "updated_at": "2026-10-29 18:46:09"
   },
   {
    "id": "texec",
@@ -1110,30 +1110,30 @@
    "yt_posted": 6,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 13077,
-   "likes": 187,
+   "views": 13083,
+   "likes": 188,
    "comments": 3,
    "shares": 7,
    "saves": 1,
-   "yt_views": 8902,
+   "yt_views": 8898,
    "top": [
     {
      "title": "Lawang Sewu: Apa yang Sebenarnya Ada di Bawah Tanahnya?",
      "format": "shorts",
      "pillar": "horor_sejarah",
-     "views": 1796
+     "views": 1803
     },
     {
      "title": "Kamar 308: Kamar Hotel yang Disiapkan untuk Nyi Roro Kidul",
      "format": "shorts",
      "pillar": "legenda_mitos",
-     "views": 1670
+     "views": 1674
     },
     {
      "title": "Benteng Pendem Ngawi: Benteng yang Sengaja Dipendam",
      "format": "shorts",
      "pillar": "horor_sejarah",
-     "views": 1485
+     "views": 1507
     }
    ]
   },
@@ -1147,7 +1147,7 @@
    "yt_posted": 7,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 36710,
+   "views": 36711,
    "likes": 284,
    "comments": 6,
    "shares": 26,
@@ -1180,9 +1180,14 @@
   "paused": false,
   "balance": 1687.5099999999998,
   "today_pnl": 0,
-  "price": 4007.600098,
+  "price": 4011.100098,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-29 18:46:09",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
    {
     "ts": "2026-10-29 18:31:09",
     "decision": "NO TRADE",
@@ -1205,11 +1210,6 @@
    },
    {
     "ts": "2026-10-29 17:31:10",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-10-29 17:16:09",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1245,7 +1245,7 @@
    1687.5099999999995
   ],
   "last": {
-   "ts": "2026-10-29 18:31:09",
+   "ts": "2026-10-29 18:46:09",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1266,7 +1266,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4007.60 di bawah tengah band (4003.8–4036.1) · RSI 36 · Stoch 5 · MACD -1.18 · H1 bearish"
+    "note": "M15 4010.60 di bawah tengah band (4003.3–4035.4) · RSI 40 · Stoch 12 · MACD -0.83 · H1 bearish"
    }
   },
   "fund": {
@@ -1298,24 +1298,24 @@
    "M10": {
     "bias": "bearish",
     "score": -3,
-    "price": 4008.5,
-    "ema20": 4017.39,
-    "ema50": 4023.17,
-    "rsi": 34.5,
+    "price": 4009.7,
+    "ema20": 4016.66,
+    "ema50": 4022.64,
+    "rsi": 36.7,
     "n": 299,
-    "slot": 2988831,
-    "at": 1793298669020
+    "slot": 2988832,
+    "at": 1793299268927
    },
    "M15": {
     "bias": "bearish",
     "score": -3,
-    "price": 4008.5,
-    "ema20": 4019.18,
-    "ema50": 4026.26,
-    "rsi": 36.9,
+    "price": 4010.3,
+    "ema20": 4018.34,
+    "ema50": 4025.63,
+    "rsi": 39.2,
     "n": 299,
-    "slot": 1992554,
-    "at": 1793298669025
+    "slot": 1992555,
+    "at": 1793299569141
    },
    "M30": {
     "bias": "bearish",
