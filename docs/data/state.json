@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-29T06:06:52.296Z",
+ "generated_at": "2026-10-29T06:16:52.307Z",
  "today": "2026-10-29",
  "week_start": "2026-10-26",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-29 06:01:08"
+   "updated_at": "2026-10-29 06:16:08"
   },
   {
    "id": "tresearch",
@@ -111,15 +111,15 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Berita terbaru tak terverifikasi (sumber basi). Bias negatif: Fed condong ketat & DXY kuat. Cek hasil FOMC & PCE sebelum entry.",
-   "updated_at": "2026-10-29 06:01:08"
+   "updated_at": "2026-10-29 06:16:08"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-10-29 06:01:08"
+   "current_task": "Setup BUY di band (tanpa konfirmasi)",
+   "updated_at": "2026-10-29 06:16:08"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: kondisi berita bahaya: Hasil FOMC 28 Okt & PCE/GDP belum terverifikasi; berita basi",
-   "updated_at": "2026-10-29 06:01:08"
+   "updated_at": "2026-10-29 06:16:08"
   },
   {
    "id": "texec",
@@ -692,6 +692,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-29 06:16:08",
+   "agent_id": "trisk",
+   "message": "NO TRADE · kondisi berita bahaya: Hasil FOMC 28 Okt & PCE/GDP belum terverifikasi; berita basi"
+  },
+  {
    "ts": "2026-10-29 06:01:08",
    "agent_id": "ttech",
    "message": "M15 berubah arah: sideways → bearish"
@@ -810,11 +815,6 @@
    "ts": "2026-10-29 01:36:58",
    "agent_id": "owner",
    "message": "Approve konten #80 ✅"
-  },
-  {
-   "ts": "2026-10-29 01:35:02",
-   "agent_id": "publisher",
-   "message": "Feed #99 (FF Dunia Mistis) dikirim ke Owner; video #100 (VCT Pacific 2027) di antrean render laptop"
   }
  ],
  "chats": [
@@ -1180,9 +1180,14 @@
   "paused": false,
   "balance": 1687.5099999999998,
   "today_pnl": 0,
-  "price": 4029.800049,
+  "price": 4025.5,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-29 06:16:08",
+    "decision": "NO TRADE",
+    "reason": "kondisi berita bahaya: Hasil FOMC 28 Okt & PCE/GDP belum terverifikasi; berita basi"
+   },
    {
     "ts": "2026-10-29 06:01:08",
     "decision": "NO TRADE",
@@ -1205,11 +1210,6 @@
    },
    {
     "ts": "2026-10-29 05:01:08",
-    "decision": "NO TRADE",
-    "reason": "kondisi berita bahaya: Hasil FOMC 28 Okt & PCE/GDP belum terverifikasi; berita basi"
-   },
-   {
-    "ts": "2026-10-29 04:46:08",
     "decision": "NO TRADE",
     "reason": "kondisi berita bahaya: Hasil FOMC 28 Okt & PCE/GDP belum terverifikasi; berita basi"
    }
@@ -1245,7 +1245,7 @@
    1687.5099999999995
   ],
   "last": {
-   "ts": "2026-10-29 06:01:08",
+   "ts": "2026-10-29 06:16:08",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1264,9 +1264,9 @@
    "tech": {
     "bias": "sideways",
     "score": 0,
-    "trigger": null,
+    "trigger": "buy",
     "confirm": [],
-    "note": "M15 4025.40 di bawah tengah band (4022.8–4066.2) · RSI 36 · Stoch 14 · MACD -1.42 · H1 sideways"
+    "note": "M15 4027.40 di bawah tengah band (4022.5–4062.7) · RSI 37 · Stoch 14 · MACD -1.49 · H1 sideways · setup BUY (tanpa konfirmasi)"
    }
   },
   "fund": {
@@ -1335,24 +1335,24 @@
    "M10": {
     "bias": "bearish",
     "score": -2,
-    "price": 4027.8,
-    "ema20": 4041.28,
-    "ema50": 4046.13,
-    "rsi": 33.9,
+    "price": 4029,
+    "ema20": 4040.11,
+    "ema50": 4045.46,
+    "rsi": 35.5,
     "n": 299,
-    "slot": 2988756,
-    "at": 1793253668376
+    "slot": 2988757,
+    "at": 1793254268401
    },
    "M15": {
     "bias": "bearish",
     "score": -2,
-    "price": 4027.8,
-    "ema20": 4043.57,
-    "ema50": 4047.87,
-    "rsi": 37,
+    "price": 4026.3,
+    "ema20": 4041.92,
+    "ema50": 4047.03,
+    "rsi": 36.2,
     "n": 299,
-    "slot": 1992504,
-    "at": 1793253668381
+    "slot": 1992505,
+    "at": 1793254568440
    },
    "M30": {
     "bias": "sideways",
