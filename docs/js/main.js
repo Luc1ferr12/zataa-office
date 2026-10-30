@@ -137,9 +137,12 @@ function renderDashboard() {
   const vSplit = `Marketing ${((st.views ?? 0) - (st.yt_views ?? 0)).toLocaleString('id-ID')} · Shorts ${(st.yt_views ?? 0).toLocaleString('id-ID')}`;
   $('k-views-sub').textContent = diff === null ? vSplit : `${diff >= 0 ? '▲' : '▼'} ${Math.abs(diff)}% vs minggu lalu · ${vSplit}`;
   // klik link pelacak (golink.mjs) → toko (scripts/golink.mjs); nama sumber sama dengan SOURCES di sana
-  const SRC = { ig: 'IG bio', igs: 'IG Story', tt: 'TikTok', tg: 'Telegram', yt: 'YouTube', wa: 'WA' };
-  $('k-clicks').textContent = (st.clicks ?? 0).toLocaleString('id-ID');
-  $('k-clicks-sub').textContent = st.clicks
+  const SRC = { ig: 'IG bio', igs: 'IG Story', tt: 'TikTok', tg: 'Telegram', yt: 'YouTube', wa: 'WA', '(direct)': 'langsung', google: 'Google' };
+  const g = st.ga4;
+  $('k-clicks').textContent = ((g ? g.sessions : st.clicks) ?? 0).toLocaleString('id-ID');
+  $('k-clicks-sub').textContent = g
+    ? `${g.users} orang · ${(g.by_src ?? []).slice(0, 3).map((r) => `${SRC[r.src] ?? r.src} ${r.n}`).join(' · ') || 'GA4'}${lw.ga4 ? ` · minggu lalu ${lw.ga4.sessions}` : ''}`
+    : st.clicks
     ? `${st.click_visitors} orang · ${(st.click_src ?? []).map((r) => `${SRC[r.src] ?? r.src} ${r.n}`).join(' · ')}`
     : 'data klik ada di GA4 toko (Akuisisi → utm_source)';
   $('campaign-theme').textContent = s?.campaign?.theme ? `Tema: ${s.campaign.theme}` : 'Belum ada campaign';

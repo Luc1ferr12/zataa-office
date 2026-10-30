@@ -330,7 +330,10 @@ function weekStats(week) {
   // klik link pelacak golink.mjs (minggu WITA → batas UTC di DB)
   const utc = (day) => new Date(Date.parse(`${day}T00:00:00+08:00`)).toISOString().slice(0, 19).replace('T', ' ');
   const k = clickStats(db, utc(week), utc(addDays(week, 7)));
-  return { week, ...normalize(c), ...normalize(m), top, clicks: k.clicks, click_visitors: k.visitors, click_src: k.by_src };
+  // kunjungan toko dari GA4 (di-cache Raka tiap tarik data, scripts/analyst.mjs cacheGa4)
+  let ga4 = null;
+  try { ga4 = JSON.parse(get("SELECT value FROM flags WHERE key = ?", `ga4_week:${week}`)?.value ?? 'null'); } catch { /* tabel flags belum ada */ }
+  return { week, ...normalize(c), ...normalize(m), top, clicks: k.clicks, click_visitors: k.visitors, click_src: k.by_src, ga4 };
 }
 const normalize = (o) => Object.fromEntries(Object.entries(o ?? {}).map(([k, v]) => [k, Number(v ?? 0)]));
 

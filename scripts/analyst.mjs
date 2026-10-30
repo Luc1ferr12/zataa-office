@@ -12,6 +12,7 @@ import { fileURLToPath } from 'node:url';
 import { loadEnv, db, say, SLOT } from './approval.mjs';
 import { chat } from './chatter.mjs';
 import { clickStats, SOURCES } from './golink.mjs';
+import { ga4Ready, ga4Stats } from './ga4.mjs';
 
 const env = () => ({ ...loadEnv(), ...process.env });
 const esc = (s) => String(s ?? '').replace(/[&<>]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' })[c]);
@@ -31,6 +32,7 @@ async function graph(path, params) {
 
 export async function collect() {
   const d = await db();
+  await cacheGa4(d);
   const posts = d.prepare("SELECT id, title, ig_media_id FROM contents WHERE ig_media_id IS NOT NULL AND COALESCE(channel, '') NOT IN ('youtube', 'story') AND posted_at >= datetime('now', '-14 days')").all();
   if (!posts.length) return { collected: 0 };
   setRaka(d, 'working', `Narik data insight ${posts.length} post IG`);
@@ -72,17 +74,37 @@ const accLine = (k, label, s, prev) => {
 };
 const snapOf = (s) => JSON.stringify(Object.fromEntries(['instagram', 'tiktok'].filter((k) => s[k] && !s[k].error).map((k) => [k, { f: s[k].followers ?? 0, v: s[k].views ?? 0, l: s[k].likes ?? 0 }])));
 const snap = (d, key) => { try { return JSON.parse(flag(d, key) ?? 'null'); } catch { return null; } };
-// klik link pelacak GO_BASE (scripts/golink.mjs) — satu-satunya sinyal "konten → toko", zataa.my.id nggak punya analytics
-const clickLine = (d, from) => {
+// kunjungan toko: GA4 zataa.my.id (scripts/ga4.mjs, sumber = utm_source dari golink.mjs url) — satu-satunya sinyal "konten → toko".
+// GA4 belum disetel → pakai data server go-link (tabel clicks) kalau ada.
+const SRC_NAME = { ...SOURCES, '(direct)': 'langsung', google: 'Google' };
+const visitLine = async (d, from, startDate, endDate) => {
+  const fmtTop = (top) => top.length ? `
+   konten: ${top.map((r) => {
+    const t = r.title ?? d.prepare('SELECT title FROM contents WHERE id = ?').get(r.id)?.title;
+    return `#${r.id}${t ? ` ${esc(t.slice(0, 30))}` : ''} (${r.n})`;
+  }).join('; ')}` : '';
   try {
+    if (ga4Ready()) {
+      const g = await ga4Stats(startDate, endDate);
+      if (!g.sessions) return '🛒 Kunjungan zataa.my.id (GA4): belum ada';
+      const src = g.by_src.map((r) => `${esc(SRC_NAME[r.src] ?? r.src)} ${num(r.n)}`).join(' · ');
+      return `🛒 Kunjungan zataa.my.id (GA4): <b>${num(g.sessions)}</b> (${num(g.users)} orang) — ${src}${fmtTop(g.top)}`;
+    }
     const k = clickStats(d, from);
-    if (!k.clicks) return '🔗 Klik ke zataa.my.id: lihat GA4 (Akuisisi → utm_source)';
+    if (!k.clicks) return '🛒 Kunjungan zataa.my.id: GA4 belum tersambung ke Raka';
     const src = k.by_src.map((r) => `${SOURCES[r.src] ?? esc(r.src)} ${r.n}`).join(' · ');
-    const top = k.top.length ? `
-   konten: ${k.top.map((r) => `#${r.id}${r.title ? ` ${esc(r.title.slice(0, 30))}` : ''} (${r.n})`).join('; ')}` : '';
-    return `🔗 Klik ke zataa.my.id: <b>${num(k.clicks)}</b> (${num(k.visitors)} orang) — ${src}${top}`;
-  } catch { return '🔗 Klik ke zataa.my.id: data belum kebaca'; }
+    return `🔗 Klik ke zataa.my.id: <b>${num(k.clicks)}</b> (${num(k.visitors)} orang) — ${src}${fmtTop(k.top)}`;
+  } catch (e) { return `🛒 Kunjungan zataa.my.id: data belum kebaca (${esc(String(e.message).slice(0, 60))})`; }
 };
+// GA4 minggu ini & minggu lalu → flags 'ga4_week:<senin>' buat kartu web (office.mjs export sinkron, nggak bisa fetch)
+async function cacheGa4(d) {
+  if (!ga4Ready()) return;
+  const date = wita().toISOString().slice(0, 10);
+  const monday = addDays(date, -((wita().getUTCDay() + 6) % 7));
+  for (const [from, to] of [[monday, date], [addDays(monday, -7), addDays(monday, -1)]]) {
+    try { flag(d, `ga4_week:${from}`, JSON.stringify(await ga4Stats(from, to))); } catch (e) { console.error('[raka] GA4:', e.message); }
+  }
+}
 const priceChanges = (d, from) => { try { return d.prepare('SELECT COUNT(*) n FROM price_snapshots WHERE diff IS NOT NULL AND ts >= ?').get(from).n; } catch { return 0; } };
 
 export async function dailyReport({ dry = false } = {}) {
@@ -99,6 +121,7 @@ export async function dailyReport({ dry = false } = {}) {
   const tomorrow = d.prepare(`SELECT COUNT(*) n FROM contents WHERE ${MK()} AND day = ? AND status != 'rejected'`).get(addDays(date, 1)).n;
   const boosts = d.prepare("SELECT b.status, b.amount, c.title FROM boosts b JOIN contents c ON c.id = b.content_id WHERE b.created_at >= ? OR b.status = 'active'").all(from);
   const ideas = d.prepare('SELECT COUNT(*) n, COALESCE(SUM(chosen), 0) c FROM ideas WHERE day = ?').get(date);
+  const visits = await visitLine(d, from, date, date);
   const prices = priceChanges(d, from);
   const s = socials();
   const prev = snap(d, 'mk_daily_snap');
@@ -111,7 +134,7 @@ export async function dailyReport({ dry = false } = {}) {
     `<b>Tayang hari ini</b> (${posted.length})`,
     ...(posted.length ? posted.map((c) => `• #${c.id} ${esc(c.title.slice(0, 50))}
    📸 👀 ${num(c.views)} · ❤️ ${num(c.likes)} · 💬 ${num(c.comments)}${c.tiktok_id ? ` | 🎵 ${c.tv != null ? `👀 ${num(c.tv)} · ❤️ ${num(c.tl)}` : 'data belum masuk'}` : ''}`) : ['• belum ada yang tayang']), '',
-    clickLine(d, from),
+    visits,
     `💰 Budi: harga zataa.my.id ${prices ? `berubah ${prices}× hari ini` : 'stabil hari ini'}`,
     `🚀 Fahriah: ${boosts.length ? boosts.map((b) => `${esc(b.title.slice(0, 30))} (${b.status}, ${rp(b.amount)})`).join('; ') : 'nggak ada boost baru'}`,
     `⏳ Nunggu ✅/revisi Bos: ${waiting} · 📅 Besok terjadwal: ${tomorrow} konten`,
@@ -189,6 +212,7 @@ export async function weeklyReport({ dry = false } = {}) {
     COALESCE(SUM(status IN ('pending_approval','revision')), 0) waiting, COALESCE(SUM(revisions), 0) revs, COALESCE(SUM(format = 'video'), 0) video
     FROM contents WHERE ${MK()} AND day BETWEEN ? AND ?`).get(monday, date);
   const boost = d.prepare("SELECT COUNT(*) n, COALESCE(SUM(amount), 0) s FROM boosts WHERE created_at >= ? AND status IN ('approved','active')").get(from);
+  const visits = await visitLine(d, from, monday, date);
   const prices = priceChanges(d, from);
   const s = socials();
   const prev = snap(d, 'mk_weekly_snap');
@@ -200,7 +224,7 @@ export async function weeklyReport({ dry = false } = {}) {
     '<b>Produksi</b>',
     `${prod.total} konten (video ${prod.video}) · 📢 tayang ${prod.posted} · ❌ ditolak ${prod.rejected} · ✏️ revisi ${prod.revs}× · ⏳ masih nunggu ${prod.waiting}`,
     ...ig.lines, ...tt.lines, '',
-    clickLine(d, from),
+    visits,
     `🚀 Boost minggu ini: ${boost.n}× · ${rp(boost.s)}`,
     `💰 Perubahan harga zataa.my.id: ${prices}×`, '',
     ig.best || tt.best ? `Saran: pilar paling ditonton IG <b>${esc(ig.best ?? '-')}</b>, TikTok <b>${esc(tt.best ?? '-')}</b>. Andre pakai ini (pilar + jam tayang per platform) buat plan Senin.` : 'Minggu ini belum ada data yang cukup buat dianalisis.',
