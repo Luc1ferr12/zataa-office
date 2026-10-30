@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-30T09:58:08.947Z",
+ "generated_at": "2026-10-30T10:08:08.951Z",
  "today": "2026-10-30",
  "week_start": "2026-10-26",
  "campaign": {
@@ -79,7 +79,7 @@
    "title": "Data Analyst",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-10-30 07:00:49"
+   "updated_at": "2026-10-30 10:00:49"
   },
   {
    "id": "price",
@@ -87,7 +87,7 @@
    "title": "Price Watcher",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-10-30 08:00:10"
+   "updated_at": "2026-10-30 10:00:51"
   },
   {
    "id": "ob",
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-30 09:46:09"
+   "updated_at": "2026-10-30 10:01:09"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
-   "updated_at": "2026-10-30 09:46:09"
+   "updated_at": "2026-10-30 10:01:09"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-10-30 09:46:09"
+   "updated_at": "2026-10-30 10:01:09"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-10-30 09:46:09"
+   "updated_at": "2026-10-30 10:01:09"
   },
   {
    "id": "texec",
@@ -748,6 +748,16 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-30 10:01:09",
+   "agent_id": "ttech",
+   "message": "M15 berubah arah: bearish → sideways"
+  },
+  {
+   "ts": "2026-10-30 10:00:49",
+   "agent_id": "analyst",
+   "message": "Update data 49 post IG 📈"
+  },
+  {
    "ts": "2026-10-30 09:46:09",
    "agent_id": "trisk",
    "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
@@ -861,16 +871,6 @@
    "ts": "2026-10-30 03:02:44",
    "agent_id": "publisher",
    "message": "Posting #103 ke IG ✅"
-  },
-  {
-   "ts": "2026-10-30 02:31:08",
-   "agent_id": "trisk",
-   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-  },
-  {
-   "ts": "2026-10-30 02:31:08",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: sideways → bearish"
   }
  ],
  "chats": [
@@ -1166,18 +1166,18 @@
    "yt_posted": 6,
    "yt_pending": 0,
    "yt_scheduled": 2,
-   "views": 13938,
-   "likes": 206,
+   "views": 14063,
+   "likes": 211,
    "comments": 3,
-   "shares": 7,
+   "shares": 9,
    "saves": 1,
-   "yt_views": 9202,
+   "yt_views": 9207,
    "top": [
     {
      "title": "Lawang Sewu: Apa yang Sebenarnya Ada di Bawah Tanahnya?",
      "format": "shorts",
      "pillar": "horor_sejarah",
-     "views": 1862
+     "views": 1867
     },
     {
      "title": "Kamar 308: Kamar Hotel yang Disiapkan untuk Nyi Roro Kidul",
@@ -1236,9 +1236,14 @@
   "paused": false,
   "balance": 1687.5099999999998,
   "today_pnl": 0,
-  "price": 3991.5,
+  "price": 3989.800049,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-30 10:01:09",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
    {
     "ts": "2026-10-30 09:46:09",
     "decision": "NO TRADE",
@@ -1261,11 +1266,6 @@
    },
    {
     "ts": "2026-10-30 08:46:09",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-10-30 08:31:09",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1301,7 +1301,7 @@
    1687.5099999999995
   ],
   "last": {
-   "ts": "2026-10-30 09:46:09",
+   "ts": "2026-10-30 10:01:09",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1322,7 +1322,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3990.60 di atas tengah band (3973.7–4007.2) · RSI 48 · Stoch 74 · MACD +1.41 · H1 bearish"
+    "note": "M15 3993.00 di atas tengah band (3974.1–4006.2) · RSI 50 · Stoch 79 · MACD +1.56 · H1 bearish"
    }
   },
   "fund": null,
@@ -1351,46 +1351,46 @@
    "M10": {
     "bias": "sideways",
     "score": 0,
-    "price": 3990.8,
-    "ema20": 3990.4,
-    "ema50": 3995.13,
-    "rsi": 49.6,
+    "price": 3993,
+    "ema20": 3990.65,
+    "ema50": 3995.05,
+    "rsi": 52,
     "n": 299,
-    "slot": 2988923,
-    "at": 1793353869105
+    "slot": 2988924,
+    "at": 1793354469132
    },
    "M15": {
-    "bias": "bearish",
-    "score": -3,
-    "price": 3991.3,
-    "ema20": 3991.39,
-    "ema50": 3999.59,
-    "rsi": 48.4,
+    "bias": "sideways",
+    "score": -1,
+    "price": 3993,
+    "ema20": 3991.54,
+    "ema50": 3999.33,
+    "rsi": 49.8,
     "n": 299,
-    "slot": 1992615,
-    "at": 1793353569164
+    "slot": 1992616,
+    "at": 1793354469137
    },
    "M30": {
     "bias": "bearish",
     "score": -3,
-    "price": 3990.8,
-    "ema20": 3997.49,
-    "ema50": 4010.7,
-    "rsi": 44.2,
+    "price": 3993,
+    "ema20": 3997.06,
+    "ema50": 4010.01,
+    "rsi": 45.5,
     "n": 299,
-    "slot": 996307,
-    "at": 1793352669106
+    "slot": 996308,
+    "at": 1793354469141
    },
    "H1": {
     "bias": "bearish",
     "score": -3,
-    "price": 3999.1,
-    "ema20": 4006.39,
-    "ema50": 4020.46,
-    "rsi": 43.6,
+    "price": 3993,
+    "ema20": 4005.11,
+    "ema50": 4019.39,
+    "rsi": 41,
     "n": 299,
-    "slot": 498153,
-    "at": 1793350840852
+    "slot": 498154,
+    "at": 1793354469146
    }
   },
   "currency": "USC",
