@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-30T13:38:09.055Z",
+ "generated_at": "2026-10-30T13:48:09.059Z",
  "today": "2026-10-30",
  "week_start": "2026-10-26",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-30 13:31:09"
+   "updated_at": "2026-10-30 13:46:09"
   },
   {
    "id": "tresearch",
@@ -111,15 +111,15 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Berita 24 jam tak terverifikasi. Yield 10Y AS tertinggi sejak 2002 & Fed tahan = tekanan emas; geopolitik penopang.",
-   "updated_at": "2026-10-30 13:31:09"
+   "updated_at": "2026-10-30 13:46:09"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Setup BUY di band (RSI+MACD)",
-   "updated_at": "2026-10-30 13:31:09"
+   "current_task": "Setup BUY di band (RSI)",
+   "updated_at": "2026-10-30 13:46:09"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: Bollinger Band melebar kencang (breakout), pantulan berisiko",
-   "updated_at": "2026-10-30 13:31:09"
+   "updated_at": "2026-10-30 13:46:09"
   },
   {
    "id": "texec",
@@ -748,6 +748,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-30 13:46:09",
+   "agent_id": "trisk",
+   "message": "NO TRADE · Bollinger Band melebar kencang (breakout), pantulan berisiko"
+  },
+  {
    "ts": "2026-10-30 13:01:03",
    "agent_id": "analyst",
    "message": "Update data 50 post IG 📈"
@@ -866,11 +871,6 @@
    "ts": "2026-10-30 06:31:10",
    "agent_id": "trisk",
    "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-  },
-  {
-   "ts": "2026-10-30 06:00:48",
-   "agent_id": "ttech",
-   "message": "M15 berubah arah: sideways → bearish"
   }
  ],
  "chats": [
@@ -1236,9 +1236,14 @@
   "paused": false,
   "balance": 1687.5099999999998,
   "today_pnl": 0,
-  "price": 3929,
+  "price": 3927.199951,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-30 13:46:09",
+    "decision": "NO TRADE",
+    "reason": "Bollinger Band melebar kencang (breakout), pantulan berisiko"
+   },
    {
     "ts": "2026-10-30 13:31:09",
     "decision": "NO TRADE",
@@ -1261,11 +1266,6 @@
    },
    {
     "ts": "2026-10-30 12:31:09",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-10-30 12:16:09",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1301,7 +1301,7 @@
    1687.5099999999995
   ],
   "last": {
-   "ts": "2026-10-30 13:31:09",
+   "ts": "2026-10-30 13:46:09",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1319,13 +1319,12 @@
    },
    "tech": {
     "bias": "bearish",
-    "score": 2,
+    "score": 1,
     "trigger": "buy",
     "confirm": [
-     "RSI",
-     "MACD"
+     "RSI"
     ],
-    "note": "M15 3945.50 di bawah tengah band (3936.8–4009.6) · RSI 22 · Stoch 10 · MACD -2.84 · H1 bearish · setup BUY (RSI+MACD)"
+    "note": "M15 3930.00 di bawah tengah band (3926.4–4011.4) · RSI 17 · Stoch 3 · MACD -4.11 · H1 bearish · setup BUY (RSI)"
    }
   },
   "fund": {
@@ -1357,24 +1356,24 @@
    "M10": {
     "bias": "bearish",
     "score": -3,
-    "price": 3944.7,
-    "ema20": 3964.86,
-    "ema50": 3978.36,
-    "rsi": 23.7,
+    "price": 3934.5,
+    "ema20": 3961.97,
+    "ema50": 3976.64,
+    "rsi": 19.4,
     "n": 299,
-    "slot": 2988945,
-    "at": 1793367069363
+    "slot": 2988946,
+    "at": 1793367669355
    },
    "M15": {
     "bias": "bearish",
     "score": -3,
-    "price": 3944.7,
-    "ema20": 3969.98,
-    "ema50": 3984.99,
-    "rsi": 21.1,
+    "price": 3929.1,
+    "ema20": 3966.08,
+    "ema50": 3982.8,
+    "rsi": 16.2,
     "n": 299,
-    "slot": 1992630,
-    "at": 1793367069369
+    "slot": 1992631,
+    "at": 1793367969327
    },
    "M30": {
     "bias": "bearish",
