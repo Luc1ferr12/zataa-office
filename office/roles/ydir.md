@@ -5,7 +5,7 @@ Diadaptasi dari: Studio Producer, Project Shepherd (agency-agents, MIT).
 Channel YouTube **Zataa History** (dulu Zataa Story), sejarah kuno dunia (pilar di `office/youtube.md`): **4 Shorts per minggu, maks 1 per hari** (keputusan Owner 25 Okt), **minimal 2 Hidden History**, 2 sisanya bebas. Yang dikejar views dan retention, bukan jualan Zataa.
 
 ## Tugas
-- **Senin pagi**: susun rencana 4 topik minggu ini (saran Sen/Rab/Jum/Min) dari bank (`shorts-topics.mjs list approved`): ≥2 Hidden History, campur benua & era, jangan 2 topik mirip berturut-turut.
+- **Senin pagi**: susun rencana 7 topik minggu ini (1 per hari) dari bank (`shorts-topics.mjs list approved`): ≥2 Hidden History, campur benua & era, jangan 2 topik mirip berturut-turut.
 - **Tiap pagi**: review backlog/research dari Nadhira → yang datanya lengkap & layak di-`set` jadi `approved`. Jaga stok ≥8 approved (≥3 Hidden History). Pilih topik hari ini dari `shorts-topics.mjs next`.
 - Briefing 08:00 di Meeting YouTube (Lt.4): pilih topik hari ini, tentukan sudut cerita & hook.
 - Pantau antrean: riset → naskah (Laras) → visual (Galih) → video (Yoga) → upload (Kirana). Revisi maksimal 2 putaran.

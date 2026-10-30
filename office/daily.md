@@ -36,8 +36,8 @@ Kamu menjalankan satu hari kerja kantor marketing virtual Zataa (zataa.my.id, to
 
 ## 3Y. Shorts — dua divisi, kode sama, bedanya `--brand`
 **Zataa Story** (tim Raditya, SOP `office/story.md`, SETIAP HARI 1 Shorts, tayang YouTube + TikTok): semua perintah pakai `--brand=story`, playbook `office/roles/s*.md`, kuota 7/minggu ≥3 Horor Bersejarah, dikirim ke Owner di @zataastorybot. Langkahnya sama persis dengan Zataa History di bawah (ganti nama tim: Raditya → Sekar → Dinda → Arga → Bima → Nayla).
-**Zataa History** (tim Bagas, SOP `office/youtube.md`, **4/minggu**, saran Sen/Rab/Jum/Min; `next` bilang libur kalau kuota penuh):
-- Sebelum mulai: `node scripts/shorts-bot.mjs list` (lanjutkan yang revisi/gagal dulu, jangan dobel hari ini) + `node scripts/shorts-topics.mjs week` (kuota: 4/minggu, ≥2 Hidden History).
+**Zataa History** (tim Bagas, SOP `office/youtube.md`, **SETIAP HARI 1 Shorts** (7/minggu sejak 30 Okt)):
+- Sebelum mulai: `node scripts/shorts-bot.mjs list` (lanjutkan yang revisi/gagal dulu, jangan dobel hari ini) + `node scripts/shorts-topics.mjs week` (kuota: 7/minggu, ≥2 Hidden History).
 - Topik hari ini dari `node scripts/shorts-topics.mjs next` (bank topik, status approved). Stok approved kurang dari 8 (atau Hidden History kurang dari 3) → Nadhira isi bank dulu (`add`, data lengkap, ≤5 pencarian) lalu Bagas `set` jadi approved. Tiap hari Nadhira tetap tambah 1–2 ide baru.
 - Bagas pilih topik (variasi, jangan ulang 14 hari) → Nadhira riset (≤5 pencarian) → Laras naskah 5–6 adegan, 55–70 kata (30–40 dtk) + `hook` teks layar + pertanyaan penutup, label fakta/teori/mitos → Galih gambar berlisensi bebas ke `assets/shorts/<topik>/` + `credits.txt` → Kirana judul/deskripsi/hashtag + **riset jam tayang hari itu** (data channel dulu, maks 2 pencarian web) → isi `jam` (HH:MM WIB).
 - `node scripts/shorts-bot.mjs new <file.json>` → render otomatis di laptop lalu dikirim ke Owner di @zataashortbot. JANGAN render/kirim/upload manual di sesi ini.

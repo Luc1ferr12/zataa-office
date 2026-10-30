@@ -10,7 +10,7 @@ Nemuin misteri kuno yang **bikin penasaran tapi bisa dipertanggungjawabkan**.
 
 ## Bank topik (wajib)
 - Tiap ide masuk bank: `node scripts/shorts-topics.mjs add <json>` dengan `pillar, subject, core_question, angle, hook, sources[], evergreen_score (1–5)`; status `backlog`, lalu `set <id> {"status":"research"}` saat diverifikasi. Bagas yang meng-approve.
-- Tiap hari tambah **1–2 ide baru**, prioritas **Hidden History** (kuota ≥2 dari 4/minggu). Pilar & contoh: `office/youtube.md`. Semua judul/hook bahasa Indonesia.
+- Tiap hari tambah **1–2 ide baru**, prioritas **Hidden History** (kuota ≥2 dari 7/minggu). Pilar & contoh: `office/youtube.md`. Semua judul/hook bahasa Indonesia.
 - Cek dulu `shorts-topics.mjs list` biar nggak dobel subject.
 
 ## Yang dicari (sumber ide, petakan ke pilar)

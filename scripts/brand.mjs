@@ -11,7 +11,7 @@ export const BRANDS = {
     bot: '@zataashortbot', tokenEnv: 'SHORTS_BOT_TOKEN', zernioEnv: 'ZERNIO_API_KEY', ytTokenEnv: 'YT_REFRESH_TOKEN', ytClientEnv: 'YT_CLIENT_ID', ytSecretEnv: 'YT_CLIENT_SECRET', tiktok: false,
     sop: 'office/youtube.md', state: 'tmp/shorts-bot.json', hashtags: '#Shorts #sejarah #misteri', tag: 'MISTERI KUNO',
     team: { dir: 'ydir', research: 'yresearch', script: 'yscript', visual: 'yvisual', video: 'yvideo', publish: 'ypublish' },
-    week: 4, core: 'hidden_history', coreMin: 2, quotaStart: '2026-10-26',
+    week: 7, core: 'hidden_history', coreMin: 2, quotaStart: '2026-10-26',
   },
   story: {
     key: 'story', name: 'Zataa Story', channel: 'story', niche: 'misteri & horor Nusantara berbasis sejarah',

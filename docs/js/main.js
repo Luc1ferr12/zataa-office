@@ -10,7 +10,8 @@ const STATUS = {
   rejected: 'Ditolak', scheduled: 'Terjadwal', posted: 'Terposting', failed: 'Gagal',
   uploading: 'Lagi upload', uploaded: 'Private, nunggu Owner ubah Publik', upload_failed: 'Upload gagal',
 };
-const SHORTS_4WEEK_FROM = '2026-10-26'; // Zataa History jadi 4/minggu (hari kosong = libur, bukan telat)
+const SHORTS_4WEEK_FROM = '2026-10-26'; // Zataa History sempat 4/minggu (hari kosong = libur, bukan telat)
+const SHORTS_4WEEK_TO = '2026-10-30';   // mulai tanggal ini History balik tiap hari (7/minggu)
 const SHORTS_DAILY_FROM = '2026-10-19'; // mulai tanggal ini Shorts tiap hari (dulu Senin–Selasa libur)
 const NAMES = Object.fromEntries([['owner', 'Zamiir'], ...AGENTS.map((a) => [a.id, a.name])]);
 
@@ -138,7 +139,7 @@ function renderDashboard() {
   $('campaign-theme').textContent = s?.campaign?.theme ? `Tema: ${s.campaign.theme}` : 'Belum ada campaign';
   $('updated-at').textContent = s?.generated_at ? `update ${new Date(s.generated_at).toLocaleString('id-ID', { timeZone: 'Asia/Makassar', hour: '2-digit', minute: '2-digit', day: 'numeric', month: 'short' })}` : '';
 
-  // jadwal minggu: Marketing (IG/TikTok), Zataa History (channel 'youtube', 4/minggu) & Zataa Story (channel 'story', tiap hari)
+  // jadwal minggu: Marketing (IG/TikTok), Zataa History (channel 'youtube', tiap hari) & Zataa Story (channel 'story', tiap hari)
   const week = s?.week_start ?? null;
   const days = ['Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab', 'Min'];
   const isYT = (c) => c.channel === 'youtube';
@@ -159,7 +160,7 @@ function renderDashboard() {
     const items = (s?.week_contents ?? []).filter((c) => c.day === date && isYT(c));
     const chips = off ? '<p class="empty">Libur</p>'
       : items.length ? items.map((c) => `<div class="chip yt s-${c.status}" title="${esc(STATUS[c.status] ?? c.status)}"><b>18:00 · 🎬 shorts</b>${esc(c.title)}</div>`).join('')
-        : date && date >= SHORTS_4WEEK_FROM ? '<p class="empty">—</p>' : '<div class="chip slot"><b>18:00 · 🎬 shorts</b>Belum ada konten</div>';
+        : date && date >= SHORTS_4WEEK_FROM && date < SHORTS_4WEEK_TO ? '<p class="empty">—</p>' : '<div class="chip slot"><b>18:00 · 🎬 shorts</b>Belum ada konten</div>';
     return `<div class="day ${off ? 'off' : ''} ${date === s?.today ? 'today' : ''}"><h3>${d}<small>${date ? date.slice(8) : ''}</small></h3>${chips}</div>`;
   }).join('');
   // Zataa Story: 1 Shorts tiap hari (YouTube + TikTok)
@@ -233,7 +234,7 @@ const DIVISIONS = [
   { name: 'Pimpinan', color: 'boss', flow: '', ids: ['owner', 'sec'] },
   { name: 'Umum', color: 'gen', flow: '', ids: ['ob'] },
   { name: 'Marketing', color: 'mkt', flow: 'plan → riset → konten → publish → iklan → data', ids: ['dir', 'researcher', 'price', 'copywriter', 'designer', 'video', 'publisher', 'ads', 'analyst'] },
-  { name: 'YouTube · Zataa History', color: 'yt', flow: 'riset → naskah & cek fakta → visual → video → upload · 4/minggu', ids: ['ydir', 'yresearch', 'yscript', 'yvisual', 'yvideo', 'ypublish'] },
+  { name: 'YouTube · Zataa History', color: 'yt', flow: 'riset → naskah & cek fakta → visual → video → upload · tiap hari', ids: ['ydir', 'yresearch', 'yscript', 'yvisual', 'yvideo', 'ypublish'] },
   { name: 'Zataa Story', color: 'story', flow: 'riset → naskah → visual → video → YouTube + TikTok · tiap hari', ids: ['sdir', 'sresearch', 'sscript', 'svisual', 'svideo', 'spublish'] },
   { name: 'Trading XAUUSD', color: 'trd', flow: 'siklus tiap candle M15', ids: ['tdir', 'tresearch', 'ttech', 'trisk', 'texec', 'teval', 'treport'] },
 ];

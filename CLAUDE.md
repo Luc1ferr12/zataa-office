@@ -48,7 +48,7 @@ Kantor marketing virtual untuk **zataa.my.id** (top up game). Claude memerankan 
 |---|---|---|
 | Niche | sejarah misteri kuno dunia + mitologi Yunani | misteri & horor Nusantara berbasis sejarah (gaib selalu "konon") |
 | Platform | YouTube channel lama (dulu @zataastory, ganti nama 25 Okt), akun zataatopup | YouTube channel baru + TikTok @zataa.story, akun zataastory |
-| Kuota | **4/minggu** (maks 1/hari), ≥2 Hidden History | **7/minggu** (1/hari), ≥3 Horor Bersejarah |
+| Kuota | **7/minggu** (1/hari), ≥2 Hidden History | **7/minggu** (1/hari), ≥3 Horor Bersejarah |
 | Bot / Zernio | @zataashortbot `SHORTS_BOT_TOKEN` · Zernio akun 1 `ZERNIO_API_KEY` | @zataastorybot `STORY_BOT_TOKEN` · Zernio akun 2 `ZERNIO_STORY_API_KEY` |
 | DB / SOP | `channel 'youtube'` · `office/youtube.md` | `channel 'story'` · `office/story.md` (semua perintah `--brand=story`) |
 Ruang di Lt.2 (bilik & ruang manajer sendiri per brand), meeting di Lt.3 (Meeting YouTube gantian: History 08:00, Story 08:30). Tiap ide wajib dari **bank topik** `scripts/shorts-topics.mjs` (pilar milik satu brand; topic_id, pillar, subject, core_question, angle, hook, sources, evergreen_score, status, published_url); kuota dicek otomatis per brand. Target: **±500 subscriber → tambah video panjang 5–10 menit**; Shorts tetap jalan bareng.
