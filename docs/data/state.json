@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-30T11:28:08.981Z",
+ "generated_at": "2026-10-30T11:38:08.988Z",
  "today": "2026-10-30",
  "week_start": "2026-10-26",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-30 11:16:09"
+   "updated_at": "2026-10-30 11:31:09"
   },
   {
    "id": "tresearch",
@@ -111,23 +111,23 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Berita 24 jam tak terverifikasi. Yield 10Y AS tertinggi sejak 2002 & Fed tahan = tekanan emas; geopolitik penopang.",
-   "updated_at": "2026-10-30 11:16:09"
+   "updated_at": "2026-10-30 11:31:09"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-10-30 11:16:09"
+   "current_task": "Setup BUY di band (tanpa konfirmasi)",
+   "updated_at": "2026-10-30 11:31:09"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-10-30 11:16:09"
+   "current_task": "NO TRADE: setup BUY di band, konfirmasi baru 0/3 (-) · London–NY (mode aman)",
+   "updated_at": "2026-10-30 11:31:09"
   },
   {
    "id": "texec",
@@ -1236,9 +1236,14 @@
   "paused": false,
   "balance": 1687.5099999999998,
   "today_pnl": 0,
-  "price": 3973,
+  "price": 3977.399902,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-30 11:31:09",
+    "decision": "NO TRADE",
+    "reason": "setup BUY di band, konfirmasi baru 0/3 (-) · London–NY (mode aman)"
+   },
    {
     "ts": "2026-10-30 11:16:09",
     "decision": "NO TRADE",
@@ -1261,11 +1266,6 @@
    },
    {
     "ts": "2026-10-30 10:16:09",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-10-30 10:01:09",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1301,7 +1301,7 @@
    1687.5099999999995
   ],
   "last": {
-   "ts": "2026-10-30 11:16:09",
+   "ts": "2026-10-30 11:31:09",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1310,7 +1310,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
+   "reason": "setup BUY di band, konfirmasi baru 0/3 (-) · London–NY (mode aman)",
    "fund": {
     "bias": -0.2,
     "note": "Berita 24 jam tak terverifikasi. Yield 10Y AS tertinggi sejak 2002 & Fed tahan = tekanan emas; geopolitik penopang.",
@@ -1320,9 +1320,9 @@
    "tech": {
     "bias": "bearish",
     "score": 0,
-    "trigger": null,
+    "trigger": "buy",
     "confirm": [],
-    "note": "M15 3978.10 di bawah tengah band (3972.2–3998.7) · RSI 39 · Stoch 27 · MACD -0.54 · H1 bearish"
+    "note": "M15 3975.30 di bawah tengah band (3970.1–3999.1) · RSI 37 · Stoch 26 · MACD -0.84 · H1 bearish · setup BUY (tanpa konfirmasi)"
    }
   },
   "fund": {
@@ -1354,35 +1354,35 @@
    "M10": {
     "bias": "bearish",
     "score": -3,
-    "price": 3973.2,
-    "ema20": 3984.8,
-    "ema50": 3991.1,
-    "rsi": 34.2,
+    "price": 3974.5,
+    "ema20": 3983.82,
+    "ema50": 3990.45,
+    "rsi": 36.2,
     "n": 299,
-    "slot": 2988932,
-    "at": 1793359269195
+    "slot": 2988933,
+    "at": 1793359869200
    },
    "M15": {
     "bias": "bearish",
     "score": -3,
-    "price": 3978.3,
-    "ema20": 3987.29,
-    "ema50": 3995.99,
-    "rsi": 38.9,
+    "price": 3974.5,
+    "ema20": 3986.07,
+    "ema50": 3995.15,
+    "rsi": 36.2,
     "n": 299,
-    "slot": 1992621,
-    "at": 1793358969183
+    "slot": 1992622,
+    "at": 1793359869204
    },
    "M30": {
     "bias": "bearish",
     "score": -3,
-    "price": 3978.7,
-    "ema20": 3994.12,
-    "ema50": 4007.77,
-    "rsi": 38.8,
+    "price": 3974.5,
+    "ema20": 3992.25,
+    "ema50": 4006.47,
+    "rsi": 37,
     "n": 299,
-    "slot": 996310,
-    "at": 1793358069375
+    "slot": 996311,
+    "at": 1793359869205
    },
    "H1": {
     "bias": "bearish",
