@@ -136,7 +136,7 @@ function renderDashboard() {
   const diff = lw.views ? Math.round(((st.views - lw.views) / lw.views) * 100) : null;
   const vSplit = `Marketing ${((st.views ?? 0) - (st.yt_views ?? 0)).toLocaleString('id-ID')} · Shorts ${(st.yt_views ?? 0).toLocaleString('id-ID')}`;
   $('k-views-sub').textContent = diff === null ? vSplit : `${diff >= 0 ? '▲' : '▼'} ${Math.abs(diff)}% vs minggu lalu · ${vSplit}`;
-  // klik go.zataa.my.id → toko (scripts/golink.mjs); nama sumber sama dengan SOURCES di sana
+  // klik link pelacak (golink.mjs) → toko (scripts/golink.mjs); nama sumber sama dengan SOURCES di sana
   const SRC = { ig: 'IG bio', igs: 'IG Story', tt: 'TikTok', tg: 'Telegram', yt: 'YouTube', wa: 'WA' };
   $('k-clicks').textContent = (st.clicks ?? 0).toLocaleString('id-ID');
   $('k-clicks-sub').textContent = st.clicks

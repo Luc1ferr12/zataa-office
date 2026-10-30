@@ -1,4 +1,4 @@
-# Link pelacak klik go.zataa.my.id → zataa.my.id (scripts/golink.mjs), port 80 di belakang proxy Cloudflare
+# Link pelacak klik (domain GO_BASE di .env) → zataa.my.id (scripts/golink.mjs), port 80 di belakang proxy Cloudflare
 # pasang: sudo cp scripts/vps/zataa-golink.service /etc/systemd/system/ && sudo systemctl enable --now zataa-golink
 [Unit]
 Description=Zataa go-link (catat klik ke zataa.my.id)

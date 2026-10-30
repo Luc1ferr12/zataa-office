@@ -1,5 +1,7 @@
-// Link pelacak klik ke zataa.my.id (zataa.my.id sendiri nggak punya analytics): go.zataa.my.id/<sumber>[/<id konten>][?g=<slug game>]
+// Link pelacak klik ke zataa.my.id (zataa.my.id sendiri nggak punya analytics): <GO_BASE>/<sumber>[/<id konten>][?g=<slug game>]
 // → catat 1 baris di tabel clicks → 302 ke zataa.my.id (bawa utm_*). Cloudflare (proxy, HTTPS) → VPS port 80 (service zataa-golink).
+// GO_BASE (.env) = domain link pelacak. zataa.my.id dikelola platform toko, nggak bisa bikin subdomain → butuh domain sendiri.
+// GO_BASE kosong = belum ada domain: linkFor() balik ke zataa.my.id polos (biar nggak ada link mati).
 // Privasi: IP nggak disimpan, cuma hash harian (ip+ua+tanggal) buat hitung pengunjung unik.
 //   node scripts/golink.mjs serve            → server (GO_PORT, default 8790; service VPS pakai 80)
 //   node scripts/golink.mjs url <sumber> [id] [game]   → bikin link
@@ -8,8 +10,9 @@ import { createServer } from 'node:http';
 import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { openDb } from './db.mjs';
+import { loadEnv } from './approval.mjs';
 
-export const GO_BASE = 'https://go.zataa.my.id';
+export const GO_BASE = (process.env.GO_BASE || loadEnv().GO_BASE || '').replace(/\/+$/, '') || null;
 const SITE = 'https://zataa.my.id';
 // sumber yang dikenal (yang lain tetap dicatat apa adanya, asal lolos regex)
 export const SOURCES = {
@@ -28,7 +31,7 @@ const SRC_RE = /^[a-z0-9-]{1,20}$/, GAME_RE = /^[a-z0-9-]{1,60}$/;
 
 // path → { src, content_id, game } atau null (path asing)
 export function parse(url) {
-  const u = new URL(url, GO_BASE);
+  const u = new URL(url, 'http://go.local');
   const [src, id, ...rest] = u.pathname.split('/').filter(Boolean).map((s) => s.toLowerCase());
   if (!src || rest.length || !SRC_RE.test(src) || (id && !/^\d{1,7}$/.test(id))) return null;
   const g = (u.searchParams.get('g') ?? '').toLowerCase();
@@ -44,7 +47,7 @@ export function target({ src, content_id, game }) {
   return u.href;
 }
 
-export const linkFor = (src, contentId, game) =>
+export const linkFor = (src, contentId, game) => !GO_BASE ? SITE :
   `${GO_BASE}/${src}${contentId ? `/${contentId}` : ''}${game ? `?g=${game}` : ''}`;
 
 function serve() {
@@ -88,6 +91,7 @@ if (isMain) {
   } else if (cmd === 'url') {
     const [src, id, game] = args;
     if (!src || !SRC_RE.test(src)) { console.error(`sumber: ${Object.keys(SOURCES).join(' | ')}`); process.exit(1); }
+    if (!GO_BASE) console.error('GO_BASE belum di-set di .env → link polos zataa.my.id (klik nggak kehitung)');
     console.log(linkFor(src, id && /^\d+$/.test(id) ? id : null, game));
   } else if (cmd === 'stats') {
     const days = +(args[0] ?? 7);

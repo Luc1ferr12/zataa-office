@@ -327,7 +327,7 @@ function weekStats(week) {
     FROM metrics m JOIN contents c ON c.id = m.content_id WHERE ${LATEST} AND c.day BETWEEN ? AND ?`, week, end);
   const top = all(`SELECT c.title, c.format, c.pillar, SUM(m.views) views FROM metrics m JOIN contents c ON c.id = m.content_id
     WHERE ${LATEST} AND c.day BETWEEN ? AND ? GROUP BY c.id ORDER BY views DESC LIMIT 3`, week, end);
-  // klik go.zataa.my.id (minggu WITA → batas UTC di DB)
+  // klik link pelacak golink.mjs (minggu WITA → batas UTC di DB)
   const utc = (day) => new Date(Date.parse(`${day}T00:00:00+08:00`)).toISOString().slice(0, 19).replace('T', ' ');
   const k = clickStats(db, utc(week), utc(addDays(week, 7)));
   return { week, ...normalize(c), ...normalize(m), top, clicks: k.clicks, click_visitors: k.visitors, click_src: k.by_src };

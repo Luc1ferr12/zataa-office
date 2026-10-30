@@ -72,11 +72,11 @@ const accLine = (k, label, s, prev) => {
 };
 const snapOf = (s) => JSON.stringify(Object.fromEntries(['instagram', 'tiktok'].filter((k) => s[k] && !s[k].error).map((k) => [k, { f: s[k].followers ?? 0, v: s[k].views ?? 0, l: s[k].likes ?? 0 }])));
 const snap = (d, key) => { try { return JSON.parse(flag(d, key) ?? 'null'); } catch { return null; } };
-// klik go.zataa.my.id (scripts/golink.mjs) — satu-satunya sinyal "konten → toko", zataa.my.id nggak punya analytics
+// klik link pelacak GO_BASE (scripts/golink.mjs) — satu-satunya sinyal "konten → toko", zataa.my.id nggak punya analytics
 const clickLine = (d, from) => {
   try {
     const k = clickStats(d, from);
-    if (!k.clicks) return '🔗 Klik ke zataa.my.id: belum ada (link go.zataa.my.id di bio/Story)';
+    if (!k.clicks) return '🔗 Klik ke zataa.my.id: belum ada (link pelacak di bio/Story)';
     const src = k.by_src.map((r) => `${SOURCES[r.src] ?? esc(r.src)} ${r.n}`).join(' · ');
     const top = k.top.length ? `
    konten: ${k.top.map((r) => `#${r.id}${r.title ? ` ${esc(r.title.slice(0, 30))}` : ''} (${r.n})`).join('; ')}` : '';
