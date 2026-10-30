@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-30T01:58:08.727Z",
+ "generated_at": "2026-10-30T02:08:08.728Z",
  "today": "2026-10-30",
  "week_start": "2026-10-26",
  "campaign": {
@@ -87,7 +87,7 @@
    "title": "Price Watcher",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-10-30 00:00:54"
+   "updated_at": "2026-10-30 02:00:10"
   },
   {
    "id": "ob",
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-10-30 01:46:08"
+   "updated_at": "2026-10-30 02:01:08"
   },
   {
    "id": "tresearch",
@@ -111,23 +111,23 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Fed naik ke 3,75–4% (Sep), pasar pricing hike Des; minyak tinggi tekan emas, USD melemah. FOMC 28 Okt belum terverifikasi.",
-   "updated_at": "2026-10-30 01:46:08"
+   "updated_at": "2026-10-30 02:01:08"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Setup BUY di band (Stokastik+divergensi)",
-   "updated_at": "2026-10-30 01:46:08"
+   "current_task": "Belum ada pantulan band · H1 bearish",
+   "updated_at": "2026-10-30 02:01:08"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: tren H1 bearish kuat banget, BUY dilewati",
-   "updated_at": "2026-10-30 01:46:08"
+   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
+   "updated_at": "2026-10-30 02:01:08"
   },
   {
    "id": "texec",
@@ -1236,9 +1236,14 @@
   "paused": false,
   "balance": 1687.5099999999998,
   "today_pnl": 0,
-  "price": 4004.300049,
+  "price": 4010,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-10-30 02:01:08",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
+   },
    {
     "ts": "2026-10-30 01:46:08",
     "decision": "NO TRADE",
@@ -1261,11 +1266,6 @@
    },
    {
     "ts": "2026-10-30 00:46:09",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-   },
-   {
-    "ts": "2026-10-30 00:31:09",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
    }
@@ -1301,7 +1301,7 @@
    1687.5099999999995
   ],
   "last": {
-   "ts": "2026-10-30 01:46:08",
+   "ts": "2026-10-30 02:01:08",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1310,7 +1310,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "tren H1 bearish kuat banget, BUY dilewati",
+   "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)",
    "fund": {
     "bias": -0.1,
     "note": "Fed naik ke 3,75–4% (Sep), pasar pricing hike Des; minyak tinggi tekan emas, USD melemah. FOMC 28 Okt belum terverifikasi.",
@@ -1319,13 +1319,10 @@
    },
    "tech": {
     "bias": "bearish",
-    "score": 2,
-    "trigger": "buy",
-    "confirm": [
-     "Stokastik",
-     "divergensi"
-    ],
-    "note": "M15 4001.70 di bawah tengah band (3997.5–4032.0) · RSI 40 · Stoch 21 · MACD -1.49 · H1 bearish · setup BUY (Stokastik+divergensi)"
+    "score": 0,
+    "trigger": null,
+    "confirm": [],
+    "note": "M15 4008.20 di bawah tengah band (3998.3–4030.5) · RSI 45 · Stoch 26 · MACD -0.70 · H1 bearish"
    }
   },
   "fund": {
@@ -1357,46 +1354,46 @@
    "M10": {
     "bias": "bearish",
     "score": -3,
-    "price": 3998.7,
-    "ema20": 4010.65,
-    "ema50": 4015.87,
-    "rsi": 37.9,
+    "price": 4009.5,
+    "ema20": 4010.54,
+    "ema50": 4015.62,
+    "rsi": 47.9,
     "n": 299,
-    "slot": 2988875,
-    "at": 1793325068745
+    "slot": 2988876,
+    "at": 1793325668761
    },
    "M15": {
     "bias": "bearish",
     "score": -3,
-    "price": 4000.2,
-    "ema20": 4013.3,
-    "ema50": 4018.86,
-    "rsi": 38.5,
+    "price": 4009.5,
+    "ema20": 4012.94,
+    "ema50": 4018.49,
+    "rsi": 46.3,
     "n": 299,
-    "slot": 1992583,
-    "at": 1793324768749
+    "slot": 1992584,
+    "at": 1793325668769
    },
    "M30": {
     "bias": "bearish",
     "score": -3,
-    "price": 4011.9,
-    "ema20": 4018.27,
-    "ema50": 4026.04,
-    "rsi": 43.1,
+    "price": 4009.5,
+    "ema20": 4017.43,
+    "ema50": 4025.39,
+    "rsi": 41.5,
     "n": 299,
-    "slot": 996291,
-    "at": 1793323869008
+    "slot": 996292,
+    "at": 1793325668770
    },
    "H1": {
     "bias": "bearish",
     "score": -3,
-    "price": 4008.4,
-    "ema20": 4023.7,
-    "ema50": 4030.79,
-    "rsi": 38.1,
+    "price": 4009.5,
+    "ema20": 4022.35,
+    "ema50": 4029.96,
+    "rsi": 39,
     "n": 299,
-    "slot": 498145,
-    "at": 1793322040589
+    "slot": 498146,
+    "at": 1793325668777
    }
   },
   "currency": "USC",
