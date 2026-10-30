@@ -13,6 +13,7 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { CHAT_SQL, chat as chatTo, handoff } from './chatter.mjs';
 import { reloadStale } from './reload.mjs';
+import { clickStats } from './golink.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const DB_PATH = join(ROOT, 'db', 'office.db');
@@ -326,7 +327,10 @@ function weekStats(week) {
     FROM metrics m JOIN contents c ON c.id = m.content_id WHERE ${LATEST} AND c.day BETWEEN ? AND ?`, week, end);
   const top = all(`SELECT c.title, c.format, c.pillar, SUM(m.views) views FROM metrics m JOIN contents c ON c.id = m.content_id
     WHERE ${LATEST} AND c.day BETWEEN ? AND ? GROUP BY c.id ORDER BY views DESC LIMIT 3`, week, end);
-  return { week, ...normalize(c), ...normalize(m), top };
+  // klik go.zataa.my.id (minggu WITA → batas UTC di DB)
+  const utc = (day) => new Date(Date.parse(`${day}T00:00:00+08:00`)).toISOString().slice(0, 19).replace('T', ' ');
+  const k = clickStats(db, utc(week), utc(addDays(week, 7)));
+  return { week, ...normalize(c), ...normalize(m), top, clicks: k.clicks, click_visitors: k.visitors, click_src: k.by_src };
 }
 const normalize = (o) => Object.fromEntries(Object.entries(o ?? {}).map(([k, v]) => [k, Number(v ?? 0)]));
 

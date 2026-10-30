@@ -1,0 +1,23 @@
+# Link pelacak klik go.zataa.my.id → zataa.my.id (scripts/golink.mjs), port 80 di belakang proxy Cloudflare
+# pasang: sudo cp scripts/vps/zataa-golink.service /etc/systemd/system/ && sudo systemctl enable --now zataa-golink
+[Unit]
+Description=Zataa go-link (catat klik ke zataa.my.id)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=ubuntu
+WorkingDirectory=/home/ubuntu/zataa-office
+Environment=PATH=/home/ubuntu/.local/bin:/usr/local/bin:/usr/bin:/bin
+Environment=TZ=Asia/Makassar
+Environment=GO_PORT=80
+# boleh pakai port 80 tanpa root
+AmbientCapabilities=CAP_NET_BIND_SERVICE
+ExecStart=/usr/bin/node scripts/golink.mjs serve
+Restart=always
+RestartSec=5
+StandardOutput=append:/home/ubuntu/zataa-office/logs/golink.log
+StandardError=append:/home/ubuntu/zataa-office/logs/golink.log
+
+[Install]
+WantedBy=multi-user.target

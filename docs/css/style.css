@@ -61,7 +61,7 @@ h2 { font-size: 15px; font-weight: 600; }
 
 main { padding: 20px 24px 40px; max-width: 1440px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1fr); gap: 18px; }
 
-.kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.kpis { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
 .kpi {
   --acc: var(--c-mkt);
   position: relative; overflow: hidden;
@@ -249,6 +249,7 @@ main { padding: 20px 24px 40px; max-width: 1440px; margin: 0 auto; display: grid
   .clock { gap: 8px; }
   main { padding: 14px 16px 30px; }
   .kpis { grid-template-columns: repeat(2, 1fr); }
+  .kpis .kpi:last-child { grid-column: span 2; }
   .tabs { top: 60px; }
   .team-list { grid-template-columns: minmax(0, 1fr); }
   .team-div ul { grid-template-columns: minmax(0, 1fr); }

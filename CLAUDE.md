@@ -89,6 +89,7 @@ Kalau sesi ini jalan di laptop (Windows): jangan nyalain watcher lokal; ubah kod
 - **Aturan Owner (feed & video):** konten tentang tim/pemain WAJIB pakai logo tim terkait. Bahas tim → kalau ada, foto bareng seluruh pemain. Bahas 1 pemain → logo tim + foto pemainnya. Ambil via `node scripts/asset.mjs get <url> <teams|players|photos>/<nama>` (cek `asset.mjs list` dulu).
 - Video: latar klip suasana gaming (`assets/clips/`) sampai Owner kirim rekaman gameplay sendiri.
 - CTA & link selalu ke zataa.my.id. Bahasa: Indonesia santai ala gamer, tanpa SARA/judi.
+- Link yang bisa diklik (bio, stiker link Story, deskripsi, Telegram) pakai link pelacak `go.zataa.my.id/<sumber>[/<id konten>]` (`node scripts/golink.mjs url igs 82`; sumber ig/igs/tt/tg/yt/wa) biar klik ke toko kehitung (service `zataa-golink`, laporan Raka + kartu web). Caption tetap tulis zataa.my.id polos.
 
 ## graphify (peta kode, khusus laptop)
 Graph pengetahuan kode + SOP ada di `graphify-out/` (gitignored, hanya di laptop; VPS tidak punya graphify → lewati bagian ini).

@@ -11,6 +11,7 @@ import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { loadEnv, db, say, SLOT } from './approval.mjs';
 import { chat } from './chatter.mjs';
+import { clickStats, SOURCES } from './golink.mjs';
 
 const env = () => ({ ...loadEnv(), ...process.env });
 const esc = (s) => String(s ?? '').replace(/[&<>]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' })[c]);
@@ -71,6 +72,17 @@ const accLine = (k, label, s, prev) => {
 };
 const snapOf = (s) => JSON.stringify(Object.fromEntries(['instagram', 'tiktok'].filter((k) => s[k] && !s[k].error).map((k) => [k, { f: s[k].followers ?? 0, v: s[k].views ?? 0, l: s[k].likes ?? 0 }])));
 const snap = (d, key) => { try { return JSON.parse(flag(d, key) ?? 'null'); } catch { return null; } };
+// klik go.zataa.my.id (scripts/golink.mjs) — satu-satunya sinyal "konten → toko", zataa.my.id nggak punya analytics
+const clickLine = (d, from) => {
+  try {
+    const k = clickStats(d, from);
+    if (!k.clicks) return '🔗 Klik ke zataa.my.id: belum ada (link go.zataa.my.id di bio/Story)';
+    const src = k.by_src.map((r) => `${SOURCES[r.src] ?? esc(r.src)} ${r.n}`).join(' · ');
+    const top = k.top.length ? `
+   konten: ${k.top.map((r) => `#${r.id}${r.title ? ` ${esc(r.title.slice(0, 30))}` : ''} (${r.n})`).join('; ')}` : '';
+    return `🔗 Klik ke zataa.my.id: <b>${num(k.clicks)}</b> (${num(k.visitors)} orang) — ${src}${top}`;
+  } catch { return '🔗 Klik ke zataa.my.id: data belum kebaca'; }
+};
 const priceChanges = (d, from) => { try { return d.prepare('SELECT COUNT(*) n FROM price_snapshots WHERE diff IS NOT NULL AND ts >= ?').get(from).n; } catch { return 0; } };
 
 export async function dailyReport({ dry = false } = {}) {
@@ -99,6 +111,7 @@ export async function dailyReport({ dry = false } = {}) {
     `<b>Tayang hari ini</b> (${posted.length})`,
     ...(posted.length ? posted.map((c) => `• #${c.id} ${esc(c.title.slice(0, 50))}
    📸 👀 ${num(c.views)} · ❤️ ${num(c.likes)} · 💬 ${num(c.comments)}${c.tiktok_id ? ` | 🎵 ${c.tv != null ? `👀 ${num(c.tv)} · ❤️ ${num(c.tl)}` : 'data belum masuk'}` : ''}`) : ['• belum ada yang tayang']), '',
+    clickLine(d, from),
     `💰 Budi: harga zataa.my.id ${prices ? `berubah ${prices}× hari ini` : 'stabil hari ini'}`,
     `🚀 Fahriah: ${boosts.length ? boosts.map((b) => `${esc(b.title.slice(0, 30))} (${b.status}, ${rp(b.amount)})`).join('; ') : 'nggak ada boost baru'}`,
     `⏳ Nunggu ✅/revisi Bos: ${waiting} · 📅 Besok terjadwal: ${tomorrow} konten`,
@@ -187,6 +200,7 @@ export async function weeklyReport({ dry = false } = {}) {
     '<b>Produksi</b>',
     `${prod.total} konten (video ${prod.video}) · 📢 tayang ${prod.posted} · ❌ ditolak ${prod.rejected} · ✏️ revisi ${prod.revs}× · ⏳ masih nunggu ${prod.waiting}`,
     ...ig.lines, ...tt.lines, '',
+    clickLine(d, from),
     `🚀 Boost minggu ini: ${boost.n}× · ${rp(boost.s)}`,
     `💰 Perubahan harga zataa.my.id: ${prices}×`, '',
     ig.best || tt.best ? `Saran: pilar paling ditonton IG <b>${esc(ig.best ?? '-')}</b>, TikTok <b>${esc(tt.best ?? '-')}</b>. Andre pakai ini (pilar + jam tayang per platform) buat plan Senin.` : 'Minggu ini belum ada data yang cukup buat dianalisis.',

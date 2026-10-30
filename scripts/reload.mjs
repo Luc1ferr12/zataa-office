@@ -10,7 +10,7 @@ import { tmpdir } from 'node:os';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const SERVICES = ['scripts/watch.mjs', 'scripts/trading/run.mjs'];
+const SERVICES = ['scripts/watch.mjs', 'scripts/trading/run.mjs', 'scripts/golink.mjs'];
 const MARKS = join(tmpdir(), 'zataa-code');
 
 function codeId() {

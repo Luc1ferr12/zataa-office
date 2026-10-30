@@ -32,10 +32,10 @@ const VOICE = `Akun IG Zataa (zataa.my.id, top up game): tempat nongkrong gamer 
 export async function storyDraft({ dry = false } = {}) {
   const d = await db();
   const day = wita().toISOString().slice(0, 10);
-  const posts = d.prepare(`SELECT slot, format, pillar, game, title, status, substr(caption, 1, 160) caption FROM contents WHERE day = ? AND ${MK} ORDER BY id`).all(day);
+  const posts = d.prepare(`SELECT id, slot, format, pillar, game, title, status, substr(caption, 1, 160) caption FROM contents WHERE day = ? AND ${MK} ORDER BY id`).all(day);
   let research = [];
   try { research = d.prepare('SELECT game, topic FROM research WHERE day >= ? ORDER BY score DESC, id DESC LIMIT 6').all(day); } catch { /* tabel belum ada */ }
-  const postLines = posts.map((p) => `- ${SLOT[p.slot] ?? p.slot} WIB · ${p.format} · ${p.pillar}/${p.game} · "${p.title}" (${p.status})${p.caption ? ` · caption: ${p.caption.replace(/\s+/g, ' ')}` : ''}`).join('\n') || '- (belum ada konten terjadwal hari ini)';
+  const postLines = posts.map((p) => `- #${p.id} · ${SLOT[p.slot] ?? p.slot} WIB · ${p.format} · ${p.pillar}/${p.game} · "${p.title}" (${p.status})${p.caption ? ` · caption: ${p.caption.replace(/\s+/g, ' ')}` : ''}`).join('\n') || '- (belum ada konten terjadwal hari ini)';
   const resLines = research.map((r) => `- [${r.game}] ${r.topic}`).join('\n') || '- (riset hari ini belum masuk)';
   if (!dry) setFikri(d, 'working', 'Nyusun draf IG Story hari ini');
   const r = await haiku(`Kamu Fikri, social media publisher Zataa. Tulis draf IG STORY hari ini (${day}) yang bakal Owner posting MANUAL.
@@ -51,7 +51,7 @@ Aturan story (dari skill ig-story):
 - 3–5 frame. Frame 1 harus ada gerakan (rekaman layar gameplay, cuplikan Reels hari ini, tangan pegang HP), bukan teks di latar polos.
 - 1 ide per frame, teks layar maks 10 kata, ngomong ke "kamu" (1 orang).
 - Frame 3 atau 4 = SATU stiker: Polling (biar banyak yang tap), Kuis (kalau ada salah kaprah), atau Kotak pertanyaan (panen ide konten). Tulis pertanyaan + pilihannya.
-- Frame terakhir: hasil/penutup + arahkan ke post hari ini (bilang kenapa layak dibuka, jangan cuma repost polos) ATAU stiker link zataa.my.id.
+- Frame terakhir: hasil/penutup + arahkan ke post hari ini (bilang kenapa layak dibuka, jangan cuma repost polos) ATAU stiker link https://go.zataa.my.id/igs/<id konten> (pakai #id konten dari daftar di atas; link ini ngitung klik ke zataa.my.id, jangan ganti ke zataa.my.id polos).
 - Kalau mau sebut harga, WAJIB cek dulu "node scripts/price.mjs latest <kata>"; datanya nggak ada → jangan sebut harga.
 - Akhiri dengan 1 baris "Habis itu:" = apa yang Owner lakukan ke yang jawab stiker (mis. balas DM yang vote X).
 
