@@ -89,7 +89,7 @@ Kalau sesi ini jalan di laptop (Windows): jangan nyalain watcher lokal; ubah kod
 - **Aturan Owner (feed & video):** konten tentang tim/pemain WAJIB pakai logo tim terkait. Bahas tim → kalau ada, foto bareng seluruh pemain. Bahas 1 pemain → logo tim + foto pemainnya. Ambil via `node scripts/asset.mjs get <url> <teams|players|photos>/<nama>` (cek `asset.mjs list` dulu).
 - Video: latar klip suasana gaming (`assets/clips/`) sampai Owner kirim rekaman gameplay sendiri.
 - CTA & link selalu ke zataa.my.id. Bahasa: Indonesia santai ala gamer, tanpa SARA/judi.
-- Link yang bisa diklik (bio, stiker link Story, deskripsi, Telegram) pakai link pelacak `<GO_BASE>/<sumber>[/<id konten>]` (`node scripts/golink.mjs url igs 82`; GO_BASE di `.env`, kosong = belum ada domain → link polos; sumber ig/igs/tt/tg/yt/wa) biar klik ke toko kehitung (service `zataa-golink`, laporan Raka + kartu web). Caption tetap tulis zataa.my.id polos.
+- Link yang bisa diklik (bio, stiker link Story, deskripsi, Telegram) pakai link ber-UTM dari `node scripts/golink.mjs url <sumber> [id konten] [game]` (sumber ig/igs/tt/tg/yt/wa) → kebaca di **GA4 toko** (`G-GX33CTMBHG`, property "Zataa Store", dipasang di panel UniPlay → SEO & Pixel). zataa.my.id dikelola UniPlay (nggak bisa subdomain); `GO_BASE` + service `zataa-golink` cadangan kalau nanti punya domain sendiri. Caption tetap tulis zataa.my.id polos.
 
 ## graphify (peta kode, khusus laptop)
 Graph pengetahuan kode + SOP ada di `graphify-out/` (gitignored, hanya di laptop; VPS tidak punya graphify → lewati bagian ini).

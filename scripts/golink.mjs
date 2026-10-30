@@ -1,7 +1,8 @@
 // Link pelacak klik ke zataa.my.id (zataa.my.id sendiri nggak punya analytics): <GO_BASE>/<sumber>[/<id konten>][?g=<slug game>]
 // → catat 1 baris di tabel clicks → 302 ke zataa.my.id (bawa utm_*). Cloudflare (proxy, HTTPS) → VPS port 80 (service zataa-golink).
 // GO_BASE (.env) = domain link pelacak. zataa.my.id dikelola platform toko, nggak bisa bikin subdomain → butuh domain sendiri.
-// GO_BASE kosong = belum ada domain: linkFor() balik ke zataa.my.id polos (biar nggak ada link mati).
+// GO_BASE kosong (sekarang): linkFor() kasih link zataa.my.id + utm_* langsung → kebaca di GA4 toko (G-GX33CTMBHG,
+// property "Zataa Store", dipasang di panel UniPlay → SEO & Pixel sejak 31 Okt 2026).
 // Privasi: IP nggak disimpan, cuma hash harian (ip+ua+tanggal) buat hitung pengunjung unik.
 //   node scripts/golink.mjs serve            → server (GO_PORT, default 8790; service VPS pakai 80)
 //   node scripts/golink.mjs url <sumber> [id] [game]   → bikin link
@@ -47,7 +48,7 @@ export function target({ src, content_id, game }) {
   return u.href;
 }
 
-export const linkFor = (src, contentId, game) => !GO_BASE ? SITE :
+export const linkFor = (src, contentId, game) => !GO_BASE ? target({ src, content_id: contentId ? +contentId : null, game: game ?? null }) :
   `${GO_BASE}/${src}${contentId ? `/${contentId}` : ''}${game ? `?g=${game}` : ''}`;
 
 function serve() {
@@ -91,7 +92,6 @@ if (isMain) {
   } else if (cmd === 'url') {
     const [src, id, game] = args;
     if (!src || !SRC_RE.test(src)) { console.error(`sumber: ${Object.keys(SOURCES).join(' | ')}`); process.exit(1); }
-    if (!GO_BASE) console.error('GO_BASE belum di-set di .env → link polos zataa.my.id (klik nggak kehitung)');
     console.log(linkFor(src, id && /^\d+$/.test(id) ? id : null, game));
   } else if (cmd === 'stats') {
     const days = +(args[0] ?? 7);

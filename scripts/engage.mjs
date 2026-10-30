@@ -7,7 +7,7 @@
 process.removeAllListeners('warning');
 import { fileURLToPath } from 'node:url';
 import { loadEnv, db, sayAs, SLOT } from './approval.mjs';
-import { GO_BASE } from './golink.mjs';
+import { linkFor } from './golink.mjs';
 import { haiku, replyOf } from './haiku.mjs';
 
 const env = () => ({ ...loadEnv(), ...process.env });
@@ -52,7 +52,7 @@ Aturan story (dari skill ig-story):
 - 3–5 frame. Frame 1 harus ada gerakan (rekaman layar gameplay, cuplikan Reels hari ini, tangan pegang HP), bukan teks di latar polos.
 - 1 ide per frame, teks layar maks 10 kata, ngomong ke "kamu" (1 orang).
 - Frame 3 atau 4 = SATU stiker: Polling (biar banyak yang tap), Kuis (kalau ada salah kaprah), atau Kotak pertanyaan (panen ide konten). Tulis pertanyaan + pilihannya.
-- Frame terakhir: hasil/penutup + arahkan ke post hari ini (bilang kenapa layak dibuka, jangan cuma repost polos) ATAU stiker link ${GO_BASE ? `${GO_BASE}/igs/<id konten> (pakai #id konten dari daftar di atas; link ini ngitung klik ke zataa.my.id, jangan ganti ke zataa.my.id polos)` : 'https://zataa.my.id'}.
+- Frame terakhir: hasil/penutup + arahkan ke post hari ini (bilang kenapa layak dibuka, jangan cuma repost polos) ATAU stiker link ${linkFor('igs', 999).replace('999', '<id konten>')} (ganti <id konten> pakai #id dari daftar di atas; link ini ngitung klik ke toko, jangan ganti ke zataa.my.id polos).
 - Kalau mau sebut harga, WAJIB cek dulu "node scripts/price.mjs latest <kata>"; datanya nggak ada → jangan sebut harga.
 - Akhiri dengan 1 baris "Habis itu:" = apa yang Owner lakukan ke yang jawab stiker (mis. balas DM yang vote X).
 

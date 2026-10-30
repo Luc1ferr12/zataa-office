@@ -76,7 +76,7 @@ const snap = (d, key) => { try { return JSON.parse(flag(d, key) ?? 'null'); } ca
 const clickLine = (d, from) => {
   try {
     const k = clickStats(d, from);
-    if (!k.clicks) return '🔗 Klik ke zataa.my.id: belum ada (link pelacak di bio/Story)';
+    if (!k.clicks) return '🔗 Klik ke zataa.my.id: lihat GA4 (Akuisisi → utm_source)';
     const src = k.by_src.map((r) => `${SOURCES[r.src] ?? esc(r.src)} ${r.n}`).join(' · ');
     const top = k.top.length ? `
    konten: ${k.top.map((r) => `#${r.id}${r.title ? ` ${esc(r.title.slice(0, 30))}` : ''} (${r.n})`).join('; ')}` : '';

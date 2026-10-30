@@ -141,7 +141,7 @@ function renderDashboard() {
   $('k-clicks').textContent = (st.clicks ?? 0).toLocaleString('id-ID');
   $('k-clicks-sub').textContent = st.clicks
     ? `${st.click_visitors} orang · ${(st.click_src ?? []).map((r) => `${SRC[r.src] ?? r.src} ${r.n}`).join(' · ')}`
-    : `minggu lalu ${(lw.clicks ?? 0).toLocaleString('id-ID')} · link di bio & Story`;
+    : 'data klik ada di GA4 toko (Akuisisi → utm_source)';
   $('campaign-theme').textContent = s?.campaign?.theme ? `Tema: ${s.campaign.theme}` : 'Belum ada campaign';
   $('updated-at').textContent = s?.generated_at ? `update ${new Date(s.generated_at).toLocaleString('id-ID', { timeZone: 'Asia/Makassar', hour: '2-digit', minute: '2-digit', day: 'numeric', month: 'short' })}` : '';
 
