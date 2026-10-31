@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-31T22:53:13.745Z",
+ "generated_at": "2026-10-31T23:03:13.768Z",
  "today": "2026-11-01",
  "week_start": "2026-10-26",
  "campaign": {
@@ -22,24 +22,24 @@
    "name": "Andre",
    "title": "Marketing Director",
    "status": "done",
-   "current_task": "Briefing ide 08:00",
-   "updated_at": "2026-10-30 23:03:31"
+   "current_task": "Pilih 3 ide briefing, kirim ke Owner",
+   "updated_at": "2026-10-31 23:02:13"
   },
   {
    "id": "researcher",
    "name": "Clariana",
    "title": "Researcher",
    "status": "done",
-   "current_task": "Riset 5 pemain muda MPL + jalan GCC 2026",
-   "updated_at": "2026-10-31 00:58:23"
+   "current_task": "Riset esport: transfer window VCT, venue playoff MPL, FFWS",
+   "updated_at": "2026-10-31 23:01:37"
   },
   {
    "id": "copywriter",
    "name": "Ista",
    "title": "Copywriter",
-   "status": "done",
-   "current_task": "Teks carousel #107 & video #108",
-   "updated_at": "2026-10-31 00:59:02"
+   "status": "working",
+   "current_task": "Isi konten #85 & #86",
+   "updated_at": "2026-10-31 23:02:18"
   },
   {
    "id": "designer",
@@ -78,16 +78,16 @@
    "name": "Raka",
    "title": "Data Analyst",
    "status": "done",
-   "current_task": null,
-   "updated_at": "2026-10-31 22:00:58"
+   "current_task": "Data minggu: views IG 22,5rb, video news paling kuat",
+   "updated_at": "2026-10-31 23:01:49"
   },
   {
    "id": "price",
    "name": "Budi",
    "title": "Price Watcher",
    "status": "done",
-   "current_task": null,
-   "updated_at": "2026-10-31 12:00:18"
+   "current_task": "Harga ML live OK",
+   "updated_at": "2026-10-31 23:01:42"
   },
   {
    "id": "ob",
@@ -804,6 +804,41 @@
  ],
  "activity": [
   {
+   "ts": "2026-10-31 23:02:14",
+   "agent_id": "dir",
+   "message": "Ide dikirim: video transfer VCT 2 Nov, feed venue playoff MPL, feed valyn keluar G2"
+  },
+  {
+   "ts": "2026-10-31 23:02:13",
+   "agent_id": "dir",
+   "message": "Kirim 3 ide briefing ke Owner"
+  },
+  {
+   "ts": "2026-10-31 23:02:13",
+   "agent_id": "dir",
+   "message": "Pilih 3 ide terbaik dari briefing (2 feed + 1 video)"
+  },
+  {
+   "ts": "2026-10-31 23:01:49",
+   "agent_id": "analyst",
+   "message": "Minggu 26 Okt: IG 22.563 views (target 30rb miss), YT 15.919; video news eng 11, promo 0"
+  },
+  {
+   "ts": "2026-10-31 23:01:43",
+   "agent_id": "price",
+   "message": "zataa.my.id live, harga ML kebaca"
+  },
+  {
+   "ts": "2026-10-31 23:01:37",
+   "agent_id": "researcher",
+   "message": "7 item riset; jendela transfer VCT buka 2 Nov, playoff MPL di JIE Surabaya"
+  },
+  {
+   "ts": "2026-10-31 23:01:37",
+   "agent_id": "researcher",
+   "message": "Nemu 7 topik baru"
+  },
+  {
    "ts": "2026-10-31 22:00:58",
    "agent_id": "analyst",
    "message": "Update data 51 post IG 📈"
@@ -892,44 +927,37 @@
    "ts": "2026-10-31 01:00:39",
    "agent_id": "publisher",
    "message": "Kirim draf IG Story ke Bos 📱"
-  },
-  {
-   "ts": "2026-10-31 00:59:18",
-   "agent_id": "publisher",
-   "message": "Kirim #107 ke Owner buat approval"
-  },
-  {
-   "ts": "2026-10-31 00:58:14",
-   "agent_id": "researcher",
-   "message": "Nemu 2 topik baru"
-  },
-  {
-   "ts": "2026-10-31 00:57:51",
-   "agent_id": "researcher",
-   "message": "Nemu 7 topik baru"
-  },
-  {
-   "ts": "2026-10-31 00:55:22",
-   "agent_id": "owner",
-   "message": "Approve Shorts #105 ✅"
-  },
-  {
-   "ts": "2026-10-31 00:55:17",
-   "agent_id": "owner",
-   "message": "Approve Shorts #106 ✅"
-  },
-  {
-   "ts": "2026-10-31 00:55:13",
-   "agent_id": "owner",
-   "message": "Approve konten #84 ✅"
-  },
-  {
-   "ts": "2026-10-31 00:55:13",
-   "agent_id": "owner",
-   "message": "Approve konten #83 ✅"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-10-31 23:02:13",
+   "agent_id": "dir",
+   "to_id": "researcher",
+   "kind": "oper",
+   "message": "Clariana, plan minggu ini udah aku taruh ya. Fokus \"Pilih 3 ide briefing, kirim ke Owner\". Tolong cariin bahan beritanya 🙏"
+  },
+  {
+   "ts": "2026-10-31 23:01:49",
+   "agent_id": "analyst",
+   "to_id": "dir",
+   "kind": "oper",
+   "message": "Rekap \"Data minggu: views IG 22,5rb, video news paling kuat\" beres, Andre. Bisa buat bahan plan"
+  },
+  {
+   "ts": "2026-10-31 23:01:42",
+   "agent_id": "price",
+   "to_id": "copywriter",
+   "kind": "oper",
+   "message": "Ista, harga buat \"Harga ML live OK\" udah aku cek di web. Angkanya aman dipake 💰"
+  },
+  {
+   "ts": "2026-10-31 23:01:37",
+   "agent_id": "researcher",
+   "to_id": "copywriter",
+   "kind": "oper",
+   "message": "Riset \"Riset esport: transfer window VCT, venue playoff MPL, FFWS\" beres, udah dicek 2 sumber. Ista, lanjut ya~"
+  },
   {
    "ts": "2026-10-31 12:01:29",
    "agent_id": "publisher",
@@ -1181,34 +1209,6 @@
    "to_id": "video",
    "kind": "santai",
    "message": "Dimas, ONIC vs AE Rabu siang, kamu tebak berapa? Aku AE 3-2 deh"
-  },
-  {
-   "ts": "2026-10-30 00:45:22",
-   "agent_id": "publisher",
-   "to_id": "owner",
-   "kind": "oper",
-   "message": "\"Kuis ONIC vs AE terkirim ke Owner\" udah lolos QA, tinggal nunggu ✅ dari Bos"
-  },
-  {
-   "ts": "2026-10-30 00:45:14",
-   "agent_id": "video",
-   "to_id": "publisher",
-   "kind": "oper",
-   "message": "Fikri, video \"Video dana VCT 2027 masuk antrean render laptop\" udah render 9:16. Musiknya aman kok"
-  },
-  {
-   "ts": "2026-10-30 00:45:14",
-   "agent_id": "designer",
-   "to_id": "publisher",
-   "kind": "oper",
-   "message": "Fikri, desain \"Render kuis ONIC vs AE\" udah render 1080×1080. QA dulu ya sebelum ke bos"
-  },
-  {
-   "ts": "2026-10-30 00:45:00",
-   "agent_id": "copywriter",
-   "to_id": "designer",
-   "kind": "oper",
-   "message": "Maria, copy \"Teks kuis ONIC vs AE & video dana VCT 2027\" udah masuk. Headline-nya jangan dikecilin ya 😆"
   }
  ],
  "stats": {
