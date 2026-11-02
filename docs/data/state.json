@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-01T23:53:14.389Z",
+ "generated_at": "2026-11-02T00:03:14.386Z",
  "today": "2026-11-02",
  "week_start": "2026-11-02",
  "campaign": {
@@ -87,7 +87,7 @@
    "title": "Price Watcher",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-11-01 23:00:15"
+   "updated_at": "2026-11-02 00:00:15"
   },
   {
    "id": "ob",
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-01 23:45:56"
+   "updated_at": "2026-11-02 00:01:06"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Berita 24 jam tak terverifikasi (hasil lama). Fed condong hawkish (hike Sep, Nov ~50:50), ISM 54.7 kuat. Cek ulang sebelum entry.",
-   "updated_at": "2026-11-01 23:45:56"
+   "updated_at": "2026-11-02 00:01:06"
   },
   {
    "id": "ttech",
@@ -119,15 +119,15 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-01 23:45:56"
+   "updated_at": "2026-11-02 00:01:06"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
-   "updated_at": "2026-11-01 23:45:56"
+   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
+   "updated_at": "2026-11-02 00:01:06"
   },
   {
    "id": "texec",
@@ -524,6 +524,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-02 00:01:06",
+   "agent_id": "ttech",
+   "message": "M60 berubah arah: bearish → sideways"
+  },
+  {
    "ts": "2026-11-01 23:37:02",
    "agent_id": "publisher",
    "message": "112 lolos QA & dikirim; 113 nunggu render laptop (auto-submit)"
@@ -642,11 +647,6 @@
    "ts": "2026-11-01 23:02:58",
    "agent_id": "dir",
    "message": "Plan minggu 2026-11-02 dibuat: Road to Juara MPL ID S18 Surabaya + Bursa Transfer VCT 2027 (14 konten)"
-  },
-  {
-   "ts": "2026-11-01 23:02:10",
-   "agent_id": "researcher",
-   "message": "8 topik: jadwal playoff MPL ID S18, PRX sisa 3 pemain, jendela transfer VCT buka, GCC GF belum terindeks"
   }
  ],
  "chats": [
@@ -1075,9 +1075,14 @@
   "paused": false,
   "balance": 1687.5099999999998,
   "today_pnl": 0,
-  "price": 3901.100098,
+  "price": 3903.5,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-02 00:01:06",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
+   },
    {
     "ts": "2026-11-01 23:45:56",
     "decision": "NO TRADE",
@@ -1100,11 +1105,6 @@
    },
    {
     "ts": "2026-10-30 20:45:44",
-    "decision": "NO TRADE",
-    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
-   },
-   {
-    "ts": "2026-10-30 20:30:42",
     "decision": "NO TRADE",
     "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
    }
@@ -1140,7 +1140,7 @@
    1687.5099999999995
   ],
   "last": {
-   "ts": "2026-11-01 23:45:56",
+   "ts": "2026-11-02 00:01:06",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1149,7 +1149,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
+   "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)",
    "fund": {
     "bias": -0.25,
     "note": "Berita 24 jam tak terverifikasi (hasil lama). Fed condong hawkish (hike Sep, Nov ~50:50), ISM 54.7 kuat. Cek ulang sebelum entry.",
@@ -1161,7 +1161,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3901.90 di atas tengah band (3859.9–3902.5) · RSI 100 · Stoch 95 · MACD +3.06 · H1 sideways"
+    "note": "M15 3899.50 di atas tengah band (3860.4–3901.8) · RSI 91 · Stoch 92 · MACD +2.91 · H1 sideways"
    }
   },
   "fund": {
@@ -1266,46 +1266,46 @@
    "M10": {
     "bias": "bullish",
     "score": 2,
-    "price": 3901.5,
-    "ema20": 3885.29,
-    "ema50": 3880.45,
-    "rsi": 95.3,
-    "n": 299,
-    "slot": 2989295,
-    "at": 1793577056115
+    "price": 3899.5,
+    "ema20": 3886.64,
+    "ema50": 3881.2,
+    "rsi": 86.6,
+    "n": 300,
+    "slot": 2989296,
+    "at": 1793577666066
    },
    "M15": {
     "bias": "bullish",
     "score": 3,
-    "price": 3901.5,
-    "ema20": 3882.56,
-    "ema50": 3879.09,
-    "rsi": 99.5,
-    "n": 299,
-    "slot": 1992863,
-    "at": 1793576756105
+    "price": 3899.5,
+    "ema20": 3884.17,
+    "ema50": 3879.89,
+    "rsi": 90.7,
+    "n": 300,
+    "slot": 1992864,
+    "at": 1793577666071
    },
    "M30": {
     "bias": "bullish",
     "score": 2,
-    "price": 3901.6,
-    "ema20": 3878.8,
-    "ema50": 3878.69,
-    "rsi": 99.9,
-    "n": 299,
-    "slot": 996431,
-    "at": 1793575856163
+    "price": 3899.5,
+    "ema20": 3880.77,
+    "ema50": 3879.51,
+    "rsi": 91.6,
+    "n": 300,
+    "slot": 996432,
+    "at": 1793577666073
    },
    "H1": {
-    "bias": "bearish",
-    "score": -2,
-    "price": 3876.4,
-    "ema20": 3876.82,
-    "ema50": 3890.53,
-    "rsi": 17.1,
-    "n": 299,
-    "slot": 498215,
-    "at": 1793574056108
+    "bias": "sideways",
+    "score": 0,
+    "price": 3899.5,
+    "ema20": 3878.98,
+    "ema50": 3890.88,
+    "rsi": 90.9,
+    "n": 300,
+    "slot": 498216,
+    "at": 1793577666078
    }
   },
   "currency": "USC",
