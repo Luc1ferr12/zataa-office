@@ -5,13 +5,13 @@ from PIL import Image, ImageDraw, ImageFont, ImageFilter
 
 INFO = {   # judul, peran, gaya, warna
     'owner': ('MALE', 'Owner / Boss', 'Modern Casual', 'Black - Purple'),
-    'sec': ('FEMALE', 'Sekretaris (Aprista)', 'Modern Casual', 'Black - Purple - White'),
+    'sec': ('FEMALE', 'Sekretaris (Nabila)', 'Modern Casual', 'Black - Purple - White'),
     'ob': ('FEMALE', 'Office Girl (Mbak Sari)', 'Office Casual', 'White - Black - Purple'),
     'dir': ('MALE', 'Marketing Director (Andre)', 'Modern Casual', 'Black - Purple'),
-    'researcher': ('FEMALE', 'Researcher (Clariana)', 'Modern Casual', 'Black - Purple'),
+    'researcher': ('FEMALE', 'Researcher (Salsa)', 'Modern Casual', 'Black - Purple'),
     'price': ('MALE', 'Price Watcher (Budi)', 'Modern Casual', 'Black - Purple'),
-    'copywriter': ('FEMALE', 'Copywriter (Ista)', 'Modern Casual', 'Black - Purple - White'),
-    'designer': ('FEMALE', 'Graphic Designer (Maria)', 'Street Casual', 'Purple - Black'),
+    'copywriter': ('FEMALE', 'Copywriter (Tiara)', 'Modern Casual', 'Black - Purple - White'),
+    'designer': ('FEMALE', 'Graphic Designer (Vania)', 'Street Casual', 'Purple - Black'),
     'publisher': ('MALE', 'Social Publisher (Fikri)', 'Street Casual', 'Black - Purple'),
     'video': ('MALE', 'Video Producer (Dimas)', 'Modern Casual', 'Black - Purple'),
     'ads': ('FEMALE', 'Ads Specialist (Fahriah)', 'Modern Hijab', 'Purple - Black'),

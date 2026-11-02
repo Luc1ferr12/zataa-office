@@ -466,7 +466,7 @@ export function makeSpots() {
     ...ARCADE_X.map((x) => ({ x, z: RZ(1, -6.55), rot: Math.PI })),
     { x: PINGPONG.x - 1.85, z: RZ(1, PINGPONG.lz), rot: Math.PI / 2 }, { x: PINGPONG.x + 1.85, z: RZ(1, PINGPONG.lz), rot: -Math.PI / 2 },
   ];
-  // bioskop (Lt.3): 4 baris × 7 kursi menghadap layar di dinding belakang; baris belakang kursi 23–24 = love seat Zamiir & Aprista
+  // bioskop (Lt.3): 4 baris × 7 kursi menghadap layar di dinding belakang; baris belakang kursi 23–24 = kursi tetap Bos & sekretaris
   S.cinema = [];
   CINE_ROWS.forEach((r) => CINE_X.forEach((x) => S.cinema.push({ x, y: y(3) + r.h + 0.05, z: RZ(3, r.lz + 0.05), rot: Math.PI, row: r.lz })));
   // billiard (Lt.3): 4 meja, 1 meja 2 pemain di ujung kiri & kanan (slot 2k, 2k+1 = meja k)
@@ -501,7 +501,7 @@ export const BILLIARD = [[-9.8, -6.0], [-3.6, -6.0], [-9.8, -2.8], [-3.6, -2.8]]
 const ARCADE_X = [25.8, 26.7, 27.6];
 const PINGPONG = { x: 29.8, lz: -3.5 };
 const WAIT_X = [12.6, 11.8, 11.0, 10.2];
-// meja sekretaris (Aprista) di ruang Bos, kiri depan; kursi di belakang meja menghadap kamera
+// meja sekretaris (Nabila) di ruang Bos, kiri depan; kursi di belakang meja menghadap kamera
 export const SEC_DESK = { x: 4.6, lz: -3.2 };
 // ruang manajer Lt.2 (id pegawai → ruang); meja di tengah ruang
 export const MGR_ROOM = { ydir: 'ydirRoom', sdir: 'sdirRoom', dir: 'dirRoom', tdir: 'tdirRoom' };
@@ -914,7 +914,7 @@ export function buildScene(logo) {
     for (const sx of [-1.22, 1.22]) B.box(0.08, 0.72, 1.0, 8.6 + sx, y + 0.38, z(-5.7), M.walnut);
     for (const dx of [-0.5, 0.5]) { B.box(0.9, 0.52, 0.05, 8.6 + dx, y + 1.15, z(-5.95), M.black, { ry: dx * 0.4 }); B.box(0.08, 0.3, 0.08, 8.6 + dx, y + 0.95, z(-6.0), M.steel); }
     officeChair(B, 8.6, y, z(-6.6), 0, M.leather, 1.2);
-    // meja sekretaris (Aprista): meja kecil + 1 monitor + pot bunga
+    // meja sekretaris (Nabila): meja kecil + 1 monitor + pot bunga
     {
       const { x: dx, lz } = SEC_DESK;
       B.box(1.7, 0.07, 0.8, dx, y + 0.75, z(lz), M.lightwood);

@@ -1,4 +1,4 @@
-# Maria — Graphic Designer
+# Vania — Graphic Designer
 Diadaptasi dari: Brand Guardian, Visual Storyteller, Carousel Growth Engine (agency-agents, MIT).
 
 ## Misi

@@ -11,16 +11,16 @@ Kamu menjalankan satu hari kerja kantor marketing virtual Zataa (zataa.my.id, to
 - Tiap pegawai mulai/selesai: `office.mjs agent <id> working "<tugas>"` → `office.mjs agent <id> done "<tugas>"` (otomatis jadi obrolan oper kerjaan), plus `office.mjs log <id> "<pesan>"`. Boleh 1–2 obrolan natural: `office.mjs chat <dari> <ke|all> santai "<pesan>"`.
 
 ## 1A. SENIN 07:00–08:00 — rapat plan mingguan
-1. Clariana riset singkat (`node scripts/feeds.mjs` dulu, lalu ≤4 pencarian): tren & jadwal turnamen/patch minggu ini → `office.mjs research <file.json>`.
+1. Salsa riset singkat (`node scripts/feeds.mjs` dulu, lalu ≤4 pencarian): tren & jadwal turnamen/patch minggu ini → `office.mjs research <file.json>`.
 2. Andre bikin plan 14 slot sesuai `office/roles/dir.md` → `office.mjs campaign plan.json` → `node scripts/approval.mjs plan`.
 3. **STOP produksi marketing.** Konten hari ini dikerjakan otomatis setelah Owner ✅ plan (watcher). Lanjut ke langkah 3Y (Shorts tetap jalan Senin), lalu langkah 5 (penutup).
 
 ## 1B. SELASA–MINGGU 07:00–08:00 — riset masing-masing
-- Total maks ~10 pencarian web untuk semua pegawai (Clariana pegang hampir semua, prioritas esport). Fokus:
-  - Clariana: wartawan esport — mulai dari `node scripts/feeds.mjs` (0 token), lalu hasil match, jadwal, transfer, pensiun, event besar (MPL, Champions, dll) ML/Valorant/FF (≥2 sumber, rumor ditandai), lihat `office/roles/researcher.md` → `office.mjs research`.
+- Total maks ~10 pencarian web untuk semua pegawai (Salsa pegang hampir semua, prioritas esport). Fokus:
+  - Salsa: wartawan esport — mulai dari `node scripts/feeds.mjs` (0 token), lalu hasil match, jadwal, transfer, pensiun, event besar (MPL, Champions, dll) ML/Valorant/FF (≥2 sumber, rumor ditandai), lihat `office/roles/researcher.md` → `office.mjs research`.
   - Budi: harga hari ini di zataa.my.id (satu-satunya sumber harga): `node scripts/price.mjs latest [kata]`. Web mati → jangan bikin konten berisi angka harga.
   - Raka: `office.mjs stats` + tabel metrics → pola kemarin.
-  - Lainnya (Ista, Maria, Dimas, Fikri; Fahriah libur): cukup dari bahan di atas + memori, tanpa pencarian tambahan.
+  - Lainnya (Tiara, Vania, Dimas, Fikri; Fahriah libur): cukup dari bahan di atas + memori, tanpa pencarian tambahan.
 
 ## 2. SELASA–MINGGU 08:00–08:30 — briefing ide
 1. Tiap pegawai marketing (kecuali Andre & Fahriah yang libur) pitching 1 ide konten tambahan, **feed atau video** (minimal 2 ide video di antaranya) → `office.mjs idea add ideas.json` (`[{agent, title, concept, format, game, pillar}]`, `format` = `feed`|`video`).
@@ -30,8 +30,8 @@ Kamu menjalankan satu hari kerja kantor marketing virtual Zataa (zataa.my.id, to
 ## 3. Produksi konten terjadwal hari ini (Selasa–Minggu, kalau campaign `approved`)
 - Kalau campaign minggu ini belum `approved` (masih nunggu/revisi): jangan produksi, ingatkan Owner di ringkasan.
 - `office.mjs content list` → konten hari ini (+ konten `revision` yang tertunda, baca `owner_note`).
-- Ista: isi `data_json` sesuai `templates/README.md` (contoh `templates/samples/`), `template`, `caption`, `hashtags`, `cta`, `link` = https://zataa.my.id, `sources` untuk berita → `office.mjs content set <id> <file.json>`.
-- Maria/Dimas: `node scripts/render.mjs <id>`, buka 1 hasil (video: cover), perbaiki maks 2×.
+- Tiara: isi `data_json` sesuai `templates/README.md` (contoh `templates/samples/`), `template`, `caption`, `hashtags`, `cta`, `link` = https://zataa.my.id, `sources` untuk berita → `office.mjs content set <id> <file.json>`.
+- Vania/Dimas: `node scripts/render.mjs <id>`, buka 1 hasil (video: cover), perbaiki maks 2×.
 - Fikri: QA (`office/roles/publisher.md`) → `node scripts/approval.mjs submit <id>`. Posting IG otomatis oleh watcher setelah Owner ✅ — jangan posting manual.
 
 ## 3Y. Shorts — dua divisi, kode sama, bedanya `--brand`

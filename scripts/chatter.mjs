@@ -31,7 +31,7 @@ export const NEXT = {
   svideo: ['spublish'],
   spublish: ['owner'],
 };
-export const NAMES = { dir: 'Andre', sec: 'Aprista', researcher: 'Clariana', copywriter: 'Ista', designer: 'Maria', video: 'Dimas', publisher: 'Fikri', ads: 'Fahriah', analyst: 'Raka', price: 'Budi', ob: 'Mbak Sari', owner: 'Bos Zamiir',
+export const NAMES = { dir: 'Andre', sec: 'Nabila', researcher: 'Salsa', copywriter: 'Tiara', designer: 'Vania', video: 'Dimas', publisher: 'Fikri', ads: 'Fahriah', analyst: 'Raka', price: 'Budi', ob: 'Mbak Sari', owner: 'Bos Zamiir',
   tdir: 'Mahendra', tresearch: 'Davina', ttech: 'Keira', trisk: 'Aryaputra', texec: 'Wiratama', teval: 'Jihan', treport: 'Selena',
   ydir: 'Bagas', yresearch: 'Nadhira', yscript: 'Laras', yvisual: 'Galih', yvideo: 'Yoga', ypublish: 'Kirana',
   sdir: 'Raditya', sresearch: 'Sekar', sscript: 'Dinda', svisual: 'Arga', svideo: 'Bima', spublish: 'Nayla' };

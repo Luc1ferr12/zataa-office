@@ -427,8 +427,8 @@ def room():
 
 room()
 
-# ---------------------------------------------------------------- 2 karakter: Aprista (cewek) & Fikri (cowok)
-character({'name': 'Aprista', 'g': 'f', 'skin': '#f0c9a8', 'skinD': '#e2b08e', 'hair': '#7a4526', 'brow': '#5a3320',
+# ---------------------------------------------------------------- 2 karakter: Nabila (cewek) & Fikri (cowok)
+character({'name': 'Nabila', 'g': 'f', 'skin': '#f0c9a8', 'skinD': '#e2b08e', 'hair': '#7a4526', 'brow': '#5a3320',
            'top': '#f2efe9', 'bot': '#1c1f2b', 'shoe': '#3a2f2a', 'skirt': True, 'lanyard': True, 'clip': True,
            'pose': {'head': (7, 4, 8), 'twist': 6, 'lean': -2, 'el': {1: (0.168, -0.012, 0.548)}, 'wr': {1: (0.09, -0.135, 0.56)},
                     'foot': {-1: (-0.004, -0.025, 12), 1: (0.006, 0.01, 8)}}}, (-0.5, -0.35, 0.012), 28)

@@ -1,4 +1,4 @@
-# Panduan Esport untuk Tim Marketing (wajib dibaca Clariana & Ista sebelum konten esport)
+# Panduan Esport untuk Tim Marketing (wajib dibaca Salsa & Tiara sebelum konten esport)
 
 Tujuan: nggak salah istilah, format, atau angka. Fakta di sini dicek **16 Okt 2026**. Format liga bisa berubah tiap season → cek ulang di awal season baru dan perbarui file ini (1 baris "dicek tanggal").
 
@@ -47,4 +47,4 @@ Sumber: [id-mpl.com](https://id-mpl.com/en) (resmi), [Liquipedia](https://liquip
 
 ## Liga lain (isi saat dipakai, format beda dari MPL!)
 - **MDL ID** (liga pengembangan ML), **M-Series / M8** (dunia), **MSC** (Esports World Cup), **VCT Pacific / Champions** (Valorant: umumnya Bo3 per map, final Bo5), **FFWS / FF Master League** (Free Fire: sistem **poin per ronde/booyah + kill**, beda total dengan MPL).
-- Sebelum bikin konten liga di atas pertama kali per season: Clariana cek format resminya lalu tambahkan bagian singkat di file ini.
+- Sebelum bikin konten liga di atas pertama kali per season: Salsa cek format resminya lalu tambahkan bagian singkat di file ini.

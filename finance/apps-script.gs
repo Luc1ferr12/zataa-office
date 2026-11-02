@@ -1,5 +1,5 @@
 // Catatan keuangan Owner — Google Apps Script (tempel di Extensions → Apps Script pada Google Sheet).
-// Bot Telegram Aprista (@zataaaccountingbot, scripts/finance.mjs di VPS) baca & tulis lewat web app ini. Data cuma di sheet ini.
+// Bot Telegram Nabila (@zataaaccountingbot, scripts/finance.mjs di VPS) baca & tulis lewat web app ini. Data cuma di sheet ini.
 // Generik: sheet & kolom dikirim dari VPS (finance.mjs HEADS), sheet baru dibuat otomatis → fitur baru nggak perlu deploy ulang.
 // Pasang: 1) jalankan setup() → salin FINANCE_SHEET_TOKEN dari Execution log
 //         2) Deploy → Web app (Execute as: Me, Who has access: Anyone) → URL /exec

@@ -108,12 +108,6 @@ const BANK = {
     [[0, 'Musiknya jangan yang kena klaim lagi ya'], [1, 'Pakai ambience bikinan sendiri aja, aman']],
   ],
   // hubungan
-  pacaran: [   // Zamiir & Aprista
-    [[0, 'Udah makan belum? Jangan kerja mulu 🥺'], [1, 'Belum, nungguin kamu dong'], [0, 'Gombal ah 🙈']],
-    [[0, 'Nanti malem nonton bareng yuk'], [1, 'Boleh, tapi aku yang pilih filmnya ya'], [0, 'Asal bukan horor 😤']],
-    [[0, 'Kamu capek ya? Mukanya kusut'], [1, 'Dikit, tapi liat kamu langsung seger lagi'], [0, 'Dasar bos gombal 😆']],
-    [[0, 'Kopinya aku pesenin yang less sugar ya'], [1, 'Kok tau? 🥰'], [0, 'Udah hafal lah']],
-  ],
   pacaran2: [
     [[0, 'Pulang kerja nanti jalan bentar yuk'], [1, 'Ke mana?'], [0, 'Ke gazebo aja, liat bintang 🌙'], [1, 'Romantis amat 🙈']],
     [[0, 'Aku bawain {makanan} buat kamu'], [1, 'Ihh kamu tau aja aku laper 🥹']],
@@ -174,9 +168,9 @@ const BANK = {
     [[0, 'Kayaknya aku harus fokus kerja dulu deh'], [1, 'Bagus, sambil healing. Mau ikut mabar nanti?'], [0, 'Boleh, biar lupa dikit 😅']],
   ],
   ledek: [
-    [[0, 'Itu bos sama Kak Aprista berduaan mulu ya 👀'], [1, 'Cieeee, kantor jadi berbunga-bunga 🌸']],
-    [[0, 'Kapan nih undangannya bos? 😏'], [1, 'Kerja dulu kerja, hus hus 😂']],
-    [[0, 'Pantes approve konten hari ini cepet, lagi bucin 🤭'], [1, 'Wkwk jangan kenceng-kenceng, kedengeran']],
+    [[0, 'Bos hari ini rapi banget, ada meeting penting ya? 👀'], [1, 'Meeting sama klien katanya, pantes wangi 😂']],
+    [[0, 'Bos, traktiran bulan ini kapan nih? 😏'], [1, 'Kerja dulu kerja, hus hus 😂']],
+    [[0, 'Pantes approve konten hari ini cepet, bos lagi good mood 🤭'], [1, 'Wkwk jangan kenceng-kenceng, kedengeran']],
   ],
   // ulang tahun
   ultah: [
@@ -236,7 +230,6 @@ function topicOf(p1, p2, ctx, r) {
   const ids = [p1.a.id, p2.a.id];
   const rel = relationOf(ids[0], ids[1], ctx.date);
   if (rel && r < 0.75) {
-    if (rel.a === 'owner') return 'pacaran';
     return { pacaran: 'pacaran2', pdkt: 'pdkt', putus: 'putus', ditolak: 'ditolak', teman: 'teman', sahabat: 'sahabat', rival: 'rival' }[rel.stage];
   }
   if (ids.includes('ob')) return 'ob';

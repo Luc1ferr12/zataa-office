@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Aprista (sec) — catatan keuangan pribadi Owner di Google Sheet (lewat Apps Script web app, finance/apps-script.gs).
+// Nabila (sec) — catatan keuangan pribadi Owner di Google Sheet (lewat Apps Script web app, finance/apps-script.gs).
 // Data cuma di sheet: nggak masuk DB, panel chat, maupun web kantor. Angka dihitung script ini, bukan dikira-kira AI.
 // Transaksi (uang masuk/keluar/pindah akun):
 //   add '[{"tanggal":"2026-10-12","tipe":"keluar","nominal":25000,"kategori":"Makan & Minum","ket":"nasi padang","akun":"Cash"}]'

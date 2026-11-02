@@ -265,8 +265,7 @@ function tick(force = false) {
   const waits = approvalWaits({ campaign: state?.campaign, contents: state?.week_contents, agents: state?.agents, proposals: state?.trading?.proposals, today: state?.today });
   const infos = pairBilliard(AGENTS.map((a, idx) => {
     const real = realOf(a.id);
-    const partnerBusy = a.partner ? realOf(a.partner)?.status === 'working' : false;
-    return describe(a, activityAt(idx, a, t, real, { visit: visits[a.id], partnerBusy, waitApproval: waits[a.id] }), real);
+    return describe(a, activityAt(idx, a, t, real, { visit: visits[a.id], waitApproval: waits[a.id] }), real);
   }), t);   // billiard: pasangin 2 orang per meja
   const list = AGENTS.map((a, idx) => {
     office?.setActivity(a.id, infos[idx], mode);

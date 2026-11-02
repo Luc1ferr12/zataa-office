@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Clariana: tarik berita esport ML / Valorant / Free Fire dari RSS (0 token, tanpa search web).
+// Salsa: tarik berita esport ML / Valorant / Free Fire dari RSS (0 token, tanpa search web).
 // Hasilnya bahan awal riset pagi; search web cukup buat cek silang / rumor / yang nggak ada di sini.
 //   node scripts/feeds.mjs            berita 36 jam terakhir, dikelompokkan per game (maks 12/game)
 //   node scripts/feeds.mjs 72 ml      jendela 72 jam, cuma game ml|valorant|ff

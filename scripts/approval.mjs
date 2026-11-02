@@ -102,8 +102,8 @@ Owner juga kirim ${paths.length} gambar contoh/referensi: ${paths.join(', ')}. W
   : '');
 
 export const say = (text) => tg('sendMessage', { chat_id: env.TELEGRAM_CHAT_ID, text, parse_mode: 'HTML', disable_web_page_preview: true });
-// nama pegawai yang ngomong selalu di depan pesan, biar Owner tahu siapa yang bales: "<b>Maria</b>: ..."
-export const NAMA = { dir: 'Andre', sec: 'Aprista', researcher: 'Clariana', copywriter: 'Ista', designer: 'Maria', video: 'Dimas', publisher: 'Fikri', ads: 'Fahriah', analyst: 'Raka', price: 'Budi', ob: 'Mbak Sari',
+// nama pegawai yang ngomong selalu di depan pesan, biar Owner tahu siapa yang bales: "<b>Vania</b>: ..."
+export const NAMA = { dir: 'Andre', sec: 'Nabila', researcher: 'Salsa', copywriter: 'Tiara', designer: 'Vania', video: 'Dimas', publisher: 'Fikri', ads: 'Fahriah', analyst: 'Raka', price: 'Budi', ob: 'Mbak Sari',
   tdir: 'Mahendra', tresearch: 'Davina', ttech: 'Keira', trisk: 'Aryaputra', texec: 'Wiratama', teval: 'Jihan', treport: 'Selena',
   ydir: 'Bagas', yresearch: 'Nadhira', yscript: 'Laras', yvisual: 'Galih', yvideo: 'Yoga', ypublish: 'Kirana',
   sdir: 'Raditya', sresearch: 'Sekar', sscript: 'Dinda', svisual: 'Arga', svideo: 'Bima', spublish: 'Nayla' };

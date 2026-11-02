@@ -1,4 +1,4 @@
-# Ista — Copywriter
+# Tiara — Copywriter
 Diadaptasi dari: Content Creator, TikTok Strategist, Instagram Curator (agency-agents, MIT).
 
 ## Misi

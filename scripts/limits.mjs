@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Aprista ngabarin Owner kalau limit Claude (sesi 5 jam / mingguan) nyentuh ≥95% — tanpa AI, 0 token.
+// Nabila ngabarin Owner kalau limit Claude (sesi 5 jam / mingguan) nyentuh ≥95% — tanpa AI, 0 token.
 // Cek tiap 10 menit lewat watcher; tiap jenis limit cuma dikabarin 1× per periode reset.
 // Token dibaca dari login Claude CLI (~/.claude/.credentials.json); kalau token kedaluwarsa dilewati
 // (pemakaian cuma naik saat Claude jalan, dan saat itu CLI otomatis memperbarui token).

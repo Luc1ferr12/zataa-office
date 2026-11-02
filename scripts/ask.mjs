@@ -56,13 +56,13 @@ export async function statusReport() {
 }
 
 // ---------- siapa yang dipanggil Owner → dia yang nyaut (balasan selalu "<b>Nama</b>: ...")
-const WHO = { andre: 'dir', aprista: 'sec', clariana: 'researcher', ista: 'copywriter', maria: 'designer', dimas: 'video', fikri: 'publisher', fahriah: 'ads', raka: 'analyst', budi: 'price', sari: 'ob',
+const WHO = { andre: 'dir', nabila: 'sec', salsa: 'researcher', tiara: 'copywriter', vania: 'designer', dimas: 'video', fikri: 'publisher', fahriah: 'ads', raka: 'analyst', budi: 'price', sari: 'ob',
   mahendra: 'tdir', davina: 'tresearch', keira: 'ttech', aryaputra: 'trisk', arya: 'trisk', wiratama: 'texec', wira: 'texec', jihan: 'teval', selena: 'treport',
   bagas: 'ydir', nadhira: 'yresearch', laras: 'yscript', galih: 'yvisual', yoga: 'yvideo', kirana: 'ypublish',
   raditya: 'sdir', sekar: 'sresearch', dinda: 'sscript', arga: 'svisual', bima: 'svideo', nayla: 'spublish' };
 const NAME_RE = new RegExp(`\\b(${Object.keys(WHO).join('|')})\\b`, 'i');
 export const calledAgent = (t) => WHO[(String(t).match(NAME_RE)?.[1] ?? '').toLowerCase()] ?? null;
-// cuma manggil nama ("Maria", "halo Ista", "p dimas", "kak aprista?") → yang dipanggil langsung nyaut, tanpa AI (0 token)
+// cuma manggil nama ("Vania", "halo Tiara", "p dimas", "kak nabila?") → yang dipanggil langsung nyaut, tanpa AI (0 token)
 const CALL_FILLER = /\b(halo+|hal+o|hai+|hi+|hey+|p+|woy+|woi+|oi+|oy+|bang|kak|mbak|mba|mas|dek|bro|sis|neng|cek|tes|test|sayang|beb)\b|[\s?!.,~👋🙋]+/giu;
 export const isCall = (t) => t.length <= 40 && !!calledAgent(t) && t.replace(NAME_RE, '').replace(CALL_FILLER, '').trim() === '';
 async function answerCall(msg) {
@@ -123,7 +123,7 @@ export function claude(prompt, minutes = 20, { model, tools = FULL_TOOLS } = {})
 
 const RULES = `Aturan kerja:
 1. Baca CLAUDE.md seperlunya, lalu HANYA playbook pegawai yang kepakai (office/roles/<id>.md). Skema template: templates/README.md. Hemat token.
-2. Kerjakan berurutan sesuai alur: Clariana (researcher) riset → Ista (copywriter) teks → Maria (designer) / Dimas (video) render → Fikri (publisher) QA & kirim.
+2. Kerjakan berurutan sesuai alur: Salsa (researcher) riset → Tiara (copywriter) teks → Vania (designer) / Dimas (video) render → Fikri (publisher) QA & kirim.
    Tiap pegawai: node scripts/office.mjs agent <id> working "<tugas singkat>" → selesai: node scripts/office.mjs agent <id> done "<tugas singkat>" (otomatis muncul obrolan oper kerjaan di web).
    Boleh tambah 1–2 obrolan santai/curhat singkat yang natural: node scripts/office.mjs chat <dari> <ke|all> santai "<pesan>".
 3. Konten baru: node scripts/office.mjs content new '{"format":"feed","game":"mlbb","pillar":"promo","title":"..."}' → id. Isi lewat content set <id> <file.json> (data_json, caption, hashtags, sources, template), lalu node scripts/render.mjs <id> dan cek 1 gambar hasilnya.
@@ -134,9 +134,9 @@ const RULES = `Aturan kerja:
 6. Harga & nominal HANYA dari zataa.my.id hari ini (WebFetch). Berita wajib ≥2 sumber, rumor ditulis rumor. Tanpa logo tim/foto pemain kecuali Owner minta.
 7. Pertanyaan biasa cukup dijawab, tidak perlu bikin konten. Kalau pesannya cuma basa-basi (makasih, pujian, oke), JANGAN kerjakan apa pun — langsung BALASAN singkat dari pegawai yang disebut.
 8. Jangan ubah konten lain dan jangan kirim pesan Telegram sendiri (approval.mjs say) kecuali submit konten.
-9. Bot ini khusus kantor Marketing. Urusan YouTube Shorts (Bagas/Kirana dkk: approval, upload, laporan) → bot @zataashortbot; trading XAU (Mahendra dkk) → bot Zataa Office Trading; catat keuangan pribadi (Aprista) → @zataaaccountingbot. Jangan dikerjakan di sini, cukup arahkan Owner ke bot itu.
+9. Bot ini khusus kantor Marketing. Urusan YouTube Shorts (Bagas/Kirana dkk: approval, upload, laporan) → bot @zataashortbot; trading XAU (Mahendra dkk) → bot Zataa Office Trading; catat keuangan pribadi (Nabila) → @zataaaccountingbot. Jangan dikerjakan di sini, cukup arahkan Owner ke bot itu.
 Akhiri jawaban dengan baris "BALASAN:" lalu 1–3 baris pesan untuk Owner. TIAP baris WAJIB diawali nama pegawai yang ngomong, format "Nama: pesan"
-(contoh: "Maria: Desain promonya udah jadi Bos, cek di atas ya!"). Santai ala tim, yang ngerjain yang lapor hasilnya. Kalau Owner manggil nama pegawai, pegawai itu yang jawab duluan.`;
+(contoh: "Vania: Desain promonya udah jadi Bos, cek di atas ya!"). Santai ala tim, yang ngerjain yang lapor hasilnya. Kalau Owner manggil nama pegawai, pegawai itu yang jawab duluan.`;
 
 export const replyOf = (text) => {
   const i = text.lastIndexOf('BALASAN:');
@@ -164,7 +164,7 @@ function remember(d, html) {
   }
 }
 
-// "Maria: udah jadi" → "<b>Maria</b>: udah jadi"; baris tanpa nama → diucapkan `fallback`
+// "Vania: udah jadi" → "<b>Vania</b>: udah jadi"; baris tanpa nama → diucapkan `fallback`
 const SPEAKER_RE = new RegExp(`^[*_\\s]*(mbak sari|${[...Object.keys(WHO), ...Object.values(NAMA)].join('|')})[*_\\s]*[:：]\\s*`, 'i');
 const nameOf = (n) => { const k = n.toLowerCase().replace('mbak ', ''); return NAMA[WHO[k]] ?? n; };
 export function formatReply(text, fallback = 'dir') {
@@ -249,7 +249,7 @@ ${RULES}`);
   return { kind: task ? 'task' : 'talk', ok: true };
 }
 
-// selama masih ada tugas pantau, Clariana tetap di laptop (lewat jam kantor = lembur); beres → santai lagi
+// selama masih ada tugas pantau, Salsa tetap di laptop (lewat jam kantor = lembur); beres → santai lagi
 const FOLLOWUP_SQL = `CREATE TABLE IF NOT EXISTS followups (id INTEGER PRIMARY KEY AUTOINCREMENT, note TEXT NOT NULL, due_at TEXT NOT NULL,
     done INTEGER NOT NULL DEFAULT 0, created_at TEXT DEFAULT (datetime('now')))`;
 export async function syncMonitor() {
@@ -285,7 +285,7 @@ export async function handleDecision(x, log = console.log) {
   const d = await db();
   if (x.action === 'plan_approve') {
     chat(d, 'dir', null, 'Plan minggu ini udah di-ACC Bos! Gas produksi konten hari ini 🔥', 'oper');
-    return team('Owner baru saja APPROVE plan mingguan.', `Produksi konten HARI INI sesuai plan (node scripts/office.mjs content list): Ista isi teks, Maria/Dimas render, Fikri QA lalu node scripts/approval.mjs submit <id> untuk tiap konten. Jangan bikin plan baru.`, log);
+    return team('Owner baru saja APPROVE plan mingguan.', `Produksi konten HARI INI sesuai plan (node scripts/office.mjs content list): Tiara isi teks, Vania/Dimas render, Fikri QA lalu node scripts/approval.mjs submit <id> untuk tiap konten. Jangan bikin plan baru.`, log);
   }
   if (x.action === 'plan_revision') {
     const refs = await downloadPhotos(x.photos ?? []);
@@ -301,7 +301,7 @@ export async function handleDecision(x, log = console.log) {
     await sayAs('dir', `Siap Bos, ${rows.length} ide di-ACC: ${rows.map((r) => `${r.format === 'video' ? '🎬' : '🖼️'} ${esc(r.title)} (${SLOT[r.slot] ?? '?'} WIB)`).join(', ')}. Tim langsung produksi 🔥`).catch(() => {});
     const list = rows.map((r) => `- idea id ${r.id}: ${r.format === 'video' ? 'VIDEO' : 'FEED'} "${r.title}" — ${r.concept ?? ''} (dari ${r.agent_id}${r.game ? `, game ${r.game}` : ''}${r.pillar ? `, pilar ${r.pillar}` : ''}) → format "${r.format === 'video' ? 'video' : 'feed'}", slot "${r.slot ?? (r.format === 'video' ? 'sore' : 'pagi')}"`).join('\n');
     return team('Owner APPROVE ide konten tambahan hasil briefing pagi:\n' + list,
-      'Untuk tiap ide: buat konten baru (node scripts/office.mjs content new \'{"format":"<format>","slot":"<slot>","game":"...","pillar":"...","title":"..."}\'), Ista isi teks, Maria render feed / Dimas render video (node scripts/render.mjs <id>), Fikri QA lalu node scripts/approval.mjs submit <id> (video bersuara OmniVoice otomatis dirender & dikirim laptop), dan catat: node scripts/office.mjs idea done <idea_id> <content_id>.', log);
+      'Untuk tiap ide: buat konten baru (node scripts/office.mjs content new \'{"format":"<format>","slot":"<slot>","game":"...","pillar":"...","title":"..."}\'), Tiara isi teks, Vania render feed / Dimas render video (node scripts/render.mjs <id>), Fikri QA lalu node scripts/approval.mjs submit <id> (video bersuara OmniVoice otomatis dirender & dikirim laptop), dan catat: node scripts/office.mjs idea done <idea_id> <content_id>.', log);
   }
   if (x.action === 'idea_skip') { // Owner ❌ semua ide → ronde baru: semua pegawai marketing cari ide lagi, Andre pilih 3, kirim ulang
     const day = d.prepare('SELECT day FROM ideas WHERE id = ?').get(x.id)?.day;
@@ -316,13 +316,13 @@ export async function handleDecision(x, log = console.log) {
     chat(d, 'dir', null, 'Ide tambahan ditolak semua sama Bos. Tim, cari ide baru ya, kumpulin ke aku 💡', 'oper');
     await sayAs('dir', `Siap Bos, ide ronde ${round} ditolak semua. Tim langsung cari ide baru, nanti aku pilih 3 (2 feed + 1 video) terus kirim lagi ke sini 💡`).catch(() => {});
     return team(`Owner MENOLAK SEMUA ide konten tambahan hari ini (ronde ${round}). Ide yang sudah pernah diajukan hari ini (JANGAN diulang / dimirip-miripin):\n${old.map((o) => `- [${o.format}] ${o.title}`).join('\n')}`,
-      `Ronde ${round + 1}: tiap pegawai marketing (Clariana, Ista, Maria, Dimas, Fikri, Fahriah, Raka, Budi) pitching 1 ide BARU yang beda sudut pandang (baca office/roles/dir.md bagian briefing), minimal 2 ide berformat video. Simpan: node scripts/office.mjs idea add ideas.json ([{agent, title, concept, format: "feed"|"video", game, pillar}]). Andre pilih 3 (2 feed + 1 video): node scripts/office.mjs idea pick <id1> <id2> <id3>, lalu kirim: node scripts/approval.mjs ideas. JANGAN produksi kontennya sebelum Owner ✅. Riset web maks 2 pencarian.`, log);
+      `Ronde ${round + 1}: tiap pegawai marketing (Salsa, Tiara, Vania, Dimas, Fikri, Fahriah, Raka, Budi) pitching 1 ide BARU yang beda sudut pandang (baca office/roles/dir.md bagian briefing), minimal 2 ide berformat video. Simpan: node scripts/office.mjs idea add ideas.json ([{agent, title, concept, format: "feed"|"video", game, pillar}]). Andre pilih 3 (2 feed + 1 video): node scripts/office.mjs idea pick <id1> <id2> <id3>, lalu kirim: node scripts/approval.mjs ideas. JANGAN produksi kontennya sebelum Owner ✅. Riset web maks 2 pencarian.`, log);
   }
   if (x.action === 'price_promo') {
     const snap = d.prepare('SELECT * FROM price_snapshots WHERE id = ?').get(x.id);
-    chat(d, 'price', 'copywriter', 'Ista, harga di web berubah nih, Bos minta dibikinin konten promo! 💰', 'oper');
+    chat(d, 'price', 'copywriter', 'Tiara, harga di web berubah nih, Bos minta dibikinin konten promo! 💰', 'oper');
     return team(`Budi (Price Watcher) nemu perubahan harga di zataa.my.id dan Owner minta dibikinin konten promo. Perubahan:\n${snap?.diff ?? '(cek ulang web)'}`,
-      'Cek ulang harga langsung di zataa.my.id (WebFetch), lalu bikin 1 konten feed promo slot "kilat" (content new), Ista isi teks, Maria render, Fikri QA lalu node scripts/approval.mjs submit <id>. Angka harga WAJIB sesuai web hari ini.', log, 'price');
+      'Cek ulang harga langsung di zataa.my.id (WebFetch), lalu bikin 1 konten feed promo slot "kilat" (content new), Tiara isi teks, Vania render, Fikri QA lalu node scripts/approval.mjs submit <id>. Angka harga WAJIB sesuai web hari ini.', log, 'price');
   }
   return false;
 }

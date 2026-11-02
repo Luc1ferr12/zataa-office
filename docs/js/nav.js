@@ -135,7 +135,7 @@ export function locationFor(spots, agent, idx, loc, info) {
       const approach = d.row === 'A' ? [V(d.side, y, RZ(2, -1.4)), V(d.side, y, d.aisle), V(x, y, d.aisle)] : [V(x, y, d.aisle)];
       return { pos: V(x, y, d.z + 0.15), rot: d.rot, pose: 'stand', anchor: `R:${d.room}`, approach };
     }
-    case 'secDesk': {   // meja Aprista di ruang Bos: dari pintu lewat sisi kanan meja, masuk dari belakang
+    case 'secDesk': {   // meja Nabila di ruang Bos: dari pintu lewat sisi kanan meja, masuk dari belakang
       const s = spots.secDesk, back = s.z - 0.75;
       return { pos: P(s), rot: s.rot, pose: 'type', anchor: 'R:boss', approach: [V(s.x + 1.4, s.y, RZ(3, -1.6)), V(s.x + 1.4, s.y, back), V(s.x, s.y, back)] };
     }

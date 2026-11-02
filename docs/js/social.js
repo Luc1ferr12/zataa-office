@@ -16,9 +16,9 @@ export function dateOf(t) {
   return d.toISOString().slice(0, 10);
 }
 
-// ---------------------------------------------------------------- ulang tahun (Zamiir 12 Feb & Aprista 22 Apr permintaan Owner, sisanya acak)
+// ---------------------------------------------------------------- ulang tahun (Zamiir 12 Feb permintaan Owner, sisanya acak)
 export const BIRTHDAYS = {
-  owner: '02-12', sec: '04-22', ob: '06-18',
+  owner: '02-12', sec: '08-19', ob: '06-18',
   dir: '07-09', researcher: '03-17', copywriter: '10-27', designer: '12-05', video: '01-21', publisher: '11-03', ads: '05-30', analyst: '09-14', price: '08-08',
   tdir: '01-04', tresearch: '06-02', ttech: '11-19', trisk: '03-29', texec: '08-25', teval: '12-24', treport: '02-27',
   ydir: '05-11', yresearch: '09-01', yscript: '04-07', yvisual: '07-23', yvideo: '10-30', ypublish: '01-15',
@@ -29,15 +29,14 @@ export const CAKE = { start: at(17, 5), end: at(17, 25) };   // tiup lilin di ca
 
 // ---------------------------------------------------------------- hubungan (tiap tahap berlaku mulai tanggalnya)
 export const ARCS = [
-  { a: 'owner', b: 'sec', stages: [['2026-01-01', 'pacaran']] },
   { a: 'publisher', b: 'ypublish', stages: [['2026-10-12', 'pdkt'], ['2026-11-07', 'pacaran']] },                       // Fikri & Kirana
-  { a: 'analyst', b: 'researcher', stages: [['2026-08-17', 'pacaran'], ['2026-10-21', 'putus'], ['2026-11-22', 'teman']] }, // Raka & Clariana
+  { a: 'analyst', b: 'researcher', stages: [['2026-08-17', 'pacaran'], ['2026-10-21', 'putus'], ['2026-11-22', 'teman']] }, // Raka & Salsa
   { a: 'yvisual', b: 'yscript', stages: [['2026-10-23', 'pdkt'], ['2026-12-02', 'pacaran']] },                          // Galih & Laras
   { a: 'yvideo', b: 'ttech', stages: [['2026-10-06', 'pdkt'], ['2026-11-01', 'ditolak'], ['2026-11-12', 'teman']] },     // Yoga & Keira
   { a: 'trisk', b: 'tresearch', stages: [['2026-05-20', 'pacaran']] },                                                   // Aryaputra & Davina
   { a: 'texec', b: 'treport', stages: [['2025-01-01', 'sahabat']] },                                                     // Wiratama & Selena
-  { a: 'price', b: 'designer', stages: [['2025-01-01', 'rival']] },                                                      // Budi & Maria
-  { a: 'video', b: 'copywriter', stages: [['2026-03-01', 'sahabat'], ['2026-11-25', 'pdkt']] },                          // Dimas & Ista: friendzone → pdkt
+  { a: 'price', b: 'designer', stages: [['2025-01-01', 'rival']] },                                                      // Budi & Vania
+  { a: 'video', b: 'copywriter', stages: [['2026-03-01', 'sahabat'], ['2026-11-25', 'pdkt']] },                          // Dimas & Tiara: friendzone → pdkt
   { a: 'ydir', b: 'teval', stages: [['2026-10-18', 'pdkt']] },                                                           // Bagas & Jihan (beda divisi)
 ];
 export const STAGE_LABEL = { pdkt: 'lagi PDKT 💘', pacaran: 'pacaran 💕', putus: 'baru putus 💔', ditolak: 'abis ditolak 🥲', teman: 'temenan lagi 🤝', sahabat: 'sahabatan 🫂', rival: 'rival bebuyutan 😤' };
@@ -141,7 +140,7 @@ export function socialActivity(agent, t, agents, seat) {
   return null;
 }
 
-// kencan pasangan yang lagi pacaran (selain Zamiir & Aprista yang punya jadwal sendiri) — malam setelah kerja
+// kencan pasangan yang lagi pacaran — malam setelah kerja
 export function coupleDate(agent, t) {
   const date = dateOf(t), m = t.minutes;
   if (m < at(19, 30) || m >= at(21, 30)) return null;

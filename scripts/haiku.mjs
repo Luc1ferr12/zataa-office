@@ -1,4 +1,4 @@
-// Jawaban pertama semua bot Telegram (Marketing, Shorts, Trading, Aprista): Haiku duluan → murah & cepat.
+// Jawaban pertama semua bot Telegram (Marketing, Shorts, Trading, Nabila): Haiku duluan → murah & cepat.
 // Haiku boleh jawab pertanyaan APA AJA (umum, divisi lain, data kantor read-only). Kalau ternyata butuh kerja beneran
 // (bikin/ubah konten, eksekusi perintah) dia balas ESCALATE → bot oper ke model utama / bot divisi yang pas.
 import { spawn } from 'node:child_process';
@@ -19,11 +19,11 @@ export const LOOKUPS = ['Read', 'Glob', 'Grep', 'WebSearch',
   'Bash(node scripts/trading/cli.mjs status)', 'Bash(node scripts/shorts-bot.mjs list)', 'Bash(node scripts/shorts-bot.mjs list --brand=story)', 'Bash(node scripts/office.mjs brief:*)', 'Bash(node scripts/price.mjs latest:*)'];
 
 export const OFFICE = `Kantor Zataa (zataa.my.id, top up game), 5 divisi:
-- Marketing (bot Zataa Office Marketing): Andre (dir, Marketing Director), Clariana (researcher), Ista (copywriter), Maria (designer), Dimas (video), Fikri (publisher), Fahriah (ads, lagi libur — iklan Meta belum bisa), Raka (analyst), Budi (price).
+- Marketing (bot Zataa Office Marketing): Andre (dir, Marketing Director), Salsa (researcher), Tiara (copywriter), Vania (designer), Dimas (video), Fikri (publisher), Fahriah (ads, lagi libur — iklan Meta belum bisa), Raka (analyst), Budi (price).
 - YouTube Shorts "Zataa History" (sejarah misteri kuno dunia, 4 Shorts/minggu, bot @zataashortbot): Bagas (ydir), Nadhira (yresearch), Laras (yscript), Galih (yvisual), Yoga (yvideo), Kirana (ypublish).
 - Zataa Story (misteri & horor Nusantara, YouTube + TikTok tiap hari, bot @zataastorybot): Raditya (sdir), Sekar (sresearch), Dinda (sscript), Arga (svisual), Bima (svideo), Nayla (spublish).
 - Trading XAUUSD (bot Zataa Office Trading): Mahendra (tdir), Davina (tresearch), Keira (ttech), Aryaputra (trisk), Wiratama (texec), Jihan (teval), Selena (treport).
-- Aprista (sec): sekretaris pribadi & pacar Bos, catat keuangan pribadi di @zataaaccountingbot.
+- Nabila (sec): sekretaris pribadi Bos, catat keuangan pribadi di @zataaaccountingbot.
 Owner = Bos Zamiir.`;
 
 export const ANSWER_ANY = `Pertanyaan APA PUN (pengetahuan umum, saran, divisi lain, kondisi kantor) → JAWAB langsung, jangan suruh pindah bot.

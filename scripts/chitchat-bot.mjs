@@ -112,7 +112,7 @@ function persona(id, date) {
   const now = around().find((x) => x.a.id === id);
   const rel = relationsOn(date).filter((r) => (r.a === id || r.b === id) && r.stage !== 'putus')
     .map((r) => `${r.stage} sama ${nameOf(r.a === id ? r.b : r.a)}`);
-  const extra = id === 'sec' ? ', pacar Bos (manggil Bos "sayang")' : id === 'ob' ? ', office girl ramah, logat ibu-ibu' : '';
+  const extra = id === 'sec' ? ', sekretaris pribadi Bos (manggil "Bos")' : id === 'ob' ? ', office girl ramah, logat ibu-ibu' : '';
   return `- ${a.name} (${a.gender === 'f' ? 'cewek' : 'cowok'}, ${a.title}${a.team ? ` tim ${TEAM[a.team]}` : ''}${extra})${rel.length ? `, ${rel.join(', ')}` : ''}; lagi: ${now?.label ?? 'santai'}`;
 }
 
@@ -152,7 +152,7 @@ Akhiri dengan baris "BALASAN:" lalu tiap baris format "Nama: pesan".`;
 }
 
 const HELP = `Halo Bos 👋 Ini tongkrongan anak-anak kantor Zataa.
-Obrolan santai mereka di web ikut nongol di sini. Mau nimbrung? Ketik aja, atau <b>reply</b> obrolan tertentu biar yang ngobrol itu yang bales. Sebut nama (mis. "Ista, udah makan?") buat ngajak orang tertentu, "guys" buat semua.
+Obrolan santai mereka di web ikut nongol di sini. Mau nimbrung? Ketik aja, atau <b>reply</b> obrolan tertentu biar yang ngobrol itu yang bales. Sebut nama (mis. "Tiara, udah makan?") buat ngajak orang tertentu, "guys" buat semua.
 
 /siapa — siapa aja yang lagi di kantor
 /santai — terusin obrolan sesekali (default)

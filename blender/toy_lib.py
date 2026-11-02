@@ -161,7 +161,7 @@ def flat(ob):
 
 # ---------------------------------------------------------------- data pegawai
 CHARS = {
-    'sec': dict(name='Aprista', g='f', skin='#f0c9a8', hair='#6b3e22', brow='#4a2a18', hair_style='wavy_long', clip='#a78bfa',
+    'sec': dict(name='Nabila', g='f', skin='#f0c9a8', hair='#6b3e22', brow='#4a2a18', hair_style='wavy_long', clip='#a78bfa',
                 top=dict(kind='tee', color='#f4f1ea'), outer=dict(kind='blazer', color='#1f2a4a'),
                 bottom=dict(kind='skirt', color='#e6d8bd', length='knee'), shoe=dict(kind='flat', color='#7a4a2e'),
                 pose=dict(head=(6, 3, 8), twist=6, lean=-2, el={1: (0.205, 0.03, 0.56)}, wr={1: (0.125, 0.012, 0.47)},
@@ -171,16 +171,16 @@ CHARS = {
                 shoe=dict(kind='loafer', color='#5a3a26'), props=['watch'],
                 pose=dict(head=(2, 2, 3), twist=2, pocket=[1], el={1: (0.16, 0.035, 0.53)}, wr={1: (0.118, 0.01, 0.43)},
                           foot={-1: (-0.012, 0, 12), 1: (0.012, 0, 12)}), scale=1.02),
-    'researcher': dict(name='Clariana', g='f', skin='#ecc19c', hair='#5a3a26', brow='#3e2618', hair_style='pony_high', scrunchie='#9caf88',
+    'researcher': dict(name='Salsa', g='f', skin='#ecc19c', hair='#5a3a26', brow='#3e2618', hair_style='pony_high', scrunchie='#9caf88',
                        glasses='#3b2a22', top=dict(kind='tee', color='#f4f1ea'), outer=dict(kind='cardigan', color='#9caf88'),
                        bottom=dict(kind='pants', color='#8a8d93'), shoe=dict(kind='slipon', color='#6b4430'), props=['notebook'],
                        pose=dict(head=(-5, 4, -6), twist=-4, el={1: (0.168, -0.012, 0.548)}, wr={1: (0.085, -0.13, 0.565)},
                                  foot={-1: (0, 0, 10), 1: (0, -0.015, 10)})),
-    'copywriter': dict(name='Ista', g='f', skin='#e8bc96', hair='#8f3f22', brow='#5e2a16', hair_style='curly',
+    'copywriter': dict(name='Tiara', g='f', skin='#e8bc96', hair='#8f3f22', brow='#5e2a16', hair_style='curly',
                        top=dict(kind='sweater', color='#d9a21b'), bottom=dict(kind='pants', color='#24242c'),
                        shoe=dict(kind='sneaker', color='#f4f2ee'),
                        pose=dict(head=(9, 2, 4), twist=3, lean=-2, foot={-1: (0, -0.02, 14), 1: (0, 0.01, 6)})),
-    'designer': dict(name='Maria', g='f', skin='#efc6a2', hair='#7c4dbd', brow='#4a2f6e', hair_style='asym_short',
+    'designer': dict(name='Vania', g='f', skin='#efc6a2', hair='#7c4dbd', brow='#4a2f6e', hair_style='asym_short',
                      top=dict(kind='tee', color='#2b2b30'), outer=dict(kind='bomber', color='#6b7046'),
                      bottom=dict(kind='pants', color='#6f737a'), shoe=dict(kind='sneaker', color='#d4d6da'),
                      pose=dict(head=(-4, 2, 6), twist=-6, lean=2, pocket=[1], el={1: (0.16, 0.035, 0.53)}, wr={1: (0.118, 0.01, 0.43)},

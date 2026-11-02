@@ -25,7 +25,11 @@ db.exec(CHAT_SQL);
 // Okt 2026: Andre gantiin Aprista jadi Marketing Director (id dir), Aprista jadi sekretaris pribadi Bos (id sec)
 try {
   db.exec("UPDATE agents SET name = 'Andre' WHERE id = 'dir' AND name = 'Aprista'");
-  db.exec("INSERT OR IGNORE INTO agents (id, name, title) VALUES ('sec', 'Aprista', 'Sekretaris Pribadi')");
+  db.exec("INSERT OR IGNORE INTO agents (id, name, title) VALUES ('sec', 'Nabila', 'Sekretaris Pribadi')");
+  // 2 Nov 2026: ganti nama permintaan Owner (Aprista → Nabila, Clariana → Salsa, Ista → Tiara, Maria → Vania)
+  for (const [id, lama, baru] of [['sec', 'Aprista', 'Nabila'], ['researcher', 'Clariana', 'Salsa'], ['copywriter', 'Ista', 'Tiara'], ['designer', 'Maria', 'Vania']]) {
+    db.prepare('UPDATE agents SET name = ? WHERE id = ? AND name = ?').run(baru, id, lama);
+  }
   // Okt 2026: divisi YouTube Shorts (sejarah misteri kuno)
   db.exec(`INSERT OR IGNORE INTO agents (id, name, title) VALUES ('ydir', 'Bagas', 'Manajer YouTube'), ('yresearch', 'Nadhira', 'Riset Sejarah & Tren'),
     ('yscript', 'Laras', 'Scriptwriter & Fact Checker'), ('yvisual', 'Galih', 'Visual & Creative'), ('yvideo', 'Yoga', 'Video Producer'), ('ypublish', 'Kirana', 'Publisher, SEO & Growth')`);

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Pengingat Owner: kuota mingguan Claude reset Minggu 12:00 WITA → Aprista ngabarin 1 jam sebelumnya (cron Minggu 11:00 WITA).
+# Pengingat Owner: kuota mingguan Claude reset Minggu 12:00 WITA → Nabila ngabarin 1 jam sebelumnya (cron Minggu 11:00 WITA).
 #   crontab: CRON_TZ=Asia/Makassar
 #            0 11 * * 0 /home/ubuntu/zataa-office/scripts/vps/remind-usage.sh  # zataa-office pengingat kuota
 cd "$(dirname "$0")/../.." || exit 1
