@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-02T12:14:30.635Z",
+ "generated_at": "2026-11-02T12:24:30.633Z",
  "today": "2026-11-02",
  "week_start": "2026-11-02",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-02 12:01:01"
+   "updated_at": "2026-11-02 12:16:00"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Bias negatif ringan: Fed sempat naikkan bunga (Sep), DXY kuat ~102. Data Okt belum terkonfirmasi; pemilu AS 3 Nov risiko volatilitas.",
-   "updated_at": "2026-11-02 12:01:00"
+   "updated_at": "2026-11-02 12:16:00"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-02 12:01:00"
+   "updated_at": "2026-11-02 12:16:00"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-11-02 12:01:01"
+   "updated_at": "2026-11-02 12:16:00"
   },
   {
    "id": "texec",
@@ -524,6 +524,16 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-02 12:21:00",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: sideways → bullish"
+  },
+  {
+   "ts": "2026-11-02 12:16:00",
+   "agent_id": "trisk",
+   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+  },
+  {
    "ts": "2026-11-02 12:11:00",
    "agent_id": "ttech",
    "message": "M10 berubah arah: bullish → sideways"
@@ -637,16 +647,6 @@
    "ts": "2026-11-02 07:16:00",
    "agent_id": "trisk",
    "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-  },
-  {
-   "ts": "2026-11-02 07:01:14",
-   "agent_id": "analyst",
-   "message": "Update data 49 post IG 📈"
-  },
-  {
-   "ts": "2026-11-02 06:41:00",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: bullish → sideways"
   }
  ],
  "chats": [
@@ -942,13 +942,19 @@
    "yt_posted": 2,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 10,
-   "likes": 1,
+   "views": 218,
+   "likes": 4,
    "comments": 0,
    "shares": 0,
    "saves": 0,
-   "yt_views": 0,
+   "yt_views": 208,
    "top": [
+    {
+     "title": "Renovasi Rumah, Malah Nemu Kota di Bawah Tanah",
+     "format": "shorts",
+     "pillar": "hidden_history",
+     "views": 208
+    },
     {
      "title": "Bursa transfer VCT 2027 resmi buka hari ini: 6 nama bebas agen paling panas (NAVI, MIBR, ENVY, d4v41, valyn) — hook #11",
      "format": "carousel",
@@ -956,9 +962,9 @@
      "views": 10
     },
     {
-     "title": "Renovasi Rumah, Malah Nemu Kota di Bawah Tanah",
+     "title": "Pulau Onrust: Kuburan Belanda di Tengah Teluk Jakarta",
      "format": "shorts",
-     "pillar": "hidden_history",
+     "pillar": "horor_sejarah",
      "views": 0
     }
    ],
@@ -1018,30 +1024,30 @@
    "yt_posted": 12,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 29846,
-   "likes": 393,
+   "views": 29972,
+   "likes": 394,
    "comments": 7,
    "shares": 16,
    "saves": 3,
-   "yt_views": 20270,
+   "yt_views": 20343,
    "top": [
     {
      "title": "Lawang Sewu: Apa yang Sebenarnya Ada di Bawah Tanahnya?",
      "format": "shorts",
      "pillar": "horor_sejarah",
-     "views": 2796
+     "views": 2804
     },
     {
      "title": "BESOK jendela transfer VCT 2027 dibuka: NAVI, MIBR, ENVY lepas roster + RUMOR valyn ke Fnatic",
      "format": "video",
      "pillar": "news",
-     "views": 2283
+     "views": 2315
     },
     {
      "title": "Ma'nene: Leluhur yang Diganti Bajunya Tiap 3 Tahun",
      "format": "shorts",
      "pillar": "ritual_mistis",
-     "views": 2038
+     "views": 2051
     }
    ],
    "clicks": 19,
@@ -1116,9 +1122,14 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 28.5,
-  "price": 3906.699951,
+  "price": 3906.800049,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-02 12:16:00",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
    {
     "ts": "2026-11-02 12:01:01",
     "decision": "NO TRADE",
@@ -1141,11 +1152,6 @@
    },
    {
     "ts": "2026-11-02 11:01:33",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-11-02 10:46:02",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1192,7 +1198,7 @@
    1716.0099999999995
   ],
   "last": {
-   "ts": "2026-11-02 12:01:01",
+   "ts": "2026-11-02 12:16:00",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1213,7 +1219,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3902.40 di atas tengah band (3894.0–3908.3) · RSI 50 · Stoch 69 · MACD +0.36 · H1 sideways"
+    "note": "M15 3906.00 di atas tengah band (3894.0–3908.6) · RSI 55 · Stoch 78 · MACD +0.69 · H1 sideways"
    }
   },
   "fund": {
@@ -1316,26 +1322,26 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "sideways",
-    "score": 0,
-    "price": 3901.8,
-    "ema20": 3902.18,
-    "ema50": 3901.96,
-    "rsi": 49,
+    "bias": "bullish",
+    "score": 2,
+    "price": 3907.4,
+    "ema20": 3902.67,
+    "ema50": 3902.18,
+    "rsi": 58.3,
     "n": 299,
-    "slot": 2989369,
-    "at": 1793621460715
+    "slot": 2989370,
+    "at": 1793622060684
    },
    "M15": {
     "bias": "bullish",
-    "score": 2,
-    "price": 3902.5,
-    "ema20": 3902.22,
-    "ema50": 3900.09,
-    "rsi": 50.4,
+    "score": 3,
+    "price": 3906.5,
+    "ema20": 3902.63,
+    "ema50": 3900.34,
+    "rsi": 55.3,
     "n": 299,
-    "slot": 1992912,
-    "at": 1793620860848
+    "slot": 1992913,
+    "at": 1793621760763
    },
    "M30": {
     "bias": "bullish",
