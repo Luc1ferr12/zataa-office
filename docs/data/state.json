@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-02T14:14:30.689Z",
+ "generated_at": "2026-11-02T14:24:30.698Z",
  "today": "2026-11-02",
  "week_start": "2026-11-02",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-02 14:01:02"
+   "updated_at": "2026-11-02 14:16:00"
   },
   {
    "id": "tresearch",
@@ -111,23 +111,23 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Bias negatif ringan: Fed sempat naikkan bunga (Sep), DXY kuat ~102. Data Okt belum terkonfirmasi; pemilu AS 3 Nov risiko volatilitas.",
-   "updated_at": "2026-11-02 14:01:02"
+   "updated_at": "2026-11-02 14:16:00"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Setup SELL di band (RSI+Stokastik)",
-   "updated_at": "2026-11-02 14:01:02"
+   "current_task": "Belum ada pantulan band · H1 sideways",
+   "updated_at": "2026-11-02 14:16:00"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: Bollinger Band melebar kencang (breakout), pantulan berisiko",
-   "updated_at": "2026-11-02 14:01:02"
+   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
+   "updated_at": "2026-11-02 14:16:00"
   },
   {
    "id": "texec",
@@ -942,30 +942,30 @@
    "yt_posted": 2,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 1072,
-   "likes": 22,
-   "comments": 0,
+   "views": 2018,
+   "likes": 39,
+   "comments": 1,
    "shares": 0,
    "saves": 0,
-   "yt_views": 1044,
+   "yt_views": 1933,
    "top": [
     {
      "title": "Renovasi Rumah, Malah Nemu Kota di Bawah Tanah",
      "format": "shorts",
      "pillar": "hidden_history",
-     "views": 824
+     "views": 967
     },
     {
      "title": "Pulau Onrust: Kuburan Belanda di Tengah Teluk Jakarta",
      "format": "shorts",
      "pillar": "horor_sejarah",
-     "views": 220
+     "views": 966
     },
     {
      "title": "PRX tinggal 3 pemain: d4v41 cari tim baru, Jinggg masih nego (RUMOR) — breaking, hook angka #23",
      "format": "video",
      "pillar": "esport",
-     "views": 18
+     "views": 75
     }
    ],
    "clicks": 15,
@@ -1028,12 +1028,12 @@
    "yt_posted": 12,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 30007,
-   "likes": 394,
+   "views": 30092,
+   "likes": 395,
    "comments": 7,
    "shares": 16,
    "saves": 3,
-   "yt_views": 20376,
+   "yt_views": 20383,
    "top": [
     {
      "title": "Lawang Sewu: Apa yang Sebenarnya Ada di Bawah Tanahnya?",
@@ -1045,7 +1045,7 @@
      "title": "BESOK jendela transfer VCT 2027 dibuka: NAVI, MIBR, ENVY lepas roster + RUMOR valyn ke Fnatic",
      "format": "video",
      "pillar": "news",
-     "views": 2316
+     "views": 2358
     },
     {
      "title": "Ma'nene: Leluhur yang Diganti Bajunya Tiap 3 Tahun",
@@ -1126,9 +1126,14 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 28.5,
-  "price": 3944.5,
+  "price": 3941.899902,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-02 14:16:00",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
    {
     "ts": "2026-11-02 14:01:02",
     "decision": "NO TRADE",
@@ -1151,11 +1156,6 @@
    },
    {
     "ts": "2026-11-02 13:01:01",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-11-02 12:46:00",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1202,7 +1202,7 @@
    1716.0099999999995
   ],
   "last": {
-   "ts": "2026-11-02 14:01:02",
+   "ts": "2026-11-02 14:16:00",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1211,7 +1211,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "Bollinger Band melebar kencang (breakout), pantulan berisiko",
+   "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
    "fund": {
     "bias": -0.3,
     "note": "Bias negatif ringan: Fed sempat naikkan bunga (Sep), DXY kuat ~102. Data Okt belum terkonfirmasi; pemilu AS 3 Nov risiko volatilitas.",
@@ -1220,13 +1220,10 @@
    },
    "tech": {
     "bias": "sideways",
-    "score": 2,
-    "trigger": "sell",
-    "confirm": [
-     "RSI",
-     "Stokastik"
-    ],
-    "note": "M15 3938.60 di atas tengah band (3875.1–3941.4) · RSI 70 · Stoch 88 · MACD +4.61 · H1 sideways · setup SELL (RSI+Stokastik)"
+    "score": 0,
+    "trigger": null,
+    "confirm": [],
+    "note": "M15 3941.20 di atas tengah band (3872.8–3948.5) · RSI 70 · Stoch 85 · MACD +4.90 · H1 sideways"
    }
   },
   "fund": {
@@ -1331,24 +1328,24 @@
    "M10": {
     "bias": "bullish",
     "score": 2,
-    "price": 3943.6,
-    "ema20": 3915.13,
-    "ema50": 3907.89,
-    "rsi": 77.4,
+    "price": 3942.7,
+    "ema20": 3917.76,
+    "ema50": 3909.26,
+    "rsi": 76.2,
     "n": 299,
-    "slot": 2989381,
-    "at": 1793628661346
+    "slot": 2989382,
+    "at": 1793629260875
    },
    "M15": {
     "bias": "bullish",
     "score": 2,
-    "price": 3942.3,
-    "ema20": 3910.77,
-    "ema50": 3904.38,
-    "rsi": 73.3,
+    "price": 3945.4,
+    "ema20": 3914.07,
+    "ema50": 3905.99,
+    "rsi": 74.4,
     "n": 299,
-    "slot": 1992920,
-    "at": 1793628062528
+    "slot": 1992921,
+    "at": 1793628960899
    },
    "M30": {
     "bias": "bullish",
