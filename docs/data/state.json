@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-02T06:14:30.463Z",
+ "generated_at": "2026-11-02T06:24:30.469Z",
  "today": "2026-11-02",
  "week_start": "2026-11-02",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-02 06:01:00"
+   "updated_at": "2026-11-02 06:16:00"
   },
   {
    "id": "tresearch",
@@ -111,15 +111,15 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Berita 24 jam tak terverifikasi (hasil lama). Fed condong hawkish (hike Sep, Nov ~50:50), ISM 54.7 kuat. Cek ulang sebelum entry.",
-   "updated_at": "2026-11-02 06:01:00"
+   "updated_at": "2026-11-02 06:16:00"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Setup SELL di band (RSI+divergensi)",
-   "updated_at": "2026-11-02 06:01:00"
+   "current_task": "Belum ada pantulan band · H1 sideways",
+   "updated_at": "2026-11-02 06:16:00"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: masih ada posisi terbuka",
-   "updated_at": "2026-11-02 06:01:00"
+   "updated_at": "2026-11-02 06:16:00"
   },
   {
    "id": "texec",
@@ -524,6 +524,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-02 06:16:00",
+   "agent_id": "trisk",
+   "message": "NO TRADE · masih ada posisi terbuka"
+  },
+  {
    "ts": "2026-11-02 06:01:00",
    "agent_id": "ttech",
    "message": "M30 berubah arah: sideways → bullish"
@@ -642,11 +647,6 @@
    "ts": "2026-11-02 01:00:58",
    "agent_id": "analyst",
    "message": "Update data 49 post IG 📈"
-  },
-  {
-   "ts": "2026-11-02 01:00:37",
-   "agent_id": "publisher",
-   "message": "Kirim draf IG Story ke Bos 📱"
   }
  ],
  "chats": [
@@ -1083,7 +1083,7 @@
   "paused": false,
   "balance": 1687.5099999999998,
   "today_pnl": 0,
-  "price": 3915,
+  "price": 3912.600098,
   "open": [
    {
     "side": "sell",
@@ -1095,6 +1095,11 @@
    }
   ],
   "signals": [
+   {
+    "ts": "2026-11-02 06:16:00",
+    "decision": "NO TRADE",
+    "reason": "masih ada posisi terbuka"
+   },
    {
     "ts": "2026-11-02 06:01:00",
     "decision": "NO TRADE",
@@ -1117,11 +1122,6 @@
    },
    {
     "ts": "2026-11-02 05:01:00",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-   },
-   {
-    "ts": "2026-11-02 04:46:00",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
    }
@@ -1157,7 +1157,7 @@
    1687.5099999999995
   ],
   "last": {
-   "ts": "2026-11-02 06:01:00",
+   "ts": "2026-11-02 06:16:00",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1175,13 +1175,10 @@
    },
    "tech": {
     "bias": "sideways",
-    "score": 2,
-    "trigger": "sell",
-    "confirm": [
-     "RSI",
-     "divergensi"
-    ],
-    "note": "M15 3914.40 di atas tengah band (3896.2–3919.2) · RSI 61 · Stoch 88 · MACD +0.23 · H1 sideways · setup SELL (RSI+divergensi)"
+    "score": 0,
+    "trigger": null,
+    "confirm": [],
+    "note": "M15 3914.90 di atas tengah band (3896.1–3920.0) · RSI 61 · Stoch 82 · MACD +0.23 · H1 sideways"
    }
   },
   "fund": {
@@ -1286,24 +1283,24 @@
    "M10": {
     "bias": "bullish",
     "score": 3,
-    "price": 3917.4,
-    "ema20": 3908.69,
-    "ema50": 3901.7,
-    "rsi": 63.9,
+    "price": 3912.6,
+    "ema20": 3909.06,
+    "ema50": 3902.13,
+    "rsi": 56.6,
     "n": 299,
-    "slot": 2989333,
-    "at": 1793599860490
+    "slot": 2989334,
+    "at": 1793600460383
    },
    "M15": {
     "bias": "bullish",
     "score": 2,
-    "price": 3914.9,
-    "ema20": 3905.59,
-    "ema50": 3896.58,
-    "rsi": 61.3,
+    "price": 3913.9,
+    "ema20": 3906.38,
+    "ema50": 3897.26,
+    "rsi": 60.1,
     "n": 299,
-    "slot": 1992888,
-    "at": 1793599260572
+    "slot": 1992889,
+    "at": 1793600160471
    },
    "M30": {
     "bias": "bullish",
