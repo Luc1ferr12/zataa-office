@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-02T03:04:30.374Z",
+ "generated_at": "2026-11-02T03:14:30.382Z",
  "today": "2026-11-02",
  "week_start": "2026-11-02",
  "campaign": {
@@ -524,6 +524,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-02 03:11:00",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: sideways → bullish"
+  },
+  {
    "ts": "2026-11-02 03:01:00",
    "agent_id": "ttech",
    "message": "M15 berubah arah: bullish → sideways"
@@ -642,11 +647,6 @@
    "ts": "2026-11-01 23:15:56",
    "agent_id": "ttech",
    "message": "M15 berubah arah: sideways → bullish"
-  },
-  {
-   "ts": "2026-11-01 23:10:56",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: sideways → bullish"
   }
  ],
  "chats": [
@@ -985,12 +985,12 @@
    "yt_posted": 12,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 29127,
+   "views": 29143,
    "likes": 380,
    "comments": 6,
    "shares": 16,
    "saves": 2,
-   "yt_views": 20112,
+   "yt_views": 20128,
    "top": [
     {
      "title": "Lawang Sewu: Apa yang Sebenarnya Ada di Bawah Tanahnya?",
@@ -1002,7 +1002,7 @@
      "title": "Ma'nene: Leluhur yang Diganti Bajunya Tiap 3 Tahun",
      "format": "shorts",
      "pillar": "ritual_mistis",
-     "views": 1994
+     "views": 2009
     },
     {
      "title": "Buku 600 Tahun yang Belum Bisa Dibaca Siapa Pun",
@@ -1083,7 +1083,7 @@
   "paused": false,
   "balance": 1687.5099999999998,
   "today_pnl": 0,
-  "price": 3902.5,
+  "price": 3905.300049,
   "open": [],
   "signals": [
    {
@@ -1272,15 +1272,15 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "sideways",
-    "score": 0,
-    "price": 3896.3,
-    "ema20": 3903.72,
-    "ema50": 3894.34,
-    "rsi": 43.7,
+    "bias": "bullish",
+    "score": 2,
+    "price": 3904.2,
+    "ema20": 3903.76,
+    "ema50": 3894.73,
+    "rsi": 53.4,
     "n": 299,
-    "slot": 2989314,
-    "at": 1793588460279
+    "slot": 2989315,
+    "at": 1793589060257
    },
    "M15": {
     "bias": "sideways",
