@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-02T20:54:30.886Z",
+ "generated_at": "2026-11-02T21:04:30.890Z",
  "today": "2026-11-03",
  "week_start": "2026-11-02",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-02 20:46:01"
+   "updated_at": "2026-11-02 21:01:01"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Bias negatif ringan: Fed sempat naikkan bunga (Sep), DXY kuat ~102. Data Okt belum terkonfirmasi; pemilu AS 3 Nov risiko volatilitas.",
-   "updated_at": "2026-11-02 20:46:01"
+   "updated_at": "2026-11-02 21:01:01"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-02 20:46:01"
+   "updated_at": "2026-11-02 21:01:01"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
-   "updated_at": "2026-11-02 20:46:01"
+   "updated_at": "2026-11-02 21:01:01"
   },
   {
    "id": "texec",
@@ -1138,9 +1138,14 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 28.5,
-  "price": 3945.600098,
+  "price": 3947.5,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-02 21:01:01",
+    "decision": "NO TRADE",
+    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
+   },
    {
     "ts": "2026-11-02 20:46:01",
     "decision": "NO TRADE",
@@ -1165,11 +1170,6 @@
     "ts": "2026-11-02 19:46:01",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-11-02 19:31:01",
-    "decision": "NO TRADE",
-    "reason": "setup BUY di band, konfirmasi baru 1/3 (Stokastik) · London–NY (mode aman)"
    }
   ],
   "trades": [
@@ -1214,7 +1214,7 @@
    1716.0099999999995
   ],
   "last": {
-   "ts": "2026-11-02 20:46:01",
+   "ts": "2026-11-02 21:01:01",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1235,13 +1235,10 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3944.00 di bawah tengah band (3935.7–3976.0) · RSI 46 · Stoch 12 · MACD -3.48 · H1 sideways"
+    "note": "M15 3946.80 di bawah tengah band (3935.3–3975.2) · RSI 49 · Stoch 23 · MACD -2.85 · H1 sideways"
    }
   },
-  "fund": {
-   "bias": -0.3,
-   "note": "Bias negatif ringan: Fed sempat naikkan bunga (Sep), DXY kuat ~102. Data Okt belum terkonfirmasi; pemilu AS 3 Nov risiko volatilitas."
-  },
+  "fund": null,
   "calendar": [
    {
     "title": "JOLTS Job Openings",
@@ -1331,46 +1328,46 @@
    "M10": {
     "bias": "sideways",
     "score": -1,
-    "price": 3945,
-    "ema20": 3949.66,
-    "ema50": 3944.91,
-    "rsi": 42.9,
+    "price": 3946.9,
+    "ema20": 3949.4,
+    "ema50": 3944.99,
+    "rsi": 45.9,
     "n": 299,
-    "slot": 2989421,
-    "at": 1793652661396
+    "slot": 2989422,
+    "at": 1793653261780
    },
    "M15": {
     "bias": "sideways",
     "score": -1,
-    "price": 3945.1,
-    "ema20": 3949.77,
-    "ema50": 3937.94,
-    "rsi": 47.2,
+    "price": 3946.9,
+    "ema20": 3949.49,
+    "ema50": 3938.29,
+    "rsi": 49.2,
     "n": 299,
-    "slot": 1992947,
-    "at": 1793652361388
+    "slot": 1992948,
+    "at": 1793653261785
    },
    "M30": {
     "bias": "bullish",
     "score": 3,
-    "price": 3941.5,
-    "ema20": 3941.47,
-    "ema50": 3921.13,
-    "rsi": 54.5,
+    "price": 3946.9,
+    "ema20": 3941.99,
+    "ema50": 3922.14,
+    "rsi": 57.8,
     "n": 299,
-    "slot": 996473,
-    "at": 1793651462082
+    "slot": 996474,
+    "at": 1793653261786
    },
    "H1": {
     "bias": "bullish",
     "score": 3,
-    "price": 3944.4,
-    "ema20": 3926.36,
-    "ema50": 3910.59,
-    "rsi": 62.8,
+    "price": 3946.9,
+    "ema20": 3928.31,
+    "ema50": 3912.01,
+    "rsi": 63.7,
     "n": 299,
-    "slot": 498236,
-    "at": 1793649661441
+    "slot": 498237,
+    "at": 1793653261790
    }
   },
   "currency": "USC",
