@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-02T15:14:30.715Z",
+ "generated_at": "2026-11-02T15:24:30.718Z",
  "today": "2026-11-02",
  "week_start": "2026-11-02",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-02 15:01:01"
+   "updated_at": "2026-11-02 15:16:01"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Waspada rilis ISM Manufacturing PMI (23.00 WITA)",
-   "updated_at": "2026-11-02 15:01:01"
+   "updated_at": "2026-11-02 15:16:01"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-02 15:01:01"
+   "updated_at": "2026-11-02 15:16:01"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: berita berdampak tinggi: ISM Manufacturing PMI (23.00 WITA)",
-   "updated_at": "2026-11-02 15:01:01"
+   "updated_at": "2026-11-02 15:16:01"
   },
   {
    "id": "texec",
@@ -942,24 +942,24 @@
    "yt_posted": 2,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 2018,
+   "views": 2032,
    "likes": 39,
    "comments": 1,
    "shares": 0,
    "saves": 0,
-   "yt_views": 1933,
+   "yt_views": 1947,
    "top": [
+    {
+     "title": "Pulau Onrust: Kuburan Belanda di Tengah Teluk Jakarta",
+     "format": "shorts",
+     "pillar": "horor_sejarah",
+     "views": 980
+    },
     {
      "title": "Renovasi Rumah, Malah Nemu Kota di Bawah Tanah",
      "format": "shorts",
      "pillar": "hidden_history",
      "views": 967
-    },
-    {
-     "title": "Pulau Onrust: Kuburan Belanda di Tengah Teluk Jakarta",
-     "format": "shorts",
-     "pillar": "horor_sejarah",
-     "views": 966
     },
     {
      "title": "PRX tinggal 3 pemain: d4v41 cari tim baru, Jinggg masih nego (RUMOR) — breaking, hook angka #23",
@@ -1028,12 +1028,12 @@
    "yt_posted": 12,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 30092,
+   "views": 30099,
    "likes": 395,
    "comments": 7,
    "shares": 16,
    "saves": 3,
-   "yt_views": 20383,
+   "yt_views": 20390,
    "top": [
     {
      "title": "Lawang Sewu: Apa yang Sebenarnya Ada di Bawah Tanahnya?",
@@ -1126,9 +1126,14 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 28.5,
-  "price": 3960.300049,
+  "price": 3959.699951,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-02 15:16:01",
+    "decision": "NO TRADE",
+    "reason": "berita berdampak tinggi: ISM Manufacturing PMI (23.00 WITA)"
+   },
    {
     "ts": "2026-11-02 15:01:01",
     "decision": "NO TRADE",
@@ -1153,11 +1158,6 @@
     "ts": "2026-11-02 14:01:02",
     "decision": "NO TRADE",
     "reason": "Bollinger Band melebar kencang (breakout), pantulan berisiko"
-   },
-   {
-    "ts": "2026-11-02 13:46:01",
-    "decision": "NO TRADE",
-    "reason": "ada candle spike di M15 (kemungkinan berita dadakan), tunggu tenang"
    }
   ],
   "trades": [
@@ -1202,7 +1202,7 @@
    1716.0099999999995
   ],
   "last": {
-   "ts": "2026-11-02 15:01:01",
+   "ts": "2026-11-02 15:16:01",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1223,7 +1223,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3965.60 di atas tengah band (3865.4–3975.8) · RSI 80 · Stoch 97 · MACD +6.21 · H1 sideways"
+    "note": "M15 3957.10 di atas tengah band (3868.1–3978.3) · RSI 72 · Stoch 91 · MACD +4.84 · H1 sideways"
    }
   },
   "fund": {
@@ -1328,24 +1328,24 @@
    "M10": {
     "bias": "bullish",
     "score": 2,
-    "price": 3957.6,
-    "ema20": 3934.31,
-    "ema50": 3918.37,
-    "rsi": 73.2,
+    "price": 3960.5,
+    "ema20": 3936.8,
+    "ema50": 3920.02,
+    "rsi": 74.4,
     "n": 299,
-    "slot": 2989387,
-    "at": 1793632260951
+    "slot": 2989388,
+    "at": 1793632861023
    },
    "M15": {
     "bias": "bullish",
     "score": 2,
-    "price": 3966.2,
-    "ema20": 3925.65,
-    "ema50": 3911.91,
-    "rsi": 80.6,
+    "price": 3957.4,
+    "ema20": 3928.68,
+    "ema50": 3913.7,
+    "rsi": 72.1,
     "n": 299,
-    "slot": 1992924,
-    "at": 1793631660988
+    "slot": 1992925,
+    "at": 1793632560968
    },
    "M30": {
     "bias": "bullish",
