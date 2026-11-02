@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-02T12:54:30.645Z",
+ "generated_at": "2026-11-02T13:04:30.651Z",
  "today": "2026-11-02",
  "week_start": "2026-11-02",
  "campaign": {
@@ -79,7 +79,7 @@
    "title": "Data Analyst",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-11-02 10:01:38"
+   "updated_at": "2026-11-02 13:01:17"
   },
   {
    "id": "price",
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-02 12:46:00"
+   "updated_at": "2026-11-02 13:01:01"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Bias negatif ringan: Fed sempat naikkan bunga (Sep), DXY kuat ~102. Data Okt belum terkonfirmasi; pemilu AS 3 Nov risiko volatilitas.",
-   "updated_at": "2026-11-02 12:46:00"
+   "updated_at": "2026-11-02 13:01:01"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-02 12:46:00"
+   "updated_at": "2026-11-02 13:01:01"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-11-02 12:46:00"
+   "updated_at": "2026-11-02 13:01:01"
   },
   {
    "id": "texec",
@@ -524,6 +524,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-02 13:01:17",
+   "agent_id": "analyst",
+   "message": "Update data 49 post IG 📈"
+  },
+  {
    "ts": "2026-11-02 12:51:00",
    "agent_id": "ttech",
    "message": "M10 berubah arah: bullish → sideways"
@@ -642,11 +647,6 @@
    "ts": "2026-11-02 08:31:00",
    "agent_id": "ttech",
    "message": "M30 berubah arah: bullish → sideways"
-  },
-  {
-   "ts": "2026-11-02 08:16:00",
-   "agent_id": "trisk",
-   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
   }
  ],
  "chats": [
@@ -942,7 +942,7 @@
    "yt_posted": 2,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 218,
+   "views": 236,
    "likes": 4,
    "comments": 0,
    "shares": 0,
@@ -956,20 +956,20 @@
      "views": 208
     },
     {
+     "title": "PRX tinggal 3 pemain: d4v41 cari tim baru, Jinggg masih nego (RUMOR) — breaking, hook angka #23",
+     "format": "video",
+     "pillar": "esport",
+     "views": 18
+    },
+    {
      "title": "Bursa transfer VCT 2027 resmi buka hari ini: 6 nama bebas agen paling panas (NAVI, MIBR, ENVY, d4v41, valyn) — hook #11",
      "format": "carousel",
      "pillar": "news",
      "views": 10
-    },
-    {
-     "title": "Pulau Onrust: Kuburan Belanda di Tengah Teluk Jakarta",
-     "format": "shorts",
-     "pillar": "horor_sejarah",
-     "views": 0
     }
    ],
-   "clicks": 12,
-   "click_visitors": 8,
+   "clicks": 14,
+   "click_visitors": 10,
    "click_src": [
     {
      "src": "login",
@@ -977,6 +977,10 @@
     },
     {
      "src": "info",
+     "n": 2
+    },
+    {
+     "src": "cgi",
      "n": 2
     },
     {
@@ -1024,7 +1028,7 @@
    "yt_posted": 12,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 29972,
+   "views": 29974,
    "likes": 394,
    "comments": 7,
    "shares": 16,
@@ -1041,7 +1045,7 @@
      "title": "BESOK jendela transfer VCT 2027 dibuka: NAVI, MIBR, ENVY lepas roster + RUMOR valyn ke Fnatic",
      "format": "video",
      "pillar": "news",
-     "views": 2315
+     "views": 2316
     },
     {
      "title": "Ma'nene: Leluhur yang Diganti Bajunya Tiap 3 Tahun",
@@ -1122,9 +1126,14 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 28.5,
-  "price": 3902.5,
+  "price": 3897.899902,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-02 13:01:01",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
    {
     "ts": "2026-11-02 12:46:00",
     "decision": "NO TRADE",
@@ -1147,11 +1156,6 @@
    },
    {
     "ts": "2026-11-02 11:46:00",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-11-02 11:31:00",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1198,7 +1202,7 @@
    1716.0099999999995
   ],
   "last": {
-   "ts": "2026-11-02 12:46:00",
+   "ts": "2026-11-02 13:01:01",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1219,7 +1223,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3903.00 di atas tengah band (3894.2–3908.1) · RSI 51 · Stoch 62 · MACD +0.33 · H1 sideways"
+    "note": "M15 3902.10 di atas tengah band (3894.4–3908.1) · RSI 49 · Stoch 54 · MACD +0.16 · H1 sideways"
    }
   },
   "fund": {
@@ -1323,47 +1327,47 @@
   "tf": {
    "M10": {
     "bias": "sideways",
-    "score": 0,
-    "price": 3901.5,
-    "ema20": 3902.75,
-    "ema50": 3902.27,
-    "rsi": 47.8,
+    "score": -1,
+    "price": 3902.1,
+    "ema20": 3902.68,
+    "ema50": 3902.26,
+    "rsi": 48.9,
     "n": 299,
-    "slot": 2989373,
-    "at": 1793623860740
+    "slot": 2989374,
+    "at": 1793624460939
    },
    "M15": {
     "bias": "sideways",
-    "score": 1,
-    "price": 3902.7,
-    "ema20": 3902.75,
-    "ema50": 3900.57,
-    "rsi": 50.1,
+    "score": 0,
+    "price": 3902.1,
+    "ema20": 3902.69,
+    "ema50": 3900.63,
+    "rsi": 49.3,
     "n": 299,
-    "slot": 1992915,
-    "at": 1793623560783
+    "slot": 1992916,
+    "at": 1793624460944
    },
    "M30": {
     "bias": "bullish",
-    "score": 3,
-    "price": 3904,
-    "ema20": 3901.04,
-    "ema50": 3894.65,
-    "rsi": 55.3,
+    "score": 2,
+    "price": 3902.1,
+    "ema20": 3901.14,
+    "ema50": 3894.94,
+    "rsi": 53,
     "n": 299,
-    "slot": 996457,
-    "at": 1793622660860
+    "slot": 996458,
+    "at": 1793624460946
    },
    "H1": {
     "bias": "bullish",
     "score": 2,
-    "price": 3902.5,
-    "ema20": 3895.78,
-    "ema50": 3895.61,
-    "rsi": 59.4,
+    "price": 3902.1,
+    "ema20": 3896.38,
+    "ema50": 3895.87,
+    "rsi": 58.9,
     "n": 299,
-    "slot": 498228,
-    "at": 1793620860854
+    "slot": 498229,
+    "at": 1793624460949
    }
   },
   "currency": "USC",
