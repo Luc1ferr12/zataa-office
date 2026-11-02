@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-02T09:54:30.584Z",
+ "generated_at": "2026-11-02T10:04:30.581Z",
  "today": "2026-11-02",
  "week_start": "2026-11-02",
  "campaign": {
@@ -79,7 +79,7 @@
    "title": "Data Analyst",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-11-02 07:01:14"
+   "updated_at": "2026-11-02 10:01:38"
   },
   {
    "id": "price",
@@ -87,7 +87,7 @@
    "title": "Price Watcher",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-11-02 08:00:32"
+   "updated_at": "2026-11-02 10:01:39"
   },
   {
    "id": "ob",
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-02 09:46:00"
+   "updated_at": "2026-11-02 10:01:00"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
-   "updated_at": "2026-11-02 09:46:00"
+   "updated_at": "2026-11-02 10:01:00"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-02 09:46:00"
+   "updated_at": "2026-11-02 10:01:00"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-11-02 09:46:00"
+   "updated_at": "2026-11-02 10:01:00"
   },
   {
    "id": "texec",
@@ -524,6 +524,16 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-02 10:01:38",
+   "agent_id": "analyst",
+   "message": "Update data 49 post IG 📈"
+  },
+  {
+   "ts": "2026-11-02 10:01:00",
+   "agent_id": "ttech",
+   "message": "M30 berubah arah: bullish → sideways"
+  },
+  {
    "ts": "2026-11-02 09:31:01",
    "agent_id": "ttech",
    "message": "M30 berubah arah: sideways → bullish"
@@ -637,16 +647,6 @@
    "ts": "2026-11-02 03:21:00",
    "agent_id": "ttech",
    "message": "M10 berubah arah: bullish → sideways"
-  },
-  {
-   "ts": "2026-11-02 03:16:00",
-   "agent_id": "trisk",
-   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-  },
-  {
-   "ts": "2026-11-02 03:16:00",
-   "agent_id": "ttech",
-   "message": "M15 berubah arah: sideways → bullish"
   }
  ],
  "chats": [
@@ -942,7 +942,7 @@
    "yt_posted": 0,
    "yt_pending": 0,
    "yt_scheduled": 2,
-   "views": 4,
+   "views": 10,
    "likes": 1,
    "comments": 0,
    "shares": 0,
@@ -953,7 +953,7 @@
      "title": "Bursa transfer VCT 2027 resmi buka hari ini: 6 nama bebas agen paling panas (NAVI, MIBR, ENVY, d4v41, valyn) — hook #11",
      "format": "carousel",
      "pillar": "news",
-     "views": 4
+     "views": 10
     }
    ],
    "clicks": 12,
@@ -1012,8 +1012,8 @@
    "yt_posted": 12,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 29588,
-   "likes": 388,
+   "views": 29700,
+   "likes": 390,
    "comments": 7,
    "shares": 16,
    "saves": 3,
@@ -1029,7 +1029,7 @@
      "title": "BESOK jendela transfer VCT 2027 dibuka: NAVI, MIBR, ENVY lepas roster + RUMOR valyn ke Fnatic",
      "format": "video",
      "pillar": "news",
-     "views": 2133
+     "views": 2245
     },
     {
      "title": "Ma'nene: Leluhur yang Diganti Bajunya Tiap 3 Tahun",
@@ -1110,9 +1110,14 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 28.5,
-  "price": 3899.600098,
+  "price": 3899.100098,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-02 10:01:00",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
    {
     "ts": "2026-11-02 09:46:00",
     "decision": "NO TRADE",
@@ -1137,11 +1142,6 @@
     "ts": "2026-11-02 08:46:00",
     "decision": "NO TRADE",
     "reason": "setup BUY di band, konfirmasi baru 2/3 (Stokastik+MACD) · London–NY (mode aman)"
-   },
-   {
-    "ts": "2026-11-02 08:31:00",
-    "decision": "NO TRADE",
-    "reason": "setup BUY di band, konfirmasi baru 0/3 (-) · London–NY (mode aman)"
    }
   ],
   "trades": [
@@ -1186,7 +1186,7 @@
    1716.0099999999995
   ],
   "last": {
-   "ts": "2026-11-02 09:46:00",
+   "ts": "2026-11-02 10:01:00",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1207,7 +1207,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3901.80 di bawah tengah band (3892.6–3918.4) · RSI 49 · Stoch 42 · MACD -0.79 · H1 sideways"
+    "note": "M15 3898.80 di bawah tengah band (3891.4–3918.5) · RSI 46 · Stoch 37 · MACD -0.94 · H1 sideways"
    }
   },
   "fund": null,
@@ -1308,47 +1308,47 @@
   "tf": {
    "M10": {
     "bias": "sideways",
-    "score": -1,
-    "price": 3900.1,
-    "ema20": 3902.48,
-    "ema50": 3902.22,
-    "rsi": 45.6,
+    "score": 0,
+    "price": 3898.7,
+    "ema20": 3902.12,
+    "ema50": 3902.08,
+    "rsi": 43.8,
     "n": 299,
-    "slot": 2989355,
-    "at": 1793613060621
+    "slot": 2989356,
+    "at": 1793613660790
    },
    "M15": {
     "bias": "sideways",
     "score": -1,
-    "price": 3902.2,
-    "ema20": 3903.26,
-    "ema50": 3899.64,
-    "rsi": 49.1,
+    "price": 3898.7,
+    "ema20": 3902.83,
+    "ema50": 3899.61,
+    "rsi": 45.4,
     "n": 299,
-    "slot": 1992903,
-    "at": 1793612760595
+    "slot": 1992904,
+    "at": 1793613660795
    },
    "M30": {
-    "bias": "bullish",
-    "score": 2,
-    "price": 3900.8,
-    "ema20": 3900.55,
-    "ema50": 3892.82,
-    "rsi": 52.7,
+    "bias": "sideways",
+    "score": 0,
+    "price": 3898.7,
+    "ema20": 3900.38,
+    "ema50": 3893.05,
+    "rsi": 50.4,
     "n": 299,
-    "slot": 996451,
-    "at": 1793611861169
+    "slot": 996452,
+    "at": 1793613660796
    },
    "H1": {
     "bias": "sideways",
     "score": 1,
-    "price": 3898.3,
-    "ema20": 3894.08,
-    "ema50": 3894.98,
-    "rsi": 55.9,
+    "price": 3898.7,
+    "ema20": 3894.52,
+    "ema50": 3895.13,
+    "rsi": 56.2,
     "n": 299,
-    "slot": 498225,
-    "at": 1793610060672
+    "slot": 498226,
+    "at": 1793613660803
    }
   },
   "currency": "USC",
