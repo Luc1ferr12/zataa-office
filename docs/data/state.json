@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-02T10:54:30.602Z",
+ "generated_at": "2026-11-02T11:04:30.605Z",
  "today": "2026-11-02",
  "week_start": "2026-11-02",
  "campaign": {
@@ -103,15 +103,15 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-02 10:46:02"
+   "updated_at": "2026-11-02 11:01:33"
   },
   {
    "id": "tresearch",
    "name": "Davina",
    "title": "Research & Fundamental",
    "status": "done",
-   "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
-   "updated_at": "2026-11-02 10:46:02"
+   "current_task": "Fundamental: Bias negatif ringan: Fed sempat naikkan bunga (Sep), DXY kuat ~102. Data Okt belum terkonfirmasi; pemilu AS 3 Nov risiko volatilitas.",
+   "updated_at": "2026-11-02 11:01:33"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-02 10:46:02"
+   "updated_at": "2026-11-02 11:01:33"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-11-02 10:46:02"
+   "updated_at": "2026-11-02 11:01:33"
   },
   {
    "id": "texec",
@@ -295,10 +295,10 @@
    "game": "sejarah",
    "pillar": "hidden_history",
    "title": "Renovasi Rumah, Malah Nemu Kota di Bawah Tanah",
-   "status": "approved",
-   "asset_url": null,
+   "status": "posted",
+   "asset_url": "https://www.youtube.com/watch?v=2RhSqT3WciU",
    "scheduled_at": null,
-   "posted_at": null,
+   "posted_at": "2026-11-02 11:00:49",
    "channel": "youtube"
   },
   {
@@ -524,6 +524,16 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-02 11:01:00",
+   "agent_id": "ttech",
+   "message": "M30 berubah arah: sideways → bullish"
+  },
+  {
+   "ts": "2026-11-02 11:00:49",
+   "agent_id": "ypublish",
+   "message": "Upload Shorts #126 ke Zataa History (Publik via Zernio)"
+  },
+  {
    "ts": "2026-11-02 10:16:00",
    "agent_id": "trisk",
    "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
@@ -637,19 +647,16 @@
    "ts": "2026-11-02 05:03:28",
    "agent_id": "publisher",
    "message": "Posting #112 ke IG ✅"
-  },
-  {
-   "ts": "2026-11-02 04:46:00",
-   "agent_id": "ttech",
-   "message": "M15 berubah arah: bullish → sideways"
-  },
-  {
-   "ts": "2026-11-02 04:16:00",
-   "agent_id": "trisk",
-   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (sesi Asia)"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-11-02 11:00:31",
+   "agent_id": "analyst",
+   "to_id": "dir",
+   "kind": "oper",
+   "message": "Laporan harian marketing udah aku kirim ke Bos, 1 konten tayang hari ini 📊"
+  },
   {
    "ts": "2026-11-02 06:38:30",
    "agent_id": "teval",
@@ -922,26 +929,19 @@
    "to_id": "yvisual",
    "kind": "oper",
    "message": "Galih, naskah \"Naskah Nan Madol 6 adegan, label fakta/mitos\" udah lolos cek fakta. Tinggal visualin 🎬"
-  },
-  {
-   "ts": "2026-10-31 23:06:41",
-   "agent_id": "ydir",
-   "to_id": "yresearch",
-   "kind": "oper",
-   "message": "Brief Shorts \"Topik Nan Madol + approve GM-004/005\" udah jadi. Nadhira, gas riset!"
   }
  ],
  "stats": {
   "this_week": {
    "week": "2026-11-02",
    "total": 16,
-   "posted": 1,
+   "posted": 2,
    "pending": 0,
-   "scheduled": 3,
+   "scheduled": 2,
    "yt_total": 2,
-   "yt_posted": 0,
+   "yt_posted": 1,
    "yt_pending": 0,
-   "yt_scheduled": 2,
+   "yt_scheduled": 1,
    "views": 10,
    "likes": 1,
    "comments": 0,
@@ -1110,9 +1110,14 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 28.5,
-  "price": 3899,
+  "price": 3901.5,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-02 11:01:33",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
    {
     "ts": "2026-11-02 10:46:02",
     "decision": "NO TRADE",
@@ -1135,11 +1140,6 @@
    },
    {
     "ts": "2026-11-02 09:46:00",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-11-02 09:31:01",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1186,7 +1186,7 @@
    1716.0099999999995
   ],
   "last": {
-   "ts": "2026-11-02 10:46:02",
+   "ts": "2026-11-02 11:01:33",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1197,8 +1197,8 @@
    "risk_usd": null,
    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
    "fund": {
-    "bias": 0,
-    "note": "netral (belum ada ringkasan hari ini)",
+    "bias": -0.3,
+    "note": "Bias negatif ringan: Fed sempat naikkan bunga (Sep), DXY kuat ~102. Data Okt belum terkonfirmasi; pemilu AS 3 Nov risiko volatilitas.",
     "danger": null,
     "blackout": null
    },
@@ -1207,10 +1207,13 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3897.20 di bawah tengah band (3891.4–3913.5) · RSI 44 · Stoch 28 · MACD -0.81 · H1 sideways"
+    "note": "M15 3899.30 di bawah tengah band (3892.6–3911.2) · RSI 47 · Stoch 44 · MACD -0.48 · H1 sideways"
    }
   },
-  "fund": null,
+  "fund": {
+   "bias": -0.3,
+   "note": "Bias negatif ringan: Fed sempat naikkan bunga (Sep), DXY kuat ~102. Data Okt belum terkonfirmasi; pemilu AS 3 Nov risiko volatilitas."
+  },
   "calendar": [
    {
     "title": "ISM Manufacturing PMI",
@@ -1308,47 +1311,47 @@
   "tf": {
    "M10": {
     "bias": "bearish",
-    "score": -2,
-    "price": 3898.7,
-    "ema20": 3900.83,
-    "ema50": 3901.49,
-    "rsi": 45.5,
+    "score": -3,
+    "price": 3900.3,
+    "ema20": 3900.78,
+    "ema50": 3901.44,
+    "rsi": 48.2,
     "n": 299,
-    "slot": 2989361,
-    "at": 1793616660591
+    "slot": 2989362,
+    "at": 1793617260660
    },
    "M15": {
     "bias": "sideways",
     "score": -1,
-    "price": 3898.2,
-    "ema20": 3901.52,
-    "ema50": 3899.4,
-    "rsi": 45.3,
+    "price": 3900.3,
+    "ema20": 3901.41,
+    "ema50": 3899.44,
+    "rsi": 48.2,
     "n": 299,
-    "slot": 1992907,
-    "at": 1793616362133
+    "slot": 1992908,
+    "at": 1793617260665
    },
    "M30": {
-    "bias": "sideways",
-    "score": 0,
-    "price": 3896.9,
-    "ema20": 3900.04,
-    "ema50": 3893.2,
-    "rsi": 48.5,
+    "bias": "bullish",
+    "score": 2,
+    "price": 3900.3,
+    "ema20": 3900.07,
+    "ema50": 3893.48,
+    "rsi": 52.2,
     "n": 299,
-    "slot": 996453,
-    "at": 1793615460860
+    "slot": 996454,
+    "at": 1793617260666
    },
    "H1": {
     "bias": "sideways",
-    "score": 1,
-    "price": 3898.7,
-    "ema20": 3894.52,
-    "ema50": 3895.13,
-    "rsi": 56.2,
+    "score": 0,
+    "price": 3900.3,
+    "ema20": 3895.07,
+    "ema50": 3895.33,
+    "rsi": 57.6,
     "n": 299,
-    "slot": 498226,
-    "at": 1793613660803
+    "slot": 498227,
+    "at": 1793617260675
    }
   },
   "currency": "USC",
