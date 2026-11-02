@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-02T21:44:30.889Z",
+ "generated_at": "2026-11-02T21:54:30.885Z",
  "today": "2026-11-03",
  "week_start": "2026-11-02",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-02 21:31:01"
+   "updated_at": "2026-11-02 21:46:01"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
-   "updated_at": "2026-11-02 21:31:01"
+   "updated_at": "2026-11-02 21:46:01"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-02 21:31:01"
+   "updated_at": "2026-11-02 21:46:01"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
-   "updated_at": "2026-11-02 21:31:01"
+   "updated_at": "2026-11-02 21:46:01"
   },
   {
    "id": "texec",
@@ -524,6 +524,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-02 21:46:01",
+   "agent_id": "trisk",
+   "message": "NO TRADE · jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
+  },
+  {
    "ts": "2026-11-02 20:46:01",
    "agent_id": "trisk",
    "message": "NO TRADE · jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
@@ -642,11 +647,6 @@
    "ts": "2026-11-02 12:01:07",
    "agent_id": "spublish",
    "message": "Cross-post Shorts #127 ke TikTok Zataa Story"
-  },
-  {
-   "ts": "2026-11-02 12:01:00",
-   "agent_id": "ttech",
-   "message": "M60 berubah arah: sideways → bullish"
   }
  ],
  "chats": [
@@ -968,20 +968,24 @@
      "views": 767
     }
    ],
-   "clicks": 19,
-   "click_visitors": 14,
+   "clicks": 36,
+   "click_visitors": 15,
    "click_src": [
     {
-     "src": "login",
+     "src": "info",
+     "n": 4
+    },
+    {
+     "src": "test",
      "n": 3
     },
     {
      "src": "phpinfo",
-     "n": 2
+     "n": 3
     },
     {
-     "src": "info",
-     "n": 2
+     "src": "login",
+     "n": 3
     },
     {
      "src": "cgi",
@@ -992,7 +996,19 @@
      "n": 1
     },
     {
-     "src": "test",
+     "src": "tmp",
+     "n": 1
+    },
+    {
+     "src": "tests",
+     "n": 1
+    },
+    {
+     "src": "temp",
+     "n": 1
+    },
+    {
+     "src": "staging",
      "n": 1
     },
     {
@@ -1005,6 +1021,22 @@
     },
     {
      "src": "query",
+     "n": 1
+    },
+    {
+     "src": "lxiebwa0bbi4aw",
+     "n": 1
+    },
+    {
+     "src": "logs",
+     "n": 1
+    },
+    {
+     "src": "log",
+     "n": 1
+    },
+    {
+     "src": "infos",
      "n": 1
     },
     {
@@ -1024,7 +1056,23 @@
      "n": 1
     },
     {
+     "src": "env",
+     "n": 1
+    },
+    {
+     "src": "dev",
+     "n": 1
+    },
+    {
+     "src": "demo",
+     "n": 1
+    },
+    {
      "src": "c",
+     "n": 1
+    },
+    {
+     "src": "beta",
      "n": 1
     }
    ],
@@ -1138,9 +1186,14 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 28.5,
-  "price": 3948.699951,
+  "price": 3948.300049,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-02 21:46:01",
+    "decision": "NO TRADE",
+    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
+   },
    {
     "ts": "2026-11-02 21:31:01",
     "decision": "NO TRADE",
@@ -1163,11 +1216,6 @@
    },
    {
     "ts": "2026-11-02 20:31:02",
-    "decision": "NO TRADE",
-    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
-   },
-   {
-    "ts": "2026-11-02 20:16:01",
     "decision": "NO TRADE",
     "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
    }
@@ -1214,7 +1262,7 @@
    1716.0099999999995
   ],
   "last": {
-   "ts": "2026-11-02 21:31:01",
+   "ts": "2026-11-02 21:46:01",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1235,7 +1283,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3946.70 di bawah tengah band (3935.0–3971.6) · RSI 49 · Stoch 29 · MACD -2.07 · H1 sideways"
+    "note": "M15 3948.30 di bawah tengah band (3935.7–3969.1) · RSI 51 · Stoch 35 · MACD -1.62 · H1 sideways"
    }
   },
   "fund": null,
@@ -1328,24 +1376,24 @@
    "M10": {
     "bias": "sideways",
     "score": -1,
-    "price": 3946,
-    "ema20": 3948.64,
-    "ema50": 3945.31,
-    "rsi": 44.7,
+    "price": 3948.4,
+    "ema20": 3948.62,
+    "ema50": 3945.43,
+    "rsi": 49,
     "n": 299,
-    "slot": 2989426,
-    "at": 1793655661353
+    "slot": 2989427,
+    "at": 1793656261435
    },
    "M15": {
     "bias": "sideways",
     "score": -1,
-    "price": 3947.7,
-    "ema20": 3949.19,
-    "ema50": 3939.02,
-    "rsi": 50.1,
+    "price": 3948.7,
+    "ema20": 3949.15,
+    "ema50": 3939.4,
+    "rsi": 51.3,
     "n": 299,
-    "slot": 1992950,
-    "at": 1793655061361
+    "slot": 1992951,
+    "at": 1793655961337
    },
    "M30": {
     "bias": "bullish",
