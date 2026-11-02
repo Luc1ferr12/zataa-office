@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-02T13:44:30.665Z",
+ "generated_at": "2026-11-02T13:54:30.680Z",
  "today": "2026-11-02",
  "week_start": "2026-11-02",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-02 13:31:01"
+   "updated_at": "2026-11-02 13:46:01"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Bias negatif ringan: Fed sempat naikkan bunga (Sep), DXY kuat ~102. Data Okt belum terkonfirmasi; pemilu AS 3 Nov risiko volatilitas.",
-   "updated_at": "2026-11-02 13:31:01"
+   "updated_at": "2026-11-02 13:46:00"
   },
   {
    "id": "ttech",
@@ -119,15 +119,15 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-02 13:31:01"
+   "updated_at": "2026-11-02 13:46:01"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-11-02 13:31:01"
+   "current_task": "NO TRADE: ada candle spike di M15 (kemungkinan berita dadakan), tunggu tenang",
+   "updated_at": "2026-11-02 13:46:01"
   },
   {
    "id": "texec",
@@ -968,9 +968,13 @@
      "views": 18
     }
    ],
-   "clicks": 14,
-   "click_visitors": 10,
+   "clicks": 15,
+   "click_visitors": 11,
    "click_src": [
+    {
+     "src": "phpinfo",
+     "n": 2
+    },
     {
      "src": "login",
      "n": 2
@@ -993,10 +997,6 @@
     },
     {
      "src": "ryxj0umntok030",
-     "n": 1
-    },
-    {
-     "src": "phpinfo",
      "n": 1
     },
     {
@@ -1126,9 +1126,14 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 28.5,
-  "price": 3939.899902,
+  "price": 3941.699951,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-02 13:46:01",
+    "decision": "NO TRADE",
+    "reason": "ada candle spike di M15 (kemungkinan berita dadakan), tunggu tenang"
+   },
    {
     "ts": "2026-11-02 13:31:01",
     "decision": "NO TRADE",
@@ -1151,11 +1156,6 @@
    },
    {
     "ts": "2026-11-02 12:31:01",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-11-02 12:16:00",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1202,7 +1202,7 @@
    1716.0099999999995
   ],
   "last": {
-   "ts": "2026-11-02 13:31:01",
+   "ts": "2026-11-02 13:46:01",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1211,7 +1211,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
+   "reason": "ada candle spike di M15 (kemungkinan berita dadakan), tunggu tenang",
    "fund": {
     "bias": -0.3,
     "note": "Bias negatif ringan: Fed sempat naikkan bunga (Sep), DXY kuat ~102. Data Okt belum terkonfirmasi; pemilu AS 3 Nov risiko volatilitas.",
@@ -1223,7 +1223,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3910.40 di atas band atas (3894.7–3910.2) · RSI 60 · Stoch 82 · MACD +0.77 · H1 sideways"
+    "note": "M15 3944.60 di atas band atas (3876.5–3936.8) · RSI 75 · Stoch 97 · MACD +4.52 · H1 sideways"
    }
   },
   "fund": {
@@ -1328,24 +1328,24 @@
    "M10": {
     "bias": "sideways",
     "score": 1,
-    "price": 3927.9,
-    "ema20": 3905.15,
-    "ema50": 3903.33,
-    "rsi": 73.7,
+    "price": 3945.2,
+    "ema20": 3908.96,
+    "ema50": 3904.97,
+    "rsi": 80.5,
     "n": 299,
-    "slot": 2989378,
-    "at": 1793626860847
+    "slot": 2989379,
+    "at": 1793627460844
    },
    "M15": {
     "bias": "bullish",
     "score": 2,
-    "price": 3908,
-    "ema20": 3903.09,
-    "ema50": 3900.95,
-    "rsi": 57.2,
+    "price": 3948.9,
+    "ema20": 3907.46,
+    "ema50": 3902.83,
+    "rsi": 80.1,
     "n": 299,
-    "slot": 1992918,
-    "at": 1793626260927
+    "slot": 1992919,
+    "at": 1793627160863
    },
    "M30": {
     "bias": "bullish",
