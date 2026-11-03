@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-03T20:54:31.487Z",
+ "generated_at": "2026-11-03T21:04:31.494Z",
  "today": "2026-11-04",
  "week_start": "2026-11-02",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-03 20:46:02"
+   "updated_at": "2026-11-03 21:01:05"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Data 24 jam tak ketemu. Tren: USD kuat (DXY ~102), PCE Agt 3.4% y/y, emas turun dari ~4700 (Apr) ke <4150 (Okt).",
-   "updated_at": "2026-11-03 20:46:02"
+   "updated_at": "2026-11-03 21:01:05"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-11-03 20:46:02"
+   "updated_at": "2026-11-03 21:01:05"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
-   "updated_at": "2026-11-03 20:46:02"
+   "updated_at": "2026-11-03 21:01:05"
   },
   {
    "id": "texec",
@@ -1228,9 +1228,14 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 3921.300049,
+  "price": 3921.899902,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-03 21:01:05",
+    "decision": "NO TRADE",
+    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
+   },
    {
     "ts": "2026-11-03 20:46:02",
     "decision": "NO TRADE",
@@ -1253,11 +1258,6 @@
    },
    {
     "ts": "2026-11-03 19:46:02",
-    "decision": "NO TRADE",
-    "reason": "kondisi berita bahaya: Berita 24 jam belum terverifikasi; cek ulang sebelum entry"
-   },
-   {
-    "ts": "2026-11-03 19:31:02",
     "decision": "NO TRADE",
     "reason": "kondisi berita bahaya: Berita 24 jam belum terverifikasi; cek ulang sebelum entry"
    }
@@ -1304,7 +1304,7 @@
    1716.0099999999995
   ],
   "last": {
-   "ts": "2026-11-03 20:46:02",
+   "ts": "2026-11-03 21:01:05",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1325,13 +1325,10 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3921.60 di bawah tengah band (3917.1–3939.5) · RSI 42 · Stoch 18 · MACD -1.30 · H1 bearish"
+    "note": "M15 3922.30 di bawah tengah band (3917.0–3938.2) · RSI 43 · Stoch 18 · MACD -1.03 · H1 bearish"
    }
   },
-  "fund": {
-   "bias": -0.3,
-   "note": "Data 24 jam tak ketemu. Tren: USD kuat (DXY ~102), PCE Agt 3.4% y/y, emas turun dari ~4700 (Apr) ke <4150 (Okt)."
-  },
+  "fund": null,
   "calendar": [
    {
     "title": "ISM Services PMI",
@@ -1402,47 +1399,47 @@
   "tf": {
    "M10": {
     "bias": "bearish",
-    "score": -2,
-    "price": 3922.9,
-    "ema20": 3926.29,
-    "ema50": 3928.19,
-    "rsi": 41.1,
+    "score": -3,
+    "price": 3922.4,
+    "ema20": 3925.92,
+    "ema50": 3927.96,
+    "rsi": 40.3,
     "n": 299,
-    "slot": 2989565,
-    "at": 1793739062682
+    "slot": 2989566,
+    "at": 1793739665044
    },
    "M15": {
     "bias": "bearish",
     "score": -3,
-    "price": 3921.4,
-    "ema20": 3927.5,
-    "ema50": 3928.38,
-    "rsi": 41.4,
+    "price": 3922.4,
+    "ema20": 3927.01,
+    "ema50": 3928.15,
+    "rsi": 42.9,
     "n": 299,
-    "slot": 1993043,
-    "at": 1793738762744
+    "slot": 1993044,
+    "at": 1793739665049
    },
    "M30": {
     "bias": "sideways",
     "score": 0,
-    "price": 3922.8,
-    "ema20": 3928.27,
-    "ema50": 3927.52,
-    "rsi": 46.4,
+    "price": 3922.4,
+    "ema20": 3927.71,
+    "ema50": 3927.32,
+    "rsi": 46.2,
     "n": 299,
-    "slot": 996521,
-    "at": 1793737862754
+    "slot": 996522,
+    "at": 1793739665051
    },
    "H1": {
     "bias": "sideways",
     "score": 1,
-    "price": 3920.8,
-    "ema20": 3929,
-    "ema50": 3922.72,
-    "rsi": 47.2,
+    "price": 3922.4,
+    "ema20": 3928.37,
+    "ema50": 3922.71,
+    "rsi": 47.8,
     "n": 299,
-    "slot": 498260,
-    "at": 1793736062683
+    "slot": 498261,
+    "at": 1793739665060
    }
   },
   "currency": "USC",
