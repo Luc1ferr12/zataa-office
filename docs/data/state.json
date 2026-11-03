@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-03T20:24:31.473Z",
+ "generated_at": "2026-11-03T20:34:31.479Z",
  "today": "2026-11-04",
  "week_start": "2026-11-02",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-03 20:16:02"
+   "updated_at": "2026-11-03 20:31:02"
   },
   {
    "id": "tresearch",
@@ -111,15 +111,15 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Data 24 jam tak ketemu. Tren: USD kuat (DXY ~102), PCE Agt 3.4% y/y, emas turun dari ~4700 (Apr) ke <4150 (Okt).",
-   "updated_at": "2026-11-03 20:16:02"
+   "updated_at": "2026-11-03 20:31:02"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-11-03 20:16:02"
+   "current_task": "Setup BUY di band (Stokastik+MACD)",
+   "updated_at": "2026-11-03 20:31:02"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
-   "updated_at": "2026-11-03 20:16:02"
+   "updated_at": "2026-11-03 20:31:02"
   },
   {
    "id": "texec",
@@ -1228,9 +1228,14 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 3922.699951,
+  "price": 3922.5,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-03 20:31:02",
+    "decision": "NO TRADE",
+    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
+   },
    {
     "ts": "2026-11-03 20:16:02",
     "decision": "NO TRADE",
@@ -1253,11 +1258,6 @@
    },
    {
     "ts": "2026-11-03 19:16:02",
-    "decision": "NO TRADE",
-    "reason": "kondisi berita bahaya: Berita 24 jam belum terverifikasi; cek ulang sebelum entry"
-   },
-   {
-    "ts": "2026-11-03 19:01:03",
     "decision": "NO TRADE",
     "reason": "kondisi berita bahaya: Berita 24 jam belum terverifikasi; cek ulang sebelum entry"
    }
@@ -1304,7 +1304,7 @@
    1716.0099999999995
   ],
   "last": {
-   "ts": "2026-11-03 20:16:02",
+   "ts": "2026-11-03 20:31:02",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1321,11 +1321,14 @@
     "blackout": null
    },
    "tech": {
-    "bias": "bearish",
-    "score": 0,
-    "trigger": null,
-    "confirm": [],
-    "note": "M15 3919.80 di bawah tengah band (3917.8–3941.6) · RSI 39 · Stoch 4 · MACD -1.81 · H1 bearish"
+    "bias": "sideways",
+    "score": 2,
+    "trigger": "buy",
+    "confirm": [
+     "Stokastik",
+     "MACD"
+    ],
+    "note": "M15 3923.80 di bawah tengah band (3918.1–3940.3) · RSI 44 · Stoch 19 · MACD -1.33 · H1 sideways · setup BUY (Stokastik+MACD)"
    }
   },
   "fund": {
@@ -1403,35 +1406,35 @@
    "M10": {
     "bias": "bearish",
     "score": -2,
-    "price": 3922.3,
-    "ema20": 3927.72,
-    "ema50": 3928.95,
-    "rsi": 38,
+    "price": 3922.8,
+    "ema20": 3927.26,
+    "ema50": 3928.71,
+    "rsi": 39.2,
     "n": 299,
-    "slot": 2989562,
-    "at": 1793737262676
+    "slot": 2989563,
+    "at": 1793737862747
    },
    "M15": {
     "bias": "bearish",
     "score": -3,
-    "price": 3919.8,
-    "ema20": 3928.7,
-    "ema50": 3928.91,
-    "rsi": 38.7,
+    "price": 3922.8,
+    "ema20": 3928.14,
+    "ema50": 3928.67,
+    "rsi": 42.9,
     "n": 299,
-    "slot": 1993041,
-    "at": 1793736962719
+    "slot": 1993042,
+    "at": 1793737862753
    },
    "M30": {
     "bias": "sideways",
     "score": 0,
-    "price": 3920.8,
-    "ema20": 3928.85,
-    "ema50": 3927.72,
-    "rsi": 45.1,
+    "price": 3922.8,
+    "ema20": 3928.27,
+    "ema50": 3927.52,
+    "rsi": 46.4,
     "n": 299,
-    "slot": 996520,
-    "at": 1793736062679
+    "slot": 996521,
+    "at": 1793737862754
    },
    "H1": {
     "bias": "sideways",
