@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-03T00:54:30.970Z",
+ "generated_at": "2026-11-03T01:04:30.968Z",
  "today": "2026-11-03",
  "week_start": "2026-11-02",
  "campaign": {
@@ -62,8 +62,8 @@
    "name": "Fikri",
    "title": "Social Media Publisher",
    "status": "done",
-   "current_task": "QA naskah FFWS 2027, video dikirim laptop",
-   "updated_at": "2026-11-02 23:29:31"
+   "current_task": null,
+   "updated_at": "2026-11-03 01:00:52"
   },
   {
    "id": "ads",
@@ -78,8 +78,8 @@
    "name": "Raka",
    "title": "Data Analyst",
    "status": "done",
-   "current_task": "Pola data kemarin",
-   "updated_at": "2026-11-02 23:07:55"
+   "current_task": null,
+   "updated_at": "2026-11-03 01:01:18"
   },
   {
    "id": "price",
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-03 00:46:01"
+   "updated_at": "2026-11-03 01:01:01"
   },
   {
    "id": "tresearch",
@@ -111,23 +111,23 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Berita 24 jam tidak terverifikasi (pencarian hanya dapat data lama/tak bertanggal). JOLTS & pemilu AS 3 Nov perlu diwaspadai. Bias netral.",
-   "updated_at": "2026-11-03 00:46:01"
+   "updated_at": "2026-11-03 01:01:01"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Setup SELL di band (RSI+Stokastik+MACD)",
-   "updated_at": "2026-11-03 00:46:01"
+   "current_task": "Setup SELL di band (tanpa konfirmasi)",
+   "updated_at": "2026-11-03 01:01:01"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: ada candle spike di M15 (kemungkinan berita dadakan), tunggu tenang",
-   "updated_at": "2026-11-03 00:46:01"
+   "current_task": "NO TRADE: setup SELL di band, konfirmasi baru 0/2 (-) · sesi Asia",
+   "updated_at": "2026-11-03 01:01:01"
   },
   {
    "id": "texec",
@@ -351,8 +351,8 @@
    "game": "mlbb",
    "pillar": "promo",
    "title": "H-1 playoff MPL ID S18: siap nonton sambil push rank? Amankan diamond ML dulu (harga zataa.my.id hari itu) — hook pertanyaan #16",
-   "status": "draft",
-   "asset_url": null,
+   "status": "pending_approval",
+   "asset_url": "{\"video\":\"https://luc1ferr12.github.io/zataa-office/media/2026-11-03/115-h-1-playoff-mpl-id-s18-siap-nonton-sambi-ov.mp4\",\"cover\":\"https://luc1ferr12.github.io/zataa-office/media/2026-11-03/115-h-1-playoff-mpl-id-s18-siap-nonton-sambi-ov-cover.jpg\"}",
    "scheduled_at": null,
    "posted_at": null,
    "channel": null
@@ -566,6 +566,26 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-03 01:02:43",
+   "agent_id": "video",
+   "message": "video #115 dirender di laptop (suara OmniVoice) & dikirim ke Owner"
+  },
+  {
+   "ts": "2026-11-03 01:02:43",
+   "agent_id": "publisher",
+   "message": "Kirim #115 ke Owner buat approval"
+  },
+  {
+   "ts": "2026-11-03 01:01:18",
+   "agent_id": "analyst",
+   "message": "Update data 49 post IG 📈"
+  },
+  {
+   "ts": "2026-11-03 01:00:52",
+   "agent_id": "publisher",
+   "message": "Kirim draf IG Story ke Bos 📱"
+  },
+  {
    "ts": "2026-11-03 00:16:01",
    "agent_id": "trisk",
    "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (sesi Asia)"
@@ -669,26 +689,6 @@
    "ts": "2026-11-02 23:01:27",
    "agent_id": "trisk",
    "message": "NO TRADE · jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
-  },
-  {
-   "ts": "2026-11-02 22:01:10",
-   "agent_id": "analyst",
-   "message": "Update data 49 post IG 📈"
-  },
-  {
-   "ts": "2026-11-02 21:46:01",
-   "agent_id": "trisk",
-   "message": "NO TRADE · jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
-  },
-  {
-   "ts": "2026-11-02 20:46:01",
-   "agent_id": "trisk",
-   "message": "NO TRADE · jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
-  },
-  {
-   "ts": "2026-11-02 19:46:01",
-   "agent_id": "trisk",
-   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
   }
  ],
  "chats": [
@@ -978,14 +978,14 @@
    "week": "2026-11-02",
    "total": 19,
    "posted": 4,
-   "pending": 0,
+   "pending": 1,
    "scheduled": 1,
    "yt_total": 4,
    "yt_posted": 2,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 3709,
-   "likes": 64,
+   "views": 3816,
+   "likes": 65,
    "comments": 1,
    "shares": 0,
    "saves": 1,
@@ -1007,7 +1007,7 @@
      "title": "PRX tinggal 3 pemain: d4v41 cari tim baru, Jinggg masih nego (RUMOR) — breaking, hook angka #23",
      "format": "video",
      "pillar": "esport",
-     "views": 840
+     "views": 947
     }
    ],
    "clicks": 36,
@@ -1130,7 +1130,7 @@
    "yt_posted": 12,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 30346,
+   "views": 30353,
    "likes": 399,
    "comments": 7,
    "shares": 16,
@@ -1228,9 +1228,14 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 3957.699951,
+  "price": 3954.899902,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-03 01:01:01",
+    "decision": "NO TRADE",
+    "reason": "setup SELL di band, konfirmasi baru 0/2 (-) · sesi Asia"
+   },
    {
     "ts": "2026-11-03 00:46:01",
     "decision": "NO TRADE",
@@ -1253,11 +1258,6 @@
    },
    {
     "ts": "2026-11-02 23:46:01",
-    "decision": "NO TRADE",
-    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
-   },
-   {
-    "ts": "2026-11-02 23:31:01",
     "decision": "NO TRADE",
     "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
    }
@@ -1304,7 +1304,7 @@
    1716.0099999999995
   ],
   "last": {
-   "ts": "2026-11-03 00:46:01",
+   "ts": "2026-11-03 01:01:01",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1313,7 +1313,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "ada candle spike di M15 (kemungkinan berita dadakan), tunggu tenang",
+   "reason": "setup SELL di band, konfirmasi baru 0/2 (-) · sesi Asia",
    "fund": {
     "bias": 0,
     "note": "Berita 24 jam tidak terverifikasi (pencarian hanya dapat data lama/tak bertanggal). JOLTS & pemilu AS 3 Nov perlu diwaspadai. Bias netral.",
@@ -1322,14 +1322,10 @@
    },
    "tech": {
     "bias": "sideways",
-    "score": 3,
+    "score": 0,
     "trigger": "sell",
-    "confirm": [
-     "RSI",
-     "Stokastik",
-     "MACD"
-    ],
-    "note": "M15 3950.80 di atas tengah band (3940.2–3955.8) · RSI 53 · Stoch 57 · MACD +0.40 · H1 sideways · setup SELL (RSI+Stokastik+MACD)"
+    "confirm": [],
+    "note": "M15 3959.40 di atas tengah band (3938.7–3959.9) · RSI 62 · Stoch 66 · MACD +1.17 · H1 sideways · setup SELL (tanpa konfirmasi)"
    }
   },
   "fund": {
@@ -1425,46 +1421,46 @@
    "M10": {
     "bias": "bullish",
     "score": 2,
-    "price": 3953.5,
-    "ema20": 3951.27,
-    "ema50": 3948.11,
-    "rsi": 54.7,
+    "price": 3960.3,
+    "ema20": 3952.13,
+    "ema50": 3948.59,
+    "rsi": 63.1,
     "n": 299,
-    "slot": 2989445,
-    "at": 1793667061466
+    "slot": 2989446,
+    "at": 1793667661413
    },
    "M15": {
     "bias": "bullish",
     "score": 2,
-    "price": 3952.1,
-    "ema20": 3949.65,
-    "ema50": 3943.2,
-    "rsi": 54.6,
+    "price": 3960.3,
+    "ema20": 3950.67,
+    "ema50": 3943.87,
+    "rsi": 63.2,
     "n": 299,
-    "slot": 1992963,
-    "at": 1793666761456
+    "slot": 1992964,
+    "at": 1793667661419
    },
    "M30": {
     "bias": "bullish",
     "score": 2,
-    "price": 3959,
-    "ema20": 3945.88,
-    "ema50": 3928.79,
-    "rsi": 65.8,
+    "price": 3960.3,
+    "ema20": 3947.25,
+    "ema50": 3930.03,
+    "rsi": 66.6,
     "n": 299,
-    "slot": 996481,
-    "at": 1793665861440
+    "slot": 996482,
+    "at": 1793667661420
    },
    "H1": {
     "bias": "bullish",
     "score": 3,
-    "price": 3949,
-    "ema20": 3933.46,
-    "ema50": 3916.09,
-    "rsi": 64.6,
+    "price": 3960.3,
+    "ema20": 3936.01,
+    "ema50": 3917.83,
+    "rsi": 69.1,
     "n": 299,
-    "slot": 498240,
-    "at": 1793664061561
+    "slot": 498241,
+    "at": 1793667661424
    }
   },
   "currency": "USC",
