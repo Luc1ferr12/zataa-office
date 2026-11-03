@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-03T07:24:31.144Z",
+ "generated_at": "2026-11-03T07:34:31.147Z",
  "today": "2026-11-03",
  "week_start": "2026-11-02",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-03 07:16:01"
+   "updated_at": "2026-11-03 07:31:05"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Berita 24 jam tidak terverifikasi (pencarian hanya dapat data lama/tak bertanggal). JOLTS & pemilu AS 3 Nov perlu diwaspadai. Bias netral.",
-   "updated_at": "2026-11-03 07:16:01"
+   "updated_at": "2026-11-03 07:31:05"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-11-03 07:16:01"
+   "updated_at": "2026-11-03 07:31:05"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-11-03 07:16:01"
+   "updated_at": "2026-11-03 07:31:05"
   },
   {
    "id": "texec",
@@ -1228,9 +1228,14 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 3912.100098,
+  "price": 3911.100098,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-03 07:31:05",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
    {
     "ts": "2026-11-03 07:16:01",
     "decision": "NO TRADE",
@@ -1253,11 +1258,6 @@
    },
    {
     "ts": "2026-11-03 06:16:01",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-   },
-   {
-    "ts": "2026-11-03 06:01:01",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
    }
@@ -1304,7 +1304,7 @@
    1716.0099999999995
   ],
   "last": {
-   "ts": "2026-11-03 07:16:01",
+   "ts": "2026-11-03 07:31:05",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1325,7 +1325,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3911.10 di bawah tengah band (3904.3–3949.8) · RSI 28 · Stoch 0 · MACD -1.27 · H1 bearish"
+    "note": "M15 3913.20 di bawah tengah band (3904.2–3946.8) · RSI 31 · Stoch 7 · MACD -0.95 · H1 bearish"
    }
   },
   "fund": {
@@ -1421,35 +1421,35 @@
    "M10": {
     "bias": "bearish",
     "score": -3,
-    "price": 3910.6,
-    "ema20": 3923.07,
-    "ema50": 3932.51,
-    "rsi": 29.8,
+    "price": 3912.3,
+    "ema20": 3922.04,
+    "ema50": 3931.72,
+    "rsi": 32.8,
     "n": 299,
-    "slot": 2989484,
-    "at": 1793690461697
+    "slot": 2989485,
+    "at": 1793691065726
    },
    "M15": {
     "bias": "bearish",
     "score": -3,
-    "price": 3911.6,
-    "ema20": 3927.43,
-    "ema50": 3935.01,
-    "rsi": 28.1,
+    "price": 3912.3,
+    "ema20": 3925.98,
+    "ema50": 3934.12,
+    "rsi": 29.3,
     "n": 299,
-    "slot": 1992989,
-    "at": 1793690161709
+    "slot": 1992990,
+    "at": 1793691065731
    },
    "M30": {
     "bias": "sideways",
     "score": 1,
-    "price": 3913.1,
-    "ema20": 3934.42,
-    "ema50": 3930.58,
-    "rsi": 29.3,
+    "price": 3912.3,
+    "ema20": 3932.32,
+    "ema50": 3929.86,
+    "rsi": 28.8,
     "n": 299,
-    "slot": 996494,
-    "at": 1793689263431
+    "slot": 996495,
+    "at": 1793691065732
    },
    "H1": {
     "bias": "sideways",
