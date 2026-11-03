@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-03T01:34:30.993Z",
+ "generated_at": "2026-11-03T01:44:30.996Z",
  "today": "2026-11-03",
  "week_start": "2026-11-02",
  "campaign": {
@@ -566,6 +566,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-03 01:41:01",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: bullish → sideways"
+  },
+  {
    "ts": "2026-11-03 01:16:01",
    "agent_id": "trisk",
    "message": "NO TRADE · setup SELL di band, konfirmasi baru 1/2 (MACD) · sesi Asia"
@@ -684,11 +689,6 @@
    "ts": "2026-11-02 23:01:59",
    "agent_id": "researcher",
    "message": "Riset 3 Nov: FFWS SEA dihapus, H-1 playoff MPL ID, transfer VCT, KRÜ juara GCC (cek skor)"
-  },
-  {
-   "ts": "2026-11-02 23:01:59",
-   "agent_id": "researcher",
-   "message": "Nemu 9 topik baru"
   }
  ],
  "chats": [
@@ -1228,7 +1228,7 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 3951.5,
+  "price": 3947.899902,
   "open": [],
   "signals": [
    {
@@ -1419,15 +1419,15 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "bullish",
-    "score": 2,
-    "price": 3955.8,
-    "ema20": 3952.85,
-    "ema50": 3949.29,
-    "rsi": 55.1,
+    "bias": "sideways",
+    "score": 1,
+    "price": 3949,
+    "ema20": 3952.49,
+    "ema50": 3949.28,
+    "rsi": 46.5,
     "n": 299,
-    "slot": 2989449,
-    "at": 1793669461443
+    "slot": 2989450,
+    "at": 1793670061477
    },
    "M15": {
     "bias": "bullish",
