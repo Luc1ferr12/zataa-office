@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-03T14:14:31.318Z",
+ "generated_at": "2026-11-03T14:24:31.325Z",
  "today": "2026-11-03",
  "week_start": "2026-11-02",
  "campaign": {
@@ -103,15 +103,15 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-03 14:01:02"
+   "updated_at": "2026-11-03 14:16:02"
   },
   {
    "id": "tresearch",
    "name": "Davina",
    "title": "Research & Fundamental",
    "status": "done",
-   "current_task": "Fundamental: Data 24 jam tak ketemu. Tren: USD kuat (DXY ~102), PCE Agt 3.4% y/y, emas turun dari ~4700 (Apr) ke <4150 (Okt).",
-   "updated_at": "2026-11-03 14:01:02"
+   "current_task": "Waspada rilis Congressional Elections (23.16 WITA)",
+   "updated_at": "2026-11-03 14:16:02"
   },
   {
    "id": "ttech",
@@ -119,15 +119,15 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-03 14:01:02"
+   "updated_at": "2026-11-03 14:16:02"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: kondisi berita bahaya: Berita 24 jam belum terverifikasi; cek ulang sebelum entry",
-   "updated_at": "2026-11-03 14:01:02"
+   "current_task": "NO TRADE: berita berdampak tinggi: Congressional Elections (23.16 WITA)",
+   "updated_at": "2026-11-03 14:16:02"
   },
   {
    "id": "texec",
@@ -1228,9 +1228,14 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 3950.300049,
+  "price": 3949.100098,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-03 14:16:02",
+    "decision": "NO TRADE",
+    "reason": "berita berdampak tinggi: Congressional Elections (23.16 WITA)"
+   },
    {
     "ts": "2026-11-03 14:01:02",
     "decision": "NO TRADE",
@@ -1253,11 +1258,6 @@
    },
    {
     "ts": "2026-11-03 13:01:02",
-    "decision": "NO TRADE",
-    "reason": "kondisi berita bahaya: Berita 24 jam belum terverifikasi; cek ulang sebelum entry"
-   },
-   {
-    "ts": "2026-11-03 12:46:04",
     "decision": "NO TRADE",
     "reason": "kondisi berita bahaya: Berita 24 jam belum terverifikasi; cek ulang sebelum entry"
    }
@@ -1304,7 +1304,7 @@
    1716.0099999999995
   ],
   "last": {
-   "ts": "2026-11-03 14:01:02",
+   "ts": "2026-11-03 14:16:02",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1313,19 +1313,19 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "kondisi berita bahaya: Berita 24 jam belum terverifikasi; cek ulang sebelum entry",
+   "reason": "berita berdampak tinggi: Congressional Elections (23.16 WITA)",
    "fund": {
     "bias": -0.3,
     "note": "Data 24 jam tak ketemu. Tren: USD kuat (DXY ~102), PCE Agt 3.4% y/y, emas turun dari ~4700 (Apr) ke <4150 (Okt).",
     "danger": "Berita 24 jam belum terverifikasi; cek ulang sebelum entry",
-    "blackout": null
+    "blackout": "Congressional Elections (23.16 WITA)"
    },
    "tech": {
     "bias": "sideways",
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3961.90 di atas tengah band (3874.0–3968.6) · RSI 77 · Stoch 94 · MACD +7.13 · H1 sideways"
+    "note": "M15 3950.30 di atas tengah band (3876.4–3969.6) · RSI 66 · Stoch 80 · MACD +5.40 · H1 sideways"
    }
   },
   "fund": {
@@ -1421,24 +1421,24 @@
    "M10": {
     "bias": "bullish",
     "score": 2,
-    "price": 3953.2,
-    "ema20": 3932.97,
-    "ema50": 3924.57,
-    "rsi": 70.1,
+    "price": 3947.2,
+    "ema20": 3934.33,
+    "ema50": 3925.46,
+    "rsi": 63.9,
     "n": 299,
-    "slot": 2989525,
-    "at": 1793715062380
+    "slot": 2989526,
+    "at": 1793715662283
    },
    "M15": {
     "bias": "bullish",
     "score": 2,
-    "price": 3965.1,
-    "ema20": 3926.83,
-    "ema50": 3924.94,
-    "rsi": 80.2,
+    "price": 3950.4,
+    "ema20": 3929.07,
+    "ema50": 3925.93,
+    "rsi": 65.8,
     "n": 299,
-    "slot": 1993016,
-    "at": 1793714462161
+    "slot": 1993017,
+    "at": 1793715362257
    },
    "M30": {
     "bias": "sideways",
