@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-03T21:14:31.493Z",
+ "generated_at": "2026-11-03T21:24:31.496Z",
  "today": "2026-11-04",
  "week_start": "2026-11-02",
  "campaign": {
@@ -103,23 +103,23 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-03 21:01:05"
+   "updated_at": "2026-11-03 21:16:02"
   },
   {
    "id": "tresearch",
    "name": "Davina",
    "title": "Research & Fundamental",
    "status": "done",
-   "current_task": "Fundamental: Data 24 jam tak ketemu. Tren: USD kuat (DXY ~102), PCE Agt 3.4% y/y, emas turun dari ~4700 (Apr) ke <4150 (Okt).",
-   "updated_at": "2026-11-03 21:01:05"
+   "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
+   "updated_at": "2026-11-03 21:16:02"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-11-03 21:01:05"
+   "current_task": "Belum ada pantulan band · H1 sideways",
+   "updated_at": "2026-11-03 21:16:02"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
-   "updated_at": "2026-11-03 21:01:05"
+   "updated_at": "2026-11-03 21:16:02"
   },
   {
    "id": "texec",
@@ -1228,9 +1228,14 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 3923.5,
+  "price": 3924.699951,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-03 21:16:02",
+    "decision": "NO TRADE",
+    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
+   },
    {
     "ts": "2026-11-03 21:01:05",
     "decision": "NO TRADE",
@@ -1255,11 +1260,6 @@
     "ts": "2026-11-03 20:01:02",
     "decision": "NO TRADE",
     "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
-   },
-   {
-    "ts": "2026-11-03 19:46:02",
-    "decision": "NO TRADE",
-    "reason": "kondisi berita bahaya: Berita 24 jam belum terverifikasi; cek ulang sebelum entry"
    }
   ],
   "trades": [
@@ -1304,7 +1304,7 @@
    1716.0099999999995
   ],
   "last": {
-   "ts": "2026-11-03 21:01:05",
+   "ts": "2026-11-03 21:16:02",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1315,17 +1315,17 @@
    "risk_usd": null,
    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
    "fund": {
-    "bias": -0.3,
-    "note": "Data 24 jam tak ketemu. Tren: USD kuat (DXY ~102), PCE Agt 3.4% y/y, emas turun dari ~4700 (Apr) ke <4150 (Okt).",
-    "danger": "Berita 24 jam belum terverifikasi; cek ulang sebelum entry",
+    "bias": 0,
+    "note": "netral (belum ada ringkasan hari ini)",
+    "danger": null,
     "blackout": null
    },
    "tech": {
-    "bias": "bearish",
+    "bias": "sideways",
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3922.30 di bawah tengah band (3917.0–3938.2) · RSI 43 · Stoch 18 · MACD -1.03 · H1 bearish"
+    "note": "M15 3923.60 di bawah tengah band (3917.3–3936.8) · RSI 45 · Stoch 25 · MACD -0.71 · H1 sideways"
    }
   },
   "fund": null,
@@ -1400,24 +1400,24 @@
    "M10": {
     "bias": "bearish",
     "score": -3,
-    "price": 3922.9,
-    "ema20": 3925.63,
-    "ema50": 3927.76,
-    "rsi": 41.6,
+    "price": 3925.3,
+    "ema20": 3925.6,
+    "ema50": 3927.66,
+    "rsi": 47.2,
     "n": 299,
-    "slot": 2989567,
-    "at": 1793740262708
+    "slot": 2989568,
+    "at": 1793740862741
    },
    "M15": {
     "bias": "bearish",
     "score": -3,
-    "price": 3922.4,
-    "ema20": 3927.01,
-    "ema50": 3928.15,
-    "rsi": 42.9,
+    "price": 3923.3,
+    "ema20": 3926.66,
+    "ema50": 3927.96,
+    "rsi": 44.3,
     "n": 299,
-    "slot": 1993044,
-    "at": 1793739665049
+    "slot": 1993045,
+    "at": 1793740562776
    },
    "M30": {
     "bias": "sideways",
