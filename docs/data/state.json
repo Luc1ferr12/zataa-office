@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-03T02:14:31.007Z",
+ "generated_at": "2026-11-03T02:24:31.009Z",
  "today": "2026-11-03",
  "week_start": "2026-11-02",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-03 02:01:01"
+   "updated_at": "2026-11-03 02:16:01"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Berita 24 jam tidak terverifikasi (pencarian hanya dapat data lama/tak bertanggal). JOLTS & pemilu AS 3 Nov perlu diwaspadai. Bias netral.",
-   "updated_at": "2026-11-03 02:01:01"
+   "updated_at": "2026-11-03 02:16:01"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-03 02:01:01"
+   "updated_at": "2026-11-03 02:16:01"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
-   "updated_at": "2026-11-03 02:01:01"
+   "updated_at": "2026-11-03 02:16:01"
   },
   {
    "id": "texec",
@@ -337,8 +337,8 @@
    "game": "freefire",
    "pillar": "news",
    "title": "FFWS SEA resmi dihapus 2027: RRQ Kazu & ONIC kecewa, apa artinya buat tim Indonesia?",
-   "status": "draft",
-   "asset_url": null,
+   "status": "pending_approval",
+   "asset_url": "{\"video\":\"https://luc1ferr12.github.io/zataa-office/media/2026-11-03/130-ffws-sea-resmi-dihapus-2027-rrq-kazu-oni-ov.mp4\",\"cover\":\"https://luc1ferr12.github.io/zataa-office/media/2026-11-03/130-ffws-sea-resmi-dihapus-2027-rrq-kazu-oni-ov-cover.jpg\"}",
    "scheduled_at": null,
    "posted_at": null,
    "channel": null
@@ -566,6 +566,21 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-03 02:16:01",
+   "agent_id": "trisk",
+   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (sesi Asia)"
+  },
+  {
+   "ts": "2026-11-03 02:15:16",
+   "agent_id": "video",
+   "message": "video #130 dirender di laptop (suara OmniVoice) & dikirim ke Owner"
+  },
+  {
+   "ts": "2026-11-03 02:15:15",
+   "agent_id": "publisher",
+   "message": "Kirim #130 ke Owner buat approval"
+  },
+  {
    "ts": "2026-11-03 02:12:21",
    "agent_id": "yvideo",
    "message": "Shorts #129 dirender di laptop (suara OmniVoice) & dikirim ke Owner"
@@ -674,21 +689,6 @@
    "ts": "2026-11-02 23:05:48",
    "agent_id": "yvideo",
    "message": "Shorts #128 \"1518: Ratusan Orang Menari dan Nggak Bisa Berhenti\" masuk antrean render laptop (OmniVoice)"
-  },
-  {
-   "ts": "2026-11-02 23:03:32",
-   "agent_id": "publisher",
-   "message": "#114 carousel tebak bracket terkirim ke Owner; #115 video nunggu render laptop"
-  },
-  {
-   "ts": "2026-11-02 23:03:29",
-   "agent_id": "publisher",
-   "message": "Kirim #114 ke Owner buat approval"
-  },
-  {
-   "ts": "2026-11-02 23:02:16",
-   "agent_id": "dir",
-   "message": "Pilih 3 ide: video FFWS SEA dihapus, carousel transfer VCT, carousel Kickoff SEA"
   }
  ],
  "chats": [
@@ -978,7 +978,7 @@
    "week": "2026-11-02",
    "total": 19,
    "posted": 4,
-   "pending": 3,
+   "pending": 4,
    "scheduled": 1,
    "yt_total": 4,
    "yt_posted": 2,
@@ -1228,9 +1228,14 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 3946.100098,
+  "price": 3945.300049,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-03 02:16:01",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
+   },
    {
     "ts": "2026-11-03 02:01:01",
     "decision": "NO TRADE",
@@ -1255,11 +1260,6 @@
     "ts": "2026-11-03 01:01:01",
     "decision": "NO TRADE",
     "reason": "setup SELL di band, konfirmasi baru 0/2 (-) · sesi Asia"
-   },
-   {
-    "ts": "2026-11-03 00:46:01",
-    "decision": "NO TRADE",
-    "reason": "ada candle spike di M15 (kemungkinan berita dadakan), tunggu tenang"
    }
   ],
   "trades": [
@@ -1304,7 +1304,7 @@
    1716.0099999999995
   ],
   "last": {
-   "ts": "2026-11-03 02:01:01",
+   "ts": "2026-11-03 02:16:01",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1325,7 +1325,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3951.90 di atas tengah band (3941.3–3959.3) · RSI 52 · Stoch 30 · MACD -0.10 · H1 sideways"
+    "note": "M15 3948.10 di bawah tengah band (3941.1–3959.2) · RSI 48 · Stoch 24 · MACD -0.55 · H1 sideways"
    }
   },
   "fund": {
@@ -1421,24 +1421,24 @@
    "M10": {
     "bias": "sideways",
     "score": 1,
-    "price": 3943.6,
-    "ema20": 3951.37,
-    "ema50": 3949.18,
-    "rsi": 41,
+    "price": 3945.5,
+    "ema20": 3950.81,
+    "ema50": 3949.03,
+    "rsi": 43.5,
     "n": 299,
-    "slot": 2989453,
-    "at": 1793671861632
+    "slot": 2989454,
+    "at": 1793672461517
    },
    "M15": {
     "bias": "sideways",
     "score": 0,
-    "price": 3950.2,
-    "ema20": 3951.11,
-    "ema50": 3945.1,
-    "rsi": 49.9,
+    "price": 3947.6,
+    "ema20": 3950.78,
+    "ema50": 3945.19,
+    "rsi": 47.1,
     "n": 299,
-    "slot": 1992968,
-    "at": 1793671261536
+    "slot": 1992969,
+    "at": 1793672161500
    },
    "M30": {
     "bias": "bullish",
