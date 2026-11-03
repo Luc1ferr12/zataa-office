@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-03T17:14:31.391Z",
+ "generated_at": "2026-11-03T17:24:31.405Z",
  "today": "2026-11-04",
  "week_start": "2026-11-02",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-03 17:01:02"
+   "updated_at": "2026-11-03 17:16:02"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Data 24 jam tak ketemu. Tren: USD kuat (DXY ~102), PCE Agt 3.4% y/y, emas turun dari ~4700 (Apr) ke <4150 (Okt).",
-   "updated_at": "2026-11-03 17:01:02"
+   "updated_at": "2026-11-03 17:16:02"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-03 17:01:02"
+   "updated_at": "2026-11-03 17:16:02"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: kondisi berita bahaya: Berita 24 jam belum terverifikasi; cek ulang sebelum entry",
-   "updated_at": "2026-11-03 17:01:02"
+   "updated_at": "2026-11-03 17:16:02"
   },
   {
    "id": "texec",
@@ -1228,9 +1228,14 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 3929.100098,
+  "price": 3930.199951,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-03 17:16:02",
+    "decision": "NO TRADE",
+    "reason": "kondisi berita bahaya: Berita 24 jam belum terverifikasi; cek ulang sebelum entry"
+   },
    {
     "ts": "2026-11-03 17:01:02",
     "decision": "NO TRADE",
@@ -1255,11 +1260,6 @@
     "ts": "2026-11-03 16:01:05",
     "decision": "NO TRADE",
     "reason": "kondisi berita bahaya: Berita 24 jam belum terverifikasi; cek ulang sebelum entry"
-   },
-   {
-    "ts": "2026-11-03 15:46:02",
-    "decision": "NO TRADE",
-    "reason": "berita berdampak tinggi: Congressional Elections (23.16 WITA)"
    }
   ],
   "trades": [
@@ -1304,7 +1304,7 @@
    1716.0099999999995
   ],
   "last": {
-   "ts": "2026-11-03 17:01:02",
+   "ts": "2026-11-03 17:16:02",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1325,7 +1325,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3928.90 di bawah tengah band (3910.4–3966.6) · RSI 48 · Stoch 11 · MACD -2.25 · H1 sideways"
+    "note": "M15 3931.10 di bawah tengah band (3913.5–3965.1) · RSI 50 · Stoch 11 · MACD -2.10 · H1 sideways"
    }
   },
   "fund": {
@@ -1421,24 +1421,24 @@
    "M10": {
     "bias": "sideways",
     "score": 0,
-    "price": 3931.8,
-    "ema20": 3934.18,
+    "price": 3930.4,
+    "ema20": 3933.82,
     "ema50": 3930.34,
-    "rsi": 48.5,
+    "rsi": 47.2,
     "n": 299,
-    "slot": 2989543,
-    "at": 1793725862773
+    "slot": 2989544,
+    "at": 1793726462592
    },
    "M15": {
     "bias": "sideways",
     "score": -1,
-    "price": 3927.5,
-    "ema20": 3933.51,
-    "ema50": 3929.71,
-    "rsi": 46.7,
+    "price": 3929.9,
+    "ema20": 3933.17,
+    "ema50": 3929.72,
+    "rsi": 48.6,
     "n": 299,
-    "slot": 1993028,
-    "at": 1793725262756
+    "slot": 1993029,
+    "at": 1793726162585
    },
    "M30": {
     "bias": "sideways",
