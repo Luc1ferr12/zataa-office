@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-03T20:44:31.481Z",
+ "generated_at": "2026-11-03T20:54:31.487Z",
  "today": "2026-11-04",
  "week_start": "2026-11-02",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-03 20:31:02"
+   "updated_at": "2026-11-03 20:46:02"
   },
   {
    "id": "tresearch",
@@ -111,15 +111,15 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Data 24 jam tak ketemu. Tren: USD kuat (DXY ~102), PCE Agt 3.4% y/y, emas turun dari ~4700 (Apr) ke <4150 (Okt).",
-   "updated_at": "2026-11-03 20:31:02"
+   "updated_at": "2026-11-03 20:46:02"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Setup BUY di band (Stokastik+MACD)",
-   "updated_at": "2026-11-03 20:31:02"
+   "current_task": "Belum ada pantulan band · H1 bearish",
+   "updated_at": "2026-11-03 20:46:02"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
-   "updated_at": "2026-11-03 20:31:02"
+   "updated_at": "2026-11-03 20:46:02"
   },
   {
    "id": "texec",
@@ -566,6 +566,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-03 20:46:02",
+   "agent_id": "trisk",
+   "message": "NO TRADE · jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
+  },
+  {
    "ts": "2026-11-03 20:16:02",
    "agent_id": "ttech",
    "message": "M15 berubah arah: sideways → bearish"
@@ -684,11 +689,6 @@
    "ts": "2026-11-03 15:31:02",
    "agent_id": "ttech",
    "message": "M15 berubah arah: bullish → sideways"
-  },
-  {
-   "ts": "2026-11-03 15:11:02",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: bullish → sideways"
   }
  ],
  "chats": [
@@ -984,18 +984,18 @@
    "yt_posted": 4,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 7255,
+   "views": 7265,
    "likes": 109,
    "comments": 1,
    "shares": 0,
    "saves": 1,
-   "yt_views": 5880,
+   "yt_views": 5890,
    "top": [
     {
      "title": "Sangkuriang: Legenda atau Ingatan Danau Bandung Purba?",
      "format": "shorts",
      "pillar": "legenda_mitos",
-     "views": 1727
+     "views": 1737
     },
     {
      "title": "Pulau Onrust: Kuburan Belanda di Tengah Teluk Jakarta",
@@ -1130,30 +1130,30 @@
    "yt_posted": 12,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 31684,
-   "likes": 412,
+   "views": 31682,
+   "likes": 413,
    "comments": 7,
    "shares": 16,
    "saves": 3,
-   "yt_views": 21525,
+   "yt_views": 21511,
    "top": [
     {
      "title": "Lawang Sewu: Apa yang Sebenarnya Ada di Bawah Tanahnya?",
      "format": "shorts",
      "pillar": "horor_sejarah",
-     "views": 2825
+     "views": 2826
     },
     {
      "title": "BESOK jendela transfer VCT 2027 dibuka: NAVI, MIBR, ENVY lepas roster + RUMOR valyn ke Fnatic",
      "format": "video",
      "pillar": "news",
-     "views": 2590
+     "views": 2595
     },
     {
      "title": "Manusia Setinggi 1 Meter Pernah Hidup di Flores",
      "format": "shorts",
      "pillar": "misteri_kuno",
-     "views": 2325
+     "views": 2308
     }
    ],
    "clicks": 19,
@@ -1228,9 +1228,14 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 3921.5,
+  "price": 3921.300049,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-03 20:46:02",
+    "decision": "NO TRADE",
+    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
+   },
    {
     "ts": "2026-11-03 20:31:02",
     "decision": "NO TRADE",
@@ -1253,11 +1258,6 @@
    },
    {
     "ts": "2026-11-03 19:31:02",
-    "decision": "NO TRADE",
-    "reason": "kondisi berita bahaya: Berita 24 jam belum terverifikasi; cek ulang sebelum entry"
-   },
-   {
-    "ts": "2026-11-03 19:16:02",
     "decision": "NO TRADE",
     "reason": "kondisi berita bahaya: Berita 24 jam belum terverifikasi; cek ulang sebelum entry"
    }
@@ -1304,7 +1304,7 @@
    1716.0099999999995
   ],
   "last": {
-   "ts": "2026-11-03 20:31:02",
+   "ts": "2026-11-03 20:46:02",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1321,14 +1321,11 @@
     "blackout": null
    },
    "tech": {
-    "bias": "sideways",
-    "score": 2,
-    "trigger": "buy",
-    "confirm": [
-     "Stokastik",
-     "MACD"
-    ],
-    "note": "M15 3923.80 di bawah tengah band (3918.1–3940.3) · RSI 44 · Stoch 19 · MACD -1.33 · H1 sideways · setup BUY (Stokastik+MACD)"
+    "bias": "bearish",
+    "score": 0,
+    "trigger": null,
+    "confirm": [],
+    "note": "M15 3921.60 di bawah tengah band (3917.1–3939.5) · RSI 42 · Stoch 18 · MACD -1.30 · H1 bearish"
    }
   },
   "fund": {
@@ -1406,24 +1403,24 @@
    "M10": {
     "bias": "bearish",
     "score": -2,
-    "price": 3920.9,
-    "ema20": 3926.65,
-    "ema50": 3928.4,
-    "rsi": 36.4,
+    "price": 3922.9,
+    "ema20": 3926.29,
+    "ema50": 3928.19,
+    "rsi": 41.1,
     "n": 299,
-    "slot": 2989564,
-    "at": 1793738462754
+    "slot": 2989565,
+    "at": 1793739062682
    },
    "M15": {
     "bias": "bearish",
     "score": -3,
-    "price": 3922.8,
-    "ema20": 3928.14,
-    "ema50": 3928.67,
-    "rsi": 42.9,
+    "price": 3921.4,
+    "ema20": 3927.5,
+    "ema50": 3928.38,
+    "rsi": 41.4,
     "n": 299,
-    "slot": 1993042,
-    "at": 1793737862753
+    "slot": 1993043,
+    "at": 1793738762744
    },
    "M30": {
     "bias": "sideways",
