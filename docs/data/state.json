@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-03T23:14:31.556Z",
+ "generated_at": "2026-11-03T23:24:31.566Z",
  "today": "2026-11-04",
  "week_start": "2026-11-02",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-03 23:01:22"
+   "updated_at": "2026-11-03 23:16:02"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Berita 24 jam tak ketemu. Fed tahan 3,75–4% (28 Okt), pasar pasang hike lagi = hawkish, tekan emas. Tak ada eskalasi terverifikasi.",
-   "updated_at": "2026-11-03 23:01:22"
+   "updated_at": "2026-11-03 23:16:02"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-03 23:01:22"
+   "updated_at": "2026-11-03 23:16:02"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
-   "updated_at": "2026-11-03 23:01:22"
+   "updated_at": "2026-11-03 23:16:02"
   },
   {
    "id": "texec",
@@ -1038,8 +1038,8 @@
      "views": 1370
     }
    ],
-   "clicks": 39,
-   "click_visitors": 18,
+   "clicks": 48,
+   "click_visitors": 19,
    "click_src": [
     {
      "src": "login",
@@ -1062,6 +1062,14 @@
      "n": 2
     },
     {
+     "src": "xml",
+     "n": 1
+    },
+    {
+     "src": "wp-json",
+     "n": 1
+    },
+    {
      "src": "wiki",
      "n": 1
     },
@@ -1078,7 +1086,19 @@
      "n": 1
     },
     {
+     "src": "telescope",
+     "n": 1
+    },
+    {
      "src": "staging",
+     "n": 1
+    },
+    {
+     "src": "soap",
+     "n": 1
+    },
+    {
+     "src": "settings",
      "n": 1
     },
     {
@@ -1143,6 +1163,22 @@
     },
     {
      "src": "beta",
+     "n": 1
+    },
+    {
+     "src": "bedrock-credentials",
+     "n": 1
+    },
+    {
+     "src": "aws-codecommit",
+     "n": 1
+    },
+    {
+     "src": "api-docs",
+     "n": 1
+    },
+    {
+     "src": "api",
      "n": 1
     }
    ],
@@ -1256,9 +1292,14 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 3932.600098,
+  "price": 3931.5,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-03 23:16:02",
+    "decision": "NO TRADE",
+    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
+   },
    {
     "ts": "2026-11-03 23:01:22",
     "decision": "NO TRADE",
@@ -1281,11 +1322,6 @@
    },
    {
     "ts": "2026-11-03 21:01:05",
-    "decision": "NO TRADE",
-    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
-   },
-   {
-    "ts": "2026-11-03 20:46:02",
     "decision": "NO TRADE",
     "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
    }
@@ -1332,7 +1368,7 @@
    1716.0099999999995
   ],
   "last": {
-   "ts": "2026-11-03 23:01:22",
+   "ts": "2026-11-03 23:16:02",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1353,7 +1389,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3931.70 di atas tengah band (3918.0–3936.4) · RSI 56 · Stoch 100 · MACD +0.91 · H1 sideways"
+    "note": "M15 3932.20 di atas tengah band (3917.9–3936.5) · RSI 56 · Stoch 92 · MACD +0.92 · H1 sideways"
    }
   },
   "fund": {
@@ -1431,24 +1467,24 @@
    "M10": {
     "bias": "sideways",
     "score": 1,
-    "price": 3932.1,
-    "ema20": 3929.18,
-    "ema50": 3928.76,
-    "rsi": 61.2,
+    "price": 3930.5,
+    "ema20": 3929.3,
+    "ema50": 3928.83,
+    "rsi": 54.9,
     "n": 299,
-    "slot": 2989579,
-    "at": 1793747462946
+    "slot": 2989580,
+    "at": 1793748062870
    },
    "M15": {
     "bias": "sideways",
     "score": 1,
-    "price": 3931.4,
-    "ema20": 3928.62,
-    "ema50": 3928.55,
-    "rsi": 55.3,
+    "price": 3932.7,
+    "ema20": 3929.01,
+    "ema50": 3928.71,
+    "rsi": 57.5,
     "n": 299,
-    "slot": 1993052,
-    "at": 1793746862851
+    "slot": 1993053,
+    "at": 1793747762821
    },
    "M30": {
     "bias": "sideways",
