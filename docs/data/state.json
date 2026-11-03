@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-03T17:54:31.424Z",
+ "generated_at": "2026-11-03T18:04:31.419Z",
  "today": "2026-11-04",
  "week_start": "2026-11-02",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-03 17:46:02"
+   "updated_at": "2026-11-03 18:01:03"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Data 24 jam tak ketemu. Tren: USD kuat (DXY ~102), PCE Agt 3.4% y/y, emas turun dari ~4700 (Apr) ke <4150 (Okt).",
-   "updated_at": "2026-11-03 17:46:02"
+   "updated_at": "2026-11-03 18:01:03"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-03 17:46:02"
+   "updated_at": "2026-11-03 18:01:03"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: kondisi berita bahaya: Berita 24 jam belum terverifikasi; cek ulang sebelum entry",
-   "updated_at": "2026-11-03 17:46:02"
+   "updated_at": "2026-11-03 18:01:03"
   },
   {
    "id": "texec",
@@ -566,6 +566,21 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-03 18:01:02",
+   "agent_id": "ttech",
+   "message": "M60 berubah arah: sideways → bullish"
+  },
+  {
+   "ts": "2026-11-03 18:01:02",
+   "agent_id": "ttech",
+   "message": "M30 berubah arah: sideways → bullish"
+  },
+  {
+   "ts": "2026-11-03 18:01:02",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: sideways → bullish"
+  },
+  {
    "ts": "2026-11-03 17:46:02",
    "agent_id": "trisk",
    "message": "NO TRADE · kondisi berita bahaya: Berita 24 jam belum terverifikasi; cek ulang sebelum entry"
@@ -674,21 +689,6 @@
    "ts": "2026-11-03 13:01:02",
    "agent_id": "ttech",
    "message": "M30 berubah arah: bearish → sideways"
-  },
-  {
-   "ts": "2026-11-03 12:31:02",
-   "agent_id": "trisk",
-   "message": "NO TRADE · kondisi berita bahaya: Berita 24 jam belum terverifikasi; cek ulang sebelum entry"
-  },
-  {
-   "ts": "2026-11-03 12:01:40",
-   "agent_id": "publisher",
-   "message": "Posting #115 ke IG + TikTok ✅"
-  },
-  {
-   "ts": "2026-11-03 12:01:38",
-   "agent_id": "spublish",
-   "message": "Cross-post Shorts #129 ke TikTok Zataa Story"
   }
  ],
  "chats": [
@@ -1228,9 +1228,14 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 3931.699951,
+  "price": 3933.699951,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-03 18:01:03",
+    "decision": "NO TRADE",
+    "reason": "kondisi berita bahaya: Berita 24 jam belum terverifikasi; cek ulang sebelum entry"
+   },
    {
     "ts": "2026-11-03 17:46:02",
     "decision": "NO TRADE",
@@ -1253,11 +1258,6 @@
    },
    {
     "ts": "2026-11-03 16:46:02",
-    "decision": "NO TRADE",
-    "reason": "kondisi berita bahaya: Berita 24 jam belum terverifikasi; cek ulang sebelum entry"
-   },
-   {
-    "ts": "2026-11-03 16:31:12",
     "decision": "NO TRADE",
     "reason": "kondisi berita bahaya: Berita 24 jam belum terverifikasi; cek ulang sebelum entry"
    }
@@ -1304,7 +1304,7 @@
    1716.0099999999995
   ],
   "last": {
-   "ts": "2026-11-03 17:46:02",
+   "ts": "2026-11-03 18:01:03",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1325,7 +1325,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3930.30 di bawah tengah band (3915.5–3963.9) · RSI 49 · Stoch 17 · MACD -1.97 · H1 sideways"
+    "note": "M15 3933.70 di bawah tengah band (3915.4–3963.7) · RSI 52 · Stoch 30 · MACD -1.45 · H1 sideways"
    }
   },
   "fund": {
@@ -1333,15 +1333,6 @@
    "note": "Data 24 jam tak ketemu. Tren: USD kuat (DXY ~102), PCE Agt 3.4% y/y, emas turun dari ~4700 (Apr) ke <4150 (Okt)."
   },
   "calendar": [
-   {
-    "title": "JOLTS Job Openings",
-    "impact": "Medium",
-    "at": 1793718000000,
-    "forecast": "7.15M",
-    "previous": "7.08M",
-    "wb": 20,
-    "wa": 20
-   },
    {
     "title": "Congressional Elections",
     "impact": "High",
@@ -1419,48 +1410,48 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "sideways",
-    "score": -1,
-    "price": 3931.6,
-    "ema20": 3932.85,
-    "ema50": 3930.31,
-    "rsi": 48.9,
+    "bias": "bullish",
+    "score": 2,
+    "price": 3933.4,
+    "ema20": 3932.9,
+    "ema50": 3930.43,
+    "rsi": 51,
     "n": 299,
-    "slot": 2989547,
-    "at": 1793728262559
+    "slot": 2989548,
+    "at": 1793728862909
    },
    "M15": {
     "bias": "sideways",
-    "score": -1,
-    "price": 3929.7,
-    "ema20": 3932.46,
-    "ema50": 3929.68,
-    "rsi": 48.5,
+    "score": 1,
+    "price": 3933.4,
+    "ema20": 3932.55,
+    "ema50": 3929.83,
+    "rsi": 51.7,
     "n": 299,
-    "slot": 1993031,
-    "at": 1793727962548
+    "slot": 1993032,
+    "at": 1793728862916
    },
    "M30": {
-    "bias": "sideways",
-    "score": 1,
-    "price": 3928.8,
-    "ema20": 3929.57,
-    "ema50": 3927.63,
-    "rsi": 49.8,
+    "bias": "bullish",
+    "score": 3,
+    "price": 3933.4,
+    "ema20": 3929.93,
+    "ema50": 3927.85,
+    "rsi": 52.1,
     "n": 299,
-    "slot": 996515,
-    "at": 1793727062541
+    "slot": 996516,
+    "at": 1793728862917
    },
    "H1": {
-    "bias": "sideways",
-    "score": 1,
-    "price": 3927.5,
-    "ema20": 3929.56,
-    "ema50": 3922.09,
-    "rsi": 49.9,
+    "bias": "bullish",
+    "score": 3,
+    "price": 3933.4,
+    "ema20": 3929.92,
+    "ema50": 3922.53,
+    "rsi": 52,
     "n": 299,
-    "slot": 498257,
-    "at": 1793725262765
+    "slot": 498258,
+    "at": 1793728862924
    }
   },
   "currency": "USC",
