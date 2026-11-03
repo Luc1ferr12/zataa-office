@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-03T00:24:30.970Z",
+ "generated_at": "2026-11-03T00:34:30.967Z",
  "today": "2026-11-03",
  "week_start": "2026-11-02",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-03 00:16:01"
+   "updated_at": "2026-11-03 00:31:01"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Berita 24 jam tidak terverifikasi (pencarian hanya dapat data lama/tak bertanggal). JOLTS & pemilu AS 3 Nov perlu diwaspadai. Bias netral.",
-   "updated_at": "2026-11-03 00:16:01"
+   "updated_at": "2026-11-03 00:31:01"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-03 00:16:01"
+   "updated_at": "2026-11-03 00:31:01"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
-   "updated_at": "2026-11-03 00:16:01"
+   "updated_at": "2026-11-03 00:31:01"
   },
   {
    "id": "texec",
@@ -984,30 +984,30 @@
    "yt_posted": 2,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 3697,
-   "likes": 63,
+   "views": 3709,
+   "likes": 64,
    "comments": 1,
    "shares": 0,
    "saves": 1,
-   "yt_views": 2856,
+   "yt_views": 2859,
    "top": [
     {
      "title": "Pulau Onrust: Kuburan Belanda di Tengah Teluk Jakarta",
      "format": "shorts",
      "pillar": "horor_sejarah",
-     "views": 1499
+     "views": 1500
     },
     {
      "title": "Renovasi Rumah, Malah Nemu Kota di Bawah Tanah",
      "format": "shorts",
      "pillar": "hidden_history",
-     "views": 1357
+     "views": 1359
     },
     {
      "title": "PRX tinggal 3 pemain: d4v41 cari tim baru, Jinggg masih nego (RUMOR) — breaking, hook angka #23",
      "format": "video",
      "pillar": "esport",
-     "views": 831
+     "views": 840
     }
    ],
    "clicks": 36,
@@ -1130,12 +1130,12 @@
    "yt_posted": 12,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 30333,
-   "likes": 398,
+   "views": 30346,
+   "likes": 399,
    "comments": 7,
    "shares": 16,
    "saves": 3,
-   "yt_views": 20523,
+   "yt_views": 20525,
    "top": [
     {
      "title": "Lawang Sewu: Apa yang Sebenarnya Ada di Bawah Tanahnya?",
@@ -1147,7 +1147,7 @@
      "title": "BESOK jendela transfer VCT 2027 dibuka: NAVI, MIBR, ENVY lepas roster + RUMOR valyn ke Fnatic",
      "format": "video",
      "pillar": "news",
-     "views": 2396
+     "views": 2405
     },
     {
      "title": "Ma'nene: Leluhur yang Diganti Bajunya Tiap 3 Tahun",
@@ -1228,9 +1228,14 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 3957.100098,
+  "price": 3962.800049,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-03 00:31:01",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
+   },
    {
     "ts": "2026-11-03 00:16:01",
     "decision": "NO TRADE",
@@ -1253,11 +1258,6 @@
    },
    {
     "ts": "2026-11-02 23:16:01",
-    "decision": "NO TRADE",
-    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
-   },
-   {
-    "ts": "2026-11-02 23:01:27",
     "decision": "NO TRADE",
     "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
    }
@@ -1304,7 +1304,7 @@
    1716.0099999999995
   ],
   "last": {
-   "ts": "2026-11-03 00:16:01",
+   "ts": "2026-11-03 00:31:01",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1325,7 +1325,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3951.60 di atas tengah band (3941.6–3952.3) · RSI 57 · Stoch 87 · MACD +0.12 · H1 sideways"
+    "note": "M15 3958.30 di atas band atas (3938.9–3957.1) · RSI 65 · Stoch 91 · MACD +0.94 · H1 sideways"
    }
   },
   "fund": {
@@ -1421,35 +1421,35 @@
    "M10": {
     "bias": "bullish",
     "score": 2,
-    "price": 3956.2,
-    "ema20": 3948.86,
-    "ema50": 3946.81,
-    "rsi": 68.4,
+    "price": 3959,
+    "ema20": 3949.82,
+    "ema50": 3947.29,
+    "rsi": 72.3,
     "n": 299,
-    "slot": 2989442,
-    "at": 1793665261408
+    "slot": 2989443,
+    "at": 1793665861430
    },
    "M15": {
     "bias": "bullish",
     "score": 2,
-    "price": 3951.1,
-    "ema20": 3948.39,
-    "ema50": 3942.17,
-    "rsi": 56.4,
+    "price": 3959,
+    "ema20": 3949.4,
+    "ema50": 3942.83,
+    "rsi": 66.7,
     "n": 299,
-    "slot": 1992961,
-    "at": 1793664961503
+    "slot": 1992962,
+    "at": 1793665861439
    },
    "M30": {
     "bias": "bullish",
     "score": 2,
-    "price": 3949,
-    "ema20": 3944.49,
-    "ema50": 3927.56,
-    "rsi": 58.8,
+    "price": 3959,
+    "ema20": 3945.88,
+    "ema50": 3928.79,
+    "rsi": 65.8,
     "n": 299,
-    "slot": 996480,
-    "at": 1793664061557
+    "slot": 996481,
+    "at": 1793665861440
    },
    "H1": {
     "bias": "bullish",
