@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-03T17:44:31.440Z",
+ "generated_at": "2026-11-03T17:54:31.424Z",
  "today": "2026-11-04",
  "week_start": "2026-11-02",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-03 17:31:02"
+   "updated_at": "2026-11-03 17:46:02"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Data 24 jam tak ketemu. Tren: USD kuat (DXY ~102), PCE Agt 3.4% y/y, emas turun dari ~4700 (Apr) ke <4150 (Okt).",
-   "updated_at": "2026-11-03 17:31:02"
+   "updated_at": "2026-11-03 17:46:02"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-03 17:31:02"
+   "updated_at": "2026-11-03 17:46:02"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: kondisi berita bahaya: Berita 24 jam belum terverifikasi; cek ulang sebelum entry",
-   "updated_at": "2026-11-03 17:31:02"
+   "updated_at": "2026-11-03 17:46:02"
   },
   {
    "id": "texec",
@@ -566,6 +566,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-03 17:46:02",
+   "agent_id": "trisk",
+   "message": "NO TRADE · kondisi berita bahaya: Berita 24 jam belum terverifikasi; cek ulang sebelum entry"
+  },
+  {
    "ts": "2026-11-03 17:01:02",
    "agent_id": "ttech",
    "message": "M60 berubah arah: bullish → sideways"
@@ -684,11 +689,6 @@
    "ts": "2026-11-03 12:01:38",
    "agent_id": "spublish",
    "message": "Cross-post Shorts #129 ke TikTok Zataa Story"
-  },
-  {
-   "ts": "2026-11-03 12:00:50",
-   "agent_id": "spublish",
-   "message": "Upload Shorts #129 ke Zataa Story (Publik via Zernio)"
   }
  ],
  "chats": [
@@ -984,13 +984,19 @@
    "yt_posted": 4,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 6386,
-   "likes": 108,
+   "views": 7151,
+   "likes": 109,
    "comments": 1,
    "shares": 0,
    "saves": 1,
-   "yt_views": 5014,
+   "yt_views": 5779,
    "top": [
+    {
+     "title": "Sangkuriang: Legenda atau Ingatan Danau Bandung Purba?",
+     "format": "shorts",
+     "pillar": "legenda_mitos",
+     "views": 1634
+    },
     {
      "title": "Pulau Onrust: Kuburan Belanda di Tengah Teluk Jakarta",
      "format": "shorts",
@@ -1002,12 +1008,6 @@
      "format": "shorts",
      "pillar": "hidden_history",
      "views": 1366
-    },
-    {
-     "title": "PRX tinggal 3 pemain: d4v41 cari tim baru, Jinggg masih nego (RUMOR) — breaking, hook angka #23",
-     "format": "video",
-     "pillar": "esport",
-     "views": 1321
     }
    ],
    "clicks": 39,
@@ -1130,12 +1130,12 @@
    "yt_posted": 12,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 31030,
-   "likes": 405,
+   "views": 31251,
+   "likes": 410,
    "comments": 7,
    "shares": 16,
    "saves": 3,
-   "yt_views": 20900,
+   "yt_views": 21121,
    "top": [
     {
      "title": "Lawang Sewu: Apa yang Sebenarnya Ada di Bawah Tanahnya?",
@@ -1153,7 +1153,7 @@
      "title": "Ma'nene: Leluhur yang Diganti Bajunya Tiap 3 Tahun",
      "format": "shorts",
      "pillar": "ritual_mistis",
-     "views": 2083
+     "views": 2089
     }
    ],
    "clicks": 19,
@@ -1228,9 +1228,14 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 3929.199951,
+  "price": 3931.699951,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-03 17:46:02",
+    "decision": "NO TRADE",
+    "reason": "kondisi berita bahaya: Berita 24 jam belum terverifikasi; cek ulang sebelum entry"
+   },
    {
     "ts": "2026-11-03 17:31:02",
     "decision": "NO TRADE",
@@ -1253,11 +1258,6 @@
    },
    {
     "ts": "2026-11-03 16:31:12",
-    "decision": "NO TRADE",
-    "reason": "kondisi berita bahaya: Berita 24 jam belum terverifikasi; cek ulang sebelum entry"
-   },
-   {
-    "ts": "2026-11-03 16:16:02",
     "decision": "NO TRADE",
     "reason": "kondisi berita bahaya: Berita 24 jam belum terverifikasi; cek ulang sebelum entry"
    }
@@ -1304,7 +1304,7 @@
    1716.0099999999995
   ],
   "last": {
-   "ts": "2026-11-03 17:31:02",
+   "ts": "2026-11-03 17:46:02",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1325,7 +1325,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3929.70 di bawah tengah band (3915.8–3963.8) · RSI 49 · Stoch 13 · MACD -2.15 · H1 sideways"
+    "note": "M15 3930.30 di bawah tengah band (3915.5–3963.9) · RSI 49 · Stoch 17 · MACD -1.97 · H1 sideways"
    }
   },
   "fund": {
@@ -1421,24 +1421,24 @@
    "M10": {
     "bias": "sideways",
     "score": -1,
-    "price": 3929.6,
-    "ema20": 3932.98,
-    "ema50": 3930.26,
-    "rsi": 46.6,
+    "price": 3931.6,
+    "ema20": 3932.85,
+    "ema50": 3930.31,
+    "rsi": 48.9,
     "n": 299,
-    "slot": 2989546,
-    "at": 1793727662555
+    "slot": 2989547,
+    "at": 1793728262559
    },
    "M15": {
     "bias": "sideways",
     "score": -1,
-    "price": 3928.8,
-    "ema20": 3932.75,
+    "price": 3929.7,
+    "ema20": 3932.46,
     "ema50": 3929.68,
-    "rsi": 47.8,
+    "rsi": 48.5,
     "n": 299,
-    "slot": 1993030,
-    "at": 1793727062540
+    "slot": 1993031,
+    "at": 1793727962548
    },
    "M30": {
     "bias": "sideways",
