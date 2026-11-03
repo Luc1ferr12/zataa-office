@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-03T02:24:31.009Z",
+ "generated_at": "2026-11-03T02:34:31.013Z",
  "today": "2026-11-03",
  "week_start": "2026-11-02",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-03 02:16:01"
+   "updated_at": "2026-11-03 02:31:01"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Berita 24 jam tidak terverifikasi (pencarian hanya dapat data lama/tak bertanggal). JOLTS & pemilu AS 3 Nov perlu diwaspadai. Bias netral.",
-   "updated_at": "2026-11-03 02:16:01"
+   "updated_at": "2026-11-03 02:31:01"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-03 02:16:01"
+   "updated_at": "2026-11-03 02:31:01"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
-   "updated_at": "2026-11-03 02:16:01"
+   "updated_at": "2026-11-03 02:31:01"
   },
   {
    "id": "texec",
@@ -566,6 +566,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-03 02:31:01",
+   "agent_id": "ttech",
+   "message": "M30 berubah arah: bullish → sideways"
+  },
+  {
    "ts": "2026-11-03 02:16:01",
    "agent_id": "trisk",
    "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (sesi Asia)"
@@ -684,11 +689,6 @@
    "ts": "2026-11-02 23:06:01",
    "agent_id": "ypublish",
    "message": "Jam tayang Wabah Menari 18:00 WIB: konsisten slot 18:00, Shorts kemarin 18:00 tembus 1.357 views"
-  },
-  {
-   "ts": "2026-11-02 23:05:48",
-   "agent_id": "yvideo",
-   "message": "Shorts #128 \"1518: Ratusan Orang Menari dan Nggak Bisa Berhenti\" masuk antrean render laptop (OmniVoice)"
   }
  ],
  "chats": [
@@ -984,18 +984,18 @@
    "yt_posted": 2,
    "yt_pending": 2,
    "yt_scheduled": 0,
-   "views": 3816,
+   "views": 3828,
    "likes": 65,
    "comments": 1,
    "shares": 0,
    "saves": 1,
-   "yt_views": 2859,
+   "yt_views": 2860,
    "top": [
     {
      "title": "Pulau Onrust: Kuburan Belanda di Tengah Teluk Jakarta",
      "format": "shorts",
      "pillar": "horor_sejarah",
-     "views": 1500
+     "views": 1501
     },
     {
      "title": "Renovasi Rumah, Malah Nemu Kota di Bawah Tanah",
@@ -1007,7 +1007,7 @@
      "title": "PRX tinggal 3 pemain: d4v41 cari tim baru, Jinggg masih nego (RUMOR) — breaking, hook angka #23",
      "format": "video",
      "pillar": "esport",
-     "views": 947
+     "views": 958
     }
    ],
    "clicks": 36,
@@ -1130,12 +1130,12 @@
    "yt_posted": 12,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 30353,
-   "likes": 399,
+   "views": 30400,
+   "likes": 400,
    "comments": 7,
    "shares": 16,
    "saves": 3,
-   "yt_views": 20525,
+   "yt_views": 20546,
    "top": [
     {
      "title": "Lawang Sewu: Apa yang Sebenarnya Ada di Bawah Tanahnya?",
@@ -1147,13 +1147,13 @@
      "title": "BESOK jendela transfer VCT 2027 dibuka: NAVI, MIBR, ENVY lepas roster + RUMOR valyn ke Fnatic",
      "format": "video",
      "pillar": "news",
-     "views": 2405
+     "views": 2424
     },
     {
      "title": "Ma'nene: Leluhur yang Diganti Bajunya Tiap 3 Tahun",
      "format": "shorts",
      "pillar": "ritual_mistis",
-     "views": 2065
+     "views": 2066
     }
    ],
    "clicks": 19,
@@ -1228,9 +1228,14 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 3945.300049,
+  "price": 3945.399902,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-03 02:31:01",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
+   },
    {
     "ts": "2026-11-03 02:16:01",
     "decision": "NO TRADE",
@@ -1255,11 +1260,6 @@
     "ts": "2026-11-03 01:16:01",
     "decision": "NO TRADE",
     "reason": "setup SELL di band, konfirmasi baru 1/2 (MACD) · sesi Asia"
-   },
-   {
-    "ts": "2026-11-03 01:01:01",
-    "decision": "NO TRADE",
-    "reason": "setup SELL di band, konfirmasi baru 0/2 (-) · sesi Asia"
    }
   ],
   "trades": [
@@ -1304,7 +1304,7 @@
    1716.0099999999995
   ],
   "last": {
-   "ts": "2026-11-03 02:16:01",
+   "ts": "2026-11-03 02:31:01",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1325,7 +1325,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3948.10 di bawah tengah band (3941.1–3959.2) · RSI 48 · Stoch 24 · MACD -0.55 · H1 sideways"
+    "note": "M15 3948.70 di bawah tengah band (3941.0–3959.2) · RSI 48 · Stoch 21 · MACD -0.62 · H1 sideways"
    }
   },
   "fund": {
@@ -1421,35 +1421,35 @@
    "M10": {
     "bias": "sideways",
     "score": 1,
-    "price": 3945.5,
-    "ema20": 3950.81,
-    "ema50": 3949.03,
-    "rsi": 43.5,
+    "price": 3947.7,
+    "ema20": 3950.51,
+    "ema50": 3948.98,
+    "rsi": 46.5,
     "n": 299,
-    "slot": 2989454,
-    "at": 1793672461517
+    "slot": 2989455,
+    "at": 1793673061581
    },
    "M15": {
     "bias": "sideways",
     "score": 0,
-    "price": 3947.6,
-    "ema20": 3950.78,
-    "ema50": 3945.19,
-    "rsi": 47.1,
+    "price": 3947.7,
+    "ema20": 3950.49,
+    "ema50": 3945.29,
+    "rsi": 47.2,
     "n": 299,
-    "slot": 1992969,
-    "at": 1793672161500
+    "slot": 1992970,
+    "at": 1793673061586
    },
    "M30": {
-    "bias": "bullish",
-    "score": 3,
-    "price": 3950.2,
-    "ema20": 3948.27,
-    "ema50": 3931.79,
-    "rsi": 55.4,
+    "bias": "sideways",
+    "score": 1,
+    "price": 3947.7,
+    "ema20": 3948.21,
+    "ema50": 3932.41,
+    "rsi": 52.9,
     "n": 299,
-    "slot": 996484,
-    "at": 1793671261537
+    "slot": 996485,
+    "at": 1793673061587
    },
    "H1": {
     "bias": "bullish",
