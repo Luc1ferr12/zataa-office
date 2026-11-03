@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-03T19:24:31.450Z",
+ "generated_at": "2026-11-03T19:34:31.449Z",
  "today": "2026-11-04",
  "week_start": "2026-11-02",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-03 19:16:02"
+   "updated_at": "2026-11-03 19:31:02"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Data 24 jam tak ketemu. Tren: USD kuat (DXY ~102), PCE Agt 3.4% y/y, emas turun dari ~4700 (Apr) ke <4150 (Okt).",
-   "updated_at": "2026-11-03 19:16:02"
+   "updated_at": "2026-11-03 19:31:02"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-03 19:16:02"
+   "updated_at": "2026-11-03 19:31:02"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: kondisi berita bahaya: Berita 24 jam belum terverifikasi; cek ulang sebelum entry",
-   "updated_at": "2026-11-03 19:16:02"
+   "updated_at": "2026-11-03 19:31:02"
   },
   {
    "id": "texec",
@@ -1228,9 +1228,14 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 3925.199951,
+  "price": 3925.699951,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-03 19:31:02",
+    "decision": "NO TRADE",
+    "reason": "kondisi berita bahaya: Berita 24 jam belum terverifikasi; cek ulang sebelum entry"
+   },
    {
     "ts": "2026-11-03 19:16:02",
     "decision": "NO TRADE",
@@ -1253,11 +1258,6 @@
    },
    {
     "ts": "2026-11-03 18:16:02",
-    "decision": "NO TRADE",
-    "reason": "kondisi berita bahaya: Berita 24 jam belum terverifikasi; cek ulang sebelum entry"
-   },
-   {
-    "ts": "2026-11-03 18:01:03",
     "decision": "NO TRADE",
     "reason": "kondisi berita bahaya: Berita 24 jam belum terverifikasi; cek ulang sebelum entry"
    }
@@ -1304,7 +1304,7 @@
    1716.0099999999995
   ],
   "last": {
-   "ts": "2026-11-03 19:16:02",
+   "ts": "2026-11-03 19:31:02",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1325,7 +1325,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3927.40 di bawah tengah band (3920.7–3946.1) · RSI 46 · Stoch 13 · MACD -1.38 · H1 sideways"
+    "note": "M15 3926.30 di bawah tengah band (3920.9–3943.7) · RSI 45 · Stoch 10 · MACD -1.42 · H1 sideways"
    }
   },
   "fund": {
@@ -1403,35 +1403,35 @@
    "M10": {
     "bias": "sideways",
     "score": 1,
-    "price": 3925.3,
-    "ema20": 3931.28,
-    "ema50": 3930.4,
-    "rsi": 40.1,
+    "price": 3926,
+    "ema20": 3930.78,
+    "ema50": 3930.23,
+    "rsi": 41.5,
     "n": 299,
-    "slot": 2989556,
-    "at": 1793733662630
+    "slot": 2989557,
+    "at": 1793734262633
    },
    "M15": {
     "bias": "sideways",
     "score": -1,
-    "price": 3926.6,
-    "ema20": 3931.67,
-    "ema50": 3929.96,
-    "rsi": 45.1,
+    "price": 3926,
+    "ema20": 3931.13,
+    "ema50": 3929.81,
+    "rsi": 44.5,
     "n": 299,
-    "slot": 1993037,
-    "at": 1793733362607
+    "slot": 1993038,
+    "at": 1793734262638
    },
    "M30": {
     "bias": "sideways",
-    "score": 1,
-    "price": 3929.3,
-    "ema20": 3930.08,
-    "ema50": 3928.08,
-    "rsi": 49.8,
+    "score": 0,
+    "price": 3926,
+    "ema20": 3929.69,
+    "ema50": 3928,
+    "rsi": 47.9,
     "n": 299,
-    "slot": 996518,
-    "at": 1793732462997
+    "slot": 996519,
+    "at": 1793734262639
    },
    "H1": {
     "bias": "sideways",
