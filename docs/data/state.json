@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-03T02:04:31.005Z",
+ "generated_at": "2026-11-03T02:14:31.007Z",
  "today": "2026-11-03",
  "week_start": "2026-11-02",
  "campaign": {
@@ -365,7 +365,7 @@
    "game": "sejarah",
    "pillar": "strange_events",
    "title": "1518: Ratusan Orang Menari dan Nggak Bisa Berhenti",
-   "status": "draft",
+   "status": "pending_approval",
    "asset_url": null,
    "scheduled_at": null,
    "posted_at": null,
@@ -379,7 +379,7 @@
    "game": "sejarah",
    "pillar": "legenda_mitos",
    "title": "Sangkuriang: Legenda atau Ingatan Danau Bandung Purba?",
-   "status": "draft",
+   "status": "pending_approval",
    "asset_url": null,
    "scheduled_at": null,
    "posted_at": null,
@@ -566,6 +566,26 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-03 02:12:21",
+   "agent_id": "yvideo",
+   "message": "Shorts #129 dirender di laptop (suara OmniVoice) & dikirim ke Owner"
+  },
+  {
+   "ts": "2026-11-03 02:12:20",
+   "agent_id": "spublish",
+   "message": "Kirim Shorts #129 ke Owner buat approval"
+  },
+  {
+   "ts": "2026-11-03 02:09:28",
+   "agent_id": "yvideo",
+   "message": "Shorts #128 dirender di laptop (suara OmniVoice) & dikirim ke Owner"
+  },
+  {
+   "ts": "2026-11-03 02:09:27",
+   "agent_id": "ypublish",
+   "message": "Kirim Shorts #128 ke Owner buat approval"
+  },
+  {
    "ts": "2026-11-03 01:46:01",
    "agent_id": "ttech",
    "message": "M15 berubah arah: bullish → sideways"
@@ -669,26 +689,6 @@
    "ts": "2026-11-02 23:02:16",
    "agent_id": "dir",
    "message": "Pilih 3 ide: video FFWS SEA dihapus, carousel transfer VCT, carousel Kickoff SEA"
-  },
-  {
-   "ts": "2026-11-02 23:02:16",
-   "agent_id": "dir",
-   "message": "Kirim 3 ide briefing ke Owner"
-  },
-  {
-   "ts": "2026-11-02 23:02:15",
-   "agent_id": "dir",
-   "message": "Pilih 3 ide terbaik dari briefing (2 feed + 1 video)"
-  },
-  {
-   "ts": "2026-11-02 23:01:59",
-   "agent_id": "analyst",
-   "message": "Minggu ini: PRX breaking 831 views, Shorts tertinggi"
-  },
-  {
-   "ts": "2026-11-02 23:01:59",
-   "agent_id": "price",
-   "message": "Harga ML live normal (100 DM Rp29.266)"
   }
  ],
  "chats": [
@@ -978,11 +978,11 @@
    "week": "2026-11-02",
    "total": 19,
    "posted": 4,
-   "pending": 1,
+   "pending": 3,
    "scheduled": 1,
    "yt_total": 4,
    "yt_posted": 2,
-   "yt_pending": 0,
+   "yt_pending": 2,
    "yt_scheduled": 0,
    "views": 3816,
    "likes": 65,
@@ -1228,7 +1228,7 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 3946.899902,
+  "price": 3946.100098,
   "open": [],
   "signals": [
    {
@@ -1421,13 +1421,13 @@
    "M10": {
     "bias": "sideways",
     "score": 1,
-    "price": 3950.2,
-    "ema20": 3952.18,
-    "ema50": 3949.4,
-    "rsi": 48,
+    "price": 3943.6,
+    "ema20": 3951.37,
+    "ema50": 3949.18,
+    "rsi": 41,
     "n": 299,
-    "slot": 2989452,
-    "at": 1793671261531
+    "slot": 2989453,
+    "at": 1793671861632
    },
    "M15": {
     "bias": "sideways",
