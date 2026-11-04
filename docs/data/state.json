@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-04T19:25:47.906Z",
+ "generated_at": "2026-11-04T19:35:47.903Z",
  "today": "2026-11-05",
  "week_start": "2026-11-02",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-04 19:15:48"
+   "updated_at": "2026-11-04 19:30:48"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: 4 pencarian tak menemukan berita 4 Nov 2026 yang terverifikasi (hasil lama/tak relevan). Bias netral; blackout kalender tetap berlaku.",
-   "updated_at": "2026-11-04 19:15:48"
+   "updated_at": "2026-11-04 19:30:48"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bullish",
-   "updated_at": "2026-11-04 19:15:48"
+   "updated_at": "2026-11-04 19:30:48"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-11-04 19:15:48"
+   "updated_at": "2026-11-04 19:30:48"
   },
   {
    "id": "texec",
@@ -1066,8 +1066,8 @@
      "views": 1547
     }
    ],
-   "clicks": 50,
-   "click_visitors": 21,
+   "clicks": 51,
+   "click_visitors": 22,
    "click_src": [
     {
      "src": "login",
@@ -1084,6 +1084,10 @@
     {
      "src": "test",
      "n": 3
+    },
+    {
+     "src": "hudson",
+     "n": 2
     },
     {
      "src": "cgi",
@@ -1159,10 +1163,6 @@
     },
     {
      "src": "images",
-     "n": 1
-    },
-    {
-     "src": "hudson",
      "n": 1
     },
     {
@@ -1320,9 +1320,14 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 4062.699951,
+  "price": 4057.399902,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-04 19:30:48",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
    {
     "ts": "2026-11-04 19:15:48",
     "decision": "NO TRADE",
@@ -1345,11 +1350,6 @@
    },
    {
     "ts": "2026-11-04 18:15:48",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-11-04 18:00:48",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1396,7 +1396,7 @@
    1716.0099999999995
   ],
   "last": {
-   "ts": "2026-11-04 19:15:48",
+   "ts": "2026-11-04 19:30:48",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1417,7 +1417,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4062.00 di atas tengah band (4029.4–4082.1) · RSI 59 · Stoch 74 · MACD -0.75 · H1 bullish"
+    "note": "M15 4061.50 di atas tengah band (4030.4–4082.5) · RSI 58 · Stoch 71 · MACD -1.02 · H1 bullish"
    }
   },
   "fund": {
@@ -1485,36 +1485,36 @@
   "tf": {
    "M10": {
     "bias": "bullish",
-    "score": 3,
-    "price": 4063.2,
-    "ema20": 4060.66,
-    "ema50": 4049.03,
-    "rsi": 56.9,
+    "score": 2,
+    "price": 4062.1,
+    "ema20": 4060.8,
+    "ema50": 4049.54,
+    "rsi": 55.2,
     "n": 299,
-    "slot": 2989700,
-    "at": 1793820047957
+    "slot": 2989701,
+    "at": 1793820647950
    },
    "M15": {
     "bias": "bullish",
     "score": 2,
-    "price": 4063.2,
-    "ema20": 4056.9,
-    "ema50": 4037.47,
-    "rsi": 59.9,
+    "price": 4062.1,
+    "ema20": 4057.39,
+    "ema50": 4038.44,
+    "rsi": 58.6,
     "n": 299,
-    "slot": 1993133,
-    "at": 1793819747959
+    "slot": 1993134,
+    "at": 1793820647955
    },
    "M30": {
     "bias": "bullish",
     "score": 2,
     "price": 4062.1,
-    "ema20": 4043.35,
-    "ema50": 4007.94,
+    "ema20": 4045.13,
+    "ema50": 4010.06,
     "rsi": 67.2,
     "n": 299,
-    "slot": 996566,
-    "at": 1793818847957
+    "slot": 996567,
+    "at": 1793820647956
    },
    "H1": {
     "bias": "bullish",
