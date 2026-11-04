@@ -4,6 +4,7 @@ import { execFileSync } from 'node:child_process';
 import { all, get, run, kv, setKv, params, mode, ROOT, money, currency, usdIdr, toIdr } from './store.mjs';
 import { quote, bars, eaFresh, marketOpen } from './market.mjs';
 import { upcoming } from './research.mjs';
+import { riskGate } from './strategy.mjs';
 import { chat } from '../chatter.mjs';
 import { tradingBotOn, sendTrading } from './tgbot.mjs';
 import { db as officeDb } from './store.mjs';
@@ -66,6 +67,21 @@ export function today() {
 // ---------------------------------------------------------------- eksekusi (Wiratama)
 export async function execute(sig) {
   const m = mode(), p = params();
+  // gerbang risiko Aryaputra: dicek ulang tepat sebelum kirim, hasil siklus sebelumnya nggak dihitung
+  const day = new Date().toISOString().slice(0, 10);
+  const gate = riskGate(sig, {
+    equity: account().equity, open: openTrades().length,
+    tradesToday: get('SELECT COUNT(*) n FROM trd_trades t JOIN trd_signals s ON s.id = t.signal_id WHERE t.mode = ? AND substr(s.ts, 1, 10) = ?', m, day)?.n ?? 0,
+    signalUsed: !!get('SELECT 1 FROM trd_trades WHERE signal_id = ?', sig.id),
+  }, p);
+  if (!gate.pass) {
+    const why = gate.reasons.join('; ');
+    run("UPDATE trd_signals SET decision = 'BLOCK', reason = ? WHERE id = ?", `BLOCK gerbang risiko: ${why} · ${sig.reason}`, sig.id);
+    note('trisk', `BLOCK ${sig.side?.toUpperCase()} ${sig.lot} lot · ${why}`);
+    talk('trisk', 'texec', `Tahan Wir, order ${sig.side?.toUpperCase()} nggak lolos gerbang risiko: ${why.slice(0, 120)}`);
+    await report(`⛔ <b>Order diblok gerbang risiko</b> (${m})\n${sig.side?.toUpperCase()} XAUUSD ${sig.lot} lot @ ${sig.entry} · SL ${sig.sl} · TP ${sig.tp}\nAlasan: ${esc(why)}\nNggak ada order yang dikirim.`);
+    return null;
+  }
   const tr = run('INSERT INTO trd_trades (signal_id, mode, side, lot, entry, sl, tp, status, reason_open) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)',
     sig.id, m, sig.side, sig.lot, sig.entry, sig.sl, sig.tp, m === 'paper' ? 'open' : 'pending', sig.reason);
   const id = Number(tr.lastInsertRowid);

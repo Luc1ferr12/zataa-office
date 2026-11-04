@@ -71,6 +71,7 @@ export const DEFAULT_PARAMS = {
   minSl: 3, maxSl: 35,   // batas jarak SL (USD)
   emaFast: 50, emaSlow: 200,   // konteks tren H1
   maxPositions: 1,
+  maxTradesPerDay: 6,    // pengaman gerbang risiko (riskGate), jauh di atas frekuensi normal strategi (±1–2/hari)
   dailyLossPct: 3,       // berhenti hari ini kalau rugi ≥ ini
   maxConsecLoss: 3,      // berhenti hari ini setelah kalah beruntun segini
   maxSpread: 0.8,        // USD

@@ -26,7 +26,7 @@ Kantor marketing virtual untuk **zataa.my.id** (top up game). Claude memerankan 
 | tdir | Mahendra | Trading Director: atur alur agent trading XAUUSD |
 | tresearch | Davina | Berita & kalender ekonomi (Fed, CPI, NFP, USD), sentimen emas |
 | ttech | Keira | Analisa teknikal XAUUSD multi-timeframe |
-| trisk | Aryaputra | Keputusan BUY/SELL/NO TRADE + risiko; pemilik EA MQL5 |
+| trisk | Aryaputra | Keputusan BUY/SELL/NO TRADE + risiko, gerbang `riskGate` sebelum order (dari trader-skill); pemilik EA MQL5 |
 | texec | Wiratama | Eksekusi order ke EA MT5, SL/TP |
 | teval | Jihan | Evaluasi trade, backtest, usulan perbaikan |
 | treport | Selena | Laporan trading ke Telegram |

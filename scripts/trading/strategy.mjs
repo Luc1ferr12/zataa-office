@@ -67,6 +67,31 @@ export function technical(m15, h1, p) {
   };
 }
 
+// Gerbang risiko terakhir (diadaptasi dari trader-risk, trader-skill MIT): cek ulang order PERSIS yang mau dikirim,
+// terpisah dari decide(). BLOCK = final, order nggak dikirim, nggak diedit biar lolos, batas nggak dilonggarin.
+// ctx: { equity, open, tradesToday, signalUsed }
+export function riskGate(o, ctx, p) {
+  const bad = [], num = (v) => Number.isFinite(+v) && v !== null;
+  if (o.side !== 'buy' && o.side !== 'sell') bad.push(`side "${o.side}" bukan buy/sell`);
+  if (![o.entry, o.sl, o.tp, o.lot].every(num)) bad.push('entry/SL/TP/lot kosong atau bukan angka');
+  if (!bad.length) {
+    const dir = o.side === 'buy' ? 1 : -1, dist = Math.abs(o.entry - o.sl), eps = 1e-6;
+    if (dir * (o.entry - o.sl) <= 0) bad.push(`SL ${o.sl} di sisi yang salah dari entry ${o.entry}`);
+    if (dir * (o.tp - o.entry) <= 0) bad.push(`TP ${o.tp} di sisi yang salah dari entry ${o.entry}`);
+    if (dist < p.minSl - 0.01 || dist > p.maxSl + 0.01) bad.push(`jarak SL ${dist.toFixed(2)} di luar batas ${p.minSl}–${p.maxSl}`);
+    if (o.lot < p.minLot - eps || o.lot > p.maxLot + eps) bad.push(`lot ${o.lot} di luar ${p.minLot}–${p.maxLot}`);
+    if (Math.abs(o.lot / p.lotStep - Math.round(o.lot / p.lotStep)) > 1e-6) bad.push(`lot ${o.lot} bukan kelipatan ${p.lotStep}`);
+    const risk = dist * o.lot * p.contract, cap = ctx.equity * p.riskPct / 100;
+    if (!(ctx.equity > 0)) bad.push('ekuitas akun nggak kebaca');
+    else if (risk > cap * 1.05) bad.push(`risiko ${risk.toFixed(2)} > batas ${p.riskPct}% (${cap.toFixed(2)})`);
+    if (dist > 0 && Math.abs(o.tp - o.entry) / dist < p.minRr - 0.01) bad.push(`RR ${(Math.abs(o.tp - o.entry) / dist).toFixed(2)} < ${p.minRr}`);
+  }
+  if (ctx.open >= p.maxPositions) bad.push(`sudah ada ${ctx.open} posisi terbuka (maks ${p.maxPositions})`);
+  if (ctx.signalUsed) bad.push('sinyal ini sudah pernah dieksekusi (dobel)');
+  if (ctx.tradesToday >= p.maxTradesPerDay) bad.push(`sudah ${ctx.tradesToday} order hari ini (maks ${p.maxTradesPerDay})`);
+  return { pass: !bad.length, reasons: bad };
+}
+
 // sesi dari jam UTC: asia = aktif (lebih sering masuk), aman = London–NY (syarat ketat, risiko kecil), libur = rollover & pasar sepi
 export function session(d, p) {
   const h = d.getUTCHours(), inR = ([a, b]) => (a <= b ? h >= a && h < b : h >= a || h < b);
