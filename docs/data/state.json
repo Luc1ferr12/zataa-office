@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-04T17:55:47.855Z",
+ "generated_at": "2026-11-04T18:05:47.862Z",
  "today": "2026-11-05",
  "week_start": "2026-11-02",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-04 17:45:48"
+   "updated_at": "2026-11-04 18:00:48"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: 4 pencarian tak menemukan berita 4 Nov 2026 yang terverifikasi (hasil lama/tak relevan). Bias netral; blackout kalender tetap berlaku.",
-   "updated_at": "2026-11-04 17:45:47"
+   "updated_at": "2026-11-04 18:00:48"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bullish",
-   "updated_at": "2026-11-04 17:45:48"
+   "updated_at": "2026-11-04 18:00:48"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-11-04 17:45:48"
+   "updated_at": "2026-11-04 18:00:48"
   },
   {
    "id": "texec",
@@ -1320,9 +1320,14 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 4067.899902,
+  "price": 4068.399902,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-04 18:00:48",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
    {
     "ts": "2026-11-04 17:45:48",
     "decision": "NO TRADE",
@@ -1345,11 +1350,6 @@
    },
    {
     "ts": "2026-11-04 16:45:49",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-11-04 16:30:50",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1396,7 +1396,7 @@
    1716.0099999999995
   ],
   "last": {
-   "ts": "2026-11-04 17:45:48",
+   "ts": "2026-11-04 18:00:48",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1417,7 +1417,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4070.40 di atas tengah band (4023.1–4076.1) · RSI 68 · Stoch 99 · MACD +1.91 · H1 bullish"
+    "note": "M15 4067.50 di atas tengah band (4023.5–4077.8) · RSI 65 · Stoch 95 · MACD +1.44 · H1 bullish"
    }
   },
   "fund": {
@@ -1425,15 +1425,6 @@
    "note": "4 pencarian tak menemukan berita 4 Nov 2026 yang terverifikasi (hasil lama/tak relevan). Bias netral; blackout kalender tetap berlaku."
   },
   "calendar": [
-   {
-    "title": "ISM Services PMI",
-    "impact": "Medium",
-    "at": 1793804400000,
-    "forecast": "54.8",
-    "previous": "54.9",
-    "wb": 20,
-    "wa": 20
-   },
    {
     "title": "Unemployment Claims",
     "impact": "Medium",
@@ -1495,46 +1486,46 @@
    "M10": {
     "bias": "bullish",
     "score": 3,
-    "price": 4070.2,
-    "ema20": 4055.56,
-    "ema50": 4042.32,
-    "rsi": 67.7,
+    "price": 4067.4,
+    "ema20": 4056.69,
+    "ema50": 4043.3,
+    "rsi": 64.1,
     "n": 299,
-    "slot": 2989691,
-    "at": 1793814647979
+    "slot": 2989692,
+    "at": 1793815247909
    },
    "M15": {
     "bias": "bullish",
     "score": 2,
-    "price": 4070.5,
-    "ema20": 4050.79,
-    "ema50": 4030.13,
-    "rsi": 67.7,
+    "price": 4067.4,
+    "ema20": 4052.37,
+    "ema50": 4031.6,
+    "rsi": 64.8,
     "n": 299,
-    "slot": 1993127,
-    "at": 1793814347902
+    "slot": 1993128,
+    "at": 1793815247915
    },
    "M30": {
     "bias": "bullish",
     "score": 2,
-    "price": 4067.5,
-    "ema20": 4036,
-    "ema50": 4000.74,
-    "rsi": 71.3,
+    "price": 4067.4,
+    "ema20": 4038.99,
+    "ema50": 4003.35,
+    "rsi": 71.2,
     "n": 299,
-    "slot": 996563,
-    "at": 1793813457574
+    "slot": 996564,
+    "at": 1793815247916
    },
    "H1": {
     "bias": "bullish",
     "score": 3,
-    "price": 4066.2,
-    "ema20": 4010.59,
-    "ema50": 3970.58,
-    "rsi": 76.9,
+    "price": 4067.4,
+    "ema20": 4016,
+    "ema50": 3974.38,
+    "rsi": 77.1,
     "n": 299,
-    "slot": 498281,
-    "at": 1793811650609
+    "slot": 498282,
+    "at": 1793815247920
    }
   },
   "currency": "USC",
