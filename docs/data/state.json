@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-04T00:34:31.595Z",
+ "generated_at": "2026-11-04T00:44:31.600Z",
  "today": "2026-11-04",
  "week_start": "2026-11-02",
  "campaign": {
@@ -594,6 +594,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-04 00:41:02",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: bullish → sideways"
+  },
+  {
    "ts": "2026-11-04 00:16:03",
    "agent_id": "trisk",
    "message": "NO TRADE · setup SELL di band, konfirmasi baru 1/2 (MACD) · sesi Asia"
@@ -712,11 +717,6 @@
    "ts": "2026-11-03 20:01:02",
    "agent_id": "ttech",
    "message": "M10 berubah arah: sideways → bearish"
-  },
-  {
-   "ts": "2026-11-03 19:46:02",
-   "agent_id": "trisk",
-   "message": "NO TRADE · kondisi berita bahaya: Berita 24 jam belum terverifikasi; cek ulang sebelum entry"
   }
  ],
  "chats": [
@@ -1292,7 +1292,7 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 3927.899902,
+  "price": 3924.800049,
   "open": [],
   "signals": [
    {
@@ -1465,15 +1465,15 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "bullish",
-    "score": 3,
-    "price": 3933.4,
-    "ema20": 3932.37,
-    "ema50": 3930.41,
-    "rsi": 53.8,
+    "bias": "sideways",
+    "score": 1,
+    "price": 3923,
+    "ema20": 3931.48,
+    "ema50": 3930.12,
+    "rsi": 37.1,
     "n": 299,
-    "slot": 2989587,
-    "at": 1793752262867
+    "slot": 2989588,
+    "at": 1793752862864
    },
    "M15": {
     "bias": "bullish",
