@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-04T14:44:31.943Z",
+ "generated_at": "2026-11-04T14:46:03.856Z",
  "today": "2026-11-04",
  "week_start": "2026-11-02",
  "campaign": {
@@ -62,8 +62,8 @@
    "name": "Fikri",
    "title": "Social Media Publisher",
    "status": "done",
-   "current_task": "QA & kirim video #117 ke Owner",
-   "updated_at": "2026-11-04 14:08:23"
+   "current_task": "undefined",
+   "updated_at": "2026-11-04 14:45:32"
   },
   {
    "id": "ads",
@@ -421,7 +421,7 @@
    "game": "mlbb",
    "pillar": "news",
    "title": "Hasil AE vs ONIC: siapa lolos lawan NAVI di upper semi, siapa pulang duluan — skor per game, hook angka #24",
-   "status": "pending_approval",
+   "status": "approved",
    "asset_url": "{\"video\":\"https://luc1ferr12.github.io/zataa-office/media/2026-11-04/117-hasil-ae-vs-onic-siapa-lolos-lawan-navi--ov.mp4\",\"cover\":\"https://luc1ferr12.github.io/zataa-office/media/2026-11-04/117-hasil-ae-vs-onic-siapa-lolos-lawan-navi--ov-cover.jpg\"}",
    "scheduled_at": null,
    "posted_at": null,
@@ -622,6 +622,16 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-04 14:46:03",
+   "agent_id": "ttech",
+   "message": "M15 berubah arah: sideways → bullish"
+  },
+  {
+   "ts": "2026-11-04 14:45:32",
+   "agent_id": "owner",
+   "message": "Approve konten #117 ✅"
+  },
+  {
    "ts": "2026-11-04 14:31:03",
    "agent_id": "trisk",
    "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
@@ -735,16 +745,6 @@
    "ts": "2026-11-04 11:11:03",
    "agent_id": "ttech",
    "message": "M10 berubah arah: bullish → sideways"
-  },
-  {
-   "ts": "2026-11-04 11:08:36",
-   "agent_id": "publisher",
-   "message": "#117 QA awal ok (warning G2 = Game 2, bukan tim G2), nunggu render laptop lalu auto-submit"
-  },
-  {
-   "ts": "2026-11-04 11:08:22",
-   "agent_id": "researcher",
-   "message": "Nemu 1 topik baru"
   }
  ],
  "chats": [
@@ -1034,8 +1034,8 @@
    "week": "2026-11-02",
    "total": 23,
    "posted": 13,
-   "pending": 2,
-   "scheduled": 0,
+   "pending": 1,
+   "scheduled": 1,
    "yt_total": 6,
    "yt_posted": 6,
    "yt_pending": 0,
@@ -1320,7 +1320,7 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 4048.5,
+  "price": 4047,
   "open": [],
   "signals": [
    {
@@ -1504,15 +1504,15 @@
     "at": 1793803263698
    },
    "M15": {
-    "bias": "sideways",
-    "score": 0,
-    "price": 4035.4,
-    "ema20": 4038.72,
-    "ema50": 4014.67,
-    "rsi": 51.3,
+    "bias": "bullish",
+    "score": 2,
+    "price": 4046.6,
+    "ema20": 4039.47,
+    "ema50": 4015.93,
+    "rsi": 58.5,
     "n": 299,
-    "slot": 1993114,
-    "at": 1793802663690
+    "slot": 1993115,
+    "at": 1793803563768
    },
    "M30": {
     "bias": "bullish",
