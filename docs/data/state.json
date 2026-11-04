@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-04T11:04:31.907Z",
+ "generated_at": "2026-11-04T11:14:31.904Z",
  "today": "2026-11-04",
  "week_start": "2026-11-02",
  "campaign": {
@@ -30,16 +30,16 @@
    "name": "Salsa",
    "title": "Researcher",
    "status": "working",
-   "current_task": "Mantau: Produksi konten #117 (video malam 19:00 WIB, style (cek lagi 19.05)",
-   "updated_at": "2026-11-04 10:36:02"
+   "current_task": "Mantau: Cek #117 (video malam AE 3-1 ONIC, glitch): sudah  (cek lagi 19.38)",
+   "updated_at": "2026-11-04 11:08:46"
   },
   {
    "id": "copywriter",
    "name": "Tiara",
    "title": "Copywriter",
    "status": "done",
-   "current_task": "Teks carousel FFWS #133 & naskah video bursa VCT #134",
-   "updated_at": "2026-11-04 00:50:03"
+   "current_task": "Naskah+caption #117 AE vs ONIC",
+   "updated_at": "2026-11-04 11:08:25"
   },
   {
    "id": "designer",
@@ -54,8 +54,8 @@
    "name": "Dimas",
    "title": "Video Production",
    "status": "done",
-   "current_task": "Antre render video bursa VCT #134 di laptop",
-   "updated_at": "2026-11-04 00:51:02"
+   "current_task": "Video #117 masuk antrean render laptop",
+   "updated_at": "2026-11-04 11:08:36"
   },
   {
    "id": "publisher",
@@ -622,6 +622,21 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-04 11:11:03",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: bullish → sideways"
+  },
+  {
+   "ts": "2026-11-04 11:08:36",
+   "agent_id": "publisher",
+   "message": "#117 QA awal ok (warning G2 = Game 2, bukan tim G2), nunggu render laptop lalu auto-submit"
+  },
+  {
+   "ts": "2026-11-04 11:08:22",
+   "agent_id": "researcher",
+   "message": "Nemu 1 topik baru"
+  },
+  {
    "ts": "2026-11-04 11:00:34",
    "agent_id": "ypublish",
    "message": "Upload Shorts #131 ke Zataa History (Publik via Zernio)"
@@ -730,24 +745,58 @@
    "ts": "2026-11-04 03:31:03",
    "agent_id": "ttech",
    "message": "M15 berubah arah: sideways → bullish"
-  },
-  {
-   "ts": "2026-11-04 03:31:03",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: sideways → bullish"
-  },
-  {
-   "ts": "2026-11-04 03:01:03",
-   "agent_id": "ttech",
-   "message": "M15 berubah arah: bullish → sideways"
-  },
-  {
-   "ts": "2026-11-04 03:01:03",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: bullish → sideways"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-11-04 11:08:46",
+   "agent_id": "publisher",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "QA udah lolos, tinggal nunggu hasil render. 30 menit lagi aku cek videonya udah nyampe ke Bos belum."
+  },
+  {
+   "ts": "2026-11-04 11:08:46",
+   "agent_id": "video",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Video glitch #117 udah masuk antrean render laptop, nanti otomatis dikirim ke Bos buat di-✅. Laptopnya tolong nyala ya biar keburu tayang 19:00."
+  },
+  {
+   "ts": "2026-11-04 11:08:46",
+   "agent_id": "researcher",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Bos, sumber ke-2 udah ada (Nusantaraterkini), lengkap sama skor per game: ONIC menang G1, AE balas 3 game beruntun, 3-1."
+  },
+  {
+   "ts": "2026-11-04 11:08:36",
+   "agent_id": "researcher",
+   "to_id": "copywriter",
+   "kind": "santai",
+   "message": "Akhirnya ada sumber ke-2, sempet deg-degan sampe mepet 19:00 😅"
+  },
+  {
+   "ts": "2026-11-04 11:08:36",
+   "agent_id": "video",
+   "to_id": "publisher",
+   "kind": "oper",
+   "message": "Render \"Video #117 masuk antrean render laptop\" selesai, Fikri. Cek cover-nya ya"
+  },
+  {
+   "ts": "2026-11-04 11:08:25",
+   "agent_id": "copywriter",
+   "to_id": "designer",
+   "kind": "oper",
+   "message": "Vania, copy \"Naskah+caption #117 AE vs ONIC\" udah masuk. Headline-nya jangan dikecilin ya 😆"
+  },
+  {
+   "ts": "2026-11-04 11:07:44",
+   "agent_id": "researcher",
+   "to_id": "copywriter",
+   "kind": "oper",
+   "message": "Riset \"Sumber ke-2 + skor per game AE vs ONIC\" beres, udah dicek 2 sumber. Tiara, lanjut ya~"
+  },
   {
    "ts": "2026-11-04 11:00:32",
    "agent_id": "analyst",
@@ -978,55 +1027,6 @@
    "to_id": "designer",
    "kind": "oper",
    "message": "Teks buat \"Naskah video FFWS 2027\" ready. Vania, giliranmu bikin cakep!"
-  },
-  {
-   "ts": "2026-11-02 23:28:58",
-   "agent_id": "researcher",
-   "to_id": "copywriter",
-   "kind": "oper",
-   "message": "Riset \"Riset FFWS SEA dihapus 2027\" beres, udah dicek 2 sumber. Tiara, lanjut ya~"
-  },
-  {
-   "ts": "2026-11-02 23:27:31",
-   "agent_id": "dir",
-   "to_id": null,
-   "kind": "oper",
-   "message": "Bos ACC 1 ide tambahan! \"FFWS SEA resmi dihapus 2027: RRQ Kazu & ONIC kecewa, apa artinya buat tim Indonesia?\" 🎉"
-  },
-  {
-   "ts": "2026-11-02 23:07:49",
-   "agent_id": "analyst",
-   "to_id": null,
-   "kind": "santai",
-   "message": "Video PRX kemarin udah 831 views, hook angka masih juara nih"
-  },
-  {
-   "ts": "2026-11-02 23:07:49",
-   "agent_id": "sresearch",
-   "to_id": "yresearch",
-   "kind": "santai",
-   "message": "Mbak Nadhira, hari ini kita sama-sama dapat topik ilustrasi jadul ya, aku gunung, kamu orang joget 😂"
-  },
-  {
-   "ts": "2026-11-02 23:03:32",
-   "agent_id": "publisher",
-   "to_id": "owner",
-   "kind": "oper",
-   "message": "\"QA & kirim #114\" udah lolos QA, tinggal nunggu ✅ dari Bos"
-  },
-  {
-   "ts": "2026-11-02 23:03:25",
-   "agent_id": "video",
-   "to_id": "publisher",
-   "kind": "oper",
-   "message": "Render \"Render video #115 (antre laptop)\" selesai, Fikri. Cek cover-nya ya"
-  },
-  {
-   "ts": "2026-11-02 23:03:22",
-   "agent_id": "designer",
-   "to_id": "publisher",
-   "kind": "oper",
-   "message": "Visual \"Render carousel #114\" kelar! Fikri, cek typo-nya sekalian ya 🙏"
   }
  ],
  "stats": {
@@ -1320,7 +1320,7 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 4043.800049,
+  "price": 4041.199951,
   "open": [],
   "signals": [
    {
@@ -1493,15 +1493,15 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "bullish",
-    "score": 2,
-    "price": 4045.9,
-    "ema20": 4037.05,
-    "ema50": 4009.73,
-    "rsi": 66,
+    "bias": "sideways",
+    "score": 1,
+    "price": 4042.9,
+    "ema20": 4037.61,
+    "ema50": 4011.03,
+    "rsi": 62.2,
     "n": 299,
-    "slot": 2989650,
-    "at": 1793790063432
+    "slot": 2989651,
+    "at": 1793790663477
    },
    "M15": {
     "bias": "bullish",
