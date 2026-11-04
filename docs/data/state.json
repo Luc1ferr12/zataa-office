@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-04T00:54:31.599Z",
+ "generated_at": "2026-11-04T01:04:31.607Z",
  "today": "2026-11-04",
  "week_start": "2026-11-02",
  "campaign": {
@@ -62,8 +62,8 @@
    "name": "Fikri",
    "title": "Social Media Publisher",
    "status": "done",
-   "current_task": "QA & kirim carousel FFWS #133 ke Owner",
-   "updated_at": "2026-11-04 00:51:10"
+   "current_task": null,
+   "updated_at": "2026-11-04 01:00:59"
   },
   {
    "id": "ads",
@@ -78,8 +78,8 @@
    "name": "Raka",
    "title": "Data Analyst",
    "status": "done",
-   "current_task": "Pola: video news Valorant terkuat, feed lemah",
-   "updated_at": "2026-11-03 23:07:28"
+   "current_task": null,
+   "updated_at": "2026-11-04 01:01:09"
   },
   {
    "id": "price",
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-04 00:46:03"
+   "updated_at": "2026-11-04 01:01:03"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Berita 24 jam tak ketemu. Fed tahan 3,75–4% (28 Okt), pasar pasang hike lagi = hawkish, tekan emas. Tak ada eskalasi terverifikasi.",
-   "updated_at": "2026-11-04 00:46:03"
+   "updated_at": "2026-11-04 01:01:03"
   },
   {
    "id": "ttech",
@@ -119,15 +119,15 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-04 00:46:03"
+   "updated_at": "2026-11-04 01:01:03"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: ada candle spike di M15 (kemungkinan berita dadakan), tunggu tenang",
-   "updated_at": "2026-11-04 00:46:03"
+   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
+   "updated_at": "2026-11-04 01:01:03"
   },
   {
    "id": "texec",
@@ -435,7 +435,7 @@
    "game": "sejarah",
    "pillar": "greek_myth",
    "title": "Semua yang Dia Sentuh Jadi Emas, Lalu Dia Kelaparan",
-   "status": "draft",
+   "status": "pending_approval",
    "asset_url": null,
    "scheduled_at": null,
    "posted_at": null,
@@ -449,7 +449,7 @@
    "game": "sejarah",
    "pillar": "horor_sejarah",
    "title": "Lubang Jepang: Penjara Rahasia di Bawah Bukittinggi",
-   "status": "draft",
+   "status": "pending_approval",
    "asset_url": null,
    "scheduled_at": null,
    "posted_at": null,
@@ -622,6 +622,51 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-04 01:01:09",
+   "agent_id": "analyst",
+   "message": "Update data 46 post IG 📈"
+  },
+  {
+   "ts": "2026-11-04 01:01:02",
+   "agent_id": "ttech",
+   "message": "M30 berubah arah: sideways → bullish"
+  },
+  {
+   "ts": "2026-11-04 01:01:02",
+   "agent_id": "ttech",
+   "message": "M15 berubah arah: sideways → bullish"
+  },
+  {
+   "ts": "2026-11-04 01:01:02",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: sideways → bullish"
+  },
+  {
+   "ts": "2026-11-04 01:00:59",
+   "agent_id": "publisher",
+   "message": "Kirim draf IG Story ke Bos 📱"
+  },
+  {
+   "ts": "2026-11-04 01:00:26",
+   "agent_id": "yvideo",
+   "message": "Shorts #132 dirender di laptop (suara OmniVoice) & dikirim ke Owner"
+  },
+  {
+   "ts": "2026-11-04 01:00:26",
+   "agent_id": "spublish",
+   "message": "Kirim Shorts #132 ke Owner buat approval"
+  },
+  {
+   "ts": "2026-11-04 00:56:30",
+   "agent_id": "yvideo",
+   "message": "Shorts #131 dirender di laptop (suara OmniVoice) & dikirim ke Owner"
+  },
+  {
+   "ts": "2026-11-04 00:56:30",
+   "agent_id": "ypublish",
+   "message": "Kirim Shorts #131 ke Owner buat approval"
+  },
+  {
    "ts": "2026-11-04 00:51:10",
    "agent_id": "publisher",
    "message": "Kirim #133 ke Owner buat approval"
@@ -700,51 +745,6 @@
    "ts": "2026-11-03 23:02:21",
    "agent_id": "dir",
    "message": "Ide ke Owner: counter Valir, grup FFWS GF, NAVI/GM/DRX lepas roster"
-  },
-  {
-   "ts": "2026-11-03 23:02:21",
-   "agent_id": "dir",
-   "message": "Kirim 3 ide briefing ke Owner"
-  },
-  {
-   "ts": "2026-11-03 23:02:20",
-   "agent_id": "dir",
-   "message": "Pilih 3 ide terbaik dari briefing (2 feed + 1 video)"
-  },
-  {
-   "ts": "2026-11-03 23:01:36",
-   "agent_id": "price",
-   "message": "Harga ML live: 100 DM Rp29.266, 1050 DM Rp295.389"
-  },
-  {
-   "ts": "2026-11-03 23:01:34",
-   "agent_id": "researcher",
-   "message": "6 item riset masuk, 4 pencarian web"
-  },
-  {
-   "ts": "2026-11-03 23:01:34",
-   "agent_id": "researcher",
-   "message": "Nemu 6 topik baru"
-  },
-  {
-   "ts": "2026-11-03 23:01:22",
-   "agent_id": "trisk",
-   "message": "NO TRADE · jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
-  },
-  {
-   "ts": "2026-11-03 23:01:02",
-   "agent_id": "ttech",
-   "message": "M60 berubah arah: sideways → bullish"
-  },
-  {
-   "ts": "2026-11-03 22:01:08",
-   "agent_id": "analyst",
-   "message": "Update data 47 post IG 📈"
-  },
-  {
-   "ts": "2026-11-03 21:46:02",
-   "agent_id": "trisk",
-   "message": "NO TRADE · jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
   }
  ],
  "chats": [
@@ -1034,13 +1034,13 @@
    "week": "2026-11-02",
    "total": 23,
    "posted": 8,
-   "pending": 2,
+   "pending": 4,
    "scheduled": 1,
    "yt_total": 6,
    "yt_posted": 4,
-   "yt_pending": 0,
+   "yt_pending": 2,
    "yt_scheduled": 0,
-   "views": 7516,
+   "views": 7522,
    "likes": 110,
    "comments": 1,
    "shares": 0,
@@ -1222,7 +1222,7 @@
    "yt_posted": 12,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 31754,
+   "views": 31755,
    "likes": 415,
    "comments": 7,
    "shares": 16,
@@ -1239,7 +1239,7 @@
      "title": "BESOK jendela transfer VCT 2027 dibuka: NAVI, MIBR, ENVY lepas roster + RUMOR valyn ke Fnatic",
      "format": "video",
      "pillar": "news",
-     "views": 2614
+     "views": 2615
     },
     {
      "title": "Manusia Setinggi 1 Meter Pernah Hidup di Flores",
@@ -1320,9 +1320,14 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 3929.399902,
+  "price": 3932.399902,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-04 01:01:03",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
+   },
    {
     "ts": "2026-11-04 00:46:03",
     "decision": "NO TRADE",
@@ -1345,11 +1350,6 @@
    },
    {
     "ts": "2026-11-03 23:46:02",
-    "decision": "NO TRADE",
-    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
-   },
-   {
-    "ts": "2026-11-03 23:31:03",
     "decision": "NO TRADE",
     "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
    }
@@ -1396,7 +1396,7 @@
    1716.0099999999995
   ],
   "last": {
-   "ts": "2026-11-04 00:46:03",
+   "ts": "2026-11-04 01:01:03",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1405,7 +1405,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "ada candle spike di M15 (kemungkinan berita dadakan), tunggu tenang",
+   "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)",
    "fund": {
     "bias": -0.15,
     "note": "Berita 24 jam tak ketemu. Fed tahan 3,75–4% (28 Okt), pasar pasang hike lagi = hawkish, tekan emas. Tak ada eskalasi terverifikasi.",
@@ -1417,7 +1417,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3927.20 di bawah tengah band (3917.5–3940.7) · RSI 46 · Stoch 38 · MACD -0.18 · H1 sideways"
+    "note": "M15 3932.70 di atas tengah band (3919.3–3940.8) · RSI 52 · Stoch 47 · MACD +0.15 · H1 sideways"
    }
   },
   "fund": {
@@ -1493,48 +1493,48 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "sideways",
-    "score": 1,
-    "price": 3928.7,
-    "ema20": 3931.22,
-    "ema50": 3930.07,
-    "rsi": 46.9,
-    "n": 299,
-    "slot": 2989589,
-    "at": 1793753462877
-   },
-   "M15": {
-    "bias": "sideways",
-    "score": 1,
-    "price": 3926,
-    "ema20": 3930.85,
-    "ema50": 3929.69,
-    "rsi": 44.4,
-    "n": 299,
-    "slot": 1993059,
-    "at": 1793753162893
-   },
-   "M30": {
-    "bias": "sideways",
-    "score": 1,
-    "price": 3933.4,
-    "ema20": 3930.32,
-    "ema50": 3928.6,
+    "bias": "bullish",
+    "score": 2,
+    "price": 3933.2,
+    "ema20": 3931.41,
+    "ema50": 3930.19,
     "rsi": 53,
     "n": 299,
-    "slot": 996529,
-    "at": 1793752262875
+    "slot": 2989590,
+    "at": 1793754062946
+   },
+   "M15": {
+    "bias": "bullish",
+    "score": 3,
+    "price": 3933.2,
+    "ema20": 3931.07,
+    "ema50": 3929.83,
+    "rsi": 53,
+    "n": 299,
+    "slot": 1993060,
+    "at": 1793754062954
+   },
+   "M30": {
+    "bias": "bullish",
+    "score": 2,
+    "price": 3933.2,
+    "ema20": 3930.59,
+    "ema50": 3928.78,
+    "rsi": 52.8,
+    "n": 299,
+    "slot": 996530,
+    "at": 1793754062957
    },
    "H1": {
     "bias": "bullish",
     "score": 2,
-    "price": 3938.7,
-    "ema20": 3929.84,
-    "ema50": 3923.97,
-    "rsi": 54.7,
+    "price": 3933.2,
+    "ema20": 3930.16,
+    "ema50": 3924.33,
+    "rsi": 52,
     "n": 299,
-    "slot": 498264,
-    "at": 1793750442508
+    "slot": 498265,
+    "at": 1793754062963
    }
   },
   "currency": "USC",
