@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-04T05:54:31.729Z",
+ "generated_at": "2026-11-04T06:04:31.734Z",
  "today": "2026-11-04",
  "week_start": "2026-11-02",
  "campaign": {
@@ -87,7 +87,7 @@
    "title": "Price Watcher",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-11-04 04:01:13"
+   "updated_at": "2026-11-04 06:00:34"
   },
   {
    "id": "ob",
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-04 05:46:03"
+   "updated_at": "2026-11-04 06:01:03"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Berita 24 jam tak ketemu. Fed tahan 3,75–4% (28 Okt), pasar pasang hike lagi = hawkish, tekan emas. Tak ada eskalasi terverifikasi.",
-   "updated_at": "2026-11-04 05:46:03"
+   "updated_at": "2026-11-04 06:01:03"
   },
   {
    "id": "ttech",
@@ -119,15 +119,15 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-04 05:46:03"
+   "updated_at": "2026-11-04 06:01:03"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: ada candle spike di M15 (kemungkinan berita dadakan), tunggu tenang",
-   "updated_at": "2026-11-04 05:46:03"
+   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
+   "updated_at": "2026-11-04 06:01:03"
   },
   {
    "id": "texec",
@@ -1040,18 +1040,18 @@
    "yt_posted": 4,
    "yt_pending": 0,
    "yt_scheduled": 2,
-   "views": 7697,
-   "likes": 111,
+   "views": 7734,
+   "likes": 112,
    "comments": 1,
    "shares": 0,
    "saves": 1,
-   "yt_views": 6309,
+   "yt_views": 6346,
    "top": [
     {
      "title": "Sangkuriang: Legenda atau Ingatan Danau Bandung Purba?",
      "format": "shorts",
      "pillar": "legenda_mitos",
-     "views": 2141
+     "views": 2176
     },
     {
      "title": "Pulau Onrust: Kuburan Belanda di Tengah Teluk Jakarta",
@@ -1063,7 +1063,7 @@
      "title": "Renovasi Rumah, Malah Nemu Kota di Bawah Tanah",
      "format": "shorts",
      "pillar": "hidden_history",
-     "views": 1371
+     "views": 1373
     }
    ],
    "clicks": 48,
@@ -1222,12 +1222,12 @@
    "yt_posted": 12,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 31826,
+   "views": 31829,
    "likes": 416,
    "comments": 7,
    "shares": 16,
    "saves": 3,
-   "yt_views": 21570,
+   "yt_views": 21573,
    "top": [
     {
      "title": "Lawang Sewu: Apa yang Sebenarnya Ada di Bawah Tanahnya?",
@@ -1245,7 +1245,7 @@
      "title": "Manusia Setinggi 1 Meter Pernah Hidup di Flores",
      "format": "shorts",
      "pillar": "misteri_kuno",
-     "views": 2326
+     "views": 2329
     }
    ],
    "clicks": 19,
@@ -1320,9 +1320,14 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 3996.600098,
+  "price": 4009.199951,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-04 06:01:03",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
+   },
    {
     "ts": "2026-11-04 05:46:03",
     "decision": "NO TRADE",
@@ -1345,11 +1350,6 @@
    },
    {
     "ts": "2026-11-04 04:46:03",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-   },
-   {
-    "ts": "2026-11-04 04:31:03",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
    }
@@ -1396,7 +1396,7 @@
    1716.0099999999995
   ],
   "last": {
-   "ts": "2026-11-04 05:46:03",
+   "ts": "2026-11-04 06:01:03",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1405,7 +1405,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "ada candle spike di M15 (kemungkinan berita dadakan), tunggu tenang",
+   "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)",
    "fund": {
     "bias": -0.15,
     "note": "Berita 24 jam tak ketemu. Fed tahan 3,75–4% (28 Okt), pasar pasang hike lagi = hawkish, tekan emas. Tak ada eskalasi terverifikasi.",
@@ -1417,7 +1417,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3983.00 di atas band atas (3919.8–3979.8) · RSI 70 · Stoch 95 · MACD +3.87 · H1 sideways"
+    "note": "M15 3998.70 di atas band atas (3911.4–3996.0) · RSI 73 · Stoch 92 · MACD +5.86 · H1 sideways"
    }
   },
   "fund": {
@@ -1495,46 +1495,46 @@
    "M10": {
     "bias": "bullish",
     "score": 2,
-    "price": 3994.8,
-    "ema20": 3954.27,
-    "ema50": 3944.34,
-    "rsi": 74.3,
+    "price": 4002.4,
+    "ema20": 3958.85,
+    "ema50": 3946.62,
+    "rsi": 76.3,
     "n": 299,
-    "slot": 2989619,
-    "at": 1793771463372
+    "slot": 2989620,
+    "at": 1793772063179
    },
    "M15": {
     "bias": "bullish",
     "score": 3,
-    "price": 3984.3,
-    "ema20": 3948.35,
-    "ema50": 3940.13,
-    "rsi": 70.6,
+    "price": 4002.4,
+    "ema20": 3953.49,
+    "ema50": 3942.57,
+    "rsi": 75.4,
     "n": 299,
-    "slot": 1993079,
-    "at": 1793771163105
+    "slot": 1993080,
+    "at": 1793772063184
    },
    "M30": {
     "bias": "bullish",
     "score": 3,
-    "price": 3958.9,
-    "ema20": 3940.54,
-    "ema50": 3934.24,
-    "rsi": 63.7,
+    "price": 4002.4,
+    "ema20": 3946.43,
+    "ema50": 3936.92,
+    "rsi": 77,
     "n": 299,
-    "slot": 996539,
-    "at": 1793770263093
+    "slot": 996540,
+    "at": 1793772063186
    },
    "H1": {
     "bias": "bullish",
     "score": 2,
-    "price": 3957.6,
-    "ema20": 3935.24,
-    "ema50": 3927.44,
-    "rsi": 60.3,
+    "price": 4002.4,
+    "ema20": 3941.64,
+    "ema50": 3930.38,
+    "rsi": 71.3,
     "n": 299,
-    "slot": 498269,
-    "at": 1793768463073
+    "slot": 498270,
+    "at": 1793772063190
    }
   },
   "currency": "USC",
