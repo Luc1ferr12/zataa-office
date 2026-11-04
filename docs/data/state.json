@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-04T23:05:47.991Z",
+ "generated_at": "2026-11-04T23:15:47.998Z",
  "today": "2026-11-05",
  "week_start": "2026-11-02",
  "campaign": {
@@ -31,31 +31,31 @@
    "title": "Researcher",
    "status": "working",
    "current_task": "Mantau: Produksi video #119 (slot malam 19:00 WIB, MPL ID  (cek lagi 17.20)",
-   "updated_at": "2026-11-04 23:05:47"
+   "updated_at": "2026-11-04 23:10:47"
   },
   {
    "id": "copywriter",
    "name": "Tiara",
    "title": "Copywriter",
    "status": "done",
-   "current_task": "Isi carousel #118",
-   "updated_at": "2026-11-04 23:04:06"
+   "current_task": "Sesi pagi selesai",
+   "updated_at": "2026-11-04 23:09:56"
   },
   {
    "id": "designer",
    "name": "Vania",
    "title": "Graphic Designer",
    "status": "done",
-   "current_task": "Render carousel #118 (7 slide)",
-   "updated_at": "2026-11-04 23:04:43"
+   "current_task": "Sesi pagi selesai",
+   "updated_at": "2026-11-04 23:09:56"
   },
   {
    "id": "video",
    "name": "Dimas",
    "title": "Video Production",
    "status": "done",
-   "current_task": "Render video #117 AE 3-1 ONIC",
-   "updated_at": "2026-11-04 14:08:04"
+   "current_task": "Video #119 nunggu hasil match",
+   "updated_at": "2026-11-04 23:09:56"
   },
   {
    "id": "publisher",
@@ -166,8 +166,8 @@
    "name": "Bagas",
    "title": "Manajer YouTube",
    "status": "done",
-   "current_task": "Pilih GM-005 Raja Midas + approve 3 topik backlog",
-   "updated_at": "2026-11-03 23:05:41"
+   "current_task": "Shorts Hatshepsut masuk antrean render laptop",
+   "updated_at": "2026-11-04 23:07:38"
   },
   {
    "id": "yresearch",
@@ -214,8 +214,8 @@
    "name": "Raditya",
    "title": "Manajer Zataa Story",
    "status": "done",
-   "current_task": "Pilih HS-006 Lubang Jepang (Horor Bersejarah)",
-   "updated_at": "2026-11-03 23:07:09"
+   "current_task": "Shorts Kelimutu masuk antrean render laptop",
+   "updated_at": "2026-11-04 23:09:46"
   },
   {
    "id": "sresearch",
@@ -498,6 +498,34 @@
    "channel": null
   },
   {
+   "id": 135,
+   "day": "2026-11-05",
+   "slot": "shorts",
+   "format": "shorts",
+   "game": "sejarah",
+   "pillar": "hidden_history",
+   "title": "Firaun Ini Dihapus dari Sejarah oleh Penerusnya Sendiri",
+   "status": "pending_approval",
+   "asset_url": null,
+   "scheduled_at": null,
+   "posted_at": null,
+   "channel": "youtube"
+  },
+  {
+   "id": 136,
+   "day": "2026-11-05",
+   "slot": "shorts",
+   "format": "shorts",
+   "game": "sejarah",
+   "pillar": "peristiwa_aneh",
+   "title": "Tiga Danau Arwah di Flores yang Bisa Ganti Warna",
+   "status": "draft",
+   "asset_url": null,
+   "scheduled_at": null,
+   "posted_at": null,
+   "channel": "story"
+  },
+  {
    "id": 120,
    "day": "2026-11-06",
    "slot": "siang",
@@ -622,6 +650,61 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-04 23:14:43",
+   "agent_id": "yvideo",
+   "message": "Shorts #135 dirender di laptop (suara OmniVoice) & dikirim ke Owner"
+  },
+  {
+   "ts": "2026-11-04 23:14:42",
+   "agent_id": "ypublish",
+   "message": "Kirim Shorts #135 ke Owner buat approval"
+  },
+  {
+   "ts": "2026-11-04 23:10:48",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: sideways → bullish"
+  },
+  {
+   "ts": "2026-11-04 23:09:46",
+   "agent_id": "spublish",
+   "message": "Jam tayang 19:00 WIB, konsisten dengan 6 Shorts terakhir"
+  },
+  {
+   "ts": "2026-11-04 23:09:46",
+   "agent_id": "sresearch",
+   "message": "Bank topik: tambah HS-012 Penjara Kalisosok (backlog, perlu sumber ke-2)"
+  },
+  {
+   "ts": "2026-11-04 23:09:46",
+   "agent_id": "sdir",
+   "message": "Shorts 5 Nov: PA-002 Danau Kelimutu (Peristiwa Aneh), jam 19:00 WIB; HS 2/3 minggu ini, sisa 3 slot"
+  },
+  {
+   "ts": "2026-11-04 23:09:33",
+   "agent_id": "svideo",
+   "message": "Shorts #136 \"Tiga Danau Arwah di Flores yang Bisa Ganti Warna\" masuk antrean render laptop (OmniVoice)"
+  },
+  {
+   "ts": "2026-11-04 23:08:19",
+   "agent_id": "yresearch",
+   "message": "Bank topik: tambah HH-017 Piramida Meroë; Bagas approve HH-016 Perpustakaan Aleksandria (stok HH jadi 3)"
+  },
+  {
+   "ts": "2026-11-04 23:07:48",
+   "agent_id": "yvideo",
+   "message": "Shorts #135 \"Firaun Ini Dihapus dari Sejarah oleh Penerusnya Sendiri\" masuk antrean render laptop (OmniVoice)"
+  },
+  {
+   "ts": "2026-11-04 23:07:38",
+   "agent_id": "ypublish",
+   "message": "Jam tayang 18:00 WIB: 8 Shorts terakhir di 18:00 stabil 1,2-1,9rb views, belum ada alasan geser"
+  },
+  {
+   "ts": "2026-11-04 23:07:37",
+   "agent_id": "ydir",
+   "message": "Shorts 5 Nov: HH-014 Hatshepsut (Hidden History, kuota HH 2/2)"
+  },
+  {
    "ts": "2026-11-04 23:05:16",
    "agent_id": "publisher",
    "message": "#118 carousel terkirim ke Owner; video #119 dijadwalkan dibikin 17:20 WITA setelah NAVI vs AE selesai"
@@ -690,64 +773,37 @@
    "ts": "2026-11-04 21:15:48",
    "agent_id": "trisk",
    "message": "NO TRADE · jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
-  },
-  {
-   "ts": "2026-11-04 20:50:48",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: bullish → sideways"
-  },
-  {
-   "ts": "2026-11-04 20:15:48",
-   "agent_id": "trisk",
-   "message": "NO TRADE · jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
-  },
-  {
-   "ts": "2026-11-04 20:10:47",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: sideways → bullish"
-  },
-  {
-   "ts": "2026-11-04 19:40:48",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: bullish → sideways"
-  },
-  {
-   "ts": "2026-11-04 19:15:48",
-   "agent_id": "trisk",
-   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-  },
-  {
-   "ts": "2026-11-04 19:01:35",
-   "agent_id": "analyst",
-   "message": "Update data 48 post IG 📈"
-  },
-  {
-   "ts": "2026-11-04 18:15:48",
-   "agent_id": "trisk",
-   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-  },
-  {
-   "ts": "2026-11-04 17:00:50",
-   "agent_id": "trisk",
-   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-  },
-  {
-   "ts": "2026-11-04 16:40:48",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: sideways → bullish"
-  },
-  {
-   "ts": "2026-11-04 16:30:50",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: bullish → sideways"
-  },
-  {
-   "ts": "2026-11-04 16:01:26",
-   "agent_id": "analyst",
-   "message": "Update data 48 post IG 📈"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-11-04 23:09:56",
+   "agent_id": "researcher",
+   "to_id": "copywriter",
+   "kind": "oper",
+   "message": "Tiara, bahan buat \"Sesi pagi selesai\" udah aku rangkum + sumbernya. Tinggal kamu racik captionnya ✍️"
+  },
+  {
+   "ts": "2026-11-04 23:09:46",
+   "agent_id": "sdir",
+   "to_id": "ydir",
+   "kind": "santai",
+   "message": "Gas, hari ini kita sama-sama ngebahas 'dihapus' & 'arwah'. Penonton malem pasti betah."
+  },
+  {
+   "ts": "2026-11-04 23:09:46",
+   "agent_id": "sdir",
+   "to_id": "sresearch",
+   "kind": "oper",
+   "message": "Brief \"Shorts Kelimutu masuk antrean render laptop\" udah jadi. Sekar, gas riset!"
+  },
+  {
+   "ts": "2026-11-04 23:07:38",
+   "agent_id": "ydir",
+   "to_id": "yresearch",
+   "kind": "oper",
+   "message": "Brief Shorts \"Shorts Hatshepsut masuk antrean render laptop\" udah jadi. Nadhira, gas riset!"
+  },
   {
    "ts": "2026-11-04 23:05:16",
    "agent_id": "publisher",
@@ -999,65 +1055,37 @@
    "to_id": "designer",
    "kind": "santai",
    "message": "Logo DRX biru tua, untung Salsa udah bikinin versi putih. Hampir nyaru sama latar ungu kita 😅"
-  },
-  {
-   "ts": "2026-11-04 00:51:10",
-   "agent_id": "publisher",
-   "to_id": "owner",
-   "kind": "oper",
-   "message": "Bos, \"QA & kirim carousel FFWS #133 ke Owner\" udah aku kirim ke Telegram. Ditunggu approve-nya 🙏"
-  },
-  {
-   "ts": "2026-11-04 00:51:02",
-   "agent_id": "video",
-   "to_id": "publisher",
-   "kind": "oper",
-   "message": "Fikri, video \"Antre render video bursa VCT #134 di laptop\" udah render 9:16. Musiknya aman kok"
-  },
-  {
-   "ts": "2026-11-04 00:50:59",
-   "agent_id": "designer",
-   "to_id": "publisher",
-   "kind": "oper",
-   "message": "Fikri, desain \"Render carousel peta grup FFWS #133\" udah render 1080×1080. QA dulu ya sebelum ke bos"
-  },
-  {
-   "ts": "2026-11-04 00:50:03",
-   "agent_id": "copywriter",
-   "to_id": "designer",
-   "kind": "oper",
-   "message": "Teks buat \"Teks carousel FFWS #133 & naskah video bursa VCT #134\" ready. Vania, giliranmu bikin cakep!"
   }
  ],
  "stats": {
   "this_week": {
    "week": "2026-11-02",
-   "total": 23,
+   "total": 25,
    "posted": 14,
-   "pending": 2,
+   "pending": 3,
    "scheduled": 0,
-   "yt_total": 6,
+   "yt_total": 8,
    "yt_posted": 6,
-   "yt_pending": 0,
+   "yt_pending": 1,
    "yt_scheduled": 0,
-   "views": 12537,
-   "likes": 177,
+   "views": 12778,
+   "likes": 178,
    "comments": 1,
    "shares": 0,
    "saves": 3,
-   "yt_views": 10041,
+   "yt_views": 10086,
    "top": [
     {
      "title": "Sangkuriang: Legenda atau Ingatan Danau Bandung Purba?",
      "format": "shorts",
      "pillar": "legenda_mitos",
-     "views": 2380
+     "views": 2408
     },
     {
      "title": "Lubang Jepang: Penjara Rahasia di Bawah Bukittinggi",
      "format": "shorts",
      "pillar": "horor_sejarah",
-     "views": 1944
+     "views": 1961
     },
     {
      "title": "Pulau Onrust: Kuburan Belanda di Tengah Teluk Jakarta",
@@ -1226,12 +1254,12 @@
    "yt_posted": 12,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 32156,
+   "views": 32159,
    "likes": 417,
    "comments": 7,
    "shares": 16,
    "saves": 3,
-   "yt_views": 21725,
+   "yt_views": 21726,
    "top": [
     {
      "title": "Lawang Sewu: Apa yang Sebenarnya Ada di Bawah Tanahnya?",
@@ -1243,7 +1271,7 @@
      "title": "BESOK jendela transfer VCT 2027 dibuka: NAVI, MIBR, ENVY lepas roster + RUMOR valyn ke Fnatic",
      "format": "video",
      "pillar": "news",
-     "views": 2734
+     "views": 2736
     },
     {
      "title": "Manusia Setinggi 1 Meter Pernah Hidup di Flores",
@@ -1324,7 +1352,7 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 4065.100098,
+  "price": 4061.100098,
   "open": [],
   "signals": [
    {
@@ -1488,15 +1516,15 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "sideways",
-    "score": 0,
-    "price": 4061.2,
-    "ema20": 4061.84,
-    "ema50": 4056.73,
-    "rsi": 49.7,
+    "bias": "bullish",
+    "score": 2,
+    "price": 4065.4,
+    "ema20": 4062.18,
+    "ema50": 4057.07,
+    "rsi": 59,
     "n": 299,
-    "slot": 2989722,
-    "at": 1793833248192
+    "slot": 2989723,
+    "at": 1793833848302
    },
    "M15": {
     "bias": "bullish",
