@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-04T11:34:31.908Z",
+ "generated_at": "2026-11-04T11:44:31.905Z",
  "today": "2026-11-04",
  "week_start": "2026-11-02",
  "campaign": {
@@ -30,8 +30,8 @@
    "name": "Salsa",
    "title": "Researcher",
    "status": "working",
-   "current_task": "Mantau: Cek #117 (video malam AE 3-1 ONIC, glitch): sudah  (cek lagi 19.38)",
-   "updated_at": "2026-11-04 11:08:46"
+   "current_task": "Mantau: Cek #117 (video malam AE 3-1 ONIC, glitch, status  (cek lagi 20.09)",
+   "updated_at": "2026-11-04 11:39:49"
   },
   {
    "id": "copywriter",
@@ -622,6 +622,16 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-04 11:41:32",
+   "agent_id": "owner",
+   "message": "Chat: Fikri, aga molor ya, gw baru mau pulang ke rumah ni"
+  },
+  {
+   "ts": "2026-11-04 11:41:12",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: sideways → bullish"
+  },
+  {
    "ts": "2026-11-04 11:31:03",
    "agent_id": "trisk",
    "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
@@ -735,19 +745,51 @@
    "ts": "2026-11-04 04:01:03",
    "agent_id": "ttech",
    "message": "M15 berubah arah: bullish → sideways"
-  },
-  {
-   "ts": "2026-11-04 03:41:03",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: bullish → sideways"
-  },
-  {
-   "ts": "2026-11-04 03:31:03",
-   "agent_id": "trisk",
-   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (sesi Asia)"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-11-04 11:41:40",
+   "agent_id": "publisher",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Nanti aku kabarin lagi begitu videonya udah nyampe ke Bos."
+  },
+  {
+   "ts": "2026-11-04 11:41:40",
+   "agent_id": "publisher",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Kalau laptop sempat dinyalain sebelum Bos sampai, Dimas langsung render dan masuk ke Bos buat di-✅. Kalau belum, aku geser ke besok pagi."
+  },
+  {
+   "ts": "2026-11-04 11:41:40",
+   "agent_id": "publisher",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Siap Bos, hati-hati di jalan ya 🙏 Video #117 masih nunggu render di laptop, jadi slot 20:00 kemungkinan molor."
+  },
+  {
+   "ts": "2026-11-04 11:41:32",
+   "agent_id": "owner",
+   "to_id": "publisher",
+   "kind": "bos",
+   "message": "Fikri, aga molor ya, gw baru mau pulang ke rumah ni"
+  },
+  {
+   "ts": "2026-11-04 11:39:50",
+   "agent_id": "publisher",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Aku cek lagi 30 menit lagi. Slot malam (20:00 WITA) kemungkinan molor dikit, tapi beritanya masih anget kok."
+  },
+  {
+   "ts": "2026-11-04 11:39:50",
+   "agent_id": "video",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Bos, video #117 (AE 3-1 ONIC) masih antre render, laptopnya kayaknya mati/offline 🙏 Tolong nyalain laptopnya ya, nanti langsung kerender dan masuk ke Bos buat di-approve."
+  },
   {
    "ts": "2026-11-04 11:08:46",
    "agent_id": "publisher",
@@ -985,48 +1027,6 @@
    "to_id": "owner",
    "kind": "santai",
    "message": "QA naskah aman Bos. Kutipan langsung pelatih RRQ Kazu/ONIC nggak ketemu, jadi kita tulis \"kecewa & soroti format baru\" aja tanpa kutipan."
-  },
-  {
-   "ts": "2026-11-02 23:29:49",
-   "agent_id": "video",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Video breaking-nya (#130, tayang sore 16:00) lagi antre render suara di laptop, nanti langsung masuk Telegram buat di-✅ ya Bos!"
-  },
-  {
-   "ts": "2026-11-02 23:29:49",
-   "agent_id": "researcher",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Bos, riset FFWS 2027 udah beres: SEA tetap 8 slot, juara & runner-up FFWS Indonesia langsung ke Global Finals, peringkat 3–5 lewat LCQ."
-  },
-  {
-   "ts": "2026-11-02 23:29:31",
-   "agent_id": "researcher",
-   "to_id": "copywriter",
-   "kind": "santai",
-   "message": "FF akhirnya rame lagi ya Tiar, kangen bahas Booyah 😆"
-  },
-  {
-   "ts": "2026-11-02 23:29:31",
-   "agent_id": "publisher",
-   "to_id": "owner",
-   "kind": "oper",
-   "message": "Bos, \"QA naskah FFWS 2027, video dikirim laptop\" udah aku kirim ke Telegram. Ditunggu approve-nya 🙏"
-  },
-  {
-   "ts": "2026-11-02 23:29:20",
-   "agent_id": "video",
-   "to_id": "publisher",
-   "kind": "oper",
-   "message": "Render \"Video FFWS 2027 masuk antrean render laptop\" selesai, Fikri. Cek cover-nya ya"
-  },
-  {
-   "ts": "2026-11-02 23:29:15",
-   "agent_id": "copywriter",
-   "to_id": "designer",
-   "kind": "oper",
-   "message": "Teks buat \"Naskah video FFWS 2027\" ready. Vania, giliranmu bikin cakep!"
   }
  ],
  "stats": {
@@ -1320,7 +1320,7 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 4042.800049,
+  "price": 4046.5,
   "open": [],
   "signals": [
    {
@@ -1493,15 +1493,15 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "sideways",
-    "score": 1,
-    "price": 4042.8,
-    "ema20": 4038.66,
-    "ema50": 4013.52,
-    "rsi": 61.4,
+    "bias": "bullish",
+    "score": 2,
+    "price": 4043.8,
+    "ema20": 4039.15,
+    "ema50": 4014.71,
+    "rsi": 62.2,
     "n": 299,
-    "slot": 2989653,
-    "at": 1793791863453
+    "slot": 2989654,
+    "at": 1793792472901
    },
    "M15": {
     "bias": "bullish",
