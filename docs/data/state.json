@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-04T15:25:47.808Z",
+ "generated_at": "2026-11-04T15:35:47.807Z",
  "today": "2026-11-04",
  "week_start": "2026-11-02",
  "campaign": {
@@ -103,31 +103,31 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-04 15:15:47"
+   "updated_at": "2026-11-04 15:30:48"
   },
   {
    "id": "tresearch",
    "name": "Davina",
    "title": "Research & Fundamental",
    "status": "done",
-   "current_task": "Waspada rilis ISM Services PMI (23.00 WITA)",
-   "updated_at": "2026-11-04 15:15:47"
+   "current_task": "Fundamental: 4 pencarian tak menemukan berita 4 Nov 2026 yang terverifikasi (hasil lama/tak relevan). Bias netral; blackout kalender tetap berlaku.",
+   "updated_at": "2026-11-04 15:30:47"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Belum ada pantulan band · H1 bullish",
-   "updated_at": "2026-11-04 15:15:47"
+   "current_task": "Setup BUY di band (MACD)",
+   "updated_at": "2026-11-04 15:30:48"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: berita berdampak tinggi: ISM Services PMI (23.00 WITA)",
-   "updated_at": "2026-11-04 15:15:47"
+   "current_task": "NO TRADE: setup BUY di band, konfirmasi baru 1/3 (MACD) · London–NY (mode aman)",
+   "updated_at": "2026-11-04 15:30:48"
   },
   {
    "id": "texec",
@@ -1320,9 +1320,14 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 4033.100098,
+  "price": 4037.699951,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-04 15:30:48",
+    "decision": "NO TRADE",
+    "reason": "setup BUY di band, konfirmasi baru 1/3 (MACD) · London–NY (mode aman)"
+   },
    {
     "ts": "2026-11-04 15:15:47",
     "decision": "NO TRADE",
@@ -1347,11 +1352,6 @@
     "ts": "2026-11-04 14:16:03",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-11-04 14:01:09",
-    "decision": "NO TRADE",
-    "reason": "setup BUY di band, konfirmasi baru 1/3 (MACD) · London–NY (mode aman)"
    }
   ],
   "trades": [
@@ -1396,7 +1396,7 @@
    1716.0099999999995
   ],
   "last": {
-   "ts": "2026-11-04 15:15:47",
+   "ts": "2026-11-04 15:30:48",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1405,19 +1405,21 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "berita berdampak tinggi: ISM Services PMI (23.00 WITA)",
+   "reason": "setup BUY di band, konfirmasi baru 1/3 (MACD) · London–NY (mode aman)",
    "fund": {
     "bias": 0,
     "note": "4 pencarian tak menemukan berita 4 Nov 2026 yang terverifikasi (hasil lama/tak relevan). Bias netral; blackout kalender tetap berlaku.",
     "danger": null,
-    "blackout": "ISM Services PMI (23.00 WITA)"
+    "blackout": null
    },
    "tech": {
     "bias": "bullish",
-    "score": 0,
-    "trigger": null,
-    "confirm": [],
-    "note": "M15 4033.60 di bawah tengah band (4032.9–4051.2) · RSI 49 · Stoch 25 · MACD -3.13 · H1 bullish"
+    "score": 1,
+    "trigger": "buy",
+    "confirm": [
+     "MACD"
+    ],
+    "note": "M15 4036.10 di bawah tengah band (4032.5–4051.2) · RSI 51 · Stoch 23 · MACD -3.00 · H1 bullish · setup BUY (MACD)"
    }
   },
   "fund": {
@@ -1495,35 +1497,35 @@
    "M10": {
     "bias": "sideways",
     "score": 0,
-    "price": 4032.2,
-    "ema20": 4040.5,
-    "ema50": 4030.19,
-    "rsi": 43.4,
+    "price": 4034.8,
+    "ema20": 4039.96,
+    "ema50": 4030.37,
+    "rsi": 46,
     "n": 299,
-    "slot": 2989676,
-    "at": 1793805647733
+    "slot": 2989677,
+    "at": 1793806247822
    },
    "M15": {
     "bias": "sideways",
     "score": 0,
-    "price": 4038.6,
-    "ema20": 4039.31,
-    "ema50": 4017.67,
-    "rsi": 52.6,
+    "price": 4034.8,
+    "ema20": 4038.88,
+    "ema50": 4018.34,
+    "rsi": 49.8,
     "n": 299,
-    "slot": 1993117,
-    "at": 1793805347815
+    "slot": 1993118,
+    "at": 1793806247831
    },
    "M30": {
     "bias": "bullish",
     "score": 2,
-    "price": 4038.6,
-    "ema20": 4024.64,
-    "ema50": 3989.27,
-    "rsi": 65.3,
+    "price": 4034.8,
+    "ema20": 4025.6,
+    "ema50": 3991.05,
+    "rsi": 62.3,
     "n": 299,
-    "slot": 996558,
-    "at": 1793804464019
+    "slot": 996559,
+    "at": 1793806247833
    },
    "H1": {
     "bias": "bullish",
