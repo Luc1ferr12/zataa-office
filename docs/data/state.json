@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-04T00:04:31.580Z",
+ "generated_at": "2026-11-04T00:14:31.585Z",
  "today": "2026-11-04",
  "week_start": "2026-11-02",
  "campaign": {
@@ -594,6 +594,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-04 00:11:02",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: sideways → bullish"
+  },
+  {
    "ts": "2026-11-03 23:07:09",
    "agent_id": "spublish",
    "message": "Jam tayang Lubang Jepang 19:00 WIB, konsisten dengan Shorts Story terbaik minggu ini"
@@ -712,11 +717,6 @@
    "ts": "2026-11-03 19:01:03",
    "agent_id": "ttech",
    "message": "M60 berubah arah: bullish → sideways"
-  },
-  {
-   "ts": "2026-11-03 19:01:02",
-   "agent_id": "ttech",
-   "message": "M30 berubah arah: bullish → sideways"
   }
  ],
  "chats": [
@@ -1292,7 +1292,7 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 3937.600098,
+  "price": 3937.5,
   "open": [],
   "signals": [
    {
@@ -1465,15 +1465,15 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "sideways",
-    "score": 1,
-    "price": 3938.7,
-    "ema20": 3931.08,
-    "ema50": 3929.68,
-    "rsi": 68.6,
+    "bias": "bullish",
+    "score": 2,
+    "price": 3937.4,
+    "ema20": 3931.68,
+    "ema50": 3929.98,
+    "rsi": 64.8,
     "n": 299,
-    "slot": 2989584,
-    "at": 1793750442495
+    "slot": 2989585,
+    "at": 1793751062834
    },
    "M15": {
     "bias": "sideways",
