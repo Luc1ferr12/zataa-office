@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-05T01:15:48.292Z",
+ "generated_at": "2026-11-05T01:25:48.065Z",
  "today": "2026-11-05",
  "week_start": "2026-11-02",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-05 01:00:48"
+   "updated_at": "2026-11-05 01:15:48"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Berita 24 jam tak ketemu, sumber terbaru Okt/Mar 2026. Konteks: perang AS-Iran (naik), PCE 3,4% & Fed tahan 3,75-4% (turun). Bias netral.",
-   "updated_at": "2026-11-05 01:00:48"
+   "updated_at": "2026-11-05 01:15:48"
   },
   {
    "id": "ttech",
@@ -119,15 +119,15 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bullish",
-   "updated_at": "2026-11-05 01:00:48"
+   "updated_at": "2026-11-05 01:15:48"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
-   "updated_at": "2026-11-05 01:00:48"
+   "current_task": "NO TRADE: ada candle spike di M15 (kemungkinan berita dadakan), tunggu tenang",
+   "updated_at": "2026-11-05 01:15:48"
   },
   {
    "id": "texec",
@@ -664,6 +664,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-05 01:15:48",
+   "agent_id": "trisk",
+   "message": "NO TRADE · ada candle spike di M15 (kemungkinan berita dadakan), tunggu tenang"
+  },
+  {
    "ts": "2026-11-05 01:06:17",
    "agent_id": "video",
    "message": "video #137 dirender di laptop (suara OmniVoice) & dikirim ke Owner"
@@ -782,11 +787,6 @@
    "ts": "2026-11-04 23:04:47",
    "agent_id": "publisher",
    "message": "Kirim #118 ke Owner buat approval"
-  },
-  {
-   "ts": "2026-11-04 23:02:58",
-   "agent_id": "dir",
-   "message": "Pilih 3 ide: video Sentinels brawk+OXY, feed Storm Arena FF, feed VCT Pacific 2027 (beda pilar dari jadwal tips+esport)"
   }
  ],
  "chats": [
@@ -1082,12 +1082,12 @@
    "yt_posted": 6,
    "yt_pending": 0,
    "yt_scheduled": 2,
-   "views": 12937,
-   "likes": 183,
+   "views": 13396,
+   "likes": 196,
    "comments": 1,
    "shares": 0,
    "saves": 3,
-   "yt_views": 10087,
+   "yt_views": 10293,
    "top": [
     {
      "title": "Sangkuriang: Legenda atau Ingatan Danau Bandung Purba?",
@@ -1099,13 +1099,13 @@
      "title": "Lubang Jepang: Penjara Rahasia di Bawah Bukittinggi",
      "format": "shorts",
      "pillar": "horor_sejarah",
-     "views": 1962
+     "views": 2159
     },
     {
      "title": "Pulau Onrust: Kuburan Belanda di Tengah Teluk Jakarta",
      "format": "shorts",
      "pillar": "horor_sejarah",
-     "views": 1552
+     "views": 1554
     }
    ],
    "clicks": 53,
@@ -1268,12 +1268,12 @@
    "yt_posted": 12,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 32163,
+   "views": 32171,
    "likes": 417,
    "comments": 7,
    "shares": 16,
    "saves": 3,
-   "yt_views": 21728,
+   "yt_views": 21729,
    "top": [
     {
      "title": "Lawang Sewu: Apa yang Sebenarnya Ada di Bawah Tanahnya?",
@@ -1285,7 +1285,7 @@
      "title": "BESOK jendela transfer VCT 2027 dibuka: NAVI, MIBR, ENVY lepas roster + RUMOR valyn ke Fnatic",
      "format": "video",
      "pillar": "news",
-     "views": 2736
+     "views": 2741
     },
     {
      "title": "Manusia Setinggi 1 Meter Pernah Hidup di Flores",
@@ -1366,9 +1366,14 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 4114.899902,
+  "price": 4114.100098,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-05 01:15:48",
+    "decision": "NO TRADE",
+    "reason": "ada candle spike di M15 (kemungkinan berita dadakan), tunggu tenang"
+   },
    {
     "ts": "2026-11-05 01:00:48",
     "decision": "NO TRADE",
@@ -1393,11 +1398,6 @@
     "ts": "2026-11-05 00:00:58",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-   },
-   {
-    "ts": "2026-11-04 23:45:48",
-    "decision": "NO TRADE",
-    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
    }
   ],
   "trades": [
@@ -1442,7 +1442,7 @@
    1716.0099999999995
   ],
   "last": {
-   "ts": "2026-11-05 01:00:48",
+   "ts": "2026-11-05 01:15:48",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1451,7 +1451,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)",
+   "reason": "ada candle spike di M15 (kemungkinan berita dadakan), tunggu tenang",
    "fund": {
     "bias": 0,
     "note": "Berita 24 jam tak ketemu, sumber terbaru Okt/Mar 2026. Konteks: perang AS-Iran (naik), PCE 3,4% & Fed tahan 3,75-4% (turun). Bias netral.",
@@ -1463,7 +1463,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4092.70 di atas band atas (4044.8–4091.2) · RSI 80 · Stoch 85 · MACD +2.88 · H1 bullish"
+    "note": "M15 4114.90 di atas band atas (4035.8–4107.1) · RSI 87 · Stoch 96 · MACD +4.93 · H1 bullish"
    }
   },
   "fund": {
@@ -1532,13 +1532,13 @@
    "M10": {
     "bias": "bullish",
     "score": 2,
-    "price": 4091.2,
-    "ema20": 4074.15,
-    "ema50": 4064.69,
-    "rsi": 74.4,
+    "price": 4112.7,
+    "ema20": 4077.83,
+    "ema50": 4066.57,
+    "rsi": 83.3,
     "n": 299,
-    "slot": 2989735,
-    "at": 1793841048186
+    "slot": 2989736,
+    "at": 1793841648215
    },
    "M15": {
     "bias": "bullish",
