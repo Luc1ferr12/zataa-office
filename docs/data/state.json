@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-05T10:33:05.230Z",
+ "generated_at": "2026-11-05T10:43:05.224Z",
  "today": "2026-11-05",
  "week_start": "2026-11-02",
  "campaign": {
@@ -505,8 +505,8 @@
    "game": "mlbb",
    "pillar": "esport",
    "title": "Upper semi MPL ID S18: NAVI-AE hasil di komen, TLID vs BTR malam ini, unggulan aman atau tumbang? (hook #16)",
-   "status": "draft",
-   "asset_url": null,
+   "status": "pending_approval",
+   "asset_url": "{\"video\":\"https://luc1ferr12.github.io/zataa-office/media/2026-11-05/119-upper-semi-mpl-id-s18-navi-ae-hasil-di-k-ov.mp4\",\"cover\":\"https://luc1ferr12.github.io/zataa-office/media/2026-11-05/119-upper-semi-mpl-id-s18-navi-ae-hasil-di-k-ov-cover.jpg\"}",
    "scheduled_at": null,
    "posted_at": null,
    "channel": null
@@ -664,6 +664,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-05 10:35:08",
+   "agent_id": "publisher",
+   "message": "Kirim #119 ke Owner buat approval"
+  },
+  {
    "ts": "2026-11-05 10:31:04",
    "agent_id": "ttech",
    "message": "M15 berubah arah: bullish → sideways"
@@ -782,11 +787,6 @@
    "ts": "2026-11-05 04:22:48",
    "agent_id": "dir",
    "message": "Kode kantor diperbarui, restart otomatis: scripts/golink.mjs, scripts/trading/run.mjs, scripts/watch.mjs"
-  },
-  {
-   "ts": "2026-11-05 04:15:48",
-   "agent_id": "trisk",
-   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (sesi Asia)"
   }
  ],
  "chats": [
@@ -1076,7 +1076,7 @@
    "week": "2026-11-02",
    "total": 26,
    "posted": 15,
-   "pending": 1,
+   "pending": 2,
    "scheduled": 2,
    "yt_total": 8,
    "yt_posted": 6,
@@ -1190,7 +1190,7 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 4125.399902,
+  "price": 4128.600098,
   "open": [],
   "signals": [
    {
@@ -1353,13 +1353,13 @@
    "M10": {
     "bias": "sideways",
     "score": 0,
-    "price": 4126.1,
-    "ema20": 4126.89,
-    "ema50": 4121.28,
-    "rsi": 49.4,
+    "price": 4126.8,
+    "ema20": 4126.88,
+    "ema50": 4121.5,
+    "rsi": 50.5,
     "n": 299,
-    "slot": 2989791,
-    "at": 1793874664224
+    "slot": 2989792,
+    "at": 1793875264224
    },
    "M15": {
     "bias": "sideways",
