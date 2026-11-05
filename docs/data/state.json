@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-05T13:13:05.261Z",
+ "generated_at": "2026-11-05T13:23:05.264Z",
  "today": "2026-11-05",
  "week_start": "2026-11-02",
  "campaign": {
@@ -103,15 +103,15 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-05 13:01:04"
+   "updated_at": "2026-11-05 13:16:04"
   },
   {
    "id": "tresearch",
    "name": "Davina",
    "title": "Research & Fundamental",
    "status": "done",
-   "current_task": "Fundamental: Fed tahan 3,75–4% & pasar price 1x hike 2026; NFP 65K/AHE 0,3% di atas prev → tekan emas. Berita 24 jam belum terverifikasi.",
-   "updated_at": "2026-11-05 13:01:04"
+   "current_task": "Waspada rilis Unemployment Claims (21.30 WITA)",
+   "updated_at": "2026-11-05 13:16:04"
   },
   {
    "id": "ttech",
@@ -119,15 +119,15 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bullish",
-   "updated_at": "2026-11-05 13:01:04"
+   "updated_at": "2026-11-05 13:16:04"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-11-05 13:01:04"
+   "current_task": "NO TRADE: berita berdampak tinggi: Unemployment Claims (21.30 WITA)",
+   "updated_at": "2026-11-05 13:16:04"
   },
   {
    "id": "texec",
@@ -664,6 +664,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-05 13:16:04",
+   "agent_id": "trisk",
+   "message": "NO TRADE · berita berdampak tinggi: Unemployment Claims (21.30 WITA)"
+  },
+  {
    "ts": "2026-11-05 13:01:04",
    "agent_id": "ttech",
    "message": "M30 berubah arah: bullish → sideways"
@@ -782,11 +787,6 @@
    "ts": "2026-11-05 08:51:04",
    "agent_id": "ttech",
    "message": "M10 berubah arah: sideways → bullish"
-  },
-  {
-   "ts": "2026-11-05 08:31:04",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: bullish → sideways"
   }
  ],
  "chats": [
@@ -1190,9 +1190,14 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 4120.200195,
+  "price": 4115.700195,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-05 13:16:04",
+    "decision": "NO TRADE",
+    "reason": "berita berdampak tinggi: Unemployment Claims (21.30 WITA)"
+   },
    {
     "ts": "2026-11-05 13:01:04",
     "decision": "NO TRADE",
@@ -1215,11 +1220,6 @@
    },
    {
     "ts": "2026-11-05 12:01:04",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-11-05 11:46:04",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1266,7 +1266,7 @@
    1716.0099999999995
   ],
   "last": {
-   "ts": "2026-11-05 13:01:04",
+   "ts": "2026-11-05 13:16:04",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1275,19 +1275,19 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
+   "reason": "berita berdampak tinggi: Unemployment Claims (21.30 WITA)",
    "fund": {
     "bias": -0.3,
     "note": "Fed tahan 3,75–4% & pasar price 1x hike 2026; NFP 65K/AHE 0,3% di atas prev → tekan emas. Berita 24 jam belum terverifikasi.",
     "danger": null,
-    "blackout": null
+    "blackout": "Unemployment Claims (21.30 WITA)"
    },
    "tech": {
     "bias": "bullish",
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4120.90 di bawah tengah band (4118.8–4138.1) · RSI 43 · Stoch 17 · MACD -1.70 · H1 bullish"
+    "note": "M15 4118.90 di bawah tengah band (4117.4–4138.8) · RSI 41 · Stoch 12 · MACD -1.92 · H1 bullish"
    }
   },
   "fund": {
@@ -1356,24 +1356,24 @@
    "M10": {
     "bias": "sideways",
     "score": 1,
-    "price": 4119.5,
-    "ema20": 4126.82,
-    "ema50": 4124.46,
-    "rsi": 40.2,
+    "price": 4118.3,
+    "ema20": 4126.01,
+    "ema50": 4124.22,
+    "rsi": 39,
     "n": 299,
-    "slot": 2989807,
-    "at": 1793884264403
+    "slot": 2989808,
+    "at": 1793884864514
    },
    "M15": {
     "bias": "sideways",
     "score": 1,
-    "price": 4122.2,
-    "ema20": 4127.95,
-    "ema50": 4117.97,
-    "rsi": 44.4,
+    "price": 4120.4,
+    "ema20": 4127.23,
+    "ema50": 4118.07,
+    "rsi": 42.6,
     "n": 299,
-    "slot": 1993204,
-    "at": 1793883664596
+    "slot": 1993205,
+    "at": 1793884564442
    },
    "M30": {
     "bias": "sideways",
