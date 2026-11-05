@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-05T10:53:05.226Z",
+ "generated_at": "2026-11-05T11:03:05.234Z",
  "today": "2026-11-05",
  "week_start": "2026-11-02",
  "campaign": {
@@ -29,17 +29,17 @@
    "id": "researcher",
    "name": "Salsa",
    "title": "Researcher",
-   "status": "working",
-   "current_task": "Mantau: Video #119 (slot malam 19:00 WIB, MPL ID S18 upper (cek lagi 18.53)",
-   "updated_at": "2026-11-05 10:24:01"
+   "status": "done",
+   "current_task": "Hasil NAVI 3-1 AE (esports.id + topik.id)",
+   "updated_at": "2026-11-05 10:54:39"
   },
   {
    "id": "copywriter",
    "name": "Tiara",
    "title": "Copywriter",
    "status": "done",
-   "current_task": "Isi video #119 matchday upper semi",
-   "updated_at": "2026-11-05 10:23:40"
+   "current_task": "Teks komen pin #119 siap",
+   "updated_at": "2026-11-05 10:54:40"
   },
   {
    "id": "designer",
@@ -103,15 +103,15 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-05 10:46:04"
+   "updated_at": "2026-11-05 11:01:32"
   },
   {
    "id": "tresearch",
    "name": "Davina",
    "title": "Research & Fundamental",
    "status": "done",
-   "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
-   "updated_at": "2026-11-05 10:46:04"
+   "current_task": "Fundamental: Fed tahan 3,75–4% & pasar price 1x hike 2026; NFP 65K/AHE 0,3% di atas prev → tekan emas. Berita 24 jam belum terverifikasi.",
+   "updated_at": "2026-11-05 11:01:32"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bullish",
-   "updated_at": "2026-11-05 10:46:04"
+   "updated_at": "2026-11-05 11:01:32"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-11-05 10:46:04"
+   "updated_at": "2026-11-05 11:01:32"
   },
   {
    "id": "texec",
@@ -519,10 +519,10 @@
    "game": "sejarah",
    "pillar": "hidden_history",
    "title": "Firaun Ini Dihapus dari Sejarah oleh Penerusnya Sendiri",
-   "status": "approved",
-   "asset_url": null,
+   "status": "posted",
+   "asset_url": "https://www.youtube.com/watch?v=uTE8dj39DCA",
    "scheduled_at": null,
-   "posted_at": null,
+   "posted_at": "2026-11-05 11:00:38",
    "channel": "youtube"
   },
   {
@@ -664,6 +664,16 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-05 11:00:38",
+   "agent_id": "ypublish",
+   "message": "Upload Shorts #135 ke Zataa History (Publik via Zernio)"
+  },
+  {
+   "ts": "2026-11-05 10:54:39",
+   "agent_id": "copywriter",
+   "message": "Komen pin #119: NAVI menang 3-1 atas AE, lanjut upper final Jumat 6 Nov; AE turun lower"
+  },
+  {
    "ts": "2026-11-05 10:51:04",
    "agent_id": "ttech",
    "message": "M10 berubah arah: sideways → bullish"
@@ -777,19 +787,58 @@
    "ts": "2026-11-05 05:31:03",
    "agent_id": "ttech",
    "message": "M10 berubah arah: bullish → sideways"
-  },
-  {
-   "ts": "2026-11-05 05:16:04",
-   "agent_id": "trisk",
-   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-  },
-  {
-   "ts": "2026-11-05 05:03:30",
-   "agent_id": "publisher",
-   "message": "Posting #118 ke IG ✅"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-11-05 11:00:08",
+   "agent_id": "analyst",
+   "to_id": "dir",
+   "kind": "oper",
+   "message": "Laporan harian marketing udah aku kirim ke Bos, 1 konten tayang hari ini 📊"
+  },
+  {
+   "ts": "2026-11-05 10:54:49",
+   "agent_id": "publisher",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Video #119 udah ke-render dan udah aku kirim ke Bos, tinggal di-✅ biar tayang jam 19:00 WIB. Komennya dipin manual setelah videonya naik ya."
+  },
+  {
+   "ts": "2026-11-05 10:54:49",
+   "agent_id": "copywriter",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Komen pin buat #119: \"🏆 Hasil NAVI vs Alter Ego: NAVI menang 3-1, lanjut upper final Jumat 6 Nov! AE turun ke lower, belum gugur. Malam ini TLID vs BTR, prediksi kamu? 👇\""
+  },
+  {
+   "ts": "2026-11-05 10:54:49",
+   "agent_id": "researcher",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Bos, hasilnya keluar: NAVI menang 3-1 atas Alter Ego (cek esports.id + topik.id). NAVI ke upper final Jumat 6 Nov, AE turun ke lower."
+  },
+  {
+   "ts": "2026-11-05 10:54:40",
+   "agent_id": "researcher",
+   "to_id": "copywriter",
+   "kind": "santai",
+   "message": "NAVI akhirnya menang di playoff, katanya yang pertama sepanjang sejarah mereka. Tapi baru satu sumber yang bilang gitu, jadi nggak usah ditulis dulu ya"
+  },
+  {
+   "ts": "2026-11-05 10:54:40",
+   "agent_id": "copywriter",
+   "to_id": "designer",
+   "kind": "oper",
+   "message": "Teks buat \"Teks komen pin #119 siap\" ready. Vania, giliranmu bikin cakep!"
+  },
+  {
+   "ts": "2026-11-05 10:54:39",
+   "agent_id": "researcher",
+   "to_id": "copywriter",
+   "kind": "oper",
+   "message": "Tiara, bahan buat \"Hasil NAVI 3-1 AE (esports.id + topik.id)\" udah aku rangkum + sumbernya. Tinggal kamu racik captionnya ✍️"
+  },
   {
    "ts": "2026-11-05 10:24:02",
    "agent_id": "publisher",
@@ -1020,68 +1069,19 @@
    "to_id": null,
    "kind": "oper",
    "message": "\"Peta grup FFWS Global Finals 2026: 3 tim Indonesia\" udah tayang di IG 🚀 Makasih semua!"
-  },
-  {
-   "ts": "2026-11-04 13:53:40",
-   "agent_id": "researcher",
-   "to_id": null,
-   "kind": "santai",
-   "message": "Pantauan kelar! Akhirnya bisa istirahat 😮‍💨"
-  },
-  {
-   "ts": "2026-11-04 11:41:40",
-   "agent_id": "publisher",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Nanti aku kabarin lagi begitu videonya udah nyampe ke Bos."
-  },
-  {
-   "ts": "2026-11-04 11:41:40",
-   "agent_id": "publisher",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Kalau laptop sempat dinyalain sebelum Bos sampai, Dimas langsung render dan masuk ke Bos buat di-✅. Kalau belum, aku geser ke besok pagi."
-  },
-  {
-   "ts": "2026-11-04 11:41:40",
-   "agent_id": "publisher",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Siap Bos, hati-hati di jalan ya 🙏 Video #117 masih nunggu render di laptop, jadi slot 20:00 kemungkinan molor."
-  },
-  {
-   "ts": "2026-11-04 11:41:32",
-   "agent_id": "owner",
-   "to_id": "publisher",
-   "kind": "bos",
-   "message": "Fikri, aga molor ya, gw baru mau pulang ke rumah ni"
-  },
-  {
-   "ts": "2026-11-04 11:39:50",
-   "agent_id": "publisher",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Aku cek lagi 30 menit lagi. Slot malam (20:00 WITA) kemungkinan molor dikit, tapi beritanya masih anget kok."
-  },
-  {
-   "ts": "2026-11-04 11:39:50",
-   "agent_id": "video",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Bos, video #117 (AE 3-1 ONIC) masih antre render, laptopnya kayaknya mati/offline 🙏 Tolong nyalain laptopnya ya, nanti langsung kerender dan masuk ke Bos buat di-approve."
   }
  ],
  "stats": {
   "this_week": {
    "week": "2026-11-02",
    "total": 26,
-   "posted": 15,
+   "posted": 16,
    "pending": 2,
-   "scheduled": 2,
+   "scheduled": 1,
    "yt_total": 8,
-   "yt_posted": 6,
+   "yt_posted": 7,
    "yt_pending": 0,
-   "yt_scheduled": 2,
+   "yt_scheduled": 1,
    "views": 13950,
    "likes": 207,
    "comments": 1,
@@ -1190,9 +1190,14 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 4128.200195,
+  "price": 4130.600098,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-05 11:01:32",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
    {
     "ts": "2026-11-05 10:46:04",
     "decision": "NO TRADE",
@@ -1215,11 +1220,6 @@
    },
    {
     "ts": "2026-11-05 09:46:04",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-11-05 09:31:04",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1266,7 +1266,7 @@
    1716.0099999999995
   ],
   "last": {
-   "ts": "2026-11-05 10:46:04",
+   "ts": "2026-11-05 11:01:32",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1277,8 +1277,8 @@
    "risk_usd": null,
    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
    "fund": {
-    "bias": 0,
-    "note": "netral (belum ada ringkasan hari ini)",
+    "bias": -0.3,
+    "note": "Fed tahan 3,75–4% & pasar price 1x hike 2026; NFP 65K/AHE 0,3% di atas prev → tekan emas. Berita 24 jam belum terverifikasi.",
     "danger": null,
     "blackout": null
    },
@@ -1287,10 +1287,13 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4129.30 di atas tengah band (4119.8–4133.9) · RSI 55 · Stoch 65 · MACD -0.82 · H1 bullish"
+    "note": "M15 4131.20 di atas tengah band (4119.5–4134.8) · RSI 56 · Stoch 79 · MACD -0.48 · H1 bullish"
    }
   },
-  "fund": null,
+  "fund": {
+   "bias": -0.3,
+   "note": "Fed tahan 3,75–4% & pasar price 1x hike 2026; NFP 65K/AHE 0,3% di atas prev → tekan emas. Berita 24 jam belum terverifikasi."
+  },
   "calendar": [
    {
     "title": "Unemployment Claims",
@@ -1353,46 +1356,46 @@
    "M10": {
     "bias": "bullish",
     "score": 2,
-    "price": 4127.3,
-    "ema20": 4126.92,
-    "ema50": 4121.73,
-    "rsi": 51.3,
+    "price": 4132.2,
+    "ema20": 4127.42,
+    "ema50": 4122.14,
+    "rsi": 58.1,
     "n": 299,
-    "slot": 2989793,
-    "at": 1793875864226
+    "slot": 2989794,
+    "at": 1793876464511
    },
    "M15": {
     "bias": "bullish",
     "score": 3,
-    "price": 4129.4,
-    "ema20": 4126.47,
-    "ema50": 4112.93,
-    "rsi": 55.2,
+    "price": 4132.2,
+    "ema20": 4127.01,
+    "ema50": 4113.68,
+    "rsi": 57.6,
     "n": 299,
-    "slot": 1993195,
-    "at": 1793875564301
+    "slot": 1993196,
+    "at": 1793876464515
    },
    "M30": {
     "bias": "bullish",
     "score": 2,
-    "price": 4126.1,
-    "ema20": 4117.4,
-    "ema50": 4082.23,
-    "rsi": 61.2,
+    "price": 4132.2,
+    "ema20": 4118.81,
+    "ema50": 4084.19,
+    "rsi": 64.1,
     "n": 299,
-    "slot": 996597,
-    "at": 1793874664232
+    "slot": 996598,
+    "at": 1793876464517
    },
    "H1": {
     "bias": "bullish",
     "score": 3,
-    "price": 4125.2,
-    "ema20": 4093.65,
-    "ema50": 4037.03,
-    "rsi": 70.2,
+    "price": 4132.2,
+    "ema20": 4097.32,
+    "ema50": 4040.77,
+    "rsi": 71.9,
     "n": 299,
-    "slot": 498298,
-    "at": 1793872864269
+    "slot": 498299,
+    "at": 1793876464521
    }
   },
   "currency": "USC",
