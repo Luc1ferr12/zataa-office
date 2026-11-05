@@ -139,11 +139,13 @@ function renderDashboard() {
   // klik link pelacak (golink.mjs) → toko (scripts/golink.mjs); nama sumber sama dengan SOURCES di sana
   const SRC = { ig: 'IG bio', igs: 'IG Story', tt: 'TikTok', tg: 'Telegram', yt: 'YouTube', wa: 'WA', '(direct)': 'langsung', google: 'Google' };
   const g = st.ga4;
+  // ringkas: jumlah orang + maks 3 sumber teratas ('(not set)' = GA4 nggak tahu asalnya, nggak informatif)
+  const top3 = (rows) => (rows ?? []).filter((r) => r.src !== '(not set)').slice(0, 3).map((r) => `${SRC[r.src] ?? r.src} ${r.n}`).join(' · ');
   $('k-clicks').textContent = ((g ? g.sessions : st.clicks) ?? 0).toLocaleString('id-ID');
   $('k-clicks-sub').textContent = g
-    ? `${g.users} orang · ${(g.by_src ?? []).slice(0, 3).map((r) => `${SRC[r.src] ?? r.src} ${r.n}`).join(' · ') || 'GA4'}${lw.ga4 ? ` · minggu lalu ${lw.ga4.sessions}` : ''}`
+    ? [`${g.users} orang`, top3(g.by_src), lw.ga4 ? `minggu lalu ${lw.ga4.sessions}` : ''].filter(Boolean).join(' · ')
     : st.clicks
-    ? `${st.click_visitors} orang · ${(st.click_src ?? []).map((r) => `${SRC[r.src] ?? r.src} ${r.n}`).join(' · ')}`
+    ? [`${st.click_visitors} orang`, top3((st.click_src ?? []).filter((r) => SRC[r.src]))].filter(Boolean).join(' · ')
     : 'data klik ada di GA4 toko (Akuisisi → utm_source)';
   $('campaign-theme').textContent = s?.campaign?.theme ? `Tema: ${s.campaign.theme}` : 'Belum ada campaign';
   $('updated-at').textContent = s?.generated_at ? `update ${new Date(s.generated_at).toLocaleString('id-ID', { timeZone: 'Asia/Makassar', hour: '2-digit', minute: '2-digit', day: 'numeric', month: 'short' })}` : '';

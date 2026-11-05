@@ -34,7 +34,8 @@ const SRC_RE = /^[a-z0-9-]{1,20}$/, GAME_RE = /^[a-z0-9-]{1,60}$/;
 export function parse(url) {
   const u = new URL(url, 'http://go.local');
   const [src, id, ...rest] = u.pathname.split('/').filter(Boolean).map((s) => s.toLowerCase());
-  if (!src || rest.length || !SRC_RE.test(src) || (id && !/^\d{1,7}$/.test(id))) return null;
+  // cuma sumber yang dikenal: IP VPS rajin di-scan bot (/login, /phpinfo, /wp-json...) → jangan kecatat jadi "sumber"
+  if (!src || rest.length || !SOURCES[src] || (id && !/^\d{1,7}$/.test(id))) return null;
   const g = (u.searchParams.get('g') ?? '').toLowerCase();
   return { src, content_id: id ? +id : null, game: GAME_RE.test(g) ? g : null };
 }
@@ -75,11 +76,13 @@ function serve() {
 // ringkasan buat laporan Raka & web (bot nggak dihitung)
 export function clickStats(d, fromIso, toIso = '9999') {
   ensureClicks(d);
-  const w = 'bot = 0 AND ts >= ? AND ts < ?';
+  // baris lama hasil scan bot (sumber asing) ikut disaring
+  const known = Object.keys(SOURCES).map((s) => `'${s}'`).join(',');
+  const w = `bot = 0 AND src IN (${known}) AND ts >= ? AND ts < ?`;
   const t = d.prepare(`SELECT COUNT(*) clicks, COUNT(DISTINCT visitor) visitors FROM clicks WHERE ${w}`).get(fromIso, toIso);
   const bySrc = d.prepare(`SELECT src, COUNT(*) n FROM clicks WHERE ${w} GROUP BY src ORDER BY n DESC`).all(fromIso, toIso);
   const byContent = d.prepare(`SELECT k.content_id id, c.title, COUNT(*) n FROM clicks k LEFT JOIN contents c ON c.id = k.content_id
-    WHERE k.content_id IS NOT NULL AND k.bot = 0 AND k.ts >= ? AND k.ts < ? GROUP BY k.content_id ORDER BY n DESC LIMIT 3`).all(fromIso, toIso);
+    WHERE k.content_id IS NOT NULL AND k.bot = 0 AND k.src IN (${known}) AND k.ts >= ? AND k.ts < ? GROUP BY k.content_id ORDER BY n DESC LIMIT 3`).all(fromIso, toIso);
   return { clicks: Number(t.clicks), visitors: Number(t.visitors), by_src: bySrc.map((r) => ({ ...r, n: Number(r.n) })), top: byContent.map((r) => ({ ...r, n: Number(r.n) })) };
 }
 
