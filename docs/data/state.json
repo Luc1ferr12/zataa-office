@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-05T09:33:05.184Z",
+ "generated_at": "2026-11-05T09:43:05.189Z",
  "today": "2026-11-05",
  "week_start": "2026-11-02",
  "campaign": {
@@ -664,6 +664,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-05 09:41:04",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: bullish → sideways"
+  },
+  {
    "ts": "2026-11-05 09:16:04",
    "agent_id": "trisk",
    "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
@@ -782,11 +787,6 @@
    "ts": "2026-11-05 01:01:24",
    "agent_id": "analyst",
    "message": "Update data 48 post IG 📈"
-  },
-  {
-   "ts": "2026-11-05 01:01:18",
-   "agent_id": "publisher",
-   "message": "Kirim draf IG Story ke Bos 📱"
   }
  ],
  "chats": [
@@ -1190,7 +1190,7 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 4130.200195,
+  "price": 4128.600098,
   "open": [],
   "signals": [
    {
@@ -1351,15 +1351,15 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "bullish",
-    "score": 2,
-    "price": 4131,
-    "ema20": 4127.66,
-    "ema50": 4120.01,
-    "rsi": 55,
+    "bias": "sideways",
+    "score": 0,
+    "price": 4127.6,
+    "ema20": 4127.65,
+    "ema50": 4120.31,
+    "rsi": 50.9,
     "n": 299,
-    "slot": 2989785,
-    "at": 1793871064185
+    "slot": 2989786,
+    "at": 1793871664168
    },
    "M15": {
     "bias": "bullish",
