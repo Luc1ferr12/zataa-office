@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-05T08:03:05.157Z",
+ "generated_at": "2026-11-05T08:13:05.159Z",
  "today": "2026-11-05",
  "week_start": "2026-11-02",
  "campaign": {
@@ -664,6 +664,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-05 08:11:04",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: sideways → bullish"
+  },
+  {
    "ts": "2026-11-05 08:01:04",
    "agent_id": "ttech",
    "message": "M15 berubah arah: sideways → bullish"
@@ -782,11 +787,6 @@
    "ts": "2026-11-05 00:24:32",
    "agent_id": "owner",
    "message": "Approve Shorts #135 ✅"
-  },
-  {
-   "ts": "2026-11-05 00:24:30",
-   "agent_id": "owner",
-   "message": "Approve Shorts #136 ✅"
   }
  ],
  "chats": [
@@ -1190,7 +1190,7 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 4122.899902,
+  "price": 4127.700195,
   "open": [],
   "signals": [
    {
@@ -1354,15 +1354,15 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "sideways",
-    "score": 0,
-    "price": 4124.6,
-    "ema20": 4125.55,
-    "ema50": 4116.18,
-    "rsi": 50,
+    "bias": "bullish",
+    "score": 2,
+    "price": 4129.6,
+    "ema20": 4125.94,
+    "ema50": 4116.71,
+    "rsi": 54.5,
     "n": 299,
-    "slot": 2989776,
-    "at": 1793865664144
+    "slot": 2989777,
+    "at": 1793866264287
    },
    "M15": {
     "bias": "bullish",
