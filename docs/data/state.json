@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-05T01:25:48.065Z",
+ "generated_at": "2026-11-05T01:35:48.067Z",
  "today": "2026-11-05",
  "week_start": "2026-11-02",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-05 01:15:48"
+   "updated_at": "2026-11-05 01:30:48"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Berita 24 jam tak ketemu, sumber terbaru Okt/Mar 2026. Konteks: perang AS-Iran (naik), PCE 3,4% & Fed tahan 3,75-4% (turun). Bias netral.",
-   "updated_at": "2026-11-05 01:15:48"
+   "updated_at": "2026-11-05 01:30:48"
   },
   {
    "id": "ttech",
@@ -119,15 +119,15 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bullish",
-   "updated_at": "2026-11-05 01:15:48"
+   "updated_at": "2026-11-05 01:30:48"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: ada candle spike di M15 (kemungkinan berita dadakan), tunggu tenang",
-   "updated_at": "2026-11-05 01:15:48"
+   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
+   "updated_at": "2026-11-05 01:30:48"
   },
   {
    "id": "texec",
@@ -1366,9 +1366,14 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 4114.100098,
+  "price": 4111.600098,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-05 01:30:48",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
+   },
    {
     "ts": "2026-11-05 01:15:48",
     "decision": "NO TRADE",
@@ -1391,11 +1396,6 @@
    },
    {
     "ts": "2026-11-05 00:15:48",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-   },
-   {
-    "ts": "2026-11-05 00:00:58",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
    }
@@ -1442,7 +1442,7 @@
    1716.0099999999995
   ],
   "last": {
-   "ts": "2026-11-05 01:15:48",
+   "ts": "2026-11-05 01:30:48",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1451,7 +1451,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "ada candle spike di M15 (kemungkinan berita dadakan), tunggu tenang",
+   "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)",
    "fund": {
     "bias": 0,
     "note": "Berita 24 jam tak ketemu, sumber terbaru Okt/Mar 2026. Konteks: perang AS-Iran (naik), PCE 3,4% & Fed tahan 3,75-4% (turun). Bias netral.",
@@ -1463,7 +1463,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4114.90 di atas band atas (4035.8–4107.1) · RSI 87 · Stoch 96 · MACD +4.93 · H1 bullish"
+    "note": "M15 4105.70 di atas tengah band (4036.6–4109.7) · RSI 80 · Stoch 85 · MACD +4.31 · H1 bullish"
    }
   },
   "fund": {
@@ -1532,35 +1532,35 @@
    "M10": {
     "bias": "bullish",
     "score": 2,
-    "price": 4112.7,
-    "ema20": 4077.83,
-    "ema50": 4066.57,
-    "rsi": 83.3,
+    "price": 4105.4,
+    "ema20": 4080.45,
+    "ema50": 4068.09,
+    "rsi": 73.9,
     "n": 299,
-    "slot": 2989736,
-    "at": 1793841648215
+    "slot": 2989737,
+    "at": 1793842248285
    },
    "M15": {
     "bias": "bullish",
     "score": 2,
-    "price": 4109.1,
-    "ema20": 4072.63,
-    "ema50": 4057.55,
-    "rsi": 85.5,
+    "price": 4105.4,
+    "ema20": 4075.75,
+    "ema50": 4059.43,
+    "rsi": 80.3,
     "n": 299,
-    "slot": 1993157,
-    "at": 1793841348213
+    "slot": 1993158,
+    "at": 1793842248290
    },
    "M30": {
     "bias": "bullish",
     "score": 2,
-    "price": 4092.7,
-    "ema20": 4061.35,
-    "ema50": 4030.65,
-    "rsi": 79,
+    "price": 4105.4,
+    "ema20": 4065.54,
+    "ema50": 4033.58,
+    "rsi": 82.3,
     "n": 299,
-    "slot": 996578,
-    "at": 1793840448200
+    "slot": 996579,
+    "at": 1793842248293
    },
    "H1": {
     "bias": "bullish",
