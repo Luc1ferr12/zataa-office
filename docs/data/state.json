@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-05T13:43:05.279Z",
+ "generated_at": "2026-11-05T13:53:05.272Z",
  "today": "2026-11-05",
  "week_start": "2026-11-02",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-05 13:31:04"
+   "updated_at": "2026-11-05 13:46:04"
   },
   {
    "id": "tresearch",
@@ -111,15 +111,15 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Waspada rilis Unemployment Claims (21.30 WITA)",
-   "updated_at": "2026-11-05 13:31:04"
+   "updated_at": "2026-11-05 13:46:04"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Belum ada pantulan band · H1 bullish",
-   "updated_at": "2026-11-05 13:31:04"
+   "current_task": "Setup BUY di band (Stokastik+MACD)",
+   "updated_at": "2026-11-05 13:46:04"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: berita berdampak tinggi: Unemployment Claims (21.30 WITA)",
-   "updated_at": "2026-11-05 13:31:04"
+   "updated_at": "2026-11-05 13:46:04"
   },
   {
    "id": "texec",
@@ -664,6 +664,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-05 13:51:04",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: sideways → bullish"
+  },
+  {
    "ts": "2026-11-05 13:16:04",
    "agent_id": "trisk",
    "message": "NO TRADE · berita berdampak tinggi: Unemployment Claims (21.30 WITA)"
@@ -782,11 +787,6 @@
    "ts": "2026-11-05 09:16:04",
    "agent_id": "trisk",
    "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-  },
-  {
-   "ts": "2026-11-05 08:51:04",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: sideways → bullish"
   }
  ],
  "chats": [
@@ -1190,9 +1190,14 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 4122.600098,
+  "price": 4127.600098,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-05 13:46:04",
+    "decision": "NO TRADE",
+    "reason": "berita berdampak tinggi: Unemployment Claims (21.30 WITA)"
+   },
    {
     "ts": "2026-11-05 13:31:04",
     "decision": "NO TRADE",
@@ -1215,11 +1220,6 @@
    },
    {
     "ts": "2026-11-05 12:31:04",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-11-05 12:16:04",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1266,7 +1266,7 @@
    1716.0099999999995
   ],
   "last": {
-   "ts": "2026-11-05 13:31:04",
+   "ts": "2026-11-05 13:46:04",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1284,10 +1284,13 @@
    },
    "tech": {
     "bias": "bullish",
-    "score": 0,
-    "trigger": null,
-    "confirm": [],
-    "note": "M15 4116.30 di bawah tengah band (4115.1–4139.9) · RSI 39 · Stoch 7 · MACD -2.17 · H1 bullish"
+    "score": 2,
+    "trigger": "buy",
+    "confirm": [
+     "Stokastik",
+     "MACD"
+    ],
+    "note": "M15 4122.80 di bawah tengah band (4116.0–4139.1) · RSI 47 · Stoch 26 · MACD -1.51 · H1 bullish · setup BUY (Stokastik+MACD)"
    }
   },
   "fund": {
@@ -1354,26 +1357,26 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "sideways",
-    "score": 0,
-    "price": 4119.2,
-    "ema20": 4124.61,
-    "ema50": 4123.76,
-    "rsi": 41.2,
+    "bias": "bullish",
+    "score": 2,
+    "price": 4125.6,
+    "ema20": 4124.7,
+    "ema50": 4123.83,
+    "rsi": 50.3,
     "n": 299,
-    "slot": 2989810,
-    "at": 1793886064546
+    "slot": 2989811,
+    "at": 1793886664569
    },
    "M15": {
     "bias": "sideways",
     "score": 1,
-    "price": 4117.3,
-    "ema20": 4126.28,
-    "ema50": 4118.04,
-    "rsi": 39.5,
+    "price": 4122.7,
+    "ema20": 4125.94,
+    "ema50": 4118.22,
+    "rsi": 46.7,
     "n": 299,
-    "slot": 1993206,
-    "at": 1793885464490
+    "slot": 1993207,
+    "at": 1793886364628
    },
    "M30": {
     "bias": "sideways",
