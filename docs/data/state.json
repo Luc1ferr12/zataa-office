@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-05T00:25:48.030Z",
+ "generated_at": "2026-11-05T00:35:48.031Z",
  "today": "2026-11-05",
  "week_start": "2026-11-02",
  "campaign": {
@@ -30,16 +30,16 @@
    "name": "Salsa",
    "title": "Researcher",
    "status": "working",
-   "current_task": "Riset transfer Sentinels brawk + OXY",
-   "updated_at": "2026-11-05 00:25:11"
+   "current_task": "Mantau: Produksi video #119 (slot malam 19:00 WIB, MPL ID  (cek lagi 17.20)",
+   "updated_at": "2026-11-05 00:26:57"
   },
   {
    "id": "copywriter",
    "name": "Tiara",
    "title": "Copywriter",
    "status": "done",
-   "current_task": "Sesi pagi selesai",
-   "updated_at": "2026-11-04 23:09:56"
+   "current_task": "Naskah video Sentinels rombak total",
+   "updated_at": "2026-11-05 00:26:30"
   },
   {
    "id": "designer",
@@ -54,16 +54,16 @@
    "name": "Dimas",
    "title": "Video Production",
    "status": "done",
-   "current_task": "Video #119 nunggu hasil match",
-   "updated_at": "2026-11-04 23:09:56"
+   "current_task": "Video Sentinels masuk antrean render laptop",
+   "updated_at": "2026-11-05 00:26:34"
   },
   {
    "id": "publisher",
    "name": "Fikri",
    "title": "Social Media Publisher",
    "status": "done",
-   "current_task": "undefined",
-   "updated_at": "2026-11-05 00:24:48"
+   "current_task": "QA video Sentinels, nunggu render laptop",
+   "updated_at": "2026-11-05 00:26:39"
   },
   {
    "id": "ads",
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-05 00:15:48"
+   "updated_at": "2026-11-05 00:30:48"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Berita 24 jam tak ketemu, sumber terbaru Okt/Mar 2026. Konteks: perang AS-Iran (naik), PCE 3,4% & Fed tahan 3,75-4% (turun). Bias netral.",
-   "updated_at": "2026-11-05 00:15:48"
+   "updated_at": "2026-11-05 00:30:48"
   },
   {
    "id": "ttech",
@@ -119,15 +119,15 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bullish",
-   "updated_at": "2026-11-05 00:15:48"
+   "updated_at": "2026-11-05 00:30:48"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
-   "updated_at": "2026-11-05 00:15:48"
+   "current_task": "NO TRADE: ada candle spike di M15 (kemungkinan berita dadakan), tunggu tenang",
+   "updated_at": "2026-11-05 00:30:48"
   },
   {
    "id": "texec",
@@ -484,6 +484,20 @@
    "channel": null
   },
   {
+   "id": 137,
+   "day": "2026-11-05",
+   "slot": "sore",
+   "format": "video",
+   "game": "valorant",
+   "pillar": "news",
+   "title": "Sentinels rombak total: brawk + OXY masuk, siap balas dendam di VCT 2027?",
+   "status": "draft",
+   "asset_url": null,
+   "scheduled_at": null,
+   "posted_at": null,
+   "channel": null
+  },
+  {
    "id": 119,
    "day": "2026-11-05",
    "slot": "malam",
@@ -650,6 +664,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-05 00:26:04",
+   "agent_id": "researcher",
+   "message": "Nemu 1 topik baru"
+  },
+  {
    "ts": "2026-11-05 00:24:48",
    "agent_id": "owner",
    "message": "Approve konten #118 ✅"
@@ -768,14 +787,65 @@
    "ts": "2026-11-04 23:02:50",
    "agent_id": "analyst",
    "message": "Video 262 views/post vs carousel 19; Valorant 243 vs MLBB 38"
-  },
-  {
-   "ts": "2026-11-04 23:02:29",
-   "agent_id": "price",
-   "message": "zataa.my.id hidup, harga diamond ML live"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-11-05 00:26:57",
+   "agent_id": "publisher",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Naskahnya udah aku QA. Video jadi langsung masuk Telegram buat ✅, jadwal tayang sore 16:00."
+  },
+  {
+   "ts": "2026-11-05 00:26:57",
+   "agent_id": "video",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Video Sentinels gaya breaking udah masuk antrean, dirender begitu laptop nyala ya Bos."
+  },
+  {
+   "ts": "2026-11-05 00:26:57",
+   "agent_id": "researcher",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Udah dicek Bos, OXY (ex-C9) sama brawk (ex-NRG, MVP Champions Paris 2025) resmi gabung Sentinels, sumbernya 3 situs."
+  },
+  {
+   "ts": "2026-11-05 00:26:39",
+   "agent_id": "video",
+   "to_id": "researcher",
+   "kind": "santai",
+   "message": "Sal, brawk MVP Paris terus pindah ke SEN, kebayang nggak tuh fans NRG nangis 😂"
+  },
+  {
+   "ts": "2026-11-05 00:26:39",
+   "agent_id": "publisher",
+   "to_id": "owner",
+   "kind": "oper",
+   "message": "\"QA video Sentinels, nunggu render laptop\" udah lolos QA, tinggal nunggu ✅ dari Bos"
+  },
+  {
+   "ts": "2026-11-05 00:26:34",
+   "agent_id": "video",
+   "to_id": "publisher",
+   "kind": "oper",
+   "message": "Fikri, video \"Video Sentinels masuk antrean render laptop\" udah render 9:16. Musiknya aman kok"
+  },
+  {
+   "ts": "2026-11-05 00:26:30",
+   "agent_id": "copywriter",
+   "to_id": "designer",
+   "kind": "oper",
+   "message": "Teks buat \"Naskah video Sentinels rombak total\" ready. Vania, giliranmu bikin cakep!"
+  },
+  {
+   "ts": "2026-11-05 00:26:04",
+   "agent_id": "researcher",
+   "to_id": "copywriter",
+   "kind": "oper",
+   "message": "Riset \"Riset transfer Sentinels brawk + OXY\" beres, udah dicek 2 sumber. Tiara, lanjut ya~"
+  },
   {
    "ts": "2026-11-05 00:24:48",
    "agent_id": "dir",
@@ -999,68 +1069,12 @@
    "to_id": "copywriter",
    "kind": "oper",
    "message": "Riset \"Sumber ke-2 + skor per game AE vs ONIC\" beres, udah dicek 2 sumber. Tiara, lanjut ya~"
-  },
-  {
-   "ts": "2026-11-04 11:00:32",
-   "agent_id": "analyst",
-   "to_id": "dir",
-   "kind": "oper",
-   "message": "Laporan harian marketing udah aku kirim ke Bos, 2 konten tayang hari ini 📊"
-  },
-  {
-   "ts": "2026-11-04 10:36:03",
-   "agent_id": "researcher",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Recap berita & skor per game belum keluar, aku cek lagi 30 menit. Kalau sampai 18:45 masih belum ada, videonya jalan pakai skor 3-1 dari situs resmi aja biar keburu tayang 19:00."
-  },
-  {
-   "ts": "2026-11-04 10:36:03",
-   "agent_id": "researcher",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Bos, AE menang 3-1 lawan ONIC (final di id-mpl.com, replay udah ada). AE lanjut lawan NAVI besok, ONIC pulang 😬"
-  },
-  {
-   "ts": "2026-11-04 09:01:38",
-   "agent_id": "publisher",
-   "to_id": null,
-   "kind": "oper",
-   "message": "\"NAVI, Gentle Mates, DRX lepas semua pemain: bursa \" udah tayang di IG + TikTok 🚀 Makasih semua!"
-  },
-  {
-   "ts": "2026-11-04 05:03:59",
-   "agent_id": "publisher",
-   "to_id": null,
-   "kind": "oper",
-   "message": "\"Hari ini kalah = gugur: AE vs ONIC 13.00 & BTR vs \" udah tayang di IG 🚀 Makasih semua!"
-  },
-  {
-   "ts": "2026-11-04 00:51:22",
-   "agent_id": "researcher",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Kabar Ruxic ke Gentle Mates masih rumor ya Bos, udah aku tandain RUMOR di video."
-  },
-  {
-   "ts": "2026-11-04 00:51:22",
-   "agent_id": "video",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Video bursa VCT (#134) lagi antre render di laptop, nanti kekirim otomatis. Kalau laptop mati, videonya nunggu dan bisa lewat slot 16:00. DRX masih nyisain Flicker & Yong, jadi di video aku tulis \"bongkar roster\"."
-  },
-  {
-   "ts": "2026-11-04 00:51:22",
-   "agent_id": "publisher",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Carousel peta grup FFWS (#133) udah masuk Telegram Bos, tinggal ✅ buat tayang jam 21:00 WIB!"
   }
  ],
  "stats": {
   "this_week": {
    "week": "2026-11-02",
-   "total": 25,
+   "total": 26,
    "posted": 14,
    "pending": 1,
    "scheduled": 3,
@@ -1352,9 +1366,14 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 4080.100098,
+  "price": 4092.399902,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-05 00:30:48",
+    "decision": "NO TRADE",
+    "reason": "ada candle spike di M15 (kemungkinan berita dadakan), tunggu tenang"
+   },
    {
     "ts": "2026-11-05 00:15:48",
     "decision": "NO TRADE",
@@ -1377,11 +1396,6 @@
    },
    {
     "ts": "2026-11-04 23:15:48",
-    "decision": "NO TRADE",
-    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
-   },
-   {
-    "ts": "2026-11-04 23:01:10",
     "decision": "NO TRADE",
     "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
    }
@@ -1428,7 +1442,7 @@
    1716.0099999999995
   ],
   "last": {
-   "ts": "2026-11-05 00:15:48",
+   "ts": "2026-11-05 00:30:48",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1437,7 +1451,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)",
+   "reason": "ada candle spike di M15 (kemungkinan berita dadakan), tunggu tenang",
    "fund": {
     "bias": 0,
     "note": "Berita 24 jam tak ketemu, sumber terbaru Okt/Mar 2026. Konteks: perang AS-Iran (naik), PCE 3,4% & Fed tahan 3,75-4% (turun). Bias netral.",
@@ -1449,7 +1463,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4065.30 di atas tengah band (4057.6–4067.9) · RSI 59 · Stoch 50 · MACD -0.30 · H1 bullish"
+    "note": "M15 4081.30 di atas band atas (4052.0–4077.2) · RSI 74 · Stoch 82 · MACD +1.25 · H1 bullish"
    }
   },
   "fund": {
@@ -1518,35 +1532,35 @@
    "M10": {
     "bias": "bullish",
     "score": 2,
-    "price": 4073.3,
-    "ema20": 4064.55,
-    "ema50": 4059.4,
-    "rsi": 66,
+    "price": 4079.7,
+    "ema20": 4065.99,
+    "ema50": 4060.19,
+    "rsi": 72,
     "n": 299,
-    "slot": 2989730,
-    "at": 1793838048340
+    "slot": 2989731,
+    "at": 1793838648176
    },
    "M15": {
     "bias": "bullish",
     "score": 2,
-    "price": 4065.2,
-    "ema20": 4062.36,
-    "ema50": 4051.44,
-    "rsi": 58.5,
+    "price": 4079.7,
+    "ema20": 4064.01,
+    "ema50": 4052.54,
+    "rsi": 73.2,
     "n": 299,
-    "slot": 1993153,
-    "at": 1793837748153
+    "slot": 1993154,
+    "at": 1793838648181
    },
    "M30": {
     "bias": "bullish",
     "score": 2,
-    "price": 4066.1,
-    "ema20": 4055.77,
-    "ema50": 4026.01,
-    "rsi": 67.2,
-    "n": 300,
-    "slot": 996576,
-    "at": 1793836857942
+    "price": 4079.7,
+    "ema20": 4058.05,
+    "ema50": 4028.12,
+    "rsi": 74.3,
+    "n": 299,
+    "slot": 996577,
+    "at": 1793838648182
    },
    "H1": {
     "bias": "bullish",
