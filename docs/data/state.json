@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-05T04:15:48.141Z",
+ "generated_at": "2026-11-05T04:23:04.928Z",
  "today": "2026-11-05",
  "week_start": "2026-11-02",
  "campaign": {
@@ -79,7 +79,7 @@
    "title": "Data Analyst",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-11-05 04:01:26"
+   "updated_at": "2026-11-05 04:22:52"
   },
   {
    "id": "price",
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-05 04:00:48"
+   "updated_at": "2026-11-05 04:15:48"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Berita 24 jam tak ketemu, sumber terbaru Okt/Mar 2026. Konteks: perang AS-Iran (naik), PCE 3,4% & Fed tahan 3,75-4% (turun). Bias netral.",
-   "updated_at": "2026-11-05 04:00:48"
+   "updated_at": "2026-11-05 04:15:48"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bullish",
-   "updated_at": "2026-11-05 04:00:48"
+   "updated_at": "2026-11-05 04:15:48"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
-   "updated_at": "2026-11-05 04:00:48"
+   "updated_at": "2026-11-05 04:15:48"
   },
   {
    "id": "texec",
@@ -664,6 +664,21 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-05 04:22:52",
+   "agent_id": "analyst",
+   "message": "Update data 48 post IG 📈"
+  },
+  {
+   "ts": "2026-11-05 04:22:48",
+   "agent_id": "dir",
+   "message": "Kode kantor diperbarui, restart otomatis: scripts/golink.mjs, scripts/trading/run.mjs, scripts/watch.mjs"
+  },
+  {
+   "ts": "2026-11-05 04:15:48",
+   "agent_id": "trisk",
+   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (sesi Asia)"
+  },
+  {
    "ts": "2026-11-05 04:01:26",
    "agent_id": "analyst",
    "message": "Update data 48 post IG 📈"
@@ -772,21 +787,6 @@
    "ts": "2026-11-04 23:09:33",
    "agent_id": "svideo",
    "message": "Shorts #136 \"Tiga Danau Arwah di Flores yang Bisa Ganti Warna\" masuk antrean render laptop (OmniVoice)"
-  },
-  {
-   "ts": "2026-11-04 23:08:19",
-   "agent_id": "yresearch",
-   "message": "Bank topik: tambah HH-017 Piramida Meroë; Bagas approve HH-016 Perpustakaan Aleksandria (stok HH jadi 3)"
-  },
-  {
-   "ts": "2026-11-04 23:07:48",
-   "agent_id": "yvideo",
-   "message": "Shorts #135 \"Firaun Ini Dihapus dari Sejarah oleh Penerusnya Sendiri\" masuk antrean render laptop (OmniVoice)"
-  },
-  {
-   "ts": "2026-11-04 23:07:38",
-   "agent_id": "ypublish",
-   "message": "Jam tayang 18:00 WIB: 8 Shorts terakhir di 18:00 stabil 1,2-1,9rb views, belum ada alasan geser"
   }
  ],
  "chats": [
@@ -1082,18 +1082,18 @@
    "yt_posted": 6,
    "yt_pending": 0,
    "yt_scheduled": 2,
-   "views": 13581,
-   "likes": 197,
+   "views": 13603,
+   "likes": 198,
    "comments": 1,
    "shares": 0,
    "saves": 3,
-   "yt_views": 10386,
+   "yt_views": 10396,
    "top": [
     {
      "title": "Sangkuriang: Legenda atau Ingatan Danau Bandung Purba?",
      "format": "shorts",
      "pillar": "legenda_mitos",
-     "views": 2418
+     "views": 2427
     },
     {
      "title": "Lubang Jepang: Penjara Rahasia di Bawah Bukittinggi",
@@ -1108,155 +1108,21 @@
      "views": 1554
     }
    ],
-   "clicks": 53,
-   "click_visitors": 24,
-   "click_src": [
-    {
-     "src": "login",
-     "n": 7
-    },
-    {
-     "src": "phpinfo",
-     "n": 5
-    },
-    {
-     "src": "info",
-     "n": 4
-    },
-    {
-     "src": "test",
-     "n": 3
-    },
-    {
-     "src": "hudson",
-     "n": 2
-    },
-    {
-     "src": "cgi",
-     "n": 2
-    },
-    {
-     "src": "xml",
-     "n": 1
-    },
-    {
-     "src": "wp-json",
-     "n": 1
-    },
-    {
-     "src": "wiki",
-     "n": 1
-    },
-    {
-     "src": "tmp",
-     "n": 1
-    },
-    {
-     "src": "tests",
-     "n": 1
-    },
-    {
-     "src": "temp",
-     "n": 1
-    },
-    {
-     "src": "telescope",
-     "n": 1
-    },
-    {
-     "src": "staging",
-     "n": 1
-    },
-    {
-     "src": "soap",
-     "n": 1
-    },
-    {
-     "src": "settings",
-     "n": 1
-    },
-    {
-     "src": "sdk",
-     "n": 1
-    },
-    {
-     "src": "ryxj0umntok030",
-     "n": 1
-    },
-    {
-     "src": "reportserver",
-     "n": 1
-    },
-    {
-     "src": "query",
-     "n": 1
-    },
-    {
-     "src": "lxiebwa0bbi4aw",
-     "n": 1
-    },
-    {
-     "src": "logs",
-     "n": 1
-    },
-    {
-     "src": "log",
-     "n": 1
-    },
-    {
-     "src": "infos",
-     "n": 1
-    },
-    {
-     "src": "images",
-     "n": 1
-    },
-    {
-     "src": "hnap1",
-     "n": 1
-    },
-    {
-     "src": "favicon",
-     "n": 1
-    },
-    {
-     "src": "env",
-     "n": 1
-    },
-    {
-     "src": "dev",
-     "n": 1
-    },
-    {
-     "src": "demo",
-     "n": 1
-    },
-    {
-     "src": "c",
-     "n": 1
-    },
-    {
-     "src": "beta",
-     "n": 1
-    },
-    {
-     "src": "bedrock-credentials",
-     "n": 1
-    },
-    {
-     "src": "aws-codecommit",
-     "n": 1
-    },
-    {
-     "src": "api-docs",
-     "n": 1
-    },
-    {
-     "src": "api",
-     "n": 1
-    }
-   ],
-   "ga4": null
+   "clicks": 0,
+   "click_visitors": 0,
+   "click_src": [],
+   "ga4": {
+    "sessions": 2,
+    "users": 2,
+    "key_events": 0,
+    "by_src": [
+     {
+      "src": "(direct)",
+      "n": 2
+     }
+    ],
+    "top": []
+   }
   },
   "last_week": {
    "week": "2026-10-26",
@@ -1268,12 +1134,12 @@
    "yt_posted": 12,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 32183,
+   "views": 32184,
    "likes": 417,
    "comments": 7,
    "shares": 16,
    "saves": 3,
-   "yt_views": 21734,
+   "yt_views": 21735,
    "top": [
     {
      "title": "Lawang Sewu: Apa yang Sebenarnya Ada di Bawah Tanahnya?",
@@ -1294,71 +1160,29 @@
      "views": 2354
     }
    ],
-   "clicks": 19,
-   "click_visitors": 9,
-   "click_src": [
-    {
-     "src": "login",
-     "n": 4
-    },
-    {
-     "src": "webui",
-     "n": 2
-    },
-    {
-     "src": "version",
-     "n": 1
-    },
-    {
-     "src": "v1",
-     "n": 1
-    },
-    {
-     "src": "user",
-     "n": 1
-    },
-    {
-     "src": "shell",
-     "n": 1
-    },
-    {
-     "src": "sdk",
-     "n": 1
-    },
-    {
-     "src": "pub",
-     "n": 1
-    },
-    {
-     "src": "lixo",
-     "n": 1
-    },
-    {
-     "src": "hnap1",
-     "n": 1
-    },
-    {
-     "src": "files",
-     "n": 1
-    },
-    {
-     "src": "eq8o",
-     "n": 1
-    },
-    {
-     "src": "downloads",
-     "n": 1
-    },
-    {
-     "src": "aab9",
-     "n": 1
-    },
-    {
-     "src": "aab8",
-     "n": 1
-    }
-   ],
-   "ga4": null
+   "clicks": 0,
+   "click_visitors": 0,
+   "click_src": [],
+   "ga4": {
+    "sessions": 3,
+    "users": 3,
+    "key_events": 0,
+    "by_src": [
+     {
+      "src": "(direct)",
+      "n": 1
+     },
+     {
+      "src": "(not set)",
+      "n": 1
+     },
+     {
+      "src": "tes-setup",
+      "n": 1
+     }
+    ],
+    "top": []
+   }
   }
  },
  "trading": {
@@ -1366,9 +1190,14 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 4141.299805,
+  "price": 4138,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-05 04:15:48",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
+   },
    {
     "ts": "2026-11-05 04:00:48",
     "decision": "NO TRADE",
@@ -1391,11 +1220,6 @@
    },
    {
     "ts": "2026-11-05 03:00:48",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-   },
-   {
-    "ts": "2026-11-05 02:45:48",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
    }
@@ -1442,7 +1266,7 @@
    1716.0099999999995
   ],
   "last": {
-   "ts": "2026-11-05 04:00:48",
+   "ts": "2026-11-05 04:15:48",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1463,7 +1287,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4141.60 di atas tengah band (4047.9–4173.4) · RSI 79 · Stoch 94 · MACD +1.61 · H1 bullish"
+    "note": "M15 4141.90 di atas tengah band (4054.2–4174.6) · RSI 79 · Stoch 92 · MACD +1.00 · H1 bullish"
    }
   },
   "fund": {
@@ -1532,24 +1356,24 @@
    "M10": {
     "bias": "bullish",
     "score": 3,
-    "price": 4143.8,
-    "ema20": 4124.68,
-    "ema50": 4099.53,
-    "rsi": 73.1,
+    "price": 4140.1,
+    "ema20": 4126.15,
+    "ema50": 4101.12,
+    "rsi": 68.7,
     "n": 299,
-    "slot": 2989753,
-    "at": 1793851848347
+    "slot": 2989754,
+    "at": 1793852448367
    },
    "M15": {
     "bias": "bullish",
     "score": 3,
-    "price": 4142.1,
-    "ema20": 4112.95,
-    "ema50": 4083.97,
-    "rsi": 79.5,
+    "price": 4141.3,
+    "ema20": 4115.65,
+    "ema50": 4086.22,
+    "rsi": 78.5,
     "n": 299,
-    "slot": 1993168,
-    "at": 1793851248536
+    "slot": 1993169,
+    "at": 1793852148432
    },
    "M30": {
     "bias": "bullish",
