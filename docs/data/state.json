@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-05T11:33:05.235Z",
+ "generated_at": "2026-11-05T11:43:05.247Z",
  "today": "2026-11-05",
  "week_start": "2026-11-02",
  "campaign": {
@@ -61,9 +61,9 @@
    "id": "publisher",
    "name": "Fikri",
    "title": "Social Media Publisher",
-   "status": "working",
-   "current_task": "Pantau render #119 + cari hasil NAVI vs AE buat komen",
-   "updated_at": "2026-11-05 10:23:53"
+   "status": "done",
+   "current_task": "undefined",
+   "updated_at": "2026-11-05 11:35:05"
   },
   {
    "id": "ads",
@@ -505,7 +505,7 @@
    "game": "mlbb",
    "pillar": "esport",
    "title": "Upper semi MPL ID S18: NAVI-AE hasil di komen, TLID vs BTR malam ini, unggulan aman atau tumbang? (hook #16)",
-   "status": "pending_approval",
+   "status": "approved",
    "asset_url": "{\"video\":\"https://luc1ferr12.github.io/zataa-office/media/2026-11-05/119-upper-semi-mpl-id-s18-navi-ae-hasil-di-k-ov.mp4\",\"cover\":\"https://luc1ferr12.github.io/zataa-office/media/2026-11-05/119-upper-semi-mpl-id-s18-navi-ae-hasil-di-k-ov-cover.jpg\"}",
    "scheduled_at": null,
    "posted_at": null,
@@ -664,6 +664,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-05 11:35:05",
+   "agent_id": "owner",
+   "message": "Approve konten #119 ✅"
+  },
+  {
    "ts": "2026-11-05 11:16:04",
    "agent_id": "trisk",
    "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
@@ -782,14 +787,16 @@
    "ts": "2026-11-05 06:16:04",
    "agent_id": "ttech",
    "message": "M15 berubah arah: sideways → bullish"
-  },
-  {
-   "ts": "2026-11-05 05:46:03",
-   "agent_id": "ttech",
-   "message": "M15 berubah arah: bullish → sideways"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-11-05 11:35:05",
+   "agent_id": "publisher",
+   "to_id": "owner",
+   "kind": "oper",
+   "message": "Bos, \"undefined\" udah aku kirim ke Telegram. Ditunggu approve-nya 🙏"
+  },
   {
    "ts": "2026-11-05 11:00:08",
    "agent_id": "analyst",
@@ -1062,13 +1069,6 @@
    "to_id": "video",
    "kind": "bos",
    "message": "Dimas, uda bisa render ya"
-  },
-  {
-   "ts": "2026-11-04 14:01:21",
-   "agent_id": "publisher",
-   "to_id": null,
-   "kind": "oper",
-   "message": "\"Peta grup FFWS Global Finals 2026: 3 tim Indonesia\" udah tayang di IG 🚀 Makasih semua!"
   }
  ],
  "stats": {
@@ -1076,8 +1076,8 @@
    "week": "2026-11-02",
    "total": 26,
    "posted": 16,
-   "pending": 2,
-   "scheduled": 1,
+   "pending": 1,
+   "scheduled": 2,
    "yt_total": 8,
    "yt_posted": 7,
    "yt_pending": 0,
@@ -1190,7 +1190,7 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 4135.899902,
+  "price": 4136.100098,
   "open": [],
   "signals": [
    {
@@ -1356,13 +1356,13 @@
    "M10": {
     "bias": "bullish",
     "score": 2,
-    "price": 4134.7,
-    "ema20": 4129.09,
-    "ema50": 4123.45,
-    "rsi": 58.8,
+    "price": 4135.9,
+    "ema20": 4129.74,
+    "ema50": 4123.94,
+    "rsi": 60.1,
     "n": 299,
-    "slot": 2989797,
-    "at": 1793878264292
+    "slot": 2989798,
+    "at": 1793878864262
    },
    "M15": {
     "bias": "bullish",
