@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-06T02:13:05.570Z",
+ "generated_at": "2026-11-06T02:23:05.582Z",
  "today": "2026-11-06",
  "week_start": "2026-11-02",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-06 02:01:06"
+   "updated_at": "2026-11-06 02:16:06"
   },
   {
    "id": "tresearch",
@@ -111,15 +111,15 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Fed hawkish (3.50-3.75%, sinyal naik), NFP Sep meleset 29K. Geopolitik menopang. Berita 24 jam belum terkonfirmasi.",
-   "updated_at": "2026-11-06 02:01:06"
+   "updated_at": "2026-11-06 02:16:06"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-06 02:01:06"
+   "current_task": "Belum ada pantulan band · H1 bullish",
+   "updated_at": "2026-11-06 02:16:06"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: kondisi berita bahaya: NFP Okt rilis 13:30 UTC hari ini, volatil; tunggu rilis dulu",
-   "updated_at": "2026-11-06 02:01:06"
+   "updated_at": "2026-11-06 02:16:06"
   },
   {
    "id": "texec",
@@ -706,6 +706,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-06 02:16:06",
+   "agent_id": "trisk",
+   "message": "NO TRADE · kondisi berita bahaya: NFP Okt rilis 13:30 UTC hari ini, volatil; tunggu rilis dulu"
+  },
+  {
    "ts": "2026-11-06 02:01:06",
    "agent_id": "ttech",
    "message": "M30 berubah arah: sideways → bearish"
@@ -824,11 +829,6 @@
    "ts": "2026-11-06 00:11:05",
    "agent_id": "ttech",
    "message": "M10 berubah arah: bearish → sideways"
-  },
-  {
-   "ts": "2026-11-06 00:00:45",
-   "agent_id": "ttech",
-   "message": "M15 berubah arah: sideways → bearish"
   }
  ],
  "chats": [
@@ -1232,9 +1232,14 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 4072.399902,
+  "price": 4071,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-06 02:16:06",
+    "decision": "NO TRADE",
+    "reason": "kondisi berita bahaya: NFP Okt rilis 13:30 UTC hari ini, volatil; tunggu rilis dulu"
+   },
    {
     "ts": "2026-11-06 02:01:06",
     "decision": "NO TRADE",
@@ -1257,11 +1262,6 @@
    },
    {
     "ts": "2026-11-06 01:01:06",
-    "decision": "NO TRADE",
-    "reason": "kondisi berita bahaya: NFP Okt rilis 13:30 UTC hari ini, volatil; tunggu rilis dulu"
-   },
-   {
-    "ts": "2026-11-06 00:46:06",
     "decision": "NO TRADE",
     "reason": "kondisi berita bahaya: NFP Okt rilis 13:30 UTC hari ini, volatil; tunggu rilis dulu"
    }
@@ -1308,7 +1308,7 @@
    1716.0099999999995
   ],
   "last": {
-   "ts": "2026-11-06 02:01:06",
+   "ts": "2026-11-06 02:16:06",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1325,11 +1325,11 @@
     "blackout": null
    },
    "tech": {
-    "bias": "sideways",
+    "bias": "bullish",
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4058.90 di bawah band bawah (4059.9–4114.8) · RSI 29 · Stoch 5 · MACD -3.33 · H1 sideways"
+    "note": "M15 4069.30 di bawah tengah band (4060.4–4113.4) · RSI 37 · Stoch 16 · MACD -2.41 · H1 bullish"
    }
   },
   "fund": {
@@ -1389,24 +1389,24 @@
    "M10": {
     "bias": "sideways",
     "score": -1,
-    "price": 4063.7,
-    "ema20": 4083.1,
-    "ema50": 4092.95,
-    "rsi": 34,
+    "price": 4066.6,
+    "ema20": 4081.52,
+    "ema50": 4091.92,
+    "rsi": 36.6,
     "n": 299,
-    "slot": 2989885,
-    "at": 1793931065934
+    "slot": 2989886,
+    "at": 1793931665936
    },
    "M15": {
     "bias": "bearish",
     "score": -2,
-    "price": 4061,
-    "ema20": 4088.86,
-    "ema50": 4098.34,
-    "rsi": 29.4,
+    "price": 4070.4,
+    "ema20": 4087.1,
+    "ema50": 4097.25,
+    "rsi": 37.3,
     "n": 299,
-    "slot": 1993256,
-    "at": 1793930466005
+    "slot": 1993257,
+    "at": 1793931365944
    },
    "M30": {
     "bias": "bearish",
