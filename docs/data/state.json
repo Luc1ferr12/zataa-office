@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-06T19:33:06.019Z",
+ "generated_at": "2026-11-06T19:43:06.034Z",
  "today": "2026-11-07",
  "week_start": "2026-11-02",
  "campaign": {
@@ -706,6 +706,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-06 19:41:06",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: bullish → sideways"
+  },
+  {
    "ts": "2026-11-06 19:31:06",
    "agent_id": "ttech",
    "message": "M10 berubah arah: sideways → bullish"
@@ -824,11 +829,6 @@
    "ts": "2026-11-06 12:31:06",
    "agent_id": "ttech",
    "message": "M15 berubah arah: bearish → sideways"
-  },
-  {
-   "ts": "2026-11-06 12:16:06",
-   "agent_id": "trisk",
-   "message": "NO TRADE · berita berdampak tinggi: Non-Farm Employment Change (21.30 WITA)"
   }
  ],
  "chats": [
@@ -1232,7 +1232,7 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 4065.800049,
+  "price": 4064.699951,
   "open": [],
   "signals": [
    {
@@ -1359,15 +1359,15 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "bullish",
-    "score": 2,
-    "price": 4065.9,
-    "ema20": 4064.85,
-    "ema50": 4061.98,
-    "rsi": 52.7,
+    "bias": "sideways",
+    "score": 0,
+    "price": 4064.1,
+    "ema20": 4064.78,
+    "ema50": 4062.06,
+    "rsi": 50.7,
     "n": 299,
-    "slot": 2989989,
-    "at": 1793993466827
+    "slot": 2989990,
+    "at": 1793994066833
    },
    "M15": {
     "bias": "bullish",
