@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-06T01:43:05.571Z",
+ "generated_at": "2026-11-06T01:53:05.573Z",
  "today": "2026-11-06",
  "week_start": "2026-11-02",
  "campaign": {
@@ -62,8 +62,8 @@
    "name": "Fikri",
    "title": "Social Media Publisher",
    "status": "done",
-   "current_task": null,
-   "updated_at": "2026-11-06 01:00:27"
+   "current_task": "undefined",
+   "updated_at": "2026-11-06 01:44:05"
   },
   {
    "id": "ads",
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-06 01:31:06"
+   "updated_at": "2026-11-06 01:46:06"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Fed hawkish (3.50-3.75%, sinyal naik), NFP Sep meleset 29K. Geopolitik menopang. Berita 24 jam belum terkonfirmasi.",
-   "updated_at": "2026-11-06 01:31:06"
+   "updated_at": "2026-11-06 01:46:06"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-06 01:31:06"
+   "updated_at": "2026-11-06 01:46:06"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: kondisi berita bahaya: NFP Okt rilis 13:30 UTC hari ini, volatil; tunggu rilis dulu",
-   "updated_at": "2026-11-06 01:31:06"
+   "updated_at": "2026-11-06 01:46:06"
   },
   {
    "id": "texec",
@@ -561,7 +561,7 @@
    "game": "mlbb",
    "pillar": "esport",
    "title": "Upper Final MPL ID S18 malam ini: NAVI vs TLID 18.00 WIB, yang menang langsung ke Grand Final + tiket M8",
-   "status": "pending_approval",
+   "status": "approved",
    "asset_url": "{\"video\":\"https://luc1ferr12.github.io/zataa-office/media/2026-11-06/140-upper-final-mpl-id-s18-malam-ini-navi-vs-ov.mp4\",\"cover\":\"https://luc1ferr12.github.io/zataa-office/media/2026-11-06/140-upper-final-mpl-id-s18-malam-ini-navi-vs-ov-cover.jpg\"}",
    "scheduled_at": null,
    "posted_at": null,
@@ -575,7 +575,7 @@
    "game": "valorant",
    "pillar": "news",
    "title": "Rekap transfer VCT 2027 minggu pertama: yang udah RESMI vs masih rumor — hook angka #6",
-   "status": "pending_approval",
+   "status": "approved",
    "asset_url": "{\"video\":\"https://luc1ferr12.github.io/zataa-office/media/2026-11-06/121-rekap-transfer-vct-2027-minggu-pertama-y-ov.mp4\",\"cover\":\"https://luc1ferr12.github.io/zataa-office/media/2026-11-06/121-rekap-transfer-vct-2027-minggu-pertama-y-ov-cover.jpg\"}",
    "scheduled_at": null,
    "posted_at": null,
@@ -603,7 +603,7 @@
    "game": "sejarah",
    "pillar": "horor_sejarah",
    "title": "Toko Merah: Saksi Bisu Geger Pacinan 1740 di Batavia",
-   "status": "pending_approval",
+   "status": "approved",
    "asset_url": null,
    "scheduled_at": null,
    "posted_at": null,
@@ -705,6 +705,21 @@
   }
  ],
  "activity": [
+  {
+   "ts": "2026-11-06 01:44:05",
+   "agent_id": "owner",
+   "message": "Approve konten #140 ✅"
+  },
+  {
+   "ts": "2026-11-06 01:44:05",
+   "agent_id": "owner",
+   "message": "Approve konten #121 ✅"
+  },
+  {
+   "ts": "2026-11-06 01:43:59",
+   "agent_id": "owner",
+   "message": "Approve Shorts #139 ✅"
+  },
   {
    "ts": "2026-11-06 01:16:06",
    "agent_id": "trisk",
@@ -814,21 +829,6 @@
    "ts": "2026-11-05 23:09:45",
    "agent_id": "publisher",
    "message": "Carousel #120 FFWS + Storm Arena terkirim ke Owner; video #121 nunggu render laptop"
-  },
-  {
-   "ts": "2026-11-05 23:09:45",
-   "agent_id": "sdir",
-   "message": "Shorts #139 Toko Merah & Geger Pacinan 1740 (HS-003) antre render laptop, tayang 19:00 WIB"
-  },
-  {
-   "ts": "2026-11-05 23:09:12",
-   "agent_id": "svideo",
-   "message": "Shorts #139 \"Toko Merah: Saksi Bisu Geger Pacinan 1740 di Batavia\" masuk antrean render laptop (OmniVoice)"
-  },
-  {
-   "ts": "2026-11-05 23:07:31",
-   "agent_id": "ydir",
-   "message": "Shorts #138 Herculaneum (AS-002) antre render laptop"
   }
  ],
  "chats": [
@@ -1118,30 +1118,30 @@
    "week": "2026-11-02",
    "total": 29,
    "posted": 18,
-   "pending": 4,
-   "scheduled": 1,
+   "pending": 1,
+   "scheduled": 4,
    "yt_total": 10,
    "yt_posted": 8,
-   "yt_pending": 1,
-   "yt_scheduled": 0,
-   "views": 17485,
-   "likes": 227,
+   "yt_pending": 0,
+   "yt_scheduled": 1,
+   "views": 17638,
+   "likes": 229,
    "comments": 1,
    "shares": 0,
    "saves": 4,
-   "yt_views": 13924,
+   "yt_views": 13979,
    "top": [
     {
      "title": "Sangkuriang: Legenda atau Ingatan Danau Bandung Purba?",
      "format": "shorts",
      "pillar": "legenda_mitos",
-     "views": 2872
+     "views": 2874
     },
     {
      "title": "Lubang Jepang: Penjara Rahasia di Bawah Bukittinggi",
      "format": "shorts",
      "pillar": "horor_sejarah",
-     "views": 2376
+     "views": 2377
     },
     {
      "title": "Pulau Onrust: Kuburan Belanda di Tengah Teluk Jakarta",
@@ -1176,7 +1176,7 @@
    "yt_posted": 12,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 32402,
+   "views": 32406,
    "likes": 417,
    "comments": 7,
    "shares": 16,
@@ -1193,7 +1193,7 @@
      "title": "BESOK jendela transfer VCT 2027 dibuka: NAVI, MIBR, ENVY lepas roster + RUMOR valyn ke Fnatic",
      "format": "video",
      "pillar": "news",
-     "views": 2817
+     "views": 2821
     },
     {
      "title": "Manusia Setinggi 1 Meter Pernah Hidup di Flores",
@@ -1232,9 +1232,14 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 4067.800049,
+  "price": 4066.5,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-06 01:46:06",
+    "decision": "NO TRADE",
+    "reason": "kondisi berita bahaya: NFP Okt rilis 13:30 UTC hari ini, volatil; tunggu rilis dulu"
+   },
    {
     "ts": "2026-11-06 01:31:06",
     "decision": "NO TRADE",
@@ -1257,11 +1262,6 @@
    },
    {
     "ts": "2026-11-06 00:31:06",
-    "decision": "NO TRADE",
-    "reason": "kondisi berita bahaya: NFP Okt rilis 13:30 UTC hari ini, volatil; tunggu rilis dulu"
-   },
-   {
-    "ts": "2026-11-06 00:16:06",
     "decision": "NO TRADE",
     "reason": "kondisi berita bahaya: NFP Okt rilis 13:30 UTC hari ini, volatil; tunggu rilis dulu"
    }
@@ -1308,7 +1308,7 @@
    1716.0099999999995
   ],
   "last": {
-   "ts": "2026-11-06 01:31:06",
+   "ts": "2026-11-06 01:46:06",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1329,7 +1329,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4064.80 di bawah band bawah (4070.0–4111.0) · RSI 30 · Stoch 21 · MACD -1.98 · H1 sideways"
+    "note": "M15 4066.70 di bawah band bawah (4067.4–4111.1) · RSI 32 · Stoch 6 · MACD -2.36 · H1 sideways"
    }
   },
   "fund": {
@@ -1389,24 +1389,24 @@
    "M10": {
     "bias": "sideways",
     "score": -1,
-    "price": 4074.4,
-    "ema20": 4090.12,
-    "ema50": 4096.77,
-    "rsi": 37.7,
+    "price": 4064.5,
+    "ema20": 4087.68,
+    "ema50": 4095.5,
+    "rsi": 33,
     "n": 299,
-    "slot": 2989882,
-    "at": 1793929265927
+    "slot": 2989883,
+    "at": 1793929865926
    },
    "M15": {
     "bias": "bearish",
     "score": -2,
-    "price": 4067.7,
-    "ema20": 4094.1,
-    "ema50": 4101.09,
-    "rsi": 31.1,
+    "price": 4069.9,
+    "ema20": 4091.79,
+    "ema50": 4099.87,
+    "rsi": 33.1,
     "n": 299,
-    "slot": 1993254,
-    "at": 1793928665915
+    "slot": 1993255,
+    "at": 1793929565930
    },
    "M30": {
     "bias": "sideways",
