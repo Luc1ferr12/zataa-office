@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-06T12:13:05.835Z",
+ "generated_at": "2026-11-06T12:23:05.840Z",
  "today": "2026-11-06",
  "week_start": "2026-11-02",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-06 12:01:06"
+   "updated_at": "2026-11-06 12:16:06"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Waspada rilis Non-Farm Employment Change (21.30 WITA)",
-   "updated_at": "2026-11-06 12:01:06"
+   "updated_at": "2026-11-06 12:16:06"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-06 12:01:06"
+   "updated_at": "2026-11-06 12:16:06"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: berita berdampak tinggi: Non-Farm Employment Change (21.30 WITA)",
-   "updated_at": "2026-11-06 12:01:06"
+   "updated_at": "2026-11-06 12:16:06"
   },
   {
    "id": "texec",
@@ -706,6 +706,16 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-06 12:16:06",
+   "agent_id": "trisk",
+   "message": "NO TRADE · berita berdampak tinggi: Non-Farm Employment Change (21.30 WITA)"
+  },
+  {
+   "ts": "2026-11-06 12:16:06",
+   "agent_id": "ttech",
+   "message": "M15 berubah arah: sideways → bearish"
+  },
+  {
    "ts": "2026-11-06 12:11:06",
    "agent_id": "ttech",
    "message": "M10 berubah arah: sideways → bullish"
@@ -819,16 +829,6 @@
    "ts": "2026-11-06 06:51:06",
    "agent_id": "ttech",
    "message": "M10 berubah arah: sideways → bearish"
-  },
-  {
-   "ts": "2026-11-06 06:31:06",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: bearish → sideways"
-  },
-  {
-   "ts": "2026-11-06 06:16:06",
-   "agent_id": "trisk",
-   "message": "NO TRADE · kondisi berita bahaya: NFP Okt rilis 13:30 UTC hari ini, volatil; tunggu rilis dulu"
   }
  ],
  "chats": [
@@ -1232,9 +1232,14 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 4067,
+  "price": 4070.600098,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-06 12:16:06",
+    "decision": "NO TRADE",
+    "reason": "berita berdampak tinggi: Non-Farm Employment Change (21.30 WITA)"
+   },
    {
     "ts": "2026-11-06 12:01:06",
     "decision": "NO TRADE",
@@ -1259,11 +1264,6 @@
     "ts": "2026-11-06 11:01:33",
     "decision": "NO TRADE",
     "reason": "kondisi berita bahaya: NFP High 13:30Z; volatilitas rilis tinggi & berita 24 jam tak terverifikasi"
-   },
-   {
-    "ts": "2026-11-06 10:46:06",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
   ],
   "trades": [
@@ -1308,7 +1308,7 @@
    1716.0099999999995
   ],
   "last": {
-   "ts": "2026-11-06 12:01:06",
+   "ts": "2026-11-06 12:16:06",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1329,7 +1329,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4063.90 di bawah tengah band (4047.2–4087.0) · RSI 48 · Stoch 21 · MACD -0.48 · H1 sideways"
+    "note": "M15 4064.90 di bawah tengah band (4050.8–4085.1) · RSI 49 · Stoch 9 · MACD -0.69 · H1 sideways"
    }
   },
   "fund": {
@@ -1389,24 +1389,24 @@
    "M10": {
     "bias": "bullish",
     "score": 2,
-    "price": 4068.7,
-    "ema20": 4068.22,
-    "ema50": 4066.5,
-    "rsi": 52.2,
+    "price": 4069.2,
+    "ema20": 4068.31,
+    "ema50": 4066.61,
+    "rsi": 52.9,
     "n": 299,
-    "slot": 2989945,
-    "at": 1793967066377
+    "slot": 2989946,
+    "at": 1793967667048
    },
    "M15": {
-    "bias": "sideways",
-    "score": -1,
-    "price": 4064,
-    "ema20": 4066.38,
-    "ema50": 4069.09,
-    "rsi": 48,
+    "bias": "bearish",
+    "score": -2,
+    "price": 4063,
+    "ema20": 4066.06,
+    "ema50": 4068.85,
+    "rsi": 46.9,
     "n": 299,
-    "slot": 1993296,
-    "at": 1793966466355
+    "slot": 1993297,
+    "at": 1793967366369
    },
    "M30": {
     "bias": "sideways",
