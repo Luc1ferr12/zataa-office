@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-06T07:13:05.700Z",
+ "generated_at": "2026-11-06T07:23:05.703Z",
  "today": "2026-11-06",
  "week_start": "2026-11-02",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-06 07:01:06"
+   "updated_at": "2026-11-06 07:16:06"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Fed hawkish (3.50-3.75%, sinyal naik), NFP Sep meleset 29K. Geopolitik menopang. Berita 24 jam belum terkonfirmasi.",
-   "updated_at": "2026-11-06 07:01:06"
+   "updated_at": "2026-11-06 07:16:06"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-06 07:01:06"
+   "updated_at": "2026-11-06 07:16:06"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: kondisi berita bahaya: NFP Okt rilis 13:30 UTC hari ini, volatil; tunggu rilis dulu",
-   "updated_at": "2026-11-06 07:01:06"
+   "updated_at": "2026-11-06 07:16:06"
   },
   {
    "id": "texec",
@@ -706,6 +706,16 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-06 07:21:06",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: bearish → sideways"
+  },
+  {
+   "ts": "2026-11-06 07:16:06",
+   "agent_id": "trisk",
+   "message": "NO TRADE · kondisi berita bahaya: NFP Okt rilis 13:30 UTC hari ini, volatil; tunggu rilis dulu"
+  },
+  {
    "ts": "2026-11-06 07:11:06",
    "agent_id": "ttech",
    "message": "M10 berubah arah: sideways → bearish"
@@ -819,16 +829,6 @@
    "ts": "2026-11-06 01:44:05",
    "agent_id": "owner",
    "message": "Approve konten #121 ✅"
-  },
-  {
-   "ts": "2026-11-06 01:43:59",
-   "agent_id": "owner",
-   "message": "Approve Shorts #139 ✅"
-  },
-  {
-   "ts": "2026-11-06 01:16:06",
-   "agent_id": "trisk",
-   "message": "NO TRADE · kondisi berita bahaya: NFP Okt rilis 13:30 UTC hari ini, volatil; tunggu rilis dulu"
   }
  ],
  "chats": [
@@ -1232,9 +1232,14 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 4046.800049,
+  "price": 4050.899902,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-06 07:16:06",
+    "decision": "NO TRADE",
+    "reason": "kondisi berita bahaya: NFP Okt rilis 13:30 UTC hari ini, volatil; tunggu rilis dulu"
+   },
    {
     "ts": "2026-11-06 07:01:06",
     "decision": "NO TRADE",
@@ -1257,11 +1262,6 @@
    },
    {
     "ts": "2026-11-06 06:01:06",
-    "decision": "NO TRADE",
-    "reason": "kondisi berita bahaya: NFP Okt rilis 13:30 UTC hari ini, volatil; tunggu rilis dulu"
-   },
-   {
-    "ts": "2026-11-06 05:46:06",
     "decision": "NO TRADE",
     "reason": "kondisi berita bahaya: NFP Okt rilis 13:30 UTC hari ini, volatil; tunggu rilis dulu"
    }
@@ -1308,7 +1308,7 @@
    1716.0099999999995
   ],
   "last": {
-   "ts": "2026-11-06 07:01:06",
+   "ts": "2026-11-06 07:16:06",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1329,7 +1329,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4050.40 di atas tengah band (4031.5–4067.1) · RSI 42 · Stoch 76 · MACD +2.31 · H1 sideways"
+    "note": "M15 4046.80 di bawah tengah band (4034.2–4061.7) · RSI 38 · Stoch 63 · MACD +2.11 · H1 sideways"
    }
   },
   "fund": {
@@ -1387,26 +1387,26 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "bearish",
-    "score": -2,
-    "price": 4047.8,
-    "ema20": 4049.33,
-    "ema50": 4061.98,
-    "rsi": 45.3,
+    "bias": "sideways",
+    "score": 0,
+    "price": 4050.5,
+    "ema20": 4049.44,
+    "ema50": 4061.53,
+    "rsi": 48.4,
     "n": 299,
-    "slot": 2989915,
-    "at": 1793949066116
+    "slot": 2989916,
+    "at": 1793949666167
    },
    "M15": {
     "bias": "bearish",
     "score": -3,
-    "price": 4050,
-    "ema20": 4053.25,
-    "ema50": 4071.17,
-    "rsi": 41,
+    "price": 4047.6,
+    "ema20": 4052.71,
+    "ema50": 4070.25,
+    "rsi": 39,
     "n": 299,
-    "slot": 1993276,
-    "at": 1793948466143
+    "slot": 1993277,
+    "at": 1793949366125
    },
    "M30": {
     "bias": "bearish",
