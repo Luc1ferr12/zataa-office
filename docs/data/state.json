@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-06T06:43:05.696Z",
+ "generated_at": "2026-11-06T06:53:05.697Z",
  "today": "2026-11-06",
  "week_start": "2026-11-02",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-06 06:31:06"
+   "updated_at": "2026-11-06 06:46:06"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Fed hawkish (3.50-3.75%, sinyal naik), NFP Sep meleset 29K. Geopolitik menopang. Berita 24 jam belum terkonfirmasi.",
-   "updated_at": "2026-11-06 06:31:06"
+   "updated_at": "2026-11-06 06:46:06"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-06 06:31:06"
+   "updated_at": "2026-11-06 06:46:06"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: kondisi berita bahaya: NFP Okt rilis 13:30 UTC hari ini, volatil; tunggu rilis dulu",
-   "updated_at": "2026-11-06 06:31:06"
+   "updated_at": "2026-11-06 06:46:06"
   },
   {
    "id": "texec",
@@ -706,6 +706,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-06 06:51:06",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: sideways → bearish"
+  },
+  {
    "ts": "2026-11-06 06:31:06",
    "agent_id": "ttech",
    "message": "M10 berubah arah: bearish → sideways"
@@ -824,11 +829,6 @@
    "ts": "2026-11-06 01:04:31",
    "agent_id": "publisher",
    "message": "Kirim #140 ke Owner buat approval"
-  },
-  {
-   "ts": "2026-11-06 01:01:32",
-   "agent_id": "yvideo",
-   "message": "Shorts #139 dirender di laptop (suara OmniVoice) & dikirim ke Owner"
   }
  ],
  "chats": [
@@ -1124,24 +1124,24 @@
    "yt_posted": 8,
    "yt_pending": 0,
    "yt_scheduled": 2,
-   "views": 18009,
+   "views": 18041,
    "likes": 231,
    "comments": 1,
    "shares": 0,
    "saves": 4,
-   "yt_views": 14207,
+   "yt_views": 14239,
    "top": [
     {
      "title": "Sangkuriang: Legenda atau Ingatan Danau Bandung Purba?",
      "format": "shorts",
      "pillar": "legenda_mitos",
-     "views": 2906
+     "views": 2929
     },
     {
      "title": "Lubang Jepang: Penjara Rahasia di Bawah Bukittinggi",
      "format": "shorts",
      "pillar": "horor_sejarah",
-     "views": 2383
+     "views": 2389
     },
     {
      "title": "Pulau Onrust: Kuburan Belanda di Tengah Teluk Jakarta",
@@ -1232,9 +1232,14 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 4050.300049,
+  "price": 4049.899902,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-06 06:46:06",
+    "decision": "NO TRADE",
+    "reason": "kondisi berita bahaya: NFP Okt rilis 13:30 UTC hari ini, volatil; tunggu rilis dulu"
+   },
    {
     "ts": "2026-11-06 06:31:06",
     "decision": "NO TRADE",
@@ -1257,11 +1262,6 @@
    },
    {
     "ts": "2026-11-06 05:31:06",
-    "decision": "NO TRADE",
-    "reason": "kondisi berita bahaya: NFP Okt rilis 13:30 UTC hari ini, volatil; tunggu rilis dulu"
-   },
-   {
-    "ts": "2026-11-06 05:16:06",
     "decision": "NO TRADE",
     "reason": "kondisi berita bahaya: NFP Okt rilis 13:30 UTC hari ini, volatil; tunggu rilis dulu"
    }
@@ -1308,7 +1308,7 @@
    1716.0099999999995
   ],
   "last": {
-   "ts": "2026-11-06 06:31:06",
+   "ts": "2026-11-06 06:46:06",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1329,7 +1329,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4046.80 di bawah tengah band (4029.5–4071.9) · RSI 37 · Stoch 34 · MACD +1.48 · H1 sideways"
+    "note": "M15 4049.90 di bawah tengah band (4029.8–4070.8) · RSI 41 · Stoch 58 · MACD +2.04 · H1 sideways"
    }
   },
   "fund": {
@@ -1387,26 +1387,26 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "sideways",
-    "score": -1,
-    "price": 4049.3,
-    "ema20": 4049.59,
-    "ema50": 4063.69,
-    "rsi": 46.4,
+    "bias": "bearish",
+    "score": -2,
+    "price": 4048,
+    "ema20": 4049.44,
+    "ema50": 4063.07,
+    "rsi": 45.2,
     "n": 299,
-    "slot": 2989912,
-    "at": 1793947266106
+    "slot": 2989913,
+    "at": 1793947866105
    },
    "M15": {
     "bias": "bearish",
     "score": -3,
-    "price": 4045.8,
-    "ema20": 4054,
-    "ema50": 4072.95,
-    "rsi": 35.9,
+    "price": 4049.7,
+    "ema20": 4053.59,
+    "ema50": 4072.03,
+    "rsi": 40.7,
     "n": 299,
-    "slot": 1993274,
-    "at": 1793946666120
+    "slot": 1993275,
+    "at": 1793947566113
    },
    "M30": {
     "bias": "bearish",
