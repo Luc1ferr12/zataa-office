@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-06T08:43:05.745Z",
+ "generated_at": "2026-11-06T08:53:05.759Z",
  "today": "2026-11-06",
  "week_start": "2026-11-02",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-06 08:31:06"
+   "updated_at": "2026-11-06 08:46:06"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Fed hawkish (3.50-3.75%, sinyal naik), NFP Sep meleset 29K. Geopolitik menopang. Berita 24 jam belum terkonfirmasi.",
-   "updated_at": "2026-11-06 08:31:06"
+   "updated_at": "2026-11-06 08:46:06"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-06 08:31:06"
+   "updated_at": "2026-11-06 08:46:06"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: kondisi berita bahaya: NFP Okt rilis 13:30 UTC hari ini, volatil; tunggu rilis dulu",
-   "updated_at": "2026-11-06 08:31:06"
+   "updated_at": "2026-11-06 08:46:06"
   },
   {
    "id": "texec",
@@ -1232,9 +1232,14 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 4071.800049,
+  "price": 4070.899902,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-06 08:46:06",
+    "decision": "NO TRADE",
+    "reason": "kondisi berita bahaya: NFP Okt rilis 13:30 UTC hari ini, volatil; tunggu rilis dulu"
+   },
    {
     "ts": "2026-11-06 08:31:06",
     "decision": "NO TRADE",
@@ -1257,11 +1262,6 @@
    },
    {
     "ts": "2026-11-06 07:31:08",
-    "decision": "NO TRADE",
-    "reason": "kondisi berita bahaya: NFP Okt rilis 13:30 UTC hari ini, volatil; tunggu rilis dulu"
-   },
-   {
-    "ts": "2026-11-06 07:16:06",
     "decision": "NO TRADE",
     "reason": "kondisi berita bahaya: NFP Okt rilis 13:30 UTC hari ini, volatil; tunggu rilis dulu"
    }
@@ -1308,7 +1308,7 @@
    1716.0099999999995
   ],
   "last": {
-   "ts": "2026-11-06 08:31:06",
+   "ts": "2026-11-06 08:46:06",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1329,7 +1329,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4065.70 di atas band atas (4033.1–4064.2) · RSI 58 · Stoch 86 · MACD +4.00 · H1 sideways"
+    "note": "M15 4073.10 di atas band atas (4029.5–4071.4) · RSI 64 · Stoch 96 · MACD +4.76 · H1 sideways"
    }
   },
   "fund": {
@@ -1389,24 +1389,24 @@
    "M10": {
     "bias": "sideways",
     "score": 0,
-    "price": 4072.1,
-    "ema20": 4054.75,
-    "ema50": 4060.5,
-    "rsi": 66.9,
+    "price": 4073.9,
+    "ema20": 4056.57,
+    "ema50": 4061.02,
+    "rsi": 68,
     "n": 299,
-    "slot": 2989924,
-    "at": 1793954466170
+    "slot": 2989925,
+    "at": 1793955066389
    },
    "M15": {
     "bias": "sideways",
     "score": 0,
-    "price": 4067,
-    "ema20": 4053.85,
-    "ema50": 4067.48,
-    "rsi": 59.9,
+    "price": 4072.7,
+    "ema20": 4055.64,
+    "ema50": 4067.69,
+    "rsi": 63.9,
     "n": 299,
-    "slot": 1993282,
-    "at": 1793953866169
+    "slot": 1993283,
+    "at": 1793954766176
    },
    "M30": {
     "bias": "sideways",
