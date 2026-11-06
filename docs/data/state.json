@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-06T07:53:05.721Z",
+ "generated_at": "2026-11-06T08:03:05.733Z",
  "today": "2026-11-06",
  "week_start": "2026-11-02",
  "campaign": {
@@ -87,7 +87,7 @@
    "title": "Price Watcher",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-11-06 06:00:08"
+   "updated_at": "2026-11-06 08:00:07"
   },
   {
    "id": "ob",
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-06 07:46:06"
+   "updated_at": "2026-11-06 08:01:06"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Fed hawkish (3.50-3.75%, sinyal naik), NFP Sep meleset 29K. Geopolitik menopang. Berita 24 jam belum terkonfirmasi.",
-   "updated_at": "2026-11-06 07:46:06"
+   "updated_at": "2026-11-06 08:01:06"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-06 07:46:06"
+   "updated_at": "2026-11-06 08:01:06"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: kondisi berita bahaya: NFP Okt rilis 13:30 UTC hari ini, volatil; tunggu rilis dulu",
-   "updated_at": "2026-11-06 07:46:06"
+   "updated_at": "2026-11-06 08:01:06"
   },
   {
    "id": "texec",
@@ -706,6 +706,16 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-06 08:01:06",
+   "agent_id": "ttech",
+   "message": "M15 berubah arah: bearish → sideways"
+  },
+  {
+   "ts": "2026-11-06 08:01:06",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: bearish → sideways"
+  },
+  {
    "ts": "2026-11-06 07:31:08",
    "agent_id": "ttech",
    "message": "M10 berubah arah: sideways → bearish"
@@ -819,16 +829,6 @@
    "ts": "2026-11-06 01:53:38",
    "agent_id": "yvideo",
    "message": "Shorts #138 dirender di laptop (suara OmniVoice) & dikirim ke Owner"
-  },
-  {
-   "ts": "2026-11-06 01:53:38",
-   "agent_id": "ypublish",
-   "message": "Kirim Shorts #138 ke Owner buat approval"
-  },
-  {
-   "ts": "2026-11-06 01:44:05",
-   "agent_id": "owner",
-   "message": "Approve konten #140 ✅"
   }
  ],
  "chats": [
@@ -1232,9 +1232,14 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 4050.399902,
+  "price": 4052,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-06 08:01:06",
+    "decision": "NO TRADE",
+    "reason": "kondisi berita bahaya: NFP Okt rilis 13:30 UTC hari ini, volatil; tunggu rilis dulu"
+   },
    {
     "ts": "2026-11-06 07:46:06",
     "decision": "NO TRADE",
@@ -1257,11 +1262,6 @@
    },
    {
     "ts": "2026-11-06 06:46:06",
-    "decision": "NO TRADE",
-    "reason": "kondisi berita bahaya: NFP Okt rilis 13:30 UTC hari ini, volatil; tunggu rilis dulu"
-   },
-   {
-    "ts": "2026-11-06 06:31:06",
     "decision": "NO TRADE",
     "reason": "kondisi berita bahaya: NFP Okt rilis 13:30 UTC hari ini, volatil; tunggu rilis dulu"
    }
@@ -1308,7 +1308,7 @@
    1716.0099999999995
   ],
   "last": {
-   "ts": "2026-11-06 07:46:06",
+   "ts": "2026-11-06 08:01:06",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1329,7 +1329,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4047.20 di atas tengah band (4039.8–4052.6) · RSI 39 · Stoch 56 · MACD +2.09 · H1 sideways"
+    "note": "M15 4056.90 di atas band atas (4037.7–4056.2) · RSI 51 · Stoch 86 · MACD +3.02 · H1 sideways"
    }
   },
   "fund": {
@@ -1387,48 +1387,48 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "bearish",
-    "score": -2,
-    "price": 4046.5,
-    "ema20": 4048.43,
-    "ema50": 4059.72,
-    "rsi": 45.3,
+    "bias": "sideways",
+    "score": 0,
+    "price": 4056.8,
+    "ema20": 4049.23,
+    "ema50": 4059.61,
+    "rsi": 55.7,
     "n": 299,
-    "slot": 2989919,
-    "at": 1793951466139
+    "slot": 2989920,
+    "at": 1793952066156
    },
    "M15": {
-    "bias": "bearish",
-    "score": -3,
-    "price": 4047.6,
-    "ema20": 4051.69,
-    "ema50": 4068.46,
-    "rsi": 39.6,
+    "bias": "sideways",
+    "score": -1,
+    "price": 4056.8,
+    "ema20": 4052.17,
+    "ema50": 4068.01,
+    "rsi": 50.9,
     "n": 299,
-    "slot": 1993279,
-    "at": 1793951166144
+    "slot": 1993280,
+    "at": 1793952066163
    },
    "M30": {
     "bias": "bearish",
     "score": -3,
-    "price": 4046.5,
-    "ema20": 4063.54,
-    "ema50": 4078.66,
-    "rsi": 36.1,
+    "price": 4056.8,
+    "ema20": 4062.89,
+    "ema50": 4077.8,
+    "rsi": 43,
     "n": 299,
-    "slot": 996639,
-    "at": 1793950268076
+    "slot": 996640,
+    "at": 1793952066167
    },
    "H1": {
     "bias": "sideways",
-    "score": 0,
-    "price": 4050,
-    "ema20": 4078.04,
-    "ema50": 4064.45,
-    "rsi": 39.5,
+    "score": -1,
+    "price": 4056.8,
+    "ema20": 4076.02,
+    "ema50": 4064.15,
+    "rsi": 42.3,
     "n": 299,
-    "slot": 498319,
-    "at": 1793948466148
+    "slot": 498320,
+    "at": 1793952066171
    }
   },
   "currency": "USC",
