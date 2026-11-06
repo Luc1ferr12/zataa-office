@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-06T20:13:06.051Z",
+ "generated_at": "2026-11-06T20:23:06.056Z",
  "today": "2026-11-07",
  "week_start": "2026-11-02",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-06 20:01:07"
+   "updated_at": "2026-11-06 20:16:06"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Fed tahan 3,75–4% (28 Okt), inflasi lengket; NFP fc 65K & AHE 0,3% condong kuat USD → bias emas turun. Berita 24 jam tak terkonfirmasi.",
-   "updated_at": "2026-11-06 20:01:06"
+   "updated_at": "2026-11-06 20:16:06"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-06 20:01:07"
+   "updated_at": "2026-11-06 20:16:06"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
-   "updated_at": "2026-11-06 20:01:07"
+   "updated_at": "2026-11-06 20:16:06"
   },
   {
    "id": "texec",
@@ -706,6 +706,16 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-06 20:21:06",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: bullish → sideways"
+  },
+  {
+   "ts": "2026-11-06 20:16:06",
+   "agent_id": "trisk",
+   "message": "NO TRADE · jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
+  },
+  {
    "ts": "2026-11-06 19:51:06",
    "agent_id": "ttech",
    "message": "M10 berubah arah: sideways → bullish"
@@ -819,16 +829,6 @@
    "ts": "2026-11-06 13:00:40",
    "agent_id": "ttech",
    "message": "M30 berubah arah: sideways → bearish"
-  },
-  {
-   "ts": "2026-11-06 13:00:40",
-   "agent_id": "ttech",
-   "message": "M15 berubah arah: sideways → bearish"
-  },
-  {
-   "ts": "2026-11-06 12:51:06",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: bullish → sideways"
   }
  ],
  "chats": [
@@ -1232,9 +1232,14 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 4066.100098,
+  "price": 4063.899902,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-06 20:16:06",
+    "decision": "NO TRADE",
+    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
+   },
    {
     "ts": "2026-11-06 20:01:07",
     "decision": "NO TRADE",
@@ -1257,11 +1262,6 @@
    },
    {
     "ts": "2026-11-06 19:01:07",
-    "decision": "NO TRADE",
-    "reason": "kondisi berita bahaya: NFP High 13:30Z; volatilitas rilis tinggi & berita 24 jam tak terverifikasi"
-   },
-   {
-    "ts": "2026-11-06 18:46:06",
     "decision": "NO TRADE",
     "reason": "kondisi berita bahaya: NFP High 13:30Z; volatilitas rilis tinggi & berita 24 jam tak terverifikasi"
    }
@@ -1308,7 +1308,7 @@
    1716.0099999999995
   ],
   "last": {
-   "ts": "2026-11-06 20:01:07",
+   "ts": "2026-11-06 20:16:06",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1329,7 +1329,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4065.20 di atas tengah band (4048.8–4077.6) · RSI 52 · Stoch 42 · MACD +0.32 · H1 sideways"
+    "note": "M15 4065.20 di atas tengah band (4051.3–4076.6) · RSI 52 · Stoch 43 · MACD +0.11 · H1 sideways"
    }
   },
   "fund": {
@@ -1359,26 +1359,26 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "bullish",
-    "score": 2,
-    "price": 4066.5,
-    "ema20": 4064.98,
-    "ema50": 4062.46,
-    "rsi": 53.6,
+    "bias": "sideways",
+    "score": 0,
+    "price": 4062.1,
+    "ema20": 4064.7,
+    "ema50": 4062.44,
+    "rsi": 47.7,
     "n": 299,
-    "slot": 2989993,
-    "at": 1793995866894
+    "slot": 2989994,
+    "at": 1793996466871
    },
    "M15": {
     "bias": "bullish",
     "score": 3,
-    "price": 4065.1,
-    "ema20": 4063.59,
-    "ema50": 4063.09,
-    "rsi": 52.1,
+    "price": 4065.6,
+    "ema20": 4063.78,
+    "ema50": 4063.19,
+    "rsi": 52.6,
     "n": 299,
-    "slot": 1993328,
-    "at": 1793995266854
+    "slot": 1993329,
+    "at": 1793996166870
    },
    "M30": {
     "bias": "sideways",
