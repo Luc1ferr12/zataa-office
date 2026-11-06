@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-06T12:03:05.836Z",
+ "generated_at": "2026-11-06T12:13:05.835Z",
  "today": "2026-11-06",
  "week_start": "2026-11-02",
  "campaign": {
@@ -706,6 +706,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-06 12:11:06",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: sideways → bullish"
+  },
+  {
    "ts": "2026-11-06 12:01:23",
    "agent_id": "spublish",
    "message": "Cross-post Shorts #139 ke TikTok Zataa Story"
@@ -824,11 +829,6 @@
    "ts": "2026-11-06 06:16:06",
    "agent_id": "trisk",
    "message": "NO TRADE · kondisi berita bahaya: NFP Okt rilis 13:30 UTC hari ini, volatil; tunggu rilis dulu"
-  },
-  {
-   "ts": "2026-11-06 06:00:07",
-   "agent_id": "price",
-   "message": "Harga di web berubah (2 baris)"
   }
  ],
  "chats": [
@@ -1232,7 +1232,7 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 4063,
+  "price": 4067,
   "open": [],
   "signals": [
    {
@@ -1387,15 +1387,15 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "sideways",
-    "score": 0,
-    "price": 4064,
-    "ema20": 4068.17,
-    "ema50": 4066.41,
-    "rsi": 45.3,
+    "bias": "bullish",
+    "score": 2,
+    "price": 4068.7,
+    "ema20": 4068.22,
+    "ema50": 4066.5,
+    "rsi": 52.2,
     "n": 299,
-    "slot": 2989944,
-    "at": 1793966466350
+    "slot": 2989945,
+    "at": 1793967066377
    },
    "M15": {
     "bias": "sideways",
