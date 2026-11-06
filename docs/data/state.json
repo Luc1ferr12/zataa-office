@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-06T12:23:05.840Z",
+ "generated_at": "2026-11-06T12:33:05.844Z",
  "today": "2026-11-06",
  "week_start": "2026-11-02",
  "campaign": {
@@ -103,15 +103,15 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-06 12:16:06"
+   "updated_at": "2026-11-06 12:31:06"
   },
   {
    "id": "tresearch",
    "name": "Davina",
    "title": "Research & Fundamental",
    "status": "done",
-   "current_task": "Waspada rilis Non-Farm Employment Change (21.30 WITA)",
-   "updated_at": "2026-11-06 12:16:06"
+   "current_task": "Waspada rilis Average Hourly Earnings m/m (21.30 WITA)",
+   "updated_at": "2026-11-06 12:31:06"
   },
   {
    "id": "ttech",
@@ -119,15 +119,15 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-06 12:16:06"
+   "updated_at": "2026-11-06 12:31:06"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: berita berdampak tinggi: Non-Farm Employment Change (21.30 WITA)",
-   "updated_at": "2026-11-06 12:16:06"
+   "current_task": "NO TRADE: berita berdampak tinggi: Average Hourly Earnings m/m (21.30 WITA)",
+   "updated_at": "2026-11-06 12:31:06"
   },
   {
    "id": "texec",
@@ -706,6 +706,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-06 12:31:06",
+   "agent_id": "ttech",
+   "message": "M15 berubah arah: bearish → sideways"
+  },
+  {
    "ts": "2026-11-06 12:16:06",
    "agent_id": "trisk",
    "message": "NO TRADE · berita berdampak tinggi: Non-Farm Employment Change (21.30 WITA)"
@@ -824,11 +829,6 @@
    "ts": "2026-11-06 07:00:49",
    "agent_id": "analyst",
    "message": "Update data 45 post IG 📈"
-  },
-  {
-   "ts": "2026-11-06 06:51:06",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: sideways → bearish"
   }
  ],
  "chats": [
@@ -1232,9 +1232,14 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 4070.600098,
+  "price": 4070.399902,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-06 12:31:06",
+    "decision": "NO TRADE",
+    "reason": "berita berdampak tinggi: Average Hourly Earnings m/m (21.30 WITA)"
+   },
    {
     "ts": "2026-11-06 12:16:06",
     "decision": "NO TRADE",
@@ -1257,11 +1262,6 @@
    },
    {
     "ts": "2026-11-06 11:16:06",
-    "decision": "NO TRADE",
-    "reason": "kondisi berita bahaya: NFP High 13:30Z; volatilitas rilis tinggi & berita 24 jam tak terverifikasi"
-   },
-   {
-    "ts": "2026-11-06 11:01:33",
     "decision": "NO TRADE",
     "reason": "kondisi berita bahaya: NFP High 13:30Z; volatilitas rilis tinggi & berita 24 jam tak terverifikasi"
    }
@@ -1308,7 +1308,7 @@
    1716.0099999999995
   ],
   "last": {
-   "ts": "2026-11-06 12:16:06",
+   "ts": "2026-11-06 12:31:06",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1317,19 +1317,19 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "berita berdampak tinggi: Non-Farm Employment Change (21.30 WITA)",
+   "reason": "berita berdampak tinggi: Average Hourly Earnings m/m (21.30 WITA)",
    "fund": {
     "bias": -0.3,
     "note": "Fed tahan 3,75–4% (28 Okt), inflasi lengket; NFP fc 65K & AHE 0,3% condong kuat USD → bias emas turun. Berita 24 jam tak terkonfirmasi.",
     "danger": "NFP High 13:30Z; volatilitas rilis tinggi & berita 24 jam tak terverifikasi",
-    "blackout": "Non-Farm Employment Change (21.30 WITA)"
+    "blackout": "Average Hourly Earnings m/m (21.30 WITA)"
    },
    "tech": {
     "bias": "sideways",
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4064.90 di bawah tengah band (4050.8–4085.1) · RSI 49 · Stoch 9 · MACD -0.69 · H1 sideways"
+    "note": "M15 4070.80 di atas tengah band (4055.8–4082.9) · RSI 55 · Stoch 34 · MACD -0.21 · H1 sideways"
    }
   },
   "fund": {
@@ -1389,35 +1389,35 @@
    "M10": {
     "bias": "bullish",
     "score": 2,
-    "price": 4069.2,
-    "ema20": 4068.31,
-    "ema50": 4066.61,
-    "rsi": 52.9,
+    "price": 4069.8,
+    "ema20": 4068.45,
+    "ema50": 4066.73,
+    "rsi": 53.7,
     "n": 299,
-    "slot": 2989946,
-    "at": 1793967667048
+    "slot": 2989947,
+    "at": 1793968266352
    },
    "M15": {
-    "bias": "bearish",
-    "score": -2,
-    "price": 4063,
-    "ema20": 4066.06,
-    "ema50": 4068.85,
-    "rsi": 46.9,
+    "bias": "sideways",
+    "score": 0,
+    "price": 4069.8,
+    "ema20": 4066.41,
+    "ema50": 4068.89,
+    "rsi": 54.3,
     "n": 299,
-    "slot": 1993297,
-    "at": 1793967366369
+    "slot": 1993298,
+    "at": 1793968266357
    },
    "M30": {
     "bias": "sideways",
-    "score": -1,
-    "price": 4064,
-    "ema20": 4066.9,
-    "ema50": 4075.81,
-    "rsi": 46.6,
+    "score": 1,
+    "price": 4069.8,
+    "ema20": 4067.17,
+    "ema50": 4075.57,
+    "rsi": 50.1,
     "n": 299,
-    "slot": 996648,
-    "at": 1793966466357
+    "slot": 996649,
+    "at": 1793968266360
    },
    "H1": {
     "bias": "sideways",
