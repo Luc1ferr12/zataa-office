@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-06T01:53:05.573Z",
+ "generated_at": "2026-11-06T02:03:05.569Z",
  "today": "2026-11-06",
  "week_start": "2026-11-02",
  "campaign": {
@@ -87,7 +87,7 @@
    "title": "Price Watcher",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-11-06 00:00:07"
+   "updated_at": "2026-11-06 02:00:07"
   },
   {
    "id": "ob",
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-06 01:46:06"
+   "updated_at": "2026-11-06 02:01:06"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Fed hawkish (3.50-3.75%, sinyal naik), NFP Sep meleset 29K. Geopolitik menopang. Berita 24 jam belum terkonfirmasi.",
-   "updated_at": "2026-11-06 01:46:06"
+   "updated_at": "2026-11-06 02:01:06"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-06 01:46:06"
+   "updated_at": "2026-11-06 02:01:06"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: kondisi berita bahaya: NFP Okt rilis 13:30 UTC hari ini, volatil; tunggu rilis dulu",
-   "updated_at": "2026-11-06 01:46:06"
+   "updated_at": "2026-11-06 02:01:06"
   },
   {
    "id": "texec",
@@ -589,7 +589,7 @@
    "game": "sejarah",
    "pillar": "ancient_secrets",
    "title": "Gulungan Gosong 2.000 Tahun Ini Dibaca AI Tanpa Dibuka",
-   "status": "draft",
+   "status": "approved",
    "asset_url": null,
    "scheduled_at": null,
    "posted_at": null,
@@ -706,6 +706,26 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-06 02:01:06",
+   "agent_id": "ttech",
+   "message": "M30 berubah arah: sideways → bearish"
+  },
+  {
+   "ts": "2026-11-06 01:55:28",
+   "agent_id": "owner",
+   "message": "Approve Shorts #138 ✅"
+  },
+  {
+   "ts": "2026-11-06 01:53:38",
+   "agent_id": "yvideo",
+   "message": "Shorts #138 dirender di laptop (suara OmniVoice) & dikirim ke Owner"
+  },
+  {
+   "ts": "2026-11-06 01:53:38",
+   "agent_id": "ypublish",
+   "message": "Kirim Shorts #138 ke Owner buat approval"
+  },
+  {
    "ts": "2026-11-06 01:44:05",
    "agent_id": "owner",
    "message": "Approve konten #140 ✅"
@@ -809,26 +829,6 @@
    "ts": "2026-11-06 00:00:45",
    "agent_id": "ttech",
    "message": "M15 berubah arah: sideways → bearish"
-  },
-  {
-   "ts": "2026-11-05 23:46:05",
-   "agent_id": "ttech",
-   "message": "M15 berubah arah: bearish → sideways"
-  },
-  {
-   "ts": "2026-11-05 23:41:05",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: sideways → bearish"
-  },
-  {
-   "ts": "2026-11-05 23:31:05",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: bearish → sideways"
-  },
-  {
-   "ts": "2026-11-05 23:09:45",
-   "agent_id": "publisher",
-   "message": "Carousel #120 FFWS + Storm Arena terkirim ke Owner; video #121 nunggu render laptop"
   }
  ],
  "chats": [
@@ -1119,11 +1119,11 @@
    "total": 29,
    "posted": 18,
    "pending": 1,
-   "scheduled": 4,
+   "scheduled": 5,
    "yt_total": 10,
    "yt_posted": 8,
    "yt_pending": 0,
-   "yt_scheduled": 1,
+   "yt_scheduled": 2,
    "views": 17638,
    "likes": 229,
    "comments": 1,
@@ -1232,9 +1232,14 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 4066.5,
+  "price": 4063.399902,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-06 02:01:06",
+    "decision": "NO TRADE",
+    "reason": "kondisi berita bahaya: NFP Okt rilis 13:30 UTC hari ini, volatil; tunggu rilis dulu"
+   },
    {
     "ts": "2026-11-06 01:46:06",
     "decision": "NO TRADE",
@@ -1257,11 +1262,6 @@
    },
    {
     "ts": "2026-11-06 00:46:06",
-    "decision": "NO TRADE",
-    "reason": "kondisi berita bahaya: NFP Okt rilis 13:30 UTC hari ini, volatil; tunggu rilis dulu"
-   },
-   {
-    "ts": "2026-11-06 00:31:06",
     "decision": "NO TRADE",
     "reason": "kondisi berita bahaya: NFP Okt rilis 13:30 UTC hari ini, volatil; tunggu rilis dulu"
    }
@@ -1308,7 +1308,7 @@
    1716.0099999999995
   ],
   "last": {
-   "ts": "2026-11-06 01:46:06",
+   "ts": "2026-11-06 02:01:06",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1329,7 +1329,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4066.70 di bawah band bawah (4067.4–4111.1) · RSI 32 · Stoch 6 · MACD -2.36 · H1 sideways"
+    "note": "M15 4058.90 di bawah band bawah (4059.9–4114.8) · RSI 29 · Stoch 5 · MACD -3.33 · H1 sideways"
    }
   },
   "fund": {
@@ -1389,46 +1389,46 @@
    "M10": {
     "bias": "sideways",
     "score": -1,
-    "price": 4064.5,
-    "ema20": 4087.68,
-    "ema50": 4095.5,
-    "rsi": 33,
+    "price": 4061,
+    "ema20": 4085.14,
+    "ema50": 4094.15,
+    "rsi": 31.6,
     "n": 299,
-    "slot": 2989883,
-    "at": 1793929865926
+    "slot": 2989884,
+    "at": 1793930466000
    },
    "M15": {
     "bias": "bearish",
     "score": -2,
-    "price": 4069.9,
-    "ema20": 4091.79,
-    "ema50": 4099.87,
-    "rsi": 33.1,
+    "price": 4061,
+    "ema20": 4088.86,
+    "ema50": 4098.34,
+    "rsi": 29.4,
     "n": 299,
-    "slot": 1993255,
-    "at": 1793929565930
+    "slot": 1993256,
+    "at": 1793930466005
    },
    "M30": {
-    "bias": "sideways",
-    "score": -1,
-    "price": 4067.7,
-    "ema20": 4098,
-    "ema50": 4096.45,
-    "rsi": 36.1,
+    "bias": "bearish",
+    "score": -3,
+    "price": 4061,
+    "ema20": 4094.47,
+    "ema50": 4095.06,
+    "rsi": 34.1,
     "n": 299,
-    "slot": 996627,
-    "at": 1793928665916
+    "slot": 996628,
+    "at": 1793930466006
    },
    "H1": {
     "bias": "sideways",
     "score": 0,
-    "price": 4094.4,
-    "ema20": 4100.81,
-    "ema50": 4068.11,
-    "rsi": 49.6,
+    "price": 4061,
+    "ema20": 4097.02,
+    "ema50": 4067.84,
+    "rsi": 40,
     "n": 299,
-    "slot": 498313,
-    "at": 1793926865906
+    "slot": 498314,
+    "at": 1793930466012
    }
   },
   "currency": "USC",
