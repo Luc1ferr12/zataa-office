@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-06T22:53:06.123Z",
+ "generated_at": "2026-11-06T23:03:06.121Z",
  "today": "2026-11-07",
  "week_start": "2026-11-02",
  "campaign": {
@@ -30,8 +30,8 @@
    "name": "Salsa",
    "title": "Researcher",
    "status": "done",
-   "current_task": "Cek harga: 5 Diamonds MLBB sudah dihapus dari web",
-   "updated_at": "2026-11-06 04:25:30"
+   "current_task": "Riset esport: NAVI ke GF, Lower Final BTR vs TLID, Alfajer",
+   "updated_at": "2026-11-06 23:02:47"
   },
   {
    "id": "copywriter",
@@ -87,7 +87,7 @@
    "title": "Price Watcher",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-11-06 12:00:10"
+   "updated_at": "2026-11-06 23:00:06"
   },
   {
    "id": "ob",
@@ -143,7 +143,7 @@
    "title": "Evaluation & Optimization",
    "status": "done",
    "current_task": "Evaluasi mingguan beres",
-   "updated_at": "2026-10-30 23:00:52"
+   "updated_at": "2026-11-06 23:00:47"
   },
   {
    "id": "treport",
@@ -706,6 +706,36 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-06 23:02:47",
+   "agent_id": "analyst",
+   "message": "Pola: video news Valorant views tertinggi (rata 347), feed promo ~10 views"
+  },
+  {
+   "ts": "2026-11-06 23:02:47",
+   "agent_id": "price",
+   "message": "Harga ML live: 100 DM Rp29.266, 170 DM Rp48.866"
+  },
+  {
+   "ts": "2026-11-06 23:02:47",
+   "agent_id": "researcher",
+   "message": "NAVI 3-2 TLID ke Grand Final; BTR singkirkan AE; hari ini Lower Final BTR vs TLID Bo7"
+  },
+  {
+   "ts": "2026-11-06 23:02:47",
+   "agent_id": "researcher",
+   "message": "Nemu 6 topik baru"
+  },
+  {
+   "ts": "2026-11-06 23:00:47",
+   "agent_id": "teval",
+   "message": "Evaluasi + backtest mingguan selesai"
+  },
+  {
+   "ts": "2026-11-06 23:00:07",
+   "agent_id": "treport",
+   "message": "Laporan lengkap paper: belum layak ke akun real"
+  },
+  {
    "ts": "2026-11-06 22:00:53",
    "agent_id": "analyst",
    "message": "Update data 45 post IG 📈"
@@ -799,39 +829,23 @@
    "ts": "2026-11-06 17:16:06",
    "agent_id": "trisk",
    "message": "NO TRADE · kondisi berita bahaya: NFP High 13:30Z; volatilitas rilis tinggi & berita 24 jam tak terverifikasi"
-  },
-  {
-   "ts": "2026-11-06 16:31:06",
-   "agent_id": "ttech",
-   "message": "M30 berubah arah: bearish → sideways"
-  },
-  {
-   "ts": "2026-11-06 16:16:06",
-   "agent_id": "trisk",
-   "message": "NO TRADE · kondisi berita bahaya: NFP High 13:30Z; volatilitas rilis tinggi & berita 24 jam tak terverifikasi"
-  },
-  {
-   "ts": "2026-11-06 16:01:06",
-   "agent_id": "ttech",
-   "message": "M15 berubah arah: bearish → sideways"
-  },
-  {
-   "ts": "2026-11-06 16:01:06",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: bearish → sideways"
-  },
-  {
-   "ts": "2026-11-06 16:00:45",
-   "agent_id": "analyst",
-   "message": "Update data 45 post IG 📈"
-  },
-  {
-   "ts": "2026-11-06 15:31:06",
-   "agent_id": "ttech",
-   "message": "M15 berubah arah: sideways → bearish"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-11-06 23:02:47",
+   "agent_id": "researcher",
+   "to_id": "copywriter",
+   "kind": "oper",
+   "message": "Riset \"Riset esport: NAVI ke GF, Lower Final BTR vs TLID, Alfajer\" beres, udah dicek 2 sumber. Tiara, lanjut ya~"
+  },
+  {
+   "ts": "2026-11-06 23:00:07",
+   "agent_id": "treport",
+   "to_id": "tdir",
+   "kind": "oper",
+   "message": "Paper belum lolos syarat live, udah kulaporin ke Bos"
+  },
   {
    "ts": "2026-11-06 12:01:13",
    "agent_id": "publisher",
@@ -1097,20 +1111,6 @@
    "to_id": "owner",
    "kind": "santai",
    "message": "Komen pin buat #119: \"🏆 Hasil NAVI vs Alter Ego: NAVI menang 3-1, lanjut upper final Jumat 6 Nov! AE turun ke lower, belum gugur. Malam ini TLID vs BTR, prediksi kamu? 👇\""
-  },
-  {
-   "ts": "2026-11-05 10:54:49",
-   "agent_id": "researcher",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Bos, hasilnya keluar: NAVI menang 3-1 atas Alter Ego (cek esports.id + topik.id). NAVI ke upper final Jumat 6 Nov, AE turun ke lower."
-  },
-  {
-   "ts": "2026-11-05 10:54:40",
-   "agent_id": "researcher",
-   "to_id": "copywriter",
-   "kind": "santai",
-   "message": "NAVI akhirnya menang di playoff, katanya yang pertama sepanjang sejarah mereka. Tapi baru satu sumber yang bilang gitu, jadi nggak usah ditulis dulu ya"
   }
  ],
  "stats": {
@@ -1401,6 +1401,6 @@
    }
   },
   "currency": "USC",
-  "usd_idr": 18150.373413
+  "usd_idr": 18079.994377
  }
 }
