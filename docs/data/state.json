@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-06T20:53:06.068Z",
+ "generated_at": "2026-11-06T21:03:06.079Z",
  "today": "2026-11-07",
  "week_start": "2026-11-02",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-06 20:46:07"
+   "updated_at": "2026-11-06 21:01:07"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Fed tahan 3,75–4% (28 Okt), inflasi lengket; NFP fc 65K & AHE 0,3% condong kuat USD → bias emas turun. Berita 24 jam tak terkonfirmasi.",
-   "updated_at": "2026-11-06 20:46:07"
+   "updated_at": "2026-11-06 21:01:07"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-06 20:46:07"
+   "updated_at": "2026-11-06 21:01:07"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
-   "updated_at": "2026-11-06 20:46:07"
+   "updated_at": "2026-11-06 21:01:07"
   },
   {
    "id": "texec",
@@ -706,6 +706,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-06 21:01:07",
+   "agent_id": "ttech",
+   "message": "M15 berubah arah: sideways → bullish"
+  },
+  {
    "ts": "2026-11-06 20:51:06",
    "agent_id": "ttech",
    "message": "M10 berubah arah: sideways → bullish"
@@ -824,11 +829,6 @@
    "ts": "2026-11-06 13:41:06",
    "agent_id": "ttech",
    "message": "M10 berubah arah: sideways → bearish"
-  },
-  {
-   "ts": "2026-11-06 13:16:06",
-   "agent_id": "trisk",
-   "message": "NO TRADE · berita berdampak tinggi: Average Hourly Earnings m/m (21.30 WITA)"
   }
  ],
  "chats": [
@@ -1124,30 +1124,30 @@
    "yt_posted": 10,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 21170,
+   "views": 21180,
    "likes": 265,
    "comments": 1,
    "shares": 0,
    "saves": 4,
-   "yt_views": 15749,
+   "yt_views": 15759,
    "top": [
     {
      "title": "Sangkuriang: Legenda atau Ingatan Danau Bandung Purba?",
      "format": "shorts",
      "pillar": "legenda_mitos",
-     "views": 2954
+     "views": 2960
     },
     {
      "title": "Lubang Jepang: Penjara Rahasia di Bawah Bukittinggi",
      "format": "shorts",
      "pillar": "horor_sejarah",
-     "views": 2405
+     "views": 2415
     },
     {
      "title": "Tiga Danau Arwah di Flores yang Bisa Ganti Warna",
      "format": "shorts",
      "pillar": "peristiwa_aneh",
-     "views": 1878
+     "views": 1879
     }
    ],
    "clicks": 0,
@@ -1232,9 +1232,14 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 4067.300049,
+  "price": 4067,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-06 21:01:07",
+    "decision": "NO TRADE",
+    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
+   },
    {
     "ts": "2026-11-06 20:46:07",
     "decision": "NO TRADE",
@@ -1257,11 +1262,6 @@
    },
    {
     "ts": "2026-11-06 19:46:07",
-    "decision": "NO TRADE",
-    "reason": "kondisi berita bahaya: NFP High 13:30Z; volatilitas rilis tinggi & berita 24 jam tak terverifikasi"
-   },
-   {
-    "ts": "2026-11-06 19:31:06",
     "decision": "NO TRADE",
     "reason": "kondisi berita bahaya: NFP High 13:30Z; volatilitas rilis tinggi & berita 24 jam tak terverifikasi"
    }
@@ -1308,7 +1308,7 @@
    1716.0099999999995
   ],
   "last": {
-   "ts": "2026-11-06 20:46:07",
+   "ts": "2026-11-06 21:01:07",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1329,13 +1329,10 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4065.10 di atas tengah band (4054.3–4075.5) · RSI 52 · Stoch 39 · MACD -0.26 · H1 sideways"
+    "note": "M15 4067.10 di atas tengah band (4054.5–4075.8) · RSI 54 · Stoch 46 · MACD -0.13 · H1 sideways"
    }
   },
-  "fund": {
-   "bias": -0.3,
-   "note": "Fed tahan 3,75–4% (28 Okt), inflasi lengket; NFP fc 65K & AHE 0,3% condong kuat USD → bias emas turun. Berita 24 jam tak terkonfirmasi."
-  },
+  "fund": null,
   "calendar": [],
   "ea": {
    "connected": false,
@@ -1360,47 +1357,47 @@
   "tf": {
    "M10": {
     "bias": "bullish",
-    "score": 3,
-    "price": 4067,
-    "ema20": 4064.85,
-    "ema50": 4062.75,
-    "rsi": 54.2,
+    "score": 2,
+    "price": 4066.8,
+    "ema20": 4065.03,
+    "ema50": 4062.91,
+    "rsi": 53.9,
     "n": 299,
-    "slot": 2989997,
-    "at": 1793998266890
+    "slot": 2989998,
+    "at": 1793998867373
    },
    "M15": {
-    "bias": "sideways",
-    "score": 1,
-    "price": 4063.8,
-    "ema20": 4063.84,
-    "ema50": 4063.26,
-    "rsi": 50.8,
+    "bias": "bullish",
+    "score": 3,
+    "price": 4066.8,
+    "ema20": 4064.12,
+    "ema50": 4063.4,
+    "rsi": 53.7,
     "n": 299,
-    "slot": 1993331,
-    "at": 1793997966890
+    "slot": 1993332,
+    "at": 1793998867378
    },
    "M30": {
     "bias": "sideways",
     "score": 1,
-    "price": 4064.4,
-    "ema20": 4063.21,
-    "ema50": 4068.55,
-    "rsi": 50.2,
+    "price": 4066.8,
+    "ema20": 4063.56,
+    "ema50": 4068.48,
+    "rsi": 51.6,
     "n": 299,
-    "slot": 996665,
-    "at": 1793997066884
+    "slot": 996666,
+    "at": 1793998867381
    },
    "H1": {
     "bias": "sideways",
     "score": -1,
-    "price": 4065.1,
-    "ema20": 4067.56,
-    "ema50": 4064.07,
-    "rsi": 48.2,
+    "price": 4066.8,
+    "ema20": 4067.49,
+    "ema50": 4064.18,
+    "rsi": 48.9,
     "n": 299,
-    "slot": 498332,
-    "at": 1793995266861
+    "slot": 498333,
+    "at": 1793998867386
    }
   },
   "currency": "USC",
