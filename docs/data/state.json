@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-06T10:53:05.795Z",
+ "generated_at": "2026-11-06T11:03:05.805Z",
  "today": "2026-11-06",
  "week_start": "2026-11-02",
  "campaign": {
@@ -103,15 +103,15 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-06 10:46:06"
+   "updated_at": "2026-11-06 11:01:33"
   },
   {
    "id": "tresearch",
    "name": "Davina",
    "title": "Research & Fundamental",
    "status": "done",
-   "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
-   "updated_at": "2026-11-06 10:46:06"
+   "current_task": "Fundamental: Fed tahan 3,75–4% (28 Okt), inflasi lengket; NFP fc 65K & AHE 0,3% condong kuat USD → bias emas turun. Berita 24 jam tak terkonfirmasi.",
+   "updated_at": "2026-11-06 11:01:33"
   },
   {
    "id": "ttech",
@@ -119,15 +119,15 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-06 10:46:06"
+   "updated_at": "2026-11-06 11:01:33"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-11-06 10:46:06"
+   "current_task": "NO TRADE: kondisi berita bahaya: NFP High 13:30Z; volatilitas rilis tinggi & berita 24 jam tak terverifikasi",
+   "updated_at": "2026-11-06 11:01:33"
   },
   {
    "id": "texec",
@@ -589,10 +589,10 @@
    "game": "sejarah",
    "pillar": "ancient_secrets",
    "title": "Gulungan Gosong 2.000 Tahun Ini Dibaca AI Tanpa Dibuka",
-   "status": "approved",
-   "asset_url": null,
+   "status": "posted",
+   "asset_url": "https://www.youtube.com/watch?v=HLYKjWplOlo",
    "scheduled_at": null,
-   "posted_at": null,
+   "posted_at": "2026-11-06 11:00:37",
    "channel": "youtube"
   },
   {
@@ -705,6 +705,16 @@
   }
  ],
  "activity": [
+  {
+   "ts": "2026-11-06 11:01:06",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: bullish → sideways"
+  },
+  {
+   "ts": "2026-11-06 11:00:37",
+   "agent_id": "ypublish",
+   "message": "Upload Shorts #138 ke Zataa History (Publik via Zernio)"
+  },
   {
    "ts": "2026-11-06 10:16:06",
    "agent_id": "trisk",
@@ -819,19 +829,16 @@
    "ts": "2026-11-06 04:24:05",
    "agent_id": "owner",
    "message": "Minta konten promo dari perubahan harga 💰"
-  },
-  {
-   "ts": "2026-11-06 04:16:06",
-   "agent_id": "trisk",
-   "message": "NO TRADE · kondisi berita bahaya: NFP Okt rilis 13:30 UTC hari ini, volatil; tunggu rilis dulu"
-  },
-  {
-   "ts": "2026-11-06 04:00:56",
-   "agent_id": "price",
-   "message": "Harga di web berubah (1 baris)"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-11-06 11:00:09",
+   "agent_id": "analyst",
+   "to_id": "dir",
+   "kind": "oper",
+   "message": "Laporan harian marketing udah aku kirim ke Bos, 2 konten tayang hari ini 📊"
+  },
   {
    "ts": "2026-11-06 09:01:11",
    "agent_id": "publisher",
@@ -1104,26 +1111,19 @@
    "to_id": "designer",
    "kind": "oper",
    "message": "Teks buat \"Teks komen pin #119 siap\" ready. Vania, giliranmu bikin cakep!"
-  },
-  {
-   "ts": "2026-11-05 10:54:39",
-   "agent_id": "researcher",
-   "to_id": "copywriter",
-   "kind": "oper",
-   "message": "Tiara, bahan buat \"Hasil NAVI 3-1 AE (esports.id + topik.id)\" udah aku rangkum + sumbernya. Tinggal kamu racik captionnya ✍️"
   }
  ],
  "stats": {
   "this_week": {
    "week": "2026-11-02",
    "total": 29,
-   "posted": 20,
+   "posted": 21,
    "pending": 1,
-   "scheduled": 3,
+   "scheduled": 2,
    "yt_total": 10,
-   "yt_posted": 8,
+   "yt_posted": 9,
    "yt_pending": 0,
-   "yt_scheduled": 2,
+   "yt_scheduled": 1,
    "views": 18351,
    "likes": 241,
    "comments": 1,
@@ -1232,9 +1232,14 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 4065.5,
+  "price": 4066.100098,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-06 11:01:33",
+    "decision": "NO TRADE",
+    "reason": "kondisi berita bahaya: NFP High 13:30Z; volatilitas rilis tinggi & berita 24 jam tak terverifikasi"
+   },
    {
     "ts": "2026-11-06 10:46:06",
     "decision": "NO TRADE",
@@ -1257,11 +1262,6 @@
    },
    {
     "ts": "2026-11-06 09:46:06",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-11-06 09:30:44",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1308,7 +1308,7 @@
    1716.0099999999995
   ],
   "last": {
-   "ts": "2026-11-06 10:46:06",
+   "ts": "2026-11-06 11:01:33",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1317,11 +1317,11 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
+   "reason": "kondisi berita bahaya: NFP High 13:30Z; volatilitas rilis tinggi & berita 24 jam tak terverifikasi",
    "fund": {
-    "bias": 0,
-    "note": "netral (belum ada ringkasan hari ini)",
-    "danger": null,
+    "bias": -0.3,
+    "note": "Fed tahan 3,75–4% (28 Okt), inflasi lengket; NFP fc 65K & AHE 0,3% condong kuat USD → bias emas turun. Berita 24 jam tak terkonfirmasi.",
+    "danger": "NFP High 13:30Z; volatilitas rilis tinggi & berita 24 jam tak terverifikasi",
     "blackout": null
    },
    "tech": {
@@ -1329,10 +1329,13 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4069.50 di atas tengah band (4035.3–4089.4) · RSI 55 · Stoch 69 · MACD +1.31 · H1 sideways"
+    "note": "M15 4065.50 di atas tengah band (4037.6–4088.7) · RSI 51 · Stoch 62 · MACD +0.52 · H1 sideways"
    }
   },
-  "fund": null,
+  "fund": {
+   "bias": -0.3,
+   "note": "Fed tahan 3,75–4% (28 Okt), inflasi lengket; NFP fc 65K & AHE 0,3% condong kuat USD → bias emas turun. Berita 24 jam tak terkonfirmasi."
+  },
   "calendar": [
    {
     "title": "Average Hourly Earnings m/m",
@@ -1384,48 +1387,48 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "bullish",
-    "score": 3,
-    "price": 4069.5,
-    "ema20": 4067.89,
+    "bias": "sideways",
+    "score": 1,
+    "price": 4065.8,
+    "ema20": 4067.69,
     "ema50": 4065.77,
-    "rsi": 55.3,
+    "rsi": 49.5,
     "n": 299,
-    "slot": 2989937,
-    "at": 1793962266286
+    "slot": 2989938,
+    "at": 1793962866274
    },
    "M15": {
     "bias": "sideways",
     "score": 1,
-    "price": 4069.7,
-    "ema20": 4065.4,
-    "ema50": 4069.36,
-    "rsi": 55.5,
+    "price": 4065.8,
+    "ema20": 4065.44,
+    "ema50": 4069.22,
+    "rsi": 51,
     "n": 299,
-    "slot": 1993291,
-    "at": 1793961966446
+    "slot": 1993292,
+    "at": 1793962866281
    },
    "M30": {
     "bias": "sideways",
-    "score": 1,
-    "price": 4069,
-    "ema20": 4066.84,
-    "ema50": 4076.92,
-    "rsi": 49.2,
+    "score": -1,
+    "price": 4065.8,
+    "ema20": 4066.74,
+    "ema50": 4076.48,
+    "rsi": 47.4,
     "n": 299,
-    "slot": 996645,
-    "at": 1793961066252
+    "slot": 996646,
+    "at": 1793962866283
    },
    "H1": {
     "bias": "sideways",
     "score": -1,
-    "price": 4074.1,
-    "ema20": 4075.84,
-    "ema50": 4064.99,
-    "rsi": 48.8,
+    "price": 4065.8,
+    "ema20": 4074.88,
+    "ema50": 4065.02,
+    "rsi": 46,
     "n": 299,
-    "slot": 498322,
-    "at": 1793959266233
+    "slot": 498323,
+    "at": 1793962866287
    }
   },
   "currency": "USC",
