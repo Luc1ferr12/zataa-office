@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-06T07:03:05.694Z",
+ "generated_at": "2026-11-06T07:13:05.700Z",
  "today": "2026-11-06",
  "week_start": "2026-11-02",
  "campaign": {
@@ -706,6 +706,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-06 07:11:06",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: sideways → bearish"
+  },
+  {
    "ts": "2026-11-06 07:01:06",
    "agent_id": "ttech",
    "message": "M10 berubah arah: bearish → sideways"
@@ -824,11 +829,6 @@
    "ts": "2026-11-06 01:16:06",
    "agent_id": "trisk",
    "message": "NO TRADE · kondisi berita bahaya: NFP Okt rilis 13:30 UTC hari ini, volatil; tunggu rilis dulu"
-  },
-  {
-   "ts": "2026-11-06 01:16:05",
-   "agent_id": "ttech",
-   "message": "M15 berubah arah: sideways → bearish"
   }
  ],
  "chats": [
@@ -1232,7 +1232,7 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 4049.899902,
+  "price": 4046.800049,
   "open": [],
   "signals": [
    {
@@ -1387,15 +1387,15 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "sideways",
-    "score": 0,
-    "price": 4050,
-    "ema20": 4049.49,
-    "ema50": 4062.56,
-    "rsi": 47.5,
+    "bias": "bearish",
+    "score": -2,
+    "price": 4047.8,
+    "ema20": 4049.33,
+    "ema50": 4061.98,
+    "rsi": 45.3,
     "n": 299,
-    "slot": 2989914,
-    "at": 1793948466136
+    "slot": 2989915,
+    "at": 1793949066116
    },
    "M15": {
     "bias": "bearish",
