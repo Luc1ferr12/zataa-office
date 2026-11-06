@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-06T09:13:05.762Z",
+ "generated_at": "2026-11-06T09:23:05.764Z",
  "today": "2026-11-06",
  "week_start": "2026-11-02",
  "campaign": {
@@ -103,15 +103,15 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-06 09:01:06"
+   "updated_at": "2026-11-06 09:16:06"
   },
   {
    "id": "tresearch",
    "name": "Davina",
    "title": "Research & Fundamental",
    "status": "done",
-   "current_task": "Fundamental: Fed hawkish (3.50-3.75%, sinyal naik), NFP Sep meleset 29K. Geopolitik menopang. Berita 24 jam belum terkonfirmasi.",
-   "updated_at": "2026-11-06 09:01:06"
+   "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
+   "updated_at": "2026-11-06 09:16:06"
   },
   {
    "id": "ttech",
@@ -119,15 +119,15 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-06 09:01:06"
+   "updated_at": "2026-11-06 09:16:06"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: kondisi berita bahaya: NFP Okt rilis 13:30 UTC hari ini, volatil; tunggu rilis dulu",
-   "updated_at": "2026-11-06 09:01:06"
+   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
+   "updated_at": "2026-11-06 09:16:06"
   },
   {
    "id": "texec",
@@ -706,6 +706,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-06 09:16:06",
+   "agent_id": "trisk",
+   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+  },
+  {
    "ts": "2026-11-06 09:01:11",
    "agent_id": "publisher",
    "message": "Posting #140 ke IG + TikTok ✅"
@@ -824,11 +829,6 @@
    "ts": "2026-11-06 02:31:05",
    "agent_id": "ttech",
    "message": "M10 berubah arah: sideways → bearish"
-  },
-  {
-   "ts": "2026-11-06 02:16:06",
-   "agent_id": "trisk",
-   "message": "NO TRADE · kondisi berita bahaya: NFP Okt rilis 13:30 UTC hari ini, volatil; tunggu rilis dulu"
   }
  ],
  "chats": [
@@ -1232,9 +1232,14 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 4079,
+  "price": 4080.600098,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-06 09:16:06",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
    {
     "ts": "2026-11-06 09:01:06",
     "decision": "NO TRADE",
@@ -1257,11 +1262,6 @@
    },
    {
     "ts": "2026-11-06 08:01:06",
-    "decision": "NO TRADE",
-    "reason": "kondisi berita bahaya: NFP Okt rilis 13:30 UTC hari ini, volatil; tunggu rilis dulu"
-   },
-   {
-    "ts": "2026-11-06 07:46:06",
     "decision": "NO TRADE",
     "reason": "kondisi berita bahaya: NFP Okt rilis 13:30 UTC hari ini, volatil; tunggu rilis dulu"
    }
@@ -1308,7 +1308,7 @@
    1716.0099999999995
   ],
   "last": {
-   "ts": "2026-11-06 09:01:06",
+   "ts": "2026-11-06 09:16:06",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1317,11 +1317,11 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "kondisi berita bahaya: NFP Okt rilis 13:30 UTC hari ini, volatil; tunggu rilis dulu",
+   "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
    "fund": {
-    "bias": -0.2,
-    "note": "Fed hawkish (3.50-3.75%, sinyal naik), NFP Sep meleset 29K. Geopolitik menopang. Berita 24 jam belum terkonfirmasi.",
-    "danger": "NFP Okt rilis 13:30 UTC hari ini, volatil; tunggu rilis dulu",
+    "bias": 0,
+    "note": "netral (belum ada ringkasan hari ini)",
+    "danger": null,
     "blackout": null
    },
    "tech": {
@@ -1329,7 +1329,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4077.10 di atas band atas (4027.5–4077.1) · RSI 67 · Stoch 99 · MACD +5.11 · H1 sideways"
+    "note": "M15 4079.30 di atas tengah band (4026.3–4082.3) · RSI 67 · Stoch 98 · MACD +5.22 · H1 sideways"
    }
   },
   "fund": null,
@@ -1386,24 +1386,24 @@
    "M10": {
     "bias": "sideways",
     "score": 0,
-    "price": 4079.9,
-    "ema20": 4060.48,
-    "ema50": 4062.33,
-    "rsi": 71.6,
+    "price": 4079.1,
+    "ema20": 4062.25,
+    "ema50": 4062.99,
+    "rsi": 70.4,
     "n": 299,
-    "slot": 2989927,
-    "at": 1793956266212
+    "slot": 2989928,
+    "at": 1793956866190
    },
    "M15": {
     "bias": "sideways",
     "score": 0,
-    "price": 4076.1,
-    "ema20": 4057.59,
-    "ema50": 4068.02,
-    "rsi": 66,
+    "price": 4080,
+    "ema20": 4059.73,
+    "ema50": 4068.49,
+    "rsi": 68.4,
     "n": 299,
-    "slot": 1993284,
-    "at": 1793955666262
+    "slot": 1993285,
+    "at": 1793956566194
    },
    "M30": {
     "bias": "sideways",
