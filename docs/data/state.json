@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-07T02:33:06.223Z",
+ "generated_at": "2026-11-07T02:43:06.229Z",
  "today": "2026-11-07",
  "week_start": "2026-11-02",
  "campaign": {
@@ -631,8 +631,8 @@
    "game": "valorant",
    "pillar": "news",
    "title": "Alfajer cabut dari Fnatic setelah 4 tahun, RUMOR ke Gentle Mates bareng Boaster",
-   "status": "draft",
-   "asset_url": null,
+   "status": "pending_approval",
+   "asset_url": "{\"video\":\"https://luc1ferr12.github.io/zataa-office/media/2026-11-07/143-alfajer-cabut-dari-fnatic-setelah-4-tahu-ov.mp4\",\"cover\":\"https://luc1ferr12.github.io/zataa-office/media/2026-11-07/143-alfajer-cabut-dari-fnatic-setelah-4-tahu-ov-cover.jpg\"}",
    "scheduled_at": null,
    "posted_at": null,
    "channel": null
@@ -748,6 +748,16 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-07 02:35:50",
+   "agent_id": "video",
+   "message": "video #143 dirender di laptop (suara OmniVoice) & dikirim ke Owner"
+  },
+  {
+   "ts": "2026-11-07 02:35:49",
+   "agent_id": "publisher",
+   "message": "Kirim #143 ke Owner buat approval"
+  },
+  {
    "ts": "2026-11-07 02:23:38",
    "agent_id": "publisher",
    "message": "Konten #143 (idea 178) antre render OmniVoice di laptop, auto-submit ke Owner"
@@ -861,16 +871,6 @@
    "ts": "2026-11-06 23:03:10",
    "agent_id": "dir",
    "message": "Pilih: BTR vs TLID H2H (feed), AE tribute (feed), Alfajer-Fnatic (video)"
-  },
-  {
-   "ts": "2026-11-06 23:03:10",
-   "agent_id": "dir",
-   "message": "Kirim 3 ide briefing ke Owner"
-  },
-  {
-   "ts": "2026-11-06 23:03:09",
-   "agent_id": "dir",
-   "message": "Pilih 3 ide terbaik dari briefing (2 feed + 1 video)"
   }
  ],
  "chats": [
@@ -1160,7 +1160,7 @@
    "week": "2026-11-02",
    "total": 32,
    "posted": 23,
-   "pending": 1,
+   "pending": 2,
    "scheduled": 4,
    "yt_total": 12,
    "yt_posted": 10,
