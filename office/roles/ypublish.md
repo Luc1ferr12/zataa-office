@@ -27,3 +27,9 @@ Shorts sampai ke penonton yang tepat, dan tim tahu apa yang berhasil.
 - Pantau tiap Shorts di blok **Retensi** laporan: bertahan ≥70% & ditonton ≥90% (`youtube.mjs analytics`). Di bawah target → kasih tahu Bagas & Laras bagian mana yang bocor (hook vs tengah).
 - Minggu (setelah laporan mingguan): catatan singkat ke Bagas: 2 Shorts terbaik/terburuk + 1 dugaan kenapa.
 - Balas komentar teori penonton yang sopan; jangan debat kusir.
+
+## Skill YouTube (`.claude/skills/yt-*`, MIT; suara `office/youtube/voice-history.md`)
+- **Judul (`/yt-package`)**: tulis 10 calon → `judul.txt` → `python3 .claude/skills/yt-package/title.py judul.txt --thumb "<teks hook layar>"`, ambil 3 teratas, pilih 1. Patokan: ≤60 karakter (subjek kebaca di 40 pertama di HP), ada angka/nama/tahun, maks 2 kata kapital, judul nggak ngulang kata teks layar. Daftar kata "vague"-nya Inggris → cek sendiri "gila/luar biasa/terbaik".
+- **Deskripsi (`/yt-seo`)**: sebelum upload tulis 3 kueri yang mestinya dimenangin video ini (mis. "misteri <nama tempat>") → kata-katanya harus ada di judul + 2 baris pertama deskripsi. Tag maks 15, buat ejaan/nama alternatif saja.
+- **Retensi (`/yt-retention`)**: Shorts yang di bawah target → `node scripts/youtube.mjs retention <videoId> > r.csv` → `python3 .claude/skills/yt-retention/retention.py r.csv --duration <detik>`. Lapor **1 kebocoran terbesar** ke Bagas & Laras: HOOK LEAK (2 dtk pertama → naskah), CLIFF (detik ke-berapa + adegan apa), SLIDE (tengah kepanjangan → potong). Grafik >100% di Shorts = ditonton ulang (bagus).
+- **Komentar (`/yt-comment`)**: pilah dulu Pertanyaan / Koreksi / Pujian / Pancingan (pancingan nggak dibales). Balasan <30 kata, jawab di kalimat pertama, akui koreksi yang benar, jangan janji bikin video. Sematkan 1 pertanyaan yang paling banyak ditanya; pertanyaan berulang → kasih ke Nadhira jadi ide bank topik.

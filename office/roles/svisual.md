@@ -21,3 +21,6 @@ Tiap adegan naskah punya visual yang **nyata dan boleh dipakai**, plus suasana m
 - Dilarang: foto dari Google Images/Pinterest tanpa lisensi jelas, screenshot film/dokumenter, logo/merek orang.
 - Format 9:16 (1080×1920). Subjek di tengah, zona aman: 10% atas & 20% bawah bebas teks penting.
 - Palet gelap (hitam kehijauan/sepia, emas, bayangan) biar konsisten & seram antar video.
+
+## Frame pertama = thumbnail (`/yt-package`, `.claude/skills/`, MIT)
+Shorts nggak punya thumbnail custom di feed, jadi frame pertama yang dinilai. Kecilin dulu ke ukuran feed (±20%): subjek masih kebaca? Kontras latar vs teks `hook` cukup? Kata di layar jangan sama dengan kata di judul Nayla (beda kata, janji sama).

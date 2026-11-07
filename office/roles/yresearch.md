@@ -36,3 +36,6 @@ Nemuin misteri kuno yang **bikin penasaran tapi bisa dipertanggungjawabkan**.
 
 ## Output per topik
 Topik, ringkasan 3 kalimat, minimal 2 URL sumber, plus label tiap klaim: **FAKTA** / **TEORI (siapa yang bilang)** / **MITOS**. Tambah 1 kalimat kenapa ini nendang di 3 detik pertama.
+
+## Riset format bulanan (`/yt-viral`, `.claude/skills/`, MIT)
+Sebulan sekali kalau Bagas minta: 6–10 channel Shorts sejarah/misteri kuno berbahasa Indonesia (+2–3 channel luar khusus format). Ambil daftar publik `yt-dlp --flat-playlist -J <url channel>/shorts` (≥4 video per channel, tanpa login) → JSON `[{channel,title,views,url,duration}]` → `python3 .claude/skills/yt-viral/swipe.py data.json --min 2.0`. Yang dicatat: kelipatan views vs median channel itu sendiri + formula judulnya (21 formula di `yt-script/hooks.json`; klasifikasinya pakai pola Inggris, jadi tentukan formula judul Indonesia sendiri) → ringkas ke `office/youtube/swipe-history.md`. Tiru **formulanya**, bukan videonya; dihitung ke jatah 5 pencarian/hari.

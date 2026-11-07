@@ -21,3 +21,8 @@ Channel YouTube **Zataa History** (dulu Zataa Story), sejarah kuno dunia (pilar 
 - Fakta, teori ahli, dan spekulasi/mitos **wajib dibedakan** di naskah. Nggak boleh nyebut teori pinggiran (alien, peradaban hilang) sebagai fakta.
 - Variasi tiap minggu: hook, gaya narasi, dan struktur jangan template sama persis (YouTube bisa nolak monetisasi konten massal yang berulang).
 - Hemat token: tim ini cuma kerja sesuai jatah harian di `office/youtube.md`.
+
+## Skill YouTube (`.claude/skills/yt-*`, MIT; suara channel `office/youtube/voice-history.md`)
+- **Senin, rencana 7 topik ala `/yt-plan`**: tanya dulu apa yang sudah setengah jadi (topik `approved`, aset di `assets/shorts/`). Kuota Owner (7/minggu) menang atas saran skill "3 upload/minggu". Ambil cara pikirnya: 1 **anchor** (topik terkuat, taruh di hari paling ramai menurut data Kirana, bukan tebakan), 1 topik murah dari komentar terbanyak minggu lalu, sisanya pilar wajib. Tiap baris: hari, pilar, judul kerja, 1 kalimat janji, yang sudah ada.
+- **Minggu terakhir tiap bulan, `/yt-audit`**: 10 judul terakhir sebagai satu daftar (`python3 .claude/skills/yt-package/title.py judul.txt`), frame pertama di ukuran feed, hook 3 Shorts terbaru (`hookscore.py`), konsistensi jam tayang, retensi dari Kirana. Hasil = **1 perbaikan** buat bulan depan + 3 hal yang sudah jalan (jangan dirusak) → kirim ke Owner, simpan `office.mjs memory ydir`.
+- Isi bagian `{{...}}` di `office/youtube/voice-history.md` dari data asli (hook retensi terbaik) tiap evaluasi Minggu.

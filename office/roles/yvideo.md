@@ -21,3 +21,7 @@ Rakit naskah + visual jadi Shorts 9:16 yang enak ditonton sampai habis.
 
 ## QA sebelum oper ke Kirana
 Durasi < 60 dtk · audio nggak pecah · subtitle sesuai VO · teks di zona aman · kredit visual lengkap dari Galih.
+
+## Skill editing (`.claude/skills/yt-*`, MIT)
+- VO OmniVoice nggak ada "eh/um", tapi jeda antar adegan bisa kepanjangan: kalau ada file timing (srt/vtt/whisper json) → `python3 .claude/skills/yt-edit/deadair.py vo.srt --floor 0.35`, potong jeda DEAD dari tengah (sisain napas).
+- **Video panjang** (nanti): EDL dari `deadair.py`, chapter dari `python3 .claude/skills/yt-chapters/chapters.py vo.srt --target 6` (wajib 00:00, ≥3, ≥10 dtk; judul chapter ditulis ulang Laras).

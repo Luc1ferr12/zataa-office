@@ -29,3 +29,9 @@ Total ±55–70 kata, bahasa Indonesia santai tapi misterius. VO ditulis per ade
 - Teori ditulis "menurut sebagian peneliti…", mitos ditulis "konon…". Jangan dibikin terdengar pasti.
 - **Mitologi Yunani**: boleh diceritakan seru seperti dongeng, tapi jelas itu kisah kepercayaan Yunani kuno ("menurut mitos Yunani…", "dalam Theogonia karya Hesiod…"). Kalau ada beberapa versi, sebut "ada versi lain…". Bisa dikaitkan ke fakta sejarah (kuil, artefak, kota nyata) dengan label FAKTA terpisah.
 - Daftar sumber ikut dioper ke Kirana buat deskripsi video.
+
+## Hook ala `/yt-script` (`.claude/skills/`, MIT; suara `office/youtube/voice-history.md`)
+- Tulis **5 hook** VO beda formula (21 formula di `.claude/skills/yt-script/hooks.json`: The Statistic, The Reveal, The Question, The Impossible Claim, The Origin, dst.) → 1 baris per hook di `hooks.txt` → `python3 .claude/skills/yt-script/hookscore.py hooks.txt` (sudah ditambah kata Indonesia: kamu, konon, tapi, hilang, tahun/abad…). Kasih 2 skor teratas ke Bagas buat dipilih; catat nama formulanya biar minggu itu nggak dobel.
+- Skor itu heuristik: rendah = cek lagi, tinggi ≠ jaminan. Bagian paling lemah yang disebut tool (SPECIFICITY → ganti kata sifat jadi angka/nama/tahun, STAKES → sebut apa yang hilang/mati/dikubur) itu yang dibenerin.
+- Aturan Owner menang atas skill: hook 0–2 dtk & maks 10 kata (bukan "15 detik"), 55–70 kata (bukan 150 kata/menit), tanpa intro/ajakan subscribe. Tiap adegan sudah punya teks layar = `[ON SCREEN]` versi skill.
+- **Video panjang** (setelah ±500 subscriber): naskah penuh pakai alur `/yt-script` (hook → turn 0:15–0:45 → beat + [ON SCREEN] → payoff → 1 ajakan), lalu `/yt-shorts` buat nyari 3 Shorts di dalamnya.

@@ -4,6 +4,7 @@
 //   node scripts/youtube.mjs whoami                    cek channel yang tersambung
 //   node scripts/youtube.mjs stats                     statistik channel + per video (subs, views, likes) dalam JSON
 //   node scripts/youtube.mjs analytics [hari]          retensi per video (YouTube Analytics, telat ±2 hari): views, engaged (yang bertahan), % ditonton, subs → JSON
+//   node scripts/youtube.mjs retention <videoId> [hari] kurva retensi 1 video → CSV (posisi %, % penonton) buat yt-retention/retention.py
 //   node scripts/youtube.mjs upload <mp4> <meta.json>  upload Shorts (meta: { title, description, tags[], synthetic?, privacy? })
 // --brand=story → OAuth client + token channel baru Zataa Story (STORY_YT_CLIENT_ID/SECRET/REFRESH_TOKEN, project Google akun zataastory); default = Zataa History (YT_*).
 // Catatan: project API yang belum diaudit YouTube → video yang di-upload lewat API otomatis Private (Owner ubah ke Publik di YouTube Studio).
@@ -90,6 +91,16 @@ if (cmd === 'auth') {
       apv: Math.round(o.averageViewPercentage), avd: Math.round(o.averageViewDuration), subs: o.subscribersGained, comments: o.comments, shares: o.shares }];
   }));
   console.log(JSON.stringify({ start, end, videos }));
+} else if (cmd === 'retention') {
+  // kurva retensi 1 video (posisi % durasi, % penonton yang masih nonton) → CSV buat .claude/skills/yt-retention/retention.py
+  if (!a1) { console.error('pakai: retention <videoId> [hari]'); process.exit(1); }
+  const end = new Date().toISOString().slice(0, 10), start = new Date(Date.now() - (+a2 || 90) * 864e5).toISOString().slice(0, 10);
+  const q = new URLSearchParams({ ids: 'channel==MINE', startDate: start, endDate: end, dimensions: 'elapsedVideoTimeRatio', metrics: 'audienceWatchRatio', filters: `video==${a1}` });
+  const j = await (await fetch(`https://youtubeanalytics.googleapis.com/v2/reports?${q}`, { headers: { Authorization: `Bearer ${await token()}` } })).json();
+  if (j.error) throw new Error(j.error.message);
+  if (!j.rows?.length) { console.error('belum ada data retensi (telat ±2 hari / views masih sedikit)'); process.exit(1); }
+  console.log('position_percent,audience_percent');
+  for (const [x, y] of j.rows) console.log(`${(x * 100).toFixed(1)},${(y * 100).toFixed(1)}`);
 } else if (cmd === 'upload') {
   if (!a1 || !existsSync(a1)) { console.error('pakai: upload <file.mp4> <meta.json>'); process.exit(1); }
   const meta = a2 ? JSON.parse(readFileSync(a2, 'utf8')) : {};
@@ -108,5 +119,5 @@ if (cmd === 'auth') {
   if (!v.id) throw new Error(`upload gagal: ${JSON.stringify(v).slice(0, 300)}`);
   console.log(JSON.stringify({ ok: true, id: v.id, url: `https://youtube.com/shorts/${v.id}`, privacy: v.status?.privacyStatus }));
 } else {
-  console.error('pakai: youtube.mjs auth | whoami | stats | analytics [hari] | upload <mp4> <meta.json>');
+  console.error('pakai: youtube.mjs auth | whoami | stats | analytics [hari] | retention <videoId> [hari] | upload <mp4> <meta.json>');
 }
