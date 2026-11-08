@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-08T23:04:23.372Z",
+ "generated_at": "2026-11-08T23:14:23.371Z",
  "today": "2026-11-09",
  "week_start": "2026-11-09",
  "campaign": null,
@@ -257,6 +257,11 @@
  "today_tasks": [],
  "activity": [
   {
+   "ts": "2026-11-08 23:10:53",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: bullish → bearish"
+  },
+  {
    "ts": "2026-11-08 23:00:55",
    "agent_id": "trisk",
    "message": "NO TRADE · jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
@@ -375,11 +380,6 @@
    "ts": "2026-11-08 02:18:08",
    "agent_id": "owner",
    "message": "Approve Shorts #144 ✅"
-  },
-  {
-   "ts": "2026-11-08 02:18:00",
-   "agent_id": "owner",
-   "message": "Approve Shorts #145 ✅"
   }
  ],
  "chats": [
@@ -751,7 +751,7 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 4062.899902,
+  "price": 4069.399902,
   "open": [],
   "signals": [
    {
@@ -930,15 +930,15 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "bullish",
-    "score": 2,
-    "price": 4072.1,
-    "ema20": 4072.1,
-    "ema50": 4072.1,
-    "rsi": 82.8,
+    "bias": "bearish",
+    "score": -2,
+    "price": 4071.1,
+    "ema20": 4072,
+    "ema50": 4072.06,
+    "rsi": 0,
     "n": 299,
-    "slot": 2990298,
-    "at": 1794178853836
+    "slot": 2990299,
+    "at": 1794179453776
    },
    "M15": {
     "bias": "bullish",
