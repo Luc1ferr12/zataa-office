@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-08T23:44:23.374Z",
+ "generated_at": "2026-11-08T23:54:23.375Z",
  "today": "2026-11-09",
  "week_start": "2026-11-09",
  "campaign": null,
@@ -98,7 +98,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-08 23:30:55"
+   "updated_at": "2026-11-08 23:45:55"
   },
   {
    "id": "tresearch",
@@ -106,7 +106,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
-   "updated_at": "2026-11-08 23:30:55"
+   "updated_at": "2026-11-08 23:45:55"
   },
   {
    "id": "ttech",
@@ -114,7 +114,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-08 23:30:55"
+   "updated_at": "2026-11-08 23:45:55"
   },
   {
    "id": "trisk",
@@ -122,7 +122,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
-   "updated_at": "2026-11-08 23:30:55"
+   "updated_at": "2026-11-08 23:45:55"
   },
   {
    "id": "texec",
@@ -257,6 +257,11 @@
  "today_tasks": [],
  "activity": [
   {
+   "ts": "2026-11-08 23:45:53",
+   "agent_id": "ttech",
+   "message": "M15 berubah arah: sideways → bearish"
+  },
+  {
    "ts": "2026-11-08 23:30:54",
    "agent_id": "ttech",
    "message": "M30 berubah arah: bullish → bearish"
@@ -375,11 +380,6 @@
    "ts": "2026-11-08 02:18:23",
    "agent_id": "owner",
    "message": "Approve konten #125 ✅"
-  },
-  {
-   "ts": "2026-11-08 02:18:23",
-   "agent_id": "owner",
-   "message": "Approve konten #124 ✅"
   }
  ],
  "chats": [
@@ -703,12 +703,12 @@
    "yt_posted": 14,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 33204,
+   "views": 33210,
    "likes": 367,
    "comments": 3,
    "shares": 0,
    "saves": 4,
-   "yt_views": 24231,
+   "yt_views": 24237,
    "top": [
     {
      "title": "Upper Final MPL ID S18 malam ini: NAVI vs TLID 18.00 WIB, yang menang langsung ke Grand Final + tiket M8",
@@ -720,13 +720,13 @@
      "title": "Sangkuriang: Legenda atau Ingatan Danau Bandung Purba?",
      "format": "shorts",
      "pillar": "legenda_mitos",
-     "views": 3007
+     "views": 3009
     },
     {
      "title": "Lubang Jepang: Penjara Rahasia di Bawah Bukittinggi",
      "format": "shorts",
      "pillar": "horor_sejarah",
-     "views": 2490
+     "views": 2491
     }
    ],
    "clicks": 0,
@@ -751,9 +751,14 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 4062.800049,
+  "price": 4060.199951,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-08 23:45:55",
+    "decision": "NO TRADE",
+    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
+   },
    {
     "ts": "2026-11-08 23:30:55",
     "decision": "NO TRADE",
@@ -776,11 +781,6 @@
    },
    {
     "ts": "2026-11-06 21:31:07",
-    "decision": "NO TRADE",
-    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
-   },
-   {
-    "ts": "2026-11-06 21:16:07",
     "decision": "NO TRADE",
     "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
    }
@@ -827,7 +827,7 @@
    1716.0099999999995
   ],
   "last": {
-   "ts": "2026-11-08 23:30:55",
+   "ts": "2026-11-08 23:45:55",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -848,7 +848,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4069.30 di bawah band bawah (4069.7–4073.8) · RSI 0 · Stoch 71 · MACD -0.32 · H1 sideways"
+    "note": "M15 4066.90 di bawah band bawah (4067.4–4075.2) · RSI 14 · Stoch 53 · MACD -0.61 · H1 sideways"
    }
   },
   "fund": null,
@@ -932,24 +932,24 @@
    "M10": {
     "bias": "bearish",
     "score": -2,
-    "price": 4064.8,
-    "ema20": 4071.05,
-    "ema50": 4071.66,
-    "rsi": 5.5,
+    "price": 4062.3,
+    "ema20": 4070.22,
+    "ema50": 4071.29,
+    "rsi": 4.1,
     "n": 299,
-    "slot": 2990302,
-    "at": 1794181253795
+    "slot": 2990303,
+    "at": 1794181853792
    },
    "M15": {
-    "bias": "sideways",
-    "score": -1,
-    "price": 4069.3,
-    "ema20": 4071.64,
-    "ema50": 4071.9,
+    "bias": "bearish",
+    "score": -2,
+    "price": 4066,
+    "ema20": 4071.11,
+    "ema50": 4071.67,
     "rsi": 0,
     "n": 299,
-    "slot": 1993534,
-    "at": 1794180654076
+    "slot": 1993535,
+    "at": 1794181553800
    },
    "M30": {
     "bias": "bearish",
