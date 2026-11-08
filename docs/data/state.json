@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-08T11:59:22.965Z",
+ "generated_at": "2026-11-08T12:04:23.107Z",
  "today": "2026-11-08",
  "week_start": "2026-11-02",
  "campaign": {
@@ -63,7 +63,7 @@
    "title": "Social Media Publisher",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-11-08 09:01:30"
+   "updated_at": "2026-11-08 12:01:34"
   },
   {
    "id": "ads",
@@ -87,7 +87,7 @@
    "title": "Price Watcher",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-11-08 10:01:08"
+   "updated_at": "2026-11-08 12:00:28"
   },
   {
    "id": "ob",
@@ -715,10 +715,10 @@
    "game": "mlbb",
    "pillar": "engagement",
    "title": "Kuis: tim yang paling sering juara MPL ID sepanjang masa, kamu tahu? (tayang saat GF jalan) — hook pertanyaan #16",
-   "status": "approved",
+   "status": "posted",
    "asset_url": "{\"video\":\"https://luc1ferr12.github.io/zataa-office/media/2026-11-08/125-kuis-tim-yang-paling-sering-juara-mpl-id-ov.mp4\",\"cover\":\"https://luc1ferr12.github.io/zataa-office/media/2026-11-08/125-kuis-tim-yang-paling-sering-juara-mpl-id-ov-cover.jpg\"}",
    "scheduled_at": null,
-   "posted_at": null,
+   "posted_at": "2026-11-08 12:01:34",
    "channel": null
   },
   {
@@ -743,10 +743,10 @@
    "game": "sejarah",
    "pillar": "horor_sejarah",
    "title": "Benteng Segi Delapan di Gombong, Kenapa Dibilang Angker?",
-   "status": "approved",
-   "asset_url": null,
+   "status": "posted",
+   "asset_url": "https://www.youtube.com/watch?v=pDfJOn1vUCE",
    "scheduled_at": null,
-   "posted_at": null,
+   "posted_at": "2026-11-08 12:00:36",
    "channel": "story"
   }
  ],
@@ -789,6 +789,21 @@
   }
  ],
  "activity": [
+  {
+   "ts": "2026-11-08 12:01:34",
+   "agent_id": "publisher",
+   "message": "Posting #125 ke IG + TikTok ✅"
+  },
+  {
+   "ts": "2026-11-08 12:00:57",
+   "agent_id": "spublish",
+   "message": "Cross-post Shorts #145 ke TikTok Zataa Story"
+  },
+  {
+   "ts": "2026-11-08 12:00:36",
+   "agent_id": "spublish",
+   "message": "Upload Shorts #145 ke Zataa Story (Publik via Zernio)"
+  },
   {
    "ts": "2026-11-08 11:00:46",
    "agent_id": "ypublish",
@@ -898,24 +913,16 @@
    "ts": "2026-11-07 23:18:30",
    "agent_id": "ypublish",
    "message": "Kirim Shorts #144 ke Owner buat approval"
-  },
-  {
-   "ts": "2026-11-07 23:16:11",
-   "agent_id": "video",
-   "message": "video #125 dirender di laptop (suara OmniVoice) & dikirim ke Owner"
-  },
-  {
-   "ts": "2026-11-07 23:16:10",
-   "agent_id": "publisher",
-   "message": "Kirim #125 ke Owner buat approval"
-  },
-  {
-   "ts": "2026-11-07 23:09:57",
-   "agent_id": "sresearch",
-   "message": "Bank +HS-015 Benteng Marlborough, +HS-016 Makam Peneleh (approved), stok HS 3"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-11-08 12:01:34",
+   "agent_id": "publisher",
+   "to_id": null,
+   "kind": "oper",
+   "message": "\"Kuis: tim yang paling sering juara MPL ID sepanjan\" udah tayang di IG + TikTok 🚀 Makasih semua!"
+  },
   {
    "ts": "2026-11-08 11:30:25",
    "agent_id": "analyst",
@@ -1188,26 +1195,19 @@
    "to_id": "copywriter",
    "kind": "oper",
    "message": "Tiara, cek harga \"Cek harga ML zataa.my.id\" kelar, jangan sampe salah angka ya"
-  },
-  {
-   "ts": "2026-11-06 23:09:40",
-   "agent_id": "spublish",
-   "to_id": "owner",
-   "kind": "oper",
-   "message": "Bos, Shorts \"Judul/SEO #142, jam 19:00\" udah aku kirim ke @zataastorybot. Ditunggu ✅ buat tayang YouTube + TikTok 🙏"
   }
  ],
  "stats": {
   "this_week": {
    "week": "2026-11-02",
    "total": 35,
-   "posted": 31,
+   "posted": 33,
    "pending": 1,
-   "scheduled": 2,
+   "scheduled": 0,
    "yt_total": 14,
-   "yt_posted": 13,
+   "yt_posted": 14,
    "yt_pending": 0,
-   "yt_scheduled": 1,
+   "yt_scheduled": 0,
    "views": 29356,
    "likes": 336,
    "comments": 3,
