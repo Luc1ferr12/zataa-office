@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-08T23:54:23.375Z",
+ "generated_at": "2026-11-09T00:04:23.381Z",
  "today": "2026-11-09",
  "week_start": "2026-11-09",
  "campaign": null,
@@ -82,7 +82,7 @@
    "title": "Price Watcher",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-11-08 23:00:24"
+   "updated_at": "2026-11-09 00:00:24"
   },
   {
    "id": "ob",
@@ -98,7 +98,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-08 23:45:55"
+   "updated_at": "2026-11-09 00:01:03"
   },
   {
    "id": "tresearch",
@@ -106,23 +106,23 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
-   "updated_at": "2026-11-08 23:45:55"
+   "updated_at": "2026-11-09 00:01:03"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-08 23:45:55"
+   "current_task": "Setup SELL di band (divergensi)",
+   "updated_at": "2026-11-09 00:01:03"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
-   "updated_at": "2026-11-08 23:45:55"
+   "current_task": "NO TRADE: ada candle spike di M15 (kemungkinan berita dadakan), tunggu tenang",
+   "updated_at": "2026-11-09 00:01:03"
   },
   {
    "id": "texec",
@@ -257,6 +257,11 @@
  "today_tasks": [],
  "activity": [
   {
+   "ts": "2026-11-09 00:01:03",
+   "agent_id": "trisk",
+   "message": "NO TRADE · ada candle spike di M15 (kemungkinan berita dadakan), tunggu tenang"
+  },
+  {
    "ts": "2026-11-08 23:45:53",
    "agent_id": "ttech",
    "message": "M15 berubah arah: sideways → bearish"
@@ -370,11 +375,6 @@
    "ts": "2026-11-08 02:19:47",
    "agent_id": "researcher",
    "message": "Nemu 1 topik baru"
-  },
-  {
-   "ts": "2026-11-08 02:18:23",
-   "agent_id": "owner",
-   "message": "Approve konten #125 ✅"
   },
   {
    "ts": "2026-11-08 02:18:23",
@@ -751,9 +751,14 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 4060.199951,
+  "price": 4062.5,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-09 00:01:03",
+    "decision": "NO TRADE",
+    "reason": "ada candle spike di M15 (kemungkinan berita dadakan), tunggu tenang"
+   },
    {
     "ts": "2026-11-08 23:45:55",
     "decision": "NO TRADE",
@@ -776,11 +781,6 @@
    },
    {
     "ts": "2026-11-06 21:46:07",
-    "decision": "NO TRADE",
-    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
-   },
-   {
-    "ts": "2026-11-06 21:31:07",
     "decision": "NO TRADE",
     "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
    }
@@ -812,7 +812,7 @@
    "wins": 2,
    "losses": 0,
    "pnl": 39.41,
-   "week_pnl": 28.5,
+   "week_pnl": 0,
    "gross_win": 39.41,
    "gross_loss": 0,
    "max_loss": 0,
@@ -827,7 +827,7 @@
    1716.0099999999995
   ],
   "last": {
-   "ts": "2026-11-08 23:45:55",
+   "ts": "2026-11-09 00:01:03",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -836,7 +836,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
+   "reason": "ada candle spike di M15 (kemungkinan berita dadakan), tunggu tenang",
    "fund": {
     "bias": 0,
     "note": "netral (belum ada ringkasan hari ini)",
@@ -845,10 +845,12 @@
    },
    "tech": {
     "bias": "sideways",
-    "score": 0,
-    "trigger": null,
-    "confirm": [],
-    "note": "M15 4066.90 di bawah band bawah (4067.4–4075.2) · RSI 14 · Stoch 53 · MACD -0.61 · H1 sideways"
+    "score": 1,
+    "trigger": "sell",
+    "confirm": [
+     "divergensi"
+    ],
+    "note": "M15 4056.30 di bawah band bawah (4062.8–4078.7) · RSI 0 · Stoch 36 · MACD -1.29 · H1 sideways · setup SELL (divergensi)"
    }
   },
   "fund": null,
@@ -932,46 +934,46 @@
    "M10": {
     "bias": "bearish",
     "score": -2,
-    "price": 4062.3,
-    "ema20": 4070.22,
-    "ema50": 4071.29,
-    "rsi": 4.1,
-    "n": 299,
-    "slot": 2990303,
-    "at": 1794181853792
+    "price": 4056.3,
+    "ema20": 4068.89,
+    "ema50": 4070.7,
+    "rsi": 2.5,
+    "n": 300,
+    "slot": 2990304,
+    "at": 1794182463573
    },
    "M15": {
     "bias": "bearish",
     "score": -2,
-    "price": 4066,
-    "ema20": 4071.11,
-    "ema50": 4071.67,
+    "price": 4056.3,
+    "ema20": 4069.7,
+    "ema50": 4071.07,
     "rsi": 0,
-    "n": 299,
-    "slot": 1993535,
-    "at": 1794181553800
+    "n": 300,
+    "slot": 1993536,
+    "at": 1794182463578
    },
    "M30": {
     "bias": "bearish",
     "score": -2,
-    "price": 4069.3,
-    "ema20": 4071.83,
-    "ema50": 4071.92,
-    "rsi": 1,
-    "n": 299,
-    "slot": 996767,
-    "at": 1794180654078
+    "price": 4056.3,
+    "ema20": 4070.35,
+    "ema50": 4071.31,
+    "rsi": 0.2,
+    "n": 300,
+    "slot": 996768,
+    "at": 1794182463579
    },
    "H1": {
     "bias": "sideways",
-    "score": 1,
-    "price": 4072.1,
-    "ema20": 4072.07,
-    "ema50": 4071.03,
-    "rsi": 51.1,
-    "n": 299,
-    "slot": 498383,
-    "at": 1794178853850
+    "score": -1,
+    "price": 4056.3,
+    "ema20": 4070.57,
+    "ema50": 4070.45,
+    "rsi": 8.3,
+    "n": 300,
+    "slot": 498384,
+    "at": 1794182463583
    }
   },
   "currency": "USC",
