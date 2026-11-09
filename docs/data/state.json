@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-09T23:04:39.942Z",
+ "generated_at": "2026-11-09T23:14:39.984Z",
  "today": "2026-11-10",
  "week_start": "2026-11-09",
  "campaign": {
@@ -174,8 +174,8 @@
    "name": "Nadhira",
    "title": "Riset Sejarah & Tren",
    "status": "done",
-   "current_task": "Riset Perang Emu + HH-018 Gorgan",
-   "updated_at": "2026-11-07 23:07:37"
+   "current_task": "Bank topik +1 (Baterai Baghdad)",
+   "updated_at": "2026-11-09 23:04:52"
   },
   {
    "id": "yscript",
@@ -222,8 +222,8 @@
    "name": "Sekar",
    "title": "Riset Misteri Nusantara",
    "status": "done",
-   "current_task": "Riset Van der Wijck + HS-015/016",
-   "updated_at": "2026-11-07 23:09:57"
+   "current_task": "Bank topik +1 (Si Manis Jembatan Ancol)",
+   "updated_at": "2026-11-09 23:04:52"
   },
   {
    "id": "sscript",
@@ -337,7 +337,7 @@
    "game": "sejarah",
    "pillar": "misteri_kuno",
    "title": "Tulisan Tertua Indonesia Ada di 7 Tiang Batu Ini",
-   "status": "draft",
+   "status": "pending_approval",
    "asset_url": null,
    "scheduled_at": null,
    "posted_at": null,
@@ -524,6 +524,26 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-09 23:14:22",
+   "agent_id": "yvideo",
+   "message": "Shorts #162 dirender di laptop (suara OmniVoice) & dikirim ke Owner"
+  },
+  {
+   "ts": "2026-11-09 23:14:21",
+   "agent_id": "spublish",
+   "message": "Kirim Shorts #162 ke Owner buat approval"
+  },
+  {
+   "ts": "2026-11-09 23:11:41",
+   "agent_id": "yvideo",
+   "message": "Render laptop Shorts #161 gagal, cek logs/laptop-worker.log di laptop"
+  },
+  {
+   "ts": "2026-11-09 23:04:58",
+   "agent_id": "ydir",
+   "message": "Shorts hari ini: #161 Catalhoyuk (History, 18:00) & #162 Yupa (Story, 19:00) antre ulang laptop"
+  },
+  {
    "ts": "2026-11-09 23:03:22",
    "agent_id": "publisher",
    "message": "#149 promo FF pending approval; #150 nunggu patch notes 13.10 (followup)"
@@ -627,29 +647,30 @@
    "ts": "2026-11-09 18:31:10",
    "agent_id": "trisk",
    "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-  },
-  {
-   "ts": "2026-11-09 18:00:40",
-   "agent_id": "ttech",
-   "message": "M60 berubah arah: bullish → sideways"
-  },
-  {
-   "ts": "2026-11-09 18:00:40",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: sideways → bearish"
-  },
-  {
-   "ts": "2026-11-09 17:31:10",
-   "agent_id": "trisk",
-   "message": "NO TRADE · setup BUY di band, konfirmasi baru 0/3 (-) · London–NY (mode aman)"
-  },
-  {
-   "ts": "2026-11-09 17:05:39",
-   "agent_id": "owner",
-   "message": "Tolak konten #147"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-11-09 23:04:58",
+   "agent_id": "researcher",
+   "to_id": "copywriter",
+   "kind": "santai",
+   "message": "Tiara, notes 13.10 belum keluar juga. Riot kayaknya sengaja bikin kita deg-degan 😅"
+  },
+  {
+   "ts": "2026-11-09 23:04:52",
+   "agent_id": "sresearch",
+   "to_id": "sscript",
+   "kind": "oper",
+   "message": "Dinda, bahan \"Bank topik +1 (Si Manis Jembatan Ancol)\" udah aku rangkum. Yang \"konon\" sama yang fakta udah aku pisahin 📜"
+  },
+  {
+   "ts": "2026-11-09 23:04:52",
+   "agent_id": "yresearch",
+   "to_id": "yscript",
+   "kind": "oper",
+   "message": "Laras, bahan \"Bank topik +1 (Baterai Baghdad)\" udah aku rangkum + sumbernya. Mana fakta, mana teori udah aku tandain 📜"
+  },
   {
    "ts": "2026-11-09 23:03:22",
    "agent_id": "publisher",
@@ -908,27 +929,6 @@
    "to_id": null,
    "kind": "oper",
    "message": "Bos ACC 1 ide tambahan! \"Akhir era: Boaster lepas dari Fnatic setelah 6 tahun, RUMOR ke Gentle Mates bareng Alfajer\" 🎉"
-  },
-  {
-   "ts": "2026-11-07 23:10:36",
-   "agent_id": "researcher",
-   "to_id": null,
-   "kind": "santai",
-   "message": "Grand Final sore ini NAVI vs BTR, nobar di Ruang Santai yuk, yang kalah tebakan traktir es teh 😆"
-  },
-  {
-   "ts": "2026-11-07 23:10:30",
-   "agent_id": "video",
-   "to_id": "publisher",
-   "kind": "oper",
-   "message": "Fikri, video \"Video #125 antre render laptop\" udah render 9:16. Musiknya aman kok"
-  },
-  {
-   "ts": "2026-11-07 23:10:29",
-   "agent_id": "dir",
-   "to_id": "researcher",
-   "kind": "oper",
-   "message": "Brief \"Evaluasi mingguan + ide tema minggu depan\" udah jadi. Salsa, gas riset ya!"
   }
  ],
  "stats": {
@@ -936,11 +936,11 @@
    "week": "2026-11-09",
    "total": 15,
    "posted": 0,
-   "pending": 1,
+   "pending": 2,
    "scheduled": 0,
    "yt_total": 2,
    "yt_posted": 0,
-   "yt_pending": 0,
+   "yt_pending": 1,
    "yt_scheduled": 0,
    "views": 0,
    "likes": 0,
@@ -979,12 +979,12 @@
    "yt_posted": 14,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 34476,
+   "views": 34477,
    "likes": 382,
    "comments": 4,
    "shares": 0,
    "saves": 4,
-   "yt_views": 25463,
+   "yt_views": 25464,
    "top": [
     {
      "title": "Upper Final MPL ID S18 malam ini: NAVI vs TLID 18.00 WIB, yang menang langsung ke Grand Final + tiket M8",
@@ -1027,7 +1027,7 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 4137.899902,
+  "price": 4146.899902,
   "open": [],
   "signals": [
    {
@@ -1211,13 +1211,13 @@
    "M10": {
     "bias": "bullish",
     "score": 2,
-    "price": 4141.4,
-    "ema20": 4136.79,
-    "ema50": 4127.63,
-    "rsi": 65.6,
+    "price": 4138.8,
+    "ema20": 4136.98,
+    "ema50": 4128.07,
+    "rsi": 59,
     "n": 299,
-    "slot": 2990442,
-    "at": 1794265240098
+    "slot": 2990443,
+    "at": 1794265840094
    },
    "M15": {
     "bias": "bullish",
