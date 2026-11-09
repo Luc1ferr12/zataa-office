@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-11-09T14:44:39.694Z",
+ "generated_at": "2026-11-09T14:54:39.696Z",
  "today": "2026-11-09",
  "week_start": "2026-11-09",
  "campaign": {
   "week_start": "2026-11-09",
   "theme": "Indonesia Kejar Panggung Dunia: BTR juara MPL ID menuju M8 + FFWS Global Finals Bangkok",
   "goals": "Tiap video ditutup 1 pertanyaan pin-able (minggu lalu 0 komentar di video) & klik ke zataa.my.id; eksperimen: video plan digeser ke slot sore 16:00 WIB sesuai saran Raka (IG +30%, TikTok +85% vs 19:00), hook angka vs hook pertanyaan-pin di video non-promo.",
-  "status": "pending"
+  "status": "approved"
  },
  "agents": [
   {
@@ -30,40 +30,40 @@
    "name": "Salsa",
    "title": "Researcher",
    "status": "done",
-   "current_task": "Riset jadwal & tren minggu ini",
-   "updated_at": "2026-11-09 14:42:44"
+   "current_task": "Verifikasi GF MPL ID S18",
+   "updated_at": "2026-11-09 14:53:55"
   },
   {
    "id": "copywriter",
    "name": "Tiara",
    "title": "Copywriter",
    "status": "done",
-   "current_task": "Naskah video tribute Boaster",
-   "updated_at": "2026-11-08 02:20:26"
+   "current_task": "Teks feed & naskah video BTR",
+   "updated_at": "2026-11-09 14:53:56"
   },
   {
    "id": "designer",
    "name": "Vania",
    "title": "Graphic Designer",
    "status": "done",
-   "current_task": "Render carousel #124",
-   "updated_at": "2026-11-07 23:05:18"
+   "current_task": "Render feed BTR juara",
+   "updated_at": "2026-11-09 14:54:14"
   },
   {
    "id": "video",
    "name": "Dimas",
    "title": "Video Production",
    "status": "done",
-   "current_task": "Render video tribute Boaster",
-   "updated_at": "2026-11-08 02:20:29"
+   "current_task": "Video comeback BTR masuk antrean render laptop",
+   "updated_at": "2026-11-09 14:54:14"
   },
   {
    "id": "publisher",
    "name": "Fikri",
    "title": "Social Media Publisher",
    "status": "done",
-   "current_task": null,
-   "updated_at": "2026-11-09 01:00:24"
+   "current_task": "Feed BTR juara dikirim ke Owner",
+   "updated_at": "2026-11-09 14:54:24"
   },
   {
    "id": "ads",
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-09 14:31:09"
+   "updated_at": "2026-11-09 14:46:09"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
-   "updated_at": "2026-11-09 14:31:09"
+   "updated_at": "2026-11-09 14:46:09"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bullish",
-   "updated_at": "2026-11-09 14:31:09"
+   "updated_at": "2026-11-09 14:46:09"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-11-09 14:31:09"
+   "updated_at": "2026-11-09 14:46:09"
   },
   {
    "id": "texec",
@@ -267,8 +267,8 @@
    "game": "mlbb",
    "pillar": "esport",
    "title": "BTR juara MPL ID S18, dua season beruntun",
-   "status": "draft",
-   "asset_url": null,
+   "status": "pending_approval",
+   "asset_url": "{\"feed\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-11-09/147-btr-juara-mpl-id-s18-dua-season-beruntun.jpg\"],\"story\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-11-09/147-btr-juara-mpl-id-s18-dua-season-beruntun-916.jpg\"]}",
    "scheduled_at": null,
    "posted_at": null,
    "channel": null
@@ -524,6 +524,26 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-09 14:54:17",
+   "agent_id": "publisher",
+   "message": "Kirim #147 ke Owner buat approval"
+  },
+  {
+   "ts": "2026-11-09 14:53:55",
+   "agent_id": "researcher",
+   "message": "Nemu 1 topik baru"
+  },
+  {
+   "ts": "2026-11-09 14:51:49",
+   "agent_id": "yvideo",
+   "message": "Render laptop Shorts #162 gagal, cek logs/laptop-worker.log di laptop"
+  },
+  {
+   "ts": "2026-11-09 14:51:40",
+   "agent_id": "owner",
+   "message": "Approve plan mingguan ✅"
+  },
+  {
    "ts": "2026-11-09 14:43:01",
    "agent_id": "dir",
    "message": "Plan 14 slot terkirim ke Owner; video digeser ke sore 16:00 WIB sesuai saran Raka"
@@ -627,29 +647,65 @@
    "ts": "2026-11-09 10:15:54",
    "agent_id": "trisk",
    "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-  },
-  {
-   "ts": "2026-11-09 10:10:54",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: bearish → sideways"
-  },
-  {
-   "ts": "2026-11-09 10:01:17",
-   "agent_id": "analyst",
-   "message": "Update data 42 post IG 📈"
-  },
-  {
-   "ts": "2026-11-09 09:15:54",
-   "agent_id": "trisk",
-   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-  },
-  {
-   "ts": "2026-11-09 09:00:54",
-   "agent_id": "ttech",
-   "message": "M60 berubah arah: sideways → bullish"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-11-09 14:54:24",
+   "agent_id": "researcher",
+   "to_id": null,
+   "kind": "santai",
+   "message": "Lembur malem-malem demi BTR, tapi comeback dari 2-3 nya worth it sih"
+  },
+  {
+   "ts": "2026-11-09 14:54:24",
+   "agent_id": "salsa",
+   "to_id": null,
+   "kind": "santai",
+   "message": "Lembur malem-malem demi BTR, tapi comeback 2-3 nya worth it sih"
+  },
+  {
+   "ts": "2026-11-09 14:54:24",
+   "agent_id": "publisher",
+   "to_id": "owner",
+   "kind": "oper",
+   "message": "Bos, \"Feed BTR juara dikirim ke Owner\" udah aku kirim ke Telegram. Ditunggu approve-nya 🙏"
+  },
+  {
+   "ts": "2026-11-09 14:54:14",
+   "agent_id": "video",
+   "to_id": "publisher",
+   "kind": "oper",
+   "message": "Fikri, video \"Video comeback BTR masuk antrean render laptop\" udah render 9:16. Musiknya aman kok"
+  },
+  {
+   "ts": "2026-11-09 14:54:14",
+   "agent_id": "designer",
+   "to_id": "publisher",
+   "kind": "oper",
+   "message": "Fikri, desain \"Render feed BTR juara\" udah render 1080×1080. QA dulu ya sebelum ke bos"
+  },
+  {
+   "ts": "2026-11-09 14:53:56",
+   "agent_id": "copywriter",
+   "to_id": "designer",
+   "kind": "oper",
+   "message": "Vania, copy \"Teks feed & naskah video BTR\" udah masuk. Headline-nya jangan dikecilin ya 😆"
+  },
+  {
+   "ts": "2026-11-09 14:53:55",
+   "agent_id": "researcher",
+   "to_id": "copywriter",
+   "kind": "oper",
+   "message": "Tiara, bahan buat \"Verifikasi GF MPL ID S18\" udah aku rangkum + sumbernya. Tinggal kamu racik captionnya ✍️"
+  },
+  {
+   "ts": "2026-11-09 14:51:40",
+   "agent_id": "dir",
+   "to_id": null,
+   "kind": "oper",
+   "message": "Plan minggu ini udah di-ACC Bos! Gas produksi konten hari ini 🔥"
+  },
   {
    "ts": "2026-11-09 14:43:02",
    "agent_id": "dir",
@@ -873,62 +929,6 @@
    "to_id": null,
    "kind": "oper",
    "message": "\"Siapa ke Grand Final MPL ID S18? Hasil upper final\" udah tayang di IG + TikTok 🚀 Makasih semua!"
-  },
-  {
-   "ts": "2026-11-07 11:00:08",
-   "agent_id": "analyst",
-   "to_id": "dir",
-   "kind": "oper",
-   "message": "Laporan harian marketing udah aku kirim ke Bos, 2 konten tayang hari ini 📊"
-  },
-  {
-   "ts": "2026-11-07 09:01:07",
-   "agent_id": "publisher",
-   "to_id": null,
-   "kind": "oper",
-   "message": "\"Alfajer cabut dari Fnatic setelah 4 tahun, RUMOR k\" udah tayang di IG + TikTok 🚀 Makasih semua!"
-  },
-  {
-   "ts": "2026-11-07 05:02:59",
-   "agent_id": "publisher",
-   "to_id": null,
-   "kind": "oper",
-   "message": "\"Weekend playoff MPL: 3 paket diamond ML paling pas\" udah tayang di IG 🚀 Makasih semua!"
-  },
-  {
-   "ts": "2026-11-07 02:23:49",
-   "agent_id": "publisher",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Naskahnya udah kucek, nanti QA ulang pas videonya jadi. Tayang jam 16:00 kalau Bos approve 🙏"
-  },
-  {
-   "ts": "2026-11-07 02:23:49",
-   "agent_id": "video",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Video breaking Alfajer (#143) udah masuk antrean render laptop, nanti otomatis nyampe ke Bos buat di-✅."
-  },
-  {
-   "ts": "2026-11-07 02:23:49",
-   "agent_id": "researcher",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Bos, aku belum nemu pengumuman resmi Fnatic, jadi judulnya kuganti jadi \"Alfajer cabut\", yang ke Gentle Mates bareng Boaster tetap ditulis RUMOR ya."
-  },
-  {
-   "ts": "2026-11-07 02:23:38",
-   "agent_id": "researcher",
-   "to_id": "copywriter",
-   "kind": "santai",
-   "message": "Tiara, Fnatic tanpa Alfajer tuh kayak es teh tanpa es, hambar 😭"
-  },
-  {
-   "ts": "2026-11-07 02:23:38",
-   "agent_id": "publisher",
-   "to_id": "owner",
-   "kind": "oper",
-   "message": "Bos, \"QA naskah Alfajer oke, video nunggu render laptop\" udah aku kirim ke Telegram. Ditunggu approve-nya 🙏"
   }
  ],
  "stats": {
@@ -936,7 +936,7 @@
    "week": "2026-11-09",
    "total": 16,
    "posted": 0,
-   "pending": 0,
+   "pending": 1,
    "scheduled": 0,
    "yt_total": 2,
    "yt_posted": 0,
@@ -1018,9 +1018,14 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 4121.700195,
+  "price": 4126.399902,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-09 14:46:09",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
    {
     "ts": "2026-11-09 14:31:09",
     "decision": "NO TRADE",
@@ -1043,11 +1048,6 @@
    },
    {
     "ts": "2026-11-09 13:31:09",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-11-09 13:16:09",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1094,7 +1094,7 @@
    1716.0099999999995
   ],
   "last": {
-   "ts": "2026-11-09 14:31:09",
+   "ts": "2026-11-09 14:46:09",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1115,7 +1115,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4128.10 di atas tengah band (4089.7–4137.1) · RSI 64 · Stoch 86 · MACD +1.63 · H1 bullish"
+    "note": "M15 4121.60 di atas tengah band (4092.2–4136.3) · RSI 57 · Stoch 73 · MACD +0.76 · H1 bullish"
    }
   },
   "fund": null,
@@ -1199,24 +1199,24 @@
    "M10": {
     "bias": "bullish",
     "score": 3,
-    "price": 4119.2,
-    "ema20": 4119.06,
-    "ema50": 4112.23,
-    "rsi": 52.7,
+    "price": 4120.6,
+    "ema20": 4119.21,
+    "ema50": 4112.55,
+    "rsi": 54.1,
     "n": 299,
-    "slot": 2990392,
-    "at": 1794235269673
+    "slot": 2990393,
+    "at": 1794235869655
    },
    "M15": {
     "bias": "bullish",
     "score": 3,
-    "price": 4126.8,
-    "ema20": 4115.53,
-    "ema50": 4108.08,
-    "rsi": 63.5,
+    "price": 4121.7,
+    "ema20": 4116.12,
+    "ema50": 4108.61,
+    "rsi": 57.6,
     "n": 299,
-    "slot": 1993594,
-    "at": 1794234669734
+    "slot": 1993595,
+    "at": 1794235569672
    },
    "M30": {
     "bias": "bullish",
