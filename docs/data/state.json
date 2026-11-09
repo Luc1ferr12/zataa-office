@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-09T14:54:39.696Z",
+ "generated_at": "2026-11-09T15:04:39.701Z",
  "today": "2026-11-09",
  "week_start": "2026-11-09",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-09 14:46:09"
+   "updated_at": "2026-11-09 15:01:09"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
-   "updated_at": "2026-11-09 14:46:09"
+   "updated_at": "2026-11-09 15:01:09"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bullish",
-   "updated_at": "2026-11-09 14:46:09"
+   "updated_at": "2026-11-09 15:01:09"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-11-09 14:46:09"
+   "updated_at": "2026-11-09 15:01:09"
   },
   {
    "id": "texec",
@@ -651,6 +651,27 @@
  ],
  "chats": [
   {
+   "ts": "2026-11-09 14:54:46",
+   "agent_id": "video",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Video comeback-nya masih antre render di laptop Bos, nyalain laptopnya ya, nanti otomatis kekirim."
+  },
+  {
+   "ts": "2026-11-09 14:54:46",
+   "agent_id": "publisher",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Feed BTR juara udah masuk Telegram, tinggal ✅ Bos. Slot siangnya udah lewat, jadi kemungkinan langsung tayang begitu di-approve."
+  },
+  {
+   "ts": "2026-11-09 14:54:46",
+   "agent_id": "researcher",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Udah dicek Bos, BTR beneran menang 4-3 atas NAVI setelah sempat ketinggalan 2-3, Shogun Finals MVP."
+  },
+  {
    "ts": "2026-11-09 14:54:24",
    "agent_id": "researcher",
    "to_id": null,
@@ -908,27 +929,6 @@
    "to_id": "dir",
    "kind": "oper",
    "message": "Andre, data \"Pola: video news Valorant paling kuat\" udah aku rangkum. Angkanya menarik nih 📈"
-  },
-  {
-   "ts": "2026-11-07 23:02:49",
-   "agent_id": "price",
-   "to_id": "copywriter",
-   "kind": "oper",
-   "message": "Tiara, harga buat \"Harga ML stabil, 100 DM Rp29.266\" udah aku cek di web. Angkanya aman dipake 💰"
-  },
-  {
-   "ts": "2026-11-07 23:02:45",
-   "agent_id": "researcher",
-   "to_id": "copywriter",
-   "kind": "oper",
-   "message": "Riset \"Riset: GF MPL ID S18 NAVI vs BTR, Boaster lepas Fnatic\" beres, udah dicek 2 sumber. Tiara, lanjut ya~"
-  },
-  {
-   "ts": "2026-11-07 12:01:07",
-   "agent_id": "publisher",
-   "to_id": null,
-   "kind": "oper",
-   "message": "\"Siapa ke Grand Final MPL ID S18? Hasil upper final\" udah tayang di IG + TikTok 🚀 Makasih semua!"
   }
  ],
  "stats": {
@@ -1018,9 +1018,14 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 4126.399902,
+  "price": 4119.600098,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-09 15:01:09",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
    {
     "ts": "2026-11-09 14:46:09",
     "decision": "NO TRADE",
@@ -1045,11 +1050,6 @@
     "ts": "2026-11-09 13:46:09",
     "decision": "NO TRADE",
     "reason": "setup SELL di band, konfirmasi baru 2/3 (RSI+MACD) · London–NY (mode aman)"
-   },
-   {
-    "ts": "2026-11-09 13:31:09",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
   ],
   "trades": [
@@ -1094,7 +1094,7 @@
    1716.0099999999995
   ],
   "last": {
-   "ts": "2026-11-09 14:46:09",
+   "ts": "2026-11-09 15:01:09",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1115,7 +1115,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4121.60 di atas tengah band (4092.2–4136.3) · RSI 57 · Stoch 73 · MACD +0.76 · H1 bullish"
+    "note": "M15 4121.70 di atas tengah band (4094.4–4136.5) · RSI 57 · Stoch 66 · MACD +0.44 · H1 bullish"
    }
   },
   "fund": null,
@@ -1198,47 +1198,47 @@
   "tf": {
    "M10": {
     "bias": "bullish",
-    "score": 3,
-    "price": 4120.6,
-    "ema20": 4119.21,
-    "ema50": 4112.55,
-    "rsi": 54.1,
+    "score": 2,
+    "price": 4122.9,
+    "ema20": 4119.56,
+    "ema50": 4112.96,
+    "rsi": 56.5,
     "n": 299,
-    "slot": 2990393,
-    "at": 1794235869655
+    "slot": 2990394,
+    "at": 1794236469686
    },
    "M15": {
     "bias": "bullish",
     "score": 3,
-    "price": 4121.7,
-    "ema20": 4116.12,
-    "ema50": 4108.61,
-    "rsi": 57.6,
+    "price": 4122.9,
+    "ema20": 4116.76,
+    "ema50": 4109.17,
+    "rsi": 58.6,
     "n": 299,
-    "slot": 1993595,
-    "at": 1794235569672
+    "slot": 1993596,
+    "at": 1794236469692
    },
    "M30": {
     "bias": "bullish",
     "score": 2,
-    "price": 4126.8,
-    "ema20": 4110.99,
-    "ema50": 4099.14,
-    "rsi": 67.3,
+    "price": 4122.9,
+    "ema20": 4112.13,
+    "ema50": 4100.07,
+    "rsi": 62.8,
     "n": 299,
-    "slot": 996797,
-    "at": 1794234669736
+    "slot": 996798,
+    "at": 1794236469694
    },
    "H1": {
     "bias": "bullish",
     "score": 3,
-    "price": 4126.8,
-    "ema20": 4101.62,
-    "ema50": 4088.17,
-    "rsi": 66.1,
+    "price": 4122.9,
+    "ema20": 4103.65,
+    "ema50": 4089.53,
+    "rsi": 63.4,
     "n": 299,
-    "slot": 498398,
-    "at": 1794232869592
+    "slot": 498399,
+    "at": 1794236469700
    }
   },
   "currency": "USC",
