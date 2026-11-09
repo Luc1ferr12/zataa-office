@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-09T15:34:39.726Z",
+ "generated_at": "2026-11-09T15:44:39.723Z",
  "today": "2026-11-09",
  "week_start": "2026-11-09",
  "campaign": {
@@ -524,6 +524,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-09 15:41:09",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: sideways → bullish"
+  },
+  {
    "ts": "2026-11-09 15:31:09",
    "agent_id": "trisk",
    "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
@@ -642,11 +647,6 @@
    "ts": "2026-11-09 12:00:54",
    "agent_id": "ttech",
    "message": "M10 berubah arah: sideways → bullish"
-  },
-  {
-   "ts": "2026-11-09 11:30:54",
-   "agent_id": "ttech",
-   "message": "M30 berubah arah: sideways → bullish"
   }
  ],
  "chats": [
@@ -1018,7 +1018,7 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 4121.100098,
+  "price": 4119.799805,
   "open": [],
   "signals": [
    {
@@ -1197,15 +1197,15 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "sideways",
-    "score": 0,
-    "price": 4116.7,
-    "ema20": 4118.89,
-    "ema50": 4113.42,
-    "rsi": 49.1,
+    "bias": "bullish",
+    "score": 2,
+    "price": 4120.2,
+    "ema20": 4119.01,
+    "ema50": 4113.68,
+    "rsi": 53.3,
     "n": 299,
-    "slot": 2990397,
-    "at": 1794238269743
+    "slot": 2990398,
+    "at": 1794238869743
    },
    "M15": {
     "bias": "sideways",
