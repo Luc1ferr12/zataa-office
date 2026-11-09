@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-09T05:54:23.531Z",
+ "generated_at": "2026-11-09T06:04:23.539Z",
  "today": "2026-11-09",
  "week_start": "2026-11-09",
  "campaign": null,
@@ -82,7 +82,7 @@
    "title": "Price Watcher",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-11-09 04:01:15"
+   "updated_at": "2026-11-09 06:00:24"
   },
   {
    "id": "ob",
@@ -98,7 +98,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-09 05:45:54"
+   "updated_at": "2026-11-09 06:00:54"
   },
   {
    "id": "tresearch",
@@ -106,7 +106,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
-   "updated_at": "2026-11-09 05:45:54"
+   "updated_at": "2026-11-09 06:00:54"
   },
   {
    "id": "ttech",
@@ -114,7 +114,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bullish",
-   "updated_at": "2026-11-09 05:45:54"
+   "updated_at": "2026-11-09 06:00:54"
   },
   {
    "id": "trisk",
@@ -122,7 +122,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
-   "updated_at": "2026-11-09 05:45:54"
+   "updated_at": "2026-11-09 06:00:54"
   },
   {
    "id": "texec",
@@ -703,12 +703,12 @@
    "yt_posted": 14,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 33538,
+   "views": 33586,
    "likes": 372,
    "comments": 3,
    "shares": 0,
    "saves": 4,
-   "yt_views": 24545,
+   "yt_views": 24593,
    "top": [
     {
      "title": "Upper Final MPL ID S18 malam ini: NAVI vs TLID 18.00 WIB, yang menang langsung ke Grand Final + tiket M8",
@@ -720,7 +720,7 @@
      "title": "Sangkuriang: Legenda atau Ingatan Danau Bandung Purba?",
      "format": "shorts",
      "pillar": "legenda_mitos",
-     "views": 3010
+     "views": 3011
     },
     {
      "title": "Lubang Jepang: Penjara Rahasia di Bawah Bukittinggi",
@@ -751,9 +751,14 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 4125.5,
+  "price": 4123.5,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-09 06:00:54",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
+   },
    {
     "ts": "2026-11-09 05:45:54",
     "decision": "NO TRADE",
@@ -776,11 +781,6 @@
    },
    {
     "ts": "2026-11-09 04:45:53",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-   },
-   {
-    "ts": "2026-11-09 04:30:54",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
    }
@@ -827,7 +827,7 @@
    1716.0099999999995
   ],
   "last": {
-   "ts": "2026-11-09 05:45:54",
+   "ts": "2026-11-09 06:00:54",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -848,7 +848,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4122.60 di atas tengah band (4108.9–4135.6) · RSI 62 · Stoch 41 · MACD -1.63 · H1 bullish"
+    "note": "M15 4123.90 di atas tengah band (4112.2–4134.2) · RSI 63 · Stoch 48 · MACD -1.61 · H1 bullish"
    }
   },
   "fund": null,
@@ -932,46 +932,46 @@
    "M10": {
     "bias": "bullish",
     "score": 2,
-    "price": 4123.9,
-    "ema20": 4120.59,
-    "ema50": 4107.19,
-    "rsi": 60.1,
+    "price": 4124.8,
+    "ema20": 4120.99,
+    "ema50": 4107.88,
+    "rsi": 61.2,
     "n": 299,
-    "slot": 2990339,
-    "at": 1794203454115
+    "slot": 2990340,
+    "at": 1794204054040
    },
    "M15": {
     "bias": "sideways",
     "score": 1,
-    "price": 4123.8,
-    "ema20": 4115.96,
-    "ema50": 4099.7,
-    "rsi": 63.7,
+    "price": 4124.8,
+    "ema20": 4116.8,
+    "ema50": 4100.68,
+    "rsi": 64.5,
     "n": 299,
-    "slot": 1993559,
-    "at": 1794203154043
+    "slot": 1993560,
+    "at": 1794204054046
    },
    "M30": {
     "bias": "bullish",
-    "score": 3,
-    "price": 4123.3,
-    "ema20": 4102.44,
-    "ema50": 4087.53,
-    "rsi": 72,
+    "score": 2,
+    "price": 4124.8,
+    "ema20": 4104.57,
+    "ema50": 4088.99,
+    "rsi": 72.6,
     "n": 299,
-    "slot": 996779,
-    "at": 1794202254042
+    "slot": 996780,
+    "at": 1794204054047
    },
    "H1": {
     "bias": "bullish",
     "score": 3,
-    "price": 4125.5,
-    "ema20": 4089.68,
-    "ema50": 4079.2,
-    "rsi": 77.2,
+    "price": 4124.8,
+    "ema20": 4093.02,
+    "ema50": 4080.99,
+    "rsi": 76.4,
     "n": 299,
-    "slot": 498389,
-    "at": 1794200454095
+    "slot": 498390,
+    "at": 1794204054051
    }
   },
   "currency": "USC",
