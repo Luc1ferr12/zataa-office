@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-09T17:54:39.785Z",
+ "generated_at": "2026-11-09T18:04:39.800Z",
  "today": "2026-11-10",
  "week_start": "2026-11-09",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-09 17:46:10"
+   "updated_at": "2026-11-09 18:00:40"
   },
   {
    "id": "tresearch",
@@ -111,23 +111,23 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
-   "updated_at": "2026-11-09 17:46:10"
+   "updated_at": "2026-11-09 18:00:40"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Setup BUY di band (Stokastik+MACD)",
-   "updated_at": "2026-11-09 17:46:10"
+   "current_task": "Belum ada pantulan band · H1 bullish",
+   "updated_at": "2026-11-09 18:00:40"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: setup BUY di band, konfirmasi baru 2/3 (Stokastik+MACD) · London–NY (mode aman)",
-   "updated_at": "2026-11-09 17:46:10"
+   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
+   "updated_at": "2026-11-09 18:00:40"
   },
   {
    "id": "texec",
@@ -524,6 +524,16 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-09 18:00:40",
+   "agent_id": "ttech",
+   "message": "M60 berubah arah: bullish → sideways"
+  },
+  {
+   "ts": "2026-11-09 18:00:40",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: sideways → bearish"
+  },
+  {
    "ts": "2026-11-09 17:31:10",
    "agent_id": "trisk",
    "message": "NO TRADE · setup BUY di band, konfirmasi baru 0/3 (-) · London–NY (mode aman)"
@@ -637,16 +647,6 @@
    "ts": "2026-11-09 14:42:48",
    "agent_id": "svideo",
    "message": "Shorts #162 \"Tulisan Tertua Indonesia Ada di 7 Tiang Batu Ini\" masuk antrean render laptop (OmniVoice)"
-  },
-  {
-   "ts": "2026-11-09 14:42:48",
-   "agent_id": "ypublish",
-   "message": "Jam 18:00 WIB (pola channel); sesi telat, jadi upload langsung setelah approve"
-  },
-  {
-   "ts": "2026-11-09 14:42:48",
-   "agent_id": "yvideo",
-   "message": "Shorts #161 \"Kota 9.000 Tahun Ini Nggak Punya Jalan, Pintunya di Atap\" masuk antrean render laptop (OmniVoice)"
   }
  ],
  "chats": [
@@ -1018,9 +1018,14 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 4102.700195,
+  "price": 4105.100098,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-09 18:00:40",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
    {
     "ts": "2026-11-09 17:46:10",
     "decision": "NO TRADE",
@@ -1043,11 +1048,6 @@
    },
    {
     "ts": "2026-11-09 16:46:10",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-11-09 16:31:10",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1094,7 +1094,7 @@
    1716.0099999999995
   ],
   "last": {
-   "ts": "2026-11-09 17:46:10",
+   "ts": "2026-11-09 18:00:40",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1103,7 +1103,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "setup BUY di band, konfirmasi baru 2/3 (Stokastik+MACD) · London–NY (mode aman)",
+   "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
    "fund": {
     "bias": 0,
     "note": "netral (belum ada ringkasan hari ini)",
@@ -1112,13 +1112,10 @@
    },
    "tech": {
     "bias": "bullish",
-    "score": 2,
-    "trigger": "buy",
-    "confirm": [
-     "Stokastik",
-     "MACD"
-    ],
-    "note": "M15 4104.60 di bawah tengah band (4101.4–4134.6) · RSI 40 · Stoch 6 · MACD -2.60 · H1 bullish · setup BUY (Stokastik+MACD)"
+    "score": 0,
+    "trigger": null,
+    "confirm": [],
+    "note": "M15 4103.20 di bawah tengah band (4098.8–4135.4) · RSI 39 · Stoch 4 · MACD -2.60 · H1 bullish"
    }
   },
   "fund": null,
@@ -1200,48 +1197,48 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "sideways",
-    "score": -1,
-    "price": 4104.4,
-    "ema20": 4113.6,
-    "ema50": 4113.4,
-    "rsi": 35.4,
+    "bias": "bearish",
+    "score": -3,
+    "price": 4103.2,
+    "ema20": 4112.61,
+    "ema50": 4113,
+    "rsi": 34.2,
     "n": 299,
-    "slot": 2990411,
-    "at": 1794246670081
+    "slot": 2990412,
+    "at": 1794247240068
    },
    "M15": {
     "bias": "sideways",
     "score": -1,
-    "price": 4103.8,
-    "ema20": 4114.39,
-    "ema50": 4111,
-    "rsi": 39.4,
+    "price": 4103.2,
+    "ema20": 4113.32,
+    "ema50": 4110.7,
+    "rsi": 38.9,
     "n": 299,
-    "slot": 1993607,
-    "at": 1794246370139
+    "slot": 1993608,
+    "at": 1794247240075
    },
    "M30": {
     "bias": "sideways",
     "score": -1,
-    "price": 4106.2,
-    "ema20": 4112.76,
-    "ema50": 4102.62,
-    "rsi": 46.5,
+    "price": 4103.2,
+    "ema20": 4111.85,
+    "ema50": 4102.65,
+    "rsi": 44.3,
     "n": 299,
-    "slot": 996803,
-    "at": 1794245469869
+    "slot": 996804,
+    "at": 1794247240077
    },
    "H1": {
-    "bias": "bullish",
-    "score": 2,
-    "price": 4111.4,
-    "ema20": 4105.99,
-    "ema50": 4091.62,
-    "rsi": 55.7,
+    "bias": "sideways",
+    "score": 0,
+    "price": 4103.2,
+    "ema20": 4105.72,
+    "ema50": 4092.07,
+    "rsi": 50.9,
     "n": 299,
-    "slot": 498401,
-    "at": 1794243669930
+    "slot": 498402,
+    "at": 1794247240083
    }
   },
   "currency": "USC",
