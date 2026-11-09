@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-09T03:54:23.474Z",
+ "generated_at": "2026-11-09T04:04:23.484Z",
  "today": "2026-11-09",
  "week_start": "2026-11-09",
  "campaign": null,
@@ -74,7 +74,7 @@
    "title": "Data Analyst",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-11-09 01:01:19"
+   "updated_at": "2026-11-09 04:01:14"
   },
   {
    "id": "price",
@@ -82,7 +82,7 @@
    "title": "Price Watcher",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-11-09 02:00:24"
+   "updated_at": "2026-11-09 04:01:15"
   },
   {
    "id": "ob",
@@ -98,7 +98,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-09 03:45:54"
+   "updated_at": "2026-11-09 04:00:54"
   },
   {
    "id": "tresearch",
@@ -106,7 +106,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
-   "updated_at": "2026-11-09 03:45:54"
+   "updated_at": "2026-11-09 04:00:54"
   },
   {
    "id": "ttech",
@@ -114,7 +114,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bullish",
-   "updated_at": "2026-11-09 03:45:54"
+   "updated_at": "2026-11-09 04:00:54"
   },
   {
    "id": "trisk",
@@ -122,7 +122,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
-   "updated_at": "2026-11-09 03:45:54"
+   "updated_at": "2026-11-09 04:00:54"
   },
   {
    "id": "texec",
@@ -257,6 +257,11 @@
  "today_tasks": [],
  "activity": [
   {
+   "ts": "2026-11-09 04:01:14",
+   "agent_id": "analyst",
+   "message": "Update data 43 post IG 📈"
+  },
+  {
    "ts": "2026-11-09 03:30:54",
    "agent_id": "ttech",
    "message": "M30 berubah arah: sideways → bullish"
@@ -375,11 +380,6 @@
    "ts": "2026-11-08 13:01:11",
    "agent_id": "analyst",
    "message": "Update data 44 post IG 📈"
-  },
-  {
-   "ts": "2026-11-08 12:01:34",
-   "agent_id": "publisher",
-   "message": "Posting #125 ke IG + TikTok ✅"
   }
  ],
  "chats": [
@@ -703,12 +703,12 @@
    "yt_posted": 14,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 33489,
+   "views": 33503,
    "likes": 370,
    "comments": 3,
    "shares": 0,
    "saves": 4,
-   "yt_views": 24501,
+   "yt_views": 24510,
    "top": [
     {
      "title": "Upper Final MPL ID S18 malam ini: NAVI vs TLID 18.00 WIB, yang menang langsung ke Grand Final + tiket M8",
@@ -726,7 +726,7 @@
      "title": "Lubang Jepang: Penjara Rahasia di Bawah Bukittinggi",
      "format": "shorts",
      "pillar": "horor_sejarah",
-     "views": 2492
+     "views": 2493
     }
    ],
    "clicks": 0,
@@ -751,9 +751,14 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 4122.799805,
+  "price": 4118.899902,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-09 04:00:54",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
+   },
    {
     "ts": "2026-11-09 03:45:54",
     "decision": "NO TRADE",
@@ -776,11 +781,6 @@
    },
    {
     "ts": "2026-11-09 02:45:53",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-   },
-   {
-    "ts": "2026-11-09 02:30:54",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
    }
@@ -827,7 +827,7 @@
    1716.0099999999995
   ],
   "last": {
-   "ts": "2026-11-09 03:45:54",
+   "ts": "2026-11-09 04:00:54",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -848,7 +848,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4122.10 di atas tengah band (4049.0–4158.3) · RSI 69 · Stoch 80 · MACD +0.40 · H1 bullish"
+    "note": "M15 4116.80 di atas tengah band (4053.9–4157.7) · RSI 63 · Stoch 70 · MACD -0.59 · H1 bullish"
    }
   },
   "fund": null,
@@ -932,46 +932,46 @@
    "M10": {
     "bias": "bullish",
     "score": 2,
-    "price": 4119.6,
-    "ema20": 4113.06,
-    "ema50": 4097.02,
-    "rsi": 63.7,
+    "price": 4117.2,
+    "ema20": 4113.45,
+    "ema50": 4097.81,
+    "rsi": 60.3,
     "n": 299,
-    "slot": 2990327,
-    "at": 1794196254136
+    "slot": 2990328,
+    "at": 1794196854087
    },
    "M15": {
     "bias": "bullish",
     "score": 3,
-    "price": 4122.2,
-    "ema20": 4106.83,
-    "ema50": 4090.82,
-    "rsi": 69.3,
+    "price": 4117.2,
+    "ema20": 4107.82,
+    "ema50": 4091.85,
+    "rsi": 63.5,
     "n": 299,
-    "slot": 1993551,
-    "at": 1794195953953
+    "slot": 1993552,
+    "at": 1794196854093
    },
    "M30": {
     "bias": "bullish",
     "score": 2,
-    "price": 4117.3,
-    "ema20": 4092.36,
-    "ema50": 4081.41,
-    "rsi": 71.3,
+    "price": 4117.2,
+    "ema20": 4094.72,
+    "ema50": 4082.81,
+    "rsi": 71.2,
     "n": 299,
-    "slot": 996775,
-    "at": 1794195054031
+    "slot": 996776,
+    "at": 1794196854095
    },
    "H1": {
     "bias": "bullish",
     "score": 2,
-    "price": 4121,
-    "ema20": 4082.61,
-    "ema50": 4075.68,
-    "rsi": 78.4,
+    "price": 4117.2,
+    "ema20": 4085.91,
+    "ema50": 4077.31,
+    "rsi": 74.5,
     "n": 299,
-    "slot": 498387,
-    "at": 1794193254177
+    "slot": 498388,
+    "at": 1794196854103
    }
   },
   "currency": "USC",
