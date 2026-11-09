@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-09T07:54:23.728Z",
+ "generated_at": "2026-11-09T08:04:23.725Z",
  "today": "2026-11-09",
  "week_start": "2026-11-09",
  "campaign": null,
@@ -82,7 +82,7 @@
    "title": "Price Watcher",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-11-09 06:00:24"
+   "updated_at": "2026-11-09 08:00:24"
   },
   {
    "id": "ob",
@@ -98,7 +98,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-09 07:45:54"
+   "updated_at": "2026-11-09 08:00:54"
   },
   {
    "id": "tresearch",
@@ -106,7 +106,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
-   "updated_at": "2026-11-09 07:45:54"
+   "updated_at": "2026-11-09 08:00:54"
   },
   {
    "id": "ttech",
@@ -114,7 +114,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bullish",
-   "updated_at": "2026-11-09 07:45:54"
+   "updated_at": "2026-11-09 08:00:54"
   },
   {
    "id": "trisk",
@@ -122,7 +122,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-11-09 07:45:54"
+   "updated_at": "2026-11-09 08:00:54"
   },
   {
    "id": "texec",
@@ -257,6 +257,11 @@
  "today_tasks": [],
  "activity": [
   {
+   "ts": "2026-11-09 08:00:54",
+   "agent_id": "ttech",
+   "message": "M60 berubah arah: bullish → sideways"
+  },
+  {
    "ts": "2026-11-09 07:30:54",
    "agent_id": "ttech",
    "message": "M30 berubah arah: bullish → sideways"
@@ -375,11 +380,6 @@
    "ts": "2026-11-09 00:15:53",
    "agent_id": "ttech",
    "message": "M15 berubah arah: bearish → sideways"
-  },
-  {
-   "ts": "2026-11-09 00:01:03",
-   "agent_id": "trisk",
-   "message": "NO TRADE · ada candle spike di M15 (kemungkinan berita dadakan), tunggu tenang"
   }
  ],
  "chats": [
@@ -703,12 +703,12 @@
    "yt_posted": 14,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 33708,
+   "views": 33709,
    "likes": 373,
    "comments": 3,
    "shares": 0,
    "saves": 4,
-   "yt_views": 24711,
+   "yt_views": 24712,
    "top": [
     {
      "title": "Upper Final MPL ID S18 malam ini: NAVI vs TLID 18.00 WIB, yang menang langsung ke Grand Final + tiket M8",
@@ -751,9 +751,14 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 4088.399902,
+  "price": 4092.399902,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-09 08:00:54",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
    {
     "ts": "2026-11-09 07:45:54",
     "decision": "NO TRADE",
@@ -776,11 +781,6 @@
    },
    {
     "ts": "2026-11-09 06:45:54",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-   },
-   {
-    "ts": "2026-11-09 06:30:54",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
    }
@@ -827,7 +827,7 @@
    1716.0099999999995
   ],
   "last": {
-   "ts": "2026-11-09 07:45:54",
+   "ts": "2026-11-09 08:00:54",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -848,7 +848,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4092.40 di bawah band bawah (4093.1–4138.7) · RSI 33 · Stoch 1 · MACD -5.00 · H1 bullish"
+    "note": "M15 4087.70 di bawah tengah band (4086.3–4141.8) · RSI 31 · Stoch 1 · MACD -5.41 · H1 bullish"
    }
   },
   "fund": null,
@@ -932,46 +932,46 @@
    "M10": {
     "bias": "sideways",
     "score": 0,
-    "price": 4090.2,
-    "ema20": 4110.23,
-    "ema50": 4107.42,
-    "rsi": 24.5,
+    "price": 4086.6,
+    "ema20": 4107.98,
+    "ema50": 4106.6,
+    "rsi": 22.5,
     "n": 299,
-    "slot": 2990351,
-    "at": 1794210654221
+    "slot": 2990352,
+    "at": 1794211254157
    },
    "M15": {
     "bias": "sideways",
     "score": -1,
-    "price": 4092.7,
-    "ema20": 4111.6,
-    "ema50": 4102.36,
-    "rsi": 33,
+    "price": 4086.6,
+    "ema20": 4109.22,
+    "ema50": 4101.74,
+    "rsi": 29.5,
     "n": 299,
-    "slot": 1993567,
-    "at": 1794210354149
+    "slot": 1993568,
+    "at": 1794211254163
    },
    "M30": {
     "bias": "sideways",
     "score": 0,
-    "price": 4100.3,
-    "ema20": 4105.55,
-    "ema50": 4091.22,
-    "rsi": 49.6,
+    "price": 4086.6,
+    "ema20": 4103.74,
+    "ema50": 4091.04,
+    "rsi": 41.1,
     "n": 299,
-    "slot": 996783,
-    "at": 1794209454137
+    "slot": 996784,
+    "at": 1794211254164
    },
    "H1": {
-    "bias": "bullish",
-    "score": 3,
-    "price": 4109,
-    "ema20": 4094.54,
-    "ema50": 4082.08,
-    "rsi": 62.1,
+    "bias": "sideways",
+    "score": 1,
+    "price": 4086.6,
+    "ema20": 4093.79,
+    "ema50": 4082.26,
+    "rsi": 48.3,
     "n": 299,
-    "slot": 498391,
-    "at": 1794207654158
+    "slot": 498392,
+    "at": 1794211254170
    }
   },
   "currency": "USC",
