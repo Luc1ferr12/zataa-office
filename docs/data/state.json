@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-10T15:14:40.368Z",
+ "generated_at": "2026-11-10T15:24:40.371Z",
  "today": "2026-11-10",
  "week_start": "2026-11-09",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-10 15:00:41"
+   "updated_at": "2026-11-10 15:15:40"
   },
   {
    "id": "tresearch",
@@ -111,23 +111,23 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Fed cenderung hawkish (tahan/naik), core CPI Sep 0,3% m/m > konsensus. CPI Okt hari ini diprakirakan melunak. Bias sedikit negatif.",
-   "updated_at": "2026-11-10 15:00:41"
+   "updated_at": "2026-11-10 15:15:40"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-10 15:00:41"
+   "current_task": "Setup BUY di band (RSI+Stokastik+MACD)",
+   "updated_at": "2026-11-10 15:15:40"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-11-10 15:00:41"
+   "current_task": "NO TRADE: fundamental berlawanan (Fed cenderung hawkish (tahan/naik), core CPI Sep 0,3% m/m > konsensus. CPI Okt hari ini diprakirakan melunak. Bias sedikit negatif.)",
+   "updated_at": "2026-11-10 15:15:40"
   },
   {
    "id": "texec",
@@ -1050,9 +1050,14 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 4050.699951,
+  "price": 4050.399902,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-10 15:15:40",
+    "decision": "NO TRADE",
+    "reason": "fundamental berlawanan (Fed cenderung hawkish (tahan/naik), core CPI Sep 0,3% m/m > konsensus. CPI Okt hari ini diprakirakan melunak. Bias sedikit negatif.)"
+   },
    {
     "ts": "2026-11-10 15:00:41",
     "decision": "NO TRADE",
@@ -1075,11 +1080,6 @@
    },
    {
     "ts": "2026-11-10 14:00:40",
-    "decision": "NO TRADE",
-    "reason": "berita berdampak tinggi: Core CPI m/m (21.30 WITA)"
-   },
-   {
-    "ts": "2026-11-10 13:45:40",
     "decision": "NO TRADE",
     "reason": "berita berdampak tinggi: Core CPI m/m (21.30 WITA)"
    }
@@ -1126,7 +1126,7 @@
    1716.0099999999995
   ],
   "last": {
-   "ts": "2026-11-10 15:00:41",
+   "ts": "2026-11-10 15:15:40",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1135,7 +1135,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
+   "reason": "fundamental berlawanan (Fed cenderung hawkish (tahan/naik), core CPI Sep 0,3% m/m > konsensus. CPI Okt hari ini diprakirakan melunak. Bias sedikit negatif.)",
    "fund": {
     "bias": -0.15,
     "note": "Fed cenderung hawkish (tahan/naik), core CPI Sep 0,3% m/m > konsensus. CPI Okt hari ini diprakirakan melunak. Bias sedikit negatif.",
@@ -1144,10 +1144,14 @@
    },
    "tech": {
     "bias": "sideways",
-    "score": 0,
-    "trigger": null,
-    "confirm": [],
-    "note": "M15 4040.20 di bawah tengah band (4035.0–4098.2) · RSI 18 · Stoch 9 · MACD -2.20 · H1 sideways"
+    "score": 3,
+    "trigger": "buy",
+    "confirm": [
+     "RSI",
+     "Stokastik",
+     "MACD"
+    ],
+    "note": "M15 4052.30 di bawah tengah band (4035.8–4095.9) · RSI 33 · Stoch 26 · MACD -0.72 · H1 sideways · setup BUY (RSI+Stokastik+MACD)"
    }
   },
   "fund": {
@@ -1225,24 +1229,24 @@
    "M10": {
     "bias": "bearish",
     "score": -2,
-    "price": 4049.9,
-    "ema20": 4060.15,
-    "ema50": 4078.55,
-    "rsi": 37.8,
+    "price": 4050.2,
+    "ema20": 4059.2,
+    "ema50": 4077.44,
+    "rsi": 38.1,
     "n": 299,
-    "slot": 2990539,
-    "at": 1794323441144
+    "slot": 2990540,
+    "at": 1794324040914
    },
    "M15": {
     "bias": "bearish",
     "score": -3,
-    "price": 4038.8,
-    "ema20": 4068.36,
-    "ema50": 4088.94,
-    "rsi": 15.3,
+    "price": 4050.9,
+    "ema20": 4066.7,
+    "ema50": 4087.45,
+    "rsi": 31.3,
     "n": 299,
-    "slot": 1993692,
-    "at": 1794322840885
+    "slot": 1993693,
+    "at": 1794323740840
    },
    "M30": {
     "bias": "bearish",
