@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-10T13:24:40.316Z",
+ "generated_at": "2026-11-10T13:34:40.313Z",
  "today": "2026-11-10",
  "week_start": "2026-11-09",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-10 13:15:40"
+   "updated_at": "2026-11-10 13:30:40"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Waspada rilis Core CPI m/m (21.30 WITA)",
-   "updated_at": "2026-11-10 13:15:40"
+   "updated_at": "2026-11-10 13:30:40"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-10 13:15:40"
+   "updated_at": "2026-11-10 13:30:40"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: berita berdampak tinggi: Core CPI m/m (21.30 WITA)",
-   "updated_at": "2026-11-10 13:15:40"
+   "updated_at": "2026-11-10 13:30:40"
   },
   {
    "id": "texec",
@@ -524,6 +524,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-10 13:30:40",
+   "agent_id": "trisk",
+   "message": "NO TRADE · berita berdampak tinggi: Core CPI m/m (21.30 WITA)"
+  },
+  {
    "ts": "2026-11-10 13:20:40",
    "agent_id": "ttech",
    "message": "M10 berubah arah: bearish → sideways"
@@ -642,11 +647,6 @@
    "ts": "2026-11-10 06:15:40",
    "agent_id": "trisk",
    "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-  },
-  {
-   "ts": "2026-11-10 06:00:40",
-   "agent_id": "ttech",
-   "message": "M60 berubah arah: sideways → bullish"
   }
  ],
  "chats": [
@@ -942,18 +942,18 @@
    "yt_posted": 2,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 452,
-   "likes": 4,
+   "views": 1250,
+   "likes": 12,
    "comments": 0,
    "shares": 1,
    "saves": 0,
-   "yt_views": 270,
+   "yt_views": 1068,
    "top": [
     {
      "title": "Kota 9.000 Tahun Ini Nggak Punya Jalan, Pintunya di Atap",
      "format": "shorts",
      "pillar": "hidden_history",
-     "views": 270
+     "views": 938
     },
     {
      "title": "Hush agent baru VALORANT 13.09: 3 hal wajib tahu",
@@ -962,10 +962,10 @@
      "views": 175
     },
     {
-     "title": "Diamond FF buat dukung wakil Indonesia di FFWS, harga hari ini",
-     "format": "feed",
-     "pillar": "promo",
-     "views": 7
+     "title": "Tulisan Tertua Indonesia Ada di 7 Tiang Batu Ini",
+     "format": "shorts",
+     "pillar": "misteri_kuno",
+     "views": 130
     }
    ],
    "clicks": 0,
@@ -1002,18 +1002,18 @@
    "yt_posted": 14,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 34866,
+   "views": 34871,
    "likes": 383,
    "comments": 4,
    "shares": 0,
    "saves": 4,
-   "yt_views": 25836,
+   "yt_views": 25839,
    "top": [
     {
      "title": "Upper Final MPL ID S18 malam ini: NAVI vs TLID 18.00 WIB, yang menang langsung ke Grand Final + tiket M8",
      "format": "video",
      "pillar": "esport",
-     "views": 3260
+     "views": 3261
     },
     {
      "title": "Sangkuriang: Legenda atau Ingatan Danau Bandung Purba?",
@@ -1050,9 +1050,14 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 4073.300049,
+  "price": 4048.199951,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-10 13:30:40",
+    "decision": "NO TRADE",
+    "reason": "berita berdampak tinggi: Core CPI m/m (21.30 WITA)"
+   },
    {
     "ts": "2026-11-10 13:15:40",
     "decision": "NO TRADE",
@@ -1075,11 +1080,6 @@
    },
    {
     "ts": "2026-11-10 12:15:40",
-    "decision": "NO TRADE",
-    "reason": "berita berdampak tinggi: Core CPI m/m (21.30 WITA)"
-   },
-   {
-    "ts": "2026-11-10 12:00:44",
     "decision": "NO TRADE",
     "reason": "berita berdampak tinggi: Core CPI m/m (21.30 WITA)"
    }
@@ -1126,7 +1126,7 @@
    1716.0099999999995
   ],
   "last": {
-   "ts": "2026-11-10 13:15:40",
+   "ts": "2026-11-10 13:30:40",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1147,7 +1147,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4077.60 di bawah tengah band (4057.1–4110.7) · RSI 32 · Stoch 38 · MACD +0.99 · H1 sideways"
+    "note": "M15 4073.10 di bawah tengah band (4059.7–4103.3) · RSI 28 · Stoch 24 · MACD +0.72 · H1 sideways"
    }
   },
   "fund": {
@@ -1225,35 +1225,35 @@
    "M10": {
     "bias": "sideways",
     "score": -1,
-    "price": 4072.7,
-    "ema20": 4080.59,
-    "ema50": 4093.66,
-    "rsi": 32.4,
+    "price": 4072.4,
+    "ema20": 4079.81,
+    "ema50": 4092.83,
+    "rsi": 32.1,
     "n": 299,
-    "slot": 2990528,
-    "at": 1794316840736
+    "slot": 2990529,
+    "at": 1794317440797
    },
    "M15": {
     "bias": "bearish",
     "score": -2,
-    "price": 4076.8,
-    "ema20": 4086.14,
-    "ema50": 4100.89,
-    "rsi": 30.3,
+    "price": 4072.4,
+    "ema20": 4084.84,
+    "ema50": 4099.77,
+    "rsi": 26.9,
     "n": 299,
-    "slot": 1993685,
-    "at": 1794316540772
+    "slot": 1993686,
+    "at": 1794317440802
    },
    "M30": {
     "bias": "bearish",
     "score": -3,
-    "price": 4078.5,
-    "ema20": 4097.95,
-    "ema50": 4107.31,
-    "rsi": 30.7,
+    "price": 4072.4,
+    "ema20": 4095.51,
+    "ema50": 4105.95,
+    "rsi": 28,
     "n": 299,
-    "slot": 996842,
-    "at": 1794315640856
+    "slot": 996843,
+    "at": 1794317440803
    },
    "H1": {
     "bias": "sideways",
