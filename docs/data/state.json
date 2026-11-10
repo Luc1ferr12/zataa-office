@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-10T08:44:40.190Z",
+ "generated_at": "2026-11-10T08:54:40.191Z",
  "today": "2026-11-10",
  "week_start": "2026-11-09",
  "campaign": {
@@ -103,15 +103,15 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-10 08:30:40"
+   "updated_at": "2026-11-10 08:45:40"
   },
   {
    "id": "tresearch",
    "name": "Davina",
    "title": "Research & Fundamental",
    "status": "done",
-   "current_task": "Fundamental: Berita 24 jam minim, data usang. Fed hawkish (3,5–3,75%), CPI hari ini diperkirakan melunak (0,3% vs 0,6%). Bias sedikit negatif.",
-   "updated_at": "2026-11-10 08:30:40"
+   "current_task": "Waspada rilis FOMC Member Waller Speaks (17.00 WITA)",
+   "updated_at": "2026-11-10 08:45:40"
   },
   {
    "id": "ttech",
@@ -119,15 +119,15 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bullish",
-   "updated_at": "2026-11-10 08:30:40"
+   "updated_at": "2026-11-10 08:45:40"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-11-10 08:30:40"
+   "current_task": "NO TRADE: berita berdampak tinggi: FOMC Member Waller Speaks (17.00 WITA)",
+   "updated_at": "2026-11-10 08:45:40"
   },
   {
    "id": "texec",
@@ -524,6 +524,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-10 08:45:40",
+   "agent_id": "ttech",
+   "message": "M15 berubah arah: bearish → sideways"
+  },
+  {
    "ts": "2026-11-10 08:30:40",
    "agent_id": "ttech",
    "message": "M10 berubah arah: sideways → bearish"
@@ -642,11 +647,6 @@
    "ts": "2026-11-10 04:00:40",
    "agent_id": "ttech",
    "message": "M15 berubah arah: sideways → bearish"
-  },
-  {
-   "ts": "2026-11-10 03:15:58",
-   "agent_id": "yvideo",
-   "message": "Shorts #161 dirender di laptop (suara OmniVoice) & dikirim ke Owner"
   }
  ],
  "chats": [
@@ -1034,9 +1034,14 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 4116.399902,
+  "price": 4119.399902,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-10 08:45:40",
+    "decision": "NO TRADE",
+    "reason": "berita berdampak tinggi: FOMC Member Waller Speaks (17.00 WITA)"
+   },
    {
     "ts": "2026-11-10 08:30:40",
     "decision": "NO TRADE",
@@ -1059,11 +1064,6 @@
    },
    {
     "ts": "2026-11-10 07:30:41",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-11-10 07:15:40",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1110,7 +1110,7 @@
    1716.0099999999995
   ],
   "last": {
-   "ts": "2026-11-10 08:30:40",
+   "ts": "2026-11-10 08:45:40",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1119,19 +1119,19 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
+   "reason": "berita berdampak tinggi: FOMC Member Waller Speaks (17.00 WITA)",
    "fund": {
     "bias": -0.1,
     "note": "Berita 24 jam minim, data usang. Fed hawkish (3,5–3,75%), CPI hari ini diperkirakan melunak (0,3% vs 0,6%). Bias sedikit negatif.",
     "danger": null,
-    "blackout": null
+    "blackout": "FOMC Member Waller Speaks (17.00 WITA)"
    },
    "tech": {
     "bias": "bullish",
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4117.70 di bawah tengah band (4110.2–4128.4) · RSI 45 · Stoch 36 · MACD -0.08 · H1 bullish"
+    "note": "M15 4118.00 di bawah tengah band (4111.2–4128.0) · RSI 46 · Stoch 30 · MACD -0.06 · H1 bullish"
    }
   },
   "fund": {
@@ -1218,24 +1218,24 @@
    "M10": {
     "bias": "bearish",
     "score": -3,
-    "price": 4118,
-    "ema20": 4119.11,
-    "ema50": 4121.22,
-    "rsi": 47.2,
+    "price": 4117.1,
+    "ema20": 4118.92,
+    "ema50": 4121.06,
+    "rsi": 45.9,
     "n": 299,
-    "slot": 2990500,
-    "at": 1794300040539
+    "slot": 2990501,
+    "at": 1794300640522
    },
    "M15": {
-    "bias": "bearish",
-    "score": -2,
-    "price": 4117.1,
-    "ema20": 4120.37,
-    "ema50": 4122.01,
-    "rsi": 44.4,
+    "bias": "sideways",
+    "score": -1,
+    "price": 4117,
+    "ema20": 4120.05,
+    "ema50": 4121.81,
+    "rsi": 44.3,
     "n": 299,
-    "slot": 1993666,
-    "at": 1794299440583
+    "slot": 1993667,
+    "at": 1794300340592
    },
    "M30": {
     "bias": "sideways",
