@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-10T00:04:39.970Z",
+ "generated_at": "2026-11-10T00:14:39.964Z",
  "today": "2026-11-10",
  "week_start": "2026-11-09",
  "campaign": {
@@ -524,6 +524,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-10 00:10:40",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: bullish → sideways"
+  },
+  {
    "ts": "2026-11-09 23:36:40",
    "agent_id": "owner",
    "message": "Approve konten #149 ✅"
@@ -642,11 +647,6 @@
    "ts": "2026-11-09 19:30:40",
    "agent_id": "ttech",
    "message": "M10 berubah arah: bearish → sideways"
-  },
-  {
-   "ts": "2026-11-09 19:01:24",
-   "agent_id": "analyst",
-   "message": "Update data 41 post IG 📈"
   }
  ],
  "chats": [
@@ -1027,7 +1027,7 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 4136.200195,
+  "price": 4136.399902,
   "open": [],
   "signals": [
    {
@@ -1209,15 +1209,15 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "bullish",
-    "score": 2,
-    "price": 4139,
-    "ema20": 4138.73,
-    "ema50": 4130.52,
-    "rsi": 53.7,
-    "n": 300,
-    "slot": 2990448,
-    "at": 1794268849691
+    "bias": "sideways",
+    "score": 0,
+    "price": 4138.6,
+    "ema20": 4138.71,
+    "ema50": 4130.84,
+    "rsi": 53.1,
+    "n": 299,
+    "slot": 2990449,
+    "at": 1794269440139
    },
    "M15": {
     "bias": "bullish",
