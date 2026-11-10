@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-10T03:14:40.121Z",
+ "generated_at": "2026-11-10T03:24:40.122Z",
  "today": "2026-11-10",
  "week_start": "2026-11-09",
  "campaign": {
@@ -30,8 +30,8 @@
    "name": "Salsa",
    "title": "Researcher",
    "status": "working",
-   "current_task": "Mantau: Konten #150 video sore VALORANT 13 (cek lagi 11.20)",
-   "updated_at": "2026-11-10 02:35:05"
+   "current_task": "Mantau: Konten #150 video sore VALORANT 13 (cek lagi 12.01)",
+   "updated_at": "2026-11-10 03:21:14"
   },
   {
    "id": "copywriter",
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-10 03:00:40"
+   "updated_at": "2026-11-10 03:15:40"
   },
   {
    "id": "tresearch",
@@ -111,23 +111,23 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Berita 24 jam minim, data usang. Fed hawkish (3,5–3,75%), CPI hari ini diperkirakan melunak (0,3% vs 0,6%). Bias sedikit negatif.",
-   "updated_at": "2026-11-10 03:00:40"
+   "updated_at": "2026-11-10 03:15:40"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Setup BUY di band (tanpa konfirmasi)",
-   "updated_at": "2026-11-10 03:00:40"
+   "current_task": "Belum ada pantulan band · H1 bullish",
+   "updated_at": "2026-11-10 03:15:40"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: setup BUY di band, konfirmasi baru 0/2 (-) · sesi Asia",
-   "updated_at": "2026-11-10 03:00:40"
+   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
+   "updated_at": "2026-11-10 03:15:40"
   },
   {
    "id": "texec",
@@ -323,7 +323,7 @@
    "game": "sejarah",
    "pillar": "hidden_history",
    "title": "Kota 9.000 Tahun Ini Nggak Punya Jalan, Pintunya di Atap",
-   "status": "draft",
+   "status": "pending_approval",
    "asset_url": null,
    "scheduled_at": null,
    "posted_at": null,
@@ -524,6 +524,21 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-10 03:15:58",
+   "agent_id": "yvideo",
+   "message": "Shorts #161 dirender di laptop (suara OmniVoice) & dikirim ke Owner"
+  },
+  {
+   "ts": "2026-11-10 03:15:58",
+   "agent_id": "ypublish",
+   "message": "Kirim Shorts #161 ke Owner buat approval"
+  },
+  {
+   "ts": "2026-11-10 03:15:40",
+   "agent_id": "trisk",
+   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (sesi Asia)"
+  },
+  {
    "ts": "2026-11-10 03:00:40",
    "agent_id": "ttech",
    "message": "M60 berubah arah: bullish → sideways"
@@ -632,21 +647,6 @@
    "ts": "2026-11-09 23:14:21",
    "agent_id": "spublish",
    "message": "Kirim Shorts #162 ke Owner buat approval"
-  },
-  {
-   "ts": "2026-11-09 23:11:41",
-   "agent_id": "yvideo",
-   "message": "Render laptop Shorts #161 gagal, cek logs/laptop-worker.log di laptop"
-  },
-  {
-   "ts": "2026-11-09 23:04:58",
-   "agent_id": "ydir",
-   "message": "Shorts hari ini: #161 Catalhoyuk (History, 18:00) & #162 Yupa (Story, 19:00) antre ulang laptop"
-  },
-  {
-   "ts": "2026-11-09 23:03:22",
-   "agent_id": "publisher",
-   "message": "#149 promo FF pending approval; #150 nunggu patch notes 13.10 (followup)"
   }
  ],
  "chats": [
@@ -936,11 +936,11 @@
    "week": "2026-11-09",
    "total": 15,
    "posted": 0,
-   "pending": 0,
+   "pending": 1,
    "scheduled": 2,
    "yt_total": 2,
    "yt_posted": 0,
-   "yt_pending": 0,
+   "yt_pending": 1,
    "yt_scheduled": 1,
    "views": 0,
    "likes": 0,
@@ -979,7 +979,7 @@
    "yt_posted": 14,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 34559,
+   "views": 34561,
    "likes": 382,
    "comments": 4,
    "shares": 0,
@@ -1027,9 +1027,14 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 4113.100098,
+  "price": 4114.399902,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-10 03:15:40",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
+   },
    {
     "ts": "2026-11-10 03:00:40",
     "decision": "NO TRADE",
@@ -1052,11 +1057,6 @@
    },
    {
     "ts": "2026-11-10 02:00:40",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-   },
-   {
-    "ts": "2026-11-10 01:45:40",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
    }
@@ -1103,7 +1103,7 @@
    1716.0099999999995
   ],
   "last": {
-   "ts": "2026-11-10 03:00:40",
+   "ts": "2026-11-10 03:15:40",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1112,7 +1112,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "setup BUY di band, konfirmasi baru 0/2 (-) · sesi Asia",
+   "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)",
    "fund": {
     "bias": -0.1,
     "note": "Berita 24 jam minim, data usang. Fed hawkish (3,5–3,75%), CPI hari ini diperkirakan melunak (0,3% vs 0,6%). Bias sedikit negatif.",
@@ -1122,9 +1122,9 @@
    "tech": {
     "bias": "bullish",
     "score": 0,
-    "trigger": "buy",
+    "trigger": null,
     "confirm": [],
-    "note": "M15 4112.70 di bawah tengah band (4109.8–4153.8) · RSI 37 · Stoch 4 · MACD -3.13 · H1 bullish · setup BUY (tanpa konfirmasi)"
+    "note": "M15 4113.70 di bawah tengah band (4107.6–4153.3) · RSI 38 · Stoch 6 · MACD -2.95 · H1 bullish"
    }
   },
   "fund": {
@@ -1211,24 +1211,24 @@
    "M10": {
     "bias": "bearish",
     "score": -2,
-    "price": 4115,
-    "ema20": 4125.94,
-    "ema50": 4127.99,
-    "rsi": 37.7,
+    "price": 4114.6,
+    "ema20": 4124.86,
+    "ema50": 4127.47,
+    "rsi": 37.4,
     "n": 299,
-    "slot": 2990467,
-    "at": 1794280240351
+    "slot": 2990468,
+    "at": 1794280840296
    },
    "M15": {
     "bias": "sideways",
     "score": 0,
-    "price": 4112.1,
-    "ema20": 4128.85,
-    "ema50": 4126.16,
-    "rsi": 36.8,
+    "price": 4113.8,
+    "ema20": 4127.42,
+    "ema50": 4125.68,
+    "rsi": 38.4,
     "n": 299,
-    "slot": 1993644,
-    "at": 1794279640287
+    "slot": 1993645,
+    "at": 1794280540296
    },
    "M30": {
     "bias": "sideways",
