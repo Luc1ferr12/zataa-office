@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-10T20:04:40.508Z",
+ "generated_at": "2026-11-10T20:14:40.511Z",
  "today": "2026-11-11",
  "week_start": "2026-11-09",
  "campaign": {
@@ -524,6 +524,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-10 20:10:41",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: sideways → bearish"
+  },
+  {
    "ts": "2026-11-10 19:45:41",
    "agent_id": "trisk",
    "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
@@ -642,11 +647,6 @@
    "ts": "2026-11-10 10:00:42",
    "agent_id": "ttech",
    "message": "M30 berubah arah: sideways → bearish"
-  },
-  {
-   "ts": "2026-11-10 09:15:40",
-   "agent_id": "trisk",
-   "message": "NO TRADE · berita berdampak tinggi: FOMC Member Waller Speaks (17.00 WITA)"
   }
  ],
  "chats": [
@@ -1050,7 +1050,7 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 4028.600098,
+  "price": 4031.899902,
   "open": [],
   "signals": [
    {
@@ -1205,15 +1205,15 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "sideways",
-    "score": 0,
-    "price": 4031.2,
-    "ema20": 4030.12,
-    "ema50": 4044.34,
-    "rsi": 48.1,
+    "bias": "bearish",
+    "score": -3,
+    "price": 4029.7,
+    "ema20": 4030.08,
+    "ema50": 4043.77,
+    "rsi": 46.4,
     "n": 299,
-    "slot": 2990568,
-    "at": 1794340841032
+    "slot": 2990569,
+    "at": 1794341441097
    },
    "M15": {
     "bias": "bearish",
