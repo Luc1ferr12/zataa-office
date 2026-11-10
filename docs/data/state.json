@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-10T09:24:40.207Z",
+ "generated_at": "2026-11-10T09:34:40.211Z",
  "today": "2026-11-10",
  "week_start": "2026-11-09",
  "campaign": {
@@ -103,15 +103,15 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-10 09:15:40"
+   "updated_at": "2026-11-10 09:30:40"
   },
   {
    "id": "tresearch",
    "name": "Davina",
    "title": "Research & Fundamental",
    "status": "done",
-   "current_task": "Waspada rilis FOMC Member Waller Speaks (17.00 WITA)",
-   "updated_at": "2026-11-10 09:15:40"
+   "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
+   "updated_at": "2026-11-10 09:30:40"
   },
   {
    "id": "ttech",
@@ -119,15 +119,15 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-10 09:15:40"
+   "updated_at": "2026-11-10 09:30:40"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: berita berdampak tinggi: FOMC Member Waller Speaks (17.00 WITA)",
-   "updated_at": "2026-11-10 09:15:40"
+   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
+   "updated_at": "2026-11-10 09:30:40"
   },
   {
    "id": "texec",
@@ -1034,9 +1034,14 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 4095.600098,
+  "price": 4089.800049,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-10 09:30:40",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
    {
     "ts": "2026-11-10 09:15:40",
     "decision": "NO TRADE",
@@ -1059,11 +1064,6 @@
    },
    {
     "ts": "2026-11-10 08:15:40",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-11-10 08:00:40",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1110,7 +1110,7 @@
    1716.0099999999995
   ],
   "last": {
-   "ts": "2026-11-10 09:15:40",
+   "ts": "2026-11-10 09:30:40",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1119,19 +1119,19 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "berita berdampak tinggi: FOMC Member Waller Speaks (17.00 WITA)",
+   "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
    "fund": {
     "bias": 0,
     "note": "netral (belum ada ringkasan hari ini)",
     "danger": null,
-    "blackout": "FOMC Member Waller Speaks (17.00 WITA)"
+    "blackout": null
    },
    "tech": {
     "bias": "sideways",
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4096.80 di bawah band bawah (4100.2–4135.1) · RSI 28 · Stoch 13 · MACD -2.16 · H1 sideways"
+    "note": "M15 4091.60 di bawah band bawah (4093.6–4138.7) · RSI 24 · Stoch 4 · MACD -2.93 · H1 sideways"
    }
   },
   "fund": null,
@@ -1215,35 +1215,35 @@
    "M10": {
     "bias": "bearish",
     "score": -3,
-    "price": 4095.2,
-    "ema20": 4115.05,
-    "ema50": 4119.18,
-    "rsi": 24.8,
+    "price": 4092.2,
+    "ema20": 4112.87,
+    "ema50": 4118.12,
+    "rsi": 23.2,
     "n": 299,
-    "slot": 2990504,
-    "at": 1794302440560
+    "slot": 2990505,
+    "at": 1794303040656
    },
    "M15": {
     "bias": "bearish",
     "score": -2,
-    "price": 4095.9,
-    "ema20": 4117.34,
-    "ema50": 4120.55,
-    "rsi": 26.5,
+    "price": 4092.2,
+    "ema20": 4114.94,
+    "ema50": 4119.44,
+    "rsi": 24.7,
     "n": 299,
-    "slot": 1993669,
-    "at": 1794302140725
+    "slot": 1993670,
+    "at": 1794303040661
    },
    "M30": {
     "bias": "sideways",
     "score": -1,
-    "price": 4115.3,
-    "ema20": 4121.36,
-    "ema50": 4117.85,
-    "rsi": 44.8,
+    "price": 4092.2,
+    "ema20": 4118.59,
+    "ema50": 4116.84,
+    "rsi": 32.4,
     "n": 299,
-    "slot": 996834,
-    "at": 1794301244649
+    "slot": 996835,
+    "at": 1794303040662
    },
    "H1": {
     "bias": "sideways",
