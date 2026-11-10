@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-10T14:54:40.354Z",
+ "generated_at": "2026-11-10T15:04:40.361Z",
  "today": "2026-11-10",
  "week_start": "2026-11-09",
  "campaign": {
@@ -103,31 +103,31 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-10 14:45:41"
+   "updated_at": "2026-11-10 15:00:41"
   },
   {
    "id": "tresearch",
    "name": "Davina",
    "title": "Research & Fundamental",
    "status": "done",
-   "current_task": "Waspada rilis Core CPI m/m (21.30 WITA)",
-   "updated_at": "2026-11-10 14:45:41"
+   "current_task": "Fundamental: Fed cenderung hawkish (tahan/naik), core CPI Sep 0,3% m/m > konsensus. CPI Okt hari ini diprakirakan melunak. Bias sedikit negatif.",
+   "updated_at": "2026-11-10 15:00:41"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Setup BUY di band (RSI+MACD)",
-   "updated_at": "2026-11-10 14:45:41"
+   "current_task": "Belum ada pantulan band · H1 sideways",
+   "updated_at": "2026-11-10 15:00:41"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: berita berdampak tinggi: Core CPI m/m (21.30 WITA)",
-   "updated_at": "2026-11-10 14:45:41"
+   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
+   "updated_at": "2026-11-10 15:00:41"
   },
   {
    "id": "texec",
@@ -1050,9 +1050,14 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 4035.399902,
+  "price": 4048.600098,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-10 15:00:41",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
    {
     "ts": "2026-11-10 14:45:41",
     "decision": "NO TRADE",
@@ -1075,11 +1080,6 @@
    },
    {
     "ts": "2026-11-10 13:45:40",
-    "decision": "NO TRADE",
-    "reason": "berita berdampak tinggi: Core CPI m/m (21.30 WITA)"
-   },
-   {
-    "ts": "2026-11-10 13:30:40",
     "decision": "NO TRADE",
     "reason": "berita berdampak tinggi: Core CPI m/m (21.30 WITA)"
    }
@@ -1126,7 +1126,7 @@
    1716.0099999999995
   ],
   "last": {
-   "ts": "2026-11-10 14:45:41",
+   "ts": "2026-11-10 15:00:41",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1135,22 +1135,19 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "berita berdampak tinggi: Core CPI m/m (21.30 WITA)",
+   "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
    "fund": {
     "bias": -0.15,
     "note": "Fed cenderung hawkish (tahan/naik), core CPI Sep 0,3% m/m > konsensus. CPI Okt hari ini diprakirakan melunak. Bias sedikit negatif.",
     "danger": null,
-    "blackout": "Core CPI m/m (21.30 WITA)"
+    "blackout": null
    },
    "tech": {
     "bias": "sideways",
-    "score": 2,
-    "trigger": "buy",
-    "confirm": [
-     "RSI",
-     "MACD"
-    ],
-    "note": "M15 4046.30 di bawah tengah band (4041.2–4097.2) · RSI 24 · Stoch 18 · MACD -1.85 · H1 sideways · setup BUY (RSI+MACD)"
+    "score": 0,
+    "trigger": null,
+    "confirm": [],
+    "note": "M15 4040.20 di bawah tengah band (4035.0–4098.2) · RSI 18 · Stoch 9 · MACD -2.20 · H1 sideways"
    }
   },
   "fund": {
@@ -1228,46 +1225,46 @@
    "M10": {
     "bias": "bearish",
     "score": -2,
-    "price": 4038.7,
-    "ema20": 4063.59,
-    "ema50": 4081.39,
-    "rsi": 25.6,
+    "price": 4038.8,
+    "ema20": 4061.23,
+    "ema50": 4079.72,
+    "rsi": 25.7,
     "n": 299,
-    "slot": 2990537,
-    "at": 1794322241053
+    "slot": 2990538,
+    "at": 1794322840880
    },
    "M15": {
     "bias": "bearish",
     "score": -3,
-    "price": 4040.4,
-    "ema20": 4071.47,
-    "ema50": 4090.99,
-    "rsi": 15.8,
+    "price": 4038.8,
+    "ema20": 4068.36,
+    "ema50": 4088.94,
+    "rsi": 15.3,
     "n": 299,
-    "slot": 1993691,
-    "at": 1794321941034
+    "slot": 1993692,
+    "at": 1794322840885
    },
    "M30": {
     "bias": "bearish",
     "score": -3,
-    "price": 4053.1,
-    "ema20": 4087.73,
-    "ema50": 4101.84,
-    "rsi": 22.3,
+    "price": 4038.8,
+    "ema20": 4083.07,
+    "ema50": 4099.37,
+    "rsi": 18.7,
     "n": 299,
-    "slot": 996845,
-    "at": 1794321040961
+    "slot": 996846,
+    "at": 1794322840886
    },
    "H1": {
     "bias": "bearish",
     "score": -2,
-    "price": 4052,
-    "ema20": 4100.44,
-    "ema50": 4100.45,
-    "rsi": 28.4,
+    "price": 4038.8,
+    "ema20": 4094.57,
+    "ema50": 4098.04,
+    "rsi": 25.5,
     "n": 299,
-    "slot": 498422,
-    "at": 1794319240768
+    "slot": 498423,
+    "at": 1794322840890
    }
   },
   "currency": "USC",
