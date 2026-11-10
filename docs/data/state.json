@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-10T12:54:40.302Z",
+ "generated_at": "2026-11-10T13:04:40.310Z",
  "today": "2026-11-10",
  "week_start": "2026-11-09",
  "campaign": {
@@ -79,7 +79,7 @@
    "title": "Data Analyst",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-11-10 10:01:45"
+   "updated_at": "2026-11-10 13:01:27"
   },
   {
    "id": "price",
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-10 12:45:40"
+   "updated_at": "2026-11-10 13:00:41"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Waspada rilis Core CPI m/m (21.30 WITA)",
-   "updated_at": "2026-11-10 12:45:40"
+   "updated_at": "2026-11-10 13:00:41"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-10 12:45:40"
+   "updated_at": "2026-11-10 13:00:41"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: berita berdampak tinggi: Core CPI m/m (21.30 WITA)",
-   "updated_at": "2026-11-10 12:45:40"
+   "updated_at": "2026-11-10 13:00:41"
   },
   {
    "id": "texec",
@@ -524,6 +524,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-10 13:01:27",
+   "agent_id": "analyst",
+   "message": "Update data 40 post IG 📈"
+  },
+  {
    "ts": "2026-11-10 12:30:40",
    "agent_id": "trisk",
    "message": "NO TRADE · berita berdampak tinggi: Core CPI m/m (21.30 WITA)"
@@ -642,11 +647,6 @@
    "ts": "2026-11-10 06:00:40",
    "agent_id": "ttech",
    "message": "M30 berubah arah: sideways → bullish"
-  },
-  {
-   "ts": "2026-11-10 05:30:40",
-   "agent_id": "ttech",
-   "message": "M15 berubah arah: bearish → sideways"
   }
  ],
  "chats": [
@@ -942,7 +942,7 @@
    "yt_posted": 2,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 398,
+   "views": 452,
    "likes": 4,
    "comments": 0,
    "shares": 1,
@@ -959,7 +959,7 @@
      "title": "Hush agent baru VALORANT 13.09: 3 hal wajib tahu",
      "format": "video",
      "pillar": "tips",
-     "views": 121
+     "views": 175
     },
     {
      "title": "Diamond FF buat dukung wakil Indonesia di FFWS, harga hari ini",
@@ -972,16 +972,20 @@
    "click_visitors": 0,
    "click_src": [],
    "ga4": {
-    "sessions": 1,
-    "users": 1,
+    "sessions": 4,
+    "users": 3,
     "key_events": 0,
     "by_src": [
      {
       "src": "(direct)",
+      "n": 2
+     },
+     {
+      "src": "facebook.com",
       "n": 1
      },
      {
-      "src": "(not set)",
+      "src": "m.facebook.com",
       "n": 1
      }
     ],
@@ -1046,9 +1050,14 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 4077.600098,
+  "price": 4075.100098,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-10 13:00:41",
+    "decision": "NO TRADE",
+    "reason": "berita berdampak tinggi: Core CPI m/m (21.30 WITA)"
+   },
    {
     "ts": "2026-11-10 12:45:40",
     "decision": "NO TRADE",
@@ -1071,11 +1080,6 @@
    },
    {
     "ts": "2026-11-10 11:45:40",
-    "decision": "NO TRADE",
-    "reason": "berita berdampak tinggi: Core CPI m/m (21.30 WITA)"
-   },
-   {
-    "ts": "2026-11-10 11:30:40",
     "decision": "NO TRADE",
     "reason": "berita berdampak tinggi: Core CPI m/m (21.30 WITA)"
    }
@@ -1122,7 +1126,7 @@
    1716.0099999999995
   ],
   "last": {
-   "ts": "2026-11-10 12:45:40",
+   "ts": "2026-11-10 13:00:41",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1143,7 +1147,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4079.30 di bawah tengah band (4053.7–4122.4) · RSI 33 · Stoch 29 · MACD +0.54 · H1 sideways"
+    "note": "M15 4080.20 di bawah tengah band (4055.3–4116.8) · RSI 35 · Stoch 40 · MACD +0.95 · H1 sideways"
    }
   },
   "fund": {
@@ -1220,47 +1224,47 @@
   "tf": {
    "M10": {
     "bias": "bearish",
-    "score": -3,
-    "price": 4077.8,
-    "ema20": 4081.9,
-    "ema50": 4095.79,
-    "rsi": 36.4,
+    "score": -2,
+    "price": 4078.5,
+    "ema20": 4081.57,
+    "ema50": 4095.11,
+    "rsi": 37.9,
     "n": 299,
-    "slot": 2990525,
-    "at": 1794315040698
+    "slot": 2990526,
+    "at": 1794315640848
    },
    "M15": {
     "bias": "bearish",
     "score": -2,
-    "price": 4078,
-    "ema20": 4088.04,
-    "ema50": 4102.82,
-    "rsi": 30.8,
+    "price": 4078.5,
+    "ema20": 4087.13,
+    "ema50": 4101.87,
+    "rsi": 31.7,
     "n": 299,
-    "slot": 1993683,
-    "at": 1794314740699
+    "slot": 1993684,
+    "at": 1794315640854
    },
    "M30": {
     "bias": "bearish",
     "score": -3,
-    "price": 4077.5,
-    "ema20": 4100,
-    "ema50": 4108.49,
-    "rsi": 29.7,
+    "price": 4078.5,
+    "ema20": 4097.95,
+    "ema50": 4107.31,
+    "rsi": 30.7,
     "n": 299,
-    "slot": 996841,
-    "at": 1794313840715
+    "slot": 996842,
+    "at": 1794315640856
    },
    "H1": {
     "bias": "sideways",
     "score": 0,
-    "price": 4073.6,
-    "ema20": 4108.39,
-    "ema50": 4103.41,
-    "rsi": 32.9,
+    "price": 4078.5,
+    "ema20": 4105.54,
+    "ema50": 4102.43,
+    "rsi": 35.9,
     "n": 299,
-    "slot": 498420,
-    "at": 1794312044568
+    "slot": 498421,
+    "at": 1794315640860
    }
   },
   "currency": "USC",
