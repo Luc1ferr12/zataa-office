@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-10T04:24:40.124Z",
+ "generated_at": "2026-11-10T04:34:40.125Z",
  "today": "2026-11-10",
  "week_start": "2026-11-09",
  "campaign": {
@@ -29,17 +29,17 @@
    "id": "researcher",
    "name": "Salsa",
    "title": "Researcher",
-   "status": "working",
-   "current_task": "Mantau: Konten #150 video sore VALORANT 13 (cek lagi 12.27)",
-   "updated_at": "2026-11-10 04:02:16"
+   "status": "done",
+   "current_task": "Riset Hush 13.09 (13.10 belum rilis)",
+   "updated_at": "2026-11-10 04:28:42"
   },
   {
    "id": "copywriter",
    "name": "Tiara",
    "title": "Copywriter",
    "status": "done",
-   "current_task": "Konten #149 promo FF",
-   "updated_at": "2026-11-09 23:03:02"
+   "current_task": "Naskah video tips Hush #150",
+   "updated_at": "2026-11-10 04:29:12"
   },
   {
    "id": "designer",
@@ -54,16 +54,16 @@
    "name": "Dimas",
    "title": "Video Production",
    "status": "done",
-   "current_task": "Video comeback BTR masuk antrean render laptop",
-   "updated_at": "2026-11-09 14:54:14"
+   "current_task": "Video Hush #150 masuk antrean render laptop",
+   "updated_at": "2026-11-10 04:29:23"
   },
   {
    "id": "publisher",
    "name": "Fikri",
    "title": "Social Media Publisher",
    "status": "done",
-   "current_task": null,
-   "updated_at": "2026-11-10 01:01:01"
+   "current_task": "QA #150 aman, nunggu render laptop auto-submit",
+   "updated_at": "2026-11-10 04:29:23"
   },
   {
    "id": "ads",
@@ -95,7 +95,7 @@
    "title": "Office Girl",
    "status": "idle",
    "current_task": null,
-   "updated_at": "2026-10-11 12:32:32"
+   "updated_at": "2026-11-10 04:28:18"
   },
   {
    "id": "tdir",
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-10 04:15:40"
+   "updated_at": "2026-11-10 04:30:40"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Berita 24 jam minim, data usang. Fed hawkish (3,5–3,75%), CPI hari ini diperkirakan melunak (0,3% vs 0,6%). Bias sedikit negatif.",
-   "updated_at": "2026-11-10 04:15:40"
+   "updated_at": "2026-11-10 04:30:40"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bullish",
-   "updated_at": "2026-11-10 04:15:40"
+   "updated_at": "2026-11-10 04:30:40"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
-   "updated_at": "2026-11-10 04:15:40"
+   "updated_at": "2026-11-10 04:30:40"
   },
   {
    "id": "texec",
@@ -307,8 +307,8 @@
    "slot": "sore",
    "format": "video",
    "game": "valorant",
-   "pillar": "news",
-   "title": "Update VALORANT 13.10: agent yang berubah (setelah patch notes resmi)",
+   "pillar": "tips",
+   "title": "Hush agent baru VALORANT 13.09: 3 hal wajib tahu",
    "status": "draft",
    "asset_url": null,
    "scheduled_at": null,
@@ -524,6 +524,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-10 04:29:08",
+   "agent_id": "researcher",
+   "message": "Nemu 1 topik baru"
+  },
+  {
    "ts": "2026-11-10 04:15:40",
    "agent_id": "trisk",
    "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (sesi Asia)"
@@ -642,14 +647,65 @@
    "ts": "2026-11-10 00:10:40",
    "agent_id": "ttech",
    "message": "M10 berubah arah: bullish → sideways"
-  },
-  {
-   "ts": "2026-11-09 23:36:40",
-   "agent_id": "owner",
-   "message": "Approve konten #149 ✅"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-11-10 04:29:34",
+   "agent_id": "video",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Videonya lagi antre render di laptop Bos, nanti dikirim otomatis ke Telegram buat di-✅ sebelum slot sore ya!"
+  },
+  {
+   "ts": "2026-11-10 04:29:34",
+   "agent_id": "copywriter",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Naskahnya \"Hush agent baru: 3 hal wajib tahu\" udah jadi, ada pasif Telekinesis, Displacement narik plus concuss, dan reset tiap 2 kill."
+  },
+  {
+   "ts": "2026-11-10 04:29:34",
+   "agent_id": "researcher",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Bos, sampai 12:28 patch 13.10 belum rilis juga, jadi #150 kita ganti ke tips Hush dari patch notes resmi 13.09 sesuai rencana B."
+  },
+  {
+   "ts": "2026-11-10 04:29:23",
+   "agent_id": "researcher",
+   "to_id": "copywriter",
+   "kind": "santai",
+   "message": "13.10 belum nongol juga, Riot lagi santai kayaknya 😅 untung Hush masih anget"
+  },
+  {
+   "ts": "2026-11-10 04:29:23",
+   "agent_id": "publisher",
+   "to_id": "owner",
+   "kind": "oper",
+   "message": "Bos, \"QA #150 aman, nunggu render laptop auto-submit\" udah aku kirim ke Telegram. Ditunggu approve-nya 🙏"
+  },
+  {
+   "ts": "2026-11-10 04:29:23",
+   "agent_id": "video",
+   "to_id": "publisher",
+   "kind": "oper",
+   "message": "Render \"Video Hush #150 masuk antrean render laptop\" selesai, Fikri. Cek cover-nya ya"
+  },
+  {
+   "ts": "2026-11-10 04:29:12",
+   "agent_id": "copywriter",
+   "to_id": "designer",
+   "kind": "oper",
+   "message": "Teks buat \"Naskah video tips Hush #150\" ready. Vania, giliranmu bikin cakep!"
+  },
+  {
+   "ts": "2026-11-10 04:28:42",
+   "agent_id": "researcher",
+   "to_id": "copywriter",
+   "kind": "oper",
+   "message": "Riset \"Riset Hush 13.09 (13.10 belum rilis)\" beres, udah dicek 2 sumber. Tiara, lanjut ya~"
+  },
   {
    "ts": "2026-11-09 23:04:58",
    "agent_id": "researcher",
@@ -873,62 +929,6 @@
    "to_id": "owner",
    "kind": "santai",
    "message": "Videonya masih ngantre render di laptop Bos, begitu laptop nyala langsung dirender dan dikirim ke Telegram buat di-✅. Tayangnya slot sore 16:00!"
-  },
-  {
-   "ts": "2026-11-08 02:20:49",
-   "agent_id": "copywriter",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Naskahnya gaya tribute buat Boaster. Fnatic belum resmi ngumumin dia dilepas, jadi judulnya \"tinggalkan Fnatic?\" sama \"boleh cari tim baru\" ya Bos."
-  },
-  {
-   "ts": "2026-11-08 02:20:49",
-   "agent_id": "researcher",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Bos, riset Boaster beres, fakta dicek 2 sumber dan yang ke Gentle Mates bareng Alfajer aku tandai RUMOR."
-  },
-  {
-   "ts": "2026-11-08 02:20:35",
-   "agent_id": "researcher",
-   "to_id": "copywriter",
-   "kind": "santai",
-   "message": "Tiara, Boaster tuh walkout king lho, sayang banget kalo beneran cabut"
-  },
-  {
-   "ts": "2026-11-08 02:20:35",
-   "agent_id": "publisher",
-   "to_id": "owner",
-   "kind": "oper",
-   "message": "\"QA video Boaster, nunggu render laptop\" udah lolos QA, tinggal nunggu ✅ dari Bos"
-  },
-  {
-   "ts": "2026-11-08 02:20:29",
-   "agent_id": "video",
-   "to_id": "publisher",
-   "kind": "oper",
-   "message": "Render \"Render video tribute Boaster\" selesai, Fikri. Cek cover-nya ya"
-  },
-  {
-   "ts": "2026-11-08 02:20:26",
-   "agent_id": "copywriter",
-   "to_id": "designer",
-   "kind": "oper",
-   "message": "Teks buat \"Naskah video tribute Boaster\" ready. Vania, giliranmu bikin cakep!"
-  },
-  {
-   "ts": "2026-11-08 02:19:47",
-   "agent_id": "researcher",
-   "to_id": "copywriter",
-   "kind": "oper",
-   "message": "Tiara, bahan buat \"Riset Boaster lepas Fnatic + rumor Gentle Mates\" udah aku rangkum + sumbernya. Tinggal kamu racik captionnya ✍️"
-  },
-  {
-   "ts": "2026-11-08 02:18:23",
-   "agent_id": "dir",
-   "to_id": null,
-   "kind": "oper",
-   "message": "Bos ACC 1 ide tambahan! \"Akhir era: Boaster lepas dari Fnatic setelah 6 tahun, RUMOR ke Gentle Mates bareng Alfajer\" 🎉"
   }
  ],
  "stats": {
@@ -1031,6 +1031,11 @@
   "open": [],
   "signals": [
    {
+    "ts": "2026-11-10 04:30:40",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
+   },
+   {
     "ts": "2026-11-10 04:15:40",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
@@ -1054,11 +1059,6 @@
     "ts": "2026-11-10 03:15:40",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-   },
-   {
-    "ts": "2026-11-10 03:00:40",
-    "decision": "NO TRADE",
-    "reason": "setup BUY di band, konfirmasi baru 0/2 (-) · sesi Asia"
    }
   ],
   "trades": [
@@ -1103,7 +1103,7 @@
    1716.0099999999995
   ],
   "last": {
-   "ts": "2026-11-10 04:15:40",
+   "ts": "2026-11-10 04:30:40",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1124,7 +1124,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4112.30 di bawah tengah band (4102.5–4146.5) · RSI 39 · Stoch 10 · MACD -1.88 · H1 bullish"
+    "note": "M15 4115.20 di bawah tengah band (4102.6–4144.3) · RSI 42 · Stoch 17 · MACD -1.27 · H1 bullish"
    }
   },
   "fund": {
@@ -1211,35 +1211,35 @@
    "M10": {
     "bias": "bearish",
     "score": -3,
-    "price": 4113.2,
-    "ema20": 4119.41,
-    "ema50": 4124.36,
-    "rsi": 39.8,
+    "price": 4115.1,
+    "ema20": 4119,
+    "ema50": 4124,
+    "rsi": 42.5,
     "n": 299,
-    "slot": 2990474,
-    "at": 1794284440329
+    "slot": 2990475,
+    "at": 1794285040343
    },
    "M15": {
     "bias": "bearish",
     "score": -3,
-    "price": 4113.4,
-    "ema20": 4122.8,
-    "ema50": 4123.87,
-    "rsi": 40.1,
+    "price": 4115.1,
+    "ema20": 4122.07,
+    "ema50": 4123.53,
+    "rsi": 41.9,
     "n": 299,
-    "slot": 1993649,
-    "at": 1794284140325
+    "slot": 1993650,
+    "at": 1794285040348
    },
    "M30": {
     "bias": "sideways",
     "score": 0,
-    "price": 4111.9,
-    "ema20": 4125.41,
-    "ema50": 4117.16,
-    "rsi": 42.9,
+    "price": 4115.1,
+    "ema20": 4124.43,
+    "ema50": 4117.08,
+    "rsi": 45,
     "n": 299,
-    "slot": 996824,
-    "at": 1794283240340
+    "slot": 996825,
+    "at": 1794285040349
    },
    "H1": {
     "bias": "sideways",
