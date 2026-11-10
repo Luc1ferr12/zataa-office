@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-10T03:54:40.126Z",
+ "generated_at": "2026-11-10T04:04:40.125Z",
  "today": "2026-11-10",
  "week_start": "2026-11-09",
  "campaign": {
@@ -30,8 +30,8 @@
    "name": "Salsa",
    "title": "Researcher",
    "status": "working",
-   "current_task": "Mantau: Konten #150 video sore VALORANT 13 (cek lagi 12.01)",
-   "updated_at": "2026-11-10 03:21:14"
+   "current_task": "Mantau: Konten #150 video sore VALORANT 13 (cek lagi 12.27)",
+   "updated_at": "2026-11-10 04:02:16"
   },
   {
    "id": "copywriter",
@@ -79,7 +79,7 @@
    "title": "Data Analyst",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-11-10 01:01:29"
+   "updated_at": "2026-11-10 04:01:22"
   },
   {
    "id": "price",
@@ -87,7 +87,7 @@
    "title": "Price Watcher",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-11-10 02:00:40"
+   "updated_at": "2026-11-10 04:01:23"
   },
   {
    "id": "ob",
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-10 03:45:40"
+   "updated_at": "2026-11-10 04:00:40"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Berita 24 jam minim, data usang. Fed hawkish (3,5–3,75%), CPI hari ini diperkirakan melunak (0,3% vs 0,6%). Bias sedikit negatif.",
-   "updated_at": "2026-11-10 03:45:40"
+   "updated_at": "2026-11-10 04:00:40"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bullish",
-   "updated_at": "2026-11-10 03:45:40"
+   "updated_at": "2026-11-10 04:00:40"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
-   "updated_at": "2026-11-10 03:45:40"
+   "updated_at": "2026-11-10 04:00:40"
   },
   {
    "id": "texec",
@@ -524,6 +524,16 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-10 04:01:22",
+   "agent_id": "analyst",
+   "message": "Update data 40 post IG 📈"
+  },
+  {
+   "ts": "2026-11-10 04:00:40",
+   "agent_id": "ttech",
+   "message": "M15 berubah arah: sideways → bearish"
+  },
+  {
    "ts": "2026-11-10 03:15:58",
    "agent_id": "yvideo",
    "message": "Shorts #161 dirender di laptop (suara OmniVoice) & dikirim ke Owner"
@@ -637,16 +647,6 @@
    "ts": "2026-11-09 23:36:02",
    "agent_id": "owner",
    "message": "Approve Shorts #162 ✅"
-  },
-  {
-   "ts": "2026-11-09 23:14:22",
-   "agent_id": "yvideo",
-   "message": "Shorts #162 dirender di laptop (suara OmniVoice) & dikirim ke Owner"
-  },
-  {
-   "ts": "2026-11-09 23:14:21",
-   "agent_id": "spublish",
-   "message": "Kirim Shorts #162 ke Owner buat approval"
   }
  ],
  "chats": [
@@ -1027,9 +1027,14 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 4111.5,
+  "price": 4112.5,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-10 04:00:40",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
+   },
    {
     "ts": "2026-11-10 03:45:40",
     "decision": "NO TRADE",
@@ -1054,11 +1059,6 @@
     "ts": "2026-11-10 02:45:40",
     "decision": "NO TRADE",
     "reason": "setup BUY di band, konfirmasi baru 0/2 (-) · sesi Asia"
-   },
-   {
-    "ts": "2026-11-10 02:30:40",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
    }
   ],
   "trades": [
@@ -1103,7 +1103,7 @@
    1716.0099999999995
   ],
   "last": {
-   "ts": "2026-11-10 03:45:40",
+   "ts": "2026-11-10 04:00:40",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1124,7 +1124,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4110.50 di bawah tengah band (4103.5–4151.7) · RSI 38 · Stoch 7 · MACD -2.63 · H1 bullish"
+    "note": "M15 4112.10 di bawah tengah band (4102.9–4149.0) · RSI 39 · Stoch 6 · MACD -2.26 · H1 bullish"
    }
   },
   "fund": {
@@ -1210,47 +1210,47 @@
   "tf": {
    "M10": {
     "bias": "bearish",
-    "score": -2,
-    "price": 4111.6,
-    "ema20": 4122.1,
-    "ema50": 4125.98,
-    "rsi": 36.3,
+    "score": -3,
+    "price": 4111.9,
+    "ema20": 4121.13,
+    "ema50": 4125.43,
+    "rsi": 36.7,
     "n": 299,
-    "slot": 2990471,
-    "at": 1794282640342
+    "slot": 2990472,
+    "at": 1794283240330
    },
    "M15": {
-    "bias": "sideways",
-    "score": 0,
-    "price": 4111.4,
-    "ema20": 4125.04,
-    "ema50": 4124.81,
-    "rsi": 38.1,
+    "bias": "bearish",
+    "score": -2,
+    "price": 4111.9,
+    "ema20": 4123.79,
+    "ema50": 4124.3,
+    "rsi": 38.6,
     "n": 299,
-    "slot": 1993647,
-    "at": 1794282340493
+    "slot": 1993648,
+    "at": 1794283240336
    },
    "M30": {
     "bias": "sideways",
     "score": 0,
-    "price": 4117.5,
-    "ema20": 4126.83,
-    "ema50": 4117.37,
-    "rsi": 45.7,
+    "price": 4111.9,
+    "ema20": 4125.41,
+    "ema50": 4117.16,
+    "rsi": 42.9,
     "n": 299,
-    "slot": 996823,
-    "at": 1794281440299
+    "slot": 996824,
+    "at": 1794283240340
    },
    "H1": {
     "bias": "sideways",
     "score": 0,
-    "price": 4112.1,
-    "ema20": 4119.82,
-    "ema50": 4103.54,
-    "rsi": 48.5,
+    "price": 4111.9,
+    "ema20": 4119.06,
+    "ema50": 4103.86,
+    "rsi": 48.4,
     "n": 299,
-    "slot": 498411,
-    "at": 1794279640294
+    "slot": 498412,
+    "at": 1794283240345
    }
   },
   "currency": "USC",
