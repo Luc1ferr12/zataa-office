@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-10T06:54:40.141Z",
+ "generated_at": "2026-11-10T07:04:40.147Z",
  "today": "2026-11-10",
  "week_start": "2026-11-09",
  "campaign": {
@@ -79,7 +79,7 @@
    "title": "Data Analyst",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-11-10 04:01:22"
+   "updated_at": "2026-11-10 07:01:26"
   },
   {
    "id": "price",
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-10 06:45:40"
+   "updated_at": "2026-11-10 07:00:41"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Berita 24 jam minim, data usang. Fed hawkish (3,5–3,75%), CPI hari ini diperkirakan melunak (0,3% vs 0,6%). Bias sedikit negatif.",
-   "updated_at": "2026-11-10 06:45:40"
+   "updated_at": "2026-11-10 07:00:41"
   },
   {
    "id": "ttech",
@@ -119,15 +119,15 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bullish",
-   "updated_at": "2026-11-10 06:45:40"
+   "updated_at": "2026-11-10 07:00:41"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
-   "updated_at": "2026-11-10 06:45:40"
+   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
+   "updated_at": "2026-11-10 07:00:41"
   },
   {
    "id": "texec",
@@ -524,6 +524,21 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-10 07:01:26",
+   "agent_id": "analyst",
+   "message": "Update data 41 post IG 📈"
+  },
+  {
+   "ts": "2026-11-10 07:00:41",
+   "agent_id": "ttech",
+   "message": "M30 berubah arah: bullish → sideways"
+  },
+  {
+   "ts": "2026-11-10 07:00:41",
+   "agent_id": "ttech",
+   "message": "M15 berubah arah: sideways → bearish"
+  },
+  {
    "ts": "2026-11-10 06:15:40",
    "agent_id": "trisk",
    "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (sesi Asia)"
@@ -632,21 +647,6 @@
    "ts": "2026-11-10 02:04:19",
    "agent_id": "yvideo",
    "message": "Render laptop Shorts #161 gagal, cek logs/laptop-worker.log di laptop"
-  },
-  {
-   "ts": "2026-11-10 02:00:40",
-   "agent_id": "ttech",
-   "message": "M30 berubah arah: bullish → sideways"
-  },
-  {
-   "ts": "2026-11-10 01:45:40",
-   "agent_id": "ttech",
-   "message": "M15 berubah arah: bullish → sideways"
-  },
-  {
-   "ts": "2026-11-10 01:40:40",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: bullish → sideways"
   }
  ],
  "chats": [
@@ -942,13 +942,20 @@
    "yt_posted": 0,
    "yt_pending": 0,
    "yt_scheduled": 2,
-   "views": 0,
+   "views": 4,
    "likes": 0,
    "comments": 0,
    "shares": 0,
    "saves": 0,
    "yt_views": 0,
-   "top": [],
+   "top": [
+    {
+     "title": "Diamond FF buat dukung wakil Indonesia di FFWS, harga hari ini",
+     "format": "feed",
+     "pillar": "promo",
+     "views": 4
+    }
+   ],
    "clicks": 0,
    "click_visitors": 0,
    "click_src": [],
@@ -1027,9 +1034,14 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 4122.5,
+  "price": 4124.100098,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-10 07:00:41",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
    {
     "ts": "2026-11-10 06:45:40",
     "decision": "NO TRADE",
@@ -1052,11 +1064,6 @@
    },
    {
     "ts": "2026-11-10 05:45:40",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-   },
-   {
-    "ts": "2026-11-10 05:30:40",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
    }
@@ -1103,7 +1110,7 @@
    1716.0099999999995
   ],
   "last": {
-   "ts": "2026-11-10 06:45:40",
+   "ts": "2026-11-10 07:00:41",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1112,7 +1119,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)",
+   "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
    "fund": {
     "bias": -0.1,
     "note": "Berita 24 jam minim, data usang. Fed hawkish (3,5–3,75%), CPI hari ini diperkirakan melunak (0,3% vs 0,6%). Bias sedikit negatif.",
@@ -1124,7 +1131,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4122.90 di atas tengah band (4107.4–4131.0) · RSI 50 · Stoch 83 · MACD +1.21 · H1 bullish"
+    "note": "M15 4122.60 di atas tengah band (4107.5–4130.8) · RSI 49 · Stoch 75 · MACD +0.98 · H1 bullish"
    }
   },
   "fund": {
@@ -1211,46 +1218,46 @@
    "M10": {
     "bias": "sideways",
     "score": 1,
-    "price": 4122.4,
-    "ema20": 4121.46,
-    "ema50": 4122.93,
-    "rsi": 51,
+    "price": 4121.6,
+    "ema20": 4121.47,
+    "ema50": 4122.88,
+    "rsi": 49.9,
     "n": 299,
-    "slot": 2990489,
-    "at": 1794293440505
+    "slot": 2990490,
+    "at": 1794294041746
    },
    "M15": {
-    "bias": "sideways",
-    "score": 0,
-    "price": 4124.3,
-    "ema20": 4122.5,
-    "ema50": 4123.17,
-    "rsi": 51.6,
+    "bias": "bearish",
+    "score": -2,
+    "price": 4121.6,
+    "ema20": 4122.41,
+    "ema50": 4123.11,
+    "rsi": 48.1,
     "n": 299,
-    "slot": 1993659,
-    "at": 1794293140438
+    "slot": 1993660,
+    "at": 1794294041752
    },
    "M30": {
-    "bias": "bullish",
-    "score": 2,
-    "price": 4125.5,
-    "ema20": 4123.86,
-    "ema50": 4117.88,
-    "rsi": 51.6,
+    "bias": "sideways",
+    "score": 0,
+    "price": 4121.6,
+    "ema20": 4123.65,
+    "ema50": 4118.03,
+    "rsi": 48.9,
     "n": 299,
-    "slot": 996829,
-    "at": 1794292240436
+    "slot": 996830,
+    "at": 1794294041755
    },
    "H1": {
     "bias": "bullish",
     "score": 2,
-    "price": 4124.8,
-    "ema20": 4119.43,
-    "ema50": 4105.18,
-    "rsi": 54.7,
+    "price": 4121.6,
+    "ema20": 4119.64,
+    "ema50": 4105.82,
+    "rsi": 52.9,
     "n": 299,
-    "slot": 498414,
-    "at": 1794290440422
+    "slot": 498415,
+    "at": 1794294041761
    }
   },
   "currency": "USC",
