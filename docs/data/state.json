@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-11T19:54:41.137Z",
+ "generated_at": "2026-11-11T20:04:41.151Z",
  "today": "2026-11-12",
  "week_start": "2026-11-09",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-11 19:45:42"
+   "updated_at": "2026-11-11 20:00:42"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Berita 24 jam belum terverifikasi (hasil stale/bertentangan). NFP Okt kuat 165K, unemp 4,1% = tekanan emas. Claims 21:30 WITA ringan.",
-   "updated_at": "2026-11-11 19:45:42"
+   "updated_at": "2026-11-11 20:00:42"
   },
   {
    "id": "ttech",
@@ -119,15 +119,15 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-11 19:45:42"
+   "updated_at": "2026-11-11 20:00:42"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-11-11 19:45:42"
+   "current_task": "NO TRADE: jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
+   "updated_at": "2026-11-11 20:00:42"
   },
   {
    "id": "texec",
@@ -984,12 +984,12 @@
    "yt_posted": 2,
    "yt_pending": 1,
    "yt_scheduled": 0,
-   "views": 4684,
-   "likes": 65,
+   "views": 4706,
+   "likes": 66,
    "comments": 2,
    "shares": 3,
    "saves": 0,
-   "yt_views": 3483,
+   "yt_views": 3486,
    "top": [
     {
      "title": "Tulisan Tertua Indonesia Ada di 7 Tiang Batu Ini",
@@ -1001,13 +1001,13 @@
      "title": "Kota 9.000 Tahun Ini Nggak Punya Jalan, Pintunya di Atap",
      "format": "shorts",
      "pillar": "hidden_history",
-     "views": 1319
+     "views": 1322
     },
     {
      "title": "RRQ Kazu 5 besar Week 1 FFWS Global Finals, ONIC & BTR gimana?",
      "format": "video",
      "pillar": "esport",
-     "views": 772
+     "views": 791
     }
    ],
    "clicks": 0,
@@ -1044,12 +1044,12 @@
    "yt_posted": 14,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 35435,
+   "views": 35438,
    "likes": 384,
    "comments": 4,
    "shares": 0,
    "saves": 4,
-   "yt_views": 26378,
+   "yt_views": 26381,
    "top": [
     {
      "title": "Upper Final MPL ID S18 malam ini: NAVI vs TLID 18.00 WIB, yang menang langsung ke Grand Final + tiket M8",
@@ -1061,7 +1061,7 @@
      "title": "Sangkuriang: Legenda atau Ingatan Danau Bandung Purba?",
      "format": "shorts",
      "pillar": "legenda_mitos",
-     "views": 3227
+     "views": 3230
     },
     {
      "title": "Lubang Jepang: Penjara Rahasia di Bawah Bukittinggi",
@@ -1092,9 +1092,14 @@
   "paused": false,
   "balance": 1740.19,
   "today_pnl": 24.18,
-  "price": 3987.899902,
+  "price": 3985.399902,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-11 20:00:42",
+    "decision": "NO TRADE",
+    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
+   },
    {
     "ts": "2026-11-11 19:45:42",
     "decision": "NO TRADE",
@@ -1117,11 +1122,6 @@
    },
    {
     "ts": "2026-11-11 18:45:42",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-11-11 18:30:42",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1179,7 +1179,7 @@
    1740.1900000000003
   ],
   "last": {
-   "ts": "2026-11-11 19:45:42",
+   "ts": "2026-11-11 20:00:42",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1188,7 +1188,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
+   "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
    "fund": {
     "bias": -0.15,
     "note": "Berita 24 jam belum terverifikasi (hasil stale/bertentangan). NFP Okt kuat 165K, unemp 4,1% = tekanan emas. Claims 21:30 WITA ringan.",
@@ -1200,7 +1200,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3988.50 di bawah tengah band (3980.2–4017.4) · RSI 20 · Stoch 15 · MACD +0.38 · H1 sideways"
+    "note": "M15 3987.60 di bawah tengah band (3980.9–4013.4) · RSI 19 · Stoch 14 · MACD +0.56 · H1 sideways"
    }
   },
   "fund": {
@@ -1260,46 +1260,46 @@
    "M10": {
     "bias": "bearish",
     "score": -3,
-    "price": 3988.4,
-    "ema20": 3995.83,
-    "ema50": 4011.39,
-    "rsi": 30.1,
+    "price": 3988,
+    "ema20": 3995.08,
+    "ema50": 4010.48,
+    "rsi": 29.7,
     "n": 299,
-    "slot": 2990711,
-    "at": 1794426642129
+    "slot": 2990712,
+    "at": 1794427242151
    },
    "M15": {
     "bias": "bearish",
     "score": -3,
-    "price": 3988.5,
-    "ema20": 4001.79,
-    "ema50": 4019.92,
-    "rsi": 19.6,
+    "price": 3988,
+    "ema20": 4000.48,
+    "ema50": 4018.67,
+    "rsi": 19.2,
     "n": 299,
-    "slot": 1993807,
-    "at": 1794426342135
+    "slot": 1993808,
+    "at": 1794427242156
    },
    "M30": {
     "bias": "bearish",
     "score": -2,
     "price": 3988,
-    "ema20": 4016.2,
-    "ema50": 4035.93,
+    "ema20": 4013.51,
+    "ema50": 4034.05,
     "rsi": 18.3,
     "n": 299,
-    "slot": 996903,
-    "at": 1794425442131
+    "slot": 996904,
+    "at": 1794427242157
    },
    "H1": {
     "bias": "sideways",
     "score": -1,
-    "price": 3989.1,
-    "ema20": 4031.37,
-    "ema50": 4054.12,
-    "rsi": 21.6,
+    "price": 3988,
+    "ema20": 4027.24,
+    "ema50": 4051.53,
+    "rsi": 21.4,
     "n": 299,
-    "slot": 498451,
-    "at": 1794423642101
+    "slot": 498452,
+    "at": 1794427242162
    }
   },
   "currency": "USC",
