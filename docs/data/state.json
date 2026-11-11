@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-11T02:04:40.643Z",
+ "generated_at": "2026-11-11T02:14:40.649Z",
  "today": "2026-11-11",
  "week_start": "2026-11-09",
  "campaign": {
@@ -566,6 +566,16 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-11 02:11:40",
+   "agent_id": "yvideo",
+   "message": "Render laptop Shorts #163 gagal, cek logs/laptop-worker.log di laptop"
+  },
+  {
+   "ts": "2026-11-11 02:10:41",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: sideways → bullish"
+  },
+  {
    "ts": "2026-11-11 01:45:41",
    "agent_id": "ttech",
    "message": "M15 berubah arah: bearish → sideways"
@@ -679,16 +689,6 @@
    "ts": "2026-11-10 23:03:37",
    "agent_id": "designer",
    "message": "Carousel #151 OK"
-  },
-  {
-   "ts": "2026-11-10 23:03:25",
-   "agent_id": "copywriter",
-   "message": "Isi carousel draft GF & video FFWS Week 2"
-  },
-  {
-   "ts": "2026-11-10 23:02:12",
-   "agent_id": "dir",
-   "message": "3 ide dikirim ke Owner"
   }
  ],
  "chats": [
@@ -1092,7 +1092,7 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 4046.699951,
+  "price": 4042.5,
   "open": [],
   "signals": [
    {
@@ -1250,15 +1250,15 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "sideways",
-    "score": 1,
-    "price": 4046.9,
-    "ema20": 4038.3,
-    "ema50": 4038.53,
-    "rsi": 63.2,
+    "bias": "bullish",
+    "score": 3,
+    "price": 4042.9,
+    "ema20": 4038.74,
+    "ema50": 4038.7,
+    "rsi": 56.8,
     "n": 299,
-    "slot": 2990604,
-    "at": 1794362441312
+    "slot": 2990605,
+    "at": 1794363041316
    },
    "M15": {
     "bias": "sideways",
