@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-11T09:34:40.840Z",
+ "generated_at": "2026-11-11T09:44:40.848Z",
  "today": "2026-11-11",
  "week_start": "2026-11-09",
  "campaign": {
@@ -566,6 +566,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-11 09:34:41",
+   "agent_id": "texec",
+   "message": "Posisi #3 ditutup (TP) +24,18 USC"
+  },
+  {
    "ts": "2026-11-11 09:15:41",
    "agent_id": "trisk",
    "message": "NO TRADE · masih ada posisi terbuka"
@@ -684,14 +689,23 @@
    "ts": "2026-11-11 03:15:41",
    "agent_id": "trisk",
    "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-  },
-  {
-   "ts": "2026-11-11 02:15:41",
-   "agent_id": "trisk",
-   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (sesi Asia)"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-11-11 09:34:41",
+   "agent_id": "teval",
+   "to_id": "treport",
+   "kind": "oper",
+   "message": "Profit sesuai rencana (TP, 229 menit). Setup sideways jalan, pertahankan."
+  },
+  {
+   "ts": "2026-11-11 09:34:41",
+   "agent_id": "texec",
+   "to_id": "teval",
+   "kind": "oper",
+   "message": "#3 kena TP, +24,18 USC. Evaluasi ya Jihan"
+  },
   {
    "ts": "2026-11-11 09:01:48",
    "agent_id": "publisher",
@@ -957,20 +971,6 @@
    "to_id": "yscript",
    "kind": "oper",
    "message": "Laras, bahan \"Bank topik +1 (Baterai Baghdad)\" udah aku rangkum + sumbernya. Mana fakta, mana teori udah aku tandain 📜"
-  },
-  {
-   "ts": "2026-11-09 23:03:22",
-   "agent_id": "publisher",
-   "to_id": "owner",
-   "kind": "oper",
-   "message": "\"Kirim #149 ke Owner\" udah lolos QA, tinggal nunggu ✅ dari Bos"
-  },
-  {
-   "ts": "2026-11-09 23:03:10",
-   "agent_id": "designer",
-   "to_id": "publisher",
-   "kind": "oper",
-   "message": "Visual \"Render feed #149\" kelar! Fikri, cek typo-nya sekalian ya 🙏"
   }
  ],
  "stats": {
@@ -1090,19 +1090,10 @@
  "trading": {
   "mode": "paper",
   "paused": false,
-  "balance": 1716.0099999999998,
-  "today_pnl": 0,
-  "price": 4049.800049,
-  "open": [
-   {
-    "side": "sell",
-    "lot": 0.02,
-    "entry": 4061.65,
-    "sl": 4067.69,
-    "tp": 4049.56,
-    "open_ts": "2026-11-11 05:45:41"
-   }
-  ],
+  "balance": 1740.19,
+  "today_pnl": 24.18,
+  "price": 4049.899902,
+  "open": [],
   "signals": [
    {
     "ts": "2026-11-11 09:30:41",
@@ -1138,6 +1129,16 @@
   "trades": [
    {
     "side": "sell",
+    "lot": 0.02,
+    "entry": 4061.65,
+    "exit": 4049.56,
+    "pnl": 24.180000000000295,
+    "r": 2.001655629139109,
+    "close_ts": "2026-11-11 09:34:41",
+    "reason_close": "TP"
+   },
+   {
+    "side": "sell",
     "lot": 0.03,
     "entry": 3917.25,
     "exit": 3907.75,
@@ -1158,23 +1159,24 @@
    }
   ],
   "stats": {
-   "n": 2,
-   "wins": 2,
+   "n": 3,
+   "wins": 3,
    "losses": 0,
-   "pnl": 39.41,
-   "week_pnl": 0,
-   "gross_win": 39.41,
+   "pnl": 63.59,
+   "week_pnl": 24.18,
+   "gross_win": 63.59,
    "gross_loss": 0,
    "max_loss": 0,
-   "avg_r": 1.74,
-   "today_n": 0,
+   "avg_r": 1.83,
+   "today_n": 1,
    "consec_loss": 0
   },
-  "peak": 1738.0099999999998,
+  "peak": 1740.19,
   "curve": [
-   1676.5999999999997,
-   1687.5099999999995,
-   1716.0099999999995
+   1676.6000000000001,
+   1687.51,
+   1716.01,
+   1740.1900000000003
   ],
   "last": {
    "ts": "2026-11-11 09:30:41",
@@ -1255,13 +1257,13 @@
    "M10": {
     "bias": "sideways",
     "score": 0,
-    "price": 4050.3,
-    "ema20": 4057.36,
-    "ema50": 4053.33,
-    "rsi": 37.2,
+    "price": 4049.5,
+    "ema20": 4056.61,
+    "ema50": 4053.18,
+    "rsi": 36,
     "n": 299,
-    "slot": 2990649,
-    "at": 1794389441710
+    "slot": 2990650,
+    "at": 1794390041840
    },
    "M15": {
     "bias": "sideways",
