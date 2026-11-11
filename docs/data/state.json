@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-11T14:24:40.976Z",
+ "generated_at": "2026-11-11T14:34:40.995Z",
  "today": "2026-11-11",
  "week_start": "2026-11-09",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-11 14:15:42"
+   "updated_at": "2026-11-11 14:30:42"
   },
   {
    "id": "tresearch",
@@ -111,23 +111,23 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Berita 24 jam belum terverifikasi (hasil stale/bertentangan). NFP Okt kuat 165K, unemp 4,1% = tekanan emas. Claims 21:30 WITA ringan.",
-   "updated_at": "2026-11-11 14:15:42"
+   "updated_at": "2026-11-11 14:30:42"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Setup BUY di band (RSI+Stokastik+MACD)",
-   "updated_at": "2026-11-11 14:15:42"
+   "current_task": "Belum ada pantulan band · H1 sideways",
+   "updated_at": "2026-11-11 14:30:42"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: fundamental berlawanan (Berita 24 jam belum terverifikasi (hasil stale/bertentangan). NFP Okt kuat 165K, unemp 4,1% = tekanan emas. Claims 21:30 WITA ringan.)",
-   "updated_at": "2026-11-11 14:15:42"
+   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
+   "updated_at": "2026-11-11 14:30:42"
   },
   {
    "id": "texec",
@@ -566,6 +566,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-11 14:30:42",
+   "agent_id": "trisk",
+   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+  },
+  {
    "ts": "2026-11-11 13:30:42",
    "agent_id": "trisk",
    "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
@@ -684,11 +689,6 @@
    "ts": "2026-11-11 04:40:41",
    "agent_id": "ttech",
    "message": "M10 berubah arah: bullish → sideways"
-  },
-  {
-   "ts": "2026-11-11 04:30:41",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: sideways → bullish"
   }
  ],
  "chats": [
@@ -1092,9 +1092,14 @@
   "paused": false,
   "balance": 1740.19,
   "today_pnl": 24.18,
-  "price": 4031.399902,
+  "price": 4026.699951,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-11 14:30:42",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
    {
     "ts": "2026-11-11 14:15:42",
     "decision": "NO TRADE",
@@ -1117,11 +1122,6 @@
    },
    {
     "ts": "2026-11-11 13:15:42",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-11-11 13:00:42",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1179,7 +1179,7 @@
    1740.1900000000003
   ],
   "last": {
-   "ts": "2026-11-11 14:15:42",
+   "ts": "2026-11-11 14:30:42",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1188,7 +1188,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "fundamental berlawanan (Berita 24 jam belum terverifikasi (hasil stale/bertentangan). NFP Okt kuat 165K, unemp 4,1% = tekanan emas. Claims 21:30 WITA ringan.)",
+   "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
    "fund": {
     "bias": -0.15,
     "note": "Berita 24 jam belum terverifikasi (hasil stale/bertentangan). NFP Okt kuat 165K, unemp 4,1% = tekanan emas. Claims 21:30 WITA ringan.",
@@ -1197,14 +1197,10 @@
    },
    "tech": {
     "bias": "sideways",
-    "score": 3,
-    "trigger": "buy",
-    "confirm": [
-     "RSI",
-     "Stokastik",
-     "MACD"
-    ],
-    "note": "M15 4031.70 di bawah tengah band (4029.9–4060.7) · RSI 29 · Stoch 9 · MACD -1.78 · H1 sideways · setup BUY (RSI+Stokastik+MACD)"
+    "score": 0,
+    "trigger": null,
+    "confirm": [],
+    "note": "M15 4032.00 di bawah tengah band (4028.2–4060.7) · RSI 31 · Stoch 8 · MACD -1.60 · H1 sideways"
    }
   },
   "fund": {
@@ -1264,35 +1260,35 @@
    "M10": {
     "bias": "bearish",
     "score": -3,
-    "price": 4030.6,
-    "ema20": 4042.36,
-    "ema50": 4047.22,
-    "rsi": 26.4,
+    "price": 4032.9,
+    "ema20": 4041.46,
+    "ema50": 4046.66,
+    "rsi": 31.8,
     "n": 299,
-    "slot": 2990678,
-    "at": 1794406841899
+    "slot": 2990679,
+    "at": 1794407442023
    },
    "M15": {
     "bias": "bearish",
     "score": -3,
-    "price": 4031.2,
-    "ema20": 4044.8,
-    "ema50": 4048.23,
-    "rsi": 28.2,
+    "price": 4032.9,
+    "ema20": 4043.67,
+    "ema50": 4047.63,
+    "rsi": 31.6,
     "n": 299,
-    "slot": 1993785,
-    "at": 1794406541906
+    "slot": 1993786,
+    "at": 1794407442028
    },
    "M30": {
     "bias": "bearish",
     "score": -2,
-    "price": 4037.8,
-    "ema20": 4048.14,
-    "ema50": 4054.51,
-    "rsi": 37.3,
+    "price": 4032.9,
+    "ema20": 4046.69,
+    "ema50": 4053.66,
+    "rsi": 33.5,
     "n": 299,
-    "slot": 996892,
-    "at": 1794405641983
+    "slot": 996893,
+    "at": 1794407442030
    },
    "H1": {
     "bias": "sideways",
