@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-11T06:14:40.755Z",
+ "generated_at": "2026-11-11T06:24:40.756Z",
  "today": "2026-11-11",
  "week_start": "2026-11-09",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-11 06:00:41"
+   "updated_at": "2026-11-11 06:15:41"
   },
   {
    "id": "tresearch",
@@ -111,15 +111,15 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Fed tahan 3,75–4% (28 Okt, 2 suara minta naik). Emas turun ke 3.900–4.150, DXY ~102 awal Okt. Data Nov belum ada, cek ulang.",
-   "updated_at": "2026-11-11 06:00:41"
+   "updated_at": "2026-11-11 06:15:41"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Setup SELL di band (RSI+Stokastik+MACD)",
-   "updated_at": "2026-11-11 06:00:41"
+   "current_task": "Belum ada pantulan band · H1 sideways",
+   "updated_at": "2026-11-11 06:15:41"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: masih ada posisi terbuka",
-   "updated_at": "2026-11-11 06:00:41"
+   "updated_at": "2026-11-11 06:15:41"
   },
   {
    "id": "texec",
@@ -566,6 +566,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-11 06:15:41",
+   "agent_id": "trisk",
+   "message": "NO TRADE · masih ada posisi terbuka"
+  },
+  {
    "ts": "2026-11-11 05:45:41",
    "agent_id": "texec",
    "message": "[paper] Buka SELL 0.02 lot @ 4061.65 · SL 4067.69 · TP 4049.56"
@@ -684,11 +689,6 @@
    "ts": "2026-11-11 01:06:57",
    "agent_id": "yvideo",
    "message": "Render laptop Shorts #163 gagal, cek logs/laptop-worker.log di laptop"
-  },
-  {
-   "ts": "2026-11-11 01:06:48",
-   "agent_id": "video",
-   "message": "video #152 dirender di laptop (suara OmniVoice) & dikirim ke Owner"
   }
  ],
  "chats": [
@@ -1092,7 +1092,7 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 4058.5,
+  "price": 4060.699951,
   "open": [
    {
     "side": "sell",
@@ -1104,6 +1104,11 @@
    }
   ],
   "signals": [
+   {
+    "ts": "2026-11-11 06:15:41",
+    "decision": "NO TRADE",
+    "reason": "masih ada posisi terbuka"
+   },
    {
     "ts": "2026-11-11 06:00:41",
     "decision": "NO TRADE",
@@ -1126,11 +1131,6 @@
    },
    {
     "ts": "2026-11-11 05:00:41",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-   },
-   {
-    "ts": "2026-11-11 04:45:41",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
    }
@@ -1170,14 +1170,14 @@
    "today_n": 0,
    "consec_loss": 0
   },
-  "peak": 1719.809804,
+  "peak": 1724.0099999999998,
   "curve": [
    1676.5999999999997,
    1687.5099999999995,
    1716.0099999999995
   ],
   "last": {
-   "ts": "2026-11-11 06:00:41",
+   "ts": "2026-11-11 06:15:41",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1195,14 +1195,10 @@
    },
    "tech": {
     "bias": "sideways",
-    "score": 3,
-    "trigger": "sell",
-    "confirm": [
-     "RSI",
-     "Stokastik",
-     "MACD"
-    ],
-    "note": "M15 4059.60 di atas tengah band (4033.7–4064.5) · RSI 65 · Stoch 85 · MACD +1.43 · H1 sideways · setup SELL (RSI+Stokastik+MACD)"
+    "score": 0,
+    "trigger": null,
+    "confirm": [],
+    "note": "M15 4057.50 di atas tengah band (4036.2–4064.2) · RSI 62 · Stoch 75 · MACD +1.04 · H1 sideways"
    }
   },
   "fund": {
@@ -1262,24 +1258,24 @@
    "M10": {
     "bias": "bullish",
     "score": 3,
-    "price": 4058.6,
-    "ema20": 4052,
-    "ema50": 4046.39,
-    "rsi": 65.2,
+    "price": 4058.1,
+    "ema20": 4052.58,
+    "ema50": 4046.85,
+    "rsi": 64.1,
     "n": 299,
-    "slot": 2990629,
-    "at": 1794377441482
+    "slot": 2990630,
+    "at": 1794378041578
    },
    "M15": {
     "bias": "bullish",
-    "score": 2,
-    "price": 4061.7,
-    "ema20": 4048.94,
-    "ema50": 4047.12,
-    "rsi": 68.3,
+    "score": 3,
+    "price": 4058.3,
+    "ema20": 4049.83,
+    "ema50": 4047.56,
+    "rsi": 63,
     "n": 299,
-    "slot": 1993752,
-    "at": 1794376841486
+    "slot": 1993753,
+    "at": 1794377741496
    },
    "M30": {
     "bias": "sideways",
