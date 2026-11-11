@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-11T00:54:40.613Z",
+ "generated_at": "2026-11-11T01:04:40.612Z",
  "today": "2026-11-11",
  "week_start": "2026-11-09",
  "campaign": {
@@ -62,8 +62,8 @@
    "name": "Fikri",
    "title": "Social Media Publisher",
    "status": "done",
-   "current_task": "QA video patch VALO 13.10 (lolos, tinggal render laptop → auto kirim)",
-   "updated_at": "2026-11-11 00:49:37"
+   "current_task": null,
+   "updated_at": "2026-11-11 01:00:59"
   },
   {
    "id": "ads",
@@ -78,8 +78,8 @@
    "name": "Raka",
    "title": "Data Analyst",
    "status": "done",
-   "current_task": "Data: video Valorant/news paling kuat",
-   "updated_at": "2026-11-10 23:02:07"
+   "current_task": null,
+   "updated_at": "2026-11-11 01:01:29"
   },
   {
    "id": "price",
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-11 00:45:41"
+   "updated_at": "2026-11-11 01:00:41"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Fed tahan 3,75–4% (28 Okt, 2 suara minta naik). Emas turun ke 3.900–4.150, DXY ~102 awal Okt. Data Nov belum ada, cek ulang.",
-   "updated_at": "2026-11-11 00:45:41"
+   "updated_at": "2026-11-11 01:00:41"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-11 00:45:41"
+   "updated_at": "2026-11-11 01:00:41"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
-   "updated_at": "2026-11-11 00:45:41"
+   "updated_at": "2026-11-11 01:00:41"
   },
   {
    "id": "texec",
@@ -566,6 +566,21 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-11 01:01:29",
+   "agent_id": "analyst",
+   "message": "Update data 40 post IG 📈"
+  },
+  {
+   "ts": "2026-11-11 01:00:59",
+   "agent_id": "publisher",
+   "message": "Kirim draf IG Story ke Bos 📱"
+  },
+  {
+   "ts": "2026-11-11 01:00:41",
+   "agent_id": "ttech",
+   "message": "M15 berubah arah: sideways → bearish"
+  },
+  {
    "ts": "2026-11-11 00:49:37",
    "agent_id": "publisher",
    "message": "Konten #165 lolos QA teks/sumber, render OmniVoice di laptop lalu otomatis dikirim ke Owner"
@@ -674,21 +689,6 @@
    "ts": "2026-11-10 23:01:00",
    "agent_id": "trisk",
    "message": "NO TRADE · jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
-  },
-  {
-   "ts": "2026-11-10 23:00:41",
-   "agent_id": "ttech",
-   "message": "M30 berubah arah: bearish → sideways"
-  },
-  {
-   "ts": "2026-11-10 22:01:21",
-   "agent_id": "analyst",
-   "message": "Update data 40 post IG 📈"
-  },
-  {
-   "ts": "2026-11-10 21:50:41",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: bearish → sideways"
   }
  ],
  "chats": [
@@ -984,7 +984,7 @@
    "yt_posted": 2,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 3653,
+   "views": 3743,
    "likes": 41,
    "comments": 1,
    "shares": 3,
@@ -1007,7 +1007,7 @@
      "title": "Hush agent baru VALORANT 13.09: 3 hal wajib tahu",
      "format": "video",
      "pillar": "tips",
-     "views": 256
+     "views": 346
     }
    ],
    "clicks": 0,
@@ -1092,9 +1092,14 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 4034,
+  "price": 4032.600098,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-11 01:00:41",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
+   },
    {
     "ts": "2026-11-11 00:45:41",
     "decision": "NO TRADE",
@@ -1117,11 +1122,6 @@
    },
    {
     "ts": "2026-11-10 23:45:41",
-    "decision": "NO TRADE",
-    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
-   },
-   {
-    "ts": "2026-11-10 23:30:41",
     "decision": "NO TRADE",
     "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
    }
@@ -1168,7 +1168,7 @@
    1716.0099999999995
   ],
   "last": {
-   "ts": "2026-11-11 00:45:41",
+   "ts": "2026-11-11 01:00:41",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1189,7 +1189,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4038.60 di atas tengah band (4028.2–4041.9) · RSI 53 · Stoch 71 · MACD +1.31 · H1 sideways"
+    "note": "M15 4034.40 di bawah tengah band (4028.4–4041.5) · RSI 46 · Stoch 41 · MACD +0.68 · H1 sideways"
    }
   },
   "fund": {
@@ -1249,46 +1249,46 @@
    "M10": {
     "bias": "sideways",
     "score": -1,
-    "price": 4035.1,
-    "ema20": 4036.15,
-    "ema50": 4038.18,
-    "rsi": 48.7,
+    "price": 4033.5,
+    "ema20": 4035.9,
+    "ema50": 4038,
+    "rsi": 45.2,
     "n": 299,
-    "slot": 2990597,
-    "at": 1794358241254
+    "slot": 2990598,
+    "at": 1794358841356
    },
    "M15": {
-    "bias": "sideways",
-    "score": 0,
-    "price": 4037.1,
-    "ema20": 4035.93,
-    "ema50": 4045.22,
-    "rsi": 50.6,
+    "bias": "bearish",
+    "score": -2,
+    "price": 4033.5,
+    "ema20": 4035.7,
+    "ema50": 4044.76,
+    "rsi": 44.8,
     "n": 299,
-    "slot": 1993731,
-    "at": 1794357941251
+    "slot": 1993732,
+    "at": 1794358841375
    },
    "M30": {
     "bias": "sideways",
     "score": -1,
-    "price": 4040.1,
-    "ema20": 4040.97,
-    "ema50": 4063.88,
-    "rsi": 43.1,
+    "price": 4033.5,
+    "ema20": 4040.26,
+    "ema50": 4062.68,
+    "rsi": 38.1,
     "n": 299,
-    "slot": 996865,
-    "at": 1794357041247
+    "slot": 996866,
+    "at": 1794358841380
    },
    "H1": {
     "bias": "bearish",
     "score": -3,
-    "price": 4039,
-    "ema20": 4057.51,
-    "ema50": 4078,
-    "rsi": 35.7,
+    "price": 4033.5,
+    "ema20": 4055.23,
+    "ema50": 4076.25,
+    "rsi": 33.7,
     "n": 299,
-    "slot": 498432,
-    "at": 1794355245239
+    "slot": 498433,
+    "at": 1794358841386
    }
   },
   "currency": "USC",
