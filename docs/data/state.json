@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-11T09:44:40.848Z",
+ "generated_at": "2026-11-11T09:54:40.847Z",
  "today": "2026-11-11",
  "week_start": "2026-11-09",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-11 09:30:41"
+   "updated_at": "2026-11-11 09:45:41"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
-   "updated_at": "2026-11-11 09:30:41"
+   "updated_at": "2026-11-11 09:45:41"
   },
   {
    "id": "ttech",
@@ -119,15 +119,15 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-11 09:30:41"
+   "updated_at": "2026-11-11 09:45:41"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: masih ada posisi terbuka",
-   "updated_at": "2026-11-11 09:30:41"
+   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
+   "updated_at": "2026-11-11 09:45:41"
   },
   {
    "id": "texec",
@@ -984,18 +984,18 @@
    "yt_posted": 2,
    "yt_pending": 1,
    "yt_scheduled": 0,
-   "views": 3880,
+   "views": 3890,
    "likes": 41,
    "comments": 1,
    "shares": 3,
    "saves": 0,
-   "yt_views": 3468,
+   "yt_views": 3478,
    "top": [
     {
      "title": "Tulisan Tertua Indonesia Ada di 7 Tiang Batu Ini",
      "format": "shorts",
      "pillar": "misteri_kuno",
-     "views": 2153
+     "views": 2163
     },
     {
      "title": "Kota 9.000 Tahun Ini Nggak Punya Jalan, Pintunya di Atap",
@@ -1044,24 +1044,24 @@
    "yt_posted": 14,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 35118,
+   "views": 35127,
    "likes": 384,
    "comments": 4,
    "shares": 0,
    "saves": 4,
-   "yt_views": 26070,
+   "yt_views": 26077,
    "top": [
     {
      "title": "Upper Final MPL ID S18 malam ini: NAVI vs TLID 18.00 WIB, yang menang langsung ke Grand Final + tiket M8",
      "format": "video",
      "pillar": "esport",
-     "views": 3262
+     "views": 3264
     },
     {
      "title": "Sangkuriang: Legenda atau Ingatan Danau Bandung Purba?",
      "format": "shorts",
      "pillar": "legenda_mitos",
-     "views": 3041
+     "views": 3046
     },
     {
      "title": "Lubang Jepang: Penjara Rahasia di Bawah Bukittinggi",
@@ -1092,9 +1092,14 @@
   "paused": false,
   "balance": 1740.19,
   "today_pnl": 24.18,
-  "price": 4049.899902,
+  "price": 4053.100098,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-11 09:45:41",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
    {
     "ts": "2026-11-11 09:30:41",
     "decision": "NO TRADE",
@@ -1117,11 +1122,6 @@
    },
    {
     "ts": "2026-11-11 08:30:41",
-    "decision": "NO TRADE",
-    "reason": "masih ada posisi terbuka"
-   },
-   {
-    "ts": "2026-11-11 08:15:41",
     "decision": "NO TRADE",
     "reason": "masih ada posisi terbuka"
    }
@@ -1179,7 +1179,7 @@
    1740.1900000000003
   ],
   "last": {
-   "ts": "2026-11-11 09:30:41",
+   "ts": "2026-11-11 09:45:41",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1188,7 +1188,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "masih ada posisi terbuka",
+   "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
    "fund": {
     "bias": 0,
     "note": "netral (belum ada ringkasan hari ini)",
@@ -1200,7 +1200,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4050.50 di bawah tengah band (4047.6–4068.7) · RSI 44 · Stoch 3 · MACD -1.79 · H1 sideways"
+    "note": "M15 4050.80 di bawah tengah band (4048.7–4068.0) · RSI 45 · Stoch 9 · MACD -1.91 · H1 sideways"
    }
   },
   "fund": null,
@@ -1257,24 +1257,24 @@
    "M10": {
     "bias": "sideways",
     "score": 0,
-    "price": 4049.5,
-    "ema20": 4056.61,
-    "ema50": 4053.18,
-    "rsi": 36,
+    "price": 4052.5,
+    "ema20": 4056.22,
+    "ema50": 4053.15,
+    "rsi": 43.3,
     "n": 299,
-    "slot": 2990650,
-    "at": 1794390041840
+    "slot": 2990651,
+    "at": 1794390641653
    },
    "M15": {
     "bias": "sideways",
     "score": 0,
     "price": 4050.3,
-    "ema20": 4056.19,
-    "ema50": 4052.19,
+    "ema20": 4055.63,
+    "ema50": 4052.12,
     "rsi": 44.1,
     "n": 299,
-    "slot": 1993766,
-    "at": 1794389441716
+    "slot": 1993767,
+    "at": 1794390341654
    },
    "M30": {
     "bias": "sideways",
