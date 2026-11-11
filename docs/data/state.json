@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-11T01:04:40.612Z",
+ "generated_at": "2026-11-11T01:14:40.626Z",
  "today": "2026-11-11",
  "week_start": "2026-11-09",
  "campaign": {
@@ -365,8 +365,8 @@
    "game": "freefire",
    "pillar": "esport",
    "title": "RRQ Kazu 5 besar Week 1 FFWS Global Finals, ONIC & BTR gimana?",
-   "status": "draft",
-   "asset_url": null,
+   "status": "pending_approval",
+   "asset_url": "{\"video\":\"https://luc1ferr12.github.io/zataa-office/media/2026-11-11/152-rrq-kazu-5-besar-week-1-ffws-global-fina-ov.mp4\",\"cover\":\"https://luc1ferr12.github.io/zataa-office/media/2026-11-11/152-rrq-kazu-5-besar-week-1-ffws-global-fina-ov-cover.jpg\"}",
    "scheduled_at": null,
    "posted_at": null,
    "channel": null
@@ -566,6 +566,31 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-11 01:09:10",
+   "agent_id": "video",
+   "message": "Render laptop video #165 gagal, cek logs/laptop-worker.log di laptop"
+  },
+  {
+   "ts": "2026-11-11 01:07:11",
+   "agent_id": "yvideo",
+   "message": "Render laptop Shorts #164 gagal, cek logs/laptop-worker.log di laptop"
+  },
+  {
+   "ts": "2026-11-11 01:06:57",
+   "agent_id": "yvideo",
+   "message": "Render laptop Shorts #163 gagal, cek logs/laptop-worker.log di laptop"
+  },
+  {
+   "ts": "2026-11-11 01:06:48",
+   "agent_id": "video",
+   "message": "video #152 dirender di laptop (suara OmniVoice) & dikirim ke Owner"
+  },
+  {
+   "ts": "2026-11-11 01:06:46",
+   "agent_id": "publisher",
+   "message": "Kirim #152 ke Owner buat approval"
+  },
+  {
    "ts": "2026-11-11 01:01:29",
    "agent_id": "analyst",
    "message": "Update data 40 post IG 📈"
@@ -664,31 +689,6 @@
    "ts": "2026-11-10 23:02:11",
    "agent_id": "dir",
    "message": "Pilih 3 ide terbaik dari briefing (2 feed + 1 video)"
-  },
-  {
-   "ts": "2026-11-10 23:02:07",
-   "agent_id": "analyst",
-   "message": "Skor: video news Valorant eng tertinggi, feed promo 0"
-  },
-  {
-   "ts": "2026-11-10 23:01:39",
-   "agent_id": "price",
-   "message": "Harga live OK (ML, FF)"
-  },
-  {
-   "ts": "2026-11-10 23:01:34",
-   "agent_id": "researcher",
-   "message": "7 item riset; VALO 13.10 resmi rilis 10 Nov (buff Sentinel)"
-  },
-  {
-   "ts": "2026-11-10 23:01:34",
-   "agent_id": "researcher",
-   "message": "Nemu 7 topik baru"
-  },
-  {
-   "ts": "2026-11-10 23:01:00",
-   "agent_id": "trisk",
-   "message": "NO TRADE · jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
   }
  ],
  "chats": [
@@ -978,7 +978,7 @@
    "week": "2026-11-09",
    "total": 18,
    "posted": 4,
-   "pending": 0,
+   "pending": 1,
    "scheduled": 1,
    "yt_total": 4,
    "yt_posted": 2,
@@ -1092,7 +1092,7 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 4032.600098,
+  "price": 4030.199951,
   "open": [],
   "signals": [
    {
@@ -1249,13 +1249,13 @@
    "M10": {
     "bias": "sideways",
     "score": -1,
-    "price": 4033.5,
-    "ema20": 4035.9,
-    "ema50": 4038,
-    "rsi": 45.2,
+    "price": 4032.3,
+    "ema20": 4035.56,
+    "ema50": 4037.78,
+    "rsi": 42.7,
     "n": 299,
-    "slot": 2990598,
-    "at": 1794358841356
+    "slot": 2990599,
+    "at": 1794359441338
    },
    "M15": {
     "bias": "bearish",
