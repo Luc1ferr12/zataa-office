@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-11T11:44:40.900Z",
+ "generated_at": "2026-11-11T11:54:40.900Z",
  "today": "2026-11-11",
  "week_start": "2026-11-09",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-11 11:30:41"
+   "updated_at": "2026-11-11 11:45:41"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Berita 24 jam belum terverifikasi (hasil stale/bertentangan). NFP Okt kuat 165K, unemp 4,1% = tekanan emas. Claims 21:30 WITA ringan.",
-   "updated_at": "2026-11-11 11:30:41"
+   "updated_at": "2026-11-11 11:45:41"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-11 11:30:41"
+   "updated_at": "2026-11-11 11:45:41"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-11-11 11:30:41"
+   "updated_at": "2026-11-11 11:45:41"
   },
   {
    "id": "texec",
@@ -984,7 +984,7 @@
    "yt_posted": 2,
    "yt_pending": 1,
    "yt_scheduled": 0,
-   "views": 3901,
+   "views": 3930,
    "likes": 41,
    "comments": 1,
    "shares": 3,
@@ -1007,7 +1007,7 @@
      "title": "Hush agent baru VALORANT 13.09: 3 hal wajib tahu",
      "format": "video",
      "pillar": "tips",
-     "views": 406
+     "views": 407
     }
    ],
    "clicks": 0,
@@ -1044,30 +1044,30 @@
    "yt_posted": 14,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 35130,
+   "views": 35360,
    "likes": 384,
    "comments": 4,
    "shares": 0,
    "saves": 4,
-   "yt_views": 26080,
+   "yt_views": 26305,
    "top": [
     {
      "title": "Upper Final MPL ID S18 malam ini: NAVI vs TLID 18.00 WIB, yang menang langsung ke Grand Final + tiket M8",
      "format": "video",
      "pillar": "esport",
-     "views": 3264
+     "views": 3265
     },
     {
      "title": "Sangkuriang: Legenda atau Ingatan Danau Bandung Purba?",
      "format": "shorts",
      "pillar": "legenda_mitos",
-     "views": 3046
+     "views": 3220
     },
     {
      "title": "Lubang Jepang: Penjara Rahasia di Bawah Bukittinggi",
      "format": "shorts",
      "pillar": "horor_sejarah",
-     "views": 2522
+     "views": 2519
     }
    ],
    "clicks": 0,
@@ -1092,9 +1092,14 @@
   "paused": false,
   "balance": 1740.19,
   "today_pnl": 24.18,
-  "price": 4050.899902,
+  "price": 4048.699951,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-11 11:45:41",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
    {
     "ts": "2026-11-11 11:30:41",
     "decision": "NO TRADE",
@@ -1117,11 +1122,6 @@
    },
    {
     "ts": "2026-11-11 10:30:41",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-11-11 10:15:41",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1179,7 +1179,7 @@
    1740.1900000000003
   ],
   "last": {
-   "ts": "2026-11-11 11:30:41",
+   "ts": "2026-11-11 11:45:41",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1200,7 +1200,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4054.80 di bawah tengah band (4045.5–4067.3) · RSI 52 · Stoch 43 · MACD -0.64 · H1 sideways"
+    "note": "M15 4048.70 di bawah tengah band (4043.7–4067.2) · RSI 43 · Stoch 17 · MACD -1.09 · H1 sideways"
    }
   },
   "fund": {
@@ -1260,24 +1260,24 @@
    "M10": {
     "bias": "sideways",
     "score": 0,
-    "price": 4051.6,
-    "ema20": 4053.67,
-    "ema50": 4052.82,
-    "rsi": 46.1,
+    "price": 4051.1,
+    "ema20": 4053.42,
+    "ema50": 4052.75,
+    "rsi": 45.3,
     "n": 299,
-    "slot": 2990662,
-    "at": 1794397241839
+    "slot": 2990663,
+    "at": 1794397841839
    },
    "M15": {
     "bias": "sideways",
-    "score": 1,
-    "price": 4054.3,
-    "ema20": 4053.92,
-    "ema50": 4052.11,
-    "rsi": 51.5,
+    "score": -1,
+    "price": 4048.3,
+    "ema20": 4053.38,
+    "ema50": 4051.96,
+    "rsi": 42.5,
     "n": 299,
-    "slot": 1993774,
-    "at": 1794396641758
+    "slot": 1993775,
+    "at": 1794397541774
    },
    "M30": {
     "bias": "sideways",
