@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-11T08:44:40.817Z",
+ "generated_at": "2026-11-11T08:54:40.811Z",
  "today": "2026-11-11",
  "week_start": "2026-11-09",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-11 08:30:41"
+   "updated_at": "2026-11-11 08:45:41"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Fed tahan 3,75–4% (28 Okt, 2 suara minta naik). Emas turun ke 3.900–4.150, DXY ~102 awal Okt. Data Nov belum ada, cek ulang.",
-   "updated_at": "2026-11-11 08:30:41"
+   "updated_at": "2026-11-11 08:45:41"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-11 08:30:41"
+   "updated_at": "2026-11-11 08:45:41"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: masih ada posisi terbuka",
-   "updated_at": "2026-11-11 08:30:41"
+   "updated_at": "2026-11-11 08:45:41"
   },
   {
    "id": "texec",
@@ -1044,12 +1044,12 @@
    "yt_posted": 14,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 35094,
+   "views": 35118,
    "likes": 384,
    "comments": 4,
    "shares": 0,
    "saves": 4,
-   "yt_views": 26046,
+   "yt_views": 26070,
    "top": [
     {
      "title": "Upper Final MPL ID S18 malam ini: NAVI vs TLID 18.00 WIB, yang menang langsung ke Grand Final + tiket M8",
@@ -1092,7 +1092,7 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 4061.300049,
+  "price": 4057.199951,
   "open": [
    {
     "side": "sell",
@@ -1104,6 +1104,11 @@
    }
   ],
   "signals": [
+   {
+    "ts": "2026-11-11 08:45:41",
+    "decision": "NO TRADE",
+    "reason": "masih ada posisi terbuka"
+   },
    {
     "ts": "2026-11-11 08:30:41",
     "decision": "NO TRADE",
@@ -1126,11 +1131,6 @@
    },
    {
     "ts": "2026-11-11 07:30:41",
-    "decision": "NO TRADE",
-    "reason": "masih ada posisi terbuka"
-   },
-   {
-    "ts": "2026-11-11 07:15:41",
     "decision": "NO TRADE",
     "reason": "masih ada posisi terbuka"
    }
@@ -1177,7 +1177,7 @@
    1716.0099999999995
   ],
   "last": {
-   "ts": "2026-11-11 08:30:41",
+   "ts": "2026-11-11 08:45:41",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1198,7 +1198,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4057.30 di atas tengah band (4041.7–4070.9) · RSI 55 · Stoch 53 · MACD -0.61 · H1 sideways"
+    "note": "M15 4061.40 di atas tengah band (4042.8–4071.6) · RSI 60 · Stoch 59 · MACD -0.39 · H1 sideways"
    }
   },
   "fund": {
@@ -1258,24 +1258,24 @@
    "M10": {
     "bias": "bullish",
     "score": 3,
-    "price": 4060.3,
-    "ema20": 4058.81,
-    "ema50": 4052.86,
-    "rsi": 56.9,
+    "price": 4060,
+    "ema20": 4058.93,
+    "ema50": 4053.14,
+    "rsi": 56.1,
     "n": 299,
-    "slot": 2990644,
-    "at": 1794386441777
+    "slot": 2990645,
+    "at": 1794387041687
    },
    "M15": {
     "bias": "bullish",
     "score": 3,
-    "price": 4059.1,
-    "ema20": 4056.16,
-    "ema50": 4051.44,
-    "rsi": 57.7,
+    "price": 4061.9,
+    "ema20": 4056.71,
+    "ema50": 4051.85,
+    "rsi": 61.1,
     "n": 299,
-    "slot": 1993762,
-    "at": 1794385841602
+    "slot": 1993763,
+    "at": 1794386741679
    },
    "M30": {
     "bias": "sideways",
