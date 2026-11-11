@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-11T07:54:40.804Z",
+ "generated_at": "2026-11-11T08:04:40.800Z",
  "today": "2026-11-11",
  "week_start": "2026-11-09",
  "campaign": {
@@ -87,7 +87,7 @@
    "title": "Price Watcher",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-11-11 06:00:41"
+   "updated_at": "2026-11-11 08:00:42"
   },
   {
    "id": "ob",
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-11 07:45:41"
+   "updated_at": "2026-11-11 08:00:41"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Fed tahan 3,75–4% (28 Okt, 2 suara minta naik). Emas turun ke 3.900–4.150, DXY ~102 awal Okt. Data Nov belum ada, cek ulang.",
-   "updated_at": "2026-11-11 07:45:41"
+   "updated_at": "2026-11-11 08:00:41"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-11 07:45:41"
+   "updated_at": "2026-11-11 08:00:41"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: masih ada posisi terbuka",
-   "updated_at": "2026-11-11 07:45:41"
+   "updated_at": "2026-11-11 08:00:41"
   },
   {
    "id": "texec",
@@ -1092,7 +1092,7 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 4060.699951,
+  "price": 4059.199951,
   "open": [
    {
     "side": "sell",
@@ -1104,6 +1104,11 @@
    }
   ],
   "signals": [
+   {
+    "ts": "2026-11-11 08:00:41",
+    "decision": "NO TRADE",
+    "reason": "masih ada posisi terbuka"
+   },
    {
     "ts": "2026-11-11 07:45:41",
     "decision": "NO TRADE",
@@ -1126,11 +1131,6 @@
    },
    {
     "ts": "2026-11-11 06:45:41",
-    "decision": "NO TRADE",
-    "reason": "masih ada posisi terbuka"
-   },
-   {
-    "ts": "2026-11-11 06:30:41",
     "decision": "NO TRADE",
     "reason": "masih ada posisi terbuka"
    }
@@ -1177,7 +1177,7 @@
    1716.0099999999995
   ],
   "last": {
-   "ts": "2026-11-11 07:45:41",
+   "ts": "2026-11-11 08:00:41",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1198,7 +1198,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4062.80 di atas tengah band (4039.3–4070.6) · RSI 64 · Stoch 87 · MACD +0.49 · H1 sideways"
+    "note": "M15 4060.30 di atas tengah band (4040.0–4070.7) · RSI 60 · Stoch 76 · MACD +0.05 · H1 sideways"
    }
   },
   "fund": {
@@ -1258,46 +1258,46 @@
    "M10": {
     "bias": "bullish",
     "score": 3,
-    "price": 4061.6,
-    "ema20": 4058.17,
-    "ema50": 4051.32,
-    "rsi": 60.7,
+    "price": 4060.4,
+    "ema20": 4058.38,
+    "ema50": 4051.68,
+    "rsi": 58,
     "n": 299,
-    "slot": 2990639,
-    "at": 1794383441565
+    "slot": 2990640,
+    "at": 1794384041586
    },
    "M15": {
     "bias": "bullish",
     "score": 3,
-    "price": 4063.2,
-    "ema20": 4054.94,
-    "ema50": 4050.39,
-    "rsi": 64.4,
+    "price": 4060.4,
+    "ema20": 4055.46,
+    "ema50": 4050.78,
+    "rsi": 59.8,
     "n": 299,
-    "slot": 1993759,
-    "at": 1794383141567
+    "slot": 1993760,
+    "at": 1794384041591
    },
    "M30": {
     "bias": "sideways",
     "score": 1,
-    "price": 4064.9,
-    "ema20": 4050.07,
-    "ema50": 4058.37,
-    "rsi": 62.9,
+    "price": 4060.4,
+    "ema20": 4051.05,
+    "ema50": 4058.45,
+    "rsi": 58.2,
     "n": 299,
-    "slot": 996879,
-    "at": 1794382241557
+    "slot": 996880,
+    "at": 1794384041593
    },
    "H1": {
     "bias": "sideways",
     "score": 1,
-    "price": 4061.6,
-    "ema20": 4053.98,
-    "ema50": 4071.04,
-    "rsi": 51.2,
+    "price": 4060.4,
+    "ema20": 4054.59,
+    "ema50": 4070.62,
+    "rsi": 50.5,
     "n": 299,
-    "slot": 498439,
-    "at": 1794380441550
+    "slot": 498440,
+    "at": 1794384041597
    }
   },
   "currency": "USC",
