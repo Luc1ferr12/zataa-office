@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-11T03:34:40.693Z",
+ "generated_at": "2026-11-11T03:44:40.699Z",
  "today": "2026-11-11",
  "week_start": "2026-11-09",
  "campaign": {
@@ -62,8 +62,8 @@
    "name": "Fikri",
    "title": "Social Media Publisher",
    "status": "done",
-   "current_task": null,
-   "updated_at": "2026-11-11 01:00:59"
+   "current_task": "undefined",
+   "updated_at": "2026-11-11 03:40:40"
   },
   {
    "id": "ads",
@@ -365,7 +365,7 @@
    "game": "freefire",
    "pillar": "esport",
    "title": "RRQ Kazu 5 besar Week 1 FFWS Global Finals, ONIC & BTR gimana?",
-   "status": "pending_approval",
+   "status": "approved",
    "asset_url": "{\"video\":\"https://luc1ferr12.github.io/zataa-office/media/2026-11-11/152-rrq-kazu-5-besar-week-1-ffws-global-fina-ov.mp4\",\"cover\":\"https://luc1ferr12.github.io/zataa-office/media/2026-11-11/152-rrq-kazu-5-besar-week-1-ffws-global-fina-ov-cover.jpg\"}",
    "scheduled_at": null,
    "posted_at": null,
@@ -393,7 +393,7 @@
    "game": "sejarah",
    "pillar": "ancient_secrets",
    "title": "Piala Romawi 1.700 Tahun Ini Bisa Ganti Warna",
-   "status": "draft",
+   "status": "pending_approval",
    "asset_url": null,
    "scheduled_at": null,
    "posted_at": null,
@@ -566,6 +566,21 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-11 03:40:40",
+   "agent_id": "owner",
+   "message": "Approve konten #152 ✅"
+  },
+  {
+   "ts": "2026-11-11 03:34:51",
+   "agent_id": "yvideo",
+   "message": "Shorts #163 dirender di laptop (suara OmniVoice) & dikirim ke Owner"
+  },
+  {
+   "ts": "2026-11-11 03:34:50",
+   "agent_id": "ypublish",
+   "message": "Kirim Shorts #163 ke Owner buat approval"
+  },
+  {
    "ts": "2026-11-11 03:21:38",
    "agent_id": "yvideo",
    "message": "Render laptop Shorts #163 gagal, cek logs/laptop-worker.log di laptop"
@@ -674,21 +689,6 @@
    "ts": "2026-11-10 23:07:16",
    "agent_id": "spublish",
    "message": "Shorts #164 Makam Peneleh jam 19:00 WIB (konsisten 7 video terakhir)"
-  },
-  {
-   "ts": "2026-11-10 23:07:16",
-   "agent_id": "ypublish",
-   "message": "Shorts #163 Lycurgus jam 18:00 WIB (slot 18-19 paling stabil di data channel)"
-  },
-  {
-   "ts": "2026-11-10 23:07:00",
-   "agent_id": "svideo",
-   "message": "Shorts #164 \"Gubernur Jenderal Dikubur di Sini, Lalu Dilupakan\" masuk antrean render laptop (OmniVoice)"
-  },
-  {
-   "ts": "2026-11-10 23:05:38",
-   "agent_id": "yvideo",
-   "message": "Shorts #163 \"Piala Romawi 1.700 Tahun Ini Bisa Ganti Warna\" masuk antrean render laptop (OmniVoice)"
   }
  ],
  "chats": [
@@ -979,23 +979,23 @@
    "total": 18,
    "posted": 4,
    "pending": 1,
-   "scheduled": 1,
+   "scheduled": 2,
    "yt_total": 4,
    "yt_posted": 2,
-   "yt_pending": 0,
+   "yt_pending": 1,
    "yt_scheduled": 0,
-   "views": 3813,
+   "views": 3814,
    "likes": 41,
    "comments": 1,
    "shares": 3,
    "saves": 0,
-   "yt_views": 3460,
+   "yt_views": 3461,
    "top": [
     {
      "title": "Tulisan Tertua Indonesia Ada di 7 Tiang Batu Ini",
      "format": "shorts",
      "pillar": "misteri_kuno",
-     "views": 2148
+     "views": 2149
     },
     {
      "title": "Kota 9.000 Tahun Ini Nggak Punya Jalan, Pintunya di Atap",
@@ -1044,12 +1044,12 @@
    "yt_posted": 14,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 35045,
+   "views": 35046,
    "likes": 384,
    "comments": 4,
    "shares": 0,
    "saves": 4,
-   "yt_views": 26003,
+   "yt_views": 26004,
    "top": [
     {
      "title": "Upper Final MPL ID S18 malam ini: NAVI vs TLID 18.00 WIB, yang menang langsung ke Grand Final + tiket M8",
@@ -1092,7 +1092,7 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 4047,
+  "price": 4048.600098,
   "open": [],
   "signals": [
    {
@@ -1248,14 +1248,14 @@
   "tf": {
    "M10": {
     "bias": "bullish",
-    "score": 2,
-    "price": 4048.4,
-    "ema20": 4042.87,
-    "ema50": 4040.68,
-    "rsi": 61,
+    "score": 3,
+    "price": 4048.1,
+    "ema20": 4043.37,
+    "ema50": 4040.97,
+    "rsi": 60.4,
     "n": 299,
-    "slot": 2990613,
-    "at": 1794367841631
+    "slot": 2990614,
+    "at": 1794368441381
    },
    "M15": {
     "bias": "sideways",
