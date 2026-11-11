@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-11T03:54:40.699Z",
+ "generated_at": "2026-11-11T04:04:40.698Z",
  "today": "2026-11-11",
  "week_start": "2026-11-09",
  "campaign": {
@@ -79,7 +79,7 @@
    "title": "Data Analyst",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-11-11 01:01:29"
+   "updated_at": "2026-11-11 04:01:26"
   },
   {
    "id": "price",
@@ -87,7 +87,7 @@
    "title": "Price Watcher",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-11-11 02:00:41"
+   "updated_at": "2026-11-11 04:01:27"
   },
   {
    "id": "ob",
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-11 03:45:41"
+   "updated_at": "2026-11-11 04:00:41"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Fed tahan 3,75–4% (28 Okt, 2 suara minta naik). Emas turun ke 3.900–4.150, DXY ~102 awal Okt. Data Nov belum ada, cek ulang.",
-   "updated_at": "2026-11-11 03:45:41"
+   "updated_at": "2026-11-11 04:00:41"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-11 03:45:41"
+   "updated_at": "2026-11-11 04:00:41"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
-   "updated_at": "2026-11-11 03:45:41"
+   "updated_at": "2026-11-11 04:00:41"
   },
   {
    "id": "texec",
@@ -566,6 +566,16 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-11 04:01:26",
+   "agent_id": "analyst",
+   "message": "Update data 39 post IG 📈"
+  },
+  {
+   "ts": "2026-11-11 04:00:41",
+   "agent_id": "ttech",
+   "message": "M60 berubah arah: bearish → sideways"
+  },
+  {
    "ts": "2026-11-11 03:40:40",
    "agent_id": "owner",
    "message": "Approve konten #152 ✅"
@@ -679,16 +689,6 @@
    "ts": "2026-11-10 23:07:16",
    "agent_id": "sdir",
    "message": "Shorts Story #164 HS-016 Makam Peneleh antre render (HS 1/3)"
-  },
-  {
-   "ts": "2026-11-10 23:07:16",
-   "agent_id": "ydir",
-   "message": "Shorts History #163 AS-003 Piala Lycurgus antre render"
-  },
-  {
-   "ts": "2026-11-10 23:07:16",
-   "agent_id": "spublish",
-   "message": "Shorts #164 Makam Peneleh jam 19:00 WIB (konsisten 7 video terakhir)"
   }
  ],
  "chats": [
@@ -984,7 +984,7 @@
    "yt_posted": 2,
    "yt_pending": 1,
    "yt_scheduled": 0,
-   "views": 3814,
+   "views": 3834,
    "likes": 41,
    "comments": 1,
    "shares": 3,
@@ -1007,7 +1007,7 @@
      "title": "Hush agent baru VALORANT 13.09: 3 hal wajib tahu",
      "format": "video",
      "pillar": "tips",
-     "views": 346
+     "views": 366
     }
    ],
    "clicks": 0,
@@ -1092,9 +1092,14 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 4048.899902,
+  "price": 4048.699951,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-11 04:00:41",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
+   },
    {
     "ts": "2026-11-11 03:45:41",
     "decision": "NO TRADE",
@@ -1117,11 +1122,6 @@
    },
    {
     "ts": "2026-11-11 02:45:41",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-   },
-   {
-    "ts": "2026-11-11 02:30:41",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
    }
@@ -1168,7 +1168,7 @@
    1716.0099999999995
   ],
   "last": {
-   "ts": "2026-11-11 03:45:41",
+   "ts": "2026-11-11 04:00:41",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1189,7 +1189,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4048.50 di atas tengah band (4028.6–4054.9) · RSI 59 · Stoch 85 · MACD +0.96 · H1 sideways"
+    "note": "M15 4046.50 di atas tengah band (4029.7–4055.1) · RSI 56 · Stoch 82 · MACD +0.65 · H1 sideways"
    }
   },
   "fund": {
@@ -1249,46 +1249,46 @@
    "M10": {
     "bias": "bullish",
     "score": 3,
-    "price": 4048.2,
-    "ema20": 4043.83,
-    "ema50": 4041.26,
-    "rsi": 60.6,
+    "price": 4048.1,
+    "ema20": 4044.24,
+    "ema50": 4041.52,
+    "rsi": 60.4,
     "n": 299,
-    "slot": 2990615,
-    "at": 1794369041449
+    "slot": 2990616,
+    "at": 1794369641394
    },
    "M15": {
     "bias": "sideways",
-    "score": 1,
-    "price": 4048.9,
-    "ema20": 4042.17,
-    "ema50": 4044.76,
-    "rsi": 59.5,
+    "score": 0,
+    "price": 4048.1,
+    "ema20": 4042.73,
+    "ema50": 4044.89,
+    "rsi": 58.3,
     "n": 299,
-    "slot": 1993743,
-    "at": 1794368741396
+    "slot": 1993744,
+    "at": 1794369641400
    },
    "M30": {
     "bias": "sideways",
     "score": 0,
-    "price": 4048.4,
-    "ema20": 4041.73,
-    "ema50": 4059.25,
-    "rsi": 52.8,
+    "price": 4048.1,
+    "ema20": 4042.34,
+    "ema50": 4058.81,
+    "rsi": 52.5,
     "n": 299,
-    "slot": 996871,
-    "at": 1794367841637
+    "slot": 996872,
+    "at": 1794369641401
    },
    "H1": {
-    "bias": "bearish",
-    "score": -3,
-    "price": 4043.2,
-    "ema20": 4053.36,
-    "ema50": 4073.85,
-    "rsi": 40.6,
+    "bias": "sideways",
+    "score": -1,
+    "price": 4048.1,
+    "ema20": 4052.86,
+    "ema50": 4072.84,
+    "rsi": 43.5,
     "n": 299,
-    "slot": 498435,
-    "at": 1794366041362
+    "slot": 498436,
+    "at": 1794369641405
    }
   },
   "currency": "USC",
