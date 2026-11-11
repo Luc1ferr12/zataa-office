@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-11T05:54:40.748Z",
+ "generated_at": "2026-11-11T06:04:40.749Z",
  "today": "2026-11-11",
  "week_start": "2026-11-09",
  "campaign": {
@@ -87,7 +87,7 @@
    "title": "Price Watcher",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-11-11 04:01:27"
+   "updated_at": "2026-11-11 06:00:41"
   },
   {
    "id": "ob",
@@ -102,8 +102,8 @@
    "name": "Mahendra",
    "title": "Trading Director",
    "status": "done",
-   "current_task": "Siklus beres: SELL",
-   "updated_at": "2026-11-11 05:45:42"
+   "current_task": "Siklus beres: NO TRADE",
+   "updated_at": "2026-11-11 06:00:41"
   },
   {
    "id": "tresearch",
@@ -111,23 +111,23 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Fed tahan 3,75–4% (28 Okt, 2 suara minta naik). Emas turun ke 3.900–4.150, DXY ~102 awal Okt. Data Nov belum ada, cek ulang.",
-   "updated_at": "2026-11-11 05:45:41"
+   "updated_at": "2026-11-11 06:00:41"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Setup SELL di band (RSI+Stokastik)",
-   "updated_at": "2026-11-11 05:45:41"
+   "current_task": "Setup SELL di band (RSI+Stokastik+MACD)",
+   "updated_at": "2026-11-11 06:00:41"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "SELL 0.02 lot, RR 1:2",
-   "updated_at": "2026-11-11 05:45:41"
+   "current_task": "NO TRADE: masih ada posisi terbuka",
+   "updated_at": "2026-11-11 06:00:41"
   },
   {
    "id": "texec",
@@ -1092,7 +1092,7 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 4059.5,
+  "price": 4056.199951,
   "open": [
    {
     "side": "sell",
@@ -1104,6 +1104,11 @@
    }
   ],
   "signals": [
+   {
+    "ts": "2026-11-11 06:00:41",
+    "decision": "NO TRADE",
+    "reason": "masih ada posisi terbuka"
+   },
    {
     "ts": "2026-11-11 05:45:41",
     "decision": "SELL",
@@ -1126,11 +1131,6 @@
    },
    {
     "ts": "2026-11-11 04:45:41",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-   },
-   {
-    "ts": "2026-11-11 04:30:41",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
    }
@@ -1170,23 +1170,23 @@
    "today_n": 0,
    "consec_loss": 0
   },
-  "peak": 1716.0099999999998,
+  "peak": 1719.809804,
   "curve": [
    1676.5999999999997,
    1687.5099999999995,
    1716.0099999999995
   ],
   "last": {
-   "ts": "2026-11-11 05:45:41",
-   "decision": "SELL",
-   "side": "sell",
-   "entry": 4061.65,
-   "sl": 4067.69,
-   "tp": 4049.56,
-   "lot": 0.02,
-   "rr": 2,
-   "risk_usd": 12.09,
-   "reason": "pantulan band atas BB M15, konfirmasi RSI+Stokastik · sesi Asia risiko 1% · SL 6.04 · TP tengah band RR 1:2.0 · fundamental: Fed tahan 3,75–4% (28 Okt, 2 suara minta naik). Emas turun ke 3.900–4.150, DXY ~102 awal Okt. Data Nov belum ada, cek ulang.",
+   "ts": "2026-11-11 06:00:41",
+   "decision": "NO TRADE",
+   "side": null,
+   "entry": null,
+   "sl": null,
+   "tp": null,
+   "lot": null,
+   "rr": null,
+   "risk_usd": null,
+   "reason": "masih ada posisi terbuka",
    "fund": {
     "bias": -0.25,
     "note": "Fed tahan 3,75–4% (28 Okt, 2 suara minta naik). Emas turun ke 3.900–4.150, DXY ~102 awal Okt. Data Nov belum ada, cek ulang.",
@@ -1195,13 +1195,14 @@
    },
    "tech": {
     "bias": "sideways",
-    "score": 2,
+    "score": 3,
     "trigger": "sell",
     "confirm": [
      "RSI",
-     "Stokastik"
+     "Stokastik",
+     "MACD"
     ],
-    "note": "M15 4061.80 di atas tengah band (4031.1–4064.4) · RSI 68 · Stoch 92 · MACD +1.60 · H1 sideways · setup SELL (RSI+Stokastik)"
+    "note": "M15 4059.60 di atas tengah band (4033.7–4064.5) · RSI 65 · Stoch 85 · MACD +1.43 · H1 sideways · setup SELL (RSI+Stokastik+MACD)"
    }
   },
   "fund": {
@@ -1260,47 +1261,47 @@
   "tf": {
    "M10": {
     "bias": "bullish",
-    "score": 2,
-    "price": 4061.8,
-    "ema20": 4050.21,
-    "ema50": 4045.24,
-    "rsi": 72.7,
+    "score": 3,
+    "price": 4061.7,
+    "ema20": 4051.31,
+    "ema50": 4045.89,
+    "rsi": 72.5,
     "n": 299,
-    "slot": 2990627,
-    "at": 1794376241468
+    "slot": 2990628,
+    "at": 1794376841480
    },
    "M15": {
     "bias": "bullish",
     "score": 2,
-    "price": 4062.7,
-    "ema20": 4047.59,
-    "ema50": 4046.53,
-    "rsi": 69.9,
+    "price": 4061.7,
+    "ema20": 4048.94,
+    "ema50": 4047.12,
+    "rsi": 68.3,
     "n": 299,
-    "slot": 1993751,
-    "at": 1794375941467
+    "slot": 1993752,
+    "at": 1794376841486
    },
    "M30": {
     "bias": "sideways",
-    "score": -1,
-    "price": 4059.8,
-    "ema20": 4044.66,
-    "ema50": 4057.93,
-    "rsi": 61.8,
+    "score": 0,
+    "price": 4061.7,
+    "ema20": 4046.28,
+    "ema50": 4058.08,
+    "rsi": 63.1,
     "n": 299,
-    "slot": 996875,
-    "at": 1794375041462
+    "slot": 996876,
+    "at": 1794376841488
    },
    "H1": {
     "bias": "sideways",
-    "score": -1,
-    "price": 4046.8,
-    "ema20": 4052.28,
-    "ema50": 4071.82,
-    "rsi": 42.9,
+    "score": 1,
+    "price": 4061.7,
+    "ema20": 4053.18,
+    "ema50": 4071.42,
+    "rsi": 51.3,
     "n": 299,
-    "slot": 498437,
-    "at": 1794373241461
+    "slot": 498438,
+    "at": 1794376841492
    }
   },
   "currency": "USC",
