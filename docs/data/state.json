@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-11T18:54:41.103Z",
+ "generated_at": "2026-11-11T19:04:41.112Z",
  "today": "2026-11-12",
  "week_start": "2026-11-09",
  "campaign": {
@@ -79,7 +79,7 @@
    "title": "Data Analyst",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-11-11 16:01:27"
+   "updated_at": "2026-11-11 19:01:21"
   },
   {
    "id": "price",
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-11 18:45:42"
+   "updated_at": "2026-11-11 19:00:42"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Berita 24 jam belum terverifikasi (hasil stale/bertentangan). NFP Okt kuat 165K, unemp 4,1% = tekanan emas. Claims 21:30 WITA ringan.",
-   "updated_at": "2026-11-11 18:45:42"
+   "updated_at": "2026-11-11 19:00:42"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-11 18:45:42"
+   "updated_at": "2026-11-11 19:00:42"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-11-11 18:45:42"
+   "updated_at": "2026-11-11 19:00:42"
   },
   {
    "id": "texec",
@@ -566,6 +566,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-11 19:01:21",
+   "agent_id": "analyst",
+   "message": "Update data 36 post IG 📈"
+  },
+  {
    "ts": "2026-11-11 18:30:42",
    "agent_id": "trisk",
    "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
@@ -684,11 +689,6 @@
    "ts": "2026-11-11 06:15:41",
    "agent_id": "trisk",
    "message": "NO TRADE · masih ada posisi terbuka"
-  },
-  {
-   "ts": "2026-11-11 05:45:41",
-   "agent_id": "texec",
-   "message": "[paper] Buka SELL 0.02 lot @ 4061.65 · SL 4067.69 · TP 4049.56"
   }
  ],
  "chats": [
@@ -1014,13 +1014,13 @@
    "click_visitors": 0,
    "click_src": [],
    "ga4": {
-    "sessions": 5,
-    "users": 3,
+    "sessions": 6,
+    "users": 4,
     "key_events": 0,
     "by_src": [
      {
       "src": "(direct)",
-      "n": 3
+      "n": 4
      },
      {
       "src": "facebook.com",
@@ -1044,12 +1044,12 @@
    "yt_posted": 14,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 35433,
+   "views": 35435,
    "likes": 384,
    "comments": 4,
    "shares": 0,
    "saves": 4,
-   "yt_views": 26376,
+   "yt_views": 26378,
    "top": [
     {
      "title": "Upper Final MPL ID S18 malam ini: NAVI vs TLID 18.00 WIB, yang menang langsung ke Grand Final + tiket M8",
@@ -1092,9 +1092,14 @@
   "paused": false,
   "balance": 1740.19,
   "today_pnl": 24.18,
-  "price": 3988.300049,
+  "price": 3989,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-11 19:00:42",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
    {
     "ts": "2026-11-11 18:45:42",
     "decision": "NO TRADE",
@@ -1117,11 +1122,6 @@
    },
    {
     "ts": "2026-11-11 17:45:42",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-11-11 17:30:42",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1179,7 +1179,7 @@
    1740.1900000000003
   ],
   "last": {
-   "ts": "2026-11-11 18:45:42",
+   "ts": "2026-11-11 19:00:42",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1200,7 +1200,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3991.30 di bawah tengah band (3980.5–4031.9) · RSI 18 · Stoch 10 · MACD -0.22 · H1 sideways"
+    "note": "M15 3989.10 di bawah tengah band (3980.1–4028.0) · RSI 17 · Stoch 5 · MACD -0.22 · H1 sideways"
    }
   },
   "fund": {
@@ -1260,46 +1260,46 @@
    "M10": {
     "bias": "bearish",
     "score": -3,
-    "price": 3989.8,
-    "ema20": 4002.02,
-    "ema50": 4017.67,
-    "rsi": 24.2,
+    "price": 3989.1,
+    "ema20": 4000.79,
+    "ema50": 4016.55,
+    "rsi": 23.7,
     "n": 299,
-    "slot": 2990705,
-    "at": 1794423042079
+    "slot": 2990706,
+    "at": 1794423642089
    },
    "M15": {
     "bias": "bearish",
     "score": -3,
-    "price": 3991.6,
-    "ema20": 4008.48,
-    "ema50": 4025.43,
-    "rsi": 18.5,
+    "price": 3989.1,
+    "ema20": 4006.64,
+    "ema50": 4024.01,
+    "rsi": 17.3,
     "n": 299,
-    "slot": 1993803,
-    "at": 1794422742091
+    "slot": 1993804,
+    "at": 1794423642095
    },
    "M30": {
     "bias": "bearish",
     "score": -2,
-    "price": 3994,
-    "ema20": 4022.33,
-    "ema50": 4039.88,
-    "rsi": 20.3,
+    "price": 3989.1,
+    "ema20": 4019.17,
+    "ema50": 4037.89,
+    "rsi": 18.6,
     "n": 299,
-    "slot": 996901,
-    "at": 1794421842157
+    "slot": 996902,
+    "at": 1794423642096
    },
    "H1": {
     "bias": "sideways",
     "score": -1,
-    "price": 3995.3,
-    "ema20": 4035.82,
-    "ema50": 4056.77,
-    "rsi": 23.2,
+    "price": 3989.1,
+    "ema20": 4031.37,
+    "ema50": 4054.12,
+    "rsi": 21.6,
     "n": 299,
-    "slot": 498450,
-    "at": 1794420042076
+    "slot": 498451,
+    "at": 1794423642101
    }
   },
   "currency": "USC",
