@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-11T05:44:40.739Z",
+ "generated_at": "2026-11-11T05:54:40.748Z",
  "today": "2026-11-11",
  "week_start": "2026-11-09",
  "campaign": {
@@ -102,8 +102,8 @@
    "name": "Mahendra",
    "title": "Trading Director",
    "status": "done",
-   "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-11 05:30:41"
+   "current_task": "Siklus beres: SELL",
+   "updated_at": "2026-11-11 05:45:42"
   },
   {
    "id": "tresearch",
@@ -111,31 +111,31 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Fed tahan 3,75–4% (28 Okt, 2 suara minta naik). Emas turun ke 3.900–4.150, DXY ~102 awal Okt. Data Nov belum ada, cek ulang.",
-   "updated_at": "2026-11-11 05:30:41"
+   "updated_at": "2026-11-11 05:45:41"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Setup SELL di band (RSI)",
-   "updated_at": "2026-11-11 05:30:41"
+   "current_task": "Setup SELL di band (RSI+Stokastik)",
+   "updated_at": "2026-11-11 05:45:41"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: setup SELL di band, konfirmasi baru 1/2 (RSI) · sesi Asia",
-   "updated_at": "2026-11-11 05:30:41"
+   "current_task": "SELL 0.02 lot, RR 1:2",
+   "updated_at": "2026-11-11 05:45:41"
   },
   {
    "id": "texec",
    "name": "Wiratama",
    "title": "Execution",
    "status": "done",
-   "current_task": "SELL 0.03 lot terbuka",
-   "updated_at": "2026-11-02 05:46:00"
+   "current_task": "SELL 0.02 lot terbuka",
+   "updated_at": "2026-11-11 05:45:41"
   },
   {
    "id": "teval",
@@ -566,6 +566,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-11 05:45:41",
+   "agent_id": "texec",
+   "message": "[paper] Buka SELL 0.02 lot @ 4061.65 · SL 4067.69 · TP 4049.56"
+  },
+  {
    "ts": "2026-11-11 05:30:41",
    "agent_id": "ttech",
    "message": "M15 berubah arah: sideways → bullish"
@@ -684,14 +689,37 @@
    "ts": "2026-11-11 01:06:48",
    "agent_id": "video",
    "message": "video #152 dirender di laptop (suara OmniVoice) & dikirim ke Owner"
-  },
-  {
-   "ts": "2026-11-11 01:06:46",
-   "agent_id": "publisher",
-   "message": "Kirim #152 ke Owner buat approval"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-11-11 05:45:42",
+   "agent_id": "trisk",
+   "to_id": "texec",
+   "kind": "oper",
+   "message": "Keputusan SELL 0.02 lot, SL 4067.69, TP 4049.56. Eksekusi ya Wir!"
+  },
+  {
+   "ts": "2026-11-11 05:45:41",
+   "agent_id": "texec",
+   "to_id": "treport",
+   "kind": "oper",
+   "message": "Order SELL #3 ke-fill di 4061.65, SL TP kepasang 👍"
+  },
+  {
+   "ts": "2026-11-11 05:45:41",
+   "agent_id": "ttech",
+   "to_id": "trisk",
+   "kind": "oper",
+   "message": "M15 4061.80 di atas tengah band (4031.1–4064.4) · RSI 68 · Stoch 92 · MACD +1.60 · H1 sideways · setup SELL (RSI+Stokastik)"
+  },
+  {
+   "ts": "2026-11-11 05:45:41",
+   "agent_id": "tresearch",
+   "to_id": "ttech",
+   "kind": "oper",
+   "message": "Fed tahan 3,75–4% (28 Okt, 2 suara minta naik). Emas turun ke 3.900–4.150, DXY ~102 awal Okt. Data Nov belum ada, cek ul"
+  },
   {
    "ts": "2026-11-11 05:03:37",
    "agent_id": "publisher",
@@ -943,34 +971,6 @@
    "to_id": "designer",
    "kind": "oper",
    "message": "Vania, copy \"Konten #149 promo FF\" udah masuk. Headline-nya jangan dikecilin ya 😆"
-  },
-  {
-   "ts": "2026-11-09 23:02:41",
-   "agent_id": "dir",
-   "to_id": "researcher",
-   "kind": "oper",
-   "message": "Brief \"Briefing: pilih 3 ide (crazyguy, WEC26, polling Sentinel)\" udah jadi. Salsa, gas riset ya!"
-  },
-  {
-   "ts": "2026-11-09 23:02:06",
-   "agent_id": "price",
-   "to_id": "copywriter",
-   "kind": "oper",
-   "message": "Tiara, harga buat \"Harga FF/ML/VP live\" udah aku cek di web. Angkanya aman dipake 💰"
-  },
-  {
-   "ts": "2026-11-09 23:02:06",
-   "agent_id": "researcher",
-   "to_id": "copywriter",
-   "kind": "oper",
-   "message": "Tiara, bahan buat \"Riset esport pagi: FFWS Week 1, VALO 13.10, crazyguy\" udah aku rangkum + sumbernya. Tinggal kamu racik captionnya ✍️"
-  },
-  {
-   "ts": "2026-11-09 14:54:46",
-   "agent_id": "video",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Video comeback-nya masih antre render di laptop Bos, nyalain laptopnya ya, nanti otomatis kekirim."
   }
  ],
  "stats": {
@@ -1092,9 +1092,23 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 4062.199951,
-  "open": [],
+  "price": 4059.5,
+  "open": [
+   {
+    "side": "sell",
+    "lot": 0.02,
+    "entry": 4061.65,
+    "sl": 4067.69,
+    "tp": 4049.56,
+    "open_ts": "2026-11-11 05:45:41"
+   }
+  ],
   "signals": [
+   {
+    "ts": "2026-11-11 05:45:41",
+    "decision": "SELL",
+    "reason": "pantulan band atas BB M15, konfirmasi RSI+Stokastik · sesi Asia risiko 1% · SL 6.04 · TP tengah band RR 1:2.0 · fundamental: Fed tahan 3,75–4% (28 Okt, 2 suara minta naik). Emas turun ke 3.900–4.150, DXY ~102 awal Okt. Data Nov belum ada, cek ulang."
+   },
    {
     "ts": "2026-11-11 05:30:41",
     "decision": "NO TRADE",
@@ -1117,11 +1131,6 @@
    },
    {
     "ts": "2026-11-11 04:30:41",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-   },
-   {
-    "ts": "2026-11-11 04:15:41",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
    }
@@ -1168,16 +1177,16 @@
    1716.0099999999995
   ],
   "last": {
-   "ts": "2026-11-11 05:30:41",
-   "decision": "NO TRADE",
-   "side": null,
-   "entry": null,
-   "sl": null,
-   "tp": null,
-   "lot": null,
-   "rr": null,
-   "risk_usd": null,
-   "reason": "setup SELL di band, konfirmasi baru 1/2 (RSI) · sesi Asia",
+   "ts": "2026-11-11 05:45:41",
+   "decision": "SELL",
+   "side": "sell",
+   "entry": 4061.65,
+   "sl": 4067.69,
+   "tp": 4049.56,
+   "lot": 0.02,
+   "rr": 2,
+   "risk_usd": 12.09,
+   "reason": "pantulan band atas BB M15, konfirmasi RSI+Stokastik · sesi Asia risiko 1% · SL 6.04 · TP tengah band RR 1:2.0 · fundamental: Fed tahan 3,75–4% (28 Okt, 2 suara minta naik). Emas turun ke 3.900–4.150, DXY ~102 awal Okt. Data Nov belum ada, cek ulang.",
    "fund": {
     "bias": -0.25,
     "note": "Fed tahan 3,75–4% (28 Okt, 2 suara minta naik). Emas turun ke 3.900–4.150, DXY ~102 awal Okt. Data Nov belum ada, cek ulang.",
@@ -1186,12 +1195,13 @@
    },
    "tech": {
     "bias": "sideways",
-    "score": 1,
+    "score": 2,
     "trigger": "sell",
     "confirm": [
-     "RSI"
+     "RSI",
+     "Stokastik"
     ],
-    "note": "M15 4059.40 di atas tengah band (4030.5–4061.8) · RSI 67 · Stoch 99 · MACD +1.25 · H1 sideways · setup SELL (RSI)"
+    "note": "M15 4061.80 di atas tengah band (4031.1–4064.4) · RSI 68 · Stoch 92 · MACD +1.60 · H1 sideways · setup SELL (RSI+Stokastik)"
    }
   },
   "fund": {
@@ -1251,24 +1261,24 @@
    "M10": {
     "bias": "bullish",
     "score": 2,
-    "price": 4061.4,
-    "ema20": 4048.99,
-    "ema50": 4044.57,
-    "rsi": 72.4,
+    "price": 4061.8,
+    "ema20": 4050.21,
+    "ema50": 4045.24,
+    "rsi": 72.7,
     "n": 299,
-    "slot": 2990626,
-    "at": 1794375641524
+    "slot": 2990627,
+    "at": 1794376241468
    },
    "M15": {
     "bias": "bullish",
     "score": 2,
-    "price": 4059.8,
-    "ema20": 4046,
-    "ema50": 4045.87,
-    "rsi": 67.9,
+    "price": 4062.7,
+    "ema20": 4047.59,
+    "ema50": 4046.53,
+    "rsi": 69.9,
     "n": 299,
-    "slot": 1993750,
-    "at": 1794375041459
+    "slot": 1993751,
+    "at": 1794375941467
    },
    "M30": {
     "bias": "sideways",
