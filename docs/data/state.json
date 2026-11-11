@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-11T01:44:40.644Z",
+ "generated_at": "2026-11-11T01:54:40.647Z",
  "today": "2026-11-11",
  "week_start": "2026-11-09",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-11 01:30:41"
+   "updated_at": "2026-11-11 01:45:41"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Fed tahan 3,75–4% (28 Okt, 2 suara minta naik). Emas turun ke 3.900–4.150, DXY ~102 awal Okt. Data Nov belum ada, cek ulang.",
-   "updated_at": "2026-11-11 01:30:41"
+   "updated_at": "2026-11-11 01:45:41"
   },
   {
    "id": "ttech",
@@ -119,15 +119,15 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-11 01:30:41"
+   "updated_at": "2026-11-11 01:45:41"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
-   "updated_at": "2026-11-11 01:30:41"
+   "current_task": "NO TRADE: ada candle spike di M15 (kemungkinan berita dadakan), tunggu tenang",
+   "updated_at": "2026-11-11 01:45:41"
   },
   {
    "id": "texec",
@@ -566,6 +566,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-11 01:45:41",
+   "agent_id": "ttech",
+   "message": "M15 berubah arah: bearish → sideways"
+  },
+  {
    "ts": "2026-11-11 01:15:41",
    "agent_id": "trisk",
    "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (sesi Asia)"
@@ -684,11 +689,6 @@
    "ts": "2026-11-10 23:02:12",
    "agent_id": "dir",
    "message": "3 ide dikirim ke Owner"
-  },
-  {
-   "ts": "2026-11-10 23:02:12",
-   "agent_id": "dir",
-   "message": "Kirim 3 ide briefing ke Owner"
   }
  ],
  "chats": [
@@ -1092,9 +1092,14 @@
   "paused": false,
   "balance": 1716.0099999999998,
   "today_pnl": 0,
-  "price": 4051.5,
+  "price": 4045.899902,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-11 01:45:41",
+    "decision": "NO TRADE",
+    "reason": "ada candle spike di M15 (kemungkinan berita dadakan), tunggu tenang"
+   },
    {
     "ts": "2026-11-11 01:30:41",
     "decision": "NO TRADE",
@@ -1117,11 +1122,6 @@
    },
    {
     "ts": "2026-11-11 00:30:41",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-   },
-   {
-    "ts": "2026-11-11 00:15:41",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
    }
@@ -1168,7 +1168,7 @@
    1716.0099999999995
   ],
   "last": {
-   "ts": "2026-11-11 01:30:41",
+   "ts": "2026-11-11 01:45:41",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1177,7 +1177,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)",
+   "reason": "ada candle spike di M15 (kemungkinan berita dadakan), tunggu tenang",
    "fund": {
     "bias": -0.25,
     "note": "Fed tahan 3,75–4% (28 Okt, 2 suara minta naik). Emas turun ke 3.900–4.150, DXY ~102 awal Okt. Data Nov belum ada, cek ulang.",
@@ -1189,7 +1189,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 4038.20 di atas tengah band (4028.2–4041.8) · RSI 53 · Stoch 42 · MACD +0.53 · H1 sideways"
+    "note": "M15 4052.30 di atas band atas (4023.7–4049.7) · RSI 67 · Stoch 83 · MACD +1.98 · H1 sideways"
    }
   },
   "fund": {
@@ -1249,24 +1249,24 @@
    "M10": {
     "bias": "sideways",
     "score": 1,
-    "price": 4048.1,
-    "ema20": 4036.14,
-    "ema50": 4037.73,
-    "rsi": 66.3,
+    "price": 4049.3,
+    "ema20": 4037.39,
+    "ema50": 4038.19,
+    "rsi": 67.3,
     "n": 299,
-    "slot": 2990602,
-    "at": 1794361241291
+    "slot": 2990603,
+    "at": 1794361841307
    },
    "M15": {
-    "bias": "bearish",
-    "score": -2,
-    "price": 4035.2,
-    "ema20": 4035.3,
-    "ema50": 4043.89,
-    "rsi": 48.5,
+    "bias": "sideways",
+    "score": 0,
+    "price": 4051.8,
+    "ema20": 4036.87,
+    "ema50": 4044.2,
+    "rsi": 66.7,
     "n": 299,
-    "slot": 1993734,
-    "at": 1794360641362
+    "slot": 1993735,
+    "at": 1794361541301
    },
    "M30": {
     "bias": "sideways",
