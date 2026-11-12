@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-11T23:54:41.251Z",
+ "generated_at": "2026-11-12T00:04:41.254Z",
  "today": "2026-11-12",
  "week_start": "2026-11-09",
  "campaign": {
@@ -86,8 +86,8 @@
    "name": "Budi",
    "title": "Price Watcher",
    "status": "done",
-   "current_task": "Harga ML live: 170 DM Rp48.866 paling hemat <200",
-   "updated_at": "2026-11-11 23:01:52"
+   "current_task": null,
+   "updated_at": "2026-11-12 00:00:41"
   },
   {
    "id": "ob",
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-11 23:45:42"
+   "updated_at": "2026-11-12 00:00:45"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Fed condong hawkish (sinyal hike Sep-Okt 2026, opsi Des), USD kuat; berita 24 jam tak ditemukan, cek ulang sebelum entry.",
-   "updated_at": "2026-11-11 23:45:42"
+   "updated_at": "2026-11-12 00:00:45"
   },
   {
    "id": "ttech",
@@ -119,15 +119,15 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-11 23:45:42"
+   "updated_at": "2026-11-12 00:00:45"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
-   "updated_at": "2026-11-11 23:45:42"
+   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
+   "updated_at": "2026-11-12 00:00:45"
   },
   {
    "id": "texec",
@@ -1072,12 +1072,12 @@
    "yt_posted": 14,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 35457,
+   "views": 35455,
    "likes": 384,
    "comments": 4,
    "shares": 0,
    "saves": 4,
-   "yt_views": 26400,
+   "yt_views": 26398,
    "top": [
     {
      "title": "Upper Final MPL ID S18 malam ini: NAVI vs TLID 18.00 WIB, yang menang langsung ke Grand Final + tiket M8",
@@ -1089,13 +1089,13 @@
      "title": "Sangkuriang: Legenda atau Ingatan Danau Bandung Purba?",
      "format": "shorts",
      "pillar": "legenda_mitos",
-     "views": 3230
+     "views": 3231
     },
     {
      "title": "1932: Tentara Australia Perang Lawan 20.000 Burung Emu",
      "format": "shorts",
      "pillar": "strange_events",
-     "views": 2526
+     "views": 2525
     }
    ],
    "clicks": 0,
@@ -1119,10 +1119,15 @@
   "mode": "paper",
   "paused": false,
   "balance": 1740.19,
-  "today_pnl": 24.18,
-  "price": 3983.300049,
+  "today_pnl": 0,
+  "price": 3975.899902,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-12 00:00:45",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
+   },
    {
     "ts": "2026-11-11 23:45:42",
     "decision": "NO TRADE",
@@ -1145,11 +1150,6 @@
    },
    {
     "ts": "2026-11-11 21:45:42",
-    "decision": "NO TRADE",
-    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
-   },
-   {
-    "ts": "2026-11-11 21:30:42",
     "decision": "NO TRADE",
     "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
    }
@@ -1196,7 +1196,7 @@
    "gross_loss": 0,
    "max_loss": 0,
    "avg_r": 1.83,
-   "today_n": 1,
+   "today_n": 0,
    "consec_loss": 0
   },
   "peak": 1740.19,
@@ -1207,7 +1207,7 @@
    1740.1900000000003
   ],
   "last": {
-   "ts": "2026-11-11 23:45:42",
+   "ts": "2026-11-12 00:00:45",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1216,7 +1216,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
+   "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)",
    "fund": {
     "bias": -0.2,
     "note": "Fed condong hawkish (sinyal hike Sep-Okt 2026, opsi Des), USD kuat; berita 24 jam tak ditemukan, cek ulang sebelum entry.",
@@ -1228,7 +1228,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3982.40 di bawah band bawah (3982.5–3991.8) · RSI 21 · Stoch 6 · MACD +0.87 · H1 sideways"
+    "note": "M15 3979.90 di bawah band bawah (3980.8–3992.7) · RSI 19 · Stoch 9 · MACD +0.59 · H1 sideways"
    }
   },
   "fund": {
@@ -1288,46 +1288,46 @@
    "M10": {
     "bias": "sideways",
     "score": -1,
-    "price": 3980.5,
-    "ema20": 3986.78,
-    "ema50": 3995.95,
-    "rsi": 27.7,
+    "price": 3981.8,
+    "ema20": 3986.3,
+    "ema50": 3995.39,
+    "rsi": 32.6,
     "n": 299,
-    "slot": 2990735,
-    "at": 1794441042294
+    "slot": 2990736,
+    "at": 1794441645371
    },
    "M15": {
     "bias": "sideways",
     "score": -1,
-    "price": 3982.4,
-    "ema20": 3989.88,
-    "ema50": 4004.43,
-    "rsi": 21.4,
+    "price": 3981.8,
+    "ema20": 3989.11,
+    "ema50": 4003.54,
+    "rsi": 20.8,
     "n": 299,
-    "slot": 1993823,
-    "at": 1794440742366
+    "slot": 1993824,
+    "at": 1794441645377
    },
    "M30": {
     "bias": "bearish",
     "score": -3,
-    "price": 3982.8,
-    "ema20": 4000.23,
-    "ema50": 4022.62,
-    "rsi": 20.8,
+    "price": 3981.8,
+    "ema20": 3998.47,
+    "ema50": 4021.02,
+    "rsi": 20.3,
     "n": 299,
-    "slot": 996911,
-    "at": 1794439842292
+    "slot": 996912,
+    "at": 1794441645378
    },
    "H1": {
     "bias": "bearish",
     "score": -2,
-    "price": 3989,
-    "ema20": 4017.16,
-    "ema50": 4044.38,
-    "rsi": 23.1,
+    "price": 3981.8,
+    "ema20": 4013.79,
+    "ema50": 4041.92,
+    "rsi": 20.9,
     "n": 299,
-    "slot": 498455,
-    "at": 1794438042269
+    "slot": 498456,
+    "at": 1794441645383
    }
   },
   "currency": "USC",
