@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-12T00:44:41.273Z",
+ "generated_at": "2026-11-12T00:54:41.273Z",
  "today": "2026-11-12",
  "week_start": "2026-11-09",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-12 00:30:42"
+   "updated_at": "2026-11-12 00:45:42"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Fed condong hawkish (sinyal hike Sep-Okt 2026, opsi Des), USD kuat; berita 24 jam tak ditemukan, cek ulang sebelum entry.",
-   "updated_at": "2026-11-12 00:30:42"
+   "updated_at": "2026-11-12 00:45:42"
   },
   {
    "id": "ttech",
@@ -119,15 +119,15 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-12 00:30:42"
+   "updated_at": "2026-11-12 00:45:42"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: ada candle spike di M15 (kemungkinan berita dadakan), tunggu tenang",
-   "updated_at": "2026-11-12 00:30:42"
+   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
+   "updated_at": "2026-11-12 00:45:42"
   },
   {
    "id": "texec",
@@ -1120,9 +1120,14 @@
   "paused": false,
   "balance": 1740.19,
   "today_pnl": 0,
-  "price": 3988.100098,
+  "price": 3989.199951,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-12 00:45:42",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
+   },
    {
     "ts": "2026-11-12 00:30:42",
     "decision": "NO TRADE",
@@ -1145,11 +1150,6 @@
    },
    {
     "ts": "2026-11-11 23:30:42",
-    "decision": "NO TRADE",
-    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
-   },
-   {
-    "ts": "2026-11-11 23:15:42",
     "decision": "NO TRADE",
     "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
    }
@@ -1207,7 +1207,7 @@
    1740.1900000000003
   ],
   "last": {
-   "ts": "2026-11-12 00:30:42",
+   "ts": "2026-11-12 00:45:42",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1216,7 +1216,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "ada candle spike di M15 (kemungkinan berita dadakan), tunggu tenang",
+   "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)",
    "fund": {
     "bias": -0.2,
     "note": "Fed condong hawkish (sinyal hike Sep-Okt 2026, opsi Des), USD kuat; berita 24 jam tak ditemukan, cek ulang sebelum entry.",
@@ -1228,7 +1228,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3983.80 di bawah tengah band (3978.7–3993.6) · RSI 39 · Stoch 44 · MACD +0.77 · H1 sideways"
+    "note": "M15 3986.40 di atas tengah band (3978.9–3993.8) · RSI 44 · Stoch 67 · MACD +1.25 · H1 sideways"
    }
   },
   "fund": {
@@ -1288,24 +1288,24 @@
    "M10": {
     "bias": "sideways",
     "score": -1,
-    "price": 3987.3,
-    "ema20": 3984.92,
-    "ema50": 3993.38,
-    "rsi": 51.4,
+    "price": 3990.3,
+    "ema20": 3985.43,
+    "ema50": 3993.26,
+    "rsi": 55.8,
     "n": 299,
-    "slot": 2990740,
-    "at": 1794444042515
+    "slot": 2990741,
+    "at": 1794444642336
    },
    "M15": {
     "bias": "sideways",
-    "score": -1,
-    "price": 3984.7,
-    "ema20": 3987.51,
-    "ema50": 4001.74,
-    "rsi": 39.9,
+    "score": 0,
+    "price": 3989.3,
+    "ema20": 3987.68,
+    "ema50": 4001.25,
+    "rsi": 47.9,
     "n": 299,
-    "slot": 1993826,
-    "at": 1794443442342
+    "slot": 1993827,
+    "at": 1794444342538
    },
    "M30": {
     "bias": "bearish",
