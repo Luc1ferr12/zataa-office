@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-12T00:54:41.273Z",
+ "generated_at": "2026-11-12T01:04:41.273Z",
  "today": "2026-11-12",
  "week_start": "2026-11-09",
  "campaign": {
@@ -62,8 +62,8 @@
    "name": "Fikri",
    "title": "Social Media Publisher",
    "status": "done",
-   "current_task": "#153 terkirim ke Owner, #154 nunggu render laptop",
-   "updated_at": "2026-11-11 23:03:37"
+   "current_task": null,
+   "updated_at": "2026-11-12 01:01:06"
   },
   {
    "id": "ads",
@@ -78,8 +78,8 @@
    "name": "Raka",
    "title": "Data Analyst",
    "status": "done",
-   "current_task": "Pola: video news/esport paling jalan, feed sepi",
-   "updated_at": "2026-11-11 23:02:35"
+   "current_task": null,
+   "updated_at": "2026-11-12 01:01:28"
   },
   {
    "id": "price",
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-12 00:45:42"
+   "updated_at": "2026-11-12 01:00:42"
   },
   {
    "id": "tresearch",
@@ -111,23 +111,23 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Fed condong hawkish (sinyal hike Sep-Okt 2026, opsi Des), USD kuat; berita 24 jam tak ditemukan, cek ulang sebelum entry.",
-   "updated_at": "2026-11-12 00:45:42"
+   "updated_at": "2026-11-12 01:00:42"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-12 00:45:42"
+   "current_task": "Setup SELL di band (tanpa konfirmasi)",
+   "updated_at": "2026-11-12 01:00:42"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
-   "updated_at": "2026-11-12 00:45:42"
+   "current_task": "NO TRADE: setup SELL di band, konfirmasi baru 0/2 (-) · sesi Asia",
+   "updated_at": "2026-11-12 01:00:42"
   },
   {
    "id": "texec",
@@ -594,6 +594,16 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-12 01:01:28",
+   "agent_id": "analyst",
+   "message": "Update data 36 post IG 📈"
+  },
+  {
+   "ts": "2026-11-12 01:01:06",
+   "agent_id": "publisher",
+   "message": "Kirim draf IG Story ke Bos 📱"
+  },
+  {
    "ts": "2026-11-12 00:30:42",
    "agent_id": "ttech",
    "message": "M10 berubah arah: bearish → sideways"
@@ -707,16 +717,6 @@
    "ts": "2026-11-11 23:01:52",
    "agent_id": "price",
    "message": "zataa.my.id live, 40 item ML; termurah/dm paket 14490 Rp264"
-  },
-  {
-   "ts": "2026-11-11 23:01:36",
-   "agent_id": "researcher",
-   "message": "5 item riset, 5 pencarian; FFWS Week 2 mulai besok"
-  },
-  {
-   "ts": "2026-11-11 23:01:36",
-   "agent_id": "researcher",
-   "message": "Nemu 5 topik baru"
   }
  ],
  "chats": [
@@ -1012,7 +1012,7 @@
    "yt_posted": 2,
    "yt_pending": 4,
    "yt_scheduled": 0,
-   "views": 4724,
+   "views": 4725,
    "likes": 66,
    "comments": 2,
    "shares": 3,
@@ -1035,7 +1035,7 @@
      "title": "RRQ Kazu 5 besar Week 1 FFWS Global Finals, ONIC & BTR gimana?",
      "format": "video",
      "pillar": "esport",
-     "views": 802
+     "views": 803
     }
    ],
    "clicks": 0,
@@ -1072,12 +1072,12 @@
    "yt_posted": 14,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 35455,
+   "views": 35458,
    "likes": 384,
    "comments": 4,
    "shares": 0,
    "saves": 4,
-   "yt_views": 26398,
+   "yt_views": 26401,
    "top": [
     {
      "title": "Upper Final MPL ID S18 malam ini: NAVI vs TLID 18.00 WIB, yang menang langsung ke Grand Final + tiket M8",
@@ -1120,9 +1120,14 @@
   "paused": false,
   "balance": 1740.19,
   "today_pnl": 0,
-  "price": 3989.199951,
+  "price": 3993.199951,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-12 01:00:42",
+    "decision": "NO TRADE",
+    "reason": "setup SELL di band, konfirmasi baru 0/2 (-) · sesi Asia"
+   },
    {
     "ts": "2026-11-12 00:45:42",
     "decision": "NO TRADE",
@@ -1145,11 +1150,6 @@
    },
    {
     "ts": "2026-11-11 23:45:42",
-    "decision": "NO TRADE",
-    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
-   },
-   {
-    "ts": "2026-11-11 23:30:42",
     "decision": "NO TRADE",
     "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
    }
@@ -1207,7 +1207,7 @@
    1740.1900000000003
   ],
   "last": {
-   "ts": "2026-11-12 00:45:42",
+   "ts": "2026-11-12 01:00:42",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1216,7 +1216,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)",
+   "reason": "setup SELL di band, konfirmasi baru 0/2 (-) · sesi Asia",
    "fund": {
     "bias": -0.2,
     "note": "Fed condong hawkish (sinyal hike Sep-Okt 2026, opsi Des), USD kuat; berita 24 jam tak ditemukan, cek ulang sebelum entry.",
@@ -1226,9 +1226,9 @@
    "tech": {
     "bias": "sideways",
     "score": 0,
-    "trigger": null,
+    "trigger": "sell",
     "confirm": [],
-    "note": "M15 3986.40 di atas tengah band (3978.9–3993.8) · RSI 44 · Stoch 67 · MACD +1.25 · H1 sideways"
+    "note": "M15 3995.30 di atas tengah band (3977.6–3996.7) · RSI 56 · Stoch 92 · MACD +2.22 · H1 sideways · setup SELL (tanpa konfirmasi)"
    }
   },
   "fund": {
@@ -1288,46 +1288,46 @@
    "M10": {
     "bias": "sideways",
     "score": -1,
-    "price": 3990.3,
-    "ema20": 3985.43,
-    "ema50": 3993.26,
-    "rsi": 55.8,
+    "price": 3995.6,
+    "ema20": 3986.4,
+    "ema50": 3993.35,
+    "rsi": 62.2,
     "n": 299,
-    "slot": 2990741,
-    "at": 1794444642336
+    "slot": 2990742,
+    "at": 1794445242422
    },
    "M15": {
     "bias": "sideways",
     "score": 0,
-    "price": 3989.3,
-    "ema20": 3987.68,
-    "ema50": 4001.25,
-    "rsi": 47.9,
+    "price": 3995.6,
+    "ema20": 3988.43,
+    "ema50": 4001.03,
+    "rsi": 56.5,
     "n": 299,
-    "slot": 1993827,
-    "at": 1794444342538
+    "slot": 1993828,
+    "at": 1794445242429
    },
    "M30": {
     "bias": "bearish",
     "score": -3,
-    "price": 3984.7,
-    "ema20": 3997.16,
-    "ema50": 4019.59,
-    "rsi": 25.8,
+    "price": 3995.6,
+    "ema20": 3997.01,
+    "ema50": 4018.65,
+    "rsi": 42.1,
     "n": 299,
-    "slot": 996913,
-    "at": 1794443442343
+    "slot": 996914,
+    "at": 1794445242430
    },
    "H1": {
     "bias": "bearish",
     "score": -2,
-    "price": 3981.8,
-    "ema20": 4013.79,
-    "ema50": 4041.92,
-    "rsi": 20.9,
+    "price": 3995.6,
+    "ema20": 4012.06,
+    "ema50": 4040.11,
+    "rsi": 34,
     "n": 299,
-    "slot": 498456,
-    "at": 1794441645383
+    "slot": 498457,
+    "at": 1794445242442
    }
   },
   "currency": "USC",
