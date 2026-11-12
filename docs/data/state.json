@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-12T23:14:41.876Z",
+ "generated_at": "2026-11-12T23:24:41.888Z",
  "today": "2026-11-13",
  "week_start": "2026-11-09",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-12 23:01:06"
+   "updated_at": "2026-11-12 23:15:43"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Fed tahan 3,75-4%, pasar price hike Des ~80%, DXY ~102 kuat, yield 10Y 4,85%. Iran masih perang, negosiasi jalan. Bias negatif tipis.",
-   "updated_at": "2026-11-12 23:01:06"
+   "updated_at": "2026-11-12 23:15:43"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-11-12 23:01:06"
+   "updated_at": "2026-11-12 23:15:43"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
-   "updated_at": "2026-11-12 23:01:06"
+   "updated_at": "2026-11-12 23:15:43"
   },
   {
    "id": "texec",
@@ -505,8 +505,8 @@
    "game": "valorant",
    "pillar": "tips",
    "title": "3 kebiasaan yang bikin aim kamu turun",
-   "status": "draft",
-   "asset_url": null,
+   "status": "pending_approval",
+   "asset_url": "{\"video\":\"https://luc1ferr12.github.io/zataa-office/media/2026-11-13/156-3-kebiasaan-yang-bikin-aim-kamu-turun-ov.mp4\",\"cover\":\"https://luc1ferr12.github.io/zataa-office/media/2026-11-13/156-3-kebiasaan-yang-bikin-aim-kamu-turun-ov-cover.jpg\"}",
    "scheduled_at": null,
    "posted_at": null,
    "channel": null
@@ -519,7 +519,7 @@
    "game": "sejarah",
    "pillar": "historical_figures",
    "title": "Kaisar Romawi Ini Menyatakan Perang Melawan Laut",
-   "status": "draft",
+   "status": "pending_approval",
    "asset_url": null,
    "scheduled_at": null,
    "posted_at": null,
@@ -533,7 +533,7 @@
    "game": "sejarah",
    "pillar": "misteri_kuno",
    "title": "Kapal Cheng Ho 120 Meter, Nyata atau Dilebih-lebihkan?",
-   "status": "draft",
+   "status": "pending_approval",
    "asset_url": null,
    "scheduled_at": null,
    "posted_at": null,
@@ -636,6 +636,41 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-12 23:20:43",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: bearish → sideways"
+  },
+  {
+   "ts": "2026-11-12 23:20:03",
+   "agent_id": "yvideo",
+   "message": "Shorts #170 dirender di laptop (suara OmniVoice) & dikirim ke Owner"
+  },
+  {
+   "ts": "2026-11-12 23:20:03",
+   "agent_id": "spublish",
+   "message": "Kirim Shorts #170 ke Owner buat approval"
+  },
+  {
+   "ts": "2026-11-12 23:18:00",
+   "agent_id": "yvideo",
+   "message": "Shorts #169 dirender di laptop (suara OmniVoice) & dikirim ke Owner"
+  },
+  {
+   "ts": "2026-11-12 23:17:59",
+   "agent_id": "ypublish",
+   "message": "Kirim Shorts #169 ke Owner buat approval"
+  },
+  {
+   "ts": "2026-11-12 23:15:52",
+   "agent_id": "video",
+   "message": "video #156 dirender di laptop (suara OmniVoice) & dikirim ke Owner"
+  },
+  {
+   "ts": "2026-11-12 23:15:51",
+   "agent_id": "publisher",
+   "message": "Kirim #156 ke Owner buat approval"
+  },
+  {
    "ts": "2026-11-12 23:09:42",
    "agent_id": "owner",
    "message": "Approve konten #155 ✅"
@@ -724,41 +759,6 @@
    "ts": "2026-11-12 21:40:43",
    "agent_id": "ttech",
    "message": "M10 berubah arah: sideways → bearish"
-  },
-  {
-   "ts": "2026-11-12 21:30:43",
-   "agent_id": "trisk",
-   "message": "NO TRADE · jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
-  },
-  {
-   "ts": "2026-11-12 20:30:43",
-   "agent_id": "trisk",
-   "message": "NO TRADE · jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
-  },
-  {
-   "ts": "2026-11-12 19:30:43",
-   "agent_id": "trisk",
-   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-  },
-  {
-   "ts": "2026-11-12 19:15:43",
-   "agent_id": "ttech",
-   "message": "M15 berubah arah: bearish → sideways"
-  },
-  {
-   "ts": "2026-11-12 19:01:24",
-   "agent_id": "analyst",
-   "message": "Update data 35 post IG 📈"
-  },
-  {
-   "ts": "2026-11-12 19:00:43",
-   "agent_id": "ttech",
-   "message": "M15 berubah arah: sideways → bearish"
-  },
-  {
-   "ts": "2026-11-12 18:45:43",
-   "agent_id": "ttech",
-   "message": "M15 berubah arah: bearish → sideways"
   }
  ],
  "chats": [
@@ -1048,11 +1048,11 @@
    "week": "2026-11-09",
    "total": 23,
    "posted": 11,
-   "pending": 2,
+   "pending": 5,
    "scheduled": 1,
    "yt_total": 8,
    "yt_posted": 5,
-   "yt_pending": 1,
+   "yt_pending": 3,
    "yt_scheduled": 0,
    "views": 10147,
    "likes": 129,
@@ -1162,9 +1162,14 @@
   "paused": false,
   "balance": 1740.19,
   "today_pnl": 0,
-  "price": 3877.199951,
+  "price": 3876.699951,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-12 23:15:43",
+    "decision": "NO TRADE",
+    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
+   },
    {
     "ts": "2026-11-12 23:01:06",
     "decision": "NO TRADE",
@@ -1187,11 +1192,6 @@
    },
    {
     "ts": "2026-11-12 21:00:43",
-    "decision": "NO TRADE",
-    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
-   },
-   {
-    "ts": "2026-11-12 20:45:43",
     "decision": "NO TRADE",
     "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
    }
@@ -1249,7 +1249,7 @@
    1740.1900000000003
   ],
   "last": {
-   "ts": "2026-11-12 23:01:06",
+   "ts": "2026-11-12 23:15:43",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1270,7 +1270,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3878.90 di bawah tengah band (3872.0–3889.2) · RSI 44 · Stoch 35 · MACD +1.16 · H1 bearish"
+    "note": "M15 3877.80 di bawah tengah band (3871.6–3889.1) · RSI 43 · Stoch 30 · MACD +1.01 · H1 bearish"
    }
   },
   "fund": {
@@ -1319,26 +1319,26 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "bearish",
-    "score": -3,
-    "price": 3878.2,
-    "ema20": 3878.88,
-    "ema50": 3886.25,
-    "rsi": 45.4,
+    "bias": "sideways",
+    "score": -1,
+    "price": 3879.1,
+    "ema20": 3878.9,
+    "ema50": 3885.97,
+    "rsi": 48.2,
     "n": 299,
-    "slot": 2990875,
-    "at": 1794525043419
+    "slot": 2990876,
+    "at": 1794525643498
    },
    "M15": {
     "bias": "bearish",
     "score": -2,
-    "price": 3878.4,
-    "ema20": 3880.47,
-    "ema50": 3896.72,
-    "rsi": 43.2,
+    "price": 3877.2,
+    "ema20": 3880.16,
+    "ema50": 3895.95,
+    "rsi": 41.8,
     "n": 299,
-    "slot": 1993916,
-    "at": 1794524443434
+    "slot": 1993917,
+    "at": 1794525343503
    },
    "M30": {
     "bias": "sideways",
