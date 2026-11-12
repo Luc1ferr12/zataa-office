@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-12T06:54:41.421Z",
+ "generated_at": "2026-11-12T07:04:41.428Z",
  "today": "2026-11-12",
  "week_start": "2026-11-09",
  "campaign": {
@@ -79,7 +79,7 @@
    "title": "Data Analyst",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-11-12 04:01:34"
+   "updated_at": "2026-11-12 07:01:12"
   },
   {
    "id": "price",
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-12 06:45:42"
+   "updated_at": "2026-11-12 07:00:42"
   },
   {
    "id": "tresearch",
@@ -111,23 +111,23 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Fed condong hawkish (sinyal hike Sep-Okt 2026, opsi Des), USD kuat; berita 24 jam tak ditemukan, cek ulang sebelum entry.",
-   "updated_at": "2026-11-12 06:45:42"
+   "updated_at": "2026-11-12 07:00:42"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-11-12 06:45:42"
+   "current_task": "Setup BUY di band (RSI+divergensi)",
+   "updated_at": "2026-11-12 07:00:42"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
-   "updated_at": "2026-11-12 06:45:42"
+   "current_task": "NO TRADE: setup BUY di band, konfirmasi baru 2/3 (RSI+divergensi) · London–NY (mode aman)",
+   "updated_at": "2026-11-12 07:00:42"
   },
   {
    "id": "texec",
@@ -608,6 +608,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-12 07:01:12",
+   "agent_id": "analyst",
+   "message": "Update data 34 post IG 📈"
+  },
+  {
    "ts": "2026-11-12 06:30:42",
    "agent_id": "ttech",
    "message": "M30 berubah arah: sideways → bearish"
@@ -726,11 +731,6 @@
    "ts": "2026-11-12 02:30:39",
    "agent_id": "owner",
    "message": "Approve Shorts #166 ✅"
-  },
-  {
-   "ts": "2026-11-12 02:30:33",
-   "agent_id": "spublish",
-   "message": "Upload Shorts #164 ke Zataa Story (Publik via Zernio)"
   }
  ],
  "chats": [
@@ -1134,9 +1134,14 @@
   "paused": false,
   "balance": 1740.19,
   "today_pnl": 0,
-  "price": 3967.699951,
+  "price": 3972.5,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-12 07:00:42",
+    "decision": "NO TRADE",
+    "reason": "setup BUY di band, konfirmasi baru 2/3 (RSI+divergensi) · London–NY (mode aman)"
+   },
    {
     "ts": "2026-11-12 06:45:42",
     "decision": "NO TRADE",
@@ -1159,11 +1164,6 @@
    },
    {
     "ts": "2026-11-12 05:45:42",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-   },
-   {
-    "ts": "2026-11-12 05:30:42",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
    }
@@ -1221,7 +1221,7 @@
    1740.1900000000003
   ],
   "last": {
-   "ts": "2026-11-12 06:45:42",
+   "ts": "2026-11-12 07:00:42",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1230,7 +1230,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)",
+   "reason": "setup BUY di band, konfirmasi baru 2/3 (RSI+divergensi) · London–NY (mode aman)",
    "fund": {
     "bias": -0.2,
     "note": "Fed condong hawkish (sinyal hike Sep-Okt 2026, opsi Des), USD kuat; berita 24 jam tak ditemukan, cek ulang sebelum entry.",
@@ -1239,10 +1239,13 @@
    },
    "tech": {
     "bias": "bearish",
-    "score": 0,
-    "trigger": null,
-    "confirm": [],
-    "note": "M15 3972.60 di bawah tengah band (3968.5–3989.1) · RSI 40 · Stoch 22 · MACD -0.01 · H1 bearish"
+    "score": 2,
+    "trigger": "buy",
+    "confirm": [
+     "RSI",
+     "divergensi"
+    ],
+    "note": "M15 3967.00 di bawah tengah band (3965.6–3989.4) · RSI 35 · Stoch 13 · MACD -0.65 · H1 bearish · setup BUY (RSI+divergensi)"
    }
   },
   "fund": {
@@ -1302,46 +1305,46 @@
    "M10": {
     "bias": "bearish",
     "score": -2,
-    "price": 3970.4,
-    "ema20": 3978.22,
-    "ema50": 3983.17,
-    "rsi": 37.1,
+    "price": 3966.6,
+    "ema20": 3977.11,
+    "ema50": 3982.52,
+    "rsi": 33.5,
     "n": 299,
-    "slot": 2990777,
-    "at": 1794466242632
+    "slot": 2990778,
+    "at": 1794466842634
    },
    "M15": {
     "bias": "bearish",
     "score": -2,
-    "price": 3972.4,
-    "ema20": 3979.4,
-    "ema50": 3988.34,
-    "rsi": 39.5,
+    "price": 3966.6,
+    "ema20": 3978.18,
+    "ema50": 3987.48,
+    "rsi": 34.7,
     "n": 299,
-    "slot": 1993851,
-    "at": 1794465942630
+    "slot": 1993852,
+    "at": 1794466842639
    },
    "M30": {
     "bias": "bearish",
-    "score": -2,
-    "price": 3978.4,
-    "ema20": 3985.9,
-    "ema50": 4005.3,
-    "rsi": 38.6,
+    "score": -3,
+    "price": 3966.6,
+    "ema20": 3984.06,
+    "ema50": 4003.78,
+    "rsi": 31.6,
     "n": 299,
-    "slot": 996925,
-    "at": 1794465042628
+    "slot": 996926,
+    "at": 1794466842641
    },
    "H1": {
     "bias": "bearish",
     "score": -3,
-    "price": 3980.1,
-    "ema20": 3999.68,
-    "ema50": 4029.35,
-    "rsi": 31.7,
+    "price": 3966.6,
+    "ema20": 3996.53,
+    "ema50": 4026.89,
+    "rsi": 26.9,
     "n": 299,
-    "slot": 498462,
-    "at": 1794463242609
+    "slot": 498463,
+    "at": 1794466842645
    }
   },
   "currency": "USC",
