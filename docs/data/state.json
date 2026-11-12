@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-12T17:14:41.700Z",
+ "generated_at": "2026-11-12T17:24:41.707Z",
  "today": "2026-11-13",
  "week_start": "2026-11-09",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-12 17:00:43"
+   "updated_at": "2026-11-12 17:15:46"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: 24 jam tak ada berita baru; payroll Okt kuat, DXY naik ~0.7%, pasar price hike Fed Des ~78%: bearish. Beli bank sentral menahan.",
-   "updated_at": "2026-11-12 17:00:43"
+   "updated_at": "2026-11-12 17:15:46"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-11-12 17:00:43"
+   "updated_at": "2026-11-12 17:15:46"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-11-12 17:00:43"
+   "updated_at": "2026-11-12 17:15:46"
   },
   {
    "id": "texec",
@@ -608,6 +608,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-12 17:20:43",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: bearish → sideways"
+  },
+  {
    "ts": "2026-11-12 16:30:43",
    "agent_id": "trisk",
    "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
@@ -726,11 +731,6 @@
    "ts": "2026-11-12 07:15:42",
    "agent_id": "trisk",
    "message": "NO TRADE · setup BUY di band, konfirmasi baru 2/3 (RSI+divergensi) · London–NY (mode aman)"
-  },
-  {
-   "ts": "2026-11-12 07:01:12",
-   "agent_id": "analyst",
-   "message": "Update data 34 post IG 📈"
   }
  ],
  "chats": [
@@ -1026,12 +1026,12 @@
    "yt_posted": 5,
    "yt_pending": 1,
    "yt_scheduled": 0,
-   "views": 9614,
+   "views": 9748,
    "likes": 128,
    "comments": 2,
    "shares": 3,
    "saves": 0,
-   "yt_views": 7821,
+   "yt_views": 7955,
    "top": [
     {
      "title": "Tulisan Tertua Indonesia Ada di 7 Tiang Batu Ini",
@@ -1086,12 +1086,12 @@
    "yt_posted": 14,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 35871,
+   "views": 35873,
    "likes": 385,
    "comments": 4,
    "shares": 0,
    "saves": 4,
-   "yt_views": 26803,
+   "yt_views": 26805,
    "top": [
     {
      "title": "Sangkuriang: Legenda atau Ingatan Danau Bandung Purba?",
@@ -1134,9 +1134,14 @@
   "paused": false,
   "balance": 1740.19,
   "today_pnl": 0,
-  "price": 3874.800049,
+  "price": 3872.5,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-12 17:15:46",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
    {
     "ts": "2026-11-12 17:00:43",
     "decision": "NO TRADE",
@@ -1159,11 +1164,6 @@
    },
    {
     "ts": "2026-11-12 16:00:44",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-11-12 15:45:46",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1221,7 +1221,7 @@
    1740.1900000000003
   ],
   "last": {
-   "ts": "2026-11-12 17:00:43",
+   "ts": "2026-11-12 17:15:46",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1242,7 +1242,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3880.20 di bawah tengah band (3834.8–3950.5) · RSI 37 · Stoch 38 · MACD +1.62 · H1 bearish"
+    "note": "M15 3875.60 di bawah tengah band (3836.1–3942.0) · RSI 36 · Stoch 40 · MACD +1.80 · H1 bearish"
    }
   },
   "fund": {
@@ -1291,26 +1291,26 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "bearish",
-    "score": -2,
-    "price": 3875.1,
-    "ema20": 3883,
-    "ema50": 3908.59,
-    "rsi": 39.5,
+    "bias": "sideways",
+    "score": -1,
+    "price": 3876.2,
+    "ema20": 3882.35,
+    "ema50": 3907.32,
+    "rsi": 40.4,
     "n": 299,
-    "slot": 2990839,
-    "at": 1794503443158
+    "slot": 2990840,
+    "at": 1794504043164
    },
    "M15": {
     "bias": "bearish",
-    "score": -3,
-    "price": 3880.3,
-    "ema20": 3893.07,
-    "ema50": 3924.37,
-    "rsi": 37.2,
+    "score": -2,
+    "price": 3874.8,
+    "ema20": 3891.33,
+    "ema50": 3922.43,
+    "rsi": 35,
     "n": 299,
-    "slot": 1993892,
-    "at": 1794502843166
+    "slot": 1993893,
+    "at": 1794503746675
    },
    "M30": {
     "bias": "bearish",
