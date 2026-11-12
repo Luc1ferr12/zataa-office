@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-12T21:34:41.825Z",
+ "generated_at": "2026-11-12T21:44:41.839Z",
  "today": "2026-11-13",
  "week_start": "2026-11-09",
  "campaign": {
@@ -608,6 +608,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-12 21:40:43",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: sideways → bearish"
+  },
+  {
    "ts": "2026-11-12 21:30:43",
    "agent_id": "trisk",
    "message": "NO TRADE · jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
@@ -726,11 +731,6 @@
    "ts": "2026-11-12 11:00:42",
    "agent_id": "ttech",
    "message": "M15 berubah arah: bearish → sideways"
-  },
-  {
-   "ts": "2026-11-12 10:40:42",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: bearish → sideways"
   }
  ],
  "chats": [
@@ -1134,7 +1134,7 @@
   "paused": false,
   "balance": 1740.19,
   "today_pnl": 0,
-  "price": 3874.5,
+  "price": 3876.399902,
   "open": [],
   "signals": [
    {
@@ -1288,15 +1288,15 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "sideways",
-    "score": -1,
-    "price": 3875.5,
-    "ema20": 3880.11,
-    "ema50": 3890.26,
-    "rsi": 40,
+    "bias": "bearish",
+    "score": -2,
+    "price": 3874.9,
+    "ema20": 3879.61,
+    "ema50": 3889.65,
+    "rsi": 39.2,
     "n": 299,
-    "slot": 2990865,
-    "at": 1794519043343
+    "slot": 2990866,
+    "at": 1794519643422
    },
    "M15": {
     "bias": "sideways",
