@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-12T13:14:41.594Z",
+ "generated_at": "2026-11-12T13:24:41.594Z",
  "today": "2026-11-12",
  "week_start": "2026-11-09",
  "campaign": {
@@ -103,15 +103,15 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-12 13:00:45"
+   "updated_at": "2026-11-12 13:15:42"
   },
   {
    "id": "tresearch",
    "name": "Davina",
    "title": "Research & Fundamental",
    "status": "done",
-   "current_task": "Fundamental: 24 jam tak ada berita baru; payroll Okt kuat, DXY naik ~0.7%, pasar price hike Fed Des ~78%: bearish. Beli bank sentral menahan.",
-   "updated_at": "2026-11-12 13:00:45"
+   "current_task": "Waspada rilis Unemployment Claims (21.30 WITA)",
+   "updated_at": "2026-11-12 13:15:42"
   },
   {
    "id": "ttech",
@@ -119,15 +119,15 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-11-12 13:00:45"
+   "updated_at": "2026-11-12 13:15:42"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-11-12 13:00:45"
+   "current_task": "NO TRADE: berita berdampak tinggi: Unemployment Claims (21.30 WITA)",
+   "updated_at": "2026-11-12 13:15:42"
   },
   {
    "id": "texec",
@@ -1026,12 +1026,12 @@
    "yt_posted": 5,
    "yt_pending": 1,
    "yt_scheduled": 0,
-   "views": 6856,
-   "likes": 106,
+   "views": 7601,
+   "likes": 117,
    "comments": 2,
    "shares": 3,
    "saves": 0,
-   "yt_views": 5168,
+   "yt_views": 5913,
    "top": [
     {
      "title": "Tulisan Tertua Indonesia Ada di 7 Tiang Batu Ini",
@@ -1043,7 +1043,7 @@
      "title": "Gubernur Jenderal Dikubur di Sini, Lalu Dilupakan",
      "format": "shorts",
      "pillar": "horor_sejarah",
-     "views": 1556
+     "views": 1714
     },
     {
      "title": "Kota 9.000 Tahun Ini Nggak Punya Jalan, Pintunya di Atap",
@@ -1086,12 +1086,12 @@
    "yt_posted": 14,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 35845,
+   "views": 35852,
    "likes": 385,
    "comments": 4,
    "shares": 0,
    "saves": 4,
-   "yt_views": 26779,
+   "yt_views": 26786,
    "top": [
     {
      "title": "Sangkuriang: Legenda atau Ingatan Danau Bandung Purba?",
@@ -1109,7 +1109,7 @@
      "title": "1932: Tentara Australia Perang Lawan 20.000 Burung Emu",
      "format": "shorts",
      "pillar": "strange_events",
-     "views": 2536
+     "views": 2543
     }
    ],
    "clicks": 0,
@@ -1134,9 +1134,14 @@
   "paused": false,
   "balance": 1740.19,
   "today_pnl": 0,
-  "price": 3932.899902,
+  "price": 3926.5,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-12 13:15:42",
+    "decision": "NO TRADE",
+    "reason": "berita berdampak tinggi: Unemployment Claims (21.30 WITA)"
+   },
    {
     "ts": "2026-11-12 13:00:45",
     "decision": "NO TRADE",
@@ -1159,11 +1164,6 @@
    },
    {
     "ts": "2026-11-12 12:00:43",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-11-12 11:45:42",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1221,7 +1221,7 @@
    1740.1900000000003
   ],
   "last": {
-   "ts": "2026-11-12 13:00:45",
+   "ts": "2026-11-12 13:15:42",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1230,19 +1230,19 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
+   "reason": "berita berdampak tinggi: Unemployment Claims (21.30 WITA)",
    "fund": {
     "bias": -0.4,
     "note": "24 jam tak ada berita baru; payroll Okt kuat, DXY naik ~0.7%, pasar price hike Fed Des ~78%: bearish. Beli bank sentral menahan.",
     "danger": null,
-    "blackout": null
+    "blackout": "Unemployment Claims (21.30 WITA)"
    },
    "tech": {
     "bias": "bearish",
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3937.80 di bawah tengah band (3930.1–3957.4) · RSI 34 · Stoch 22 · MACD +0.13 · H1 bearish"
+    "note": "M15 3923.80 di bawah band bawah (3924.9–3959.6) · RSI 24 · Stoch 4 · MACD -1.02 · H1 bearish"
    }
   },
   "fund": {
@@ -1302,24 +1302,24 @@
    "M10": {
     "bias": "bearish",
     "score": -2,
-    "price": 3939.3,
-    "ema20": 3945.28,
-    "ema50": 3954.55,
-    "rsi": 38.1,
+    "price": 3929.4,
+    "ema20": 3943.77,
+    "ema50": 3953.57,
+    "rsi": 29.5,
     "n": 299,
-    "slot": 2990815,
-    "at": 1794489042959
+    "slot": 2990816,
+    "at": 1794489642913
    },
    "M15": {
     "bias": "bearish",
     "score": -3,
-    "price": 3937.1,
-    "ema20": 3948.06,
-    "ema50": 3962.16,
-    "rsi": 32.6,
+    "price": 3930.6,
+    "ema20": 3946.4,
+    "ema50": 3960.93,
+    "rsi": 28.2,
     "n": 299,
-    "slot": 1993876,
-    "at": 1794488444958
+    "slot": 1993877,
+    "at": 1794489342901
    },
    "M30": {
     "bias": "bearish",
