@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-13T11:45:42.342Z",
+ "generated_at": "2026-11-13T11:55:42.350Z",
  "today": "2026-11-13",
  "week_start": "2026-11-09",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-13 11:30:58"
+   "updated_at": "2026-11-13 11:45:58"
   },
   {
    "id": "tresearch",
@@ -111,23 +111,23 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Inflasi AS panas (10 Nov), pasar price-in hike Fed Des; NFP Okt kuat 165rb, UR 4,1%. Geopolitik 24 jam tak terkonfirmasi. Bias bearish.",
-   "updated_at": "2026-11-13 11:30:58"
+   "updated_at": "2026-11-13 11:45:58"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-13 11:30:58"
+   "current_task": "Setup BUY di band (Stokastik+MACD)",
+   "updated_at": "2026-11-13 11:45:58"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-11-13 11:30:58"
+   "current_task": "NO TRADE: setup BUY di band, konfirmasi baru 2/3 (Stokastik+MACD) · London–NY (mode aman)",
+   "updated_at": "2026-11-13 11:45:58"
   },
   {
    "id": "texec",
@@ -1204,9 +1204,14 @@
   "paused": false,
   "balance": 1728.1799999999998,
   "today_pnl": -12.01,
-  "price": 3892.649902,
+  "price": 3901.300049,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-13 11:45:58",
+    "decision": "NO TRADE",
+    "reason": "setup BUY di band, konfirmasi baru 2/3 (Stokastik+MACD) · London–NY (mode aman)"
+   },
    {
     "ts": "2026-11-13 11:30:58",
     "decision": "NO TRADE",
@@ -1229,11 +1234,6 @@
    },
    {
     "ts": "2026-11-13 10:30:57",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-11-13 10:15:58",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1302,7 +1302,7 @@
    1728.1799999999998
   ],
   "last": {
-   "ts": "2026-11-13 11:30:58",
+   "ts": "2026-11-13 11:45:58",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1311,7 +1311,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
+   "reason": "setup BUY di band, konfirmasi baru 2/3 (Stokastik+MACD) · London–NY (mode aman)",
    "fund": {
     "bias": -0.4,
     "note": "Inflasi AS panas (10 Nov), pasar price-in hike Fed Des; NFP Okt kuat 165rb, UR 4,1%. Geopolitik 24 jam tak terkonfirmasi. Bias bearish.",
@@ -1320,10 +1320,13 @@
    },
    "tech": {
     "bias": "sideways",
-    "score": 0,
-    "trigger": null,
-    "confirm": [],
-    "note": "M15 3892.32 di bawah tengah band (3892.0–3908.2) · RSI 38 · Stoch 8 · MACD -1.04 · H1 sideways"
+    "score": 2,
+    "trigger": "buy",
+    "confirm": [
+     "Stokastik",
+     "MACD"
+    ],
+    "note": "M15 3894.10 di bawah tengah band (3891.6–3908.1) · RSI 40 · Stoch 16 · MACD -0.90 · H1 sideways · setup BUY (Stokastik+MACD)"
    }
   },
   "fund": {
@@ -1374,24 +1377,24 @@
    "M10": {
     "bias": "bearish",
     "score": -2,
-    "price": 3892.77,
-    "ema20": 3898.85,
-    "ema50": 3901.01,
-    "rsi": 40.4,
+    "price": 3897.12,
+    "ema20": 3898.68,
+    "ema50": 3900.86,
+    "rsi": 46.7,
     "n": 299,
-    "slot": 2990950,
-    "at": 1794570057799
+    "slot": 2990951,
+    "at": 1794570657895
    },
    "M15": {
     "bias": "sideways",
     "score": -1,
-    "price": 3893.85,
-    "ema20": 3900.93,
-    "ema50": 3902.16,
+    "price": 3893.87,
+    "ema20": 3900.26,
+    "ema50": 3901.84,
     "rsi": 39.9,
     "n": 299,
-    "slot": 1993966,
-    "at": 1794569457804
+    "slot": 1993967,
+    "at": 1794570357920
    },
    "M30": {
     "bias": "sideways",
