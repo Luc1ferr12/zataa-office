@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-11-13T15:55:42.466Z",
- "today": "2026-11-13",
+ "generated_at": "2026-11-13T16:05:42.469Z",
+ "today": "2026-11-14",
  "week_start": "2026-11-09",
  "campaign": {
   "week_start": "2026-11-09",
@@ -79,7 +79,7 @@
    "title": "Data Analyst",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-11-13 13:01:18"
+   "updated_at": "2026-11-13 16:01:28"
   },
   {
    "id": "price",
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-13 15:45:58"
+   "updated_at": "2026-11-13 16:00:58"
   },
   {
    "id": "tresearch",
@@ -111,23 +111,23 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Inflasi AS panas (10 Nov), pasar price-in hike Fed Des; NFP Okt kuat 165rb, UR 4,1%. Geopolitik 24 jam tak terkonfirmasi. Bias bearish.",
-   "updated_at": "2026-11-13 15:45:58"
+   "updated_at": "2026-11-13 16:00:58"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-13 15:45:58"
+   "current_task": "Setup BUY di band (tanpa konfirmasi)",
+   "updated_at": "2026-11-13 16:00:58"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-11-13 15:45:58"
+   "current_task": "NO TRADE: setup BUY di band, konfirmasi baru 0/3 (-) · London–NY (mode aman)",
+   "updated_at": "2026-11-13 16:00:58"
   },
   {
    "id": "texec",
@@ -642,41 +642,51 @@
   {
    "agent_id": "copywriter",
    "type": "copy",
-   "title": "M8 di Istanbul Januari 2027: format 16 tim + Wild Card Thailand",
+   "title": "VP Valorant akhir pekan, harga hari ini di zataa.my.id",
    "status": "todo"
   },
   {
    "agent_id": "designer",
    "type": "design",
-   "title": "M8 di Istanbul Januari 2027: format 16 tim + Wild Card Thailand",
+   "title": "VP Valorant akhir pekan, harga hari ini di zataa.my.id",
    "status": "todo"
   },
   {
    "agent_id": "publisher",
    "type": "publish",
-   "title": "M8 di Istanbul Januari 2027: format 16 tim + Wild Card Thailand",
+   "title": "VP Valorant akhir pekan, harga hari ini di zataa.my.id",
    "status": "todo"
   },
   {
    "agent_id": "copywriter",
    "type": "copy",
-   "title": "3 kebiasaan yang bikin aim kamu turun",
+   "title": "Cara cek kode redeem FF asli, jangan ketipu situs palsu",
    "status": "todo"
   },
   {
    "agent_id": "video",
    "type": "video",
-   "title": "3 kebiasaan yang bikin aim kamu turun",
+   "title": "Cara cek kode redeem FF asli, jangan ketipu situs palsu",
    "status": "todo"
   },
   {
    "agent_id": "publisher",
    "type": "publish",
-   "title": "3 kebiasaan yang bikin aim kamu turun",
+   "title": "Cara cek kode redeem FF asli, jangan ketipu situs palsu",
    "status": "todo"
   }
  ],
  "activity": [
+  {
+   "ts": "2026-11-13 16:01:28",
+   "agent_id": "analyst",
+   "message": "Update data 35 post IG 📈"
+  },
+  {
+   "ts": "2026-11-13 16:00:58",
+   "agent_id": "ttech",
+   "message": "M60 berubah arah: bearish → sideways"
+  },
   {
    "ts": "2026-11-13 15:45:58",
    "agent_id": "trisk",
@@ -791,16 +801,6 @@
    "ts": "2026-11-13 11:21:23",
    "agent_id": "researcher",
    "message": "Cek FFWS GF W2D1 19:20 WITA: rekap final belum ada, followup 60 menit"
-  },
-  {
-   "ts": "2026-11-13 11:01:07",
-   "agent_id": "ypublish",
-   "message": "Upload Shorts #169 ke Zataa History (Publik via Zernio)"
-  },
-  {
-   "ts": "2026-11-13 10:30:57",
-   "agent_id": "trisk",
-   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
   }
  ],
  "chats": [
@@ -1096,7 +1096,7 @@
    "yt_posted": 7,
    "yt_pending": 1,
    "yt_scheduled": 0,
-   "views": 13293,
+   "views": 13302,
    "likes": 164,
    "comments": 5,
    "shares": 3,
@@ -1204,9 +1204,14 @@
   "paused": false,
   "balance": 1728.1799999999998,
   "today_pnl": -12.01,
-  "price": 3882.77002,
+  "price": 3876.050049,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-13 16:00:58",
+    "decision": "NO TRADE",
+    "reason": "setup BUY di band, konfirmasi baru 0/3 (-) · London–NY (mode aman)"
+   },
    {
     "ts": "2026-11-13 15:45:58",
     "decision": "NO TRADE",
@@ -1229,11 +1234,6 @@
    },
    {
     "ts": "2026-11-13 14:45:58",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-11-13 14:30:58",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1302,7 +1302,7 @@
    1728.1799999999998
   ],
   "last": {
-   "ts": "2026-11-13 15:45:58",
+   "ts": "2026-11-13 16:00:58",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1311,7 +1311,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
+   "reason": "setup BUY di band, konfirmasi baru 0/3 (-) · London–NY (mode aman)",
    "fund": {
     "bias": -0.4,
     "note": "Inflasi AS panas (10 Nov), pasar price-in hike Fed Des; NFP Okt kuat 165rb, UR 4,1%. Geopolitik 24 jam tak terkonfirmasi. Bias bearish.",
@@ -1319,11 +1319,11 @@
     "blackout": null
    },
    "tech": {
-    "bias": "sideways",
+    "bias": "bearish",
     "score": 0,
-    "trigger": null,
+    "trigger": "buy",
     "confirm": [],
-    "note": "M15 3879.57 di bawah tengah band (3878.1–3905.3) · RSI 37 · Stoch 12 · MACD -1.02 · H1 sideways"
+    "note": "M15 3878.47 di bawah tengah band (3875.5–3906.0) · RSI 37 · Stoch 6 · MACD -1.31 · H1 bearish · setup BUY (tanpa konfirmasi)"
    }
   },
   "fund": {
@@ -1374,46 +1374,46 @@
    "M10": {
     "bias": "bearish",
     "score": -3,
-    "price": 3883.75,
-    "ema20": 3890.4,
-    "ema50": 3894.75,
-    "rsi": 43.1,
+    "price": 3877.45,
+    "ema20": 3889.17,
+    "ema50": 3894.07,
+    "rsi": 38.9,
     "n": 299,
-    "slot": 2990975,
-    "at": 1794585058204
+    "slot": 2990976,
+    "at": 1794585658210
    },
    "M15": {
     "bias": "bearish",
     "score": -3,
-    "price": 3880.1,
-    "ema20": 3892.6,
-    "ema50": 3896.93,
-    "rsi": 37.7,
+    "price": 3877.45,
+    "ema20": 3891.15,
+    "ema50": 3896.16,
+    "rsi": 36,
     "n": 299,
-    "slot": 1993983,
-    "at": 1794584758351
+    "slot": 1993984,
+    "at": 1794585658216
    },
    "M30": {
     "bias": "bearish",
     "score": -2,
-    "price": 3883.27,
-    "ema20": 3896.02,
-    "ema50": 3906.15,
-    "rsi": 41.7,
+    "price": 3877.45,
+    "ema20": 3894.25,
+    "ema50": 3905.02,
+    "rsi": 39.1,
     "n": 299,
-    "slot": 996991,
-    "at": 1794583858169
+    "slot": 996992,
+    "at": 1794585658217
    },
    "H1": {
-    "bias": "bearish",
-    "score": -2,
-    "price": 3902.87,
-    "ema20": 3903.62,
-    "ema50": 3935.99,
-    "rsi": 46.3,
+    "bias": "sideways",
+    "score": -1,
+    "price": 3877.45,
+    "ema20": 3901.13,
+    "ema50": 3933.7,
+    "rsi": 36.6,
     "n": 299,
-    "slot": 498495,
-    "at": 1794582058068
+    "slot": 498496,
+    "at": 1794585658222
    }
   },
   "currency": "USC",
