@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-13T06:55:42.224Z",
+ "generated_at": "2026-11-13T07:05:42.228Z",
  "today": "2026-11-13",
  "week_start": "2026-11-09",
  "campaign": {
@@ -79,7 +79,7 @@
    "title": "Data Analyst",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-11-13 04:01:16"
+   "updated_at": "2026-11-13 07:01:15"
   },
   {
    "id": "price",
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-13 06:45:57"
+   "updated_at": "2026-11-13 07:00:59"
   },
   {
    "id": "tresearch",
@@ -111,23 +111,23 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Fed tahan 3,75-4%, pasar price hike Des ~80%, DXY ~102 kuat, yield 10Y 4,85%. Iran masih perang, negosiasi jalan. Bias negatif tipis.",
-   "updated_at": "2026-11-13 06:45:57"
+   "updated_at": "2026-11-13 07:00:59"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Setup BUY di band (tanpa konfirmasi)",
-   "updated_at": "2026-11-13 06:45:57"
+   "current_task": "Setup BUY di band (Stokastik+MACD)",
+   "updated_at": "2026-11-13 07:00:59"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: setup BUY di band, konfirmasi baru 0/2 (-) · sesi Asia",
-   "updated_at": "2026-11-13 06:45:57"
+   "current_task": "NO TRADE: setup BUY di band, konfirmasi baru 2/3 (Stokastik+MACD) · London–NY (mode aman)",
+   "updated_at": "2026-11-13 07:00:59"
   },
   {
    "id": "texec",
@@ -678,6 +678,21 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-13 07:01:15",
+   "agent_id": "analyst",
+   "message": "Update data 34 post IG 📈"
+  },
+  {
+   "ts": "2026-11-13 07:00:59",
+   "agent_id": "ttech",
+   "message": "M60 berubah arah: bearish → sideways"
+  },
+  {
+   "ts": "2026-11-13 07:00:59",
+   "agent_id": "ttech",
+   "message": "M30 berubah arah: sideways → bearish"
+  },
+  {
    "ts": "2026-11-13 06:15:57",
    "agent_id": "trisk",
    "message": "NO TRADE · setup BUY di band, konfirmasi baru 0/2 (-) · sesi Asia"
@@ -786,21 +801,6 @@
    "ts": "2026-11-13 00:09:16",
    "agent_id": "researcher",
    "message": "Bikin database aset esport: scripts/roster.mjs (logo + foto tim + foto pemain aktif MPL ID/VCT/FF dari Liquipedia), auto-update tgl 1 tiap bulan"
-  },
-  {
-   "ts": "2026-11-13 00:00:54",
-   "agent_id": "publisher",
-   "message": "Kirim draf balasan 1 komen IG ke Bos 💬"
-  },
-  {
-   "ts": "2026-11-12 23:59:42",
-   "agent_id": "owner",
-   "message": "Chat: Thanks salsa. Biar gampang untuk kedepannya cari aja semua logo tim esports, foto pemain, taruh di database, jadi kalo buat konten tinggal ambil yg sesuai. Update setiap sebulan sekali siapa tau ada perubahan roster"
-  },
-  {
-   "ts": "2026-11-12 23:56:42",
-   "agent_id": "owner",
-   "message": "Chat: Tolong di take note\n1. Kalo konten soal pemain, pake foto pemainnya dan logo tim nya\n2. Kalo konten soal tim, pake foto pemain di tim nya dan logo tim nya\n3. Konten konten di atas masih gw approve, next tolong di inget"
   }
  ],
  "chats": [
@@ -1096,9 +1096,9 @@
    "yt_posted": 5,
    "yt_pending": 1,
    "yt_scheduled": 2,
-   "views": 10599,
-   "likes": 137,
-   "comments": 3,
+   "views": 10717,
+   "likes": 138,
+   "comments": 4,
    "shares": 3,
    "saves": 0,
    "yt_views": 8672,
@@ -1204,9 +1204,14 @@
   "paused": false,
   "balance": 1728.1799999999998,
   "today_pnl": -12.01,
-  "price": 3897.570068,
+  "price": 3907.169922,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-13 07:00:59",
+    "decision": "NO TRADE",
+    "reason": "setup BUY di band, konfirmasi baru 2/3 (Stokastik+MACD) · London–NY (mode aman)"
+   },
    {
     "ts": "2026-11-13 06:45:57",
     "decision": "NO TRADE",
@@ -1229,11 +1234,6 @@
    },
    {
     "ts": "2026-11-13 05:45:57",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-   },
-   {
-    "ts": "2026-11-13 05:30:57",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
    }
@@ -1302,7 +1302,7 @@
    1728.1799999999998
   ],
   "last": {
-   "ts": "2026-11-13 06:45:57",
+   "ts": "2026-11-13 07:00:59",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1311,7 +1311,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "setup BUY di band, konfirmasi baru 0/2 (-) · sesi Asia",
+   "reason": "setup BUY di band, konfirmasi baru 2/3 (Stokastik+MACD) · London–NY (mode aman)",
    "fund": {
     "bias": -0.3,
     "note": "Fed tahan 3,75-4%, pasar price hike Des ~80%, DXY ~102 kuat, yield 10Y 4,85%. Iran masih perang, negosiasi jalan. Bias negatif tipis.",
@@ -1319,11 +1319,14 @@
     "blackout": null
    },
    "tech": {
-    "bias": "bearish",
-    "score": 0,
+    "bias": "sideways",
+    "score": 2,
     "trigger": "buy",
-    "confirm": [],
-    "note": "M15 3897.77 di bawah tengah band (3895.8–3929.3) · RSI 42 · Stoch 12 · MACD -3.34 · H1 bearish · setup BUY (tanpa konfirmasi)"
+    "confirm": [
+     "Stokastik",
+     "MACD"
+    ],
+    "note": "M15 3900.05 di bawah tengah band (3894.9–3929.5) · RSI 44 · Stoch 18 · MACD -3.12 · H1 sideways · setup BUY (Stokastik+MACD)"
    }
   },
   "fund": {
@@ -1374,46 +1377,46 @@
    "M10": {
     "bias": "sideways",
     "score": -1,
-    "price": 3892.97,
-    "ema20": 3907.64,
-    "ema50": 3904.64,
-    "rsi": 37.2,
+    "price": 3900.47,
+    "ema20": 3906.95,
+    "ema50": 3904.48,
+    "rsi": 44.5,
     "n": 299,
-    "slot": 2990921,
-    "at": 1794552658222
+    "slot": 2990922,
+    "at": 1794553259235
    },
    "M15": {
     "bias": "sideways",
     "score": 0,
-    "price": 3899,
-    "ema20": 3908.22,
-    "ema50": 3904.41,
-    "rsi": 42.6,
+    "price": 3900.47,
+    "ema20": 3907.48,
+    "ema50": 3904.25,
+    "rsi": 44.2,
     "n": 299,
-    "slot": 1993947,
-    "at": 1794552357573
+    "slot": 1993948,
+    "at": 1794553259241
    },
    "M30": {
-    "bias": "sideways",
-    "score": -1,
-    "price": 3900.9,
-    "ema20": 3904.61,
-    "ema50": 3917.27,
-    "rsi": 47.5,
-    "n": 299,
-    "slot": 996973,
-    "at": 1794551457562
-   },
-   "H1": {
     "bias": "bearish",
     "score": -2,
-    "price": 3911.05,
-    "ema20": 3911.08,
-    "ema50": 3952.08,
-    "rsi": 45.8,
+    "price": 3900.47,
+    "ema20": 3904.21,
+    "ema50": 3916.62,
+    "rsi": 47.3,
     "n": 299,
-    "slot": 498486,
-    "at": 1794549657561
+    "slot": 996974,
+    "at": 1794553259242
+   },
+   "H1": {
+    "bias": "sideways",
+    "score": -1,
+    "price": 3900.47,
+    "ema20": 3910.07,
+    "ema50": 3950.06,
+    "rsi": 41.8,
+    "n": 299,
+    "slot": 498487,
+    "at": 1794553259248
    }
   },
   "currency": "USC",
