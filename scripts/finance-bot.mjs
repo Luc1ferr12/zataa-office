@@ -10,6 +10,7 @@ import { claude, ESCALATE } from './ask.mjs';
 import { OFFICE, ANSWER_ANY, LOOKUPS } from './haiku.mjs';
 import { wita } from '../docs/js/schedule.js';
 import { morning, reminders, todayTx, rp } from './finance.mjs';
+import { pushRge, laptopIdleMin, RGE_RE } from './rge-queue.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const HIST = join(ROOT, 'tmp', 'finance-chat.json');
@@ -41,7 +42,23 @@ async function download(fileIds) {
   return out;
 }
 
+// Kerjaan kantor Owner (dashboard RGE di OneDrive laptop): VPS cuma oper pesannya, agen laptop yang buka file & bales langsung.
+const RGE_MARK = '[[RGE]]';
+function routeRge(msg, log) {
+  pushRge(msg);
+  const idle = laptopIdleMin();
+  log(`keuangan: permintaan RGE → laptop (laptop cek ${Number.isFinite(idle) ? `${idle.toFixed(0)} mnt` : 'belum pernah'} lalu)`);
+  const reply = idle <= 5 ? pick(['Siap Bos, saya buka dashboard RGE-nya dulu ya 📊 bentar.', 'Oke Bos, saya cek di file RGE dulu ya, 1–2 menit 📊', 'Siap, lagi saya bukain dashboard RGE-nya Bos 📊'])
+    : 'Siap Bos, udah saya catet 📝 Tapi laptop Bos lagi offline, jadi file RGE-nya belum bisa saya buka. Begitu laptop nyala, langsung saya kirim ya.';
+  saveHist(msg, `${reply} (diproses di laptop)`);
+  return reply;
+}
+function saveHist(owner, reply) {
+  try { mkdirSync(dirname(HIST), { recursive: true }); writeFileSync(HIST, JSON.stringify([...hist(), { t: Date.now(), owner: (owner || '(foto)').slice(0, 300), reply: reply.slice(0, 600) }].slice(-10))); } catch { /* abaikan */ }
+}
+
 export async function handleFinance(msg, refs = [], log = console.log) {
+  if (!refs.length && RGE_RE.test(msg)) return routeRge(msg, log);
   const t = wita(new Date());
   const day = (n) => new Date(Date.UTC(...t.date.split('-').map((x, i) => (i === 1 ? x - 1 : +x))) + n * 86400000).toISOString().slice(0, 10);
   const monday = day(-((t.dow + 6) % 7));
@@ -64,15 +81,17 @@ Obrolan biasa/basa-basi → bales singkat & ramah tanpa alat.
 Bos nanya hal lain (pengetahuan umum, saran, kantor/divisi mana pun) → jawab juga sebagai Nabila, jangan suruh pindah bot.
 ${OFFICE}
 ${ANSWER_ANY}
+Kerjaan kantor Bos di dunia nyata (dashboard/report RGE Indosat Bali Nusra: kecamatan attack, desa, DMP, activity, SP, GA, revenue, KPI, kirim report ke grup WA, lanjutan obrolan soal itu) → tulis persis ${RGE_MARK} lalu berhenti (filenya cuma ada di laptop Bos, nanti saya buka di sana).
 Cuma kalau Bos NYURUH divisi kantor kerja (bikin konten, perintah trading, bikin Shorts) → tulis persis ${ESCALATE} lalu berhenti.
 Akhiri dengan baris "BALASAN:" lalu pesan untuk Bos (tanpa awalan nama): sebut yang dicatat (nominal, kategori, akun, #ID). Rekap boleh beberapa baris pendek. Kalau finance.mjs ERROR, bilang jujur.`;
   const r = await claude(prompt, 6, { model: loadEnv().FINANCE_MODEL || 'haiku', tools: [...LOOKUPS, 'Bash(node scripts/finance.mjs:*)'] });
   for (const f of refs) { try { unlinkSync(join(ROOT, f)); } catch { /* sudah hilang */ } }
+  if (r.ok && r.text.includes(RGE_MARK)) return routeRge(msg, log);
   const reply = !r.ok ? 'Maaf Bos, saya lagi error pas nyatet 😣 Kirim ulang bentar lagi ya.'
     : r.text.includes(ESCALATE) ? 'Kalau mau nyuruh tim kerja, kirim di bot divisinya ya Bos 🙏 Konten/IG ke bot Zataa Office Marketing, trading ke bot Zataa Office Trading, YouTube ke @zataashortbot. Kalau cuma mau nanya, tanya saya aja 😊'
       : r.text.slice(r.text.lastIndexOf('BALASAN:') + 8).trim().slice(0, 3800);
   log(`keuangan: ${r.ok ? 'ok' : 'gagal'}`);
-  try { mkdirSync(dirname(HIST), { recursive: true }); writeFileSync(HIST, JSON.stringify([...hist(), { t: Date.now(), owner: (msg || '(foto)').slice(0, 300), reply: reply.slice(0, 600) }].slice(-10))); } catch { /* abaikan */ }
+  saveHist(msg, reply);
   return reply;
 }
 
