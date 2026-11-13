@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-13T01:44:41.941Z",
+ "generated_at": "2026-11-13T01:54:41.950Z",
  "today": "2026-11-13",
  "week_start": "2026-11-09",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-13 01:30:43"
+   "updated_at": "2026-11-13 01:45:43"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Fed tahan 3,75-4%, pasar price hike Des ~80%, DXY ~102 kuat, yield 10Y 4,85%. Iran masih perang, negosiasi jalan. Bias negatif tipis.",
-   "updated_at": "2026-11-13 01:30:43"
+   "updated_at": "2026-11-13 01:45:43"
   },
   {
    "id": "ttech",
@@ -119,15 +119,15 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-11-13 01:30:43"
+   "updated_at": "2026-11-13 01:45:43"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: ada candle spike di M15 (kemungkinan berita dadakan), tunggu tenang",
-   "updated_at": "2026-11-13 01:30:43"
+   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
+   "updated_at": "2026-11-13 01:45:43"
   },
   {
    "id": "texec",
@@ -1204,9 +1204,14 @@
   "paused": false,
   "balance": 1740.19,
   "today_pnl": 0,
-  "price": 3910.699951,
+  "price": 3912.699951,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-13 01:45:43",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
+   },
    {
     "ts": "2026-11-13 01:30:43",
     "decision": "NO TRADE",
@@ -1229,11 +1234,6 @@
    },
    {
     "ts": "2026-11-13 00:30:43",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-   },
-   {
-    "ts": "2026-11-13 00:15:43",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
    }
@@ -1291,7 +1291,7 @@
    1740.1900000000003
   ],
   "last": {
-   "ts": "2026-11-13 01:30:43",
+   "ts": "2026-11-13 01:45:43",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1300,7 +1300,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "ada candle spike di M15 (kemungkinan berita dadakan), tunggu tenang",
+   "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)",
    "fund": {
     "bias": -0.3,
     "note": "Fed tahan 3,75-4%, pasar price hike Des ~80%, DXY ~102 kuat, yield 10Y 4,85%. Iran masih perang, negosiasi jalan. Bias negatif tipis.",
@@ -1312,7 +1312,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3912.00 di atas band atas (3860.4–3907.0) · RSI 73 · Stoch 84 · MACD +4.01 · H1 bearish"
+    "note": "M15 3909.90 di atas tengah band (3859.9–3910.7) · RSI 70 · Stoch 83 · MACD +3.99 · H1 bearish"
    }
   },
   "fund": {
@@ -1363,24 +1363,24 @@
    "M10": {
     "bias": "bullish",
     "score": 3,
-    "price": 3911.3,
-    "ema20": 3890.25,
-    "ema50": 3888.39,
-    "rsi": 76.1,
+    "price": 3909.9,
+    "ema20": 3892.12,
+    "ema50": 3889.24,
+    "rsi": 73.8,
     "n": 299,
-    "slot": 2990890,
-    "at": 1794534043534
+    "slot": 2990891,
+    "at": 1794534643553
    },
    "M15": {
     "bias": "sideways",
     "score": 1,
-    "price": 3912.5,
-    "ema20": 3885.97,
-    "ema50": 3893.77,
-    "rsi": 73.6,
+    "price": 3909.3,
+    "ema20": 3888.19,
+    "ema50": 3894.38,
+    "rsi": 69.6,
     "n": 299,
-    "slot": 1993926,
-    "at": 1794533443605
+    "slot": 1993927,
+    "at": 1794534343549
    },
    "M30": {
     "bias": "sideways",
