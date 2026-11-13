@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-13T03:05:42.127Z",
+ "generated_at": "2026-11-13T03:15:42.134Z",
  "today": "2026-11-13",
  "week_start": "2026-11-09",
  "campaign": {
@@ -678,6 +678,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-13 03:11:27",
+   "agent_id": "texec",
+   "message": "Posisi #4 ditutup (SL) −12,01 USC"
+  },
+  {
    "ts": "2026-11-13 02:55:41",
    "agent_id": "dir",
    "message": "Kode kantor diperbarui, restart otomatis: scripts/golink.mjs, scripts/trading/run.mjs"
@@ -796,14 +801,23 @@
    "ts": "2026-11-12 23:41:42",
    "agent_id": "owner",
    "message": "Approve konten #156 ✅"
-  },
-  {
-   "ts": "2026-11-12 23:40:51",
-   "agent_id": "owner",
-   "message": "Approve Shorts #169 ✅"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-11-13 03:11:27",
+   "agent_id": "teval",
+   "to_id": "treport",
+   "kind": "oper",
+   "message": "Rugi setelah 71 menit: tren berbalik setelah entry. Cek ulang filter tren & berita sekitar jam itu."
+  },
+  {
+   "ts": "2026-11-13 03:11:27",
+   "agent_id": "texec",
+   "to_id": "teval",
+   "kind": "oper",
+   "message": "#4 kena SL, −12,01 USC. Evaluasi ya Jihan"
+  },
   {
    "ts": "2026-11-13 02:00:44",
    "agent_id": "trisk",
@@ -1069,20 +1083,6 @@
    "to_id": "publisher",
    "kind": "oper",
    "message": "Fikri, video \"Video FFWS Week 2 masuk antrean render laptop\" udah render 9:16. Musiknya aman kok"
-  },
-  {
-   "ts": "2026-11-12 02:32:00",
-   "agent_id": "copywriter",
-   "to_id": "designer",
-   "kind": "oper",
-   "message": "Teks buat \"Naskah video FFWS Week 2\" ready. Vania, giliranmu bikin cakep!"
-  },
-  {
-   "ts": "2026-11-12 02:31:36",
-   "agent_id": "researcher",
-   "to_id": "copywriter",
-   "kind": "oper",
-   "message": "Riset \"Riset FFWS Week 2\" beres, udah dicek 2 sumber. Tiara, lanjut ya~"
   }
  ],
  "stats": {
@@ -1202,19 +1202,10 @@
  "trading": {
   "mode": "paper",
   "paused": false,
-  "balance": 1740.19,
-  "today_pnl": 0,
-  "price": 3918.600098,
-  "open": [
-   {
-    "side": "sell",
-    "lot": 0.01,
-    "entry": 3908.95,
-    "sl": 3920.96,
-    "tp": 3887.08,
-    "open_ts": "2026-11-13 02:00:43"
-   }
-  ],
+  "balance": 1728.1799999999998,
+  "today_pnl": -12.01,
+  "price": 3918.800049,
+  "open": [],
   "signals": [
    {
     "ts": "2026-11-13 03:00:57",
@@ -1250,6 +1241,16 @@
   "trades": [
    {
     "side": "sell",
+    "lot": 0.01,
+    "entry": 3908.95,
+    "exit": 3920.96,
+    "pnl": -12.010000000000218,
+    "r": -1,
+    "close_ts": "2026-11-13 03:11:27",
+    "reason_close": "SL"
+   },
+   {
+    "side": "sell",
     "lot": 0.02,
     "entry": 4061.65,
     "exit": 4049.56,
@@ -1280,24 +1281,25 @@
    }
   ],
   "stats": {
-   "n": 3,
+   "n": 4,
    "wins": 3,
-   "losses": 0,
-   "pnl": 63.59,
-   "week_pnl": 24.18,
+   "losses": 1,
+   "pnl": 51.58,
+   "week_pnl": 12.17,
    "gross_win": 63.59,
-   "gross_loss": 0,
-   "max_loss": 0,
-   "avg_r": 1.83,
-   "today_n": 0,
-   "consec_loss": 0
+   "gross_loss": -12.01,
+   "max_loss": -12.010000000000218,
+   "avg_r": 1.12,
+   "today_n": 1,
+   "consec_loss": 1
   },
   "peak": 1741.7900489999997,
   "curve": [
-   1676.6000000000001,
-   1687.51,
-   1716.01,
-   1740.1900000000003
+   1676.6,
+   1687.5099999999998,
+   1716.0099999999998,
+   1740.19,
+   1728.1799999999998
   ],
   "last": {
    "ts": "2026-11-13 03:00:57",
@@ -1372,13 +1374,13 @@
    "M10": {
     "bias": "bullish",
     "score": 3,
-    "price": 3914,
-    "ema20": 3901.75,
-    "ema50": 3894.57,
-    "rsi": 68.8,
+    "price": 3919.5,
+    "ema20": 3903.44,
+    "ema50": 3895.55,
+    "rsi": 72.4,
     "n": 299,
-    "slot": 2990898,
-    "at": 1794538857389
+    "slot": 2990899,
+    "at": 1794539457477
    },
    "M15": {
     "bias": "sideways",
