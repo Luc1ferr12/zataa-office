@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-13T01:54:41.950Z",
+ "generated_at": "2026-11-13T02:04:41.951Z",
  "today": "2026-11-13",
  "week_start": "2026-11-09",
  "campaign": {
@@ -87,7 +87,7 @@
    "title": "Price Watcher",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-11-13 00:00:42"
+   "updated_at": "2026-11-13 02:00:42"
   },
   {
    "id": "ob",
@@ -102,8 +102,8 @@
    "name": "Mahendra",
    "title": "Trading Director",
    "status": "done",
-   "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-13 01:45:43"
+   "current_task": "Siklus beres: SELL",
+   "updated_at": "2026-11-13 02:00:44"
   },
   {
    "id": "tresearch",
@@ -111,31 +111,31 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Fed tahan 3,75-4%, pasar price hike Des ~80%, DXY ~102 kuat, yield 10Y 4,85%. Iran masih perang, negosiasi jalan. Bias negatif tipis.",
-   "updated_at": "2026-11-13 01:45:43"
+   "updated_at": "2026-11-13 02:00:43"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-11-13 01:45:43"
+   "current_task": "Setup SELL di band (RSI+Stokastik+MACD)",
+   "updated_at": "2026-11-13 02:00:43"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
-   "updated_at": "2026-11-13 01:45:43"
+   "current_task": "SELL 0.01 lot, RR 1:1.82",
+   "updated_at": "2026-11-13 02:00:43"
   },
   {
    "id": "texec",
    "name": "Wiratama",
    "title": "Execution",
    "status": "done",
-   "current_task": "SELL 0.02 lot terbuka",
-   "updated_at": "2026-11-11 05:45:41"
+   "current_task": "SELL 0.01 lot terbuka",
+   "updated_at": "2026-11-13 02:00:43"
   },
   {
    "id": "teval",
@@ -678,6 +678,16 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-13 02:00:43",
+   "agent_id": "texec",
+   "message": "[paper] Buka SELL 0.01 lot @ 3908.95 · SL 3920.96 · TP 3887.08"
+  },
+  {
+   "ts": "2026-11-13 02:00:43",
+   "agent_id": "ttech",
+   "message": "M60 berubah arah: bearish → sideways"
+  },
+  {
    "ts": "2026-11-13 01:30:43",
    "agent_id": "ttech",
    "message": "M10 berubah arah: sideways → bullish"
@@ -791,19 +801,37 @@
    "ts": "2026-11-12 23:20:43",
    "agent_id": "ttech",
    "message": "M10 berubah arah: bearish → sideways"
-  },
-  {
-   "ts": "2026-11-12 23:20:03",
-   "agent_id": "yvideo",
-   "message": "Shorts #170 dirender di laptop (suara OmniVoice) & dikirim ke Owner"
-  },
-  {
-   "ts": "2026-11-12 23:20:03",
-   "agent_id": "spublish",
-   "message": "Kirim Shorts #170 ke Owner buat approval"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-11-13 02:00:44",
+   "agent_id": "trisk",
+   "to_id": "texec",
+   "kind": "oper",
+   "message": "Keputusan SELL 0.01 lot, SL 3920.96, TP 3887.08. Eksekusi ya Wir!"
+  },
+  {
+   "ts": "2026-11-13 02:00:43",
+   "agent_id": "texec",
+   "to_id": "treport",
+   "kind": "oper",
+   "message": "Order SELL #4 ke-fill di 3908.95, SL TP kepasang 👍"
+  },
+  {
+   "ts": "2026-11-13 02:00:43",
+   "agent_id": "ttech",
+   "to_id": "trisk",
+   "kind": "oper",
+   "message": "M15 3909.10 di atas tengah band (3859.9–3914.3) · RSI 68 · Stoch 81 · MACD +3.84 · H1 bearish · setup SELL (RSI+Stokastik+MACD)"
+  },
+  {
+   "ts": "2026-11-13 02:00:43",
+   "agent_id": "tresearch",
+   "to_id": "ttech",
+   "kind": "oper",
+   "message": "Fed tahan 3,75-4%, pasar price hike Des ~80%, DXY ~102 kuat, yield 10Y 4,85%. Iran masih perang, negosiasi jalan. Bias n"
+  },
   {
    "ts": "2026-11-12 23:59:42",
    "agent_id": "dir",
@@ -1055,34 +1083,6 @@
    "to_id": "copywriter",
    "kind": "oper",
    "message": "Riset \"Riset FFWS Week 2\" beres, udah dicek 2 sumber. Tiara, lanjut ya~"
-  },
-  {
-   "ts": "2026-11-12 02:30:41",
-   "agent_id": "dir",
-   "to_id": null,
-   "kind": "oper",
-   "message": "Bos ACC 1 ide tambahan! \"FFWS Week 2 mulai besok: RRQ Kazu #5, ONIC #11 & BTR #13 wajib naik, 4 tim tersingkir Minggu\" 🎉"
-  },
-  {
-   "ts": "2026-11-11 23:08:16",
-   "agent_id": "researcher",
-   "to_id": "video",
-   "kind": "santai",
-   "message": "Besok FFWS Week 2 mulai, siap-siap lembur preview ya Dim 😆"
-  },
-  {
-   "ts": "2026-11-11 23:03:37",
-   "agent_id": "publisher",
-   "to_id": "owner",
-   "kind": "oper",
-   "message": "\"#153 terkirim ke Owner, #154 nunggu render laptop\" udah lolos QA, tinggal nunggu ✅ dari Bos"
-  },
-  {
-   "ts": "2026-11-11 23:03:28",
-   "agent_id": "video",
-   "to_id": "publisher",
-   "kind": "oper",
-   "message": "Render \"Video #154 antre render laptop\" selesai, Fikri. Cek cover-nya ya"
   }
  ],
  "stats": {
@@ -1204,9 +1204,23 @@
   "paused": false,
   "balance": 1740.19,
   "today_pnl": 0,
-  "price": 3912.699951,
-  "open": [],
+  "price": 3911.300049,
+  "open": [
+   {
+    "side": "sell",
+    "lot": 0.01,
+    "entry": 3908.95,
+    "sl": 3920.96,
+    "tp": 3887.08,
+    "open_ts": "2026-11-13 02:00:43"
+   }
+  ],
   "signals": [
+   {
+    "ts": "2026-11-13 02:00:43",
+    "decision": "SELL",
+    "reason": "pantulan band atas BB M15, konfirmasi RSI+Stokastik+MACD · sesi Asia risiko 1% · SL 12.01 · TP tengah band RR 1:1.8 · fundamental: Fed tahan 3,75-4%, pasar price hike Des ~80%, DXY ~102 kuat, yield 10Y 4,85%. Iran masih perang, negosiasi jalan. Bias negatif tipis."
+   },
    {
     "ts": "2026-11-13 01:45:43",
     "decision": "NO TRADE",
@@ -1229,11 +1243,6 @@
    },
    {
     "ts": "2026-11-13 00:45:43",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-   },
-   {
-    "ts": "2026-11-13 00:30:43",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
    }
@@ -1291,16 +1300,16 @@
    1740.1900000000003
   ],
   "last": {
-   "ts": "2026-11-13 01:45:43",
-   "decision": "NO TRADE",
-   "side": null,
-   "entry": null,
-   "sl": null,
-   "tp": null,
-   "lot": null,
-   "rr": null,
-   "risk_usd": null,
-   "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)",
+   "ts": "2026-11-13 02:00:43",
+   "decision": "SELL",
+   "side": "sell",
+   "entry": 3908.95,
+   "sl": 3920.96,
+   "tp": 3887.08,
+   "lot": 0.01,
+   "rr": 1.82,
+   "risk_usd": 12.01,
+   "reason": "pantulan band atas BB M15, konfirmasi RSI+Stokastik+MACD · sesi Asia risiko 1% · SL 12.01 · TP tengah band RR 1:1.8 · fundamental: Fed tahan 3,75-4%, pasar price hike Des ~80%, DXY ~102 kuat, yield 10Y 4,85%. Iran masih perang, negosiasi jalan. Bias negatif tipis.",
    "fund": {
     "bias": -0.3,
     "note": "Fed tahan 3,75-4%, pasar price hike Des ~80%, DXY ~102 kuat, yield 10Y 4,85%. Iran masih perang, negosiasi jalan. Bias negatif tipis.",
@@ -1309,10 +1318,14 @@
    },
    "tech": {
     "bias": "bearish",
-    "score": 0,
-    "trigger": null,
-    "confirm": [],
-    "note": "M15 3909.90 di atas tengah band (3859.9–3910.7) · RSI 70 · Stoch 83 · MACD +3.99 · H1 bearish"
+    "score": 3,
+    "trigger": "sell",
+    "confirm": [
+     "RSI",
+     "Stokastik",
+     "MACD"
+    ],
+    "note": "M15 3909.10 di atas tengah band (3859.9–3914.3) · RSI 68 · Stoch 81 · MACD +3.84 · H1 bearish · setup SELL (RSI+Stokastik+MACD)"
    }
   },
   "fund": {
@@ -1363,46 +1376,46 @@
    "M10": {
     "bias": "bullish",
     "score": 3,
-    "price": 3909.9,
-    "ema20": 3892.12,
-    "ema50": 3889.24,
-    "rsi": 73.8,
+    "price": 3910.5,
+    "ema20": 3893.87,
+    "ema50": 3890.07,
+    "rsi": 74.1,
     "n": 299,
-    "slot": 2990891,
-    "at": 1794534643553
+    "slot": 2990892,
+    "at": 1794535243550
    },
    "M15": {
     "bias": "sideways",
     "score": 1,
-    "price": 3909.3,
-    "ema20": 3888.19,
-    "ema50": 3894.38,
-    "rsi": 69.6,
+    "price": 3910.5,
+    "ema20": 3890.31,
+    "ema50": 3895.01,
+    "rsi": 70.3,
     "n": 299,
-    "slot": 1993927,
-    "at": 1794534343549
+    "slot": 1993928,
+    "at": 1794535243557
    },
    "M30": {
     "bias": "sideways",
     "score": 1,
-    "price": 3912.5,
-    "ema20": 3890.15,
-    "ema50": 3919.24,
-    "rsi": 59.7,
+    "price": 3910.5,
+    "ema20": 3892.09,
+    "ema50": 3918.89,
+    "rsi": 58.3,
     "n": 299,
-    "slot": 996963,
-    "at": 1794533443606
+    "slot": 996964,
+    "at": 1794535243558
    },
    "H1": {
-    "bias": "bearish",
-    "score": -2,
-    "price": 3887.3,
-    "ema20": 3908.53,
-    "ema50": 3960.29,
-    "rsi": 33.4,
+    "bias": "sideways",
+    "score": 0,
+    "price": 3910.5,
+    "ema20": 3908.72,
+    "ema50": 3958.34,
+    "rsi": 45.2,
     "n": 299,
-    "slot": 498481,
-    "at": 1794531643584
+    "slot": 498482,
+    "at": 1794535243562
    }
   },
   "currency": "USC",
