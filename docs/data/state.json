@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-13T14:25:42.426Z",
+ "generated_at": "2026-11-13T14:35:42.429Z",
  "today": "2026-11-13",
  "week_start": "2026-11-09",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-13 14:15:57"
+   "updated_at": "2026-11-13 14:30:58"
   },
   {
    "id": "tresearch",
@@ -111,23 +111,23 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Inflasi AS panas (10 Nov), pasar price-in hike Fed Des; NFP Okt kuat 165rb, UR 4,1%. Geopolitik 24 jam tak terkonfirmasi. Bias bearish.",
-   "updated_at": "2026-11-13 14:15:57"
+   "updated_at": "2026-11-13 14:30:58"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Setup BUY di band (MACD+divergensi)",
-   "updated_at": "2026-11-13 14:15:57"
+   "current_task": "Belum ada pantulan band · H1 sideways",
+   "updated_at": "2026-11-13 14:30:58"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: setup BUY di band, konfirmasi baru 2/3 (MACD+divergensi) · London–NY (mode aman)",
-   "updated_at": "2026-11-13 14:15:57"
+   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
+   "updated_at": "2026-11-13 14:30:58"
   },
   {
    "id": "texec",
@@ -1204,9 +1204,14 @@
   "paused": false,
   "balance": 1728.1799999999998,
   "today_pnl": -12.01,
-  "price": 3887.02002,
+  "price": 3896.449951,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-13 14:30:58",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
    {
     "ts": "2026-11-13 14:15:57",
     "decision": "NO TRADE",
@@ -1229,11 +1234,6 @@
    },
    {
     "ts": "2026-11-13 13:15:57",
-    "decision": "NO TRADE",
-    "reason": "berita berdampak tinggi: Core PPI m/m (21.30 WITA)"
-   },
-   {
-    "ts": "2026-11-13 13:00:58",
     "decision": "NO TRADE",
     "reason": "berita berdampak tinggi: Core PPI m/m (21.30 WITA)"
    }
@@ -1302,7 +1302,7 @@
    1728.1799999999998
   ],
   "last": {
-   "ts": "2026-11-13 14:15:57",
+   "ts": "2026-11-13 14:30:58",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1311,7 +1311,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "setup BUY di band, konfirmasi baru 2/3 (MACD+divergensi) · London–NY (mode aman)",
+   "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
    "fund": {
     "bias": -0.4,
     "note": "Inflasi AS panas (10 Nov), pasar price-in hike Fed Des; NFP Okt kuat 165rb, UR 4,1%. Geopolitik 24 jam tak terkonfirmasi. Bias bearish.",
@@ -1320,13 +1320,10 @@
    },
    "tech": {
     "bias": "sideways",
-    "score": 2,
-    "trigger": "buy",
-    "confirm": [
-     "MACD",
-     "divergensi"
-    ],
-    "note": "M15 3890.70 di bawah tengah band (3883.8–3907.5) · RSI 44 · Stoch 36 · MACD -0.46 · H1 sideways · setup BUY (MACD+divergensi)"
+    "score": 0,
+    "trigger": null,
+    "confirm": [],
+    "note": "M15 3889.40 di bawah tengah band (3882.9–3906.5) · RSI 42 · Stoch 32 · MACD -0.48 · H1 sideways"
    }
   },
   "fund": {
@@ -1377,35 +1374,35 @@
    "M10": {
     "bias": "bearish",
     "score": -2,
-    "price": 3885.87,
-    "ema20": 3893.09,
-    "ema50": 3897.03,
-    "rsi": 40.3,
+    "price": 3887.17,
+    "ema20": 3892.53,
+    "ema50": 3896.64,
+    "rsi": 42,
     "n": 299,
-    "slot": 2990966,
-    "at": 1794579657938
+    "slot": 2990967,
+    "at": 1794580258043
    },
    "M15": {
     "bias": "bearish",
     "score": -2,
-    "price": 3887.6,
-    "ema20": 3894.93,
-    "ema50": 3898.73,
-    "rsi": 39.3,
+    "price": 3887.17,
+    "ema20": 3894.19,
+    "ema50": 3898.28,
+    "rsi": 38.9,
     "n": 299,
-    "slot": 1993977,
-    "at": 1794579357940
+    "slot": 1993978,
+    "at": 1794580258050
    },
    "M30": {
     "bias": "sideways",
     "score": -1,
-    "price": 3889.9,
-    "ema20": 3897.8,
-    "ema50": 3908.07,
-    "rsi": 42.9,
+    "price": 3887.17,
+    "ema20": 3896.79,
+    "ema50": 3907.25,
+    "rsi": 41.2,
     "n": 299,
-    "slot": 996988,
-    "at": 1794578457958
+    "slot": 996989,
+    "at": 1794580258052
    },
    "H1": {
     "bias": "bearish",
