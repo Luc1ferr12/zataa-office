@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-13T21:15:42.620Z",
+ "generated_at": "2026-11-13T21:25:42.628Z",
  "today": "2026-11-14",
  "week_start": "2026-11-09",
  "campaign": {
@@ -103,23 +103,23 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-13 21:00:58"
+   "updated_at": "2026-11-13 21:15:58"
   },
   {
    "id": "tresearch",
    "name": "Davina",
    "title": "Research & Fundamental",
    "status": "done",
-   "current_task": "Fundamental: Inflasi AS panas (10 Nov), pasar price-in hike Fed Des; NFP Okt kuat 165rb, UR 4,1%. Geopolitik 24 jam tak terkonfirmasi. Bias bearish.",
-   "updated_at": "2026-11-13 21:00:58"
+   "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
+   "updated_at": "2026-11-13 21:15:58"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-11-13 21:00:58"
+   "current_task": "Setup BUY di band (tanpa konfirmasi)",
+   "updated_at": "2026-11-13 21:15:58"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
-   "updated_at": "2026-11-13 21:00:58"
+   "updated_at": "2026-11-13 21:15:58"
   },
   {
    "id": "texec",
@@ -1204,9 +1204,14 @@
   "paused": false,
   "balance": 1728.1799999999998,
   "today_pnl": -12.01,
-  "price": 3875.850098,
+  "price": 3878.75,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-13 21:15:58",
+    "decision": "NO TRADE",
+    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
+   },
    {
     "ts": "2026-11-13 21:00:58",
     "decision": "NO TRADE",
@@ -1231,11 +1236,6 @@
     "ts": "2026-11-13 20:00:58",
     "decision": "NO TRADE",
     "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
-   },
-   {
-    "ts": "2026-11-13 19:45:58",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
   ],
   "trades": [
@@ -1302,7 +1302,7 @@
    1728.1799999999998
   ],
   "last": {
-   "ts": "2026-11-13 21:00:58",
+   "ts": "2026-11-13 21:15:58",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1313,17 +1313,17 @@
    "risk_usd": null,
    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
    "fund": {
-    "bias": -0.4,
-    "note": "Inflasi AS panas (10 Nov), pasar price-in hike Fed Des; NFP Okt kuat 165rb, UR 4,1%. Geopolitik 24 jam tak terkonfirmasi. Bias bearish.",
+    "bias": 0,
+    "note": "netral (belum ada ringkasan hari ini)",
     "danger": null,
     "blackout": null
    },
    "tech": {
     "bias": "bearish",
     "score": 0,
-    "trigger": null,
+    "trigger": "buy",
     "confirm": [],
-    "note": "M15 3879.82 di bawah tengah band (3875.0–3892.3) · RSI 43 · Stoch 22 · MACD -0.05 · H1 bearish"
+    "note": "M15 3876.25 di bawah tengah band (3873.2–3892.6) · RSI 40 · Stoch 19 · MACD -0.33 · H1 bearish · setup BUY (tanpa konfirmasi)"
    }
   },
   "fund": null,
@@ -1351,25 +1351,25 @@
   "tf": {
    "M10": {
     "bias": "bearish",
-    "score": -2,
-    "price": 3874.25,
-    "ema20": 3881.04,
-    "ema50": 3885.62,
-    "rsi": 38.5,
+    "score": -3,
+    "price": 3879.17,
+    "ema20": 3880.86,
+    "ema50": 3885.37,
+    "rsi": 46.1,
     "n": 299,
-    "slot": 2991007,
-    "at": 1794604258436
+    "slot": 2991008,
+    "at": 1794604858451
    },
    "M15": {
     "bias": "sideways",
     "score": -1,
-    "price": 3881.25,
-    "ema20": 3883.46,
-    "ema50": 3889,
-    "rsi": 44.9,
+    "price": 3875.85,
+    "ema20": 3882.74,
+    "ema50": 3888.48,
+    "rsi": 39.1,
     "n": 299,
-    "slot": 1994004,
-    "at": 1794603658441
+    "slot": 1994005,
+    "at": 1794604558516
    },
    "M30": {
     "bias": "bearish",
