@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-13T01:24:41.944Z",
+ "generated_at": "2026-11-13T01:34:41.941Z",
  "today": "2026-11-13",
  "week_start": "2026-11-09",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-13 01:15:43"
+   "updated_at": "2026-11-13 01:30:43"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Fed tahan 3,75-4%, pasar price hike Des ~80%, DXY ~102 kuat, yield 10Y 4,85%. Iran masih perang, negosiasi jalan. Bias negatif tipis.",
-   "updated_at": "2026-11-13 01:15:43"
+   "updated_at": "2026-11-13 01:30:43"
   },
   {
    "id": "ttech",
@@ -119,15 +119,15 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-11-13 01:15:43"
+   "updated_at": "2026-11-13 01:30:43"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
-   "updated_at": "2026-11-13 01:15:43"
+   "current_task": "NO TRADE: ada candle spike di M15 (kemungkinan berita dadakan), tunggu tenang",
+   "updated_at": "2026-11-13 01:30:43"
   },
   {
    "id": "texec",
@@ -678,6 +678,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-13 01:30:43",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: sideways → bullish"
+  },
+  {
    "ts": "2026-11-13 01:15:43",
    "agent_id": "trisk",
    "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (sesi Asia)"
@@ -796,11 +801,6 @@
    "ts": "2026-11-12 23:20:03",
    "agent_id": "spublish",
    "message": "Kirim Shorts #170 ke Owner buat approval"
-  },
-  {
-   "ts": "2026-11-12 23:18:00",
-   "agent_id": "yvideo",
-   "message": "Shorts #169 dirender di laptop (suara OmniVoice) & dikirim ke Owner"
   }
  ],
  "chats": [
@@ -1096,12 +1096,12 @@
    "yt_posted": 5,
    "yt_pending": 1,
    "yt_scheduled": 2,
-   "views": 10318,
-   "likes": 131,
+   "views": 10321,
+   "likes": 132,
    "comments": 3,
    "shares": 3,
    "saves": 0,
-   "yt_views": 8438,
+   "yt_views": 8441,
    "top": [
     {
      "title": "Tulisan Tertua Indonesia Ada di 7 Tiang Batu Ini",
@@ -1204,9 +1204,14 @@
   "paused": false,
   "balance": 1740.19,
   "today_pnl": 0,
-  "price": 3913.5,
+  "price": 3913,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-13 01:30:43",
+    "decision": "NO TRADE",
+    "reason": "ada candle spike di M15 (kemungkinan berita dadakan), tunggu tenang"
+   },
    {
     "ts": "2026-11-13 01:15:43",
     "decision": "NO TRADE",
@@ -1229,11 +1234,6 @@
    },
    {
     "ts": "2026-11-13 00:15:43",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-   },
-   {
-    "ts": "2026-11-13 00:00:53",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
    }
@@ -1291,7 +1291,7 @@
    1740.1900000000003
   ],
   "last": {
-   "ts": "2026-11-13 01:15:43",
+   "ts": "2026-11-13 01:30:43",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1300,7 +1300,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)",
+   "reason": "ada candle spike di M15 (kemungkinan berita dadakan), tunggu tenang",
    "fund": {
     "bias": -0.3,
     "note": "Fed tahan 3,75-4%, pasar price hike Des ~80%, DXY ~102 kuat, yield 10Y 4,85%. Iran masih perang, negosiasi jalan. Bias negatif tipis.",
@@ -1312,7 +1312,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3889.00 di atas tengah band (3870.0–3892.0) · RSI 57 · Stoch 76 · MACD +1.82 · H1 bearish"
+    "note": "M15 3912.00 di atas band atas (3860.4–3907.0) · RSI 73 · Stoch 84 · MACD +4.01 · H1 bearish"
    }
   },
   "fund": {
@@ -1361,37 +1361,37 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "sideways",
-    "score": 1,
-    "price": 3900.5,
-    "ema20": 3885.46,
-    "ema50": 3886.44,
-    "rsi": 71.1,
+    "bias": "bullish",
+    "score": 3,
+    "price": 3912.5,
+    "ema20": 3888.04,
+    "ema50": 3887.46,
+    "rsi": 78.1,
     "n": 299,
-    "slot": 2990888,
-    "at": 1794532843528
+    "slot": 2990889,
+    "at": 1794533443598
    },
    "M15": {
     "bias": "sideways",
     "score": 1,
-    "price": 3889,
-    "ema20": 3883.18,
-    "ema50": 3893.01,
-    "rsi": 56.8,
+    "price": 3912.5,
+    "ema20": 3885.97,
+    "ema50": 3893.77,
+    "rsi": 73.6,
     "n": 299,
-    "slot": 1993925,
-    "at": 1794532543519
+    "slot": 1993926,
+    "at": 1794533443605
    },
    "M30": {
     "bias": "sideways",
-    "score": -1,
-    "price": 3887.3,
-    "ema20": 3887.8,
-    "ema50": 3919.51,
-    "rsi": 44.4,
+    "score": 1,
+    "price": 3912.5,
+    "ema20": 3890.15,
+    "ema50": 3919.24,
+    "rsi": 59.7,
     "n": 299,
-    "slot": 996962,
-    "at": 1794531643580
+    "slot": 996963,
+    "at": 1794533443606
    },
    "H1": {
     "bias": "bearish",
