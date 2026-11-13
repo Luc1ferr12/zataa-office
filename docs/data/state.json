@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-13T10:55:42.329Z",
+ "generated_at": "2026-11-13T11:05:42.340Z",
  "today": "2026-11-13",
  "week_start": "2026-11-09",
  "campaign": {
@@ -103,31 +103,31 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-13 10:45:57"
+   "updated_at": "2026-11-13 11:01:18"
   },
   {
    "id": "tresearch",
    "name": "Davina",
    "title": "Research & Fundamental",
    "status": "done",
-   "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
-   "updated_at": "2026-11-13 10:45:57"
+   "current_task": "Fundamental: Inflasi AS panas (10 Nov), pasar price-in hike Fed Des; NFP Okt kuat 165rb, UR 4,1%. Geopolitik 24 jam tak terkonfirmasi. Bias bearish.",
+   "updated_at": "2026-11-13 11:01:18"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-13 10:45:57"
+   "current_task": "Setup BUY di band (tanpa konfirmasi)",
+   "updated_at": "2026-11-13 11:01:18"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-11-13 10:45:57"
+   "current_task": "NO TRADE: setup BUY di band, konfirmasi baru 0/3 (-) · London–NY (mode aman)",
+   "updated_at": "2026-11-13 11:01:18"
   },
   {
    "id": "texec",
@@ -547,10 +547,10 @@
    "game": "sejarah",
    "pillar": "historical_figures",
    "title": "Kaisar Romawi Ini Menyatakan Perang Melawan Laut",
-   "status": "approved",
-   "asset_url": null,
+   "status": "posted",
+   "asset_url": "https://www.youtube.com/watch?v=MNPo86gYYr8",
    "scheduled_at": null,
-   "posted_at": null,
+   "posted_at": "2026-11-13 11:01:07",
    "channel": "youtube"
   },
   {
@@ -678,6 +678,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-13 11:01:07",
+   "agent_id": "ypublish",
+   "message": "Upload Shorts #169 ke Zataa History (Publik via Zernio)"
+  },
+  {
    "ts": "2026-11-13 10:30:57",
    "agent_id": "trisk",
    "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
@@ -796,14 +801,16 @@
    "ts": "2026-11-13 06:15:57",
    "agent_id": "trisk",
    "message": "NO TRADE · setup BUY di band, konfirmasi baru 0/2 (-) · sesi Asia"
-  },
-  {
-   "ts": "2026-11-13 06:15:57",
-   "agent_id": "ttech",
-   "message": "M15 berubah arah: bullish → sideways"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-11-13 11:00:46",
+   "agent_id": "analyst",
+   "to_id": "dir",
+   "kind": "oper",
+   "message": "Laporan harian marketing udah aku kirim ke Bos, 2 konten tayang hari ini 📊"
+  },
   {
    "ts": "2026-11-13 09:02:20",
    "agent_id": "publisher",
@@ -1076,26 +1083,19 @@
    "to_id": "owner",
    "kind": "santai",
    "message": "Videonya (#168) lagi antre render suara di laptop Bos. Angle-nya beda dari kemarin, fokus ke zona gugur, dan ada logo RRQ, ONIC, sama BTR."
-  },
-  {
-   "ts": "2026-11-12 02:32:40",
-   "agent_id": "researcher",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Siap Bos, aturan gugurnya udah dicek ke 2 sumber: habis 36 game, 4 tim terbawah dari 24 langsung pulang hari Minggu."
   }
  ],
  "stats": {
   "this_week": {
    "week": "2026-11-09",
    "total": 26,
-   "posted": 13,
+   "posted": 14,
    "pending": 3,
-   "scheduled": 4,
+   "scheduled": 3,
    "yt_total": 8,
-   "yt_posted": 5,
+   "yt_posted": 6,
    "yt_pending": 1,
-   "yt_scheduled": 2,
+   "yt_scheduled": 1,
    "views": 10950,
    "likes": 140,
    "comments": 4,
@@ -1204,9 +1204,14 @@
   "paused": false,
   "balance": 1728.1799999999998,
   "today_pnl": -12.01,
-  "price": 3896.320068,
+  "price": 3894.100098,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-13 11:01:18",
+    "decision": "NO TRADE",
+    "reason": "setup BUY di band, konfirmasi baru 0/3 (-) · London–NY (mode aman)"
+   },
    {
     "ts": "2026-11-13 10:45:57",
     "decision": "NO TRADE",
@@ -1229,11 +1234,6 @@
    },
    {
     "ts": "2026-11-13 09:45:57",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-11-13 09:30:57",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1302,7 +1302,7 @@
    1728.1799999999998
   ],
   "last": {
-   "ts": "2026-11-13 10:45:57",
+   "ts": "2026-11-13 11:01:18",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1311,22 +1311,25 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
+   "reason": "setup BUY di band, konfirmasi baru 0/3 (-) · London–NY (mode aman)",
    "fund": {
-    "bias": 0,
-    "note": "netral (belum ada ringkasan hari ini)",
+    "bias": -0.4,
+    "note": "Inflasi AS panas (10 Nov), pasar price-in hike Fed Des; NFP Okt kuat 165rb, UR 4,1%. Geopolitik 24 jam tak terkonfirmasi. Bias bearish.",
     "danger": null,
     "blackout": null
    },
    "tech": {
     "bias": "sideways",
     "score": 0,
-    "trigger": null,
+    "trigger": "buy",
     "confirm": [],
-    "note": "M15 3897.42 di bawah tengah band (3895.5–3906.7) · RSI 43 · Stoch 33 · MACD -0.49 · H1 sideways"
+    "note": "M15 3896.85 di bawah tengah band (3894.8–3906.9) · RSI 43 · Stoch 21 · MACD -0.63 · H1 sideways · setup BUY (tanpa konfirmasi)"
    }
   },
-  "fund": null,
+  "fund": {
+   "bias": -0.4,
+   "note": "Inflasi AS panas (10 Nov), pasar price-in hike Fed Des; NFP Okt kuat 165rb, UR 4,1%. Geopolitik 24 jam tak terkonfirmasi. Bias bearish."
+  },
   "calendar": [
    {
     "title": "Core PPI m/m",
@@ -1371,46 +1374,46 @@
    "M10": {
     "bias": "bearish",
     "score": -2,
-    "price": 3896,
-    "ema20": 3901.62,
-    "ema50": 3902.41,
-    "rsi": 42.6,
+    "price": 3896.77,
+    "ema20": 3901.15,
+    "ema50": 3902.19,
+    "rsi": 43.7,
     "n": 299,
-    "slot": 2990945,
-    "at": 1794567057827
+    "slot": 2990946,
+    "at": 1794567657777
    },
    "M15": {
     "bias": "sideways",
     "score": -1,
-    "price": 3898.17,
-    "ema20": 3902.89,
-    "ema50": 3903.03,
-    "rsi": 44.3,
+    "price": 3896.77,
+    "ema20": 3902.31,
+    "ema50": 3902.78,
+    "rsi": 42.9,
     "n": 299,
-    "slot": 1993963,
-    "at": 1794566757764
+    "slot": 1993964,
+    "at": 1794567657782
    },
    "M30": {
     "bias": "bearish",
     "score": -2,
-    "price": 3901.97,
-    "ema20": 3902.67,
-    "ema50": 3912.82,
-    "rsi": 49.1,
+    "price": 3896.77,
+    "ema20": 3902.11,
+    "ema50": 3912.19,
+    "rsi": 45.7,
     "n": 299,
-    "slot": 996981,
-    "at": 1794565857754
+    "slot": 996982,
+    "at": 1794567657784
    },
    "H1": {
     "bias": "sideways",
     "score": -1,
-    "price": 3904.3,
-    "ema20": 3908.37,
-    "ema50": 3944.8,
-    "rsi": 44.2,
+    "price": 3896.77,
+    "ema20": 3907.27,
+    "ema50": 3942.91,
+    "rsi": 41,
     "n": 299,
-    "slot": 498490,
-    "at": 1794564057745
+    "slot": 498491,
+    "at": 1794567657788
    }
   },
   "currency": "USC",
