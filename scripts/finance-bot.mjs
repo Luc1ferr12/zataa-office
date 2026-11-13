@@ -10,7 +10,7 @@ import { claude, ESCALATE } from './ask.mjs';
 import { OFFICE, ANSWER_ANY, LOOKUPS } from './haiku.mjs';
 import { wita } from '../docs/js/schedule.js';
 import { morning, reminders, todayTx, rp } from './finance.mjs';
-import { pushRge, laptopIdleMin, RGE_RE } from './rge-queue.mjs';
+import { pushRge, laptopIdleMin, RGE_RE, holdReply } from './rge-queue.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const HIST = join(ROOT, 'tmp', 'finance-chat.json');
@@ -58,7 +58,7 @@ function saveHist(owner, reply) {
 }
 
 export async function handleFinance(msg, refs = [], log = console.log) {
-  if (!refs.length && RGE_RE.test(msg)) return routeRge(msg, log);
+  if (!refs.length && (RGE_RE.test(msg) || holdReply(msg))) return routeRge(msg, log);
   const t = wita(new Date());
   const day = (n) => new Date(Date.UTC(...t.date.split('-').map((x, i) => (i === 1 ? x - 1 : +x))) + n * 86400000).toISOString().slice(0, 10);
   const monday = day(-((t.dow + 6) % 7));
