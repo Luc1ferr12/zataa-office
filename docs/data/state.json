@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-13T06:25:42.211Z",
+ "generated_at": "2026-11-13T06:35:42.213Z",
  "today": "2026-11-13",
  "week_start": "2026-11-09",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-13 06:15:57"
+   "updated_at": "2026-11-13 06:30:57"
   },
   {
    "id": "tresearch",
@@ -111,23 +111,23 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Fed tahan 3,75-4%, pasar price hike Des ~80%, DXY ~102 kuat, yield 10Y 4,85%. Iran masih perang, negosiasi jalan. Bias negatif tipis.",
-   "updated_at": "2026-11-13 06:15:57"
+   "updated_at": "2026-11-13 06:30:57"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Setup BUY di band (tanpa konfirmasi)",
-   "updated_at": "2026-11-13 06:15:57"
+   "current_task": "Belum ada pantulan band · H1 bearish",
+   "updated_at": "2026-11-13 06:30:57"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: setup BUY di band, konfirmasi baru 0/2 (-) · sesi Asia",
-   "updated_at": "2026-11-13 06:15:57"
+   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
+   "updated_at": "2026-11-13 06:30:57"
   },
   {
    "id": "texec",
@@ -1096,12 +1096,12 @@
    "yt_posted": 5,
    "yt_pending": 1,
    "yt_scheduled": 2,
-   "views": 10542,
+   "views": 10599,
    "likes": 137,
    "comments": 3,
    "shares": 3,
    "saves": 0,
-   "yt_views": 8622,
+   "yt_views": 8672,
    "top": [
     {
      "title": "Tulisan Tertua Indonesia Ada di 7 Tiang Batu Ini",
@@ -1113,13 +1113,13 @@
      "title": "Gubernur Jenderal Dikubur di Sini, Lalu Dilupakan",
      "format": "shorts",
      "pillar": "horor_sejarah",
-     "views": 1923
+     "views": 1928
     },
     {
      "title": "Nisan Pemuda 25 Tahun Ini Ada di Dalam Benteng Inggris",
      "format": "shorts",
      "pillar": "horor_sejarah",
-     "views": 1846
+     "views": 1854
     }
    ],
    "clicks": 0,
@@ -1156,7 +1156,7 @@
    "yt_posted": 14,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 35882,
+   "views": 35883,
    "likes": 385,
    "comments": 4,
    "shares": 0,
@@ -1204,9 +1204,14 @@
   "paused": false,
   "balance": 1728.1799999999998,
   "today_pnl": -12.01,
-  "price": 3902.100098,
+  "price": 3902.149902,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-13 06:30:57",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
+   },
    {
     "ts": "2026-11-13 06:15:57",
     "decision": "NO TRADE",
@@ -1229,11 +1234,6 @@
    },
    {
     "ts": "2026-11-13 05:15:57",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-   },
-   {
-    "ts": "2026-11-13 05:00:57",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
    }
@@ -1302,7 +1302,7 @@
    1728.1799999999998
   ],
   "last": {
-   "ts": "2026-11-13 06:15:57",
+   "ts": "2026-11-13 06:30:57",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1311,7 +1311,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "setup BUY di band, konfirmasi baru 0/2 (-) · sesi Asia",
+   "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)",
    "fund": {
     "bias": -0.3,
     "note": "Fed tahan 3,75-4%, pasar price hike Des ~80%, DXY ~102 kuat, yield 10Y 4,85%. Iran masih perang, negosiasi jalan. Bias negatif tipis.",
@@ -1321,9 +1321,9 @@
    "tech": {
     "bias": "bearish",
     "score": 0,
-    "trigger": "buy",
+    "trigger": null,
     "confirm": [],
-    "note": "M15 3903.40 di bawah tengah band (3900.9–3926.7) · RSI 46 · Stoch 29 · MACD -2.50 · H1 bearish · setup BUY (tanpa konfirmasi)"
+    "note": "M15 3901.55 di bawah tengah band (3898.8–3927.8) · RSI 45 · Stoch 17 · MACD -2.94 · H1 bearish"
    }
   },
   "fund": {
@@ -1374,35 +1374,35 @@
    "M10": {
     "bias": "sideways",
     "score": -1,
-    "price": 3903.15,
-    "ema20": 3911.33,
-    "ema50": 3905.59,
-    "rsi": 44.2,
+    "price": 3900.9,
+    "ema20": 3910.33,
+    "ema50": 3905.4,
+    "rsi": 42.6,
     "n": 299,
-    "slot": 2990918,
-    "at": 1794550857550
+    "slot": 2990919,
+    "at": 1794551457556
    },
    "M15": {
     "bias": "sideways",
     "score": 0,
-    "price": 3902.1,
-    "ema20": 3910.06,
-    "ema50": 3904.78,
-    "rsi": 45.1,
+    "price": 3900.9,
+    "ema20": 3909.19,
+    "ema50": 3904.63,
+    "rsi": 44.1,
     "n": 299,
-    "slot": 1993945,
-    "at": 1794550557549
+    "slot": 1993946,
+    "at": 1794551457560
    },
    "M30": {
     "bias": "sideways",
-    "score": 1,
-    "price": 3911.05,
-    "ema20": 3905,
-    "ema50": 3917.94,
-    "rsi": 53.6,
+    "score": -1,
+    "price": 3900.9,
+    "ema20": 3904.61,
+    "ema50": 3917.27,
+    "rsi": 47.5,
     "n": 299,
-    "slot": 996972,
-    "at": 1794549657557
+    "slot": 996973,
+    "at": 1794551457562
    },
    "H1": {
     "bias": "bearish",
