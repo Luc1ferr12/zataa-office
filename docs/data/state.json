@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-13T00:24:41.914Z",
+ "generated_at": "2026-11-13T00:34:41.918Z",
  "today": "2026-11-13",
  "week_start": "2026-11-09",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-13 00:15:43"
+   "updated_at": "2026-11-13 00:30:43"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Fed tahan 3,75-4%, pasar price hike Des ~80%, DXY ~102 kuat, yield 10Y 4,85%. Iran masih perang, negosiasi jalan. Bias negatif tipis.",
-   "updated_at": "2026-11-13 00:15:43"
+   "updated_at": "2026-11-13 00:30:43"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-11-13 00:15:43"
+   "updated_at": "2026-11-13 00:30:43"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
-   "updated_at": "2026-11-13 00:15:43"
+   "updated_at": "2026-11-13 00:30:43"
   },
   {
    "id": "texec",
@@ -1096,30 +1096,30 @@
    "yt_posted": 5,
    "yt_pending": 1,
    "yt_scheduled": 2,
-   "views": 10145,
-   "likes": 129,
+   "views": 10280,
+   "likes": 131,
    "comments": 2,
    "shares": 3,
    "saves": 0,
-   "yt_views": 8305,
+   "yt_views": 8438,
    "top": [
     {
      "title": "Tulisan Tertua Indonesia Ada di 7 Tiang Batu Ini",
      "format": "shorts",
      "pillar": "misteri_kuno",
-     "views": 2185
+     "views": 2187
     },
     {
      "title": "Gubernur Jenderal Dikubur di Sini, Lalu Dilupakan",
      "format": "shorts",
      "pillar": "horor_sejarah",
-     "views": 1908
+     "views": 1913
     },
     {
      "title": "Nisan Pemuda 25 Tahun Ini Ada di Dalam Benteng Inggris",
      "format": "shorts",
      "pillar": "horor_sejarah",
-     "views": 1581
+     "views": 1700
     }
    ],
    "clicks": 0,
@@ -1204,9 +1204,14 @@
   "paused": false,
   "balance": 1740.19,
   "today_pnl": 0,
-  "price": 3885.5,
+  "price": 3883.600098,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-13 00:30:43",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
+   },
    {
     "ts": "2026-11-13 00:15:43",
     "decision": "NO TRADE",
@@ -1229,11 +1234,6 @@
    },
    {
     "ts": "2026-11-12 23:15:43",
-    "decision": "NO TRADE",
-    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
-   },
-   {
-    "ts": "2026-11-12 23:01:06",
     "decision": "NO TRADE",
     "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
    }
@@ -1291,7 +1291,7 @@
    1740.1900000000003
   ],
   "last": {
-   "ts": "2026-11-13 00:15:43",
+   "ts": "2026-11-13 00:30:43",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1312,7 +1312,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3887.70 di atas tengah band (3870.8–3890.6) · RSI 57 · Stoch 83 · MACD +2.01 · H1 bearish"
+    "note": "M15 3884.10 di atas tengah band (3871.2–3889.7) · RSI 52 · Stoch 74 · MACD +1.68 · H1 bearish"
    }
   },
   "fund": {
@@ -1363,35 +1363,35 @@
    "M10": {
     "bias": "sideways",
     "score": 1,
-    "price": 3887.5,
-    "ema20": 3880.93,
-    "ema50": 3885.33,
-    "rsi": 65.5,
+    "price": 3884.1,
+    "ema20": 3881.23,
+    "ema50": 3885.28,
+    "rsi": 56.4,
     "n": 299,
-    "slot": 2990882,
-    "at": 1794529243572
+    "slot": 2990883,
+    "at": 1794529843485
    },
    "M15": {
     "bias": "sideways",
     "score": 0,
-    "price": 3889.1,
-    "ema20": 3881.07,
-    "ema50": 3893.98,
-    "rsi": 58.8,
+    "price": 3884.1,
+    "ema20": 3881.35,
+    "ema50": 3893.6,
+    "rsi": 51.6,
     "n": 299,
-    "slot": 1993921,
-    "at": 1794528943472
+    "slot": 1993922,
+    "at": 1794529843491
    },
    "M30": {
     "bias": "sideways",
     "score": -1,
-    "price": 3882.8,
-    "ema20": 3888.25,
-    "ema50": 3922.33,
-    "rsi": 40.7,
-    "n": 300,
-    "slot": 996960,
-    "at": 1794528053424
+    "price": 3884.1,
+    "ema20": 3887.85,
+    "ema50": 3920.83,
+    "rsi": 41.8,
+    "n": 299,
+    "slot": 996961,
+    "at": 1794529843492
    },
    "H1": {
     "bias": "bearish",
