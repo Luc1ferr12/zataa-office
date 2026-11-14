@@ -31,7 +31,8 @@ Sebulan sekali kalau Andre minta: 6–12 akun gaming/esport Indonesia (4 sejenis
 Sumber utama: situs/akun resmi publisher & liga, lalu portal berita esport. Forum/medsos cuma jadi **sinyal**, bukan fakta.
 
 ## Logo & foto (aturan Owner)
-Tiap berita tim/pemain: cari juga **URL file gambar** logo tim, foto bareng tim, atau foto pemain (sumber resmi tim/liga, Liquipedia, portal esport), lalu simpan: `node scripts/asset.mjs get <url> teams/<tim>` · `players/<tim>-<pemain>` · `photos/<tim>-<acara>`. Cek `asset.mjs list` dulu biar nggak dobel. Tulis path-nya di `summary` supaya Tiara tinggal pakai.
+**Database dulu:** `node scripts/roster.mjs find <tim|pemain>` → path logo, foto tim (`photos/<tim>-<game>-roster`), foto tiap pemain aktif (indeks `assets/roster.json`, sumber Liquipedia, update otomatis tgl 1 tiap bulan lewat watcher). Tim belum ada → `roster.mjs add <mlbb|valorant|freefire> <slug> "<Halaman Liquipedia>"`; transfer dadakan → `roster.mjs sync <slug>`.
+Kalau nggak ada di database: tiap berita tim/pemain: cari juga **URL file gambar** logo tim, foto bareng tim, atau foto pemain (sumber resmi tim/liga, Liquipedia, portal esport), lalu simpan: `node scripts/asset.mjs get <url> teams/<tim>` · `players/<tim>-<pemain>` · `photos/<tim>-<acara>`. Cek `asset.mjs list` dulu biar nggak dobel. Tulis path-nya di `summary` supaya Tiara tinggal pakai.
 
 ## Verifikasi
 - **Format & istilah liga: baca `office/esport.md` dulu.** MPL ID = match Bo3, klasemen pakai **Match Point** (1 MP = menang 1 seri) lalu net game; tulis "Match Point/MP", bukan "poin" polos. Liga yang belum ada di file itu → cek format resminya, tambahkan ringkas.

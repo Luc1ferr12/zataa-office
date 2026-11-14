@@ -30,6 +30,7 @@ function startChild(tag, args, tokenEnv = null) {
   p.on('exit', (code) => { log(`[${tag}] bot berhenti (kode ${code}), nyala lagi 30 dtk`); setTimeout(() => startChild(tag, args, tokenEnv), 30_000); });
 }
 import { analystTick } from './analyst.mjs';
+import { rosterTick } from './roster.mjs';
 import { engageTick } from './engage.mjs';
 import { socialsTick } from './socials.mjs';
 import { priceTick, storeOn } from './price.mjs';
@@ -220,6 +221,18 @@ async function staff() {
   crunching = false;
 }
 
+// Salsa: update database logo tim & foto pemain tiap tanggal 1 (Liquipedia, ±30 menit, 0 token) → jalan sendiri
+let rostering = false;
+async function roster() {
+  if (rostering) return;
+  rostering = true;
+  try {
+    const r = await rosterTick();
+    if (r) log(`salsa roster: ${JSON.stringify(r)}`);
+  } catch (e) { log(`salsa roster gagal: ${e.message}`); }
+  rostering = false;
+}
+
 // Fikri: draf IG Story harian + balasan komen buat Owner posting manual (Haiku, bisa ±3 menit → jalan sendiri)
 let engaging = false;
 async function engage() {
@@ -238,6 +251,7 @@ async function tick() {
   talk();
   staff();
   engage();
+  roster();
   beat('watcher', true, 'jalan');
   laptopFallback(log).catch((e) => log(`fallback laptop gagal: ${e.message}`));
   try {
