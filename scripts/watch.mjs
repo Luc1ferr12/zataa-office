@@ -20,7 +20,7 @@ import { startChitchatBot } from './chitchat-bot.mjs';
 import { startShortsBot } from './shorts-bot.mjs';
 
 // Bot divisi lain = proses anak watcher (modul beda), mati → hidup lagi 30 dtk:
-//   Zaa Story & Marvel Talk pakai shorts-bot.mjs yang sama (--brand=…), Clipper pakai clipper.mjs bot.
+//   Zaa Story & Marvel Talk pakai shorts-bot.mjs yang sama (--brand=…), Zaa Clips pakai clipper.mjs bot.
 // Token bot belum diisi di .env → dicek ulang tiap 10 menit (isi token = langsung nyala tanpa restart).
 function startChild(tag, args, tokenEnv = null) {
   if (tokenEnv && !loadEnv()[tokenEnv]) return void setTimeout(() => startChild(tag, args, tokenEnv), 600_000);
@@ -277,5 +277,5 @@ if (!process.argv.includes('--once')) {
   startShortsBot(log); // bot @zataashortbot Zaa History (approval → upload Private → ingatkan Publik)
   startChild('story', ['shorts-bot.mjs', 'bot', '--brand=story']); // bot @zataastorybot Zaa Story
   startChild('marvel', ['shorts-bot.mjs', 'bot', '--brand=marvel'], 'MARVEL_BOT_TOKEN'); // bot Marvel Talk (16 Nov 2026)
-  startChild('clipper', ['clipper.mjs', 'bot'], 'CLIPPER_BOT_TOKEN'); // bot Clipper: campaign Clippo → ✅ Owner → clip → TikTok+IG → ajukan
+  startChild('clipper', ['clipper.mjs', 'bot'], 'CLIPPER_BOT_TOKEN'); // bot Zaa Clips: campaign Clippo → ✅ Owner → clip → TikTok+IG → ajukan
 }

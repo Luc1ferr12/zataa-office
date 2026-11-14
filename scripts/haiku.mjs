@@ -23,13 +23,13 @@ export const OFFICE = `Zaa Office (kantor virtual; web top up zataa.my.id lagi D
 - YouTube Shorts "Zaa History" (sejarah misteri kuno dunia, 4 Shorts/minggu, bot @zataashortbot): Bagas (ydir), Nadhira (yresearch), Laras (yscript), Galih (yvisual), Yoga (yvideo), Kirana (ypublish).
 - Zaa Story (misteri & horor Nusantara, YouTube + TikTok tiap hari, bot @zataastorybot): Raditya (sdir), Sekar (sresearch), Dinda (sscript), Arga (svisual), Bima (svideo), Nayla (spublish).
 - Marvel Talk (lore, teori, fakta & berita MCU, YouTube + TikTok tiap hari, bot Marvel Talk, Lt.4): Reza (vdir), Citra (vresearch), Fajar (vscript), Intan (vvisual), Kevin (vvideo), Putri (vpublish).
-- Clipper (campaign Clippo app.clippo.id → clip TikTok + IG 3/hari, campaign wajib ✅ Owner, bot Clipper, Lt.4): Hendra (cdir), Maya (cbrief), Rizky (cedit), Wulan (ccopy), Tasya (cpublish).
+- Zaa Clips (campaign Clippo app.clippo.id → clip TikTok + IG 3/hari, campaign wajib ✅ Owner, bot Zaa Clips, Lt.4): Hendra (cdir), Maya (cbrief), Rizky (cedit), Wulan (ccopy), Tasya (cpublish).
 - Trading XAUUSD (bot Zaa Office Trading): Mahendra (tdir), Davina (tresearch), Keira (ttech), Aryaputra (trisk), Wiratama (texec), Jihan (teval), Selena (treport).
 - Nabila (sec): sekretaris pribadi Bos, catat keuangan pribadi di @zataaaccountingbot.
 Owner = Bos Zamiir.`;
 
 export const ANSWER_ANY = `Pertanyaan APA PUN (pengetahuan umum, saran, divisi lain, kondisi kantor) → JAWAB langsung, jangan suruh pindah bot.
-Data kantor ambil baca-saja kalau perlu: trading "node scripts/trading/cli.mjs status", Shorts "node scripts/shorts-bot.mjs list" (Zaa Story/Marvel Talk: tambah --brand=story / --brand=marvel), Clipper "node scripts/clipper.mjs jobs", marketing "node scripts/office.mjs brief <id>", harga zataa "node scripts/price.mjs latest [kata]". Jangan ngarang angka; datanya nggak ada → bilang jujur. Fakta terkini boleh cari web maks 2×.`;
+Data kantor ambil baca-saja kalau perlu: trading "node scripts/trading/cli.mjs status", Shorts "node scripts/shorts-bot.mjs list" (Zaa Story/Marvel Talk: tambah --brand=story / --brand=marvel), Zaa Clips "node scripts/clipper.mjs jobs", marketing "node scripts/office.mjs brief <id>", harga zataa "node scripts/price.mjs latest [kata]". Jangan ngarang angka; datanya nggak ada → bilang jujur. Fakta terkini boleh cari web maks 2×.`;
 
 export function haiku(prompt, { minutes = 3, tools = LOOKUPS } = {}) {
   const bin = envVal('CLAUDE_BIN') || 'claude';

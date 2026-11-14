@@ -97,8 +97,8 @@ function renderSocials() {
   $('social-updated').textContent = s?.generated_at ? `update ${new Date(s.generated_at).toLocaleString('id-ID', { timeZone: 'Asia/Makassar', hour: '2-digit', minute: '2-digit', day: 'numeric', month: 'short' })} WITA` : '';
   if (!s) { $('social-grid').innerHTML = '<p class="muted">Belum ada data. Ditarik otomatis tiap 3 jam.</p>'; return; }
   const GROUP = { story: '<h3 class="social-group"><img src="assets/zataa-story-logo.png" alt="" width="28" height="28">Zaa Story <small>misteri & horor Nusantara · tim Raditya</small></h3>',
-    marvel: '<h3 class="social-group">🦸 Marvel Talk <small>lore, teori & berita MCU · tim Reza</small></h3>',
-    clip: '<h3 class="social-group">🎬 Clipper <small>campaign Clippo · tim Hendra</small></h3>' };
+    marvel: '<h3 class="social-group"><img src="assets/marvel-talk-logo.png" alt="" width="28" height="28">Marvel Talk <small>lore, teori & berita MCU · tim Reza</small></h3>',
+    clip: '<h3 class="social-group"><img src="assets/zaa-clips-logo.png" alt="" width="28" height="28">Zaa Clips <small>campaign Clippo · tim Hendra</small></h3>' };
   $('social-grid').innerHTML = PLATFORMS.map((pf, i) => (pf.group && pf.group !== PLATFORMS[i - 1]?.group ? GROUP[pf.group] : '') + (() => {
     const p = s[pf.key];
     const head = `<h3><span>${pf.icon} ${pf.name}</span>${p?.url && safeUrl(p.url) ? `<a href="${esc(p.url)}" target="_blank" rel="noopener">${esc(p.handle ?? '')}</a>` : ''}</h3>`;
@@ -253,7 +253,7 @@ const DIVISIONS = [
   { name: 'YouTube · Zaa History', color: 'yt', flow: 'riset → naskah & cek fakta → visual → video → upload · tiap hari', ids: ['ydir', 'yresearch', 'yscript', 'yvisual', 'yvideo', 'ypublish'] },
   { name: 'Zaa Story', color: 'story', flow: 'riset → naskah → visual → video → YouTube + TikTok · tiap hari', ids: ['sdir', 'sresearch', 'sscript', 'svisual', 'svideo', 'spublish'] },
   { name: 'Marvel Talk', color: 'mv', flow: 'riset → naskah & cek fakta → visual → video → YouTube + TikTok · tiap hari', ids: ['vdir', 'vresearch', 'vscript', 'vvisual', 'vvideo', 'vpublish'] },
-  { name: 'Clipper', color: 'clip', flow: 'campaign Clippo → ✅ Bos → clip 9:16 → TikTok + IG → ajukan', ids: ['cdir', 'cbrief', 'cedit', 'ccopy', 'cpublish'] },
+  { name: 'Zaa Clips', color: 'clip', flow: 'campaign Clippo → ✅ Bos → clip 9:16 → TikTok + IG → ajukan', ids: ['cdir', 'cbrief', 'cedit', 'ccopy', 'cpublish'] },
   { name: 'Trading XAUUSD', color: 'trd', flow: 'siklus tiap candle M15', ids: ['tdir', 'tresearch', 'ttech', 'trisk', 'texec', 'teval', 'treport'] },
 ];
 

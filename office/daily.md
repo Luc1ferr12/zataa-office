@@ -34,8 +34,8 @@ Kamu menjalankan satu hari kerja Zaa Office (divisi About Esports = media esport
 - Vania/Dimas: `node scripts/render.mjs <id>`, buka 1 hasil (video: cover), perbaiki maks 2×.
 - Fikri: QA (`office/roles/publisher.md`) → `node scripts/approval.mjs submit <id>`. Posting IG otomatis oleh watcher setelah Owner ✅ — jangan posting manual.
 
-## 3C. Clipper (tim Hendra, SOP `office/clipper.md`)
-Jalan sendiri tanpa sesi ini (bot Clipper + laptop): campaign Clippo dibaca Chrome laptop 07:30, usulan ke Owner 07:45, clip dibikin cuma dari campaign yang di-✅. Sesi pagi cukup cek `node scripts/clipper.mjs jobs` → ada `failed` → catat penyebabnya di log (`office.mjs log cedit "..."`), jangan bikin clip manual.
+## 3C. Zaa Clips (tim Hendra, SOP `office/clipper.md`)
+Jalan sendiri tanpa sesi ini (bot Zaa Clips + laptop): campaign Clippo dibaca Chrome laptop 07:30, usulan ke Owner 07:45, clip dibikin cuma dari campaign yang di-✅. Sesi pagi cukup cek `node scripts/clipper.mjs jobs` → ada `failed` → catat penyebabnya di log (`office.mjs log cedit "..."`), jangan bikin clip manual.
 
 ## 3Y. Shorts — tiga divisi, kode sama, bedanya `--brand`
 **Marvel Talk** (tim Reza, SOP `office/marvel.md`, mulai Senin 16 Nov 2026, SETIAP HARI 1 Shorts, YouTube + TikTok): langkahnya sama dengan Zaa Story di bawah, semua perintah pakai `--brand=marvel`, playbook `office/roles/v*.md`, kuota 7/minggu ≥3 Lore & Teori, dikirim ke Owner di bot Marvel Talk. **Visual tanpa footage film/trailer Marvel** (hak cipta). Bot/Zernio akun 3 belum diisi Owner → tetap produksi & simpan, lapor di catatan.

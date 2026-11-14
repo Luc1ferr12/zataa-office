@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Divisi Clipper — akses Clippo lewat Chrome laptop Owner yang sudah login (Clippo nolak request dari server, 403).
+// Divisi Zaa Clips — akses Clippo lewat Chrome laptop Owner yang sudah login (Clippo nolak request dari server, 403).
 // Pakai Claude CLI + ekstensi Claude in Chrome (`claude --chrome`), dipanggil laptop-worker.mjs:
 //   node scripts/clipper-chrome.mjs scout    baca semua campaign aktif (+ detail brief) di halaman Clippo → file JSON → VPS clipper.mjs ingest
 //   node scripts/clipper-chrome.mjs submit   kerjain antrean VPS (clipper.mjs submitq): Join Campaign yang di-✅ Owner + ajukan clip yang lolos syarat

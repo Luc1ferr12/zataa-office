@@ -1,4 +1,4 @@
-# Wulan — Hook, Subtitle & Caption Clipper
+# Wulan — Hook, Subtitle & Caption Zaa Clips
 Diadaptasi dari: Copywriter, Social Media Strategist (agency-agents, MIT).
 
 ## Misi

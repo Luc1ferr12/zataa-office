@@ -1,4 +1,4 @@
-# SOP Divisi Clipper (campaign Clippo → clip TikTok + Instagram)
+# SOP Divisi Zaa Clips (campaign Clippo → clip TikTok + Instagram)
 
 **Divisi baru sejak 16 Nov 2026 (keputusan Owner 15 Nov).** Ikut campaign di **app.clippo.id**: brand/kreator bayar per 1.000 views (CPM) untuk clip dari footage mereka. Akun clipper sendiri: TikTok + Instagram baru (YouTube nggak dipakai: hampir semua campaign cuma bayar TikTok/IG). Target **3 clip/hari**.
 
@@ -13,12 +13,12 @@
 
 ## Alur (otomatis, 0 token kecuali pilih momen)
 1. **07:30 WITA laptop** (`laptop-worker.mjs` → `clipper-chrome.mjs scout`): Claude buka app.clippo.id di **Chrome Owner yang sudah login** (ekstensi Claude in Chrome), baca semua campaign aktif + detail brief, simpan JSON → VPS `clipper.mjs ingest`. Clippo nolak akses dari server (403), **jangan diakalin**: semua akses Clippo lewat Chrome laptop.
-2. **07:45 VPS** (bot Clipper, proses anak watcher): saring otomatis (TikTok/IG, budget ≥15%, ada footage, bukan keranjang kuning/UGC/template CapCut/Threads), skor = rate × sisa budget → **3 terbaik ke Owner** dengan tombol ✅ Ambil / ❌ Lewati (kalau campaign aktif < 3).
+2. **07:45 VPS** (bot Zaa Clips, proses anak watcher): saring otomatis (TikTok/IG, budget ≥15%, ada footage, bukan keranjang kuning/UGC/template CapCut/Threads), skor = rate × sisa budget → **3 terbaik ke Owner** dengan tombol ✅ Ambil / ❌ Lewati (kalau campaign aktif < 3).
 3. Owner ✅ → antrean **Join Campaign** (laptop klik lewat Chrome) + bikin job clip. **Tanpa ✅ Owner nggak ada clip yang dibikin.**
 4. **08:00** `plan`: job hari ini sampai `CLIP_PER_DAY` (3), dibagi rata ke campaign aktif, footage wajib dulu lalu yang paling jarang dipakai.
 5. **Laptop** (`clipper-laptop.mjs`, tiap putaran worker maks 3 job): download footage (yt-dlp / folder Drive pakai `gdown`) → transkrip whisper.cpp → Claude pilih momen + hook + caption sesuai brief → ffmpeg 1080×1920 → scp `out/clips/` → `clipper.mjs post` → **langsung tayang** TikTok + IG Reels (Zernio akun 4).
 6. **Tiap jam** `track`: views & likes per video dari Zernio. Lolos syarat Clippo (**≥ minSubmissionViews, biasanya 1.000, dan like rate ≥0,5%**, akun ≥10 follower) → antrean ajukan → laptop isi form submit di Chrome → `submitted` → kabar Owner.
-7. **19:00** laporan harian Tasya di bot Clipper: campaign jalan, clip hari ini, views 7 hari, diajukan, estimasi cuan.
+7. **19:00** laporan harian Tasya di bot Zaa Clips: campaign jalan, clip hari ini, views 7 hari, diajukan, estimasi cuan.
 
 ## Akun & kunci (.env) — diisi Owner
 - VPS: `CLIPPER_BOT_TOKEN` (bot baru di BotFather; watcher otomatis nyalain begitu ada), `CLIPPER_OWNER_ID` (default `SHORTS_OWNER_ID`), `ZERNIO_CLIP_API_KEY` (Zernio **akun 4**, sambungkan TikTok + Instagram clipper; kunci id: `ZERNIO_CLIP_TIKTOK_ACCOUNT`, `ZERNIO_CLIP_INSTAGRAM_ACCOUNT`), `CLIP_PER_DAY` (default 3).

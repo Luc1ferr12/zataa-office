@@ -6,7 +6,7 @@ import { material, T, UP, K, PXH, hash2, hash3, vnoise } from './engine.js';
 import { textBitmap } from './font.js';
 
 // ---------------------------------------------------------------- tata letak (dipakai juga oleh nav.js & export Blender)
-export const FRONT = [4, -6, -16, -26];      // tepi depan tiap tingkat (lantai 1…4; Lt.4 Clipper & Marvel Talk sejak 16 Nov 2026)
+export const FRONT = [4, -6, -16, -26];      // tepi depan tiap tingkat (lantai 1…4; Lt.4 Zaa Clips & Marvel Talk sejak 16 Nov 2026)
 export const FLOORS = FRONT.length;
 export const CORR = 2;                       // lebar selasar
 export const DEPTH = 10;                     // selasar + ruang
@@ -17,7 +17,7 @@ export const SPAN = [[-32, 32], [-32, 32], [-32, 32], [-32, 32]];
 export const CORR_SPAN = [[-32, 32], [-32, 32], [-32, 32], [-32, 32]];
 // ruang per tingkat: [id, x0, x1, nama]
 // Lt.1 publik (indoor) · Lt.2 kerja (tangga ke Lt.3 di pojok kiri, 4 ruang manajer, 4 bilik divisi) · Lt.3 hiburan, meeting & Bos (+ tangga ke Lt.4)
-// · Lt.4 divisi kreator: Clipper & Marvel Talk (ruang manajer, bilik, Meeting Kreator, Studio Podcast)
+// · Lt.4 divisi kreator: Zaa Clips & Marvel Talk (ruang manajer, bilik, Meeting Kreator, Studio Podcast)
 export const ROOMDEF = {
   1: [['mushola', -32, -20, 'Mushola'], ['wudhu', -20, -17, 'Tempat Wudhu'], ['gudang', -17, -14, 'Gudang Mbak Sari'], ['tangga1', -14, -10, 'Tangga'],
     ['cafe', -10, 13, 'Cafe & Resto'], ['santai', 13, 32, 'Ruang Santai']],
@@ -27,7 +27,7 @@ export const ROOMDEF = {
     ['trd', 20.45, 32, 'Bilik Trading']],
   3: [['meetM', -32, -24, 'Meeting About Esports'], ['meetT', -24, -18, 'Meeting Trading'], ['meetY', -18, -14, 'Meeting YouTube'],
     ['billiard', -14, -1.5, 'Billiard'], ['tangga3', -1.5, 2, 'Tangga'], ['boss', 2, 16, 'Ruang Boss'], ['bioskop', 16, 32, 'Bioskop Mini']],
-  4: [['cdirRoom', -32, -27, 'R. Manajer Clipper'], ['vdirRoom', -27, -22, 'R. Manajer Marvel'], ['clip', -22, -6, 'Bilik Clipper'],
+  4: [['cdirRoom', -32, -27, 'R. Manajer Zaa Clips'], ['vdirRoom', -27, -22, 'R. Manajer Marvel'], ['clip', -22, -6, 'Bilik Zaa Clips'],
     ['mv', -6, 10, 'Bilik Marvel Talk'], ['meetK', 10, 18, 'Meeting Kreator'], ['studio', 18, 32, 'Studio Podcast']],
 };
 export const ROOM = {};
@@ -205,7 +205,7 @@ export const TEAM_DESK = {
 export const AISLE = { A: -4.8, B: -1.2 };   // lorong baris (lz)
 const ROW_DESK = { A: -7.25, B: -3.6 };   // lz tengah meja
 export const DESK_LIST = [];
-// urutan = nomor meja di schedule.js: 0–7 Marketing, 8–13 Trading, 14–19 YouTube, 20–25 Story, 26–33 Clipper, 34–41 Marvel (Lt.4)
+// urutan = nomor meja di schedule.js: 0–7 Marketing, 8–13 Trading, 14–19 YouTube, 20–25 Story, 26–33 Zaa Clips, 34–41 Marvel (Lt.4)
 for (const team of ['mkt', 'trd', 'yt', 'st', 'clip', 'mv']) for (const row of ['A', 'B']) for (const x of TEAM_DESK[team].xs) DESK_LIST.push({ x, lz: ROW_DESK[row], row, team, w: TEAM_DESK[team].w, L: TEAM_DESK[team].L ?? 2 });
 export const DESKS = DESK_LIST.length;
 // kapasitas tiap tempat (dipakai schedule.js supaya nggak ada yang duduk numpuk)
@@ -517,7 +517,7 @@ export const MEET = {
   meeting: { room: 'meetM', xs: [-30.4, -29.0, -27.6, -26.2], ends: [-31.55, -24.6], lz: -4.0, east: -24.3 },
   meetingT: { room: 'meetT', xs: [-22.1, -21.0, -19.9], ends: [-23.35, -18.65], lz: -4.2, east: -18.35 },
   meetingY: { room: 'meetY', xs: [-16.6, -15.4], ends: [-17.55, -14.45], lz: -4.2, east: -14.3 },
-  meetingK: { room: 'meetK', L: 4, xs: [12.0, 13.2, 14.4, 15.6], ends: [10.85, 16.75], lz: -4.0, east: 17.3 },   // Lt.4: Marvel 08:00, Clipper 08:30
+  meetingK: { room: 'meetK', L: 4, xs: [12.0, 13.2, 14.4, 15.6], ends: [10.85, 16.75], lz: -4.0, east: 17.3 },   // Lt.4: Marvel 08:00, Zaa Clips 08:30
 };
 // kursi meeting: urutan slot = sisi belakang/depan per kolom, lalu 2 ujung
 const meetSeats = (m) => [

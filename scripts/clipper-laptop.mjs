@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Divisi Clipper — edit 1 clip di laptop (GPU Whisper + ffmpeg), lalu kirim ke VPS buat tayang TikTok + IG.
+// Divisi Zaa Clips — edit 1 clip di laptop (GPU Whisper + ffmpeg), lalu kirim ke VPS buat tayang TikTok + IG.
 //   node scripts/clipper-laptop.mjs <job_id>
 // 1) ambil job + brief campaign dari VPS  2) download footage campaign (yt-dlp; folder Google Drive → gdown)  3) transkrip whisper.cpp
 // 4) Maya (Claude CLI) pilih momen sesuai brief + Wulan hook & caption (hashtag/tag wajib)  5) Rizky render 9:16 (latar blur + subtitle + hook)
@@ -68,7 +68,7 @@ try {
   const m = String(job.brief).match(/Durasi:\s*(\d+)\D+(\d+)/);
   const [dmin, dmax] = m ? [Math.max(+m[1], 15), Math.min(+m[2], 90)] : [20, 60];
   const lines = segs.map((s) => `[${s.a.toFixed(1)}-${s.b.toFixed(1)}] ${s.t}`).join('\n').slice(0, 24_000);
-  const prompt = `Kamu tim Clipper (Maya pilih momen, Wulan nulis hook & caption) yang bikin clip pendek TikTok/IG Reels untuk campaign Clippo.
+  const prompt = `Kamu tim Zaa Clips (Maya pilih momen, Wulan nulis hook & caption) yang bikin clip pendek TikTok/IG Reels untuk campaign Clippo.
 BRIEF CAMPAIGN "${job.ctitle}":
 ${String(job.brief).slice(0, 5000)}
 

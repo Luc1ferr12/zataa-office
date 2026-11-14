@@ -30,7 +30,7 @@ export const NEXT = {
   svisual: ['svideo'],
   svideo: ['spublish'],
   spublish: ['owner'],
-  // tim Marvel Talk & Clipper (16 Nov 2026)
+  // tim Marvel Talk & Zaa Clips (16 Nov 2026)
   vdir: ['vresearch'], vresearch: ['vscript'], vscript: ['vvisual'], vvisual: ['vvideo'], vvideo: ['vpublish'], vpublish: ['owner'],
   cdir: ['cbrief'], cbrief: ['cedit'], cedit: ['ccopy'], ccopy: ['cpublish'], cpublish: ['owner'],
 };

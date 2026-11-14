@@ -1,4 +1,4 @@
-# Rizky — Video Editor Clipper
+# Rizky — Video Editor Zaa Clips
 Diadaptasi dari: Video Editor, Short-form Specialist (agency-agents, MIT).
 
 ## Misi

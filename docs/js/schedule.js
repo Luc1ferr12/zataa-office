@@ -8,7 +8,7 @@
 import { CAP as SCENE_CAP } from './px/scene.js';
 import { socialActivity, coupleDate } from './social.js';
 
-// desk = nomor meja di bilik (px/scene.js DESK_LIST: 0–7 Marketing, 8–13 Trading, 14–19 YouTube, 20–25 Zaa Story, 26–33 Clipper & 34–41 Marvel di Lt.4)
+// desk = nomor meja di bilik (px/scene.js DESK_LIST: 0–7 Marketing, 8–13 Trading, 14–19 YouTube, 20–25 Zaa Story, 26–33 Zaa Clips & 34–41 Marvel di Lt.4)
 export const AGENTS = [
   { id: 'dir',        name: 'Andre',     avatar: '#2b4c7e', title: 'Director About Esports', gender: 'm', team: 'mkt', lead: true },
   { id: 'researcher', name: 'Salsa',  avatar: '#6b4fd8', title: 'Researcher',             gender: 'f', team: 'mkt', desk: 0 },
@@ -44,8 +44,8 @@ export const AGENTS = [
   { id: 'svisual',    name: 'Arga',      avatar: '#3730a3', title: 'Visual & Foto Arsip',    gender: 'm', team: 'st', desk: 22 },
   { id: 'svideo',     name: 'Bima',      avatar: '#581c87', title: 'Video Producer',         gender: 'm', team: 'st', desk: 23 },
   { id: 'spublish',   name: 'Nayla',     avatar: '#c026d3', title: 'Publisher YouTube & TikTok', gender: 'f', team: 'st', desk: 24 },
-  // Lt.4 (16 Nov 2026): divisi Clipper (campaign Clippo -> TikTok + IG) & Marvel Talk (Shorts YouTube + TikTok)
-  { id: 'cdir',       name: 'Hendra',    avatar: '#0f766e', title: 'Manajer Clipper',        gender: 'm', team: 'clip', lead: true },
+  // Lt.4 (16 Nov 2026): divisi Zaa Clips (campaign Clippo -> TikTok + IG) & Marvel Talk (Shorts YouTube + TikTok)
+  { id: 'cdir',       name: 'Hendra',    avatar: '#0f766e', title: 'Manajer Zaa Clips',        gender: 'm', team: 'clip', lead: true },
   { id: 'cbrief',     name: 'Maya',      avatar: '#0d9488', title: 'Analis Brief & Momen',   gender: 'f', team: 'clip', desk: 26 },
   { id: 'cedit',      name: 'Rizky',     avatar: '#115e59', title: 'Video Editor',           gender: 'm', team: 'clip', desk: 27 },
   { id: 'ccopy',      name: 'Wulan',     avatar: '#14b8a6', title: 'Hook & Caption',         gender: 'f', team: 'clip', desk: 28 },
@@ -306,7 +306,7 @@ const ROOM_NAME = {
   dirRoom: 'ruang Andre', tdirRoom: 'ruang Mahendra', teras: 'teras depan', kolam: 'pinggir kolam',
   yt: 'bilik YouTube', meetY: 'meeting YouTube', ydirRoom: 'ruang Bagas', st: 'bilik Zaa Story', sdirRoom: 'ruang Raditya',
   selasar2: 'selasar lantai 2', selasar3: 'selasar lantai 3', selasar4: 'selasar lantai 4',
-  clip: 'bilik Clipper', mv: 'bilik Marvel Talk', meetK: 'meeting kreator', studio: 'studio podcast', cdirRoom: 'ruang Hendra', vdirRoom: 'ruang Reza',
+  clip: 'bilik Zaa Clips', mv: 'bilik Marvel Talk', meetK: 'meeting kreator', studio: 'studio podcast', cdirRoom: 'ruang Hendra', vdirRoom: 'ruang Reza',
 };
 function obAt(idx, agent, t, withMood, prayer) {
   const m = t.minutes;
@@ -394,11 +394,11 @@ export function activityAt(idx, agent, t, real, ctx = {}) {
   // tim Zaa Story: produksi tiap hari. 07:00–08:30 riset sendiri, 08:30 briefing di Meeting YouTube (gantian sama tim Bagas)
   if (st && m < at(8, 30)) return withMood({ act: 'work', loc: desk, label: RESEARCH[agent.id] ?? 'Riset pagi', emoji: '🔎' });
   if (st && m < at(9)) return withMood({ act: 'meeting', loc: 'meetingY', slot: ST_SEAT[agent.id], label: agent.id === 'sdir' ? 'Mimpin briefing Zaa Story' : 'Briefing: kisah horor hari ini', emoji: '👻' });
-  // Lt.4: Marvel Talk briefing 08:00, Clipper 08:30 (Meeting Kreator); sebelumnya riset di meja
+  // Lt.4: Marvel Talk briefing 08:00, Zaa Clips 08:30 (Meeting Kreator); sebelumnya riset di meja
   if (mv && m < at(8)) return withMood({ act: 'work', loc: desk, label: RESEARCH[agent.id] ?? 'Riset pagi', emoji: '🔎' });
   if (mv && m < at(8, 30)) return withMood({ act: 'meeting', loc: 'meetingK', slot: MV_SEAT[agent.id], label: agent.id === 'vdir' ? 'Mimpin briefing Marvel Talk' : 'Briefing: topik Marvel hari ini', emoji: '🦸' });
   if (cl && m < at(8, 30)) return withMood({ act: 'work', loc: desk, label: RESEARCH[agent.id] ?? 'Riset pagi', emoji: '🔎' });
-  if (cl && m < at(9)) return withMood({ act: 'meeting', loc: 'meetingK', slot: CL_SEAT[agent.id], label: agent.id === 'cdir' ? 'Mimpin briefing Clipper' : 'Briefing: campaign & clip hari ini', emoji: '🎬' });
+  if (cl && m < at(9)) return withMood({ act: 'meeting', loc: 'meetingK', slot: CL_SEAT[agent.id], label: agent.id === 'cdir' ? 'Mimpin briefing Zaa Clips' : 'Briefing: campaign & clip hari ini', emoji: '🎬' });
   // tim Trading: 07:00 riset masing-masing, 08:00 briefing di Meeting Trading (Mahendra mimpin alur agent)
   if (trd && m < at(8)) return withMood({ act: 'work', loc: desk, label: RESEARCH[agent.id] ?? 'Siapin analisa pagi', emoji: '🔎' });
   if (trd && m < at(8, 30)) return withMood({ act: 'meeting', loc: 'meetingT', slot: TRD_SEAT[agent.id], label: agent.id === 'tdir' ? 'Mimpin briefing trading pagi' : 'Briefing trading: rencana XAU hari ini', emoji: '📈' });
@@ -422,7 +422,7 @@ export function activityAt(idx, agent, t, real, ctx = {}) {
   if (dow === 0 && yt && m >= at(16) && m < at(17)) return withMood({ act: 'meeting', loc: 'meetingY', slot: YT_SEAT[agent.id], label: 'Evaluasi mingguan Shorts', emoji: '📊' });
   if (dow === 0 && st && m >= at(15) && m < at(16)) return withMood({ act: 'meeting', loc: 'meetingY', slot: ST_SEAT[agent.id], label: 'Evaluasi mingguan Zaa Story', emoji: '📊' });
   if (dow === 0 && mv && m >= at(14) && m < at(15)) return withMood({ act: 'meeting', loc: 'meetingK', slot: MV_SEAT[agent.id], label: 'Evaluasi mingguan Marvel Talk', emoji: '📊' });
-  if (dow === 0 && cl && m >= at(15) && m < at(16)) return withMood({ act: 'meeting', loc: 'meetingK', slot: CL_SEAT[agent.id], label: 'Evaluasi mingguan Clipper', emoji: '📊' });
+  if (dow === 0 && cl && m >= at(15) && m < at(16)) return withMood({ act: 'meeting', loc: 'meetingK', slot: CL_SEAT[agent.id], label: 'Evaluasi mingguan Zaa Clips', emoji: '📊' });
   if (dow === 0 && !agent.sec && !yt && !st && !mv && !cl && m >= at(16) && m < at(17)) return withMood({ act: 'meeting', loc: 'meeting', slot: MKT_SEAT[agent.id], label: 'Evaluasi mingguan', emoji: '📊' });
   // jaga sesi New York (Mahendra, Wiratama, Selena): balik ke meja sampai ±22:00
   if (nyShift && m >= at(19, 40) && m < at(22, 10)) return withMood({ act: 'work', loc: desk, label: NY_TASK[agent.id], emoji: '🌙', overtime: true });

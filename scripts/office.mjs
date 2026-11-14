@@ -36,10 +36,10 @@ try {
   // 25 Okt 2026: divisi Zaa Story (misteri & horor Nusantara, YouTube + TikTok), channel DB 'story'
   db.exec(`INSERT OR IGNORE INTO agents (id, name, title) VALUES ('sdir', 'Raditya', 'Manajer Zaa Story'), ('sresearch', 'Sekar', 'Riset Misteri Nusantara'),
     ('sscript', 'Dinda', 'Scriptwriter & Fact Checker'), ('svisual', 'Arga', 'Visual & Creative'), ('svideo', 'Bima', 'Video Producer'), ('spublish', 'Nayla', 'Publisher YouTube & TikTok')`);
-  // 16 Nov 2026: divisi Marvel Talk (channel DB 'marvel', YouTube + TikTok) & Clipper (campaign Clippo → TikTok + IG, scripts/clipper.mjs)
+  // 16 Nov 2026: divisi Marvel Talk (channel DB 'marvel', YouTube + TikTok) & Zaa Clips (campaign Clippo → TikTok + IG, scripts/clipper.mjs)
   db.exec(`INSERT OR IGNORE INTO agents (id, name, title) VALUES ('vdir', 'Reza', 'Manajer Marvel Talk'), ('vresearch', 'Citra', 'Riset Marvel & Berita MCU'),
     ('vscript', 'Fajar', 'Scriptwriter & Fact Checker'), ('vvisual', 'Intan', 'Visual & Creative'), ('vvideo', 'Kevin', 'Video Producer'), ('vpublish', 'Putri', 'Publisher YouTube & TikTok'),
-    ('cdir', 'Hendra', 'Manajer Clipper'), ('cbrief', 'Maya', 'Analis Brief & Pilih Momen'), ('cedit', 'Rizky', 'Video Editor'), ('ccopy', 'Wulan', 'Hook, Subtitle & Caption'),
+    ('cdir', 'Hendra', 'Manajer Zaa Clips'), ('cbrief', 'Maya', 'Analis Brief & Pilih Momen'), ('cedit', 'Rizky', 'Video Editor'), ('ccopy', 'Wulan', 'Hook, Subtitle & Caption'),
     ('cpublish', 'Tasya', 'Publisher TikTok/IG & Submit Clippo')`);
 } catch { /* db belum init */ }
 // YouTube Shorts disimpan di contents juga: channel 'youtube' (kosong = Marketing IG/TikTok), youtube_id = id video (scripts/shorts-bot.mjs)

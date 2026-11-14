@@ -1,8 +1,8 @@
 #!/usr/bin/env node
-// Divisi Clipper (16 Nov 2026, tim Hendra): campaign Clippo (app.clippo.id) → ✅ Owner → clip 9:16 di laptop → TikTok + IG (Zernio akun 4)
+// Divisi Zaa Clips (16 Nov 2026, tim Hendra): campaign Clippo (app.clippo.id) → ✅ Owner → clip 9:16 di laptop → TikTok + IG (Zernio akun 4)
 // → tunggu ≥ minSubmissionViews (1.000) & like rate ≥0,5% → ajukan ke Clippo. SOP: office/clipper.md. 0 token kecuali pilih momen (laptop, Claude CLI).
 //   node scripts/clipper.mjs scout [--dry]        tarik campaign publik Clippo, saring & skor, simpan (tanpa login)
-//   node scripts/clipper.mjs propose [n]          kirim n campaign terbaik (default 3) ke Owner di bot Clipper (✅ Ambil / ❌ Lewati)
+//   node scripts/clipper.mjs propose [n]          kirim n campaign terbaik (default 3) ke Owner di bot Zaa Clips (✅ Ambil / ❌ Lewati)
 //   node scripts/clipper.mjs list | jobs          daftar campaign / job clip
 //   node scripts/clipper.mjs approve|skip <id>    keputusan campaign manual (sama dengan tombol)
 //   node scripts/clipper.mjs plan                 bikin job clip hari ini (CLIP_PER_DAY, default 3) dari campaign yang di-✅
@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS clip_jobs (id INTEGER PRIMARY KEY AUTOINCREMENT, camp
 export function cdb() { const d = openDb(); d.exec(SQL); return d; }
 const setAgent = (d, id, status, task = null) => { try { d.prepare("UPDATE agents SET status = ?, current_task = ?, updated_at = datetime('now') WHERE id = ?").run(status, task, id); } catch { /* agents belum ada */ } };
 
-// ---------- Telegram (bot Clipper sendiri)
+// ---------- Telegram (bot Zaa Clips sendiri)
 async function tg(method, params = {}) {
   const tok = env().CLIPPER_BOT_TOKEN;
   if (!tok) throw new Error('CLIPPER_BOT_TOKEN belum diisi');
@@ -263,7 +263,7 @@ export function report() {
   const todayJobs = jobs.filter((j) => j.day === day);
   const est = jobs.reduce((s, j) => s + (j.views / 1000) * (j.rate ?? 0), 0);
   const camps = d.prepare("SELECT title, budget FROM clip_campaigns WHERE status IN ('approved', 'joined')").all();
-  return [`<b>Tasya</b>: 📊 <b>Laporan Clipper</b> · ${day}`, '',
+  return [`<b>Tasya</b>: 📊 <b>Laporan Zaa Clips</b> · ${day}`, '',
     `<b>Campaign jalan</b> (${camps.length}): ${camps.map((c) => `${esc(c.title)} (budget ${Math.round(c.budget)}%)`).join('; ') || 'belum ada, tunggu usulan Hendra'}`,
     `<b>Clip hari ini</b>: ${todayJobs.length} (tayang ${todayJobs.filter((j) => ['posted', 'submitted'].includes(j.status)).length}, gagal ${todayJobs.filter((j) => j.status === 'failed').length})`,
     `<b>7 hari</b>: ${jobs.length} clip · 👀 ${jobs.reduce((s, j) => s + j.views, 0).toLocaleString('id-ID')} views · ✅ diajukan ${jobs.filter((j) => j.status === 'submitted').length}`,
@@ -302,13 +302,13 @@ async function runBot() {
           if (act === 'ok') plan();
         } else {
           const t = String(u.message.text ?? '').trim();
-          if (/^\/(start|help)/.test(t)) await sayAs('cdir', 'Bot divisi Clipper 🎬\n/campaign — cari & usulin campaign sekarang\n/status — laporan hari ini\n/jobs — antrean clip');
+          if (/^\/(start|help)/.test(t)) await sayAs('cdir', 'Bot divisi Zaa Clips 🎬\n/campaign — cari & usulin campaign sekarang\n/status — laporan hari ini\n/jobs — antrean clip');
           else if (/^\/campaign/.test(t)) { const r = await propose(3); if (!r.sent) await sayAs('cdir', 'Belum ada campaign baru yang layak di data terakhir, Bos. Laptop baca ulang Clippo tiap pagi 07:30 (atau jalankan clipper-chrome.mjs scout di laptop).'); }
           else if (/^\/status/.test(t)) await sayAs('cpublish', report().replace(/^<b>Tasya<\/b>: /, ''));
           else if (/^\/jobs/.test(t)) {
             const rows = cdb().prepare('SELECT j.id, j.status, j.views, c.title FROM clip_jobs j JOIN clip_campaigns c ON c.id = j.campaign_id ORDER BY j.id DESC LIMIT 12').all();
             await sayAs('cedit', rows.map((r) => `#${r.id} ${r.status} · ${r.views} views · ${esc(r.title.slice(0, 40))}`).join('\n') || 'Antrean kosong.');
-          } else await sayAs('cdir', 'Bot ini buat urusan Clipper aja ya Bos: /campaign, /status, /jobs. Ngobrol bebas di bot kantor 🙏');
+          } else await sayAs('cdir', 'Bot ini buat urusan Zaa Clips aja ya Bos: /campaign, /status, /jobs. Ngobrol bebas di bot kantor 🙏');
         }
       } catch (e) { console.error(e.message); await sayAs('cdir', `⚠️ ${esc(e.message.slice(0, 200))}`).catch(() => {}); }
     }

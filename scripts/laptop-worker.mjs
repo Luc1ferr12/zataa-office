@@ -32,7 +32,7 @@ async function tg(text) {
 }
 const readDown = () => { try { return JSON.parse(readFileSync(DOWN, 'utf8')); } catch { return null; } };
 
-// Divisi Clipper (16 Nov 2026): edit clip di antrean (clipper-laptop.mjs), tiap pagi ≥07:30 WITA baca campaign Clippo lewat Chrome
+// Divisi Zaa Clips (16 Nov 2026): edit clip di antrean (clipper-laptop.mjs), tiap pagi ≥07:30 WITA baca campaign Clippo lewat Chrome
 // (clipper-chrome.mjs scout), dan maks tiap 30 menit kerjain antrean join/ajukan ke Clippo (clipper-chrome.mjs submit).
 const CSTATE = join(ROOT, 'logs', 'clipper-chrome.json');
 async function clipperWork() {

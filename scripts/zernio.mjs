@@ -54,7 +54,7 @@ async function uploadMedia(file, keyEnv = B.zernioEnv) {
 const idemKey = (s) => { const h = createHash('sha1').update(s).digest('hex'); return `${h.slice(0, 8)}-${h.slice(8, 12)}-${h.slice(12, 16)}-${h.slice(16, 20)}-${h.slice(20, 32)}`; };
 
 async function post(platform, file, content, extra, key) {
-  const keyEnv = extra.keyEnv ?? B.zernioEnv; // Clipper pakai akun Zernio sendiri (ZERNIO_CLIP_API_KEY)
+  const keyEnv = extra.keyEnv ?? B.zernioEnv; // Zaa Clips pakai akun Zernio sendiri (ZERNIO_CLIP_API_KEY)
   const body = {
     content, publishNow: true,
     mediaItems: [{ type: 'video', url: await uploadMedia(file, keyEnv) }],
@@ -81,7 +81,7 @@ export async function youtubeUpload(file, meta, key) {
   return { ok: true, id, url: r.url ?? `https://youtube.com/shorts/${id}`, privacy: r.status === 'published' ? 'public' : 'processing', zernio_post: r.postId };
 }
 
-// Clipper (16 Nov 2026): 1 clip → TikTok / Instagram (video tunggal = Reel) di Zernio akun 4 (ZERNIO_CLIP_API_KEY, id akun ZERNIO_CLIP_<PLATFORM>_ACCOUNT)
+// Zaa Clips (16 Nov 2026): 1 clip → TikTok / Instagram (video tunggal = Reel) di Zernio akun 4 (ZERNIO_CLIP_API_KEY, id akun ZERNIO_CLIP_<PLATFORM>_ACCOUNT)
 export async function clipPost(platform, file, caption, key) {
   const extra = { keyEnv: 'ZERNIO_CLIP_API_KEY', prefix: 'ZERNIO_CLIP' };
   if (platform === 'tiktok') extra.root = { tiktokSettings: { privacy_level: 'PUBLIC_TO_EVERYONE', allow_comment: true, allow_duet: true, allow_stitch: true, content_preview_confirmed: true, express_consent_given: true } };

@@ -526,7 +526,7 @@ function room(P, C, L, r, prop, screens, lamp) {
       shelf(prop, C, x0 + 0.2, x0 + 1.2, back, 1.8);
       sofa(P, prop, C, x0 + 1.0, x0 + 2.6, z(-1.3), 1, '#5a6a8a', '#46536e');
       plant(prop, C, x1 - 0.5, z(-0.7), 1);
-      sign(P, C, back, mx, { ydir: 'MGR YOUTUBE', sdir: 'MGR STORY', dir: 'ESPORTS DIR', tdir: 'TRADING DIR', cdir: 'MGR CLIPPER', vdir: 'MGR MARVEL' }[mgr]);
+      sign(P, C, back, mx, { ydir: 'MGR YOUTUBE', sdir: 'MGR STORY', dir: 'ESPORTS DIR', tdir: 'TRADING DIR', cdir: 'MGR ZAA CLIPS', vdir: 'MGR MARVEL' }[mgr]);
       lamps(1);
       break;
     }
@@ -551,7 +551,7 @@ function room(P, C, L, r, prop, screens, lamp) {
         for (let y = Y(back + 0.7) - H(2) + 3; y < Y(back + 0.7) - 3; y += 3) { p.r(X(x1 - 1.3), y, X(x1 - 0.4) - X(x1 - 1.3), 2, '#363a4a'); screens.push({ kind: 'led', key: y, x: X(x1 - 1.3) + 2, y, w: 2, h: 1 }); }
       });
       if (id === 'trd') tv(P, screens, back, (x0 + x1) / 2 - 1, 3, 'ticker');
-      sign(P, C, back, (x0 + x1) / 2 + (id === 'trd' ? 2.8 : 0), { yt: 'BILIK YOUTUBE', st: 'BILIK ZAA STORY', mkt: 'BILIK ABOUT ESPORTS', trd: 'BILIK TRADING', clip: 'BILIK CLIPPER', mv: 'BILIK MARVEL TALK' }[id]);
+      sign(P, C, back, (x0 + x1) / 2 + (id === 'trd' ? 2.8 : 0), { yt: 'BILIK YOUTUBE', st: 'BILIK ZAA STORY', mkt: 'BILIK ABOUT ESPORTS', trd: 'BILIK TRADING', clip: 'BILIK ZAA CLIPS', mv: 'BILIK MARVEL TALK' }[id]);
       lamps(3);
       break;
     }
@@ -631,7 +631,7 @@ function room(P, C, L, r, prop, screens, lamp) {
       lamp((x0 + x1) / 2, z(-6.5), 120, 'rgba(160,190,255,0.35)');
       break;
     }
-    case 'studio': {   // Lt.4: studio rekam podcast/VO buat Clipper & Marvel Talk
+    case 'studio': {   // Lt.4: studio rekam podcast/VO buat Zaa Clips & Marvel Talk
       fl('carpet');
       backWall(P, C, x0, x1, back, L);
       for (let x = x0 + 0.6; x < x1 - 0.6; x += 1.1) onWall(P, back, x, 0.9, 10, x % 2.2 < 1.1 ? '#3a3448' : '#4a425a');   // panel peredam

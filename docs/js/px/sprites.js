@@ -40,7 +40,7 @@ export const LOOK = {
   svisual:    { g: 'm', skin: '#d29a72', hair: '#141010', style: 'short', kerja: { top: '#17151d', bot: '#24212a', shoe: '#efecf4', sleeve: 'short', acc: '#9b6bff' } },
   svideo:     { g: 'm', skin: '#c49470', hair: '#100d0d', style: 'short2', kerja: { top: '#2e1a47', bot: '#141216', shoe: '#efecf4', sleeve: 'long', acc: '#c084fc' } },
   spublish:   { g: 'f', skin: '#efc4a0', hair: '#1d1414', style: 'pony', kerja: { top: '#141216', bot: '#3b1a6b', skirt: 'short', shoe: '#111014', sleeve: 'long', inner: '#c084fc' } },
-  // tim Clipper (teal) & Marvel Talk (merah-emas), Lt.4 sejak 16 Nov 2026
+  // tim Zaa Clips (teal) & Marvel Talk (merah-emas), Lt.4 sejak 16 Nov 2026
   cdir:       { g: 'm', skin: '#c9946e', hair: '#161212', style: 'short2', kerja: { top: '#0f766e', bot: '#22262e', shoe: '#efecf4', sleeve: 'long', inner: '#f4f2ee' } },
   cbrief:     { g: 'f', skin: '#eec29e', hair: '#2e1d14', style: 'long', kerja: { top: '#14b8a6', bot: '#1f2430', skirt: 'long', shoe: '#efecf4', sleeve: 'long' } },
   cedit:      { g: 'm', skin: '#d09c76', hair: '#120f0f', style: 'short', kerja: { top: '#1f2430', bot: '#2c3038', shoe: '#f4f2ee', sleeve: 'short', acc: '#2dd4bf' } },
