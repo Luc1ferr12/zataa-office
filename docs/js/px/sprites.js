@@ -5,7 +5,7 @@ import { hex, pack, RES } from './engine.js';
 const SW = 20, SH = 30, AX = 10, AY = 29; // kanvas sprite & titik kaki
 
 // tampilan tiap pegawai (warna dari blender/characters.json)
-const LOOK = {
+export const LOOK = {
   dir:        { g: 'm', skin: '#d6a47e', hair: '#2a1d16', style: 'short2', kerja: { top: '#2b4c7e', bot: '#d9d2c2', shoe: '#5a3a26', sleeve: 'long', collar: true } },
   sec:        { g: 'f', skin: '#e6bd99', hair: '#7a4526', style: 'long', kerja: { top: '#f2efe9', bot: '#1c1f2b', skirt: 'short', shoe: '#3a2f2a', sleeve: 'short' } },
   researcher: { g: 'f', skin: '#e0b894', hair: '#3b2a22', style: 'bob',  kerja: { top: '#7a62c9', bot: '#3a3550', skirt: 'long', shoe: '#2a2630', sleeve: 'short' } },

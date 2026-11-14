@@ -521,6 +521,8 @@ const MIHRAB_X = -26, MIMBAR_X = -23.6;
 const WUDHU_X = [-19.55, -18.85, -18.15, -17.45];
 const BENCHES = [[-4.6, 9.5], [-4.6, 15.5], [-24.5, 22.5]];
 const LOUNGER_X = [10, 11.8, 13.6, 15.4, 17.2, 19.0];
+// angka tata letak untuk peta top-down (docs/js/td/map.js)
+export const LAYOUT = { CAFE_TABLES, RESTO, BAR, CINE_X, CINE_ROWS, ARCADE_X, PINGPONG, WAIT_X, MIHRAB_X, MIMBAR_X, WUDHU_X, BENCHES, LOUNGER_X };
 
 // label ruangan (posisi dunia) — ditampilkan sebagai HTML di atas canvas
 const ICON = {
