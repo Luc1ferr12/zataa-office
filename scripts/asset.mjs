@@ -14,7 +14,7 @@ const KINDS = ['teams', 'players', 'photos'];
 const EXT = { 'image/png': 'png', 'image/jpeg': 'jpg', 'image/webp': 'webp', 'image/svg+xml': 'svg' };
 const MAX = 8 * 1024 * 1024;
 
-async function get(url, target) {
+export async function get(url, target) {
   const [kind, name] = String(target).split('/');
   if (!KINDS.includes(kind) || !/^[a-z0-9-]+$/.test(name ?? '')) throw new Error(`tujuan harus ${KINDS.join('|')}/<nama-huruf-kecil>`);
   if (!/^https:\/\//.test(url)) throw new Error('url harus https');
