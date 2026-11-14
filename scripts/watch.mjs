@@ -24,7 +24,7 @@ import { startShortsBot } from './shorts-bot.mjs';
 // Token bot belum diisi di .env → dicek ulang tiap 10 menit (isi token = langsung nyala tanpa restart).
 function startChild(tag, args, tokenEnv = null) {
   if (tokenEnv && !loadEnv()[tokenEnv]) return void setTimeout(() => startChild(tag, args, tokenEnv), 600_000);
-  const p = spawn(process.execPath, [join(ROOT, 'scripts', ...args)], { cwd: ROOT, windowsHide: true });
+  const p = spawn(process.execPath, [join(ROOT, 'scripts', args[0]), ...args.slice(1)], { cwd: ROOT, windowsHide: true });
   const pipe = (b) => String(b).split(/\n/).filter((l) => l.trim()).forEach((l) => log(`[${tag}] ${l}`));
   p.stdout.on('data', pipe); p.stderr.on('data', pipe);
   p.on('exit', (code) => { log(`[${tag}] bot berhenti (kode ${code}), nyala lagi 30 dtk`); setTimeout(() => startChild(tag, args, tokenEnv), 30_000); });
