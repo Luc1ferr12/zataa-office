@@ -24,7 +24,7 @@ const AWAY = ['off', 'pray', 'meeting', 'sleep'];
 const PEOPLE = AGENTS.filter((a) => a.id !== 'owner');
 const nameOf = (id) => AGENTS.find((a) => a.id === id)?.name ?? id;
 const esc = (s) => String(s ?? '').replace(/[&<>]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' })[c]);
-const TEAM = { mkt: 'About Esports', trd: 'Trading', yt: 'YouTube Zaa History', st: 'Zaa Story' };
+const TEAM = { mkt: 'About Esports', trd: 'Trading', yt: 'YouTube Zaa History', st: 'Zaa Story', mv: 'Marvel Talk', clip: 'Clipper' };
 const EMOJI = { santai: '☕', curhat: '💭', pacaran: '💕', pdkt: '💘', gosip: '👀', ultah: '🎂', event: '🏆' };
 
 const load = () => { try { return JSON.parse(readFileSync(STATE, 'utf8')); } catch { return {}; } };

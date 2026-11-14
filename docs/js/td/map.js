@@ -8,7 +8,7 @@ import { textBitmap } from '../px/font.js';
 import { hash2 } from '../px/engine.js';
 
 export const S = 16;                       // piksel per meter
-export const X0 = -35, X1 = 35, Z0 = -28, Z1 = 32;
+export const X0 = -35, X1 = 35, Z0 = -38, Z1 = 32;   // Z0 −38: Lt.4 (16 Nov 2026)
 export const MW = (X1 - X0) * S, MH = (Z1 - Z0) * S;
 export const VY = 0.6;                     // tinggi benda → geser ke atas (tampilan 3/4)
 export const X = (x) => Math.round((x - X0) * S);
@@ -30,7 +30,7 @@ const BASE = {
   furn: '#9a6a44', furnD: '#7c5334', furnL: '#b98457', felt: '#2f8a57', feltD: '#246c44', red: '#c0444f', redD: '#963440',
   pot: '#e2d9cb', potD: '#bfb3a0', leaf: '#4f9a4a', leafL: '#6cbf5a', leafD: '#3a7a3a', book: ['#c0444f', '#4a7fc0', '#e0b04a', '#5aa36a', '#8a5ac0'],
   mush: '#5f8f5c', mushD: '#527e50', sajadah: ['#a83a3a', '#2f6f8a'], wudhu: '#cfe6ee', wudhuD: '#b5d4e0', gudang: '#c4bcaf', gudangD: '#b2a999',
-  stair: '#c8b597', stairD: '#a8957a', sky: '#7cc35a', night: '#121a2e', team: { yt: '#c0444f', st: '#7c4fd0', mkt: '#8b6fe0', trd: '#2f4f8f' },
+  stair: '#c8b597', stairD: '#a8957a', sky: '#7cc35a', night: '#121a2e', team: { yt: '#c0444f', st: '#7c4fd0', mkt: '#8b6fe0', trd: '#2f4f8f', clip: '#1f9e8f', mv: '#d23b3b' },
 };
 export const TD_THEMES = {
   hangat: { label: 'Hangat (kayu)', pal: {} },
@@ -514,11 +514,11 @@ function room(P, C, L, r, prop, screens, lamp) {
       lamps(3);
       break;
     }
-    case 'ydirRoom': case 'sdirRoom': case 'dirRoom': case 'tdirRoom': {
+    case 'ydirRoom': case 'sdirRoom': case 'dirRoom': case 'tdirRoom': case 'cdirRoom': case 'vdirRoom': {
       fl('wood');
       backWall(P, C, x0, x1, back, L);
       const mgr = Object.keys(MGR_ROOM).find((k) => MGR_ROOM[k] === id);
-      const mx = mgrX(mgr), accent = { ydir: '#c0444f', sdir: '#7c4fd0', dir: '#8b6fe0', tdir: '#2f4f8f' }[mgr];
+      const mx = mgrX(mgr), accent = { ydir: '#c0444f', sdir: '#7c4fd0', dir: '#8b6fe0', tdir: '#2f4f8f', cdir: '#1f9e8f', vdir: '#d23b3b' }[mgr];
       rug(P, x0 + 0.6, x1 - 0.6, z(-7.3), z(-4.6), shade(accent, 0.35), accent);
       chair(P, C, mx, z(-6.95), 0, '#3a3a44', '#26262e');
       desk(prop, C, screens, mx - 1.0, mx + 1.0, z(-6.55), z(-5.85), 1, null, { top: C.furnL, front: C.furn });
@@ -526,11 +526,11 @@ function room(P, C, L, r, prop, screens, lamp) {
       shelf(prop, C, x0 + 0.2, x0 + 1.2, back, 1.8);
       sofa(P, prop, C, x0 + 1.0, x0 + 2.6, z(-1.3), 1, '#5a6a8a', '#46536e');
       plant(prop, C, x1 - 0.5, z(-0.7), 1);
-      sign(P, C, back, mx, { ydir: 'MGR YOUTUBE', sdir: 'MGR STORY', dir: 'ESPORTS DIR', tdir: 'TRADING DIR' }[mgr]);
+      sign(P, C, back, mx, { ydir: 'MGR YOUTUBE', sdir: 'MGR STORY', dir: 'ESPORTS DIR', tdir: 'TRADING DIR', cdir: 'MGR CLIPPER', vdir: 'MGR MARVEL' }[mgr]);
       lamps(1);
       break;
     }
-    case 'yt': case 'st': case 'mkt': case 'trd': {
+    case 'yt': case 'st': case 'mkt': case 'trd': case 'clip': case 'mv': {
       fl('carpet');
       backWall(P, C, x0, x1, back, L);
       const T = TEAM_DESK[id], accent = C.team[id];
@@ -551,15 +551,15 @@ function room(P, C, L, r, prop, screens, lamp) {
         for (let y = Y(back + 0.7) - H(2) + 3; y < Y(back + 0.7) - 3; y += 3) { p.r(X(x1 - 1.3), y, X(x1 - 0.4) - X(x1 - 1.3), 2, '#363a4a'); screens.push({ kind: 'led', key: y, x: X(x1 - 1.3) + 2, y, w: 2, h: 1 }); }
       });
       if (id === 'trd') tv(P, screens, back, (x0 + x1) / 2 - 1, 3, 'ticker');
-      sign(P, C, back, (x0 + x1) / 2 + (id === 'trd' ? 2.8 : 0), { yt: 'BILIK YOUTUBE', st: 'BILIK ZAA STORY', mkt: 'BILIK ABOUT ESPORTS', trd: 'BILIK TRADING' }[id]);
+      sign(P, C, back, (x0 + x1) / 2 + (id === 'trd' ? 2.8 : 0), { yt: 'BILIK YOUTUBE', st: 'BILIK ZAA STORY', mkt: 'BILIK ABOUT ESPORTS', trd: 'BILIK TRADING', clip: 'BILIK CLIPPER', mv: 'BILIK MARVEL TALK' }[id]);
       lamps(3);
       break;
     }
-    case 'meetM': case 'meetT': case 'meetY': {
+    case 'meetM': case 'meetT': case 'meetY': case 'meetK': {
       fl(C.meet);
       P.tiles(x0, x1, back, face, C.meet, C.meetD, 24);
       backWall(P, C, x0, x1, back, L);
-      const key = { meetM: 'meeting', meetT: 'meetingT', meetY: 'meetingY' }[id], m = MEET[key];
+      const key = { meetM: 'meeting', meetT: 'meetingT', meetY: 'meetingY', meetK: 'meetingK' }[id], m = MEET[key];
       const tx0 = Math.min(...m.xs) - 0.55, tx1 = Math.max(...m.xs) + 0.55;
       for (const x of m.xs) { chair(P, C, x, z(m.lz - 0.95), 0, '#6ab07a', '#4f8a5c'); chair(P, C, x, z(m.lz + 0.95), Math.PI, '#6ab07a', '#4f8a5c'); }
       chair(P, C, m.ends[0], z(m.lz), Math.PI / 2, '#6ab07a', '#4f8a5c'); chair(P, C, m.ends[1], z(m.lz), -Math.PI / 2, '#6ab07a', '#4f8a5c');
@@ -569,11 +569,11 @@ function room(P, C, L, r, prop, screens, lamp) {
         p.r(X((tx0 + tx1) / 2) - 1, Y(z(m.lz)) - H(0.75) - 3, 2, 4, '#9fd4e8');
       });
       const mid = (x0 + x1) / 2;
-      tv(P, screens, back, mid + (x1 - x0) * 0.18, Math.min(2.4, (x1 - x0) * 0.35), { meetM: 'tvMeet', meetT: 'tvMeetT', meetY: 'tvMeetY' }[id]);
+      tv(P, screens, back, mid + (x1 - x0) * 0.18, Math.min(2.4, (x1 - x0) * 0.35), { meetM: 'tvMeet', meetT: 'tvMeetT', meetY: 'tvMeetY', meetK: 'tvMeetK' }[id]);
       onWall(P, back, mid - (x1 - x0) * 0.22, Math.min(2.2, (x1 - x0) * 0.3), 8, '#f8f8fa');
       P.r(X(mid - (x1 - x0) * 0.22) - 8, wy(back) + 3, 10, 1, '#4a90c0'); P.r(X(mid - (x1 - x0) * 0.22) - 8, wy(back) + 5, 6, 1, '#e86a5a');
       plant(prop, C, x0 + 0.5, z(-0.7), 0.9);
-      sign(P, C, back, mid, { meetM: 'MEETING MKT', meetT: 'MEETING TRD', meetY: 'MEETING YT' }[id]);
+      sign(P, C, back, mid, { meetM: 'MEETING MKT', meetT: 'MEETING TRD', meetY: 'MEETING YT', meetK: 'MEETING KREATOR' }[id]);
       lamps(1);
       break;
     }
@@ -629,6 +629,23 @@ function room(P, C, L, r, prop, screens, lamp) {
       for (let x = x0 + 0.6; x < x1; x += 1.6) P.r(X(x), Y(face) - 6, 2, 2, '#f2c14e');   // lampu lantai
       sign(P, C, back, 29.6, 'BIOSKOP');
       lamp((x0 + x1) / 2, z(-6.5), 120, 'rgba(160,190,255,0.35)');
+      break;
+    }
+    case 'studio': {   // Lt.4: studio rekam podcast/VO buat Clipper & Marvel Talk
+      fl('carpet');
+      backWall(P, C, x0, x1, back, L);
+      for (let x = x0 + 0.6; x < x1 - 0.6; x += 1.1) onWall(P, back, x, 0.9, 10, x % 2.2 < 1.1 ? '#3a3448' : '#4a425a');   // panel peredam
+      rug(P, x0 + 2.5, x0 + 8.5, z(-6.6), z(-3.0), '#2f2a3a', '#d23b3b');
+      prop(z(-4.3), x0 + 4.2, x0 + 6.8, z(-5.2), z(-4.3), 0.75, (p) => {   // meja podcast + 2 mic
+        p.box(x0 + 4.2, x0 + 6.8, z(-5.2), z(-4.3), 0.75, '#2b2d3a', '#1d1f2a', '#44485a');
+        for (const mx of [x0 + 4.8, x0 + 6.2]) { p.r(X(mx) - 1, Y(z(-4.9)) - H(1.15), 2, H(0.4), '#9aa0ad'); p.r(X(mx) - 2, Y(z(-4.9)) - H(1.25), 4, 3, '#2a2a2a'); }
+      });
+      chair(P, C, x0 + 4.8, z(-3.8), Math.PI, '#d23b3b', '#a82e2e'); chair(P, C, x0 + 6.2, z(-3.8), Math.PI, '#1f9e8f', '#17796d');
+      sofa(P, prop, C, x1 - 4.6, x1 - 1.6, z(-6.9), 0, '#3a3448', '#2a2533');
+      tv(P, screens, back, x1 - 3.1, 2.4, 'tvVdir');
+      plant(prop, C, x1 - 0.6, z(-0.8), 1); plant(prop, C, x0 + 0.6, z(-0.8), 0.9);
+      sign(P, C, back, x0 + 5.5, 'STUDIO PODCAST');
+      lamps(2);
       break;
     }
     default: fl('wood'); backWall(P, C, x0, x1, back, L);

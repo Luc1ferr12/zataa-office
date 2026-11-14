@@ -30,11 +30,16 @@ export const NEXT = {
   svisual: ['svideo'],
   svideo: ['spublish'],
   spublish: ['owner'],
+  // tim Marvel Talk & Clipper (16 Nov 2026)
+  vdir: ['vresearch'], vresearch: ['vscript'], vscript: ['vvisual'], vvisual: ['vvideo'], vvideo: ['vpublish'], vpublish: ['owner'],
+  cdir: ['cbrief'], cbrief: ['cedit'], cedit: ['ccopy'], ccopy: ['cpublish'], cpublish: ['owner'],
 };
 export const NAMES = { dir: 'Andre', sec: 'Nabila', researcher: 'Salsa', copywriter: 'Tiara', designer: 'Vania', video: 'Dimas', publisher: 'Fikri', ads: 'Fahriah', analyst: 'Raka', price: 'Budi', ob: 'Mbak Sari', owner: 'Bos Zamiir',
   tdir: 'Mahendra', tresearch: 'Davina', ttech: 'Keira', trisk: 'Aryaputra', texec: 'Wiratama', teval: 'Jihan', treport: 'Selena',
   ydir: 'Bagas', yresearch: 'Nadhira', yscript: 'Laras', yvisual: 'Galih', yvideo: 'Yoga', ypublish: 'Kirana',
-  sdir: 'Raditya', sresearch: 'Sekar', sscript: 'Dinda', svisual: 'Arga', svideo: 'Bima', spublish: 'Nayla' };
+  sdir: 'Raditya', sresearch: 'Sekar', sscript: 'Dinda', svisual: 'Arga', svideo: 'Bima', spublish: 'Nayla',
+  vdir: 'Reza', vresearch: 'Citra', vscript: 'Fajar', vvisual: 'Intan', vvideo: 'Kevin', vpublish: 'Putri',
+  cdir: 'Hendra', cbrief: 'Maya', cedit: 'Rizky', ccopy: 'Wulan', cpublish: 'Tasya' };
 
 const pick = (arr, seed) => arr[Math.abs(seed) % arr.length];
 const seedOf = (s) => [...String(s)].reduce((a, c) => (a * 31 + c.charCodeAt(0)) | 0, 7);
@@ -60,6 +65,17 @@ const HANDOFF = {
   svisual: ['{to}, visual "{task}" lengkap + kredit lisensi. Nggak ada foto penampakan palsu ya 🖼️', 'Aset "{task}" kelar, {to}. Gas edit!'],
   svideo: ['{to}, Shorts "{task}" udah render 9:16 + VO. Siap ke YouTube & TikTok', 'Video "{task}" kelar, {to}. Cek judul & caption TikTok ya'],
   spublish: ['Bos, Shorts "{task}" udah aku kirim ke @zataastorybot. Ditunggu ✅ buat tayang YouTube + TikTok 🙏'],
+  vdir: ['{to}, topik Marvel Talk hari ini: "{task}". Cari sumbernya ya, bedain fakta, teori & rumor 🦸', 'Brief "{task}" beres. {to}, gas riset!'],
+  vresearch: ['{to}, bahan "{task}" udah aku rangkum + sumbernya. Teori fans udah aku tandain 📚', 'Riset "{task}" kelar, {to}. Ada easter egg seru nih 👀'],
+  vscript: ['{to}, naskah "{task}" udah lolos cek fakta. Hook-nya nendang di detik pertama 💥', 'Script "{task}" ready, {to}, tinggal visualin'],
+  vvisual: ['{to}, visual "{task}" lengkap, aman lisensi, tanpa footage film asli 🖼️', 'Aset "{task}" kelar, {to}. Siap dirakit'],
+  vvideo: ['{to}, Shorts "{task}" udah render 9:16 + VO. Siap ke YouTube & TikTok 🎬', 'Video "{task}" kelar, {to}. Cek judul ya'],
+  vpublish: ['Bos, Shorts "{task}" udah aku kirim ke bot Marvel Talk. Ditunggu ✅-nya 🙏', 'Bos, "{task}" nunggu approval di bot Marvel Talk ya'],
+  cdir: ['{to}, campaign "{task}" udah di-✅ Bos. Baca brief-nya teliti ya, jangan sampe ada larangan kelewat 📋', 'Campaign "{task}" jalan! {to}, cari momen terbaiknya'],
+  cbrief: ['{to}, momen buat "{task}" udah aku tandain + alasan sesuai brief ✂️', 'Timestamp "{task}" siap, {to}. Hook-nya di detik awal'],
+  cedit: ['{to}, clip "{task}" udah kepotong 9:16 + subtitle. Tinggal caption 🎞️', 'Edit "{task}" kelar, {to}. Durasi masuk brief'],
+  ccopy: ['{to}, caption + hashtag + tag wajib buat "{task}" udah lengkap ✍️', 'Hook & caption "{task}" beres, {to}. Gas upload'],
+  cpublish: ['Bos, clip "{task}" udah tayang di TikTok & IG. Nanti tembus 1rb views langsung aku ajuin ke Clippo 💸', 'Clip "{task}" udah naik, Bos. Aku pantau views-nya'],
   price: ['{to}, harga buat "{task}" udah aku cek di web. Angkanya aman dipake 💰', '{to}, cek harga "{task}" kelar, jangan sampe salah angka ya'],
 };
 const REVISION = [

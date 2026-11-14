@@ -92,7 +92,7 @@ async function youtube(brand = 'history') {
     pid: v.id, type: 'video', title: short(v.title), url: `https://youtube.com/shorts/${v.id}`, thumb: `https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`, at: v.published,
     views: v.views, likes: v.likes, comments: v.comments,
   }));
-  const handle = s.handle ?? (brand === 'story' ? '' : '@zataastory');
+  const handle = s.handle ?? (brand === 'history' ? '@zataastory' : '');
   return { ...summary(list, { name: s.title ?? null, handle, url: handle ? `https://youtube.com/${handle}` : null, subscribers: s.subscribers }), views: Math.max(s.views ?? 0, sum(list, 'views')) }; // statistik channel YouTube sering telat, jumlah per video lebih segar
 }
 
@@ -122,7 +122,8 @@ function linkTiktok(d, p) {
 export async function collect() {
   const out = { generated_at: new Date().toISOString() };
   const all = {};
-  const KEYS = [['instagram', instagram], ['tiktok', () => tiktok()], ['youtube', () => youtube()], ['story_youtube', () => youtube('story')], ['story_tiktok', () => tiktok('ZERNIO_STORY_API_KEY', 'zataa.story')]];
+  const KEYS = [['instagram', instagram], ['tiktok', () => tiktok()], ['youtube', () => youtube()], ['story_youtube', () => youtube('story')], ['story_tiktok', () => tiktok('ZERNIO_STORY_API_KEY', 'zataa.story')],
+    ['marvel_youtube', () => youtube('marvel')], ['marvel_tiktok', () => tiktok('ZERNIO_MARVEL_API_KEY', '')], ['clip_tiktok', () => tiktok('ZERNIO_CLIP_API_KEY', '')]];
   for (const [k, fn] of KEYS) {
     try { out[k] = await fn(); all[k] = out[k].list; delete out[k].list; } catch (e) { out[k] = { error: e.message.slice(0, 160) }; }
   }

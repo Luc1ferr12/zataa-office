@@ -8,7 +8,7 @@
 import { CAP as SCENE_CAP } from './px/scene.js';
 import { socialActivity, coupleDate } from './social.js';
 
-// desk = nomor meja di bilik (px/scene.js DESK_LIST: 0–7 Marketing, 8–13 Trading, 14–19 YouTube, 20–25 Zaa Story)
+// desk = nomor meja di bilik (px/scene.js DESK_LIST: 0–7 Marketing, 8–13 Trading, 14–19 YouTube, 20–25 Zaa Story, 26–33 Clipper & 34–41 Marvel di Lt.4)
 export const AGENTS = [
   { id: 'dir',        name: 'Andre',     avatar: '#2b4c7e', title: 'Director About Esports', gender: 'm', team: 'mkt', lead: true },
   { id: 'researcher', name: 'Salsa',  avatar: '#6b4fd8', title: 'Researcher',             gender: 'f', team: 'mkt', desk: 0 },
@@ -44,6 +44,18 @@ export const AGENTS = [
   { id: 'svisual',    name: 'Arga',      avatar: '#3730a3', title: 'Visual & Foto Arsip',    gender: 'm', team: 'st', desk: 22 },
   { id: 'svideo',     name: 'Bima',      avatar: '#581c87', title: 'Video Producer',         gender: 'm', team: 'st', desk: 23 },
   { id: 'spublish',   name: 'Nayla',     avatar: '#c026d3', title: 'Publisher YouTube & TikTok', gender: 'f', team: 'st', desk: 24 },
+  // Lt.4 (16 Nov 2026): divisi Clipper (campaign Clippo -> TikTok + IG) & Marvel Talk (Shorts YouTube + TikTok)
+  { id: 'cdir',       name: 'Hendra',    avatar: '#0f766e', title: 'Manajer Clipper',        gender: 'm', team: 'clip', lead: true },
+  { id: 'cbrief',     name: 'Maya',      avatar: '#0d9488', title: 'Analis Brief & Momen',   gender: 'f', team: 'clip', desk: 26 },
+  { id: 'cedit',      name: 'Rizky',     avatar: '#115e59', title: 'Video Editor',           gender: 'm', team: 'clip', desk: 27 },
+  { id: 'ccopy',      name: 'Wulan',     avatar: '#14b8a6', title: 'Hook & Caption',         gender: 'f', team: 'clip', desk: 28 },
+  { id: 'cpublish',   name: 'Tasya',     avatar: '#2dd4bf', title: 'Publisher & Submit Clippo', gender: 'f', team: 'clip', desk: 29 },
+  { id: 'vdir',       name: 'Reza',      avatar: '#991b1b', title: 'Manajer Marvel Talk',    gender: 'm', team: 'mv', lead: true },
+  { id: 'vresearch',  name: 'Citra',     avatar: '#b91c1c', title: 'Riset Marvel & Berita MCU', gender: 'f', team: 'mv', desk: 34 },
+  { id: 'vscript',    name: 'Fajar',     avatar: '#7f1d1d', title: 'Naskah & Cek Fakta',     gender: 'm', team: 'mv', desk: 35 },
+  { id: 'vvisual',    name: 'Intan',     avatar: '#ca8a04', title: 'Visual & Creative',      gender: 'f', team: 'mv', desk: 36 },
+  { id: 'vvideo',     name: 'Kevin',     avatar: '#1e293b', title: 'Video Producer',         gender: 'm', team: 'mv', desk: 37 },
+  { id: 'vpublish',   name: 'Putri',     avatar: '#dc2626', title: 'Publisher YouTube & TikTok', gender: 'f', team: 'mv', desk: 38 },
 ];
 // tampilan tiap orang (sprite pixel) ada di js/px/sprites.js, versi 3D di blender/toy_lib.py
 
@@ -57,12 +69,14 @@ const CINE_SEAT = { owner: 27, sec: 28 };
 const CINE_FREE = [...Array(32).keys()].filter((i) => i !== 27 && i !== 28);
 const CINE_ORDER = AGENTS.filter((a) => CINE_SEAT[a.id] == null && !a.ob).map((a) => a.id);   // 28 orang, 30 kursi bebas
 const cineSeat = (idx, agent) => CINE_SEAT[agent.id] ?? CINE_FREE[Math.max(0, CINE_ORDER.indexOf(agent.id)) % CINE_FREE.length];
-const MGR = ['dir', 'tdir', 'ydir', 'sdir'];   // punya ruang sendiri di Lt.2 (px/scene.js MGR_ROOM)
-const WAIT_SLOT = { dir: 0, tdir: 1, ydir: 2, sdir: 3 };   // kursi tunggu depan ruang Bos (px/scene.js S.waitBoss)
+const MGR = ['dir', 'tdir', 'ydir', 'sdir', 'cdir', 'vdir'];   // punya ruang sendiri di Lt.2/Lt.4 (px/scene.js MGR_ROOM)
+const WAIT_SLOT = { dir: 0, tdir: 1, ydir: 2, sdir: 3, cdir: 4, vdir: 5 };   // kursi tunggu depan ruang Bos (px/scene.js S.waitBoss)
 const deskLoc = (agent) => (agent.boss ? 'boss' : agent.sec ? 'secDesk' : MGR.includes(agent.id) ? `${agent.id}Desk` : 'desk');
 const trading = (agent) => agent.team === 'trd';
 const youtube = (agent) => agent.team === 'yt';
 const story = (agent) => agent.team === 'st';
+const clipper = (agent) => agent.team === 'clip';
+const marvel = (agent) => agent.team === 'mv';
 const RESEARCH = {
   dir: 'Siapin bahan briefing', researcher: 'Riset tren & berita esport', copywriter: 'Riset hook & caption viral',
   designer: 'Cari referensi desain', video: 'Cari referensi video', publisher: 'Cek jam tayang terbaik',
@@ -73,6 +87,8 @@ const RESEARCH = {
   yvisual: 'Kumpulin foto situs & artefak', yvideo: 'Cek referensi editing Shorts', ypublish: 'Cek trending & komentar YouTube',
   sdir: 'Cek retention Story & antrean topik', sresearch: 'Gali legenda & arsip Nusantara', sscript: 'Baca sumber sejarah & cerita rakyat',
   svisual: 'Cari foto arsip & lokasi berlisensi', svideo: 'Cek referensi editing horor', spublish: 'Cek komentar YouTube & TikTok Story',
+  cdir: 'Cek campaign Clippo baru', cbrief: 'Baca brief campaign', cedit: 'Cek antrean edit clip', ccopy: 'Riset hook clip viral', cpublish: 'Cek views clip kemarin',
+  vdir: 'Cek retention Marvel Talk', vresearch: 'Baca berita & rumor MCU', vscript: 'Baca lore & komik', vvisual: 'Bikin grafik karakter', vvideo: 'Cek referensi editing', vpublish: 'Cek komentar YouTube & TikTok Marvel',
 };
 // Nabila punya meja sendiri di ruang Bos (px/scene.js SEC_DESK)
 const SEC_TASK = ['Nyatet pengeluaran Bos', 'Rekap uang masuk & keluar', 'Cek tagihan bulanan Bos', 'Rapihin catatan keuangan'];
@@ -81,7 +97,9 @@ const NY_TASK = { tdir: 'Jaga sesi New York', texec: 'Pantau order sesi New York
 const MKT_SEAT = { owner: 8, dir: 9, researcher: 0, copywriter: 1, designer: 2, video: 3, publisher: 4, ads: 5, analyst: 6, price: 7 };
 const TRD_SEAT = { tdir: 6, tresearch: 0, ttech: 1, trisk: 2, texec: 3, teval: 4, treport: 5 };
 const YT_SEAT = { ydir: 4, yresearch: 0, yscript: 1, yvisual: 2, yvideo: 3, ypublish: 5 };
-const ST_SEAT = { sdir: 4, sresearch: 0, sscript: 1, svisual: 2, svideo: 3, spublish: 5 };   // pakai Meeting YouTube gantian (08:30)
+const ST_SEAT = { sdir: 4, sresearch: 0, sscript: 1, svisual: 2, svideo: 3, spublish: 5 };
+const MV_SEAT = { vdir: 8, vresearch: 0, vscript: 1, vvisual: 2, vvideo: 3, vpublish: 4 };   // Meeting Kreator Lt.4 (08:00)
+const CL_SEAT = { cdir: 8, cbrief: 0, cedit: 1, ccopy: 2, cpublish: 3 };                     // Meeting Kreator Lt.4 (08:30)   // pakai Meeting YouTube gantian (08:30)
 
 export function wita(date) {
   const parts = Object.fromEntries(
@@ -109,6 +127,8 @@ function doneAt(idx, agent, dow, day = dow) {
   if (trading(agent)) return at(17, 10) + Math.floor(hash(day * 5.9 + idx) * 50) - 20;   // sesi London buka → beres sore
   if (youtube(agent)) return ({ ydir: at(15, 30), yresearch: at(11), yscript: at(12, 20), yvisual: at(14, 20), yvideo: at(16, 10), ypublish: at(17) }[agent.id] ?? at(15))
     + Math.floor(hash(day * 6.7 + idx) * 50) - 20;
+  if (clipper(agent) || marvel(agent)) return ({ cdir: at(15), cbrief: at(11, 30), cedit: at(15, 30), ccopy: at(13), cpublish: at(17), vdir: at(15, 30), vresearch: at(11), vscript: at(12, 30), vvisual: at(14), vvideo: at(16), vpublish: at(17) }[agent.id] ?? at(15))
+    + Math.floor(hash(day * 9.1 + idx) * 50) - 20;
   if (story(agent)) return ({ sdir: at(15, 40), sresearch: at(11, 20), sscript: at(12, 40), svisual: at(14, 30), svideo: at(16, 20), spublish: at(17, 10) }[agent.id] ?? at(15))
     + Math.floor(hash(day * 8.3 + idx) * 50) - 20;
   const base = {
@@ -279,13 +299,14 @@ function prayerAt(idx, agent, t) {
 }
 
 // Mbak Sari (OB): bersih-bersih keliling, tapi juga ngopi, istirahat, makan, sholat, tidur
-const ROOMS_CLEAN = ['cafe', 'santai', 'mkt', 'trd', 'yt', 'st', 'mushola', 'wudhu', 'meetM', 'meetT', 'meetY', 'boss', 'billiard', 'bioskop', 'dirRoom', 'tdirRoom', 'ydirRoom', 'sdirRoom', 'teras', 'kolam', 'selasar2', 'selasar3'];
+const ROOMS_CLEAN = ['cafe', 'santai', 'mkt', 'trd', 'yt', 'st', 'mushola', 'wudhu', 'meetM', 'meetT', 'meetY', 'boss', 'billiard', 'bioskop', 'dirRoom', 'tdirRoom', 'ydirRoom', 'sdirRoom', 'teras', 'kolam', 'selasar2', 'selasar3', 'clip', 'mv', 'meetK', 'studio', 'cdirRoom', 'vdirRoom', 'selasar4'];
 const ROOM_NAME = {
   cafe: 'cafe & resto', santai: 'ruang santai', mkt: 'bilik marketing', trd: 'bilik trading', billiard: 'ruang billiard',
   mushola: 'musholla', wudhu: 'tempat wudhu', meetM: 'ruang meeting', meetT: 'meeting trading', boss: 'ruang boss', bioskop: 'bioskop mini',
   dirRoom: 'ruang Andre', tdirRoom: 'ruang Mahendra', teras: 'teras depan', kolam: 'pinggir kolam',
   yt: 'bilik YouTube', meetY: 'meeting YouTube', ydirRoom: 'ruang Bagas', st: 'bilik Zaa Story', sdirRoom: 'ruang Raditya',
-  selasar2: 'selasar lantai 2', selasar3: 'selasar lantai 3',
+  selasar2: 'selasar lantai 2', selasar3: 'selasar lantai 3', selasar4: 'selasar lantai 4',
+  clip: 'bilik Clipper', mv: 'bilik Marvel Talk', meetK: 'meeting kreator', studio: 'studio podcast', cdirRoom: 'ruang Hendra', vdirRoom: 'ruang Reza',
 };
 function obAt(idx, agent, t, withMood, prayer) {
   const m = t.minutes;
@@ -332,7 +353,7 @@ export function activityAt(idx, agent, t, real, ctx = {}) {
   const working = real?.status === 'working';
   const busy = working || real?.status === 'waiting';
   const desk = deskLoc(agent);
-  const trd = trading(agent), yt = youtube(agent), st = story(agent), weekend = dow === 0 || dow === 6;
+  const trd = trading(agent), yt = youtube(agent), st = story(agent), cl = clipper(agent), mv = marvel(agent), weekend = dow === 0 || dow === 6;
   const nyShift = trd && agent.nyShift && !weekend;
   const prayer = prayerAt(idx, agent, t);
 
@@ -373,6 +394,11 @@ export function activityAt(idx, agent, t, real, ctx = {}) {
   // tim Zaa Story: produksi tiap hari. 07:00–08:30 riset sendiri, 08:30 briefing di Meeting YouTube (gantian sama tim Bagas)
   if (st && m < at(8, 30)) return withMood({ act: 'work', loc: desk, label: RESEARCH[agent.id] ?? 'Riset pagi', emoji: '🔎' });
   if (st && m < at(9)) return withMood({ act: 'meeting', loc: 'meetingY', slot: ST_SEAT[agent.id], label: agent.id === 'sdir' ? 'Mimpin briefing Zaa Story' : 'Briefing: kisah horor hari ini', emoji: '👻' });
+  // Lt.4: Marvel Talk briefing 08:00, Clipper 08:30 (Meeting Kreator); sebelumnya riset di meja
+  if (mv && m < at(8)) return withMood({ act: 'work', loc: desk, label: RESEARCH[agent.id] ?? 'Riset pagi', emoji: '🔎' });
+  if (mv && m < at(8, 30)) return withMood({ act: 'meeting', loc: 'meetingK', slot: MV_SEAT[agent.id], label: agent.id === 'vdir' ? 'Mimpin briefing Marvel Talk' : 'Briefing: topik Marvel hari ini', emoji: '🦸' });
+  if (cl && m < at(8, 30)) return withMood({ act: 'work', loc: desk, label: RESEARCH[agent.id] ?? 'Riset pagi', emoji: '🔎' });
+  if (cl && m < at(9)) return withMood({ act: 'meeting', loc: 'meetingK', slot: CL_SEAT[agent.id], label: agent.id === 'cdir' ? 'Mimpin briefing Clipper' : 'Briefing: campaign & clip hari ini', emoji: '🎬' });
   // tim Trading: 07:00 riset masing-masing, 08:00 briefing di Meeting Trading (Mahendra mimpin alur agent)
   if (trd && m < at(8)) return withMood({ act: 'work', loc: desk, label: RESEARCH[agent.id] ?? 'Siapin analisa pagi', emoji: '🔎' });
   if (trd && m < at(8, 30)) return withMood({ act: 'meeting', loc: 'meetingT', slot: TRD_SEAT[agent.id], label: agent.id === 'tdir' ? 'Mimpin briefing trading pagi' : 'Briefing trading: rencana XAU hari ini', emoji: '📈' });
@@ -395,7 +421,9 @@ export function activityAt(idx, agent, t, real, ctx = {}) {
   if (m >= at(18, 20) && m < at(18, 50) + j(6, 15)) return eat('Makan malam', '🍜');
   if (dow === 0 && yt && m >= at(16) && m < at(17)) return withMood({ act: 'meeting', loc: 'meetingY', slot: YT_SEAT[agent.id], label: 'Evaluasi mingguan Shorts', emoji: '📊' });
   if (dow === 0 && st && m >= at(15) && m < at(16)) return withMood({ act: 'meeting', loc: 'meetingY', slot: ST_SEAT[agent.id], label: 'Evaluasi mingguan Zaa Story', emoji: '📊' });
-  if (dow === 0 && !agent.sec && !yt && !st && m >= at(16) && m < at(17)) return withMood({ act: 'meeting', loc: 'meeting', slot: MKT_SEAT[agent.id], label: 'Evaluasi mingguan', emoji: '📊' });
+  if (dow === 0 && mv && m >= at(14) && m < at(15)) return withMood({ act: 'meeting', loc: 'meetingK', slot: MV_SEAT[agent.id], label: 'Evaluasi mingguan Marvel Talk', emoji: '📊' });
+  if (dow === 0 && cl && m >= at(15) && m < at(16)) return withMood({ act: 'meeting', loc: 'meetingK', slot: CL_SEAT[agent.id], label: 'Evaluasi mingguan Clipper', emoji: '📊' });
+  if (dow === 0 && !agent.sec && !yt && !st && !mv && !cl && m >= at(16) && m < at(17)) return withMood({ act: 'meeting', loc: 'meeting', slot: MKT_SEAT[agent.id], label: 'Evaluasi mingguan', emoji: '📊' });
   // jaga sesi New York (Mahendra, Wiratama, Selena): balik ke meja sampai ±22:00
   if (nyShift && m >= at(19, 40) && m < at(22, 10)) return withMood({ act: 'work', loc: desk, label: NY_TASK[agent.id], emoji: '🌙', overtime: true });
   // Sabtu malam: nobar bareng di bioskop mini
@@ -431,11 +459,13 @@ export function approvalWaits({ campaign = null, contents = [], agents = [], pro
   const team = Object.fromEntries(AGENTS.map((a) => [a.id, a.team]));
   const waiting = (tm) => agents.some((a) => a.status === 'waiting' && team[a.id] === tm);
   // ch = channel konten: null = Marketing, 'youtube' = Zaa History, 'story' = Zaa Story
-  const pend = (ch) => contents.some((c) => c.status === 'pending_approval' && (ch ? c.channel === ch : !['youtube', 'story'].includes(c.channel)) && (!today || !c.day || c.day >= today));
+  const pend = (ch) => contents.some((c) => c.status === 'pending_approval' && (ch ? c.channel === ch : !['youtube', 'story', 'marvel', 'clip'].includes(c.channel)) && (!today || !c.day || c.day >= today));
   return {
     dir: campaign?.status === 'draft' || pend(null) || waiting('mkt'),
     ydir: pend('youtube') || waiting('yt'),
     sdir: pend('story') || waiting('st'),
+    vdir: pend('marvel') || waiting('mv'),
+    cdir: waiting('clip'),   // Hendra nunggu Owner milih campaign Clippo
     tdir: proposals.length > 0 || waiting('trd'),
   };
 }
@@ -457,6 +487,8 @@ export function describe(agent, sched, real) {
     yvisual: 'Nyusun visual adegan Shorts', yvideo: 'Edit Shorts 9:16 + voice-over', ypublish: 'Judul, deskripsi & tag YouTube',
     sdir: 'Review naskah & antrean Story', sresearch: 'Riset misteri & horor Nusantara', sscript: 'Nulis naskah + hook & cek fakta',
     svisual: 'Nyusun foto arsip & visual adegan', svideo: 'Edit Story 9:16 + VO OmniVoice', spublish: 'Judul, caption & jadwal YouTube + TikTok',
+    cdir: 'Mantau budget campaign Clippo', cbrief: 'Nandain momen dari transkrip', cedit: 'Edit clip 9:16 + subtitle', ccopy: 'Nulis hook & caption clip', cpublish: 'Pantau views & ajuin ke Clippo',
+    vdir: 'Review naskah & antrean Marvel', vresearch: 'Riset lore & berita MCU', vscript: 'Nulis naskah + hook & cek fakta', vvisual: 'Nyusun grafik & visual adegan', vvideo: 'Edit Marvel Talk 9:16 + VO', vpublish: 'Judul, caption & jadwal YouTube + TikTok',
   };
   return { ...sched, label: idle[agent.id] ?? 'Kerja', emoji: '💻' };
 }

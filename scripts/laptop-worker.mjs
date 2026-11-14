@@ -31,6 +31,28 @@ async function tg(text) {
   } catch (e) { log(`telegram gagal: ${e.message}`); }
 }
 const readDown = () => { try { return JSON.parse(readFileSync(DOWN, 'utf8')); } catch { return null; } };
+
+// Divisi Clipper (16 Nov 2026): edit clip di antrean (clipper-laptop.mjs), tiap pagi ≥07:30 WITA baca campaign Clippo lewat Chrome
+// (clipper-chrome.mjs scout), dan maks tiap 30 menit kerjain antrean join/ajukan ke Clippo (clipper-chrome.mjs submit).
+const CSTATE = join(ROOT, 'logs', 'clipper-chrome.json');
+async function clipperWork() {
+  const node = (args, min = 30) => spawnSync(process.execPath, [join(ROOT, 'scripts', ...args)], { encoding: 'utf8', timeout: min * 60_000, env: { ...process.env, ZATAA_VPS: VPS } });
+  const say = (r) => `${(r.stdout ?? '').trim().slice(-200)} ${(r.stderr ?? '').trim().slice(-200)}`.trim();
+  const ids = (() => { const r = vps('node scripts/clipper.mjs queue'); try { return r.status === 0 ? JSON.parse(r.stdout.trim() || '[]') : []; } catch { return []; } })();
+  for (const id of ids.slice(0, 3)) { const r = node(['clipper-laptop.mjs', String(id)]); log(`clip #${id} ${r.status === 0 ? 'ok' : 'gagal'}: ${say(r)}`); }
+  const st = (() => { try { return JSON.parse(readFileSync(CSTATE, 'utf8')); } catch { return {}; } })();
+  const w = new Date(Date.now() + 8 * 3600e3), day = w.toISOString().slice(0, 10), min = w.getUTCHours() * 60 + w.getUTCMinutes();
+  if (min >= 7 * 60 + 30 && st.scout !== day) {
+    const r = node(['clipper-chrome.mjs', 'scout'], 20); log(`clippo scout ${r.status === 0 ? 'ok' : 'gagal'}: ${say(r)}`);
+    if (r.status === 0) st.scout = day; else if ((st.fail ?? '') !== day) { st.fail = day; await tg(`Hendra: Bos, laptop gagal baca campaign Clippo lewat Chrome (${say(r).slice(0, 160)}). Pastikan Chrome kebuka, login app.clippo.id & ekstensi Claude in Chrome nyambung ya.`); }
+  }
+  if (Date.now() - (st.submitAt ?? 0) >= 30 * 60e3) {
+    const q = vps('node scripts/clipper.mjs submitq');
+    if (q.status === 0 && q.stdout.trim().startsWith('[') && q.stdout.trim() !== '[]') { const r = node(['clipper-chrome.mjs', 'submit'], 40); log(`clippo submit: ${say(r)}`); }
+    st.submitAt = Date.now();
+  }
+  writeFileSync(CSTATE, JSON.stringify(st));
+}
 const alive = (pid) => { try { process.kill(pid, 0); return true; } catch (e) { return e.code === 'EPERM'; } };
 
 // cegah dobel jalan (render bisa >10 menit); lock berisi PID, prosesnya udah mati → lock yatim dibuang
@@ -45,7 +67,7 @@ try { fd = openSync(LOCK, 'wx'); } catch {
 writeFileSync(fd, String(process.pid));
 try {
   const QUERY = `${DB_SNIPPET}
-    let yt = ''; try { db.prepare('SELECT channel FROM contents LIMIT 1').get(); yt = "OR channel IN ('youtube', 'story')"; } catch {}
+    let yt = ''; try { db.prepare('SELECT channel FROM contents LIMIT 1').get(); yt = "OR channel IN ('youtube', 'story', 'marvel')"; } catch {}
     console.log(JSON.stringify(db.prepare("SELECT id, format FROM contents WHERE (format = 'video' " + yt + ") AND status IN ('draft', 'revision') AND json_extract(data_json, '$._laptop') = 1 ORDER BY day, id").all()));`;
   let q;
   for (const h of HOSTS) {
@@ -85,6 +107,7 @@ try {
     const msg = ok ? `${what} #${id} dirender di laptop (suara OmniVoice) & dikirim ke Owner` : `Render laptop ${what} #${id} gagal, cek logs/laptop-worker.log di laptop`;
     vps(`node scripts/office.mjs log ${shorts ? 'yvideo' : 'video'} ${JSON.stringify(msg)}`);
   }
+  if (q.status === 0) await clipperWork();
 } finally {
   closeSync(fd);
   try { unlinkSync(LOCK); } catch {}

@@ -6,17 +6,18 @@ import { material, T, UP, K, PXH, hash2, hash3, vnoise } from './engine.js';
 import { textBitmap } from './font.js';
 
 // ---------------------------------------------------------------- tata letak (dipakai juga oleh nav.js & export Blender)
-export const FRONT = [4, -6, -16];           // tepi depan tiap tingkat (lantai 1…3)
+export const FRONT = [4, -6, -16, -26];      // tepi depan tiap tingkat (lantai 1…4; Lt.4 Clipper & Marvel Talk sejak 16 Nov 2026)
 export const FLOORS = FRONT.length;
 export const CORR = 2;                       // lebar selasar
 export const DEPTH = 10;                     // selasar + ruang
-export const LY = [0, UP, UP * 2];           // tinggi lantai
+export const LY = [0, UP, UP * 2, UP * 3];  // tinggi lantai
 export const RF = (L) => FRONT[L - 1] - CORR; // muka ruang (garis kaca depan)
 export const RZ = (L, lz) => RF(L) + lz;     // lz: 0 = muka ruang, −8 = dinding belakang
-export const SPAN = [[-32, 32], [-32, 32], [-32, 32]];
-export const CORR_SPAN = [[-32, 32], [-32, 32], [-32, 32]];
+export const SPAN = [[-32, 32], [-32, 32], [-32, 32], [-32, 32]];
+export const CORR_SPAN = [[-32, 32], [-32, 32], [-32, 32], [-32, 32]];
 // ruang per tingkat: [id, x0, x1, nama]
-// Lt.1 publik (indoor) · Lt.2 kerja (tangga ke Lt.3 di pojok kiri, 4 ruang manajer, 4 bilik divisi) · Lt.3 hiburan, meeting & Bos
+// Lt.1 publik (indoor) · Lt.2 kerja (tangga ke Lt.3 di pojok kiri, 4 ruang manajer, 4 bilik divisi) · Lt.3 hiburan, meeting & Bos (+ tangga ke Lt.4)
+// · Lt.4 divisi kreator: Clipper & Marvel Talk (ruang manajer, bilik, Meeting Kreator, Studio Podcast)
 export const ROOMDEF = {
   1: [['mushola', -32, -20, 'Mushola'], ['wudhu', -20, -17, 'Tempat Wudhu'], ['gudang', -17, -14, 'Gudang Mbak Sari'], ['tangga1', -14, -10, 'Tangga'],
     ['cafe', -10, 13, 'Cafe & Resto'], ['santai', 13, 32, 'Ruang Santai']],
@@ -25,7 +26,9 @@ export const ROOMDEF = {
     ['tdirRoom', -14.5, -10, 'R. Trading Director'], ['yt', -10, -0.7, 'Bilik YouTube'], ['st', -0.7, 8.6, 'Bilik Zaa Story'], ['mkt', 8.6, 20.45, 'Bilik About Esports'],
     ['trd', 20.45, 32, 'Bilik Trading']],
   3: [['meetM', -32, -24, 'Meeting About Esports'], ['meetT', -24, -18, 'Meeting Trading'], ['meetY', -18, -14, 'Meeting YouTube'],
-    ['billiard', -14, 2, 'Billiard'], ['boss', 2, 16, 'Ruang Boss'], ['bioskop', 16, 32, 'Bioskop Mini']],
+    ['billiard', -14, -1.5, 'Billiard'], ['tangga3', -1.5, 2, 'Tangga'], ['boss', 2, 16, 'Ruang Boss'], ['bioskop', 16, 32, 'Bioskop Mini']],
+  4: [['cdirRoom', -32, -27, 'R. Manajer Clipper'], ['vdirRoom', -27, -22, 'R. Manajer Marvel'], ['clip', -22, -6, 'Bilik Clipper'],
+    ['mv', -6, 10, 'Bilik Marvel Talk'], ['meetK', 10, 18, 'Meeting Kreator'], ['studio', 18, 32, 'Studio Podcast']],
 };
 export const ROOM = {};
 for (const [L, list] of Object.entries(ROOMDEF)) for (const [id, x0, x1, name] of list) ROOM[id] = { id, L: +L, x0, x1, name, door: x1 - 1.2 };
@@ -33,7 +36,7 @@ ROOM.cafe.door = 0.8;     // pintu cafe di ujung jalan utama dari gerbang
 ROOM.santai.door = 23.8;
 export const STAIR = { x0: -1.4, x1: 1.4, lz0: -1.6, lz1: -8, steps: 12 };
 // x tengah tangga yang naik DARI lantai t (index t−1): 1→2 di sel tangga Lt.1, 2→3 di pojok kiri Lt.2
-export const STAIR_X = [-12, -30];
+export const STAIR_X = [-12, -30, 0.25];   // 3→4 di sel tangga tengah Lt.3 (sebelah ruang Bos)
 export const stairAt = (t) => STAIR_X[t - 1] ?? 0;
 export const POOL = { x0: 9, x1: 27, z0: 8, z1: 16, y: -0.1 };
 export const GAZEBO = { x: -17, z: 13, s: 6 };
@@ -196,19 +199,22 @@ export const TEAM_DESK = {
   trd: { xs: [22.0, 24.8, 27.6], w: 2.8, side: 29.65, panel: 'navy' },
   yt: { xs: [-8.5, -5.9, -3.3], w: 2.6, side: -1.45, panel: 'ytRed' },
   st: { xs: [0.8, 3.4, 6.0], w: 2.6, side: 7.85, panel: 'stPanel' },
+  clip: { xs: [-20.2, -17.6, -15.0, -12.4], w: 2.6, side: -6.75, panel: 'navy', L: 4 },
+  mv: { xs: [-4.2, -1.6, 1.0, 3.6], w: 2.6, side: 9.25, panel: 'ytRed', L: 4 },
 };
 export const AISLE = { A: -4.8, B: -1.2 };   // lorong baris (lz)
 const ROW_DESK = { A: -7.25, B: -3.6 };   // lz tengah meja
 export const DESK_LIST = [];
-for (const team of ['mkt', 'trd', 'yt', 'st']) for (const row of ['A', 'B']) for (const x of TEAM_DESK[team].xs) DESK_LIST.push({ x, lz: ROW_DESK[row], row, team, w: TEAM_DESK[team].w });
+// urutan = nomor meja di schedule.js: 0–7 Marketing, 8–13 Trading, 14–19 YouTube, 20–25 Story, 26–33 Clipper, 34–41 Marvel (Lt.4)
+for (const team of ['mkt', 'trd', 'yt', 'st', 'clip', 'mv']) for (const row of ['A', 'B']) for (const x of TEAM_DESK[team].xs) DESK_LIST.push({ x, lz: ROW_DESK[row], row, team, w: TEAM_DESK[team].w, L: TEAM_DESK[team].L ?? 2 });
 export const DESKS = DESK_LIST.length;
 // kapasitas tiap tempat (dipakai schedule.js supaya nggak ada yang duduk numpuk)
-export const CAP = { cafe: 28, counter: 8, lounge: 10, garden: 10, lounger: 6, meeting: 10, meetingT: 8, meetingY: 6, cinema: 32, billiard: 8, arcade: 5, waitBoss: 4 };
+export const CAP = { cafe: 28, counter: 8, lounge: 10, garden: 10, lounger: 6, meeting: 10, meetingT: 8, meetingY: 6, meetingK: 10, cinema: 32, billiard: 8, arcade: 5, waitBoss: 6 };
 // permukaan dinamis (digambar ulang tiap frame oleh pixoffice.js)
 const dynM = (name, color) => mk(name, color, { emissive: true, dyn: name });
 dynM('water', '#2fb3d6');
 for (let i = 0; i < DESKS; i++) dynM(`scr${i}`, '#0b0a14');
-for (const n of ['tvLounge', 'tvMeet', 'tvMeetT', 'tvMeetY', 'tvBoss', 'racks', 'ticker', 'cinema', 'tvDir', 'tvTdir', 'tvYdir', 'tvSdir']) dynM(n, '#120a26');
+for (const n of ['tvLounge', 'tvMeet', 'tvMeetT', 'tvMeetY', 'tvBoss', 'racks', 'ticker', 'cinema', 'tvDir', 'tvTdir', 'tvYdir', 'tvSdir', 'tvCdir', 'tvVdir', 'tvMeetK']) dynM(n, '#120a26');
 export { M as MAT };
 
 // ---------------------------------------------------------------- papan nama: teks 1:1 piksel di bidang yang menghadap kamera
@@ -423,12 +429,12 @@ export function makeSpots() {
   const S = {};
   const y = (L) => LY[L - 1];
   // meja kerja
-  S.desk = DESK_LIST.map((d) => ({ x: d.x, y: y(2), z: RZ(2, d.lz + 1.05), rot: Math.PI, row: d.row, team: d.team, room: d.team, aisle: RZ(2, AISLE[d.row]), side: TEAM_DESK[d.team].side }));
+  S.desk = DESK_LIST.map((d) => ({ x: d.x, y: y(d.L), z: RZ(d.L, d.lz + 1.05), rot: Math.PI, row: d.row, team: d.team, room: d.team, aisle: RZ(d.L, AISLE[d.row]), side: TEAM_DESK[d.team].side, L: d.L }));
   // ruang manajer & boss: duduk di belakang meja menghadap kamera
   for (const id of Object.keys(MGR_ROOM)) {
     const r = ROOM[MGR_ROOM[id]];
-    S[`${id}Desk`] = { x: mgrX(id), y: y(2), z: RZ(2, -6.95), rot: 0 };
-    S[`${id}Sofa`] = [r.x0 + 1.4, r.x0 + 2.2].map((x) => ({ x, y: y(2), z: RZ(2, -1.3), rot: Math.PI }));
+    S[`${id}Desk`] = { x: mgrX(id), y: y(r.L), z: RZ(r.L, -6.95), rot: 0 };
+    S[`${id}Sofa`] = [r.x0 + 1.4, r.x0 + 2.2].map((x) => ({ x, y: y(r.L), z: RZ(r.L, -1.3), rot: Math.PI }));
   }
   S.bossDesk = { x: 8.6, y: y(3), z: RZ(3, -6.6), rot: 0 };
   S.secDesk = { x: SEC_DESK.x, y: y(3), z: RZ(3, SEC_DESK.lz - 0.85), rot: 0 };
@@ -475,7 +481,7 @@ export function makeSpots() {
     { x: tx + 1.75, y: y(3), z: RZ(3, tz), rot: -Math.PI / 2, tx, tz },
   ]);
   // ruang meeting (Lt.3): kursi tiap sisi meja + 2 ujung
-  for (const [key, m] of Object.entries(MEET)) S[key] = meetSeats(m).map((c) => ({ x: c.x, y: y(3), z: RZ(3, c.lz), rot: c.rot }));
+  for (const [key, m] of Object.entries(MEET)) S[key] = meetSeats(m).map((c) => ({ x: c.x, y: y(m.L ?? 3), z: RZ(m.L ?? 3, c.lz), rot: c.rot }));
   // musholla (Lt.1): kiblat = mihrab di dinding belakang. Imam, 1 shaf pria (12), tabir, 1 shaf wanita (13)
   S.musholla = makeSpotsMushola();
   S.mimbar = { x: MIMBAR_X, y: y(1) + 0.9, z: RZ(1, -7.15), rot: 0 };
@@ -500,17 +506,18 @@ export const CINE_AISLE = 28.4;   // lorong kanan bioskop (x), di atas undakan k
 export const BILLIARD = [[-9.8, -6.0], [-3.6, -6.0], [-9.8, -2.8], [-3.6, -2.8]];
 const ARCADE_X = [25.8, 26.7, 27.6];
 const PINGPONG = { x: 29.8, lz: -3.5 };
-const WAIT_X = [12.6, 11.8, 11.0, 10.2];
+const WAIT_X = [12.6, 11.8, 11.0, 10.2, 9.4, 8.6];
 // meja sekretaris (Nabila) di ruang Bos, kiri depan; kursi di belakang meja menghadap kamera
 export const SEC_DESK = { x: 4.6, lz: -3.2 };
 // ruang manajer Lt.2 (id pegawai → ruang); meja di tengah ruang
-export const MGR_ROOM = { ydir: 'ydirRoom', sdir: 'sdirRoom', dir: 'dirRoom', tdir: 'tdirRoom' };
+export const MGR_ROOM = { ydir: 'ydirRoom', sdir: 'sdirRoom', dir: 'dirRoom', tdir: 'tdirRoom', cdir: 'cdirRoom', vdir: 'vdirRoom' };
 export const mgrX = (id) => (ROOM[MGR_ROOM[id]].x0 + ROOM[MGR_ROOM[id]].x1) / 2;
 // ruang meeting Lt.3: kursi sisi (xs), kursi ujung, lz tengah meja, lorong belakang (east)
 export const MEET = {
   meeting: { room: 'meetM', xs: [-30.4, -29.0, -27.6, -26.2], ends: [-31.55, -24.6], lz: -4.0, east: -24.3 },
   meetingT: { room: 'meetT', xs: [-22.1, -21.0, -19.9], ends: [-23.35, -18.65], lz: -4.2, east: -18.35 },
   meetingY: { room: 'meetY', xs: [-16.6, -15.4], ends: [-17.55, -14.45], lz: -4.2, east: -14.3 },
+  meetingK: { room: 'meetK', L: 4, xs: [12.0, 13.2, 14.4, 15.6], ends: [10.85, 16.75], lz: -4.0, east: 17.3 },   // Lt.4: Marvel 08:00, Clipper 08:30
 };
 // kursi meeting: urutan slot = sisi belakang/depan per kolom, lalu 2 ujung
 const meetSeats = (m) => [

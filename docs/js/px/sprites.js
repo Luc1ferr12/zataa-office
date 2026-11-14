@@ -40,6 +40,18 @@ export const LOOK = {
   svisual:    { g: 'm', skin: '#d29a72', hair: '#141010', style: 'short', kerja: { top: '#17151d', bot: '#24212a', shoe: '#efecf4', sleeve: 'short', acc: '#9b6bff' } },
   svideo:     { g: 'm', skin: '#c49470', hair: '#100d0d', style: 'short2', kerja: { top: '#2e1a47', bot: '#141216', shoe: '#efecf4', sleeve: 'long', acc: '#c084fc' } },
   spublish:   { g: 'f', skin: '#efc4a0', hair: '#1d1414', style: 'pony', kerja: { top: '#141216', bot: '#3b1a6b', skirt: 'short', shoe: '#111014', sleeve: 'long', inner: '#c084fc' } },
+  // tim Clipper (teal) & Marvel Talk (merah-emas), Lt.4 sejak 16 Nov 2026
+  cdir:       { g: 'm', skin: '#c9946e', hair: '#161212', style: 'short2', kerja: { top: '#0f766e', bot: '#22262e', shoe: '#efecf4', sleeve: 'long', inner: '#f4f2ee' } },
+  cbrief:     { g: 'f', skin: '#eec29e', hair: '#2e1d14', style: 'long', kerja: { top: '#14b8a6', bot: '#1f2430', skirt: 'long', shoe: '#efecf4', sleeve: 'long' } },
+  cedit:      { g: 'm', skin: '#d09c76', hair: '#120f0f', style: 'short', kerja: { top: '#1f2430', bot: '#2c3038', shoe: '#f4f2ee', sleeve: 'short', acc: '#2dd4bf' } },
+  ccopy:      { g: 'f', skin: '#f0c8a4', hair: '#4a2e20', style: 'bob',  kerja: { top: '#0d9488', bot: '#e6e0d4', skirt: 'short', shoe: '#3a2f2a', sleeve: 'short', collar: true } },
+  cpublish:   { g: 'f', skin: '#e9bb95', hair: '#1a1212', style: 'pony', kerja: { top: '#115e59', bot: '#17151d', skirt: 'short', shoe: '#111014', sleeve: 'long', inner: '#99f6e4' } },
+  vdir:       { g: 'm', skin: '#c48e68', hair: '#0f0c0c', style: 'short2', kerja: { top: '#991b1b', bot: '#1c1c22', shoe: '#111014', sleeve: 'long', inner: '#facc15' } },
+  vresearch:  { g: 'f', skin: '#eebf9b', hair: '#3a2014', style: 'long', kerja: { top: '#b91c1c', bot: '#1f1f26', skirt: 'long', shoe: '#efecf4', sleeve: 'long', inner: '#fde68a' } },
+  vscript:    { g: 'm', skin: '#d6a27c', hair: '#1a1515', style: 'short', kerja: { top: '#1e293b', bot: '#2c3038', shoe: '#f4f2ee', sleeve: 'short', acc: '#ef4444' } },
+  vvisual:    { g: 'f', skin: '#f2c9a5', hair: '#5a3424', style: 'bob',  kerja: { top: '#ca8a04', bot: '#1f1f26', skirt: 'short', shoe: '#111014', sleeve: 'short', collar: true } },
+  vvideo:     { g: 'm', skin: '#bf8f6a', hair: '#0d0b0b', style: 'short2', kerja: { top: '#1e293b', bot: '#141216', shoe: '#efecf4', sleeve: 'long', acc: '#dc2626' } },
+  vpublish:   { g: 'f', skin: '#ecc19c', hair: '#211515', style: 'pony', kerja: { top: '#dc2626', bot: '#17151d', skirt: 'short', shoe: '#111014', sleeve: 'long', inner: '#fde68a' } },
 };
 // Senin: jas (cowok), kemeja sekretaris + rok pensil (cewek)
 const FORMAL_M = { top: '#1f2433', bot: '#1f2433', shoe: '#111014', sleeve: 'long', inner: '#f4f2ee', tie: '#7c3aed' };

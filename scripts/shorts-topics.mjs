@@ -32,6 +32,12 @@ export const PILLARS = {
   misteri_kuno: { brand: 'story', code: 'MK', label: 'Misteri Kuno Nusantara', desc: 'situs, kerajaan, manusia purba & peninggalan Nusantara yang masih misterius' },
   ritual_mistis: { brand: 'story', code: 'RM', label: 'Ritual & Tradisi Mistis', desc: 'ritual, pemakaman & kepercayaan adat Nusantara (hormat, bukan diejek)' },
   peristiwa_aneh: { brand: 'story', code: 'PA', label: 'Peristiwa Aneh Nusantara', desc: 'kejadian/fenomena nyata yang ganjil, kapal hantu, hilang misterius (rumor/hoaks ditulis jelas)' },
+  // Marvel Talk (16 Nov 2026): lore, teori, fakta & berita MCU — visual aman (tanpa footage film/trailer asli)
+  lore_teori: { brand: 'marvel', code: 'LT', label: 'Lore & Teori', desc: 'asal-usul karakter, timeline, multiverse & teori fans (teori ditulis "teori") (WAJIB ≥3/minggu)' },
+  fakta_marvel: { brand: 'marvel', code: 'FM', label: 'Fakta & Easter Egg', desc: 'fakta jarang diketahui, easter egg, beda komik vs film, behind the scenes' },
+  berita_mcu: { brand: 'marvel', code: 'BM', label: 'Berita & Rumor MCU', desc: 'casting, jadwal rilis, trailer, box office (≥2 sumber; rumor ditulis "rumor")' },
+  karakter: { brand: 'marvel', code: 'KR', label: 'Profil Karakter', desc: 'kekuatan, kelemahan, versi terkuat, perbandingan karakter' },
+  ranking: { brand: 'marvel', code: 'RK', label: 'Ranking & Versus', desc: 'top 5, siapa menang, kostum/film terbaik (ajak debat di komen)' },
 };
 export const STATUSES = ['backlog', 'research', 'approved', 'production', 'published'];
 // kuota brand aktif (B dari --brand / SHORTS_BRAND)
@@ -54,7 +60,7 @@ export const getTopic = (d, id) => d.prepare('SELECT * FROM shorts_topics WHERE 
 
 function clean(p, partial = false) {
   const o = {};
-  if (p.pillar !== undefined) { if (!PILLARS[p.pillar]) throw new Error(`pillar tidak dikenal: ${p.pillar} (History: ${mine('history').join(', ')} · Story: ${mine('story').join(', ')})`); o.pillar = p.pillar; }
+  if (p.pillar !== undefined) { if (!PILLARS[p.pillar]) throw new Error(`pillar tidak dikenal: ${p.pillar} (History: ${mine('history').join(', ')} · Story: ${mine('story').join(', ')} · Marvel: ${mine('marvel').join(', ')})`); o.pillar = p.pillar; }
   for (const k of ['subject', 'core_question', 'angle', 'hook', 'published_url', 'notes']) if (p[k] !== undefined) o[k] = p[k] == null ? null : String(p[k]);
   if (p.sources !== undefined) o.sources = JSON.stringify((Array.isArray(p.sources) ? p.sources : String(p.sources).split(/\s+/)).filter(Boolean));
   if (p.evergreen_score !== undefined) { const n = Number(p.evergreen_score); if (!(n >= 1 && n <= 5)) throw new Error('evergreen_score harus 1–5'); o.evergreen_score = Math.round(n); }

@@ -34,7 +34,11 @@ Kamu menjalankan satu hari kerja Zaa Office (divisi About Esports = media esport
 - Vania/Dimas: `node scripts/render.mjs <id>`, buka 1 hasil (video: cover), perbaiki maks 2×.
 - Fikri: QA (`office/roles/publisher.md`) → `node scripts/approval.mjs submit <id>`. Posting IG otomatis oleh watcher setelah Owner ✅ — jangan posting manual.
 
-## 3Y. Shorts — dua divisi, kode sama, bedanya `--brand`
+## 3C. Clipper (tim Hendra, SOP `office/clipper.md`)
+Jalan sendiri tanpa sesi ini (bot Clipper + laptop): campaign Clippo dibaca Chrome laptop 07:30, usulan ke Owner 07:45, clip dibikin cuma dari campaign yang di-✅. Sesi pagi cukup cek `node scripts/clipper.mjs jobs` → ada `failed` → catat penyebabnya di log (`office.mjs log cedit "..."`), jangan bikin clip manual.
+
+## 3Y. Shorts — tiga divisi, kode sama, bedanya `--brand`
+**Marvel Talk** (tim Reza, SOP `office/marvel.md`, mulai Senin 16 Nov 2026, SETIAP HARI 1 Shorts, YouTube + TikTok): langkahnya sama dengan Zaa Story di bawah, semua perintah pakai `--brand=marvel`, playbook `office/roles/v*.md`, kuota 7/minggu ≥3 Lore & Teori, dikirim ke Owner di bot Marvel Talk. **Visual tanpa footage film/trailer Marvel** (hak cipta). Bot/Zernio akun 3 belum diisi Owner → tetap produksi & simpan, lapor di catatan.
 **Zaa Story** (tim Raditya, SOP `office/story.md`, SETIAP HARI 1 Shorts, tayang YouTube + TikTok): semua perintah pakai `--brand=story`, playbook `office/roles/s*.md`, kuota 7/minggu ≥3 Horor Bersejarah, dikirim ke Owner di @zataastorybot. Langkahnya sama persis dengan Zaa History di bawah (ganti nama tim: Raditya → Sekar → Dinda → Arga → Bima → Nayla).
 **Zaa History** (tim Bagas, SOP `office/youtube.md`, **SETIAP HARI 1 Shorts** (7/minggu sejak 30 Okt)):
 - Sebelum mulai: `node scripts/shorts-bot.mjs list` (lanjutkan yang revisi/gagal dulu, jangan dobel hari ini) + `node scripts/shorts-topics.mjs week` (kuota: 7/minggu, ≥2 Hidden History).

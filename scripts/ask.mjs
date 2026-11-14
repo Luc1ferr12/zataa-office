@@ -59,7 +59,9 @@ export async function statusReport() {
 const WHO = { andre: 'dir', nabila: 'sec', salsa: 'researcher', tiara: 'copywriter', vania: 'designer', dimas: 'video', fikri: 'publisher', fahriah: 'ads', raka: 'analyst', budi: 'price', sari: 'ob',
   mahendra: 'tdir', davina: 'tresearch', keira: 'ttech', aryaputra: 'trisk', arya: 'trisk', wiratama: 'texec', wira: 'texec', jihan: 'teval', selena: 'treport',
   bagas: 'ydir', nadhira: 'yresearch', laras: 'yscript', galih: 'yvisual', yoga: 'yvideo', kirana: 'ypublish',
-  raditya: 'sdir', sekar: 'sresearch', dinda: 'sscript', arga: 'svisual', bima: 'svideo', nayla: 'spublish' };
+  raditya: 'sdir', sekar: 'sresearch', dinda: 'sscript', arga: 'svisual', bima: 'svideo', nayla: 'spublish',
+  reza: 'vdir', citra: 'vresearch', fajar: 'vscript', intan: 'vvisual', kevin: 'vvideo', putri: 'vpublish',
+  hendra: 'cdir', maya: 'cbrief', rizky: 'cedit', wulan: 'ccopy', tasya: 'cpublish' };
 const NAME_RE = new RegExp(`\\b(${Object.keys(WHO).join('|')})\\b`, 'i');
 export const calledAgent = (t) => WHO[(String(t).match(NAME_RE)?.[1] ?? '').toLowerCase()] ?? null;
 // cuma manggil nama ("Vania", "halo Tiara", "p dimas", "kak nabila?") → yang dipanggil langsung nyaut, tanpa AI (0 token)

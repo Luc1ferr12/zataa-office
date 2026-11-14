@@ -43,8 +43,20 @@ Kantor virtual **Zaa Office** (dulu Zataa, ganti nama 15 Nov 2026): divisi **Abo
 | svisual | Arga | Foto arsip & lokasi berlisensi bebas / gambar kode / Blender |
 | svideo | Bima | Render Shorts 9:16 + VO OmniVoice |
 | spublish | Nayla | ✅ Owner di @zataastorybot, tayang YouTube + TikTok Zaa Story (Zernio akun 2), laporan harian 19:00 & mingguan Minggu 19:30 WITA |
+| vdir | Reza | Manajer **Marvel Talk** (lore, teori, fakta & berita MCU): antrean topik, briefing, evaluasi Minggu |
+| vresearch | Citra | Riset Marvel & berita/rumor MCU + sumber (≤5 pencarian/hari) |
+| vscript | Fajar | Naskah + hook + cek fakta (label FAKTA/TEORI/RUMOR) |
+| vvisual | Intan | Visual aman hak cipta: grafik kode / fan-art berlisensi / Blender (DILARANG footage film/trailer Marvel) |
+| vvideo | Kevin | Render Shorts 9:16 + VO OmniVoice |
+| vpublish | Putri | ✅ Owner di bot Marvel Talk, tayang YouTube + TikTok (Zernio akun 3), laporan harian & mingguan |
+| cdir | Hendra | Manajer **Clipper**: saring campaign Clippo (app.clippo.id), usul 3 terbaik ke Owner tiap pagi |
+| cbrief | Maya | Baca brief campaign, pilih momen dari transkrip |
+| cedit | Rizky | Edit clip 9:16 + subtitle + hook (laptop, ffmpeg) |
+| ccopy | Wulan | Hook, caption, SEMUA hashtag & tag wajib brief |
+| cpublish | Tasya | Upload TikTok + IG (Zernio akun 4), pantau views, ajukan ke Clippo, laporan 19:00 |
 
-## Shorts: dua divisi, kode sama (`scripts/brand.mjs`, pilih `--brand=history|story`)
+## Shorts: tiga divisi, kode sama (`scripts/brand.mjs`, pilih `--brand=history|story|marvel`)
+**Marvel Talk** (tim Reza, `v*`, sejak 16 Nov 2026): lore/teori/fakta + berita MCU, YouTube + TikTok baru, 7/minggu ≥3 Lore & Teori, `channel 'marvel'`, SOP `office/marvel.md`, bot `MARVEL_BOT_TOKEN` (proses anak watcher, nyala sendiri begitu token diisi), Zernio akun 3 `ZERNIO_MARVEL_API_KEY`, YouTube `MARVEL_YT_*`. Visual WAJIB aman hak cipta (tanpa klip film/trailer/musik Marvel). Ruang & meeting di Lt.4 (Meeting Kreator 08:00).
 | | **Zaa History** (tim Bagas, `y*`) | **Zaa Story** (tim Raditya, `s*`) |
 |---|---|---|
 | Niche | sejarah misteri kuno dunia + mitologi Yunani | misteri & horor Nusantara berbasis sejarah (gaib selalu "konon") |
@@ -56,6 +68,9 @@ Ruang di Lt.2 (bilik & ruang manajer sendiri per brand), meeting di Lt.3 (Meetin
 Alur: sesi harian `node scripts/shorts-bot.mjs new <file.json> [--brand=story]` → render OmniVoice otomatis di laptop (`laptop-worker.mjs` → `shorts-laptop.mjs`, submit ikut brand) → publisher kirim ke Owner di bot brand itu → ✅ Approve / ✏️ Revisi / ❌ Tolak (❌ = tim bikin pengganti) → upload YouTube di jam tayang **langsung Publik lewat Zernio** akun brand → `posted` → Story otomatis juga posting TikTok. Bot History jalan di watcher, bot Story = proses anak watcher. Tanpa Zernio: fallback `youtube.mjs` Private + pengingat. Statistik/retensi YouTube: `youtube.mjs stats|analytics [--brand=story]` (token `YT_REFRESH_TOKEN` / `STORY_YT_REFRESH_TOKEN`). TikTok zataa.topup (akun 1) = Marketing saja, dikunci `ZERNIO_TIKTOK_ACCOUNT`.
 Skill `.claude/skills/yt-*` (MIT): manajer `/yt-plan` + `/yt-audit` bulanan, riset `/yt-viral`, naskah `/yt-script` (`hookscore.py`), publisher `/yt-package` `/yt-seo` `/yt-retention` (`youtube.mjs retention <id>` → CSV) `/yt-comment`; suara `office/youtube/voice-<brand>.md`. Cara pakai per pegawai ada di playbook-nya.
 
+## Divisi Clipper (campaign Clippo → TikTok + IG, sejak 16 Nov 2026, SOP `office/clipper.md`)
+`scripts/clipper.mjs` (VPS, bot `CLIPPER_BOT_TOKEN` proses anak watcher) + `clipper-chrome.mjs` & `clipper-laptop.mjs` (laptop, dipanggil `laptop-worker.mjs`). Clippo **nolak request dari server (403)** → semua akses Clippo (baca campaign, Join, ajukan clip) lewat **Chrome laptop Owner yang login** + ekstensi Claude in Chrome (`claude --chrome`); jangan akalin proteksinya. Alur: 07:30 laptop baca campaign → 07:45 bot usul 3 terbaik → **Owner ✅ wajib** → 3 clip/hari (`CLIP_PER_DAY`): yt-dlp/gdown → whisper.cpp → Claude pilih momen sesuai brief → ffmpeg 9:16 → TikTok + IG Reels (Zernio akun 4 `ZERNIO_CLIP_API_KEY`) → tiap jam cek views; ≥ min views (1.000) & like rate ≥0,5% → laptop ajukan ke Clippo. Video jangan dihapus 180 hari.
+
 ## Tim Trading (XAUUSD saja)
 Jalan otomatis 0 token di VPS: service `zataa-trading` (`scripts/trading/run.mjs`), siklus tiap candle M15: Mahendra → Davina → Keira → Aryaputra → Wiratama → Jihan → Selena. Laporan Selena di bot trading: harian 19:00 WITA, mingguan Sabtu 07:00 WITA.
 Mode `paper` (default, simulasi) → `demo` → `live` (hanya Owner, konfirmasi dua langkah). Owner kontrol lewat Telegram: `trading status|jeda|lanjut|mode …|terapkan <id>|tutup semua`.
@@ -63,7 +78,7 @@ Data: `node scripts/trading/cli.mjs status` — jangan ngarang angka trading. EA
 
 Sebelum memerankan pegawai, baca **hanya** playbook-nya: `office/roles/<id>.md` (keahlian Marketing & Trading diadaptasi dari agency-agents, MIT).
 
-Denah kantor 3 lantai (`docs/js/px/scene.js`): Lt.1 indoor Mushola + wudhu, Gudang Mbak Sari, Cafe & Resto, Ruang Santai (+ arcade/pingpong); outdoor taman, gazebo, kolam, sign ZAA OFFICE · Lt.2 tangga pojok kiri, R. Manajer YouTube/Story/Marketing/Trading, bilik YouTube/Zaa Story/Marketing/Trading (+ rak server) · Lt.3 3 ruang meeting, Billiard (4 meja, 2 orang/meja, 1 game 10 menit), Ruang Bos (+ meja sekretaris Nabila, kursi tunggu di depannya), Bioskop Mini. Tanpa mess/kamar mandi. Tampilan web = **pixel art top-down 2D** (`docs/js/topdown.js` + `docs/js/td/map.js` peta, `td/chars.js` sprite; mode 3D Blender dipensiunkan 14 Nov 2026). Ubah denah → cukup edit `scene.js`, peta top-down ikut otomatis.
+Denah kantor 4 lantai (`docs/js/px/scene.js`): Lt.1 indoor Mushola + wudhu, Gudang Mbak Sari, Cafe & Resto, Ruang Santai (+ arcade/pingpong); outdoor taman, gazebo, kolam, sign ZAA OFFICE · Lt.2 tangga pojok kiri, R. Manajer YouTube/Story/Marketing/Trading, bilik YouTube/Zaa Story/Marketing/Trading (+ rak server) · Lt.3 3 ruang meeting, Billiard (4 meja, 2 orang/meja, 1 game 10 menit), Ruang Bos (+ meja sekretaris Nabila, kursi tunggu di depannya), Bioskop Mini (+ tangga ke Lt.4 sebelah ruang Bos) · Lt.4 (16 Nov 2026) R. Manajer Clipper & Marvel, Bilik Clipper, Bilik Marvel Talk, Meeting Kreator, Studio Podcast. Tanpa mess/kamar mandi. Tampilan web = **pixel art top-down 2D** (`docs/js/topdown.js` + `docs/js/td/map.js` peta, `td/chars.js` sprite; mode 3D Blender dipensiunkan 14 Nov 2026). Ubah denah → cukup edit `scene.js`, peta top-down ikut otomatis.
 
 Update status visual: `office.mjs agent <id> working "<tugas>"` → selesai `office.mjs agent <id> done "<tugas>"`, dan log singkat `office.mjs log <id> "<pesan>"`.
 `done` otomatis menulis obrolan oper kerjaan ke panel Chit-chat. Boleh tambah 1–2 obrolan natural per sesi (santai/curhat, singkat): `office.mjs chat <dari> <ke|all> <oper|santai|curhat> "<pesan>"`.

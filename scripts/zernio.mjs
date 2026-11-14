@@ -33,18 +33,18 @@ export async function api(path, { method = 'GET', body, headers = {}, keyEnv = B
 }
 
 // akun per platform: id tetap dari .env kalau diisi (lihat di bawah), kalau tidak ambil akun aktif pertama di login Zernio itu
-async function accountId(platform) {
-  // kunci akun per Zernio login: akun 1 ZERNIO_<PLATFORM>_ACCOUNT, akun 2 (Story) ZERNIO_STORY_<PLATFORM>_ACCOUNT — jangan sampai id akun 1 dipakai di akun 2
-  const fixed = env()[B.zernioEnv === 'ZERNIO_API_KEY' ? `ZERNIO_${platform.toUpperCase()}_ACCOUNT` : `ZERNIO_STORY_${platform.toUpperCase()}_ACCOUNT`];
+async function accountId(platform, keyEnv = B.zernioEnv, prefix = B.zernioAcct ?? 'ZERNIO') {
+  // kunci akun per Zernio login: akun 1 ZERNIO_<PLATFORM>_ACCOUNT, akun 2 (Story) ZERNIO_STORY_…, akun 3 (Marvel) ZERNIO_MARVEL_… — jangan sampai id akun 1 dipakai di akun lain
+  const fixed = env()[`${prefix}_${platform.toUpperCase()}_ACCOUNT`];
   if (fixed) return fixed;
-  const { accounts = [] } = await api('/accounts');
+  const { accounts = [] } = await api('/accounts', { keyEnv });
   const a = accounts.find((x) => x.platform === platform && x.isActive !== false);
   if (!a) throw new Error(`Zernio: belum ada akun ${platform} yang terhubung`);
   return a._id;
 }
 
-async function uploadMedia(file) {
-  const { uploadUrl, publicUrl } = await api('/media/presign', { method: 'POST', body: { filename: basename(file), contentType: 'video/mp4' } });
+async function uploadMedia(file, keyEnv = B.zernioEnv) {
+  const { uploadUrl, publicUrl } = await api('/media/presign', { method: 'POST', keyEnv, body: { filename: basename(file), contentType: 'video/mp4' } });
   const r = await fetch(uploadUrl, { method: 'PUT', headers: { 'Content-Type': 'video/mp4' }, body: await readFile(file) });
   if (!r.ok) throw new Error(`Zernio upload video: HTTP ${r.status}`);
   return publicUrl;
@@ -54,17 +54,18 @@ async function uploadMedia(file) {
 const idemKey = (s) => { const h = createHash('sha1').update(s).digest('hex'); return `${h.slice(0, 8)}-${h.slice(8, 12)}-${h.slice(12, 16)}-${h.slice(16, 20)}-${h.slice(20, 32)}`; };
 
 async function post(platform, file, content, extra, key) {
+  const keyEnv = extra.keyEnv ?? B.zernioEnv; // Clipper pakai akun Zernio sendiri (ZERNIO_CLIP_API_KEY)
   const body = {
     content, publishNow: true,
-    mediaItems: [{ type: 'video', url: await uploadMedia(file) }],
-    platforms: [{ platform, accountId: extra.accountId ?? await accountId(platform), ...(extra.platformSpecificData ? { platformSpecificData: extra.platformSpecificData } : {}) }],
+    mediaItems: [{ type: 'video', url: await uploadMedia(file, keyEnv) }],
+    platforms: [{ platform, accountId: extra.accountId ?? await accountId(platform, keyEnv, extra.prefix), ...(extra.platformSpecificData ? { platformSpecificData: extra.platformSpecificData } : {}) }],
     ...(extra.root ?? {}),
   };
-  let { post: p } = await api('/posts', { method: 'POST', body, headers: key ? { 'Idempotency-Key': idemKey(key) } : {} });
+  let { post: p } = await api('/posts', { method: 'POST', keyEnv, body, headers: key ? { 'Idempotency-Key': idemKey(key) } : {} });
   // publishNow biasanya langsung final; kalau masih proses, tunggu maks ±10 menit
   for (let i = 0; i < 60 && !['published', 'failed', 'partial'].includes(p.status); i++) {
     await sleep(10_000);
-    ({ post: p } = await api(`/posts/${p._id}`));
+    ({ post: p } = await api(`/posts/${p._id}`, { keyEnv }));
   }
   const pl = p.platforms?.find((x) => x.platform === platform) ?? {};
   if (pl.status === 'failed' || p.status === 'failed') throw new Error(`Zernio ${platform} gagal: ${pl.errorMessage ?? p.status}`);
@@ -78,6 +79,25 @@ export async function youtubeUpload(file, meta, key) {
   }, key);
   const id = r.platformPostId ?? r.url?.match(/(?:shorts\/|v=|youtu\.be\/)([\w-]{11})/)?.[1] ?? r.postId;
   return { ok: true, id, url: r.url ?? `https://youtube.com/shorts/${id}`, privacy: r.status === 'published' ? 'public' : 'processing', zernio_post: r.postId };
+}
+
+// Clipper (16 Nov 2026): 1 clip → TikTok / Instagram (video tunggal = Reel) di Zernio akun 4 (ZERNIO_CLIP_API_KEY, id akun ZERNIO_CLIP_<PLATFORM>_ACCOUNT)
+export async function clipPost(platform, file, caption, key) {
+  const extra = { keyEnv: 'ZERNIO_CLIP_API_KEY', prefix: 'ZERNIO_CLIP' };
+  if (platform === 'tiktok') extra.root = { tiktokSettings: { privacy_level: 'PUBLIC_TO_EVERYONE', allow_comment: true, allow_duet: true, allow_stitch: true, content_preview_confirmed: true, express_consent_given: true } };
+  const r = await post(platform, file, caption.slice(0, 2200), extra, key);
+  return { ok: true, id: r.platformPostId ?? r.postId, url: r.url, status: r.status, zernio_post: r.postId };
+}
+// views/likes per post Zernio (id post Zernio → {views, likes, comments, url}) buat syarat Clippo: ≥1.000 views & like rate ≥0,5%
+export async function postStatsMap(platform, keyEnv = 'ZERNIO_CLIP_API_KEY', days = 60) {
+  const from = new Date(Date.now() - days * 86400_000).toISOString().slice(0, 10);
+  const out = {};
+  for (let page = 1; page <= 5; page++) {
+    const j = await api(`/analytics?platform=${platform}&fromDate=${from}&limit=100&page=${page}`, { keyEnv });
+    for (const p of j.posts ?? []) out[p._id] = { views: p.analytics?.views ?? 0, likes: p.analytics?.likes ?? 0, comments: p.analytics?.comments ?? 0, url: p.platformPostUrl ?? null };
+    if (page >= (j.pagination?.pages ?? 1)) break;
+  }
+  return out;
 }
 
 // account: id akun Zernio tertentu (mis. TikTok Zaa Story), kosong = akun TikTok default (zataa.topup)

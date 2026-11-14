@@ -19,12 +19,15 @@ import { startFinanceBot } from './finance-bot.mjs';
 import { startChitchatBot } from './chitchat-bot.mjs';
 import { startShortsBot } from './shorts-bot.mjs';
 
-// Zaa Story pakai kode shorts-bot.mjs yang sama tapi --brand=story (state & bot sendiri) → jalan sebagai proses anak
-function startStoryBot() {
-  const p = spawn(process.execPath, [join(ROOT, 'scripts', 'shorts-bot.mjs'), 'bot', '--brand=story'], { cwd: ROOT, windowsHide: true });
-  const pipe = (b) => String(b).split('\n').filter((l) => l.trim()).forEach((l) => log(`[story] ${l}`));
+// Bot divisi lain = proses anak watcher (modul beda), mati → hidup lagi 30 dtk:
+//   Zaa Story & Marvel Talk pakai shorts-bot.mjs yang sama (--brand=…), Clipper pakai clipper.mjs bot.
+// Token bot belum diisi di .env → dicek ulang tiap 10 menit (isi token = langsung nyala tanpa restart).
+function startChild(tag, args, tokenEnv = null) {
+  if (tokenEnv && !loadEnv()[tokenEnv]) return void setTimeout(() => startChild(tag, args, tokenEnv), 600_000);
+  const p = spawn(process.execPath, [join(ROOT, 'scripts', ...args)], { cwd: ROOT, windowsHide: true });
+  const pipe = (b) => String(b).split(/\n/).filter((l) => l.trim()).forEach((l) => log(`[${tag}] ${l}`));
   p.stdout.on('data', pipe); p.stderr.on('data', pipe);
-  p.on('exit', (code) => { log(`[story] bot berhenti (kode ${code}), nyala lagi 30 dtk`); setTimeout(startStoryBot, 30_000); });
+  p.on('exit', (code) => { log(`[${tag}] bot berhenti (kode ${code}), nyala lagi 30 dtk`); setTimeout(() => startChild(tag, args, tokenEnv), 30_000); });
 }
 import { analystTick } from './analyst.mjs';
 import { engageTick } from './engage.mjs';
@@ -272,5 +275,7 @@ if (!process.argv.includes('--once')) {
   startFinanceBot(log); // bot Telegram Nabila (keuangan Owner), long polling terpisah
   startChitchatBot(log, exportState); // bot chit-chat: obrolan santai pegawai ↔ Owner nimbrung
   startShortsBot(log); // bot @zataashortbot Zaa History (approval → upload Private → ingatkan Publik)
-  startStoryBot(); // bot @zataastorybot Zaa Story: proses anak (brand beda = modul beda), mati → hidup lagi 30 dtk
+  startChild('story', ['shorts-bot.mjs', 'bot', '--brand=story']); // bot @zataastorybot Zaa Story
+  startChild('marvel', ['shorts-bot.mjs', 'bot', '--brand=marvel'], 'MARVEL_BOT_TOKEN'); // bot Marvel Talk (16 Nov 2026)
+  startChild('clipper', ['clipper.mjs', 'bot'], 'CLIPPER_BOT_TOKEN'); // bot Clipper: campaign Clippo → ✅ Owner → clip → TikTok+IG → ajukan
 }
