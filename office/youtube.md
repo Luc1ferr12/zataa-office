@@ -1,6 +1,6 @@
-# SOP Divisi Zataa History (YouTube Shorts sejarah kuno: Hidden History + 6 pilar lain)
+# SOP Divisi Zaa History (YouTube Shorts sejarah kuno: Hidden History + 6 pilar lain)
 
-**Channel lama @zataastory, sejak 25 Okt berganti nama jadi Zataa History** (akun zataatopup@gmail.com, Zernio akun 1). Niche misteri/horor Nusantara pindah ke divisi baru **Zataa Story** (tim Raditya, `office/story.md`); divisi ini tetap sejarah misteri kuno dunia.
+**Channel lama @zataastory, sejak 25 Okt berganti nama jadi Zaa History** (akun zataatopup@gmail.com, Zernio akun 1). Niche misteri/horor Nusantara pindah ke divisi baru **Zaa Story** (tim Raditya, `office/story.md`); divisi ini tetap sejarah misteri kuno dunia.
 
 **Status: JALAN** (sejak 16 Okt 2026). Produksi **4 Shorts/minggu** (mulai 26 Okt; dulu 7/minggu) lewat sesi harian; render otomatis di laptop, approval & upload lewat bot **@zataashortbot** (`scripts/shorts-bot.mjs`, jalan di watcher VPS).
 
@@ -10,7 +10,7 @@
    file.json = `{ topic_id (wajib, status approved), title (≤60 karakter), caption (deskripsi: ringkasan + sumber + kredit visual), hashtags ("#Shorts #sejarah …"), sources, tags?, synthetic?, day?, jam? ("HH:MM" WIB), test?, spec: { voice, speed, tag, mood, scenes[{ img, vo, sub, place?, credit?, move? }] } }`. Path `img` relatif dari root repo.
 2. **Laptop** (Task Scheduler "Zataa Laptop Worker" tiap 10 mnt → `scripts/laptop-worker.mjs` → `scripts/shorts-laptop.mjs <id> --submit`): gambar yang belum ada diambil dari VPS, render `scripts/shorts.mjs` (OmniVoice, 40–59 dtk), hasil ke `out/shorts/` VPS. Tidak ada fallback suara VPS: laptop mati >3 jam → Yoga kabari Owner; render gagal → `_laptop: 3` + Owner dikabari.
 3. **Kirana** kirim video + judul/deskripsi ke Owner di @zataashortbot: ✅ Approve / ✏️ Revisi / ❌ Tolak (aturan Owner: tidak ada tombol upload). Owner bilang "langsung post/upload" = ✅ + upload saat itu juga.
-4. ✅ → status `approved`, bot **upload otomatis di jam tayang** (`jam`; sudah lewat jam → langsung) **langsung Publik lewat Zernio** (`scripts/zernio.mjs`, keputusan Owner 18 Okt) → status `posted` + Kirana kirim link; topik di bank otomatis `published` + `published_url`. Zataa History tidak posting TikTok.
+4. ✅ → status `approved`, bot **upload otomatis di jam tayang** (`jam`; sudah lewat jam → langsung) **langsung Publik lewat Zernio** (`scripts/zernio.mjs`, keputusan Owner 18 Okt) → status `posted` + Kirana kirim link; topik di bank otomatis `published` + `published_url`. Zaa History tidak posting TikTok.
 5. Fallback tanpa `ZERNIO_API_KEY`: `scripts/youtube.mjs` Private → `uploaded` + pengingat ubah ke Publik → Owner tekan **✅ Sudah Publik** → `posted`.
 6. ❌ Tolak → topik balik `backlog` (catatan "ditolak Owner"), Claude CLI (tim YouTube) langsung bikin **Shorts pengganti** dari topik approved lain (patuhi kuota pilar) untuk hari & jam yang sama → render laptop → dikirim lagi.
 7. ✏️ Revisi → Claude CLI (tim YouTube) ubah lewat `shorts-bot.mjs set` → render ulang di laptop → dikirim lagi (cuma judul/deskripsi → langsung dikirim ulang tanpa render).
@@ -50,7 +50,7 @@ Tiap ide video wajib masuk bank dulu, lengkap dengan: `topic_id` (otomatis, mis.
 6. `strange_events` (SE) — peristiwa nyata yang absurd/aneh. Contoh: Wabah Menari 1518, Perang Emu di Australia, Tahun Tanpa Musim Panas (1816), pasukan yang "kalah" lawan kelinci.
 7. `greek_myth` (GM) — **Mitologi Yunani** (pilar bebas, setara pilar 2–6): dewa-dewi Olympus, Titan, pahlawan, monster, Troya/Odisseia. Wajib label "mitos/kisah kepercayaan" + sumber teks kuno.
 
-Pilar 2–7 = **6 pilar bebas** untuk 2 slot non-Hidden History tiap minggu. Topik misteri/horor Nusantara = milik Zataa Story, bukan di sini (gilir, jangan pilar sama 2 hari berturut-turut).
+Pilar 2–7 = **6 pilar bebas** untuk 2 slot non-Hidden History tiap minggu. Topik misteri/horor Nusantara = milik Zaa Story, bukan di sini (gilir, jangan pilar sama 2 hari berturut-turut).
 
 ## Retensi & hook (aturan 25 Okt, setelah semua video mentok ±1.000 views)
 Masalah channel bukan topik/jumlah upload, tapi **3 detik pertama**: YouTube cuma dorong video yang lolos tes ±1.000 penonton pertama.

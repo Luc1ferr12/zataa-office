@@ -88,7 +88,7 @@ Akhiri dengan baris "BALASAN:" lalu pesan untuk Bos (tanpa awalan nama): sebut y
   for (const f of refs) { try { unlinkSync(join(ROOT, f)); } catch { /* sudah hilang */ } }
   if (r.ok && r.text.includes(RGE_MARK)) return routeRge(msg, log);
   const reply = !r.ok ? 'Maaf Bos, saya lagi error pas nyatet 😣 Kirim ulang bentar lagi ya.'
-    : r.text.includes(ESCALATE) ? 'Kalau mau nyuruh tim kerja, kirim di bot divisinya ya Bos 🙏 Konten/IG ke bot Zataa Office Marketing, trading ke bot Zataa Office Trading, YouTube ke @zataashortbot. Kalau cuma mau nanya, tanya saya aja 😊'
+    : r.text.includes(ESCALATE) ? 'Kalau mau nyuruh tim kerja, kirim di bot divisinya ya Bos 🙏 Konten/IG ke bot About Esports, trading ke bot Zaa Office Trading, YouTube ke @zataashortbot. Kalau cuma mau nanya, tanya saya aja 😊'
       : r.text.slice(r.text.lastIndexOf('BALASAN:') + 8).trim().slice(0, 3800);
   log(`keuangan: ${r.ok ? 'ok' : 'gagal'}`);
   saveHist(msg, reply);

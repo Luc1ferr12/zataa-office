@@ -19,4 +19,4 @@ createServer(async (req, res) => {
   } catch {
     res.writeHead(404).end('not found');
   }
-}).listen(PORT, () => console.log(`Zataa AI Office → http://localhost:${PORT}`));
+}).listen(PORT, () => console.log(`Zaa Office → http://localhost:${PORT}`));

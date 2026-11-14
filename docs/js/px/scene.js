@@ -1,4 +1,4 @@
-// Gedung Zataa Office v3: kantor terasering 3 tingkat di lereng bukit (rombak 18 Okt 2026: mess & kamar mandi dihapus,
+// Gedung Zaa Office v3: kantor terasering 3 tingkat di lereng bukit (rombak 18 Okt 2026: mess & kamar mandi dihapus,
 // pegawai beraktivitas 24 jam). Tiap tingkat = selasar 2 m di depan + deretan ruang sedalam 8 m; tingkat di atasnya
 // mundur penuh 10 m, jadi dari kamera semua ruangan selalu kelihatan (tanpa tombol lantai). Koordinat sama dengan nav.js:
 // x ke kanan, y ke atas, z ke arah kamera (depan). Satuan meter.
@@ -20,11 +20,11 @@ export const CORR_SPAN = [[-32, 32], [-32, 32], [-32, 32]];
 export const ROOMDEF = {
   1: [['mushola', -32, -20, 'Mushola'], ['wudhu', -20, -17, 'Tempat Wudhu'], ['gudang', -17, -14, 'Gudang Mbak Sari'], ['tangga1', -14, -10, 'Tangga'],
     ['cafe', -10, 13, 'Cafe & Resto'], ['santai', 13, 32, 'Ruang Santai']],
-  // 25 Okt 2026: divisi Zataa Story masuk → ruang manajer jadi 4,5 m & bilik dipadatkan (kolom 2,6 m, Trading 2,8 m)
-  2: [['tangga2', -32, -28, 'Tangga'], ['ydirRoom', -28, -23.5, 'R. Manajer YouTube'], ['sdirRoom', -23.5, -19, 'R. Manajer Story'], ['dirRoom', -19, -14.5, 'R. Marketing Director'],
-    ['tdirRoom', -14.5, -10, 'R. Trading Director'], ['yt', -10, -0.7, 'Bilik YouTube'], ['st', -0.7, 8.6, 'Bilik Zataa Story'], ['mkt', 8.6, 20.45, 'Bilik Marketing'],
+  // 25 Okt 2026: divisi Zaa Story masuk → ruang manajer jadi 4,5 m & bilik dipadatkan (kolom 2,6 m, Trading 2,8 m)
+  2: [['tangga2', -32, -28, 'Tangga'], ['ydirRoom', -28, -23.5, 'R. Manajer YouTube'], ['sdirRoom', -23.5, -19, 'R. Manajer Story'], ['dirRoom', -19, -14.5, 'R. Director About Esports'],
+    ['tdirRoom', -14.5, -10, 'R. Trading Director'], ['yt', -10, -0.7, 'Bilik YouTube'], ['st', -0.7, 8.6, 'Bilik Zaa Story'], ['mkt', 8.6, 20.45, 'Bilik About Esports'],
     ['trd', 20.45, 32, 'Bilik Trading']],
-  3: [['meetM', -32, -24, 'Meeting Marketing'], ['meetT', -24, -18, 'Meeting Trading'], ['meetY', -18, -14, 'Meeting YouTube'],
+  3: [['meetM', -32, -24, 'Meeting About Esports'], ['meetT', -24, -18, 'Meeting Trading'], ['meetY', -18, -14, 'Meeting YouTube'],
     ['billiard', -14, 2, 'Billiard'], ['boss', 2, 16, 'Ruang Boss'], ['bioskop', 16, 32, 'Bioskop Mini']],
 };
 export const ROOM = {};
@@ -127,7 +127,7 @@ mk('meetCarpet', '#3b3656', { tex: noise(5, 0.07), base: 0.47 });
 mk('trdCarpet', '#26323d', { tex: tiles(0.6, 0.04, 0.05), base: 0.46 });
 mk('ytCarpet', '#3a2a30', { tex: tiles(0.6, 0.04, 0.05), base: 0.46 });
 mk('ytRed', '#b91c1c', { base: 0.5 });
-mk('stCarpet', '#1d1527', { tex: tiles(0.6, 0.04, 0.05), base: 0.45 });   // Zataa Story: hitam-ungu (logo docs/assets/zataa-story-logo.png)
+mk('stCarpet', '#1d1527', { tex: tiles(0.6, 0.04, 0.05), base: 0.45 });   // Zaa Story: hitam-ungu (logo docs/assets/zataa-story-logo.png)
 mk('stPanel', '#3b1a6b', { base: 0.47 });
 mk('stPurple', '#6d3fc4', { base: 0.5 });
 mk('cineCarpet', '#2a1f3d', { tex: noise(6, 0.06), base: 0.44 });
@@ -188,7 +188,7 @@ em('candle', '#ffb347', 0.7, 0.7);
 const rgb = ['#7c3aed', '#0891b2', '#db2777', '#65a30d', '#d97706', '#2563eb', '#e11d48', '#0d9488', '#ea580c', '#9333ea'];
 rgb.forEach((c, i) => { em(`rgb${i}`, c, 0.6, 0.9); mk(`acc${i}`, c, { base: 0.5 }); });
 
-// ---------------------------------------------------------------- meja kerja: 8 Marketing (0–7) + 6 Trading (8–13) + 6 YouTube (14–19) + 6 Zataa Story (20–25)
+// ---------------------------------------------------------------- meja kerja: 8 Marketing (0–7) + 6 Trading (8–13) + 6 YouTube (14–19) + 6 Zaa Story (20–25)
 // tiap meja: { x, z, rot, row, team, cell } — orang duduk menghadap monitor (−z)
 // xs = tengah kolom bilik, w = lebar bilik, side = lorong samping (x) dekat pintu
 export const TEAM_DESK = {
@@ -711,7 +711,7 @@ export function buildScene(logo) {
       for (const [dz, ry] of [[-1.0, 0], [1.0, Math.PI]]) officeChair(B, x, 0, z(RESTO.lz + dz), ry, M.sofa, 0.9);
       B.box(0.3, 0.02, 0.25, x, 0.8, z(RESTO.lz - 0.3), M.white);
     }
-    // meja bar depan dapur (tambahan kursi makan sejak divisi Zataa Story)
+    // meja bar depan dapur (tambahan kursi makan sejak divisi Zaa Story)
     const bc = (BAR.x0 + BAR.x1) / 2;
     B.box(BAR.x1 - BAR.x0, 0.07, 0.7, bc, 0.76, z(BAR.lz), M.walnut);
     for (const lx of [BAR.x0 + 0.15, BAR.x1 - 0.15]) B.box(0.1, 0.72, 0.6, lx, 0.37, z(BAR.lz), M.dark);
@@ -762,7 +762,7 @@ export function buildScene(logo) {
 
   // ================================================================ LANTAI 2 · KERJA
   // kiri → kanan: tangga ke Lt.3 · R. Manajer YouTube · R. Manajer Story · R. Marketing Director · R. Trading Director
-  //               · bilik YouTube · bilik Zataa Story · bilik Marketing · bilik Trading
+  //               · bilik YouTube · bilik Zaa Story · bilik Marketing · bilik Trading
   {
     const y = LY[1], z = (lz) => RZ(2, lz);
     for (const [id, mat] of [['tangga2', M.oak], ['ydirRoom', M.walnut], ['sdirRoom', M.walnut], ['dirRoom', M.walnut], ['tdirRoom', M.walnut], ['yt', M.ytCarpet], ['st', M.stCarpet], ['mkt', M.workwood], ['trd', M.trdCarpet]]) {
@@ -790,7 +790,7 @@ export function buildScene(logo) {
       B.box(1.8, 0.7, 0.08, cx + 1.15, y + 2.35, z(-7.9), M.black);
       label(B, 1.7, 0.6, cx + 1.15, y + 2.35, z(-7.85), M.black, 'SHORTS', M.signRed, 1);
     }
-    {   // Manajer Zataa Story (Raditya): hitam-ungu kayak logo, lilin di meja, papan STORY
+    {   // Manajer Zaa Story (Raditya): hitam-ungu kayak logo, lilin di meja, papan STORY
       const { r, cx } = mgrRoom('sdir', M.stPurple, 1.1, M.sofa);
       B.box(0.9, 0.52, 0.05, cx, y + 1.15, z(-6.25), M.black);
       B.vquad(0.82, 0.44, cx, y + 1.15, z(-6.22), M.tvSdir, Math.PI);
@@ -816,7 +816,7 @@ export function buildScene(logo) {
       B.box(0.6, 1.0, 0.6, r.x0 + 0.45, y + 0.5, z(-3.8), M.dark);   // brankas (dinding barat)
       B.box(0.05, 0.2, 0.2, r.x0 + 0.77, y + 0.7, z(-3.8), M.brass);
     }
-    // ---- BILIK YOUTUBE (6 meja) · ZATAA STORY (6 meja) · MARKETING (8 meja) · TRADING (6 meja)
+    // ---- BILIK YOUTUBE (6 meja) · ZAA STORY (6 meja) · MARKETING (8 meja) · TRADING (6 meja)
     DESK_LIST.forEach((d, i) => {
       const dz = z(d.lz), trd = d.team === 'trd';
       const w = trd ? 2.6 : 1.9;
@@ -837,19 +837,19 @@ export function buildScene(logo) {
       L(d.x, y + 2.5, dz + 0.5, COOL, 3.4, 0.8);
     });
     for (const T of Object.values(TEAM_DESK)) for (const x of T.xs) B.box(T.w, 1.25, 0.06, x, y + 0.62, z(ROW_DESK.B - 0.48), M[T.panel]);
-    // dinding fitur: YOUTUBE (merah), ZATAA STORY (ungu gelap + lampu dinding), MARKETING (ungu), video wall harga emas (trading)
+    // dinding fitur: YOUTUBE (merah), ZAA STORY (ungu gelap + lampu dinding), MARKETING (ungu), video wall harga emas (trading)
     const mid = (id) => (ROOM[id].x0 + ROOM[id].x1) / 2, wid = (id) => ROOM[id].x1 - ROOM[id].x0;
     B.box(wid('yt') - 0.7, 0.05, 0.05, mid('yt'), y + 2.9, z(-7.94), M.signRed, { cast: false });
     label(B, 5.2, 0.9, mid('yt'), y + 2.85, z(-7.92), M.plaster, 'YOUTUBE', M.signRed, 2);
     B.box(wid('st') - 0.7, 0.05, 0.05, mid('st'), y + 2.9, z(-7.94), M.lampPurple, { cast: false });
     B.box(6.4, 1.0, 0.06, mid('st'), y + 2.85, z(-7.95), M.black);
-    label(B, 6.2, 0.9, mid('st'), y + 2.85, z(-7.9), M.black, 'ZATAA STORY', M.signViolet, 2);
+    label(B, 6.2, 0.9, mid('st'), y + 2.85, z(-7.9), M.black, 'ZAA STORY', M.signViolet, 2);
     for (const dx of [-3.9, 3.9]) {   // lampu dinding ungu temaram
       B.box(0.18, 0.4, 0.12, mid('st') + dx, y + 2.85, z(-7.88), M.lampPurple, { cast: false });
       L(mid('st') + dx, y + 2.6, z(-7.3), PURP, 2.6, 0.7);
     }
     B.box(wid('mkt') - 0.7, 0.05, 0.05, mid('mkt'), y + 2.9, z(-7.94), M.lampPurple, { cast: false });
-    label(B, 5.2, 0.9, mid('mkt'), y + 2.85, z(-7.92), M.plaster, 'MARKETING', M.signPurple, 2);
+    label(B, 5.2, 0.9, mid('mkt'), y + 2.85, z(-7.92), M.plaster, 'ABOUT ESPORTS', M.signPurple, 2);
     const tx = (ROOM.trd.x0 + TEAM_DESK.trd.xs.at(-1) + TEAM_DESK.trd.w / 2) / 2;
     const tw = TEAM_DESK.trd.xs.at(-1) + TEAM_DESK.trd.w / 2 - ROOM.trd.x0 - 0.5;
     B.box(tw + 0.2, 1.6, 0.1, tx, y + 2.45, z(-7.9), M.black);
@@ -972,10 +972,10 @@ export function buildScene(logo) {
     B.box(0.5, 0.6, 0.5, bx(3.0), y + 1.3, z(-1.0), M.glass);
     B.box(0.4, 0.3, 0.4, bx(3.0), y + 1.15, z(-1.0), M.flower2);
     L(bx(8.5), y + 2.5, z(-4), PURP, 5, 0.6);
-    // papan nama ZATAA di atap ruang boss (tanda gedung dari jauh)
+    // papan nama ZAA di atap ruang boss (tanda gedung dari jauh)
     B.box(8.6, 1.9, 0.25, 9, y + 4.6, z(-8.1), M.black);
     for (const px of [6, 12]) B.box(0.14, 1.4, 0.14, px, y + 3.6, z(-8.1), M.steel);
-    label(B, 6.4, 1.7, 10.0, y + 4.6, z(-7.96), M.black, 'ZATAA', M.signWhite, 3);
+    label(B, 6.4, 1.7, 10.0, y + 4.6, z(-7.96), M.black, 'ZAA', M.signWhite, 3);
     B.vquad(1.7, 1.7, 5.8, y + 4.6, z(-7.96), M.black, 0, { tex: logoTex(logo, 1.7, 1.7) });
     B.box(8.6, 0.08, 0.06, 9, y + 3.67, z(-7.96), M.lampPurple, { cast: false });
     L(9, y + 4.6, z(-7), PURP, 4, 0.9);
@@ -1036,14 +1036,14 @@ export function buildScene(logo) {
     // gerbang + papan nama di ujung jalan
     for (const gx of [-1.6, 3.2]) B.box(0.7, 2.6, 0.7, gx, 1.3, 30.5, M.dark);
     B.box(5.5, 0.6, 0.6, 0.8, 2.9, 30.5, M.dark);
-    label(B, 4.6, 0.5, 0.8, 2.9, 30.82, M.dark, 'ZATAA OFFICE', M.signViolet, 1);
+    label(B, 4.6, 0.5, 0.8, 2.9, 30.82, M.dark, 'ZAA OFFICE', M.signViolet, 1);
     L(0.8, 2.4, 31.2, PURP, 3.5, 1.0);
-    // sign besar ZATAA OFFICE di taman depan (huruf menyala + logo di atas alas batu)
+    // sign besar ZAA OFFICE di taman depan (huruf menyala + logo di atas alas batu)
     {
       const sx0 = -15.5, sz = 27.2;
       B.box(10.4, 0.6, 1.4, sx0, 0.3, sz, M.ledge, { top: M.stone });
       B.box(9.8, 1.9, 0.35, sx0, 1.55, sz, M.black);
-      label(B, 7.6, 1.5, sx0 + 1.0, 1.55, sz + 0.19, M.black, 'ZATAA OFFICE', M.signWhite, 2);
+      label(B, 7.6, 1.5, sx0 + 1.0, 1.55, sz + 0.19, M.black, 'ZAA OFFICE', M.signWhite, 2);
       B.vquad(1.5, 1.5, sx0 - 3.9, 1.55, sz + 0.19, M.black, 0, { tex: logoTex(logo, 1.5, 1.5) });
       B.box(9.8, 0.06, 0.06, sx0, 0.62, sz + 0.2, M.lampPurple, { cast: false });
       for (let k = 0; k < 6; k++) B.ell(sx0 - 4.6 + k * 1.84, 0.75, sz + 0.95, 0.38, 0.3, 0.32, k % 2 ? M.flower : M.flower2, { leafy: true });

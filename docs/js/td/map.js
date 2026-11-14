@@ -1,4 +1,4 @@
-// Peta kantor Zataa versi pixel art top-down (2D, ringan, tanpa file gambar). Semua posisi diambil dari px/scene.js
+// Peta kantor Zaa versi pixel art top-down (2D, ringan, tanpa file gambar). Semua posisi diambil dari px/scene.js
 // (koordinat dunia yang sama dengan nav.js), jadi jalur jalan & jadwal pegawai tetap sama persis.
 // Dilihat dari atas, 3 lantai terasering nyambung: Lt.3 di atas, Lt.2 di tengah, Lt.1 + halaman di bawah.
 // Hasil: 1 kanvas latar (lantai, dinding, perabot rendah) + daftar "prop" (perabot tinggi, diurut kedalaman bareng pegawai)
@@ -200,10 +200,10 @@ function yard(P, C, prop, lamp, waters) {
   }
   P.w(X0 + 1, -0.6, 30.75, 30.9, '#d9ccb4'); P.w(2.2, X1 - 1, 30.75, 30.9, '#d9ccb4');
   for (const x of [-0.8, 2.1]) prop(31.2, x - 0.25, x + 0.25, 30.5, 31.1, 1.6, (p) => p.box(x - 0.25, x + 0.25, 30.5, 31.1, 1.6, '#e9e0cf', '#c9bba3', '#fff'));
-  // papan nama ZATAA OFFICE
+  // papan nama ZAA OFFICE
   prop(28.4, 3, 10, 27.8, 28.2, 1.6, (p) => {
     p.box(3, 10, 27.8, 28.2, 1.6, '#3a2a5a', '#2a1d44', '#5a3d8a');
-    p.text('ZATAA OFFICE', (X(3) + X(10)) / 2, Y(28.2) - H(1.6) / 2 - 3, '#f5e9ff', 2);
+    p.text('ZAA OFFICE', (X(3) + X(10)) / 2, Y(28.2) - H(1.6) / 2 - 3, '#f5e9ff', 2);
     p.r(X(3.4), Y(28.2), 2, 3, '#555'); p.r(X(9.6) - 2, Y(28.2), 2, 3, '#555');
   });
   // lampu taman
@@ -526,7 +526,7 @@ function room(P, C, L, r, prop, screens, lamp) {
       shelf(prop, C, x0 + 0.2, x0 + 1.2, back, 1.8);
       sofa(P, prop, C, x0 + 1.0, x0 + 2.6, z(-1.3), 1, '#5a6a8a', '#46536e');
       plant(prop, C, x1 - 0.5, z(-0.7), 1);
-      sign(P, C, back, mx, { ydir: 'MGR YOUTUBE', sdir: 'MGR STORY', dir: 'MARKETING DIR', tdir: 'TRADING DIR' }[mgr]);
+      sign(P, C, back, mx, { ydir: 'MGR YOUTUBE', sdir: 'MGR STORY', dir: 'ESPORTS DIR', tdir: 'TRADING DIR' }[mgr]);
       lamps(1);
       break;
     }
@@ -551,7 +551,7 @@ function room(P, C, L, r, prop, screens, lamp) {
         for (let y = Y(back + 0.7) - H(2) + 3; y < Y(back + 0.7) - 3; y += 3) { p.r(X(x1 - 1.3), y, X(x1 - 0.4) - X(x1 - 1.3), 2, '#363a4a'); screens.push({ kind: 'led', key: y, x: X(x1 - 1.3) + 2, y, w: 2, h: 1 }); }
       });
       if (id === 'trd') tv(P, screens, back, (x0 + x1) / 2 - 1, 3, 'ticker');
-      sign(P, C, back, (x0 + x1) / 2 + (id === 'trd' ? 2.8 : 0), { yt: 'BILIK YOUTUBE', st: 'BILIK ZATAA STORY', mkt: 'BILIK MARKETING', trd: 'BILIK TRADING' }[id]);
+      sign(P, C, back, (x0 + x1) / 2 + (id === 'trd' ? 2.8 : 0), { yt: 'BILIK YOUTUBE', st: 'BILIK ZAA STORY', mkt: 'BILIK ABOUT ESPORTS', trd: 'BILIK TRADING' }[id]);
       lamps(3);
       break;
     }

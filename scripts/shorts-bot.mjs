@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // Divisi Shorts, dua brand dengan kode yang sama (scripts/brand.mjs, pilih --brand=history|story, default history):
-//   Zataa History: bot @zataashortbot, DB channel 'youtube', tim Bagas dkk · Zataa Story: bot @zataastorybot, DB channel 'story', tim Raditya dkk (+ TikTok).
+//   Zaa History: bot @zataashortbot, DB channel 'youtube', tim Bagas dkk · Zaa Story: bot @zataastorybot, DB channel 'story', tim Raditya dkk (+ TikTok).
 // Bot History jalan di dalam watcher, bot Story = proses anak watcher (shorts-bot.mjs bot --brand=story); cuma nerima pesan & tombol dari SHORTS_OWNER_ID.
 // Alur: new (sesi harian) → antre render laptop (_laptop 1, scripts/shorts-laptop.mjs, OmniVoice) → submit (Kirana kirim video + ✅/✏️/❌)
 //       → ✅ → tunggu jam tayang (_jam) → upload YouTube Publik lewat Zernio (scripts/zernio.mjs) → 'posted'. Tanpa ZERNIO_API_KEY: scripts/youtube.mjs Private → 'uploaded' + pengingat → Owner tekan
@@ -14,7 +14,7 @@
 //   node scripts/shorts-bot.mjs say <agent> "<teks>"  pesan dari pegawai YouTube
 //   node scripts/shorts-bot.mjs tiktok <id>           cross-post ke TikTok brand ini sekarang (Story: otomatis setelah tayang YouTube)
 //   node scripts/shorts-bot.mjs bot                   jalankan bot Telegram brand ini (dipakai watcher untuk --brand=story)
-//   Semua perintah: tambah --brand=story untuk Zataa Story.
+//   Semua perintah: tambah --brand=story untuk Zaa Story.
 //   node scripts/shorts-bot.mjs report [--dry]        laporan harian sekarang (otomatis tiap 19:00 WITA; --dry = cetak saja, tidak dikirim)
 //   node scripts/shorts-bot.mjs weekly [--dry]        laporan mingguan sekarang (otomatis Minggu 19:30 WITA)
 //   .env: SHORTS_OWNER_ID + per brand: History SHORTS_BOT_TOKEN / ZERNIO_API_KEY / YT_REFRESH_TOKEN · Story STORY_BOT_TOKEN / ZERNIO_STORY_API_KEY / STORY_YT_REFRESH_TOKEN
@@ -208,7 +208,7 @@ export async function upload(id) {
 }
 
 // cross-post TikTok: video yang sama ke TikTok brand ini → peluang viral dobel tanpa produksi tambahan.
-// Cuma brand dengan B.tiktok (Zataa Story, akun TikTok di Zernio akun 2); History nggak pernah posting TikTok.
+// Cuma brand dengan B.tiktok (Zaa Story, akun TikTok di Zernio akun 2); History nggak pernah posting TikTok.
 export async function crossTikTok(id) {
   if (!B.tiktok || !zernioOn()) return { ok: false, skip: `${B.name} nggak pakai TikTok / ${B.zernioEnv} kosong` };
   const d = await db();
@@ -540,7 +540,7 @@ SOP & cara kerja: ${B.sop} (baca kalau perlu). Data Shorts: node scripts/shorts-
 Tugas (mis. bikin Shorts baru / ganti topik): kerjakan sesuai ${B.sop} (new → render otomatis di laptop → ${NAMA[T.publish]} kirim ke sini). Jangan kirim Telegram sendiri.
 Perintah KERJA buat divisi lain (bikin konten IG, perintah trading, catat keuangan) → tulis persis ${ESCALATE} lalu berhenti. Pertanyaan soal divisi lain tetap dijawab.
 Akhiri dengan baris "BALASAN:" lalu 1–3 baris, TIAP baris diawali nama pegawai: "Nama: pesan". Santai, sopan.`, 25);
-  if (r.ok && r.text.includes(ESCALATE)) return sayAs(T.dir, 'Kalau mau nyuruh kerja divisi lain, kirim di botnya ya Bos 🙏 Konten IG ke bot Zataa Office Marketing, trading ke bot Zataa Office Trading, keuangan ke @zataaaccountingbot. Kalau cuma nanya, tanya di sini aja juga bisa.');
+  if (r.ok && r.text.includes(ESCALATE)) return sayAs(T.dir, 'Kalau mau nyuruh kerja divisi lain, kirim di botnya ya Bos 🙏 Konten IG ke bot About Esports, trading ke bot Zaa Office Trading, keuangan ke @zataaaccountingbot. Kalau cuma nanya, tanya di sini aja juga bisa.');
   if (!r.ok) { log(`bot shorts: claude gagal ${r.text.slice(0, 200)}`); return sayAs(T.dir, '⚠️ Maaf Bos, lagi error. Coba lagi bentar ya.'); }
   return send(formatReply(r.text, T.dir));
 }

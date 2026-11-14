@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Sesi kerja harian kantor Zataa (cron 07:00 WITA) — pengganti scheduled task Claude Desktop di laptop.
+# Sesi kerja harian kantor Zaa (cron 07:00 WITA) — pengganti scheduled task Claude Desktop di laptop.
 set -u
 cd "$(dirname "$0")/../.."
 mkdir -p logs
@@ -7,7 +7,7 @@ export PATH="$HOME/.local/bin:$PATH" TZ=Asia/Makassar
 LOG="logs/daily-$(date +%F).log"
 git pull -q --rebase --autostash >>"$LOG" 2>&1
 
-PROMPT='Kamu menjalankan sesi kerja pagi kantor marketing virtual Zataa di folder ini.
+PROMPT='Kamu menjalankan sesi kerja pagi Zaa Office (divisi About Esports = media esports, web top up mati: nol promo) di folder ini.
 
 Baca lalu ikuti PERSIS file SOP office/daily.md (Senin: rapat plan mingguan → kirim plan ke Owner lalu stop produksi marketing, tapi 1 YouTube Shorts tetap dibuat; Selasa–Minggu: riset masing-masing → briefing ide (2 ide terbaik dikirim ke Owner) → produksi konten terjadwal kalau plan sudah approved). Patuhi CLAUDE.md (hemat token & aturan konten). Kerjakan mandiri tanpa menunggu konfirmasi, dan akhiri dengan ringkasan singkat untuk Owner.'
 

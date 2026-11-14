@@ -38,7 +38,7 @@
 </style></head>
 <body><div id="root"></div>
 <script type="module">
-import { setup, shell, md, esc, fit, ready, footer } from '../shared/brand.js';
+import { setup, shell, md, esc, fit, ready, footer, LOGO } from '../shared/brand.js';
 // data: { game, slides:[{kind:'hook', headline, sub} | {kind:'point', title, body} | {kind:'cta', headline, sub}], cta } ; opts.slide = indeks
 window.render = async (d, size, opts = {}) => {
   const g = setup(d, size);
@@ -56,8 +56,7 @@ window.render = async (d, size, opts = {}) => {
     const row = s.photo || logos.length > 3 ? logoRow : logoRow.replace('class="tlogos"', 'class="tlogos big"');
     inner = `<div class="grow">${row}${s.pre ? `<div class="pre">${md(s.pre)}</div>` : ''}<h1 class="h1 hook">${md(s.headline)}</h1>${s.sub ? `<p class="sub">${md(s.sub)}</p>` : ''}</div><div class="swipe">Geser ➜</div>`;
   } else if (s.kind === 'cta') {
-    const logo = new URL('../../docs/assets/logo.png', location.href).href;
-    inner = `<div class="grow"><img class="cta-logo" src="${logo}" alt=""><h1 class="h1">${md(s.headline ?? 'Top up sekarang!')}</h1>${s.sub ? `<p class="sub">${md(s.sub)}</p>` : ''}</div>${footer(d)}`;
+    inner = `<div class="grow"><img class="cta-logo" src="${LOGO}" alt=""><h1 class="h1">${md(s.headline ?? 'Follow biar nggak ketinggalan!')}</h1>${s.sub ? `<p class="sub">${md(s.sub)}</p>` : ''}</div>${footer(d)}`;
   } else {
     const num = s.n ?? i;
     inner = `<div class="grow">${logoRow}<div class="pt-n">${esc(String(num).padStart(2, '0'))}</div><h2 class="h2 pt">${md(s.title)}</h2>${s.body ? `<p class="body">${md(s.body)}</p>` : ''}</div><div class="swipe">Geser ➜</div>`;

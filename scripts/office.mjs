@@ -33,8 +33,8 @@ try {
   // Okt 2026: divisi YouTube Shorts (sejarah misteri kuno)
   db.exec(`INSERT OR IGNORE INTO agents (id, name, title) VALUES ('ydir', 'Bagas', 'Manajer YouTube'), ('yresearch', 'Nadhira', 'Riset Sejarah & Tren'),
     ('yscript', 'Laras', 'Scriptwriter & Fact Checker'), ('yvisual', 'Galih', 'Visual & Creative'), ('yvideo', 'Yoga', 'Video Producer'), ('ypublish', 'Kirana', 'Publisher, SEO & Growth')`);
-  // 25 Okt 2026: divisi Zataa Story (misteri & horor Nusantara, YouTube + TikTok), channel DB 'story'
-  db.exec(`INSERT OR IGNORE INTO agents (id, name, title) VALUES ('sdir', 'Raditya', 'Manajer Zataa Story'), ('sresearch', 'Sekar', 'Riset Misteri Nusantara'),
+  // 25 Okt 2026: divisi Zaa Story (misteri & horor Nusantara, YouTube + TikTok), channel DB 'story'
+  db.exec(`INSERT OR IGNORE INTO agents (id, name, title) VALUES ('sdir', 'Raditya', 'Manajer Zaa Story'), ('sresearch', 'Sekar', 'Riset Misteri Nusantara'),
     ('sscript', 'Dinda', 'Scriptwriter & Fact Checker'), ('svisual', 'Arga', 'Visual & Creative'), ('svideo', 'Bima', 'Video Producer'), ('spublish', 'Nayla', 'Publisher YouTube & TikTok')`);
 } catch { /* db belum init */ }
 // YouTube Shorts disimpan di contents juga: channel 'youtube' (kosong = Marketing IG/TikTok), youtube_id = id video (scripts/shorts-bot.mjs)

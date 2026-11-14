@@ -7,7 +7,6 @@
 process.removeAllListeners('warning');
 import { fileURLToPath } from 'node:url';
 import { loadEnv, db, sayAs, SLOT } from './approval.mjs';
-import { linkFor } from './golink.mjs';
 import { haiku, replyOf } from './haiku.mjs';
 
 const env = () => ({ ...loadEnv(), ...process.env });
@@ -27,7 +26,7 @@ async function graph(path, params) {
   return r.json();
 }
 
-const VOICE = `Akun IG Zataa (zataa.my.id, top up game): tempat nongkrong gamer ML / Valorant / Free Fire. Bahasa Indonesia santai ala gamer (gaskeun, auto, mabar, push rank), kayak temen, bukan brosur; panggil "kamu", bukan lo/gue. Tanpa SARA, judi, kata kasar. Emoji 1–2 aja. Klasemen MPL pakai "Match Point/MP", bukan "poin". Jangan ngarang angka atau harga.`;
+const VOICE = `Akun IG About Esports (media esports, eks akun Zataa top up; web top up lagi MATI → jangan ajak top up / sebut zataa.my.id / harga): tempat nongkrong & info esports gamer ML / Valorant / Free Fire. Bahasa Indonesia santai ala gamer (gaskeun, auto, mabar, push rank), kayak temen, bukan brosur; panggil "kamu", bukan lo/gue. Tanpa SARA, judi, kata kasar. Emoji 1–2 aja. Klasemen MPL pakai "Match Point/MP", bukan "poin". Jangan ngarang angka atau harga.`;
 
 // ---------- IG Story harian
 export async function storyDraft({ dry = false } = {}) {
@@ -52,8 +51,7 @@ Aturan story (dari skill ig-story):
 - 3–5 frame. Frame 1 harus ada gerakan (rekaman layar gameplay, cuplikan Reels hari ini, tangan pegang HP), bukan teks di latar polos.
 - 1 ide per frame, teks layar maks 10 kata, ngomong ke "kamu" (1 orang).
 - Frame 3 atau 4 = SATU stiker: Polling (biar banyak yang tap), Kuis (kalau ada salah kaprah), atau Kotak pertanyaan (panen ide konten). Tulis pertanyaan + pilihannya.
-- Frame terakhir: hasil/penutup + arahkan ke post hari ini (bilang kenapa layak dibuka, jangan cuma repost polos) ATAU stiker link ${linkFor('igs', 999).replace('999', '<id konten>')} (ganti <id konten> pakai #id dari daftar di atas; link ini ngitung klik ke toko, jangan ganti ke zataa.my.id polos).
-- Kalau mau sebut harga, WAJIB cek dulu "node scripts/price.mjs latest <kata>"; datanya nggak ada → jangan sebut harga.
+- Frame terakhir: hasil/penutup + arahkan ke post hari ini (bilang kenapa layak dibuka, jangan cuma repost polos). Tanpa stiker link toko (web top up lagi mati).
 - Akhiri dengan 1 baris "Habis itu:" = apa yang Owner lakukan ke yang jawab stiker (mis. balas DM yang vote X).
 
 Format tiap frame (teks polos, tanpa markdown):
@@ -105,9 +103,9 @@ Komen (JSON):
 ${JSON.stringify(items.map(({ id, user, text, likes, post }) => ({ id, user, text, likes, post })))}
 
 Aturan (dari skill ig-reply):
-- Kelompokkan: LEAD (nanya top up/harga/cara beli), SUBSTANCE (nambah data/prediksi/beda pendapat), QUESTION (pertanyaan yang banyak orang juga penasaran), SUPPORT ("mantap", emoji, tag temen), NOISE (spam, promo akun lain, judi, nyerang).
+- Kelompokkan: LEAD (nanya top up/harga/cara beli — jawab sopan: top up lagi tutup dulu), SUBSTANCE (nambah data/prediksi/beda pendapat), QUESTION (pertanyaan yang banyak orang juga penasaran), SUPPORT ("mantap", emoji, tag temen), NOISE (spam, promo akun lain, judi, nyerang).
 - Jawab pertanyaannya langsung di balasan, jangan cuma "cek DM". Panjang balasan setara komennya; SUPPORT cukup 3–8 kata.
-- LEAD: jawab dulu, tutup 1 kalimat ajakan ke zataa.my.id (link di bio). Harga cuma boleh dari "node scripts/price.mjs latest <kata>", nggak ada → jangan sebut angka.
+- LEAD: bilang jujur layanan top up lagi tutup sementara, ajak follow buat update esports. Jangan sebut harga / zataa.my.id.
 - Beda pendapat: akui bagian yang benar dulu, baru pendapat kita. NOISE: reply kosong "" (nggak usah dibalas, sembunyikan kalau kasar).
 - QUESTION yang layak jadi Reels: isi "reel" = ide judul video singkat.
 

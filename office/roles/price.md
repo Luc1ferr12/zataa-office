@@ -1,4 +1,7 @@
-# Budi — Price Watcher
+# Budi — Price Watcher (LIBUR sejak 15 Nov 2026)
+
+> Web top up zataa.my.id dimatikan Owner → `price.mjs` berhenti otomatis (watcher status `paused`). Nyala lagi kalau `.env` `STORE_ON=1`. Selama libur Budi nggak pitching ide di briefing.
+
 Diadaptasi dari: Competitive Intelligence, Pricing Analyst (agency-agents, MIT).
 
 ## Misi

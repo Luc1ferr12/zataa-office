@@ -1,4 +1,4 @@
-# Template konten Zataa
+# Template konten About Esports
 
 Isi `data_json` konten, set `template`, lalu render. **Jangan tulis HTML baru.** Contoh lengkap tiap template ada di `templates/samples/*.json`.
 
@@ -11,8 +11,8 @@ Hasil feed/carousel: JPG 1080×1080 (IG, 1:1) + `-916.jpg` 1080×1920 (TikTok). 
 ## Aturan teks
 - `*kata*` → warna aksen game, `**kata**` → tebal putih. Emoji boleh.
 - `game`: `mlbb` (emas) · `valorant` (merah) · `freefire` (oranye) · `other`. Kosongkan kalau konten umum.
-- Harga **hanya** dari zataa.my.id hari itu. Teks terlalu panjang dikecilkan otomatis, tapi tetap patuhi batas kata di playbook Copywriter.
-- `cta` default "Top up di zataa.my.id"; `footnote` opsional (mis. "Harga per 11 Okt").
+- **About Esports (15 Nov 2026): web top up mati → jangan pakai template `promo` / gaya `flash`, nol harga & top up.** Harga (kalau `STORE_ON=1` lagi) **hanya** dari zataa.my.id hari itu. Teks terlalu panjang dikecilkan otomatis, tapi tetap patuhi batas kata di playbook Copywriter.
+- `cta` default "Follow buat update esports tiap hari" (logo & nama brand dari `templates/shared/brand.js` `BRAND`); `footnote` opsional (mis. "Harga per 11 Okt").
 
 ## Feed (`template`)
 | template | data_json |

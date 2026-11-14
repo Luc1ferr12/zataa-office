@@ -23,7 +23,7 @@ export const NEXT = {
   yvisual: ['yvideo'],
   yvideo: ['ypublish'],
   ypublish: ['owner'],
-  // tim Zataa Story
+  // tim Zaa Story
   sdir: ['sresearch'],
   sresearch: ['sscript'],
   sscript: ['svisual'],
@@ -54,7 +54,7 @@ const HANDOFF = {
   yvisual: ['{to}, visual "{task}" udah lengkap + kredit lisensinya. Siap dirakit 🖼️', 'Aset adegan "{task}" kelar, {to}. Gas edit!'],
   yvideo: ['{to}, Shorts "{task}" udah render 9:16 + VO. Cek judul & tag ya', 'Video "{task}" kelar, {to}. Durasinya pas di bawah 60 detik'],
   ypublish: ['Bos, Shorts "{task}" udah aku kirim ke Telegram. Ditunggu ✅ buat upload 🙏'],
-  sdir: ['{to}, topik Zataa Story hari ini: "{task}". Cari sisi sejarahnya ya, jangan cuma seremnya 👻', 'Brief "{task}" udah jadi. {to}, gas riset!'],
+  sdir: ['{to}, topik Zaa Story hari ini: "{task}". Cari sisi sejarahnya ya, jangan cuma seremnya 👻', 'Brief "{task}" udah jadi. {to}, gas riset!'],
   sresearch: ['{to}, bahan "{task}" udah aku rangkum. Yang "konon" sama yang fakta udah aku pisahin 📜', 'Riset "{task}" beres, {to}. Lanjut naskah ya'],
   sscript: ['{to}, naskah "{task}" udah jadi, hook-nya serem di detik pertama 😶', 'Script "{task}" ready, {to}. Tolong cariin foto arsip yang gelap ya'],
   svisual: ['{to}, visual "{task}" lengkap + kredit lisensi. Nggak ada foto penampakan palsu ya 🖼️', 'Aset "{task}" kelar, {to}. Gas edit!'],

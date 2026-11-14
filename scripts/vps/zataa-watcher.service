@@ -1,7 +1,7 @@
-# Watcher Telegram kantor Zataa (24 jam, restart otomatis kalau crash)
+# Watcher Telegram kantor Zaa (24 jam, restart otomatis kalau crash)
 # pasang: sudo cp scripts/vps/zataa-watcher.service /etc/systemd/system/ && sudo systemctl enable --now zataa-watcher
 [Unit]
-Description=Zataa AI Office watcher (Telegram, auto-post, analyst, price)
+Description=Zaa Office watcher (Telegram, auto-post, analyst, price)
 After=network-online.target
 Wants=network-online.target
 

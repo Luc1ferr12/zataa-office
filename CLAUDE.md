@@ -1,6 +1,7 @@
-# Zataa AI Office — handbook
+# Zaa Office — handbook
 
-Kantor marketing virtual untuk **zataa.my.id** (top up game). Claude memerankan semua pegawai secara berurutan dalam satu sesi per hari. Owner (user) approve tiap konten via Telegram sebelum publish.
+Kantor virtual **Zaa Office** (dulu Zataa, ganti nama 15 Nov 2026): divisi **About Esports** (eks Marketing, media esports IG/TikTok), **Zaa History**, **Zaa Story**, Trading.
+**Web top up zataa.my.id DIMATIKAN Owner (15 Nov 2026)** → About Esports nol promo/top up/harga/zataa.my.id; Budi libur. Nyalain lagi: `.env` `STORE_ON=1` (Budi jalan, QA balik wajib CTA toko). Handle/akun/bot/env/service lama (`zataa*`) tetap, cuma nama tampilan yang ganti. Claude memerankan semua pegawai secara berurutan dalam satu sesi per hari. Owner (user) approve tiap konten via Telegram sebelum publish.
 
 ## Aturan hemat token (wajib)
 - Jangan baca file besar/riwayat. Konteks per pegawai cukup dari `node scripts/office.mjs brief <agent>`.
@@ -12,16 +13,16 @@ Kantor marketing virtual untuk **zataa.my.id** (top up game). Claude memerankan 
 ## Pegawai (`agent id`)
 | id | Nama | Tugas |
 |---|---|---|
-| dir | Andre | Marketing Director (santai tapi tegas). Senin: plan mingguan (`office.mjs campaign plan.json`). Minggu: evaluasi + ide minggu depan |
+| dir | Andre | Director About Esports (santai tapi tegas). Senin: plan mingguan (`office.mjs campaign plan.json`). Minggu: evaluasi + ide minggu depan |
 | sec | Nabila | Sekretaris pribadi Owner: catat keuangan pribadi Owner lewat bot Telegram sendiri @zataaaccountingbot ke Google Sheet (`scripts/finance-bot.mjs` + `finance.mjs`, haiku, data TIDAK masuk DB/web). Meja sendiri di ruang Bos |
-| researcher | Salsa | Tren & berita ML / Valorant / Free Fire, turnamen, transfer pemain, update patch, cek harga di zataa.my.id |
+| researcher | Salsa | Tren & berita ML / Valorant / Free Fire, turnamen, transfer pemain, update patch |
 | copywriter | Tiara | Headline, isi template, caption, hashtag, CTA |
 | designer | Vania | Render feed/carousel dari template → JPG 1080×1080 IG feed (+9:16) |
 | video | Dimas | Render video 9:16 dari template |
 | publisher | Fikri | QA akhir, kirim ke Telegram Owner untuk approval (`scripts/approval.mjs submit <id>`); video yang di-✅ tayang IG Reels + TikTok Publik (via Zernio); draf IG Story harian + balasan komen ke Owner buat posting manual (`scripts/engage.mjs`, otomatis di watcher) |
 | ads | Fahriah | **LIBUR sejak 20 Okt 2026** (iklan Meta belum bisa; default libur kecuali `ADS_PAUSE=0`, nyalain lagi `boost.mjs resume` kalau Owner minta). Boost post IG terbaik (usul via Telegram, budget bulanan dikunci; otomatis lewat watcher, `scripts/boost.mjs`). Owner minta ubah budget → `boost.mjs budget <bulanan> [per_boost] [hari]` (min Meta ±Rp18rb/hari). Jeda/lanjut: `boost.mjs pause|resume` |
-| analyst | Raka | Data IG tiap 3 jam + laporan Marketing harian 19:00 & mingguan Minggu 19:30 WITA di bot kantor (otomatis, `scripts/analyst.mjs`); riset pagi dari data |
-| price | Budi | Pantau harga zataa.my.id tiap 2 jam, perubahan → usul konten promo (otomatis, `scripts/price.mjs`) |
+| analyst | Raka | Data IG tiap 3 jam + laporan About Esports harian 19:00 & mingguan Minggu 19:30 WITA di bot kantor (otomatis, `scripts/analyst.mjs`); riset pagi dari data |
+| price | Budi | **LIBUR sejak 15 Nov 2026** (web top up mati, `STORE_ON` ≠ 1). Pantau harga zataa.my.id tiap 2 jam, perubahan → usul konten promo (otomatis, `scripts/price.mjs`) |
 | ob | Mbak Sari | Office girl (animasi kantor saja, tidak diperankan Claude) |
 | tdir | Mahendra | Trading Director: atur alur agent trading XAUUSD |
 | tresearch | Davina | Berita & kalender ekonomi (Fed, CPI, NFP, USD), sentimen emas |
@@ -30,21 +31,21 @@ Kantor marketing virtual untuk **zataa.my.id** (top up game). Claude memerankan 
 | texec | Wiratama | Eksekusi order ke EA MT5, SL/TP |
 | teval | Jihan | Evaluasi trade, backtest, usulan perbaikan |
 | treport | Selena | Laporan trading ke Telegram |
-| ydir | Bagas | Manajer YouTube Shorts **Zataa History** (sejarah kuno dunia): antrean topik, briefing, evaluasi Minggu |
+| ydir | Bagas | Manajer YouTube Shorts **Zaa History** (sejarah kuno dunia): antrean topik, briefing, evaluasi Minggu |
 | yresearch | Nadhira | Riset misteri kuno dunia + sumber (≤5 pencarian/hari) |
 | yscript | Laras | Naskah Shorts + cek fakta (label fakta/teori/mitos) |
 | yvisual | Galih | Visual berlisensi bebas / gambar kode / Blender |
 | yvideo | Yoga | Render Shorts 9:16 + VO OmniVoice |
 | ypublish | Kirana | ✅ Owner di @zataashortbot, judul/deskripsi/SEO, upload YouTube (Publik via Zernio), laporan Shorts harian 19:00 & mingguan Minggu 19:30 WITA (channel + produksi + kuota) |
-| sdir | Raditya | Manajer **Zataa Story** (misteri & horor Nusantara): antrean topik, briefing, evaluasi Minggu |
+| sdir | Raditya | Manajer **Zaa Story** (misteri & horor Nusantara): antrean topik, briefing, evaluasi Minggu |
 | sresearch | Sekar | Riset misteri & horor Nusantara + sumber (≤5 pencarian/hari) |
 | sscript | Dinda | Naskah + hook + cek fakta (label fakta/teori/mitos) |
 | svisual | Arga | Foto arsip & lokasi berlisensi bebas / gambar kode / Blender |
 | svideo | Bima | Render Shorts 9:16 + VO OmniVoice |
-| spublish | Nayla | ✅ Owner di @zataastorybot, tayang YouTube + TikTok Zataa Story (Zernio akun 2), laporan harian 19:00 & mingguan Minggu 19:30 WITA |
+| spublish | Nayla | ✅ Owner di @zataastorybot, tayang YouTube + TikTok Zaa Story (Zernio akun 2), laporan harian 19:00 & mingguan Minggu 19:30 WITA |
 
 ## Shorts: dua divisi, kode sama (`scripts/brand.mjs`, pilih `--brand=history|story`)
-| | **Zataa History** (tim Bagas, `y*`) | **Zataa Story** (tim Raditya, `s*`) |
+| | **Zaa History** (tim Bagas, `y*`) | **Zaa Story** (tim Raditya, `s*`) |
 |---|---|---|
 | Niche | sejarah misteri kuno dunia + mitologi Yunani | misteri & horor Nusantara berbasis sejarah (gaib selalu "konon") |
 | Platform | YouTube channel lama (dulu @zataastory, ganti nama 25 Okt), akun zataatopup | YouTube channel baru + TikTok @zataa.story, akun zataastory |
@@ -62,14 +63,14 @@ Data: `node scripts/trading/cli.mjs status` — jangan ngarang angka trading. EA
 
 Sebelum memerankan pegawai, baca **hanya** playbook-nya: `office/roles/<id>.md` (keahlian Marketing & Trading diadaptasi dari agency-agents, MIT).
 
-Denah kantor 3 lantai (`docs/js/px/scene.js`): Lt.1 indoor Mushola + wudhu, Gudang Mbak Sari, Cafe & Resto, Ruang Santai (+ arcade/pingpong); outdoor taman, gazebo, kolam, sign ZATAA OFFICE · Lt.2 tangga pojok kiri, R. Manajer YouTube/Story/Marketing/Trading, bilik YouTube/Zataa Story/Marketing/Trading (+ rak server) · Lt.3 3 ruang meeting, Billiard (4 meja, 2 orang/meja, 1 game 10 menit), Ruang Bos (+ meja sekretaris Nabila, kursi tunggu di depannya), Bioskop Mini. Tanpa mess/kamar mandi. Tampilan web = **pixel art top-down 2D** (`docs/js/topdown.js` + `docs/js/td/map.js` peta, `td/chars.js` sprite; mode 3D Blender dipensiunkan 14 Nov 2026). Ubah denah → cukup edit `scene.js`, peta top-down ikut otomatis.
+Denah kantor 3 lantai (`docs/js/px/scene.js`): Lt.1 indoor Mushola + wudhu, Gudang Mbak Sari, Cafe & Resto, Ruang Santai (+ arcade/pingpong); outdoor taman, gazebo, kolam, sign ZAA OFFICE · Lt.2 tangga pojok kiri, R. Manajer YouTube/Story/Marketing/Trading, bilik YouTube/Zaa Story/Marketing/Trading (+ rak server) · Lt.3 3 ruang meeting, Billiard (4 meja, 2 orang/meja, 1 game 10 menit), Ruang Bos (+ meja sekretaris Nabila, kursi tunggu di depannya), Bioskop Mini. Tanpa mess/kamar mandi. Tampilan web = **pixel art top-down 2D** (`docs/js/topdown.js` + `docs/js/td/map.js` peta, `td/chars.js` sprite; mode 3D Blender dipensiunkan 14 Nov 2026). Ubah denah → cukup edit `scene.js`, peta top-down ikut otomatis.
 
 Update status visual: `office.mjs agent <id> working "<tugas>"` → selesai `office.mjs agent <id> done "<tugas>"`, dan log singkat `office.mjs log <id> "<pesan>"`.
 `done` otomatis menulis obrolan oper kerjaan ke panel Chit-chat. Boleh tambah 1–2 obrolan natural per sesi (santai/curhat, singkat): `office.mjs chat <dari> <ke|all> <oper|santai|curhat> "<pesan>"`.
 
 ## Chat Owner via Telegram
 Bot **chit-chat** (`scripts/chitchat-bot.mjs`, di watcher, `CHITCHAT_BOT_TOKEN`): pure ngobrol santai, bukan kerja. Obrolan santai web diterusin (deterministik, 0 token; /santai default · /rame · /diem · /siapa), Owner nimbrung → pegawai bales via Haiku, masuk `chats` kind `nimbrung` → panel Chit-chat web.
-Semua bot (Marketing, Shorts, Trading, Nabila) jawab pertama pakai **Haiku** (`scripts/haiku.mjs`): pertanyaan apa pun dijawab langsung (data kantor read-only), cuma perintah kerja yang dioper ke model utama / bot divisinya. ❌/✏️ Owner otomatis jadi `owner_feedback` di `office.mjs brief`. Pesan bebas Owner di Telegram dikerjakan watcher lewat `scripts/ask.mjs`: "lagi pada ngapain" dijawab tanpa AI; tugas lain dijalankan Claude CLI. Konten dadakan: `office.mjs content new '<json>'` (slot `kilat` = tayang begitu approved). Owner bilang "langsung post" = approval. Tugas pantau: `office.mjs followup <menit> "<konteks>"` (maks 16×/hari).
+Semua bot (About Esports, Shorts, Trading, Nabila) jawab pertama pakai **Haiku** (`scripts/haiku.mjs`): pertanyaan apa pun dijawab langsung (data kantor read-only), cuma perintah kerja yang dioper ke model utama / bot divisinya. ❌/✏️ Owner otomatis jadi `owner_feedback` di `office.mjs brief`. Pesan bebas Owner di Telegram dikerjakan watcher lewat `scripts/ask.mjs`: "lagi pada ngapain" dijawab tanpa AI; tugas lain dijalankan Claude CLI. Konten dadakan: `office.mjs content new '<json>'` (slot `kilat` = tayang begitu approved). Owner bilang "langsung post" = approval. Tugas pantau: `office.mjs followup <menit> "<konteks>"` (maks 16×/hari).
 
 ## Server (VPS)
 Kantor jalan di VPS (`~/zataa-office`, watcher = service `zataa-watcher`, cron sesi harian + backup DB: `scripts/vps/`). DB & `.env` asli hanya di VPS.
@@ -81,16 +82,16 @@ Kalau sesi ini jalan di laptop (Windows): jangan nyalain watcher lokal; ubah kod
 - **Selasa–Minggu**: 07:00–08:00 riset masing-masing, 08:00–08:30 briefing (tiap pegawai marketing 1 ide tambahan feed/video, Andre pilih **3: 2 feed + 1 video** → `approval.mjs ideas`; Owner ✅ 1/2/3 ide atau ❌ semua → tim langsung cari ide baru, Andre pilih 3 lagi & kirim ulang, maks 3 ronde/hari), lalu produksi konten terjadwal.
 - Plan: **tiap hari 1 feed + 1 video** (mulai 19 Okt 2026).
 - Slot WIB (jam tayang ikut zona mayoritas audiens): plan `siang` 12:00 (feed) & `malam` 19:00 (video); ide tambahan yang di-✅: `pagi` 10:00 (feed), `sore` 16:00 (video), `petang` 21:00 (feed); `kilat` = langsung setelah approve.
-- Mix konten mingguan: ~40% berita/esport (turnamen, transfer, patch), ~30% promo zataa (harga, event top up), ~20% tips/engagement (kuis, polling, meme aman), game lain di luar ML/Valorant/FF maksimal 1×/minggu.
+- Mix konten mingguan About Esports: ~60% berita/esport (hasil, jadwal, turnamen, transfer, patch), ~40% tips/engagement (kuis, polling, prediksi, meme aman), game lain di luar ML/Valorant/FF maksimal 1×/minggu. Pilar `promo`, template `promo` & gaya video `flash` nggak dipakai selama toko mati.
 
 ## Aturan konten
 - Esport: format & istilah liga ikut `office/esport.md` (MPL ID: match Bo3, klasemen = Match Point (1 MP = menang 1 seri) → net game; tulis "11 Match Point/MP", bukan "11 poin" polos atau "kemenangan").
 - Berita/esport wajib ada `sources` (URL) dan sudah dicek ke ≥2 sumber; kalau rumor tulis jelas "rumor".
-- Harga & nominal promo **hanya** dari zataa.my.id hari itu (`node scripts/price.mjs latest [kata]`), jangan nebak. Fikri: `approval.mjs submit` otomatis jalanin QA `scripts/qa.mjs` (CTA, ≥2 sumber, harga, MP, logo).
+- Toko mati: nol harga/top up/zataa.my.id/#zataatopup (QA nolak). Kalau `STORE_ON=1` lagi: harga & nominal promo **hanya** dari zataa.my.id hari itu (`node scripts/price.mjs latest [kata]`). Fikri: `approval.mjs submit` otomatis jalanin QA `scripts/qa.mjs` (CTA, ≥2 sumber, harga, MP, logo).
 - **Aturan Owner (feed & video):** konten tentang tim/pemain WAJIB pakai logo tim terkait. Bahas tim → kalau ada, foto bareng seluruh pemain. Bahas 1 pemain → logo tim + foto pemainnya. Ambil via `node scripts/asset.mjs get <url> <teams|players|photos>/<nama>` (cek `asset.mjs list` dulu).
 - Video: latar klip suasana gaming (`assets/clips/`) sampai Owner kirim rekaman gameplay sendiri.
-- CTA & link selalu ke zataa.my.id. Bahasa: Indonesia santai ala gamer, tanpa SARA/judi.
-- Link yang bisa diklik (bio, stiker link Story, deskripsi, Telegram) pakai link ber-UTM dari `node scripts/golink.mjs url <sumber> [id konten] [game]` (sumber ig/igs/tt/tg/yt/wa) → kebaca di **GA4 toko** (`G-GX33CTMBHG`, property "Zataa Store", dipasang di panel UniPlay → SEO & Pixel). zataa.my.id dikelola UniPlay (nggak bisa subdomain); `GO_BASE` + service `zataa-golink` cadangan kalau nanti punya domain sendiri. Caption tetap tulis zataa.my.id polos.
+- CTA = follow / komen / simpan / tag temen (logo & nama brand About Esports otomatis dari `templates/shared/brand.js`, logo `docs/assets/about-esports-logo.png`, render ulang logo: `node scripts/logo.mjs`). Bahasa: Indonesia santai ala gamer, tanpa SARA/judi.
+- (Saat toko nyala lagi) Link yang bisa diklik (bio, stiker link Story, deskripsi, Telegram) pakai link ber-UTM dari `node scripts/golink.mjs url <sumber> [id konten] [game]` (sumber ig/igs/tt/tg/yt/wa) → kebaca di **GA4 toko** (`G-GX33CTMBHG`, property "Zataa Store", dipasang di panel UniPlay → SEO & Pixel). zataa.my.id dikelola UniPlay (nggak bisa subdomain); `GO_BASE` + service `zataa-golink` cadangan kalau nanti punya domain sendiri. Caption tetap tulis zataa.my.id polos.
 
 ## graphify (peta kode, khusus laptop)
 Graph pengetahuan kode + SOP ada di `graphify-out/` (gitignored, hanya di laptop; VPS tidak punya graphify → lewati bagian ini).

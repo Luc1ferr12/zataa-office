@@ -44,7 +44,7 @@ export function fundamental(now = Date.now(), p = { newsBlackoutMin: 45 }) {
 export function aiSentiment({ bin = process.env.CLAUDE_BIN || 'claude', model = process.env.TRD_MODEL || 'haiku' } = {}) {
   if (kvAge('fund') < 300) return Promise.resolve(kv('fund'));
   const cal = upcoming(Date.now(), 36).map((e) => `- ${e.title} (${e.impact}) ${new Date(e.at).toISOString()} forecast ${e.forecast || '-'} prev ${e.previous || '-'}`).join('\n') || '- (tidak ada)';
-  const prompt = `Kamu Davina, analis fundamental emas (XAUUSD) di tim trading Zataa. Cari berita 24 jam terakhir (maks 4 pencarian web):
+  const prompt = `Kamu Davina, analis fundamental emas (XAUUSD) di tim trading Zaa. Cari berita 24 jam terakhir (maks 4 pencarian web):
 politik/perang/geopolitik, The Fed & suku bunga, data inflasi (CPI/PCE), tenaga kerja (NFP), dan kekuatan USD (DXY).
 Kalender USD 36 jam ke depan:\n${cal}
 Simpulkan sentimen untuk EMAS hari ini, dan nilai apakah kondisinya TERLALU BAHAYA buat entry (mis. perang pecah/eskalasi besar, rapat darurat Fed, krisis bank, harga emas gerak liar ratusan dolar).

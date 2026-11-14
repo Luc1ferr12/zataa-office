@@ -19,7 +19,7 @@ import { startFinanceBot } from './finance-bot.mjs';
 import { startChitchatBot } from './chitchat-bot.mjs';
 import { startShortsBot } from './shorts-bot.mjs';
 
-// Zataa Story pakai kode shorts-bot.mjs yang sama tapi --brand=story (state & bot sendiri) → jalan sebagai proses anak
+// Zaa Story pakai kode shorts-bot.mjs yang sama tapi --brand=story (state & bot sendiri) → jalan sebagai proses anak
 function startStoryBot() {
   const p = spawn(process.execPath, [join(ROOT, 'scripts', 'shorts-bot.mjs'), 'bot', '--brand=story'], { cwd: ROOT, windowsHide: true });
   const pipe = (b) => String(b).split('\n').filter((l) => l.trim()).forEach((l) => log(`[story] ${l}`));
@@ -29,7 +29,7 @@ function startStoryBot() {
 import { analystTick } from './analyst.mjs';
 import { engageTick } from './engage.mjs';
 import { socialsTick } from './socials.mjs';
-import { priceTick } from './price.mjs';
+import { priceTick, storeOn } from './price.mjs';
 import { limitsTick } from './limits.mjs';
 import { laptopFallback } from './laptop-fallback.mjs';
 import { beat } from './health.mjs';
@@ -81,13 +81,13 @@ async function revise(x) {
   exportState();
   await sayAs('copywriter', `🛠️ Revisi #${x.id} lagi dikerjain…${x.photos?.length ? ` (📷 ${x.photos.length} contoh desain ikut dibaca)` : ''}`).catch(() => {});
   const refs = await downloadPhotos(x.photos ?? []);
-  const prompt = `Kamu tim kantor marketing Zataa (zataa.my.id) di folder ini. Owner minta REVISI konten #${x.id}:
+  const prompt = `Kamu tim About Esports (eks Marketing, media esports; web top up zataa.my.id lagi mati → nol promo) di Zaa Office, folder ini. Owner minta REVISI konten #${x.id}:
 "${x.note || '(tanpa teks — ikuti gambar contoh)'}"${photoNote(refs)}
 
 Langkah:
 1. Baca CLAUDE.md seperlunya, lalu office/roles/copywriter.md dan office/roles/designer.md (atau office/roles/video.md kalau formatnya video). Skema template: templates/README.md.
 2. node scripts/office.mjs content get ${x.id}
-3. Ubah data_json / caption / hashtags / template sesuai catatan Owner (tulis JSON ke file sementara lalu: node scripts/office.mjs content set ${x.id} <file.json>). Patuhi aturan konten di CLAUDE.md (harga hanya dari zataa.my.id).
+3. Ubah data_json / caption / hashtags / template sesuai catatan Owner (tulis JSON ke file sementara lalu: node scripts/office.mjs content set ${x.id} <file.json>). Patuhi aturan konten di CLAUDE.md (nol promo/harga/top up, CTA follow/komen).
 4. node scripts/render.mjs ${x.id}, lalu buka 1 gambar hasil (video: file cover) dan pastikan rapi.
 5. JANGAN kirim ke Telegram dan jangan ubah konten lain.
 Akhiri jawaban dengan SATU kalimat ringkas (bahasa santai) tentang apa yang diubah.`;
@@ -202,6 +202,7 @@ async function staff() {
     const a = await analystTick();
     if (a) { log(`raka: ${JSON.stringify(a)}`); beat('analyst', true, JSON.stringify(a)); }
     const p = await priceTick();
+    if (!storeOn()) beat('price', null, 'libur (web top up mati, STORE_ON=1 buat nyalain)', 'paused');
     if (p) {
       log(`budi: ${JSON.stringify(p).slice(0, 200)}`);
       const bad = p.filter((x) => x.error);
@@ -270,6 +271,6 @@ if (!process.argv.includes('--once')) {
   setInterval(syncPages, SYNC_EVERY);
   startFinanceBot(log); // bot Telegram Nabila (keuangan Owner), long polling terpisah
   startChitchatBot(log, exportState); // bot chit-chat: obrolan santai pegawai ↔ Owner nimbrung
-  startShortsBot(log); // bot @zataashortbot Zataa History (approval → upload Private → ingatkan Publik)
-  startStoryBot(); // bot @zataastorybot Zataa Story: proses anak (brand beda = modul beda), mati → hidup lagi 30 dtk
+  startShortsBot(log); // bot @zataashortbot Zaa History (approval → upload Private → ingatkan Publik)
+  startStoryBot(); // bot @zataastorybot Zaa Story: proses anak (brand beda = modul beda), mati → hidup lagi 30 dtk
 }

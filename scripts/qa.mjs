@@ -7,7 +7,7 @@ import { fileURLToPath } from 'node:url';
 import { readdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { db } from './approval.mjs';
-import { latest } from './price.mjs';
+import { latest, storeOn } from './price.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 // nama tim di teks → file logo di assets/teams/ (aturan Owner: bahas tim = wajib logo)
@@ -24,7 +24,13 @@ export async function qa(c) {
   const text = [c.title, c.caption, c.hashtags, data].filter(Boolean).join('\n');
   const words = [c.title, c.caption, data].filter(Boolean).join('\n');
 
-  if (!/zataa\.my\.id/i.test(`${c.caption ?? ''}\n${c.hashtags ?? ''}`)) errors.push('caption belum ada CTA/link zataa.my.id');
+  const cap = `${c.caption ?? ''}\n${c.hashtags ?? ''}`;
+  if (storeOn()) {
+    if (!/zataa\.my\.id/i.test(cap)) errors.push('caption belum ada CTA/link zataa.my.id');
+  } else { // About Esports (web top up dimatiin Owner 15 Nov 2026): konten murni esports, tanpa jualan
+    if (/zataa\.my\.id|\btop ?up\b|#zataa/i.test(`${cap}\n${data}`)) errors.push('web top up lagi mati: hapus ajakan top up / zataa.my.id / #zataatopup dari caption & desain');
+    if (!/follow|ikuti|komen|tag temen|simpan|share|bagikan/i.test(cap)) warnings.push('caption belum ada ajakan (follow / komen / simpan / tag temen)');
+  }
   // IG batasi 5 hashtag per post sejak Des 2025 (lihat .claude/skills/ig-caption)
   const tags = new Set(`${c.caption ?? ''}\n${c.hashtags ?? ''}`.match(/#[\p{L}\p{N}_]+/gu) ?? []);
   if (tags.size > 5) warnings.push(`hashtag ${tags.size}, IG maks 5 — sisain yang paling spesifik`);
@@ -35,7 +41,7 @@ export async function qa(c) {
   }
 
   const amounts = [...new Set(rpOf(words))];
-  if (amounts.length) {
+  if (amounts.length && storeOn()) { // toko mati → angka Rp di konten = hadiah turnamen dll, bukan harga
     const pages = await latest('', Infinity).catch(() => []);
     const known = new Set(pages.flatMap((p) => p.items ?? []).flatMap(rpOf));
     if (!known.size) warnings.push('harga di konten belum bisa dicocokkan (data harga zataa nggak kebaca)');

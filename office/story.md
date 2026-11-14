@@ -1,8 +1,8 @@
-# SOP Divisi Zataa Story (misteri & horor Nusantara berbasis sejarah · YouTube + TikTok)
+# SOP Divisi Zaa Story (misteri & horor Nusantara berbasis sejarah · YouTube + TikTok)
 
-**Divisi baru sejak 26 Okt 2026 (keputusan Owner 25 Okt).** Channel YouTube baru **Zataa Story** + TikTok **@zataa.story** (akun zataastory@gmail.com), terpisah dari Zataa History (tim Bagas, `office/youtube.md`). Niche: cerita seram/mistis yang dicari penonton Indonesia, tapi tetap dibedah pakai fakta + sumber (beda dari channel horor biasa). Alasan: peminat konten misteri/horor lokal jauh lebih besar (Nessie Judge, Jurnal Risa, Nadia Omara jutaan subs), saingan versi "berbasis sejarah & sumber" masih sepi. Dorong subscriber: format **seri** ("Part 1/2"), ajakan follow spesifik di akhir.
+**Divisi baru sejak 26 Okt 2026 (keputusan Owner 25 Okt).** Channel YouTube baru **Zaa Story** + TikTok **@zataa.story** (akun zataastory@gmail.com), terpisah dari Zaa History (tim Bagas, `office/youtube.md`). Niche: cerita seram/mistis yang dicari penonton Indonesia, tapi tetap dibedah pakai fakta + sumber (beda dari channel horor biasa). Alasan: peminat konten misteri/horor lokal jauh lebih besar (Nessie Judge, Jurnal Risa, Nadia Omara jutaan subs), saingan versi "berbasis sejarah & sumber" masih sepi. Dorong subscriber: format **seri** ("Part 1/2"), ajakan follow spesifik di akhir.
 
-Kode sama dengan Zataa History (`scripts/shorts-bot.mjs`, `shorts-topics.mjs`, `shorts.mjs`), bedanya **selalu pakai `--brand=story`** di tiap perintah. DB `contents.channel = 'story'`.
+Kode sama dengan Zaa History (`scripts/shorts-bot.mjs`, `shorts-topics.mjs`, `shorts.mjs`), bedanya **selalu pakai `--brand=story`** di tiap perintah. DB `contents.channel = 'story'`.
 
 ## Tim (Lt.2)
 | id | Nama | Tugas |
@@ -16,8 +16,8 @@ Kode sama dengan Zataa History (`scripts/shorts-bot.mjs`, `shorts-topics.mjs`, `
 
 ## Akun & kunci (.env VPS)
 - Bot Telegram **@zataastorybot**: `STORY_BOT_TOKEN` (penerima tetap `SHORTS_OWNER_ID`). Jalan sebagai proses anak watcher (`shorts-bot.mjs bot --brand=story`).
-- Zernio **akun 2** (login zataastory@gmail.com): `ZERNIO_STORY_API_KEY` → TikTok @zataa.story + YouTube Zataa Story. Akun 1 (`ZERNIO_API_KEY`) = TikTok zataa.topup + YouTube Zataa History, **jangan pernah dipakai untuk Story**.
-- Statistik/retensi YouTube Zataa Story: `STORY_YT_REFRESH_TOKEN` (sekali izin: `node scripts/youtube.mjs auth --brand=story` di laptop, login zataastory@gmail.com). Belum ada → laporan cuma TikTok + produksi.
+- Zernio **akun 2** (login zataastory@gmail.com): `ZERNIO_STORY_API_KEY` → TikTok @zataa.story + YouTube Zaa Story. Akun 1 (`ZERNIO_API_KEY`) = TikTok zataa.topup + YouTube Zaa History, **jangan pernah dipakai untuk Story**.
+- Statistik/retensi YouTube Zaa Story: `STORY_YT_REFRESH_TOKEN` (sekali izin: `node scripts/youtube.mjs auth --brand=story` di laptop, login zataastory@gmail.com). Belum ada → laporan cuma TikTok + produksi.
 
 ## Alur otomatis
 1. **Sesi harian** (Raditya → Sekar → Dinda → Arga): topik dari bank (`shorts-topics.mjs next --brand=story`), riset, naskah, gambar di `assets/shorts/<topik>/` (+ `credits.txt`), lalu
@@ -37,7 +37,7 @@ Kode sama dengan Zataa History (`scripts/shorts-bot.mjs`, `shorts-topics.mjs`, `
 - **19:00 WITA** laporan harian Nayla di @zataastorybot (otomatis): YouTube (subs, views, top video, retensi) + TikTok (followers, views, top video) + produksi & kuota. **Minggu 19:30** laporan mingguan → bahan evaluasi Raditya. Manual: `shorts-bot.mjs report|weekly --brand=story [--dry]`.
 
 ## Bank topik (`scripts/shorts-topics.mjs --brand=story`)
-Sama seperti Zataa History (`office/youtube.md` bagian Bank topik): tiap ide lengkap `pillar, subject, core_question, angle, hook, sources (≥2), evergreen_score` sebelum `approved`. Target stok **≥10 approved, minimal 4 Horor Bersejarah**. Sekar tambah 1–2 ide/hari, Raditya approve tiap pagi.
+Sama seperti Zaa History (`office/youtube.md` bagian Bank topik): tiap ide lengkap `pillar, subject, core_question, angle, hook, sources (≥2), evergreen_score` sebelum `approved`. Target stok **≥10 approved, minimal 4 Horor Bersejarah**. Sekar tambah 1–2 ide/hari, Raditya approve tiap pagi.
 
 ### Pilar (kode `pillar`)
 1. `horor_sejarah` (HS) — **Horor Bersejarah, WAJIB ≥3/minggu**: tempat angker & cerita seram yang punya kisah nyata/sejarah di baliknya. Polanya: "katanya angker → faktanya apa yang pernah terjadi di sana". Contoh: Lawang Sewu, Benteng Van den Bosch (Benteng Pendem) Ngawi, Toko Merah & Geger Pacinan 1740, Museum Taman Prasasti, kota Pontianak yang namanya dari hantu.
@@ -47,7 +47,7 @@ Sama seperti Zataa History (`office/youtube.md` bagian Bank topik): tiap ide len
 5. `ritual_mistis` (RM) — ritual, pemakaman & kepercayaan adat. Contoh: Ma'nene Toraja, kuburan Trunyan, Tiwah Dayak. Diceritakan dengan hormat.
 6. `peristiwa_aneh` (PA) — kejadian/fenomena nyata yang ganjil. Contoh: kapal hantu SS Ourang Medan (kemungkinan hoaks, tulis jelas), Kelimutu ganti warna.
 
-Gilir pilar 2–6, jangan pilar sama 2 hari berturut-turut (kecuali seri Part 1/2). Topik dunia (luar Nusantara) = milik Zataa History, bukan di sini.
+Gilir pilar 2–6, jangan pilar sama 2 hari berturut-turut (kecuali seri Part 1/2). Topik dunia (luar Nusantara) = milik Zaa History, bukan di sini.
 
 ## Retensi & hook
 - **Target tiap video**: bertahan (engaged/views) **≥70%**, rata-rata ditonton **≥90%** (>100% = diulang). Angkanya di laporan Nayla (YouTube Analytics, telat ±2 hari).

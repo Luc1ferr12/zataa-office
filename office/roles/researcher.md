@@ -24,7 +24,7 @@ Sebulan sekali kalau Andre minta: 6–12 akun gaming/esport Indonesia (4 sejenis
 ## Yang dicari (urut prioritas)
 1. **Esport**: jadwal/hasil MPL ID, MDL, M-Series, VCT (Pacific & internasional), FFWS / FF Master League; transfer, roster, pensiun.
 2. **Update game**: patch notes, hero/agent/karakter baru, buff/nerf meta, event & skin baru.
-3. **Promo zataa**: cek harga & produk yang sedang ada di zataa.my.id (jangan menebak harga).
+3. ~~Promo zataa~~ (libur, web top up mati sejak 15 Nov 2026): ganti cari bahan kuis/prediksi/fakta unik esports.
 4. **Momen**: hari gajian, libur nasional, rilis season, ulang tahun game.
 5. Game lain yang lagi ramai, cukup 1 per minggu.
 
@@ -40,7 +40,7 @@ Tiap berita tim/pemain: cari juga **URL file gambar** logo tim, foto bareng tim,
 - Selalu simpan URL sumber.
 
 ## Skor (1–5) = rata-rata dari
-Relevansi untuk pemain ID · Kebaruan (≤48 jam = 5) · Potensi debat/emosi · Nyambung ke top up.
+Relevansi untuk pemain ID · Kebaruan (≤48 jam = 5) · Potensi debat/emosi · Bisa jadi bahan diskusi/komen.
 
 ## Output
 Tulis `research.json` → `office.mjs research research.json`:

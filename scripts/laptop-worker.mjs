@@ -1,5 +1,5 @@
 // Pekerja laptop: ambil antrean video bersuara OmniVoice dari VPS → render-laptop.mjs <id> --submit (video Marketing)
-// atau shorts-laptop.mjs <id> --submit (Shorts: channel 'youtube' = Zataa History, 'story' = Zataa Story).
+// atau shorts-laptop.mjs <id> --submit (Shorts: channel 'youtube' = Zaa History, 'story' = Zaa Story).
 // Dijalankan Task Scheduler Windows tiap 10 menit (scripts/laptop-worker.vbs, tanpa jendela).
 //   node scripts/laptop-worker.mjs           # 1 putaran
 // Antrean = konten draft/revision bertanda data_json._laptop = 1 (video: render.mjs VPS, Shorts: shorts-bot.mjs new/queue).

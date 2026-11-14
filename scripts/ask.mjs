@@ -52,7 +52,7 @@ export async function statusReport() {
     const mood = ['work', 'break'].includes(info.act) && info.mood?.label ? ` <i>(${esc(info.mood.label)})</i>` : '';
     return `${info.emoji} <b>${a.name}</b> · ${esc(info.label)}${mood}`;
   });
-  return `🏢 <b>Kantor Zataa</b> · ${t.dayName} ${t.hh}:${t.mm} WITA\n\n${lines.join('\n')}`;
+  return `🏢 <b>Kantor Zaa</b> · ${t.dayName} ${t.hh}:${t.mm} WITA\n\n${lines.join('\n')}`;
 }
 
 // ---------- siapa yang dipanggil Owner → dia yang nyaut (balasan selalu "<b>Nama</b>: ...")
@@ -126,17 +126,17 @@ const RULES = `Aturan kerja:
 2. Kerjakan berurutan sesuai alur: Salsa (researcher) riset → Tiara (copywriter) teks → Vania (designer) / Dimas (video) render → Fikri (publisher) QA & kirim.
    Tiap pegawai: node scripts/office.mjs agent <id> working "<tugas singkat>" → selesai: node scripts/office.mjs agent <id> done "<tugas singkat>" (otomatis muncul obrolan oper kerjaan di web).
    Boleh tambah 1–2 obrolan santai/curhat singkat yang natural: node scripts/office.mjs chat <dari> <ke|all> santai "<pesan>".
-3. Konten baru: node scripts/office.mjs content new '{"format":"feed","game":"mlbb","pillar":"promo","title":"..."}' → id. Isi lewat content set <id> <file.json> (data_json, caption, hashtags, sources, template), lalu node scripts/render.mjs <id> dan cek 1 gambar hasilnya.
+3. Konten baru: node scripts/office.mjs content new '{"format":"feed","game":"mlbb","pillar":"esport","title":"..."}' → id. Isi lewat content set <id> <file.json> (data_json, caption, hashtags, sources, template), lalu node scripts/render.mjs <id> dan cek 1 gambar hasilnya.
 4. Kalau Owner bilang langsung post / upload / tayang: itu sudah approval → node scripts/office.mjs content set <id> '{"status":"approved"}' lalu node scripts/publish.mjs now <id>.
    Kalau tidak bilang begitu: node scripts/approval.mjs submit <id> (Owner approve di Telegram).
 5. Kalau informasinya belum ada (mis. pertandingan belum selesai): kerjakan yang bisa, lalu jadwalkan cek ulang: node scripts/office.mjs followup <menit> "<apa yang dicek + konteks lengkap>" (20–60 menit; sesuaikan jadwal match, mis. BO3 ±2–3 jam), lalu berhenti. Jangan nunggu/sleep.
    Tugas Owner dikerjakan sampai tuntas walau sudah lewat jam kantor (lembur) — status pegawai yang lembur tetap working sampai selesai.
-6. Harga & nominal HANYA dari zataa.my.id hari ini (WebFetch). Berita wajib ≥2 sumber, rumor ditulis rumor. Tanpa logo tim/foto pemain kecuali Owner minta.
+6. Divisi ini About Esports: web top up zataa.my.id lagi MATI → nol promo/top up/harga/zataa.my.id di konten, CTA = follow/komen/simpan. Berita wajib ≥2 sumber, rumor ditulis rumor. Tanpa logo tim/foto pemain kecuali Owner minta.
 7. Pertanyaan biasa cukup dijawab, tidak perlu bikin konten. Kalau pesannya cuma basa-basi (makasih, pujian, oke), JANGAN kerjakan apa pun — langsung BALASAN singkat dari pegawai yang disebut.
 8. Jangan ubah konten lain dan jangan kirim pesan Telegram sendiri (approval.mjs say) kecuali submit konten.
-9. Bot ini khusus kantor Marketing. Urusan YouTube Shorts (Bagas/Kirana dkk: approval, upload, laporan) → bot @zataashortbot; trading XAU (Mahendra dkk) → bot Zataa Office Trading; catat keuangan pribadi (Nabila) → @zataaaccountingbot. Jangan dikerjakan di sini, cukup arahkan Owner ke bot itu.
+9. Bot ini khusus divisi About Esports (eks Marketing). Urusan YouTube Shorts (Bagas/Kirana dkk: approval, upload, laporan) → bot @zataashortbot; trading XAU (Mahendra dkk) → bot Zaa Office Trading; catat keuangan pribadi (Nabila) → @zataaaccountingbot. Jangan dikerjakan di sini, cukup arahkan Owner ke bot itu.
 Akhiri jawaban dengan baris "BALASAN:" lalu 1–3 baris pesan untuk Owner. TIAP baris WAJIB diawali nama pegawai yang ngomong, format "Nama: pesan"
-(contoh: "Vania: Desain promonya udah jadi Bos, cek di atas ya!"). Santai ala tim, yang ngerjain yang lapor hasilnya. Kalau Owner manggil nama pegawai, pegawai itu yang jawab duluan.`;
+(contoh: "Vania: Desain hasil match-nya udah jadi Bos, cek di atas ya!"). Santai ala tim, yang ngerjain yang lapor hasilnya. Kalau Owner manggil nama pegawai, pegawai itu yang jawab duluan.`;
 
 export const replyOf = (text) => {
   const i = text.lastIndexOf('BALASAN:');
@@ -180,7 +180,7 @@ export function formatReply(text, fallback = 'dir') {
 export async function handleOwnerMessage(msg, log = console.log, photos = []) {
   if (!photos.length && isTradingCommand(msg)) {
     // bot trading sudah aktif → balasan trading cuma di sana, jangan dobel lewat bot marketing
-    if (tradingBotOn()) { await sayAs('dir', 'Perintah trading sekarang lewat bot <b>Zataa Office Trading</b> ya Bos, kirim ulang di sana 🙏'); return { kind: 'trading-redirect' }; }
+    if (tradingBotOn()) { await sayAs('dir', 'Perintah trading sekarang lewat bot <b>Zaa Office Trading</b> ya Bos, kirim ulang di sana 🙏'); return { kind: 'trading-redirect' }; }
     await handleTrading(msg); return { kind: 'trading' };
   }
   const ttDone = !photos.length && msg.match(/\b(udah|sudah|dah)\b.*\btik\s?tok\b.*?#?(\d+)/i);
@@ -214,7 +214,7 @@ export async function handleOwnerMessage(msg, log = console.log, photos = []) {
   // semua pesan non-tugas → Haiku duluan (murah), boleh jawab pertanyaan apa aja; butuh kerja beneran → dioper ke model utama
   if (!task && !refs.length) {
     const chatModel = loadEnv().CHAT_MODEL || 'haiku';
-    const light = await haiku(`Kamu tim kantor marketing Zataa, lagi ngobrol dengan Owner (Bos Zamiir) lewat bot Telegram Marketing.${history}
+    const light = await haiku(`Kamu tim About Esports (eks Marketing) di Zaa Office, lagi ngobrol dengan Owner (Bos Zamiir) lewat bot Telegram kantor.${history}
 Pesan BARU Owner:
 "${msg}"
 ${lead !== 'dir' ? `Yang diajak ngomong: ${NAMA[lead]} (${lead}) — dia yang jawab duluan.
@@ -231,7 +231,7 @@ Akhiri dengan baris "BALASAN:" lalu 1–3 baris, TIAP baris diawali nama pegawai
     }
     log(light.ok ? 'obrolan dioper ke model utama (eskalasi)' : `model chat gagal, pakai model utama: ${light.text.slice(0, 200)}`);
   }
-  const r = await claude(`Kamu tim kantor marketing Zataa (zataa.my.id) di folder ini.${history}
+  const r = await claude(`Kamu tim About Esports (eks Marketing, media esports; web top up zataa.my.id lagi mati → nol promo) di Zaa Office, folder ini.${history}
 Pesan BARU Owner (Bos Zamiir) lewat Telegram:\n"${msg || '(cuma kirim gambar)'}"${photoNote(refs)}
 ${lead !== 'dir' ? `Yang diajak ngomong / pegang: ${NAMA[lead]} (${lead}) — dia yang jawab duluan di BALASAN.\n` : ''}Baca pesan ini SESUAI KONTEKS obrolan di atas. Kalau cuma ngobrol, nyambung obrolan, atau ngasih info (bukan nyuruh bikin sesuatu): JANGAN bagi tugas / bikin konten, cukup bales natural sebagai pegawai itu (boleh catat infonya kalau relevan, mis. update skor ke followup yang ada).
 
@@ -269,7 +269,7 @@ export async function syncMonitor() {
 
 // ---------- keputusan Owner dari tombol Telegram yang butuh kerja tim (plan, ide briefing, promo harga)
 async function team(intro, task, log, lead = 'dir') {
-  const r = await claude(`Kamu tim kantor marketing Zataa (zataa.my.id) di folder ini. ${intro}\n\n${task}\n\n${RULES}`);
+  const r = await claude(`Kamu tim About Esports (eks Marketing, media esports; web top up zataa.my.id lagi mati → nol promo) di Zaa Office, folder ini. ${intro}\n\n${task}\n\n${RULES}`);
   if (!r.ok) {
     log(`tugas tim gagal: ${r.text.slice(0, 300)}`);
     await sayAs(lead, `⚠️ Tim belum bisa ngerjain otomatis (${esc(r.text.slice(0, 150))}). Dilanjut di sesi harian.`).catch(() => {});
@@ -340,7 +340,7 @@ export async function runFollowups(log = console.log) {
     return { id: due.id, skipped: true };
   }
   log(`followup #${due.id}: ${due.note.slice(0, 80)}`);
-  const r = await claude(`Kamu tim kantor marketing Zataa (zataa.my.id) di folder ini. Ini LANJUTAN tugas pantau dari Owner yang kamu jadwalkan sendiri:\n"${due.note}"\nCek lagi sekarang. Kalau sudah ada hasil: kerjakan sesuai permintaan awal. Kalau belum: jadwalkan followup lagi (maks sampai acaranya selesai). Kalau tidak ada yang baru, jangan kirim apa-apa dan tulis "BALASAN: -".\n\n${RULES}`);
+  const r = await claude(`Kamu tim About Esports (eks Marketing, media esports; web top up zataa.my.id lagi mati → nol promo) di Zaa Office, folder ini. Ini LANJUTAN tugas pantau dari Owner yang kamu jadwalkan sendiri:\n"${due.note}"\nCek lagi sekarang. Kalau sudah ada hasil: kerjakan sesuai permintaan awal. Kalau belum: jadwalkan followup lagi (maks sampai acaranya selesai). Kalau tidak ada yang baru, jangan kirim apa-apa dan tulis "BALASAN: -".\n\n${RULES}`);
   await syncMonitor();
   const reply = r.ok ? replyOf(r.text) : '';
   if (reply && reply !== '-') { const out = formatReply(r.text, 'researcher'); await say(out).catch(() => {}); remember(d, out); }

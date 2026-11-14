@@ -55,7 +55,7 @@ export const relationOf = (x, y, date) => relationsOn(date).find((r) => (r.a ===
 export const EVENTS = [
   { id: 'esport', dow: 2, start: at(20), end: at(21, 30), name: 'Turnamen Mabar ML antar divisi', emoji: '🎮', loc: 'game' },
   { id: 'kuis', dow: 3, start: at(19, 45), end: at(20, 45), name: 'Kuis trivia esport & sejarah', emoji: '❓', loc: 'cafe' },
-  { id: 'billiard', dow: 4, start: at(19, 45), end: at(21), name: 'Turnamen Billiard Zataa Cup', emoji: '🎱', loc: 'billiard' },
+  { id: 'billiard', dow: 4, start: at(19, 45), end: at(21), name: 'Turnamen Billiard Zaa Cup', emoji: '🎱', loc: 'billiard' },
   { id: 'karaoke', dow: 5, start: at(20, 15), end: at(21, 45), name: 'Karaoke Jumat malam', emoji: '🎤', loc: 'cinema' },
   { id: 'renang', dow: 6, start: at(16), end: at(16, 45), name: 'Lomba Renang 50 m', emoji: '🏊', loc: 'pool' },
   { id: 'pingpong', dow: 0, start: at(19, 45), end: at(20, 50), name: 'Turnamen Pingpong', emoji: '🏓', loc: 'arcade' },
@@ -102,7 +102,7 @@ function buildPlan(date, agents) {
     P.times = P.order.map((_, i) => (31 + i * 1.7 + hashS(dn + i) * 1.4).toFixed(1));
   } else if (ev.id === 'kuis') {   // tim per divisi
     P.players = pool.map((a) => a.id);
-    const tm = ['Marketing', 'YouTube', 'Trading']; P.champTeam = tm[Math.floor(hashS(dn * 2.2) * 3)];
+    const tm = ['About Esports', 'YouTube', 'Trading']; P.champTeam = tm[Math.floor(hashS(dn * 2.2) * 3)];
   } else if (ev.id === 'karaoke') {
     P.players = pool.map((a) => a.id);
     P.singers = shuffle(P.players, dn * 7.7).slice(0, 6);

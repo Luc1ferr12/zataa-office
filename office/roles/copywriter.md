@@ -26,18 +26,19 @@ Maksimal 8 kata di gambar/teks pertama.
 ```
 Baris 1: ulang hook / pertanyaan pancingan komentar
 Baris 2–3: konteks singkat
-CTA: "Top up [game] murah & instan di zataa.my.id ⚡ (link di bio)"
-Hashtag: MAKS 5 (batas IG sejak Des 2025) → 1 besar (#mobilelegends) + 2–3 niche (#mplid #draftpick) + 1 brand (#zataatopup)
+> **15 Nov 2026: divisi ini sekarang About Esports** (eks Marketing Zataa). Web top up zataa.my.id DIMATIKAN Owner → nol promo/top up/harga/zataa.my.id di feed, video & caption. Fokus 100% seputar esports; CTA = follow / komen / simpan / tag temen. Bagian lama soal promo & harga di bawah berlaku lagi hanya kalau `STORE_ON=1`.
+CTA: ajakan follow/komen/simpan, mis. "Follow About Esports biar nggak ketinggalan update MPL 🔔" / "Tim kamu yang mana? Komen 👇". Jangan sebut top up / zataa.my.id.
+Hashtag: MAKS 5 (batas IG sejak Des 2025) → 1 besar (#mobilelegends) + 2–3 niche (#mplid #draftpick) + 1 brand (#aboutesports)
 ```
 - **125 karakter pertama** = yang kelihatan sebelum "...selengkapnya". Feed/carousel: hook di situ. Reel: video udah nge-hook, baris 1 cukup ajakan + konteks.
-- **Kata yang dicari orang** (mis. "jadwal MPL ID", "top up diamond ML") tulis di kalimat caption, bukan cuma di hashtag: search IG baca teks caption.
+- **Kata yang dicari orang** (mis. "jadwal MPL ID", "klasemen MPL ID") tulis di kalimat caption, bukan cuma di hashtag: search IG baca teks caption.
 - **1 ajakan interaksi** (komen / simpan / kirim ke temen) + CTA zataa lembut. Dua ajakan interaksi = nggak ada yang jalan.
 - Hashtag kosong makna (#fyp #viral #explorepage) jangan dipakai.
 
 ## Skill IG (`.claude/skills/ig-*`, MIT)
 Pakai prinsipnya; tool Python-nya dilatih bahasa Inggris, jadi skor buat bahasa Indonesia cuma panduan kasar.
 - Hook feed/video: tulis **3 hook beda formula** (`ig-reel/hooks.json`, 26 formula) → pilih terbaik, sebut nomor formulanya di `concept`.
-- Caption: alur `/ig-caption` (job A/B, 125 karakter, 1 ajakan). Cek: `python3 .claude/skills/ig-caption/caption.py cap.txt --keywords "mpl id,top up diamond"`.
+- Caption: alur `/ig-caption` (job A/B, 125 karakter, 1 ajakan). Cek: `python3 .claude/skills/ig-caption/caption.py cap.txt --keywords "mpl id,jadwal mpl"`.
 - Sebelum `content set`: `python3 .claude/skills/ig-human/humanize.py cap.txt --report` (buang em dash, karakter siluman, kutip miring). Daftar kata slop-nya Inggris, abaikan.
 - Suara akun: `office/instagram/voice.md`.
 - TikTok: caption lebih pendek (≤150 karakter + hashtag).
@@ -48,7 +49,7 @@ Bahasa Indonesia santai ala gamer (gaskeun, auto, meta, savage), tanpa SARA, jud
 
 ## Output
 `data_json` mengikuti skema template di `templates/README.md` (contoh: `templates/samples/`). Video → `{"scenes":[...]}`.
-`office.mjs content set <id> '{"data_json":{...},"caption":"...","hashtags":"...","cta":"...","link":"https://zataa.my.id"}'`
+`office.mjs content set <id> '{"data_json":{...},"caption":"...","hashtags":"...","cta":"..."}'`
 
 ## Pelajaran nyata
 - **Framing MPL (catatan Owner):** klasemen MPL pakai **Match Point (MP)**: 1 MP = menang 1 seri Bo3. Selalu sebut **"Match Point"** (atau "MP"), jangan "poin" polos (kesannya poin per game), dan jangan "kemenangan" (kaku). Contoh: "sama-sama 11 Match Point", "ONIC butuh 1 Match Point lagi", "beda 1 MP".
@@ -66,7 +67,7 @@ Bahasa Indonesia santai ala gamer (gaskeun, auto, meta, savage), tanpa SARA, jud
 Slot playoff terakhir MPL ID S18 jatuh ke siapa: ONIC, DEWA, atau GEEK? 👀
 Usai Week 8, NAVI & TLID (11 Match Point), AE (9), BTR (8), dan EVOS (7) sudah pasti masuk 6 besar. Tinggal 1 slot: ONIC (6) vs DEWA (5) vs GEEK (4).
 Tulis prediksimu di komen 👇
-Mau push rank sambil nonton? Amankan diamond dulu di zataa.my.id 😉 (link di bio)
+Kamu tim mana malam ini? Tulis prediksimu di komentar 👇 Follow About Esports biar nggak ketinggalan hasilnya.
 Sumber: id-mpl.com, skor.id
 ```
 **Video tips (#21, style promo)**: hook `Stuck di *Epic* terus?` → 3 `point` (judul ≤4 kata + body 1 baris + `vo` "Satu, ...") → CTA. Caption ajak **simpan & tag temen mabar** (sinyal save/share).

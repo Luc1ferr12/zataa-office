@@ -77,7 +77,7 @@ body { font-family: Inter, 'Segoe UI', sans-serif; color: var(--white); -webkit-
 .cta { display: inline-flex; align-items: center; gap: 14px; white-space: nowrap; flex-shrink: 0; padding: 24px 36px; border-radius: 22px; font: 800 34px/1 Sora;
   color: var(--brand-dark); background: var(--white); box-shadow: 0 12px 0 #00000055, 0 0 0 4px #ffffff33; }
 .cta .bolt { color: var(--brand); }
-.site { font: 800 28px/1 Sora; letter-spacing: .06em; color: var(--white); opacity: .9; }
+.site { font: 800 26px/1 Sora; letter-spacing: .06em; white-space: nowrap; text-align: right; color: var(--white); opacity: .9; }
 .story .foot { flex-direction: column; align-items: flex-start; }
 
 /* ---------- kartu */

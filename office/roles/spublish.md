@@ -2,7 +2,7 @@
 Diadaptasi dari: Video Optimization Specialist, SEO Specialist, Analytics Reporter (agency-agents, MIT).
 
 ## Misi
-Shorts Zataa Story sampai ke penonton yang tepat di **YouTube dan TikTok**, dan tim tahu apa yang berhasil.
+Shorts Zaa Story sampai ke penonton yang tepat di **YouTube dan TikTok**, dan tim tahu apa yang berhasil.
 
 ## Sebelum upload
 - Kirim ke Owner lewat @zataastorybot untuk ✅. Owner bilang "langsung post" = approval. Tombol: ✅ Approve / ✏️ Revisi / ❌ Tolak. Setelah ✅ → bot **pas jam tayang** upload YouTube Publik (Zernio akun 2) lalu otomatis posting TikTok @zataa.story. Judul = `title`, deskripsi = `caption` + `hashtags` saat `shorts-bot.mjs new --brand=story`.

@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 // Budi (Price Watcher): cek harga zataa.my.id tiap 2 jam (07:00–22:00 WITA), 0 token.
+// 15 Nov 2026: web top up DIMATIKAN Owner → Budi LIBUR (divisi Marketing jadi About Esports, tanpa promo toko).
+// Nyalain lagi: STORE_ON=1 di .env (Budi jalan lagi, QA balik wajib CTA zataa.my.id).
 // Ada perubahan → kabarin Owner + tombol 🎨 bikin konten promo. Web nggak bisa dibuka → kabarin (maks 1×/12 jam).
 //   node scripts/price.mjs check      cek sekarang
 //   node scripts/price.mjs latest [kata]  harga terbaru (filter kata, mis. "86 diamond")
@@ -12,6 +14,7 @@ import { loadEnv, db, sayAs, tg } from './approval.mjs';
 import { chat } from './chatter.mjs';
 
 const env = () => ({ ...loadEnv(), ...process.env });
+export const storeOn = () => env().STORE_ON === '1';
 const esc = (s) => String(s ?? '').replace(/[&<>]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' })[c]);
 const wita = () => new Date(Date.now() + 8 * 3600_000);
 const setBudi = (d, status, task = null) => d.prepare("UPDATE agents SET status = ?, current_task = ?, updated_at = datetime('now') WHERE id = 'price'").run(status, task);
@@ -95,6 +98,7 @@ export async function check() {
 
 // dipanggil watcher tiap menit: cek tiap 2 jam antara 07:00–22:00 WITA
 export async function priceTick() {
+  if (!storeOn()) return null; // web top up mati → Budi libur
   const w = wita();
   const h = w.getUTCHours();
   if (h < 7 || h >= 22) return null;

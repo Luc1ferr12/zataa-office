@@ -18,16 +18,16 @@ function envVal(key) {
 export const LOOKUPS = ['Read', 'Glob', 'Grep', 'WebSearch',
   'Bash(node scripts/trading/cli.mjs status)', 'Bash(node scripts/shorts-bot.mjs list)', 'Bash(node scripts/shorts-bot.mjs list --brand=story)', 'Bash(node scripts/office.mjs brief:*)', 'Bash(node scripts/price.mjs latest:*)'];
 
-export const OFFICE = `Kantor Zataa (zataa.my.id, top up game), 5 divisi:
-- Marketing (bot Zataa Office Marketing): Andre (dir, Marketing Director), Salsa (researcher), Tiara (copywriter), Vania (designer), Dimas (video), Fikri (publisher), Fahriah (ads, lagi libur — iklan Meta belum bisa), Raka (analyst), Budi (price).
-- YouTube Shorts "Zataa History" (sejarah misteri kuno dunia, 4 Shorts/minggu, bot @zataashortbot): Bagas (ydir), Nadhira (yresearch), Laras (yscript), Galih (yvisual), Yoga (yvideo), Kirana (ypublish).
-- Zataa Story (misteri & horor Nusantara, YouTube + TikTok tiap hari, bot @zataastorybot): Raditya (sdir), Sekar (sresearch), Dinda (sscript), Arga (svisual), Bima (svideo), Nayla (spublish).
-- Trading XAUUSD (bot Zataa Office Trading): Mahendra (tdir), Davina (tresearch), Keira (ttech), Aryaputra (trisk), Wiratama (texec), Jihan (teval), Selena (treport).
+export const OFFICE = `Zaa Office (kantor virtual; web top up zataa.my.id lagi DIMATIKAN Owner sejak 15 Nov 2026, jadi nggak ada jualan/promo), 5 divisi:
+- About Esports (eks Marketing, media esports IG/TikTok, bot kantor About Esports): Andre (dir, Director About Esports), Salsa (researcher), Tiara (copywriter), Vania (designer), Dimas (video), Fikri (publisher), Fahriah (ads, lagi libur — iklan Meta belum bisa), Raka (analyst), Budi (price, lagi libur — web top up mati).
+- YouTube Shorts "Zaa History" (sejarah misteri kuno dunia, 4 Shorts/minggu, bot @zataashortbot): Bagas (ydir), Nadhira (yresearch), Laras (yscript), Galih (yvisual), Yoga (yvideo), Kirana (ypublish).
+- Zaa Story (misteri & horor Nusantara, YouTube + TikTok tiap hari, bot @zataastorybot): Raditya (sdir), Sekar (sresearch), Dinda (sscript), Arga (svisual), Bima (svideo), Nayla (spublish).
+- Trading XAUUSD (bot Zaa Office Trading): Mahendra (tdir), Davina (tresearch), Keira (ttech), Aryaputra (trisk), Wiratama (texec), Jihan (teval), Selena (treport).
 - Nabila (sec): sekretaris pribadi Bos, catat keuangan pribadi di @zataaaccountingbot.
 Owner = Bos Zamiir.`;
 
 export const ANSWER_ANY = `Pertanyaan APA PUN (pengetahuan umum, saran, divisi lain, kondisi kantor) → JAWAB langsung, jangan suruh pindah bot.
-Data kantor ambil baca-saja kalau perlu: trading "node scripts/trading/cli.mjs status", Shorts "node scripts/shorts-bot.mjs list" (Zataa Story: tambah --brand=story), marketing "node scripts/office.mjs brief <id>", harga zataa "node scripts/price.mjs latest [kata]". Jangan ngarang angka; datanya nggak ada → bilang jujur. Fakta terkini boleh cari web maks 2×.`;
+Data kantor ambil baca-saja kalau perlu: trading "node scripts/trading/cli.mjs status", Shorts "node scripts/shorts-bot.mjs list" (Zaa Story: tambah --brand=story), marketing "node scripts/office.mjs brief <id>", harga zataa "node scripts/price.mjs latest [kata]". Jangan ngarang angka; datanya nggak ada → bilang jujur. Fakta terkini boleh cari web maks 2×.`;
 
 export function haiku(prompt, { minutes = 3, tools = LOOKUPS } = {}) {
   const bin = envVal('CLAUDE_BIN') || 'claude';

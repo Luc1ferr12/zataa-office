@@ -13,6 +13,7 @@ import { loadEnv, db, say, SLOT } from './approval.mjs';
 import { chat } from './chatter.mjs';
 import { clickStats, SOURCES } from './golink.mjs';
 import { ga4Ready, ga4Stats } from './ga4.mjs';
+import { storeOn } from './price.mjs'; // web top up mati (15 Nov 2026) → baris toko & harga disembunyikan
 
 const env = () => ({ ...loadEnv(), ...process.env });
 const esc = (s) => String(s ?? '').replace(/[&<>]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' })[c]);
@@ -126,7 +127,7 @@ export async function dailyReport({ dry = false } = {}) {
   const s = socials();
   const prev = snap(d, 'mk_daily_snap');
   const text = [
-    `<b>Raka</b>: 📊 <b>Laporan harian Marketing</b> · ${DAYS[w.getUTCDay()]} ${dm(date)}`, '',
+    `<b>Raka</b>: 📊 <b>Laporan harian About Esports</b> · ${DAYS[w.getUTCDay()]} ${dm(date)}`, '',
     '<b>Akun</b>', accLine('instagram', '📸 IG', s, prev), accLine('tiktok', '🎵 TikTok', s, prev), '',
     `<b>Produksi hari ini</b> (${made.length} konten)`,
     ...(made.length ? made.map((c) => `• #${c.id} ${esc(c.title.slice(0, 50))} · ${c.format} ${c.slot} — ${ST[c.status] ?? esc(c.status)}`) : ['• belum ada konten hari ini']),
@@ -134,8 +135,7 @@ export async function dailyReport({ dry = false } = {}) {
     `<b>Tayang hari ini</b> (${posted.length})`,
     ...(posted.length ? posted.map((c) => `• #${c.id} ${esc(c.title.slice(0, 50))}
    📸 👀 ${num(c.views)} · ❤️ ${num(c.likes)} · 💬 ${num(c.comments)}${c.tiktok_id ? ` | 🎵 ${c.tv != null ? `👀 ${num(c.tv)} · ❤️ ${num(c.tl)}` : 'data belum masuk'}` : ''}`) : ['• belum ada yang tayang']), '',
-    visits,
-    `💰 Budi: harga zataa.my.id ${prices ? `berubah ${prices}× hari ini` : 'stabil hari ini'}`,
+    ...(storeOn() ? [visits, `💰 Budi: harga zataa.my.id ${prices ? `berubah ${prices}× hari ini` : 'stabil hari ini'}`] : []),
     `🚀 Fahriah: ${boosts.length ? boosts.map((b) => `${esc(b.title.slice(0, 30))} (${b.status}, ${rp(b.amount)})`).join('; ') : 'nggak ada boost baru'}`,
     `⏳ Nunggu ✅/revisi Bos: ${waiting} · 📅 Besok terjadwal: ${tomorrow} konten`,
     prev ? '\n<i>(angka dalam kurung = kenaikan sejak laporan kemarin)</i>' : '',
@@ -219,14 +219,14 @@ export async function weeklyReport({ dry = false } = {}) {
   const ig = await platformBlock(d, 'instagram', from);
   const tt = await platformBlock(d, 'tiktok', from);
   const text = [
-    `<b>Raka</b>: 🗓️ <b>Laporan mingguan Marketing</b> · ${dm(monday)}–${dm(date)}`, '',
+    `<b>Raka</b>: 🗓️ <b>Laporan mingguan About Esports</b> · ${dm(monday)}–${dm(date)}`, '',
     '<b>Akun</b>', accLine('instagram', '📸 IG', s, prev), accLine('tiktok', '🎵 TikTok', s, prev), '',
     '<b>Produksi</b>',
     `${prod.total} konten (video ${prod.video}) · 📢 tayang ${prod.posted} · ❌ ditolak ${prod.rejected} · ✏️ revisi ${prod.revs}× · ⏳ masih nunggu ${prod.waiting}`,
     ...ig.lines, ...tt.lines, '',
-    visits,
+    ...(storeOn() ? [visits] : []),
     `🚀 Boost minggu ini: ${boost.n}× · ${rp(boost.s)}`,
-    `💰 Perubahan harga zataa.my.id: ${prices}×`, '',
+    ...(storeOn() ? [`💰 Perubahan harga zataa.my.id: ${prices}×`] : []), '',
     ig.best || tt.best ? `Saran: pilar paling ditonton IG <b>${esc(ig.best ?? '-')}</b>, TikTok <b>${esc(tt.best ?? '-')}</b>. Andre pakai ini (pilar + jam tayang per platform) buat plan Senin.` : 'Minggu ini belum ada data yang cukup buat dianalisis.',
     prev ? '<i>(angka dalam kurung = kenaikan sejak laporan minggu lalu)</i>' : '',
   ].join('\n').trim();

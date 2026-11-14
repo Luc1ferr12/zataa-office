@@ -1,8 +1,8 @@
-# Tim Trading XAUUSD kantor Zataa (bridge EA MT5 + siklus agent tiap M15, restart otomatis)
+# Tim Trading XAUUSD kantor Zaa (bridge EA MT5 + siklus agent tiap M15, restart otomatis)
 # pasang: sudo cp scripts/vps/zataa-trading.service /etc/systemd/system/ && sudo systemctl enable --now zataa-trading
 # .env: TRD_TOKEN=<rahasia panjang> (sama dengan input Token di EA), TRD_PORT=8787, TRD_AI=1 (ringkasan sentimen Davina via Claude)
 [Unit]
-Description=Zataa AI Office - tim Trading XAUUSD
+Description=Zaa Office - tim Trading XAUUSD
 After=network-online.target
 Wants=network-online.target
 

@@ -71,7 +71,7 @@ export async function handleTrading(msg) {
   if (/^(bantuan|help|perintah)\b/.test(t)) return sayAs('tdir', HELP);
   // pertanyaan bebas → Haiku jawab pakai data trading asli (0 perubahan setelan)
   const ask = String(msg).trim().replace(/^\/?(trading|trade|xau)\s*/i, '');
-  const r = await haiku(`Kamu tim Trading XAUUSD kantor Zataa, ngobrol dengan Owner (Bos Zamiir) lewat bot Zataa Office Trading.
+  const r = await haiku(`Kamu tim Trading XAUUSD kantor Zaa, ngobrol dengan Owner (Bos Zamiir) lewat bot Zaa Office Trading.
 Pesan Owner: "${ask}"
 ${OFFICE}
 ${ANSWER_ANY}

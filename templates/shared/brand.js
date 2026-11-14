@@ -5,7 +5,9 @@ export const GAMES = {
   freefire: { name: 'FREE FIRE', accent: '#ff8a1f' },
   other: { name: 'GAMING', accent: '#a78bfa' },
 };
-const LOGO = new URL('../../docs/assets/logo.png', import.meta.url).href;
+// About Esports (eks Marketing Zataa, 15 Nov 2026): web top up mati → tanpa promo toko, CTA = follow
+export const LOGO = new URL('../../docs/assets/about-esports-logo.png', import.meta.url).href;
+export const BRAND = { name: 'ABOUT ESPORTS', tag: 'BERITA · JADWAL · HASIL', cta: 'Follow buat update esports tiap hari', site: 'ABOUT ESPORTS' };
 
 export const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 // *kata* → warna aksen, **kata** → tebal putih, baris baru dipertahankan
@@ -19,10 +21,10 @@ export function setup(data, size) {
 }
 
 export const shell = (data, g, inner, { kicker = '', foot = true } = {}) => `
-  <div class="bg"></div><div class="watermark">ZA</div><div class="hud tl"></div><div class="hud br"></div>
+  <div class="bg"></div><div class="watermark">AE</div><div class="hud tl"></div><div class="hud br"></div>
   <div class="frame">
     <div class="head">
-      <div class="brandmark"><img src="${LOGO}" alt=""><div><b>ZATAA</b><small>TOP UP GAME</small></div></div>
+      <div class="brandmark"><img src="${LOGO}" alt=""><div><b>${BRAND.name}</b><small>${BRAND.tag}</small></div></div>
       ${g ? `<div class="chip"><i></i>${esc(data.game_label ?? g.name)}</div>` : ''}
     </div>
     ${kicker}
@@ -32,8 +34,8 @@ export const shell = (data, g, inner, { kicker = '', foot = true } = {}) => `
 
 export const footer = (data) => `
   <div class="foot">
-    <div class="cta">${esc(data.cta ?? 'Top up di zataa.my.id')}${/\p{Extended_Pictographic}/u.test(data.cta ?? '') ? '' : ' <span class="bolt">⚡</span>'}</div>
-    ${data.footnote ? `<div class="small">${md(data.footnote)}</div>` : '<div class="site">zataa.my.id</div>'}
+    <div class="cta">${esc(data.cta ?? BRAND.cta)}${/\p{Extended_Pictographic}/u.test(data.cta ?? '') ? '' : ' <span class="bolt">⚡</span>'}</div>
+    ${data.footnote ? `<div class="small">${md(data.footnote)}</div>` : ((data.cta ?? BRAND.cta).length > 26 ? '' : `<div class="site">${BRAND.site}</div>`)}
   </div>`;
 
 export const kicker = (text, cls = '') => (text ? `<div class="kicker ${cls}"><span>${esc(text)}</span></div>` : '');

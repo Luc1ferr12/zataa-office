@@ -24,7 +24,7 @@ const AWAY = ['off', 'pray', 'meeting', 'sleep'];
 const PEOPLE = AGENTS.filter((a) => a.id !== 'owner');
 const nameOf = (id) => AGENTS.find((a) => a.id === id)?.name ?? id;
 const esc = (s) => String(s ?? '').replace(/[&<>]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' })[c]);
-const TEAM = { mkt: 'Marketing', trd: 'Trading', yt: 'YouTube Zataa History', st: 'Zataa Story' };
+const TEAM = { mkt: 'About Esports', trd: 'Trading', yt: 'YouTube Zaa History', st: 'Zaa Story' };
 const EMOJI = { santai: '☕', curhat: '💭', pacaran: '💕', pdkt: '💘', gosip: '👀', ultah: '🎂', event: '🏆' };
 
 const load = () => { try { return JSON.parse(readFileSync(STATE, 'utf8')); } catch { return {}; } };
@@ -121,7 +121,7 @@ export async function handleChitchat(text, replyTo, log = console.log, { dry = f
   const t = wita(new Date());
   const { ids, ctx } = pickTalkers(text, replyTo, s);
   const hist = (s.hist ?? []).slice(-12).join('\n');
-  const prompt = `Kamu memerankan pegawai kantor Zataa (top up game zataa.my.id) yang lagi nongkrong & ngobrol SANTAI sama Bos Zamiir (Owner) lewat grup chit-chat Telegram.
+  const prompt = `Kamu memerankan pegawai Zaa Office (kantor virtual: About Esports, Zaa History, Zaa Story, Trading) yang lagi nongkrong & ngobrol SANTAI sama Bos Zamiir (Owner) lewat grup chit-chat Telegram.
 Ini BUKAN obrolan kerja: bercanda, curhat, gosip ringan, game (ML, Valorant, FF), makanan, film, musik, hidup sehari-hari. Bahasa Indonesia santai ala anak kantor/gamer, singkat kayak chat beneran (1–2 kalimat per orang), boleh emoji secukupnya, sopan tapi akrab ke Bos. Tiap orang punya gaya sendiri, jangan seragam; ngomong sebagai diri sendiri (jangan nyebut nama sendiri kayak orang lain), boleh saling sahut.
 Bos nyinggung kerjaan → tanggepin santai aja, jangan bahas detail/angka kerja; kalau Bos serius mau nyuruh kerja, bilang becanda "kirim ke bot divisinya aja Bos 😆".
 Sekarang ${t.dayName} ${t.hh}:${t.mm} WITA.
@@ -151,7 +151,7 @@ Akhiri dengan baris "BALASAN:" lalu tiap baris format "Nama: pesan".`;
   return lines;
 }
 
-const HELP = `Halo Bos 👋 Ini tongkrongan anak-anak kantor Zataa.
+const HELP = `Halo Bos 👋 Ini tongkrongan anak-anak kantor Zaa.
 Obrolan santai mereka di web ikut nongol di sini. Mau nimbrung? Ketik aja, atau <b>reply</b> obrolan tertentu biar yang ngobrol itu yang bales. Sebut nama (mis. "Tiara, udah makan?") buat ngajak orang tertentu, "guys" buat semua.
 
 /siapa — siapa aja yang lagi di kantor

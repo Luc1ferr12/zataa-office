@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Bank topik Shorts (DB tabel shorts_topics), satu bank untuk dua channel: tiap pilar milik satu brand (scripts/brand.mjs).
 // Tiap ide video punya data lengkap sebelum diproduksi (aturan Owner 18 Okt). Tanpa AI → 0 token.
-// Kuota mingguan (Senin–Minggu, mulai 26 Okt): Zataa History maks 4 Shorts, ≥2 Hidden History · Zataa Story 7 Shorts, ≥3 Horor Bersejarah.
+// Kuota mingguan (Senin–Minggu, mulai 26 Okt): Zaa History maks 4 Shorts, ≥2 Hidden History · Zaa Story 7 Shorts, ≥3 Horor Bersejarah.
 //   node scripts/shorts-topics.mjs pillars [--brand=story]              daftar pilar brand itu + kode
 //   node scripts/shorts-topics.mjs add <json|file>                      tambah 1 topik atau array topik (topic_id otomatis, status awal backlog)
 //   node scripts/shorts-topics.mjs list [status] [pillar] [--brand=…]   daftar ringkas brand itu (default: semua kecuali published)
@@ -17,7 +17,7 @@ import { openDb } from './db.mjs';
 import { B, BRANDS, cliArgs } from './brand.mjs';
 
 export const PILLARS = {
-  // Zataa History: sejarah misteri kuno dunia
+  // Zaa History: sejarah misteri kuno dunia
   hidden_history: { brand: 'history', code: 'HH', label: 'Hidden History', desc: 'sejarah tersembunyi, fakta jarang diketahui, kisah masa lalu yang terlewat (WAJIB ≥2/minggu)' },
   lost_civilizations: { brand: 'history', code: 'LC', label: 'Lost Civilizations', desc: 'peradaban runtuh, kota ditinggalkan, masyarakat kuno yang hilang/berubah' },
   historical_figures: { brand: 'history', code: 'HF', label: 'Historical Figures', desc: 'raja, kaisar, penemu, pemimpin, tokoh yang mengubah dunia' },
@@ -25,7 +25,7 @@ export const PILLARS = {
   ancient_secrets: { brand: 'history', code: 'AS', label: 'Ancient Secrets & Inventions', desc: 'teknologi kuno, penemuan, matematika & pengetahuan masa lalu' },
   strange_events: { brand: 'history', code: 'SE', label: 'Strange Historical Events', desc: 'peristiwa nyata yang absurd, aneh, sulit dipercaya' },
   greek_myth: { brand: 'history', code: 'GM', label: 'Mitologi Yunani', desc: 'dewa-dewi, Titan, pahlawan, monster (pilar bebas, label mitos)' },
-  // Zataa Story: misteri & horor Nusantara berbasis sejarah
+  // Zaa Story: misteri & horor Nusantara berbasis sejarah
   horor_sejarah: { brand: 'story', code: 'HS', label: 'Horor Bersejarah', desc: 'tempat angker & cerita seram Nusantara + kisah nyata/sejarah di baliknya (WAJIB ≥3/minggu)' },
   legenda_mitos: { brand: 'story', code: 'LM', label: 'Legenda & Mitos Nusantara', desc: 'legenda rakyat, makhluk mitos, asal-usul tempat; dikaitkan ke fakta (label mitos)' },
   sejarah_kelam: { brand: 'story', code: 'SK', label: 'Sejarah Kelam Nusantara', desc: 'tragedi, bencana, wabah, pembantaian, kapal karam di Nusantara' },

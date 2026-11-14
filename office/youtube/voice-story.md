@@ -1,4 +1,4 @@
-# voice-story.md — suara channel Zataa Story
+# voice-story.md — suara channel Zaa Story
 
 Dibaca semua skill `yt-*` (`.claude/skills/`) kalau kerja buat tim Raditya (`s*`). Isi dari playbook tim.
 Bagian `{{...}}` diisi Raditya/Owner kalau datanya ada; skill nggak boleh ngarang angka.

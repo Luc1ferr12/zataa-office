@@ -280,7 +280,7 @@ async function setup() {
   try {
     const ups = await tg('getUpdates', { timeout: 0 });
     const m = [...ups].reverse().find((u) => u.message?.chat?.type === 'private')?.message;
-    if (m) { setEnv('TELEGRAM_CHAT_ID', m.chat.id); out(`chat id ${m.chat.id} (${m.chat.first_name ?? ''}) disimpan ke .env`); env.TELEGRAM_CHAT_ID = String(m.chat.id); await say('🟣 Bot Zataa Office tersambung. Konten yang siap bakal dikirim ke sini buat di-approve.'); }
+    if (m) { setEnv('TELEGRAM_CHAT_ID', m.chat.id); out(`chat id ${m.chat.id} (${m.chat.first_name ?? ''}) disimpan ke .env`); env.TELEGRAM_CHAT_ID = String(m.chat.id); await say('🟣 Bot Zaa Office tersambung. Konten yang siap bakal dikirim ke sini buat di-approve.'); }
     else out(`belum ada pesan. Buka t.me/${me.username}, kirim /start, lalu jalankan setup lagi.`);
   } catch (e) { out(`getUpdates gagal (${e.message}). Kalau workflow n8n sudah aktif, kirim pesan apa saja ke bot: bot membalas dengan chat id kamu.`); }
 }

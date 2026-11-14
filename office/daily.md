@@ -1,6 +1,6 @@
 # SOP sesi harian 07:00 WITA
 
-Kamu menjalankan satu hari kerja kantor marketing virtual Zataa (zataa.my.id, top up game) di folder repo ini. Kantor jalan 24 jam (pegawai nggak pulang, aktivitas acak di luar jam kerja); sesi ini = pagi kerja. Kerjakan mandiri tanpa menunggu konfirmasi. Bahasa konten: Indonesia santai ala gamer.
+Kamu menjalankan satu hari kerja Zaa Office (divisi About Esports = media esports IG/TikTok; web top up zataa.my.id lagi DIMATIKAN → nol promo/harga/top up di konten) di folder repo ini. Kantor jalan 24 jam (pegawai nggak pulang, aktivitas acak di luar jam kerja); sesi ini = pagi kerja. Kerjakan mandiri tanpa menunggu konfirmasi. Bahasa konten: Indonesia santai ala gamer.
 
 ## 0. Persiapan
 - Baca `CLAUDE.md` (aturan hemat token & konten). Patuhi.
@@ -18,25 +18,25 @@ Kamu menjalankan satu hari kerja kantor marketing virtual Zataa (zataa.my.id, to
 ## 1B. SELASA–MINGGU 07:00–08:00 — riset masing-masing
 - Total maks ~10 pencarian web untuk semua pegawai (Salsa pegang hampir semua, prioritas esport). Fokus:
   - Salsa: wartawan esport — mulai dari `node scripts/feeds.mjs` (0 token), lalu hasil match, jadwal, transfer, pensiun, event besar (MPL, Champions, dll) ML/Valorant/FF (≥2 sumber, rumor ditandai), lihat `office/roles/researcher.md` → `office.mjs research`.
-  - Budi: harga hari ini di zataa.my.id (satu-satunya sumber harga): `node scripts/price.mjs latest [kata]`. Web mati → jangan bikin konten berisi angka harga.
+  - Budi: LIBUR (web top up mati sejak 15 Nov 2026).
   - Raka: `office.mjs stats` + tabel metrics → pola kemarin.
-  - Lainnya (Tiara, Vania, Dimas, Fikri; Fahriah libur): cukup dari bahan di atas + memori, tanpa pencarian tambahan.
+  - Lainnya (Tiara, Vania, Dimas, Fikri; Fahriah & Budi libur): cukup dari bahan di atas + memori, tanpa pencarian tambahan.
 
 ## 2. SELASA–MINGGU 08:00–08:30 — briefing ide
-1. Tiap pegawai marketing (kecuali Andre & Fahriah yang libur) pitching 1 ide konten tambahan, **feed atau video** (minimal 2 ide video di antaranya) → `office.mjs idea add ideas.json` (`[{agent, title, concept, format, game, pillar}]`, `format` = `feed`|`video`).
+1. Tiap pegawai marketing (kecuali Andre, Fahriah & Budi yang libur) pitching 1 ide konten tambahan, **feed atau video** (minimal 2 ide video di antaranya) → `office.mjs idea add ideas.json` (`[{agent, title, concept, format, game, pillar}]`, `format` = `feed`|`video`).
 2. Andre cek `node scripts/analyst.mjs score` + `owner_feedback`, lalu pilih **3: 2 feed + 1 video** → `office.mjs idea pick <id1> <id2> <id3>` → `node scripts/approval.mjs ideas`.
 3. Owner ✅ 1, 2, atau semua → dibikin otomatis oleh watcher (feed `pagi` 10:00 & `petang` 21:00, video `sore` 16:00 WIB) — JANGAN dibikin di sesi ini. Owner ❌ semua → watcher otomatis bikin ronde ide baru (maks 3 ronde/hari).
 
 ## 3. Produksi konten terjadwal hari ini (Selasa–Minggu, kalau campaign `approved`)
 - Kalau campaign minggu ini belum `approved` (masih nunggu/revisi): jangan produksi, ingatkan Owner di ringkasan.
 - `office.mjs content list` → konten hari ini (+ konten `revision` yang tertunda, baca `owner_note`).
-- Tiara: isi `data_json` sesuai `templates/README.md` (contoh `templates/samples/`), `template`, `caption`, `hashtags`, `cta`, `link` = https://zataa.my.id, `sources` untuk berita → `office.mjs content set <id> <file.json>`.
+- Tiara: isi `data_json` sesuai `templates/README.md` (contoh `templates/samples/`), `template`, `caption`, `hashtags`, `cta` (follow/komen/simpan, tanpa top up), `sources` untuk berita → `office.mjs content set <id> <file.json>`.
 - Vania/Dimas: `node scripts/render.mjs <id>`, buka 1 hasil (video: cover), perbaiki maks 2×.
 - Fikri: QA (`office/roles/publisher.md`) → `node scripts/approval.mjs submit <id>`. Posting IG otomatis oleh watcher setelah Owner ✅ — jangan posting manual.
 
 ## 3Y. Shorts — dua divisi, kode sama, bedanya `--brand`
-**Zataa Story** (tim Raditya, SOP `office/story.md`, SETIAP HARI 1 Shorts, tayang YouTube + TikTok): semua perintah pakai `--brand=story`, playbook `office/roles/s*.md`, kuota 7/minggu ≥3 Horor Bersejarah, dikirim ke Owner di @zataastorybot. Langkahnya sama persis dengan Zataa History di bawah (ganti nama tim: Raditya → Sekar → Dinda → Arga → Bima → Nayla).
-**Zataa History** (tim Bagas, SOP `office/youtube.md`, **SETIAP HARI 1 Shorts** (7/minggu sejak 30 Okt)):
+**Zaa Story** (tim Raditya, SOP `office/story.md`, SETIAP HARI 1 Shorts, tayang YouTube + TikTok): semua perintah pakai `--brand=story`, playbook `office/roles/s*.md`, kuota 7/minggu ≥3 Horor Bersejarah, dikirim ke Owner di @zataastorybot. Langkahnya sama persis dengan Zaa History di bawah (ganti nama tim: Raditya → Sekar → Dinda → Arga → Bima → Nayla).
+**Zaa History** (tim Bagas, SOP `office/youtube.md`, **SETIAP HARI 1 Shorts** (7/minggu sejak 30 Okt)):
 - Sebelum mulai: `node scripts/shorts-bot.mjs list` (lanjutkan yang revisi/gagal dulu, jangan dobel hari ini) + `node scripts/shorts-topics.mjs week` (kuota: 7/minggu, ≥2 Hidden History).
 - Topik hari ini dari `node scripts/shorts-topics.mjs next` (bank topik, status approved). Stok approved kurang dari 8 (atau Hidden History kurang dari 3) → Nadhira isi bank dulu (`add`, data lengkap, ≤5 pencarian) lalu Bagas `set` jadi approved. Tiap hari Nadhira tetap tambah 1–2 ide baru.
 - Bagas pilih topik (variasi, jangan ulang 14 hari) → Nadhira riset (≤5 pencarian) → Laras naskah 5–6 adegan, 55–70 kata (30–40 dtk) + `hook` teks layar + pertanyaan penutup, label fakta/teori/mitos → Galih gambar berlisensi bebas ke `assets/shorts/<topik>/` + `credits.txt` → Kirana judul/deskripsi/hashtag + **riset jam tayang hari itu** (data channel dulu, maks 2 pencarian web) → isi `jam` (HH:MM WIB).

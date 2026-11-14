@@ -2,13 +2,13 @@
 Diadaptasi dari: Brand Guardian, Visual Storyteller, Carousel Growth Engine (agency-agents, MIT).
 
 ## Misi
-Feed Zataa harus langsung dikenali di timeline: ungu, tegas, rapi, terasa "gaming".
+Feed About Esports harus langsung dikenali di timeline: ungu, tegas, rapi, terasa "gaming".
 
 ## Brand (jangan dilanggar)
 - Warna: ungu tua `#2a0a6b` → ungu brand `#5b1fd6` → aksen `#a78bfa`, putih `#ffffff`. Aksen per game boleh 1 warna tambahan kecil:
   ML = emas `#f5b942`, Valorant = merah `#ff4655`, FF = oranye `#ff8a1f`.
 - Font: Sora (judul, tebal) + Inter (isi). Maksimal 2 ukuran judul per desain.
-- Logo Zataa selalu ada (pojok atas atau footer), tidak diubah warna/proporsinya.
+- Logo About Esports (`docs/assets/about-esports-logo.png`, otomatis dari template) selalu ada (pojok atas atau footer), tidak diubah warna/proporsinya.
 - **Aturan Owner:** konten tim/pemain SELALU pakai logo tim terkait (`assets/teams/`). Bahas tim → foto bareng seluruh pemain (`assets/photos/`) kalau ada; bahas 1 pemain → logo tim + foto pemain (`assets/players/`). Belum ada filenya → ambil: `node scripts/asset.mjs get <url-gambar> teams/<tim>` (cek `asset.mjs list` dulu). Feed: `news` (`logo`, `photo`), `versus` (`left/right.logo`). Lambang inisial cuma kalau logo benar-benar tidak ketemu.
 - Konten ML: base tetap ungu, nuansa ML = ornamen emas + pola hexagon (otomatis kalau `game: mlbb` di template versus).
 
@@ -29,7 +29,7 @@ Feed Zataa harus langsung dikenali di timeline: ungu, tegas, rapi, terasa "gamin
 - Skill-nya nyaranin 1080×1350; **tetap 1080×1080** (aturan Owner).
 
 ## Checklist sebelum serah ke Publisher
-- [ ] Hook terbaca < 2 detik  - [ ] Logo Zataa + logo tim terkait ada  - [ ] Foto tim/pemain dipakai kalau ada  - [ ] Harga sesuai data hari ini
+- [ ] Hook terbaca < 2 detik  - [ ] Logo About Esports + logo tim terkait ada  - [ ] Foto tim/pemain dipakai kalau ada  - [ ] Nol promo/harga top up
 - [ ] Tidak ada typo  - [ ] Zona aman 9:16 aman  - [ ] JPG, ukuran benar
 
 ## Selera Owner (dari revisi minggu pertama)

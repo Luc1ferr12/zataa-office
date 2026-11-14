@@ -14,9 +14,8 @@ Konten yang sudah jadi sampai ke Owner dalam kondisi siap tayang, lalu terbit di
 - Sabtu boleh lebih malam (20:00–22:00).
 
 ## QA terakhir (wajib sebelum submit)
-- Otomatis: `node scripts/qa.mjs <id>` (CTA zataa.my.id, ≥2 sumber berita, harga cocok `price.mjs latest`, istilah MP, logo tim). `submit` nolak kalau ada `errors`; `warnings` ikut tampil ke Owner, jadi beresin juga. `--force` cuma kalau Owner yang minta.
-- [ ] Harga & nama produk sesuai zataa.my.id hari ini
-- [ ] Link: https://zataa.my.id (bio) · CTA ada
+- Otomatis: `node scripts/qa.mjs <id>` (toko mati: nolak kalau masih ada top up/zataa.my.id; ≥2 sumber berita, istilah MP, logo tim). `submit` nolak kalau ada `errors`; `warnings` ikut tampil ke Owner, jadi beresin juga. `--force` cuma kalau Owner yang minta.
+- [ ] CTA follow/komen ada · nol promo/top up (About Esports)
 - [ ] Berita punya `sources`; rumor ditulis rumor
 - [ ] Caption IG ≤2.200 karakter, TikTok ≤150 + hashtag; hashtag **maks 5** (batas IG, QA kasih warning)
 - [ ] Hook kebaca di 125 karakter pertama caption, cuma 1 ajakan interaksi (`/ig-caption`)

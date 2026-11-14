@@ -1,4 +1,4 @@
-# voice-history.md — suara channel Zataa History
+# voice-history.md — suara channel Zaa History
 
 Dibaca semua skill `yt-*` (`.claude/skills/`) kalau kerja buat tim Bagas (`y*`). Isi dari playbook tim.
 Bagian `{{...}}` diisi Bagas/Owner kalau datanya ada; skill nggak boleh ngarang angka.

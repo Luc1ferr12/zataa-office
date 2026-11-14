@@ -6,7 +6,7 @@ Diadaptasi dari: Short Video Editing Coach, Video Optimization Specialist, TikTo
 
 ## Format
 - **1080×1920, 30fps, MP4 (H.264)**, durasi **15–30 detik**. Satu video dipakai untuk Reels & TikTok.
-- Motion graphic dari `templates/video/player.html`, **6 gaya** (`style`): `promo`, `flash` (topup) · `breaking`, `matchday`, `glitch`, `tribute` (esport). Jangan pakai gaya yang sama 2 video berturut-turut.
+- Motion graphic dari `templates/video/player.html`, **6 gaya** (`style`): `promo` (gaya bersih, boleh buat tips/info; `flash` = gaya flash sale, jangan dipakai selama toko mati) · `breaking`, `matchday`, `glitch`, `tribute` (esport). Jangan pakai gaya yang sama 2 video berturut-turut.
 - Adegan: hook / point / list / price / versus / headline / score / player / schedule / cta (skema `templates/README.md`).
 - **Voice over** otomatis dari `vo` tiap adegan (OmniVoice `kalem-1` default, intonasi per `mood`); durasi adegan menyesuaikan panjang suara.
 - Semua video pakai suara OmniVoice (default `kalem-1`; ganti lewat `"voice": "kalem-2"|"kalem-3"`) dirender **otomatis di laptop Owner** (VPS tanpa GPU): `render.mjs <id>` di VPS cuma memasukkan ke antrean, lalu pekerja laptop (tiap 10 menit) render + kirim ke Owner. Fikri **jangan submit** video ini. Laptop mati → video **nunggu sampai laptop nyala** (aturan Owner, tanpa fallback Gadis); watcher VPS cuma kabari Owner sekali kalau lewat 2 jam sebelum slot (kilat: 30 mnt).
@@ -19,7 +19,7 @@ Diadaptasi dari: Short Video Editing Coach, Video Optimization Specialist, TikTo
 |---|---|
 | 0–3 dtk | Hook besar + gerakan kuat (zoom/slam/glitch). Tanpa intro logo. |
 | 3–22 dtk | 3–5 beat, tiap beat 2–4 dtk, ganti visual tiap 1.5–3 dtk. |
-| akhir 3–5 dtk | CTA + logo + "zataa.my.id". |
+| akhir 3–5 dtk | CTA follow/komen + logo About Esports (otomatis kalau adegan `cta` kosong). Tanpa top up / zataa.my.id. |
 Bagian akhir dibuat nyambung ke awal supaya video **loop** mulus (menaikkan watch time).
 
 ## Aturan visual
@@ -49,4 +49,4 @@ Bagian akhir dibuat nyambung ke awal supaya video **loop** mulus (menaikkan watc
 
 ## Checklist sebelum render
 - [ ] Hook ≤7 kata + `vo` berupa pertanyaan/kejutan  - [ ] Semua tim punya logo  - [ ] Angka di `vo` ditulis huruf ("dua kosong")
-- [ ] 1 adegan nanya penonton  - [ ] CTA zataa.my.id di akhir  - [ ] Gaya beda dari video sebelumnya
+- [ ] 1 adegan nanya penonton  - [ ] CTA follow/komen di akhir (tanpa top up)  - [ ] Gaya beda dari video sebelumnya

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // Analytics semua sosmed untuk dashboard (docs/data/socials.json): IG (Graph API), TikTok (Zernio), YouTube Shorts (youtube.mjs stats).
-// Zataa Story punya akun sendiri: story_youtube (youtube.mjs stats --brand=story) & story_tiktok (Zernio akun 2, ZERNIO_STORY_API_KEY).
+// Zaa Story punya akun sendiri: story_youtube (youtube.mjs stats --brand=story) & story_tiktok (Zernio akun 2, ZERNIO_STORY_API_KEY).
 // Per platform: jumlah post (video/foto/carousel), views, likes, komentar, follower/subscriber, top konten. Tanpa AI → 0 token.
 // Watcher panggil socialsTick() tiap menit, narik ulang kalau data sudah >1 jam.
 //   node scripts/socials.mjs collect     tarik sekarang + tulis docs/data/socials.json

@@ -1,14 +1,17 @@
-# voice.md — suara akun IG Zataa
+# voice.md — suara akun About Esports (IG & TikTok)
+
+> **15 Nov 2026: divisi ini sekarang About Esports** (eks Marketing Zataa). Web top up zataa.my.id DIMATIKAN Owner → nol promo/top up/harga/zataa.my.id di feed, video & caption. Fokus 100% seputar esports; CTA = follow / komen / simpan / tag temen. Bagian lama soal promo & harga di bawah berlaku lagi hanya kalau `STORE_ON=1`.
+
 
 Dibaca semua skill `ig-*` (`.claude/skills/`). Isi dari playbook tim + caption yang di-approve Owner.
 Bagian kosong (`{{...}}`) diisi Andre/Owner kalau datanya ada; skill nggak boleh ngarang angka.
 
 ## Siapa kita
-- **Nama:** Zataa (zataa.my.id), top up game instan
-- **Handle IG:** {{handle IG Zataa}}
-- **Satu kalimat:** Tempat nongkrong gamer ML / Valorant / Free Fire: berita esport, tips, promo top up.
+- **Nama:** About Esports (media esports, eks akun Zataa top up)
+- **Handle IG:** {{handle IG About Esports}}
+- **Satu kalimat:** Tempat nongkrong gamer ML / Valorant / Free Fire: berita esport, jadwal, hasil, transfer, tips.
 - **Ngomong ke:** gamer Indonesia 15–25 tahun, main ML/Valorant/FF, nonton MPL/VCT/FFWS, push rank tiap malam.
-- **Jualan:** top up diamond/VP/diamond FF di zataa.my.id (harga hanya dari `node scripts/price.mjs latest`).
+- **Jualan:** nggak ada dulu (web top up mati). Tujuan = follow, komen, simpan, share.
 
 ## Suara
 - **Contoh yang paling "kita"** (di-approve Owner tanpa revisi):

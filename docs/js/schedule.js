@@ -8,9 +8,9 @@
 import { CAP as SCENE_CAP } from './px/scene.js';
 import { socialActivity, coupleDate } from './social.js';
 
-// desk = nomor meja di bilik (px/scene.js DESK_LIST: 0–7 Marketing, 8–13 Trading, 14–19 YouTube, 20–25 Zataa Story)
+// desk = nomor meja di bilik (px/scene.js DESK_LIST: 0–7 Marketing, 8–13 Trading, 14–19 YouTube, 20–25 Zaa Story)
 export const AGENTS = [
-  { id: 'dir',        name: 'Andre',     avatar: '#2b4c7e', title: 'Marketing Director',     gender: 'm', team: 'mkt', lead: true },
+  { id: 'dir',        name: 'Andre',     avatar: '#2b4c7e', title: 'Director About Esports', gender: 'm', team: 'mkt', lead: true },
   { id: 'researcher', name: 'Salsa',  avatar: '#6b4fd8', title: 'Researcher',             gender: 'f', team: 'mkt', desk: 0 },
   { id: 'copywriter', name: 'Tiara',      avatar: '#2f6b65', title: 'Copywriter',             gender: 'f', team: 'mkt', desk: 1 },
   { id: 'designer',   name: 'Vania',     avatar: '#c0668a', title: 'Graphic Designer',       gender: 'f', team: 'mkt', desk: 2 },
@@ -37,8 +37,8 @@ export const AGENTS = [
   { id: 'yvisual',    name: 'Galih',     avatar: '#365314', title: 'Visual & Creative',      gender: 'm', team: 'yt', desk: 16 },
   { id: 'yvideo',     name: 'Yoga',      avatar: '#1e3a8a', title: 'Video Producer',         gender: 'm', team: 'yt', desk: 17 },
   { id: 'ypublish',   name: 'Kirana',    avatar: '#be185d', title: 'Publisher, SEO & Growth', gender: 'f', team: 'yt', desk: 18 },
-  // tim Zataa Story (misteri & horor Nusantara, YouTube + TikTok, mulai 25 Okt 2026): 1 Shorts/hari, ruang Raditya di Lt.2
-  { id: 'sdir',       name: 'Raditya',   avatar: '#4c1d95', title: 'Manajer Zataa Story',    gender: 'm', team: 'st', lead: true },
+  // tim Zaa Story (misteri & horor Nusantara, YouTube + TikTok, mulai 25 Okt 2026): 1 Shorts/hari, ruang Raditya di Lt.2
+  { id: 'sdir',       name: 'Raditya',   avatar: '#4c1d95', title: 'Manajer Zaa Story',    gender: 'm', team: 'st', lead: true },
   { id: 'sresearch',  name: 'Sekar',     avatar: '#7e22ce', title: 'Riset Misteri & Horor',  gender: 'f', team: 'st', desk: 20 },
   { id: 'sscript',    name: 'Dinda',     avatar: '#a21caf', title: 'Naskah, Hook & Cek Fakta', gender: 'f', team: 'st', desk: 21 },
   { id: 'svisual',    name: 'Arga',      avatar: '#3730a3', title: 'Visual & Foto Arsip',    gender: 'm', team: 'st', desk: 22 },
@@ -66,7 +66,7 @@ const story = (agent) => agent.team === 'st';
 const RESEARCH = {
   dir: 'Siapin bahan briefing', researcher: 'Riset tren & berita esport', copywriter: 'Riset hook & caption viral',
   designer: 'Cari referensi desain', video: 'Cari referensi video', publisher: 'Cek jam tayang terbaik',
-  ads: 'Riset iklan kompetitor', analyst: 'Rekap data kemarin', price: 'Cek harga web & kompetitor',
+  ads: 'Riset iklan kompetitor', analyst: 'Rekap data kemarin', price: 'Libur (web top up mati)',
   tdir: 'Cek status semua agent trading', tresearch: 'Baca kalender ekonomi & berita USD', ttech: 'Scan chart XAUUSD multi-timeframe',
   trisk: 'Cek limit risiko & ekuitas', texec: 'Cek koneksi EA MT5', teval: 'Evaluasi trade kemarin', treport: 'Siapin laporan pagi',
   ydir: 'Cek retention Shorts kemarin', yresearch: 'Gali misteri kuno & sumbernya', yscript: 'Baca jurnal & arsip sejarah',
@@ -284,7 +284,7 @@ const ROOM_NAME = {
   cafe: 'cafe & resto', santai: 'ruang santai', mkt: 'bilik marketing', trd: 'bilik trading', billiard: 'ruang billiard',
   mushola: 'musholla', wudhu: 'tempat wudhu', meetM: 'ruang meeting', meetT: 'meeting trading', boss: 'ruang boss', bioskop: 'bioskop mini',
   dirRoom: 'ruang Andre', tdirRoom: 'ruang Mahendra', teras: 'teras depan', kolam: 'pinggir kolam',
-  yt: 'bilik YouTube', meetY: 'meeting YouTube', ydirRoom: 'ruang Bagas', st: 'bilik Zataa Story', sdirRoom: 'ruang Raditya',
+  yt: 'bilik YouTube', meetY: 'meeting YouTube', ydirRoom: 'ruang Bagas', st: 'bilik Zaa Story', sdirRoom: 'ruang Raditya',
   selasar2: 'selasar lantai 2', selasar3: 'selasar lantai 3',
 };
 function obAt(idx, agent, t, withMood, prayer) {
@@ -370,9 +370,9 @@ export function activityAt(idx, agent, t, real, ctx = {}) {
   // tim YouTube: produksi tiap hari (tanpa libur sejak 19 Okt). 07:00 riset sendiri, 08:00 briefing di Meeting YouTube (Bagas pilih topik Shorts hari ini)
   if (yt && m < at(8)) return withMood({ act: 'work', loc: desk, label: RESEARCH[agent.id] ?? 'Riset pagi', emoji: '🔎' });
   if (yt && m < at(8, 30)) return withMood({ act: 'meeting', loc: 'meetingY', slot: YT_SEAT[agent.id], label: agent.id === 'ydir' ? 'Mimpin briefing Shorts' : 'Briefing: topik misteri hari ini', emoji: '🏺' });
-  // tim Zataa Story: produksi tiap hari. 07:00–08:30 riset sendiri, 08:30 briefing di Meeting YouTube (gantian sama tim Bagas)
+  // tim Zaa Story: produksi tiap hari. 07:00–08:30 riset sendiri, 08:30 briefing di Meeting YouTube (gantian sama tim Bagas)
   if (st && m < at(8, 30)) return withMood({ act: 'work', loc: desk, label: RESEARCH[agent.id] ?? 'Riset pagi', emoji: '🔎' });
-  if (st && m < at(9)) return withMood({ act: 'meeting', loc: 'meetingY', slot: ST_SEAT[agent.id], label: agent.id === 'sdir' ? 'Mimpin briefing Zataa Story' : 'Briefing: kisah horor hari ini', emoji: '👻' });
+  if (st && m < at(9)) return withMood({ act: 'meeting', loc: 'meetingY', slot: ST_SEAT[agent.id], label: agent.id === 'sdir' ? 'Mimpin briefing Zaa Story' : 'Briefing: kisah horor hari ini', emoji: '👻' });
   // tim Trading: 07:00 riset masing-masing, 08:00 briefing di Meeting Trading (Mahendra mimpin alur agent)
   if (trd && m < at(8)) return withMood({ act: 'work', loc: desk, label: RESEARCH[agent.id] ?? 'Siapin analisa pagi', emoji: '🔎' });
   if (trd && m < at(8, 30)) return withMood({ act: 'meeting', loc: 'meetingT', slot: TRD_SEAT[agent.id], label: agent.id === 'tdir' ? 'Mimpin briefing trading pagi' : 'Briefing trading: rencana XAU hari ini', emoji: '📈' });
@@ -394,7 +394,7 @@ export function activityAt(idx, agent, t, real, ctx = {}) {
   if (!jumat && m >= at(12, 5) && m < lunchEnd) return eat('Makan siang', '🍛');
   if (m >= at(18, 20) && m < at(18, 50) + j(6, 15)) return eat('Makan malam', '🍜');
   if (dow === 0 && yt && m >= at(16) && m < at(17)) return withMood({ act: 'meeting', loc: 'meetingY', slot: YT_SEAT[agent.id], label: 'Evaluasi mingguan Shorts', emoji: '📊' });
-  if (dow === 0 && st && m >= at(15) && m < at(16)) return withMood({ act: 'meeting', loc: 'meetingY', slot: ST_SEAT[agent.id], label: 'Evaluasi mingguan Zataa Story', emoji: '📊' });
+  if (dow === 0 && st && m >= at(15) && m < at(16)) return withMood({ act: 'meeting', loc: 'meetingY', slot: ST_SEAT[agent.id], label: 'Evaluasi mingguan Zaa Story', emoji: '📊' });
   if (dow === 0 && !agent.sec && !yt && !st && m >= at(16) && m < at(17)) return withMood({ act: 'meeting', loc: 'meeting', slot: MKT_SEAT[agent.id], label: 'Evaluasi mingguan', emoji: '📊' });
   // jaga sesi New York (Mahendra, Wiratama, Selena): balik ke meja sampai ±22:00
   if (nyShift && m >= at(19, 40) && m < at(22, 10)) return withMood({ act: 'work', loc: desk, label: NY_TASK[agent.id], emoji: '🌙', overtime: true });
@@ -426,11 +426,11 @@ export function activityAt(idx, agent, t, real, ctx = {}) {
 
 // Divisi mana yang lagi nunggu ✅ Owner (Telegram) → manajernya nunggu di depan ruang Bos.
 // Marketing: plan mingguan draft / konten IG-TikTok pending / ada anggota status 'waiting' (mis. usulan boost Fahriah)
-// Zataa History: Shorts 'youtube' pending · Zataa Story: 'story' pending · Trading: usulan perbaikan Jihan belum di-"terapkan". Konten hari yang sudah lewat diabaikan.
+// Zaa History: Shorts 'youtube' pending · Zaa Story: 'story' pending · Trading: usulan perbaikan Jihan belum di-"terapkan". Konten hari yang sudah lewat diabaikan.
 export function approvalWaits({ campaign = null, contents = [], agents = [], proposals = [], today = null } = {}) {
   const team = Object.fromEntries(AGENTS.map((a) => [a.id, a.team]));
   const waiting = (tm) => agents.some((a) => a.status === 'waiting' && team[a.id] === tm);
-  // ch = channel konten: null = Marketing, 'youtube' = Zataa History, 'story' = Zataa Story
+  // ch = channel konten: null = Marketing, 'youtube' = Zaa History, 'story' = Zaa Story
   const pend = (ch) => contents.some((c) => c.status === 'pending_approval' && (ch ? c.channel === ch : !['youtube', 'story'].includes(c.channel)) && (!today || !c.day || c.day >= today));
   return {
     dir: campaign?.status === 'draft' || pend(null) || waiting('mkt'),

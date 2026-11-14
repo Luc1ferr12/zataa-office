@@ -99,7 +99,7 @@ const BANK = {
     [[0, 'Voice-over-nya kecepetan nggak?'], [1, 'Dikit, turunin 5% biar misteriusnya kerasa 🕯️']],
     [[0, 'Topik mitologi Yunani minggu ini apa?'], [1, 'Kotak Pandora aja, orang banyak salah paham']],
   ],
-  story: [   // tim Zataa Story (misteri & horor Nusantara)
+  story: [   // tim Zaa Story (misteri & horor Nusantara)
     [[0, 'Ini kejadian beneran atau cuma legenda, {b}?'], [1, 'Legenda. Tulis "konon" ya, jangan diklaim fakta'], [0, 'Siap, aman 👻']],
     [[0, 'Hook-nya: "Kenapa warga nggak berani lewat jembatan ini lewat jam 12?"'], [1, 'Nah gitu, langsung merinding'], [0, 'Hehe']],
     [[0, 'Foto arsip KITLV-nya lisensi bebas kan?'], [1, 'Iya, public domain. Kreditnya tetep dicantumin']],

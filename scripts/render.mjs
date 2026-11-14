@@ -178,7 +178,7 @@ async function renderVideo(ctx, data, dir, base) {
     data = structuredClone(data);
     const scenes = [...(data.scenes ?? [])];
     const anyVo = scenes.some((s) => s.vo);
-    if (!scenes.some((s) => s.t === 'cta')) scenes.push({ t: 'cta', ...(anyVo ? { vo: 'Top up sekarang, cuma di Zataa!' } : {}) });
+    if (!scenes.some((s) => s.t === 'cta')) scenes.push({ t: 'cta', ...(anyVo ? { vo: 'Follow About Esports biar nggak ketinggalan info esports!' } : {}) });
     const vo = anyVo ? await voiceOver(scenes, data.style, tmp, voiceOf(data)) : [];
     if (anyVo) { // adegan minimal sepanjang suaranya
       scenes.forEach((s, i) => { if (vo[i]) s.dur = Math.max(s.dur ?? 0, vo[i].dur + 0.55); });

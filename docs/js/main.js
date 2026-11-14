@@ -10,7 +10,7 @@ const STATUS = {
   rejected: 'Ditolak', scheduled: 'Terjadwal', posted: 'Terposting', failed: 'Gagal',
   uploading: 'Lagi upload', uploaded: 'Private, nunggu Owner ubah Publik', upload_failed: 'Upload gagal',
 };
-const SHORTS_4WEEK_FROM = '2026-10-26'; // Zataa History sempat 4/minggu (hari kosong = libur, bukan telat)
+const SHORTS_4WEEK_FROM = '2026-10-26'; // Zaa History sempat 4/minggu (hari kosong = libur, bukan telat)
 const SHORTS_4WEEK_TO = '2026-10-30';   // mulai tanggal ini History balik tiap hari (7/minggu)
 const SHORTS_DAILY_FROM = '2026-10-19'; // mulai tanggal ini Shorts tiap hari (dulu Senin–Selasa libur)
 const NAMES = Object.fromEntries([['owner', 'Zamiir'], ...AGENTS.map((a) => [a.id, a.name])]);
@@ -82,8 +82,8 @@ function renderHealth() {
 const PLATFORMS = [
   { key: 'instagram', name: 'Instagram', icon: '📸', audience: 'followers', audLabel: 'Followers' },
   { key: 'tiktok', name: 'TikTok', icon: '🎵', audience: 'followers', audLabel: 'Followers' },
-  { key: 'youtube', name: 'YouTube · Zataa History', icon: '▶️', audience: 'subscribers', audLabel: 'Subscribers' },
-  // divisi Zataa Story (akun sendiri: YouTube channel baru + TikTok @zataa.story)
+  { key: 'youtube', name: 'YouTube · Zaa History', icon: '▶️', audience: 'subscribers', audLabel: 'Subscribers' },
+  // divisi Zaa Story (akun sendiri: YouTube channel baru + TikTok @zataa.story)
   { key: 'story_youtube', name: 'YouTube', icon: '▶️', audience: 'subscribers', audLabel: 'Subscribers', group: 'story' },
   { key: 'story_tiktok', name: 'TikTok', icon: '🎵', audience: 'followers', audLabel: 'Followers', group: 'story' },
 ];
@@ -93,7 +93,7 @@ function renderSocials() {
   const s = socials;
   $('social-updated').textContent = s?.generated_at ? `update ${new Date(s.generated_at).toLocaleString('id-ID', { timeZone: 'Asia/Makassar', hour: '2-digit', minute: '2-digit', day: 'numeric', month: 'short' })} WITA` : '';
   if (!s) { $('social-grid').innerHTML = '<p class="muted">Belum ada data. Ditarik otomatis tiap 3 jam.</p>'; return; }
-  const GROUP = { story: '<h3 class="social-group"><img src="assets/zataa-story-logo.png" alt="" width="28" height="28">Zataa Story <small>misteri & horor Nusantara · tim Raditya</small></h3>' };
+  const GROUP = { story: '<h3 class="social-group"><img src="assets/zataa-story-logo.png" alt="" width="28" height="28">Zaa Story <small>misteri & horor Nusantara · tim Raditya</small></h3>' };
   $('social-grid').innerHTML = PLATFORMS.map((pf, i) => (pf.group && pf.group !== PLATFORMS[i - 1]?.group ? GROUP[pf.group] : '') + (() => {
     const p = s[pf.key];
     const head = `<h3><span>${pf.icon} ${pf.name}</span>${p?.url && safeUrl(p.url) ? `<a href="${esc(p.url)}" target="_blank" rel="noopener">${esc(p.handle ?? '')}</a>` : ''}</h3>`;
@@ -125,7 +125,7 @@ function renderDashboard() {
   const st = s?.stats?.this_week ?? {};
   const lw = s?.stats?.last_week ?? {};
   // KPI gabungan Marketing + Shorts, rincian di baris kecil (yt_* dari office.mjs weekStats)
-  const split = (all, yt) => `Marketing ${(all ?? 0) - (yt ?? 0)} · Shorts ${yt ?? 0}`;
+  const split = (all, yt) => `About Esports ${(all ?? 0) - (yt ?? 0)} · Shorts ${yt ?? 0}`;
   $('k-total').textContent = st.total ?? 0;
   $('k-total-sub').textContent = split(st.total, st.yt_total);
   $('k-pending').textContent = st.pending ?? 0;
@@ -134,7 +134,7 @@ function renderDashboard() {
   $('k-sched').textContent = `${split(st.posted, st.yt_posted)} · ${st.scheduled ?? 0} terjadwal`;
   $('k-views').textContent = (st.views ?? 0).toLocaleString('id-ID');
   const diff = lw.views ? Math.round(((st.views - lw.views) / lw.views) * 100) : null;
-  const vSplit = `Marketing ${((st.views ?? 0) - (st.yt_views ?? 0)).toLocaleString('id-ID')} · Shorts ${(st.yt_views ?? 0).toLocaleString('id-ID')}`;
+  const vSplit = `About Esports ${((st.views ?? 0) - (st.yt_views ?? 0)).toLocaleString('id-ID')} · Shorts ${(st.yt_views ?? 0).toLocaleString('id-ID')}`;
   $('k-views-sub').textContent = diff === null ? vSplit : `${diff >= 0 ? '▲' : '▼'} ${Math.abs(diff)}% vs minggu lalu · ${vSplit}`;
   // klik link pelacak (golink.mjs) → toko (scripts/golink.mjs); nama sumber sama dengan SOURCES di sana
   const SRC = { ig: 'IG bio', igs: 'IG Story', tt: 'TikTok', tg: 'Telegram', yt: 'YouTube', wa: 'WA', '(direct)': 'langsung', google: 'Google' };
@@ -150,7 +150,7 @@ function renderDashboard() {
   $('campaign-theme').textContent = s?.campaign?.theme ? `Tema: ${s.campaign.theme}` : 'Belum ada campaign';
   $('updated-at').textContent = s?.generated_at ? `update ${new Date(s.generated_at).toLocaleString('id-ID', { timeZone: 'Asia/Makassar', hour: '2-digit', minute: '2-digit', day: 'numeric', month: 'short' })}` : '';
 
-  // jadwal minggu: Marketing (IG/TikTok), Zataa History (channel 'youtube', tiap hari) & Zataa Story (channel 'story', tiap hari)
+  // jadwal minggu: Marketing (IG/TikTok), Zaa History (channel 'youtube', tiap hari) & Zaa Story (channel 'story', tiap hari)
   const week = s?.week_start ?? null;
   const days = ['Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab', 'Min'];
   const isYT = (c) => c.channel === 'youtube';
@@ -174,7 +174,7 @@ function renderDashboard() {
         : date && date >= SHORTS_4WEEK_FROM && date < SHORTS_4WEEK_TO ? '<p class="empty">—</p>' : '<div class="chip slot"><b>18:00 · 🎬 shorts</b>Belum ada konten</div>';
     return `<div class="day ${off ? 'off' : ''} ${date === s?.today ? 'today' : ''}"><h3>${d}<small>${date ? date.slice(8) : ''}</small></h3>${chips}</div>`;
   }).join('');
-  // Zataa Story: 1 Shorts tiap hari (YouTube + TikTok)
+  // Zaa Story: 1 Shorts tiap hari (YouTube + TikTok)
   $('week-grid-story').innerHTML = days.map((d, i) => {
     const date = week ? addDays(week, i) : null;
     const items = (s?.week_contents ?? []).filter((c) => c.day === date && c.channel === 'story');
@@ -244,9 +244,9 @@ function visitsNow() {
 const DIVISIONS = [
   { name: 'Pimpinan', color: 'boss', flow: '', ids: ['owner', 'sec'] },
   { name: 'Umum', color: 'gen', flow: '', ids: ['ob'] },
-  { name: 'Marketing', color: 'mkt', flow: 'plan → riset → konten → publish → iklan → data', ids: ['dir', 'researcher', 'price', 'copywriter', 'designer', 'video', 'publisher', 'ads', 'analyst'] },
-  { name: 'YouTube · Zataa History', color: 'yt', flow: 'riset → naskah & cek fakta → visual → video → upload · tiap hari', ids: ['ydir', 'yresearch', 'yscript', 'yvisual', 'yvideo', 'ypublish'] },
-  { name: 'Zataa Story', color: 'story', flow: 'riset → naskah → visual → video → YouTube + TikTok · tiap hari', ids: ['sdir', 'sresearch', 'sscript', 'svisual', 'svideo', 'spublish'] },
+  { name: 'About Esports', color: 'mkt', flow: 'plan → riset esports → konten → publish → data', ids: ['dir', 'researcher', 'price', 'copywriter', 'designer', 'video', 'publisher', 'ads', 'analyst'] },
+  { name: 'YouTube · Zaa History', color: 'yt', flow: 'riset → naskah & cek fakta → visual → video → upload · tiap hari', ids: ['ydir', 'yresearch', 'yscript', 'yvisual', 'yvideo', 'ypublish'] },
+  { name: 'Zaa Story', color: 'story', flow: 'riset → naskah → visual → video → YouTube + TikTok · tiap hari', ids: ['sdir', 'sresearch', 'sscript', 'svisual', 'svideo', 'spublish'] },
   { name: 'Trading XAUUSD', color: 'trd', flow: 'siklus tiap candle M15', ids: ['tdir', 'tresearch', 'ttech', 'trisk', 'texec', 'teval', 'treport'] },
 ];
 

@@ -117,12 +117,12 @@
   .st-tribute .mini { top: 190px; } .st-tribute .gtag { top: 194px; }
 </style></head>
 <body class="story">
-<div class="bg" id="bg"></div><div class="watermark">ZA</div>
+<div class="bg" id="bg"></div><div class="watermark">AE</div>
 <video class="clip" id="clip" muted playsinline preload="auto"></video><div class="clipshade"></div>
 <div id="shots"></div><div id="parts"></div>
 <div class="hazard t"></div><div class="hazard b"></div><div class="scan"></div>
 <div class="ticker" id="ticker"><b>BREAKING</b><span id="tickt"></span></div>
-<div class="mini"><img src="../../docs/assets/logo.png" alt="">ZATAA</div><div class="gtag" id="gtag"></div>
+<div class="mini"><img src="../../docs/assets/about-esports-logo.png" alt="">ABOUT ESPORTS</div><div class="gtag" id="gtag"></div>
 <div class="stage" id="stage"></div>
 <div class="letterbox t"></div><div class="letterbox b"></div>
 <div class="wipe" id="wipe"></div><div class="flash" id="flash"></div><div class="bar" id="bar"></div>
@@ -161,7 +161,7 @@ function html(s, i) {
     }
     case 'player': return `${logos(s.logo)}${s.tag ? `<div class="kick" data-a="pop">${esc(s.tag)}</div>` : ''}<div class="who" data-a="slam" data-d=".2">${esc(s.name)}</div>${s.role ? `<p class="role" data-a="up" data-d=".5">${md(s.role)}</p>` : ''}${s.from || s.to ? `<div class="move" data-a="left" data-d=".8">${s.from ? `<b>${esc(s.from)}</b>` : ''}<i>→</i>${s.to ? `<b>${esc(s.to)}</b>` : ''}</div>` : ''}${s.sub ? `<p class="t-sub" data-a="up" data-d="1.1">${md(s.sub)}</p>` : ''}`;
     case 'schedule': return `${s.title ? `<h2 data-a="up">${md(s.title)}</h2>` : ''}<div class="list">${(s.items ?? []).map((it, k) => `<div class="sched" data-a="left" data-d="${0.35 + k * 0.4}"><time>${esc(it.time)}</time><span>${md(it.match)}</span></div>`).join('')}</div>`;
-    case 'cta': return `<img class="cta-logo" data-a="pop" src="../../docs/assets/logo.png" alt=""><h2 data-a="up" data-d=".25">${md(s.text ?? 'Top up sekarang!')}</h2><div class="site" data-a="type" data-d=".6" data-text="zataa.my.id"></div><div class="btn" data-a="pulse" data-d="1.1">${esc(s.button ?? 'Top up ⚡')}</div>`;
+    case 'cta': return `<img class="cta-logo" data-a="pop" src="../../docs/assets/about-esports-logo.png" alt=""><h2 data-a="up" data-d=".25">${md(s.text ?? 'Follow biar nggak ketinggalan info esports!')}</h2><div class="site" data-a="type" data-d=".6" data-text="${esc(s.site ?? 'ABOUT ESPORTS')}"></div><div class="btn" data-a="pulse" data-d="1.1">${esc(s.button ?? 'Follow ➕')}</div>`;
     default: return `<h2 data-a="up">${md(s.text ?? s.title ?? '')}</h2>`;
   }
 }
@@ -179,7 +179,7 @@ window.setup = async (data) => {
   const tag = document.getElementById('gtag');
   tag.textContent = data.gameName ?? g?.name ?? '';
   tag.style.display = tag.textContent ? 'flex' : 'none';
-  document.getElementById('tickt').textContent = `${data.ticker ?? ''}  •  zataa.my.id  •  `.repeat(4);
+  document.getElementById('tickt').textContent = `${data.ticker ?? ''}  •  ABOUT ESPORTS  •  `.repeat(4);
   const list = [...(data.scenes ?? [])];
   if (!list.some((s) => s.t === 'cta')) list.push({ t: 'cta' });
   let durs = list.map(autoDur);
