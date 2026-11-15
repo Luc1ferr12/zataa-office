@@ -185,8 +185,8 @@ function renderDashboard() {
     const off = i < 2 && date !== null && date < SHORTS_DAILY_FROM;
     const items = (s?.week_contents ?? []).filter((c) => c.day === date && isYT(c));
     const chips = off ? '<p class="empty">Libur</p>'
-      : items.length ? items.map((c) => `<div class="chip yt s-${c.status}" title="${esc(STATUS[c.status] ?? c.status)}"><b>18:00 · 🎬 shorts</b>${esc(c.title)}</div>`).join('')
-        : date && date >= SHORTS_4WEEK_FROM && date < SHORTS_4WEEK_TO ? '<p class="empty">—</p>' : '<div class="chip slot"><b>18:00 · 🎬 shorts</b>Belum ada konten</div>';
+      : items.length ? items.map((c) => `<div class="chip yt s-${c.status}" title="${esc(STATUS[c.status] ?? c.status)}"><b>18:00 · 🎬 shorts + TikTok</b>${esc(c.title)}</div>`).join('')
+        : date && date >= SHORTS_4WEEK_FROM && date < SHORTS_4WEEK_TO ? '<p class="empty">—</p>' : '<div class="chip slot"><b>18:00 · 🎬 shorts + TikTok</b>Belum ada konten</div>';
     return `<div class="day ${off ? 'off' : ''} ${date === s?.today ? 'today' : ''}"><h3>${d}<small>${date ? date.slice(8) : ''}</small></h3>${chips}</div>`;
   }).join('');
   // Zaa Story & Marvel Talk: 1 Shorts tiap hari (YouTube + TikTok)

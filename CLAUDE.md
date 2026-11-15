@@ -36,7 +36,7 @@ Kantor virtual **Zaa Office** (dulu Zataa, ganti nama 15 Nov 2026): divisi **Abo
 | yscript | Laras | Naskah Shorts + cek fakta (label fakta/teori/mitos) |
 | yvisual | Galih | Visual berlisensi bebas / gambar kode / Blender |
 | yvideo | Yoga | Render Shorts 9:16 + VO OmniVoice |
-| ypublish | Kirana | ✅ Owner di @zataashortbot, judul/deskripsi/SEO, upload YouTube (Publik via Zernio), laporan Shorts harian 19:00 & mingguan Minggu 19:30 WITA (channel + produksi + kuota) |
+| ypublish | Kirana | ✅ Owner di @zataashortbot, judul/deskripsi/SEO, upload YouTube (Publik via Zernio) + TikTok @zaa.history (sejak 16 Nov 2026: konten baru langsung ikut tayang jam 18:00, 10:00 WIB upload ulang 1 konten lama dari YouTube; Zernio `ZERNIO_HISTORY_API_KEY`), laporan Shorts harian 19:00 & mingguan Minggu 19:30 WITA (channel + produksi + kuota) |
 | sdir | Raditya | Manajer **Zaa Story** (misteri & horor Nusantara): antrean topik, briefing, evaluasi Minggu |
 | sresearch | Sekar | Riset misteri & horor Nusantara + sumber (≤5 pencarian/hari) |
 | sscript | Dinda | Naskah + hook + cek fakta (label fakta/teori/mitos) |

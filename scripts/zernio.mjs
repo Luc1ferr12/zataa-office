@@ -19,6 +19,9 @@ const API = 'https://zernio.com/api/v1';
 const env = () => ({ ...loadEnv(), ...process.env });
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 export const zernioOn = () => !!env()[B.zernioEnv];
+// TikTok brand: History pakai login Zernio sendiri (tiktokEnv), Story/Marvel satu login dengan YouTube-nya
+export const tiktokEnv = () => B.tiktokEnv ?? B.zernioEnv;
+export const tiktokOn = () => !!env()[tiktokEnv()];
 
 export async function api(path, { method = 'GET', body, headers = {}, keyEnv = B.zernioEnv } = {}) {
   const key = env()[keyEnv];
@@ -103,7 +106,7 @@ export async function postStatsMap(platform, keyEnv = 'ZERNIO_CLIP_API_KEY', day
 // account: id akun Zernio tertentu (mis. TikTok Zaa Story), kosong = akun TikTok default (zataa.topup)
 export async function tiktokPost(file, caption, key, account = null) {
   const r = await post('tiktok', file, caption.slice(0, 2200), {
-    accountId: account ?? undefined,
+    accountId: account ?? undefined, keyEnv: tiktokEnv(), prefix: B.tiktokAcct ?? B.zernioAcct,
     root: { tiktokSettings: { privacy_level: 'PUBLIC_TO_EVERYONE', allow_comment: true, allow_duet: true, allow_stitch: true, content_preview_confirmed: true, express_consent_given: true } },
   }, key);
   return { ok: true, id: r.platformPostId ?? r.postId, url: r.url, status: r.status };

@@ -27,7 +27,7 @@ import { readFile } from 'node:fs/promises';
 import { execFile } from 'node:child_process';
 import ffmpegPath from 'ffmpeg-static';
 import { loadEnv, NAMA, lesson } from './approval.mjs';
-import { zernioOn, youtubeUpload, tiktokPost, api as zernioApi } from './zernio.mjs';
+import { zernioOn, tiktokOn, tiktokEnv, youtubeUpload, tiktokPost, api as zernioApi } from './zernio.mjs';
 import { tdb, getTopic, checkQuota, syncTopic, weekStats, WEEK_TOTAL, CORE, CORE_MIN, PILLARS } from './shorts-topics.mjs';
 import { B, cliArgs } from './brand.mjs';
 import { claude, formatReply, ESCALATE, isStatusQuestion } from './ask.mjs';
@@ -209,14 +209,14 @@ export async function upload(id) {
 }
 
 // cross-post TikTok: video yang sama ke TikTok brand ini → peluang viral dobel tanpa produksi tambahan.
-// Cuma brand dengan B.tiktok (Zaa Story, akun TikTok di Zernio akun 2); History nggak pernah posting TikTok.
+// Brand dengan B.tiktok: Story (Zernio akun 2), Marvel (akun 3), History (ZERNIO_HISTORY_API_KEY, sejak 16 Nov 2026).
 export async function crossTikTok(id) {
-  if (!B.tiktok || !zernioOn()) return { ok: false, skip: `${B.name} nggak pakai TikTok / ${B.zernioEnv} kosong` };
+  if (!B.tiktok || !tiktokOn()) return { ok: false, skip: `${B.name} nggak pakai TikTok / ${tiktokEnv()} kosong` };
   const d = await db();
   const c = getShort(d, id);
   if (!c?.asset_path) throw new Error(`Shorts #${id} belum dirender`);
   if (c.tiktok_id) return { ok: true, id, tiktok_id: c.tiktok_id, already: true };
-  const tags = [...new Set([...(c.hashtags ?? '').split(/\s+/).filter((t) => t.startsWith('#') && t.toLowerCase() !== '#shorts'), '#misteri', '#horor', '#nusantara', '#fyp'])].slice(0, 6);
+  const tags = [...new Set([...(c.hashtags ?? '').split(/\s+/).filter((t) => t.startsWith('#') && t.toLowerCase() !== '#shorts'), ...(B.ttTags ?? ['#fyp'])])].slice(0, 6);
   const caption = [c.title, String(c.caption ?? '').split('\n')[0], tags.join(' ')].filter(Boolean).join('\n\n');
   const r = await tiktokPost(join(ROOT, JSON.parse(c.asset_path).video), caption, `tt-${B.key}-${id}`);
   d.prepare("UPDATE contents SET tiktok_id = ?, updated_at = datetime('now') WHERE id = ?").run(String(r.id ?? ''), id);
@@ -231,6 +231,22 @@ async function doTikTok(id, log) {
   } catch (e) {
     log(`shorts #${id} tiktok gagal: ${e.message}`);
     await sayAs(T.publish, `⚠️ Cross-post TikTok Shorts #${id} gagal: ${esc(e.message.slice(0, 200))}. YouTube aman. Coba lagi: <code>shorts-bot.mjs tiktok ${id}</code>`).catch(() => {});
+  }
+}
+
+// TikTok konten lama: ambil Shorts terlama yang sudah tayang di YouTube tapi belum di TikTok (bukan yang hari ini; itu ikut jadwal sore)
+async function backfillTikTok(d, t, log) {
+  const rows = d.prepare(`SELECT id, title, asset_path FROM contents WHERE channel = '${CH}' AND status = 'posted' AND youtube_id IS NOT NULL AND (tiktok_id IS NULL OR tiktok_id = '') AND day < ? AND asset_path IS NOT NULL ORDER BY day, id`).all(t.date);
+  const c = rows.find((r) => { try { return existsSync(join(ROOT, JSON.parse(r.asset_path).video)); } catch { return false; } });
+  patchState((s) => { s.ttBackfillDate = t.date; });
+  if (!c) return log(`shorts ${B.key}: nggak ada konten lama buat TikTok hari ini`);
+  try {
+    const r = await crossTikTok(c.id);
+    if (r.ok && !r.already) await sayAs(T.publish, `🎵 Konten lama Shorts #${c.id} "${esc(c.title)}" aku upload ulang ke TikTok ${B.name} (jatah pagi)${r.url ? `
+🔗 ${r.url}` : ''}`);
+  } catch (e) {
+    log(`shorts #${c.id} tiktok backfill gagal: ${e.message}`);
+    await sayAs(T.publish, `⚠️ Upload ulang Shorts #${c.id} ke TikTok gagal: ${esc(e.message.slice(0, 200))}`).catch(() => {});
   }
 }
 
@@ -401,10 +417,10 @@ async function ytStatsRaw() {
 const STAY_MIN = 70, APV_MIN = 90;
 // TikTok brand ini (Zernio /analytics akun brand): followers + views/likes/komentar per post
 async function ttStats() {
-  if (!B.tiktok) return null;
+  if (!B.tiktok || !tiktokOn()) return null;
   try {
     const from = new Date(Date.now() - 365 * 864e5).toISOString().slice(0, 10);
-    const j = await zernioApi(`/analytics?platform=tiktok&fromDate=${from}&limit=100`);
+    const j = await zernioApi(`/analytics?platform=tiktok&fromDate=${from}&limit=100`, { keyEnv: tiktokEnv() });
     const acc = j.accounts?.find((a) => a.platform === 'tiktok');
     const posts = (j.posts ?? []).filter((p) => p.status === 'published').map((p) => ({ title: String(p.content ?? '').split('\n')[0], views: p.analytics?.views ?? 0, likes: p.analytics?.likes ?? 0, comments: p.analytics?.comments ?? 0 }));
     return { handle: acc?.username, followers: acc?.followersCount ?? null, posts, views: posts.reduce((a, p) => a + p.views, 0), likes: posts.reduce((a, p) => a + p.likes, 0) };
@@ -581,6 +597,12 @@ async function runJobs(log) {
     log(`shorts #${c.id}: pengingat Publik ${r.n}/3`);
   }
   saveState({ ...state(), notified, remind });
+  // TikTok: konten lama dari YouTube diunggah ulang tiap pagi (B.ttBackfill, WIB) buat ngejar views; konten baru langsung ikut YouTube di jam tayang (doTikTok)
+  if (B.ttBackfill && tiktokOn() && t.date >= B.ttStart && state().ttBackfillDate !== t.date && t.minutes >= +B.ttBackfill.slice(0, 2) * 60 + +B.ttBackfill.slice(3) + 60 && // WIB → WITA (t pakai WITA)
+     !uploading.has('ttb')) {
+    uploading.add('ttb');
+    later(async () => { try { await backfillTikTok(d, t, log); } finally { uploading.delete('ttb'); } }, log);
+  }
   // laporan harian 19:00 & mingguan Minggu 19:30 WITA (sekali per hari; jalan di antrean biar nggak dobel)
   if (t.minutes >= REPORT_MIN && state().reportDate !== t.date && !reporting) {
     reporting = true;
