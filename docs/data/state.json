@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-15T02:43:34.285Z",
+ "generated_at": "2026-11-15T02:46:33.877Z",
  "today": "2026-11-15",
  "week_start": "2026-11-09",
  "campaign": {
@@ -30,16 +30,16 @@
    "name": "Salsa",
    "title": "Researcher",
    "status": "done",
-   "current_task": "Konfirmasi juara Worlds 2026",
-   "updated_at": "2026-11-15 00:23:10"
+   "current_task": "Cek sumber rekap transfer VCT 2027",
+   "updated_at": "2026-11-15 02:44:25"
   },
   {
    "id": "copywriter",
    "name": "Tiara",
    "title": "Copywriter",
    "status": "done",
-   "current_task": "Feed juara Worlds 2026",
-   "updated_at": "2026-11-15 00:23:16"
+   "current_task": "Naskah rekap transfer VCT",
+   "updated_at": "2026-11-15 02:44:36"
   },
   {
    "id": "designer",
@@ -54,16 +54,16 @@
    "name": "Dimas",
    "title": "Video Production",
    "status": "done",
-   "current_task": "Video 160 antre render",
-   "updated_at": "2026-11-14 23:02:50"
+   "current_task": "Render video rekap transfer VCT",
+   "updated_at": "2026-11-15 02:44:38"
   },
   {
    "id": "publisher",
    "name": "Fikri",
    "title": "Social Media Publisher",
    "status": "done",
-   "current_task": "undefined",
-   "updated_at": "2026-11-15 02:43:34"
+   "current_task": null,
+   "updated_at": "2026-11-15 02:46:18"
   },
   {
    "id": "ads",
@@ -761,10 +761,10 @@
    "game": "other",
    "pillar": "esport",
    "title": "BLG juara Worlds 2026, kalahkan Gen.G 3-1",
-   "status": "approved",
+   "status": "posted",
    "asset_url": "{\"feed\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-11-15/178-blg-juara-worlds-2026-kalahkan-gen-g-3-1.jpg\"],\"story\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-11-15/178-blg-juara-worlds-2026-kalahkan-gen-g-3-1-916.jpg\"]}",
    "scheduled_at": null,
-   "posted_at": null,
+   "posted_at": "2026-11-15 02:46:18",
    "channel": null
   },
   {
@@ -775,6 +775,20 @@
    "game": "valorant",
    "pillar": "news",
    "title": "RESMI: Sentinels rekrut OXY & brawk jelang VCT 2027",
+   "status": "draft",
+   "asset_url": null,
+   "scheduled_at": null,
+   "posted_at": null,
+   "channel": null
+  },
+  {
+   "id": 179,
+   "day": "2026-11-15",
+   "slot": "sore",
+   "format": "video",
+   "game": "valorant",
+   "pillar": "news",
+   "title": "Rekap transfer VCT 2027 minggu ini: Sentinels, T1, Gen.G, Paper Rex",
    "status": "draft",
    "asset_url": null,
    "scheduled_at": null,
@@ -835,6 +849,11 @@
   }
  ],
  "activity": [
+  {
+   "ts": "2026-11-15 02:46:18",
+   "agent_id": "publisher",
+   "message": "Posting #178 ke IG ✅"
+  },
   {
    "ts": "2026-11-15 02:43:34",
    "agent_id": "owner",
@@ -954,14 +973,72 @@
    "ts": "2026-11-14 12:01:02",
    "agent_id": "spublish",
    "message": "Upload Shorts #175 ke Zataa Story (Publik via Zernio)"
-  },
-  {
-   "ts": "2026-11-14 11:01:11",
-   "agent_id": "ypublish",
-   "message": "Upload Shorts #174 ke Zataa History (Publik via Zernio)"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-11-15 02:46:18",
+   "agent_id": "publisher",
+   "to_id": null,
+   "kind": "oper",
+   "message": "\"BLG juara Worlds 2026, kalahkan Gen.G 3-1\" udah tayang di IG 🚀 Makasih semua!"
+  },
+  {
+   "ts": "2026-11-15 02:44:46",
+   "agent_id": "researcher",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Semua transfer udah kucek ke minimal 2 sumber, rumor PatMen sama Ray ke Gen.G sengaja nggak kumasukin."
+  },
+  {
+   "ts": "2026-11-15 02:44:46",
+   "agent_id": "video",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Videonya udah masuk antrean render laptop, nanti otomatis dikirim ke Bos buat di-approve, tayang sore 16:00 WIB."
+  },
+  {
+   "ts": "2026-11-15 02:44:46",
+   "agent_id": "copywriter",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Naskah rekap transfer VCT udah jadi Bos, ada pertanyaan \"transfer mana paling gila 1-4\" buat mancing komen."
+  },
+  {
+   "ts": "2026-11-15 02:44:38",
+   "agent_id": "video",
+   "to_id": "publisher",
+   "kind": "santai",
+   "message": "Fik, rekap transfer VCT udah masuk antrean laptop ya, nanti otomatis nyampe ke Bos."
+  },
+  {
+   "ts": "2026-11-15 02:44:38",
+   "agent_id": "video",
+   "to_id": "publisher",
+   "kind": "oper",
+   "message": "Render \"Render video rekap transfer VCT\" selesai, Fikri. Cek cover-nya ya"
+  },
+  {
+   "ts": "2026-11-15 02:44:36",
+   "agent_id": "copywriter",
+   "to_id": "designer",
+   "kind": "oper",
+   "message": "Vania, copy \"Naskah rekap transfer VCT\" udah masuk. Headline-nya jangan dikecilin ya 😆"
+  },
+  {
+   "ts": "2026-11-15 02:44:25",
+   "agent_id": "researcher",
+   "to_id": "copywriter",
+   "kind": "oper",
+   "message": "Tiara, bahan buat \"Cek sumber rekap transfer VCT 2027\" udah aku rangkum + sumbernya. Tinggal kamu racik captionnya ✍️"
+  },
+  {
+   "ts": "2026-11-15 02:43:34",
+   "agent_id": "dir",
+   "to_id": null,
+   "kind": "oper",
+   "message": "Bos ACC 1 ide tambahan! \"Video rekap transfer VCT 2027 minggu ini: Sentinels, T1, Gen.G, Paper Rex\" 🎉"
+  },
   {
    "ts": "2026-11-15 00:23:46",
    "agent_id": "publisher",
@@ -1178,88 +1255,25 @@
    "to_id": "publisher",
    "kind": "oper",
    "message": "Visual \"Render feed VP #157\" kelar! Fikri, cek typo-nya sekalian ya 🙏"
-  },
-  {
-   "ts": "2026-11-13 23:02:51",
-   "agent_id": "copywriter",
-   "to_id": "designer",
-   "kind": "oper",
-   "message": "Vania, copy \"Isi konten #157 & #158\" udah masuk. Headline-nya jangan dikecilin ya 😆"
-  },
-  {
-   "ts": "2026-11-13 23:02:20",
-   "agent_id": "dir",
-   "to_id": "researcher",
-   "kind": "oper",
-   "message": "Brief \"Briefing ide 08:00\" udah jadi. Salsa, gas riset ya!"
-  },
-  {
-   "ts": "2026-11-13 23:02:15",
-   "agent_id": "analyst",
-   "to_id": "dir",
-   "kind": "oper",
-   "message": "Rekap \"Pola data kemarin\" beres, Andre. Bisa buat bahan plan"
-  },
-  {
-   "ts": "2026-11-13 23:01:47",
-   "agent_id": "price",
-   "to_id": "copywriter",
-   "kind": "oper",
-   "message": "Tiara, cek harga \"Cek harga hari ini\" kelar, jangan sampe salah angka ya"
-  },
-  {
-   "ts": "2026-11-13 23:01:40",
-   "agent_id": "researcher",
-   "to_id": "copywriter",
-   "kind": "oper",
-   "message": "Riset \"Riset esport pagi\" beres, udah dicek 2 sumber. Tiara, lanjut ya~"
-  },
-  {
-   "ts": "2026-11-13 23:00:28",
-   "agent_id": "treport",
-   "to_id": "tdir",
-   "kind": "oper",
-   "message": "Paper belum lolos syarat live, udah kulaporin ke Bos"
-  },
-  {
-   "ts": "2026-11-13 22:26:10",
-   "agent_id": "researcher",
-   "to_id": "copywriter",
-   "kind": "oper",
-   "message": "Tiara, bahan buat \"Cek FFWS W2, final Worlds, patch: belum ada yang baru\" udah aku rangkum + sumbernya. Tinggal kamu racik captionnya ✍️"
-  },
-  {
-   "ts": "2026-11-13 14:24:21",
-   "agent_id": "researcher",
-   "to_id": "copywriter",
-   "kind": "oper",
-   "message": "Tiara, bahan buat \"Cek FFWS W2D1, LoL Worlds, patch: belum ada update\" udah aku rangkum + sumbernya. Tinggal kamu racik captionnya ✍️"
-  },
-  {
-   "ts": "2026-11-13 14:00:55",
-   "agent_id": "publisher",
-   "to_id": null,
-   "kind": "oper",
-   "message": "\"MOUZ juara IEM Beijing 2026 tanpa kehilangan 1 map\" udah tayang di IG 🚀 Makasih semua!"
   }
  ],
  "stats": {
   "this_week": {
    "week": "2026-11-09",
-   "total": 31,
-   "posted": 22,
+   "total": 32,
+   "posted": 23,
    "pending": 5,
-   "scheduled": 1,
+   "scheduled": 0,
    "yt_total": 11,
    "yt_posted": 9,
    "yt_pending": 2,
    "yt_scheduled": 0,
-   "views": 18498,
+   "views": 18505,
    "likes": 230,
    "comments": 6,
    "shares": 3,
    "saves": 0,
-   "yt_views": 15609,
+   "yt_views": 15616,
    "top": [
     {
      "title": "Tulisan Tertua Indonesia Ada di 7 Tiang Batu Ini",
@@ -1277,7 +1291,7 @@
      "title": "Misteri Penjara Benteng Rotterdam & Jejak Diponegoro",
      "format": "shorts",
      "pillar": "horor_sejarah",
-     "views": 1968
+     "views": 1973
     }
    ],
    "clicks": 0,
