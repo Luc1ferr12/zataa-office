@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-15T03:52:05.367Z",
+ "generated_at": "2026-11-15T04:02:05.375Z",
  "today": "2026-11-15",
  "week_start": "2026-11-09",
  "campaign": {
@@ -79,7 +79,7 @@
    "title": "Data Analyst",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-11-15 01:01:07"
+   "updated_at": "2026-11-15 04:00:35"
   },
   {
    "id": "price",
@@ -850,6 +850,21 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-15 04:00:35",
+   "agent_id": "analyst",
+   "message": "Update data 36 post IG 📈"
+  },
+  {
+   "ts": "2026-11-15 03:55:05",
+   "agent_id": "owner",
+   "message": "Chat: Tess"
+  },
+  {
+   "ts": "2026-11-15 03:55:05",
+   "agent_id": "owner",
+   "message": "Chat: Tess, bisa bales?"
+  },
+  {
    "ts": "2026-11-15 03:31:56",
    "agent_id": "dir",
    "message": "Kode kantor diperbarui, restart otomatis: scripts/trading/run.mjs, scripts/watch.mjs, scripts/golink.mjs"
@@ -958,24 +973,51 @@
    "ts": "2026-11-14 18:38:54",
    "agent_id": "dir",
    "message": "Kode kantor diperbarui, restart otomatis: scripts/golink.mjs, scripts/trading/run.mjs, scripts/watch.mjs"
-  },
-  {
-   "ts": "2026-11-14 18:38:50",
-   "agent_id": "researcher",
-   "message": "Cek 02:38 WITA: Final Worlds baru mulai 03:00, FFWS W2D3 belum, patch belum ada; followup 06:10"
-  },
-  {
-   "ts": "2026-11-14 16:07:59",
-   "agent_id": "dir",
-   "message": "Kode kantor diperbarui, restart otomatis: scripts/golink.mjs, scripts/trading/run.mjs, scripts/watch.mjs"
-  },
-  {
-   "ts": "2026-11-14 16:01:34",
-   "agent_id": "analyst",
-   "message": "Update data 35 post IG 📈"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-11-15 03:55:19",
+   "agent_id": "researcher",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Rumor PatMen sama Ray ke Gen.G masih di luar naskah, jadi aman."
+  },
+  {
+   "ts": "2026-11-15 03:55:19",
+   "agent_id": "researcher",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Hadir Bos, semua transfer VCT udah dicek minimal 2 sumber."
+  },
+  {
+   "ts": "2026-11-15 03:55:12",
+   "agent_id": "owner",
+   "to_id": "researcher",
+   "kind": "bos",
+   "message": "Tess"
+  },
+  {
+   "ts": "2026-11-15 03:55:12",
+   "agent_id": "researcher",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Hadir Bos, semua transfer udah dicek minimal 2 sumber."
+  },
+  {
+   "ts": "2026-11-15 03:55:12",
+   "agent_id": "copywriter",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Bisa Bos, naskah rekap transfer VCT udah siap, tinggal nunggu Bos approve."
+  },
+  {
+   "ts": "2026-11-15 03:55:05",
+   "agent_id": "owner",
+   "to_id": "dir",
+   "kind": "bos",
+   "message": "Tess, bisa bales?"
+  },
   {
    "ts": "2026-11-15 02:46:18",
    "agent_id": "publisher",
@@ -1213,48 +1255,6 @@
    "to_id": "copywriter",
    "kind": "oper",
    "message": "Riset \"Cek FFWS/Worlds/patch: belum ada yang baru\" beres, udah dicek 2 sumber. Tiara, lanjut ya~"
-  },
-  {
-   "ts": "2026-11-13 23:27:05",
-   "agent_id": "researcher",
-   "to_id": "copywriter",
-   "kind": "oper",
-   "message": "Riset \"Cek FFWS W2, final Worlds, patch\" beres, udah dicek 2 sumber. Tiara, lanjut ya~"
-  },
-  {
-   "ts": "2026-11-13 23:07:56",
-   "agent_id": "researcher",
-   "to_id": "designer",
-   "kind": "santai",
-   "message": "Van, hari ini FFWS Day 2, RRQ Kazu masih #7. Doain naik ya biar besok rekapnya seru 🔥"
-  },
-  {
-   "ts": "2026-11-13 23:05:27",
-   "agent_id": "ydir",
-   "to_id": "yresearch",
-   "kind": "oper",
-   "message": "Nadhira, topik Shorts hari ini: \"Pilih topik Shorts\". Gali sumbernya ya, minimal 2 🏺"
-  },
-  {
-   "ts": "2026-11-13 23:03:05",
-   "agent_id": "video",
-   "to_id": "publisher",
-   "kind": "oper",
-   "message": "Fikri, video \"Render video #158\" udah render 9:16. Musiknya aman kok"
-  },
-  {
-   "ts": "2026-11-13 23:03:05",
-   "agent_id": "publisher",
-   "to_id": "owner",
-   "kind": "oper",
-   "message": "Bos, \"QA & kirim #157\" udah aku kirim ke Telegram. Ditunggu approve-nya 🙏"
-  },
-  {
-   "ts": "2026-11-13 23:02:58",
-   "agent_id": "designer",
-   "to_id": "publisher",
-   "kind": "oper",
-   "message": "Visual \"Render feed VP #157\" kelar! Fikri, cek typo-nya sekalian ya 🙏"
   }
  ],
  "stats": {
@@ -1268,8 +1268,8 @@
    "yt_posted": 9,
    "yt_pending": 2,
    "yt_scheduled": 0,
-   "views": 18541,
-   "likes": 230,
+   "views": 18597,
+   "likes": 231,
    "comments": 6,
    "shares": 3,
    "saves": 0,
