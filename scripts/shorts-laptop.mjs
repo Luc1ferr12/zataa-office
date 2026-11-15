@@ -1,7 +1,7 @@
 // Render YouTube Shorts di laptop (OmniVoice butuh GPU laptop), lalu kirim hasilnya ke VPS.
 //   node scripts/shorts-laptop.mjs <content_id> [--submit]
 // 1) ambil spec (data_json) dari DB VPS + klaim antrean (_laptop 1 → 2)  2) gambar yang belum ada di laptop diambil dari VPS (scp)
-// 3) scripts/shorts.mjs (durasi 28–45 dtk; _test = --test)  4) scp mp4 + cover ke out/shorts/ VPS, isi asset_path
+// 3) scripts/shorts.mjs, atau shorts-clip.mjs kalau adegan bergaya klip (durasi 28–45 dtk; _test = --test)  4) scp mp4 + cover ke out/shorts/ VPS, isi asset_path
 // 5) --submit → shorts-bot.mjs submit <id> di VPS (Kirana kirim ke Owner di @zataashortbot). Gagal → _laptop 3 + _err (bot kabari Owner).
 import { spawnSync } from 'node:child_process';
 import { mkdtempSync, writeFileSync, rmSync, existsSync, mkdirSync, copyFileSync } from 'node:fs';
@@ -35,21 +35,22 @@ const fail = (msg) => {
 const tmp = mkdtempSync(join(tmpdir(), 'zataa-shorts-laptop-'));
 try {
   // gambar dari sesi harian (VPS) yang belum ada di laptop → ambil lewat scp (lewat folder tmp, path repo laptop ada spasinya)
-  for (const img of [...new Set(spec.scenes.map((s) => s.img))]) {
+  const isClip = spec.scenes.some((s) => Array.isArray(s.clips));   // gaya klip film (Marvel Talk) → shorts-clip.mjs
+  for (const img of [...new Set(spec.scenes.flatMap((s) => (isClip ? s.clips.map((k) => k.src) : [s.img])))]) {
     const dst = join(ROOT, img);
     if (existsSync(dst)) continue;
     const t = join(tmp, basename(img));
     const r = spawnSync('scp', ['-q', `${VPS}:zataa-office/${img}`, t], { stdio: 'inherit' });
-    if (r.status !== 0) fail(`gambar ${img} tidak ada di laptop maupun VPS`);
+    if (r.status !== 0) fail(`${isClip ? 'klip' : 'gambar'} ${img} tidak ada di laptop maupun VPS`);
     mkdirSync(dirname(dst), { recursive: true });
     copyFileSync(t, dst);
   }
   const { _laptop, _err, _test, duration, tags, synthetic, ...render } = spec;
-  render.scenes = render.scenes.map((s) => ({ ...s, img: join(ROOT, s.img) }));
+  render.scenes = render.scenes.map((s) => (isClip ? { ...s, clips: s.clips.map((k) => ({ ...k, src: join(ROOT, k.src) })) } : { ...s, img: join(ROOT, s.img) }));
   writeFileSync(join(tmp, 'spec.json'), JSON.stringify(render));
   const slug = String(c.title).toLowerCase().normalize('NFD').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 40);
   const files = { video: `${c.id}-${slug}.mp4`, cover: `${c.id}-${slug}-cover.jpg` };
-  const r = spawnSync(process.execPath, [join(ROOT, 'scripts', 'shorts.mjs'), join(tmp, 'spec.json'), join(tmp, files.video), ...(_test ? ['--test'] : [])], { stdio: ['ignore', 'pipe', 'pipe'], encoding: 'utf8' });
+  const r = spawnSync(process.execPath, [join(ROOT, 'scripts', isClip ? 'shorts-clip.mjs' : 'shorts.mjs'), join(tmp, 'spec.json'), join(tmp, files.video), ...(_test ? ['--test'] : [])], { stdio: ['ignore', 'pipe', 'pipe'], encoding: 'utf8' });
   if (r.status !== 0) fail(`render gagal: ${(r.stderr || r.stdout).trim().split('\n').filter((l) => !l.startsWith('\r')).pop()?.slice(-300) ?? ''}`);
   const res = JSON.parse(r.stdout.trim().split('\n').pop());
 

@@ -39,7 +39,7 @@ Kode sama dengan Zaa History/Story (`scripts/shorts-bot.mjs`, `shorts-topics.mjs
 | ranking | RK | top 5, versus, siapa menang (ajak debat di komen) |
 
 ## Aturan wajib (hak cipta & fakta)
-- **Dilarang** pakai klip film/serial/trailer, musik/soundtrack Marvel, atau scan halaman komik utuh: rawan Content ID & strike. Visual = grafik/teks/timeline buatan kode, siluet & ilustrasi sendiri (Blender/kode), fan-art berlisensi bebas (CC, kredit di deskripsi). Logo Marvel/Disney jangan dipajang besar.
+- **Visual = klip film/serial/komik asli yang RELEVAN dengan yang dibahas** (keputusan Owner 15 Nov 2026, risiko strike/Content ID ditanggung Owner; ini menggantikan larangan klip sebelumnya). Gaya referensi: potongan ganti tiap 1–2 dtk, suara asli klip dibuang, **satu lapis teks saja: kata-per-kata di tengah** (kata penting kuning), tanpa label/judul tambahan di layar. Alur otomatis sama seperti gaya gambar (`shorts-bot.mjs new ... --brand=marvel`, adegan `{vo, hl?, clips:[{src, ss, x?}]}`, laptop render lewat `shorts-clip.mjs`); contoh spec `templates/samples/shorts-marvel-clip.json`, klip di `assets/shorts/<topik>/clips/`. Tetap DILARANG: musik/soundtrack Marvel (musik latar pakai `shorts-music.mjs`) dan scan halaman komik utuh tanpa diubah. Gambar yang tidak nyambung dengan topik (grafik dekoratif) tidak boleh dipakai.
 - Selalu label: **FAKTA** (ada sumber resmi/komik), **TEORI** (fans/kreator, sebut siapa), **RUMOR** (belum dikonfirmasi). Berita ≥2 sumber (Marvel.com, Variety, Deadline, THR, IGN, ScreenRant buat rumor).
 - Spoiler film/serial < 2 minggu tayang → tulis "SPOILER" di detik pertama & judul.
 - Judul & caption bahasa Indonesia; nama karakter/film pakai nama resmi Inggris.

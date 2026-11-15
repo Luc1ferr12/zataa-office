@@ -15,3 +15,4 @@ Nemuin topik Marvel yang **bikin penasaran dan bisa dipertanggungjawabkan**: lor
 
 ## Output per topik
 Ringkasan 3 kalimat, ≥2 URL, label tiap klaim **FAKTA / TEORI (siapa) / RUMOR**, judul film/serial atau nomor issue komik + tahun, plus 1 kalimat kenapa nendang di 3 detik pertama.
+- Cari klip: tiap kalimat naskah Fajar harus punya klip yang nunjukin hal itu; kasih Intan daftar adegan/film + perkiraan momen. Contoh gaya: `templates/samples/shorts-marvel-clip.json`.

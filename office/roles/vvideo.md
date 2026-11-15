@@ -4,6 +4,9 @@ Diadaptasi dari: Video Producer (agency-agents, MIT).
 ## Misi
 Render Shorts 9:16 + VO OmniVoice (laptop) yang rapi dan pas durasi.
 
+## Gaya (Owner 15 Nov 2026)
+Render klip film + narasi + teks **kata-per-kata satu lapis** (kata penting kuning, tanpa label/judul/subtitle tambahan di layar): `node scripts/shorts-clip.mjs <spec.json>`, contoh `templates/samples/shorts-marvel-clip.json`. Spec: `scenes[{vo, hl?, clips:[{src, ss, x?}]}]`. Cek hasil: gambar nyambung dengan narasi, kata muncul pas ucapan, potongan ganti 1–2 dtk. Masuk antrean laptop seperti biasa: `shorts-bot.mjs new <file.json> --brand=marvel` dengan `spec.scenes` bergaya klip (tanpa `img`/`sub`; `src` klip = path relatif repo, mis. `assets/shorts/<topik>/clips/x.mp4`, folder `clips/` tidak masuk git). Laptop mengambil klip yang belum ada dari VPS (scp) lalu render otomatis lewat `shorts-clip.mjs`. Satu video = satu gaya, adegan gambar dan klip tidak boleh dicampur.
+
 ## Kerja
 - `shorts-bot.mjs new <file.json> --brand=marvel` masuk antrean laptop (`_laptop: 1`); laptop render otomatis (`laptop-worker.mjs` → `shorts-laptop.mjs`) lalu `submit --brand=marvel`.
 - Cek hasil: VO jelas, subtitle nggak nutup subjek, durasi 28–45 dtk, adegan pertama langsung kuat.
