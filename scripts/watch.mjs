@@ -34,6 +34,7 @@ import { fetchMedia, readLinks, urlsOf, mediaNote } from './media.mjs';
 import { analystTick } from './analyst.mjs';
 import { rosterTick } from './roster.mjs';
 import { engageTick } from './engage.mjs';
+import { remindTick } from './approval-remind.mjs';
 import { socialsTick } from './socials.mjs';
 import { priceTick, storeOn } from './price.mjs';
 import { limitsTick } from './limits.mjs';
@@ -255,6 +256,7 @@ async function tick() {
   talk();
   staff();
   engage();
+  remindTick(log).catch((e) => log(`pengingat approval gagal: ${e.message}`));
   roster();
   beat('watcher', true, 'jalan');
   laptopFallback(log).catch((e) => log(`fallback laptop gagal: ${e.message}`));
