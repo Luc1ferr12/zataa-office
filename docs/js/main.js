@@ -80,49 +80,59 @@ function renderHealth() {
 
 // ---------- analytics sosmed (docs/data/socials.json, ditarik watcher tiap 3 jam lewat scripts/socials.mjs)
 const PLATFORMS = [
-  { key: 'instagram', name: 'Instagram', icon: '📸', audience: 'followers', audLabel: 'Followers' },
-  { key: 'tiktok', name: 'TikTok', icon: '🎵', audience: 'followers', audLabel: 'Followers' },
-  { key: 'youtube', name: 'YouTube · Zaa History', icon: '▶️', audience: 'subscribers', audLabel: 'Subscribers' },
+  { key: 'instagram', name: 'Instagram', icon: '📸', audience: 'followers', audLabel: 'Followers', group: 'esports', acc: '#ec4899' },
+  { key: 'tiktok', name: 'TikTok', icon: '🎵', audience: 'followers', audLabel: 'Followers', group: 'esports', acc: '#22d3ee' },
+  { key: 'youtube', name: 'YouTube', icon: '▶️', audience: 'subscribers', audLabel: 'Subscribers', group: 'history', acc: '#f43f5e' },
+  { key: 'history_tiktok', name: 'TikTok', icon: '🎵', audience: 'followers', audLabel: 'Followers', group: 'history', acc: '#22d3ee', optional: true },
   // divisi Zaa Story (akun sendiri: YouTube channel baru + TikTok @zataa.story)
-  { key: 'story_youtube', name: 'YouTube', icon: '▶️', audience: 'subscribers', audLabel: 'Subscribers', group: 'story' },
-  { key: 'story_tiktok', name: 'TikTok', icon: '🎵', audience: 'followers', audLabel: 'Followers', group: 'story' },
-  { key: 'marvel_youtube', name: 'YouTube', icon: '▶️', audience: 'subscribers', audLabel: 'Subscribers', group: 'marvel' },
-  { key: 'marvel_tiktok', name: 'TikTok', icon: '🎵', audience: 'followers', audLabel: 'Followers', group: 'marvel' },
-  { key: 'clip_tiktok', name: 'TikTok', icon: '🎵', audience: 'followers', audLabel: 'Followers', group: 'clip' },
+  { key: 'story_youtube', name: 'YouTube', icon: '▶️', audience: 'subscribers', audLabel: 'Subscribers', group: 'story', acc: '#f43f5e' },
+  { key: 'story_tiktok', name: 'TikTok', icon: '🎵', audience: 'followers', audLabel: 'Followers', group: 'story', acc: '#22d3ee' },
+  { key: 'marvel_youtube', name: 'YouTube', icon: '▶️', audience: 'subscribers', audLabel: 'Subscribers', group: 'marvel', acc: '#f43f5e' },
+  { key: 'marvel_tiktok', name: 'TikTok', icon: '🎵', audience: 'followers', audLabel: 'Followers', group: 'marvel', acc: '#22d3ee' },
+  { key: 'clip_tiktok', name: 'TikTok', icon: '🎵', audience: 'followers', audLabel: 'Followers', group: 'clip', acc: '#22d3ee' },
+  { key: 'clip_instagram', name: 'Instagram', icon: '📸', audience: 'followers', audLabel: 'Followers', group: 'clip', acc: '#ec4899' },
 ];
+const GROUPS = {
+  esports: { logo: 'about-esports-logo.png', name: 'About Esports', sub: 'media esports IG & TikTok · tim Andre' },
+  history: { logo: 'zaa-history-logo.png', name: 'Zaa History', sub: 'sejarah misteri kuno dunia · tim Bagas' },
+  story: { logo: 'zataa-story-logo.png', name: 'Zaa Story', sub: 'misteri & horor Nusantara · tim Raditya' },
+  marvel: { logo: 'marvel-talk-logo.png', name: 'Marvel Talk', sub: 'lore, teori & berita MCU · tim Reza' },
+  clip: { logo: 'zaa-clips-logo.png', name: 'Zaa Clips', sub: 'campaign Clippo · tim Hendra' },
+};
 const num = (n) => (n == null ? '—' : Number(n).toLocaleString('id-ID'));
+const compact = (n) => (n == null ? '—' : Number(n) >= 10000 ? new Intl.NumberFormat('id-ID', { notation: 'compact', maximumFractionDigits: 1 }).format(n) : num(n));
 const safeUrl = (u) => (/^https:\/\//.test(u ?? '') ? u : null);
+function socialCol(pf, p) {
+  const head = `<h3><span>${pf.icon} ${pf.name}</span>${p?.url && safeUrl(p.url) ? `<a href="${esc(p.url)}" target="_blank" rel="noopener">${esc(p.handle ?? '')}</a>` : ''}</h3>`;
+  if (!p || p.error) return `<section class="social-col" style="--pf:${pf.acc}">${head}<p class="muted">Data belum tersedia${p?.error ? `: ${esc(p.error)}` : ''}</p></section>`;
+  const c = p.posts ?? {};
+  const parts = [['video', '🎬'], ['foto', '🖼️'], ['carousel', '🗂️']].filter(([k]) => c[k]).map(([k, l]) => `${l} ${num(c[k])}`).join('  ');
+  const top = (p.top ?? []).slice(0, 3).map((t, i) => {
+    const url = safeUrl(t.url), thumb = safeUrl(t.thumb);
+    const inner = `<span class="rk">${i + 1}</span>${thumb ? `<img src="${esc(thumb)}" alt="" loading="lazy" referrerpolicy="no-referrer">` : '<span class="ph">🎬</span>'}
+      <span class="t"><span>${esc(t.title || '(tanpa judul)')}</span><small>👁 ${compact(t.views)} · ❤ ${compact(t.likes)} · 💬 ${compact(t.comments)}</small></span>`;
+    return `<li>${url ? `<a href="${esc(url)}" target="_blank" rel="noopener">${inner}</a>` : inner}</li>`;
+  }).join('');
+  return `<section class="social-col" style="--pf:${pf.acc}">${head}
+    <div class="aud"><strong>${num(p[pf.audience])}</strong><span>${pf.audLabel}</span></div>
+    <dl class="social-stats">
+      <div><dt>Views</dt><dd>${compact(p.views)}</dd>${p.views == null ? '<small>butuh izin insights</small>' : ''}</div>
+      <div><dt>Likes</dt><dd>${compact(p.likes)}</dd></div>
+      <div><dt>Komentar</dt><dd>${compact(p.comments)}</dd></div>
+    </dl>
+    <p class="social-posts"><b>${num(c.total)}</b> postingan${parts ? `<span>${parts}</span>` : ''}</p>
+    <h4>Top konten</h4>
+    ${top ? `<ol class="social-top">${top}</ol>` : '<p class="muted">Belum ada postingan.</p>'}
+  </section>`;
+}
 function renderSocials() {
   const s = socials;
   $('social-updated').textContent = s?.generated_at ? `update ${new Date(s.generated_at).toLocaleString('id-ID', { timeZone: 'Asia/Makassar', hour: '2-digit', minute: '2-digit', day: 'numeric', month: 'short' })} WITA` : '';
   if (!s) { $('social-grid').innerHTML = '<p class="muted">Belum ada data. Ditarik otomatis tiap 3 jam.</p>'; return; }
-  const GROUP = { story: '<h3 class="social-group"><img src="assets/zataa-story-logo.png" alt="" width="28" height="28">Zaa Story <small>misteri & horor Nusantara · tim Raditya</small></h3>',
-    marvel: '<h3 class="social-group"><img src="assets/marvel-talk-logo.png" alt="" width="28" height="28">Marvel Talk <small>lore, teori & berita MCU · tim Reza</small></h3>',
-    clip: '<h3 class="social-group"><img src="assets/zaa-clips-logo.png" alt="" width="28" height="28">Zaa Clips <small>campaign Clippo · tim Hendra</small></h3>' };
-  $('social-grid').innerHTML = PLATFORMS.map((pf, i) => (pf.group && pf.group !== PLATFORMS[i - 1]?.group ? GROUP[pf.group] : '') + (() => {
-    const p = s[pf.key];
-    const head = `<h3><span>${pf.icon} ${pf.name}</span>${p?.url && safeUrl(p.url) ? `<a href="${esc(p.url)}" target="_blank" rel="noopener">${esc(p.handle ?? '')}</a>` : ''}</h3>`;
-    if (!p || p.error) return `<section class="social-col">${head}<p class="muted">Data belum tersedia${p?.error ? `: ${esc(p.error)}` : ''}</p></section>`;
-    const c = p.posts ?? {};
-    const parts = [['video', '🎬 video'], ['foto', '🖼️ foto'], ['carousel', '🗂️ carousel']].filter(([k]) => c[k]).map(([k, l]) => `${num(c[k])} ${l}`).join(' · ');
-    const top = (p.top ?? []).map((t) => {
-      const url = safeUrl(t.url), thumb = safeUrl(t.thumb);
-      const inner = `${thumb ? `<img src="${esc(thumb)}" alt="" loading="lazy" referrerpolicy="no-referrer">` : '<span class="ph">🎬</span>'}
-        <span class="t"><span>${esc(t.title || '(tanpa judul)')}</span><small>👁 ${num(t.views)} · ❤ ${num(t.likes)} · 💬 ${num(t.comments)}</small></span>`;
-      return `<li>${url ? `<a href="${esc(url)}" target="_blank" rel="noopener">${inner}</a>` : inner}</li>`;
-    }).join('');
-    return `<section class="social-col">${head}
-      <div class="aud"><strong>${num(p[pf.audience])}</strong><span>${pf.audLabel}</span></div>
-      <dl class="social-stats">
-        <div><dt>Postingan</dt><dd>${num(c.total)}</dd><small>${parts || '—'}</small></div>
-        <div><dt>Views</dt><dd>${num(p.views)}</dd>${p.views == null ? '<small>butuh izin insights</small>' : ''}</div>
-        <div><dt>Likes</dt><dd>${num(p.likes)}</dd></div>
-        <div><dt>Komentar</dt><dd>${num(p.comments)}</dd></div>
-      </dl>
-      <h4>Top konten</h4>
-      ${top ? `<ol class="social-top">${top}</ol>` : '<p class="muted">Belum ada postingan.</p>'}
-    </section>`;
-  })()).join('');
+  $('social-grid').innerHTML = Object.entries(GROUPS).map(([g, meta]) => {
+    const cols = PLATFORMS.filter((pf) => pf.group === g && !(pf.optional && !s[pf.key])).map((pf) => socialCol(pf, s[pf.key])).join('');
+    return `<div class="social-div"><h3 class="social-group"><img src="assets/${meta.logo}" alt="" width="28" height="28">${meta.name} <small>${meta.sub}</small></h3><div class="social-row">${cols}</div></div>`;
+  }).join('');
 }
 
 function renderDashboard() {
