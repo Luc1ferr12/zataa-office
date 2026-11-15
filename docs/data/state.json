@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-15T23:09:55.046Z",
+ "generated_at": "2026-11-15T23:19:55.049Z",
  "today": "2026-11-16",
  "week_start": "2026-11-16",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-15 23:01:14"
+   "updated_at": "2026-11-15 23:15:55"
   },
   {
    "id": "tresearch",
@@ -111,15 +111,15 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Bias bearish: inflasi panas & USD menguat (DXY ~102), pasar ~80% price Fed hike Des; emas ~$4.100, support $3.870. Warsh speaks 17:00Z.",
-   "updated_at": "2026-11-15 23:01:14"
+   "updated_at": "2026-11-15 23:15:55"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-11-15 23:01:14"
+   "current_task": "Setup SELL di band (RSI+MACD)",
+   "updated_at": "2026-11-15 23:15:55"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
-   "updated_at": "2026-11-15 23:01:14"
+   "updated_at": "2026-11-15 23:15:55"
   },
   {
    "id": "texec",
@@ -355,8 +355,8 @@
    "game": "valorant",
    "pillar": "news",
    "title": "3 transfer VCT 2027 yang ubah peta kekuatan",
-   "status": "draft",
-   "asset_url": null,
+   "status": "pending_approval",
+   "asset_url": "{\"video\":\"https://luc1ferr12.github.io/zataa-office/media/2026-11-16/180-3-transfer-vct-2027-yang-ubah-peta-kekua-ov.mp4\",\"cover\":\"https://luc1ferr12.github.io/zataa-office/media/2026-11-16/180-3-transfer-vct-2027-yang-ubah-peta-kekua-ov-cover.jpg\"}",
    "scheduled_at": null,
    "posted_at": null,
    "channel": null
@@ -369,7 +369,7 @@
    "game": "sejarah",
    "pillar": "hidden_history",
    "title": "Perpustakaan Terbesar Dunia Kuno Nggak Hilang dalam Semalam",
-   "status": "draft",
+   "status": "pending_approval",
    "asset_url": null,
    "scheduled_at": null,
    "posted_at": null,
@@ -595,6 +595,31 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-15 23:19:14",
+   "agent_id": "yvideo",
+   "message": "Shorts #193 dirender di laptop (suara OmniVoice) & dikirim ke Owner"
+  },
+  {
+   "ts": "2026-11-15 23:19:13",
+   "agent_id": "ypublish",
+   "message": "Kirim Shorts #193 ke Owner buat approval"
+  },
+  {
+   "ts": "2026-11-15 23:15:46",
+   "agent_id": "video",
+   "message": "video #180 dirender di laptop (suara OmniVoice) & dikirim ke Owner"
+  },
+  {
+   "ts": "2026-11-15 23:15:46",
+   "agent_id": "publisher",
+   "message": "Kirim #180 ke Owner buat approval"
+  },
+  {
+   "ts": "2026-11-15 23:10:55",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: bullish → bearish"
+  },
+  {
    "ts": "2026-11-15 23:07:54",
    "agent_id": "owner",
    "message": "Approve plan mingguan ✅"
@@ -693,31 +718,6 @@
    "ts": "2026-11-15 10:00:40",
    "agent_id": "analyst",
    "message": "Update data 37 post IG 📈"
-  },
-  {
-   "ts": "2026-11-15 07:00:38",
-   "agent_id": "analyst",
-   "message": "Update data 38 post IG 📈"
-  },
-  {
-   "ts": "2026-11-15 06:41:21",
-   "agent_id": "publisher",
-   "message": "Posting #159 ke IG ✅"
-  },
-  {
-   "ts": "2026-11-15 06:40:59",
-   "agent_id": "publisher",
-   "message": "Posting #171 ke IG ✅"
-  },
-  {
-   "ts": "2026-11-15 06:40:36",
-   "agent_id": "publisher",
-   "message": "Posting #153 ke IG ✅"
-  },
-  {
-   "ts": "2026-11-15 06:39:07",
-   "agent_id": "owner",
-   "message": "Approve konten #159 ✅"
   }
  ],
  "chats": [
@@ -1007,11 +1007,11 @@
    "week": "2026-11-16",
    "total": 16,
    "posted": 0,
-   "pending": 0,
+   "pending": 2,
    "scheduled": 0,
    "yt_total": 3,
    "yt_posted": 0,
-   "yt_pending": 0,
+   "yt_pending": 1,
    "yt_scheduled": 0,
    "views": 0,
    "likes": 0,
@@ -1097,9 +1097,14 @@
   "paused": false,
   "balance": 1728.1799999999998,
   "today_pnl": 0,
-  "price": 3889.219971,
+  "price": 3881.699951,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-15 23:15:55",
+    "decision": "NO TRADE",
+    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
+   },
    {
     "ts": "2026-11-15 23:01:14",
     "decision": "NO TRADE",
@@ -1122,11 +1127,6 @@
    },
    {
     "ts": "2026-11-13 21:00:58",
-    "decision": "NO TRADE",
-    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
-   },
-   {
-    "ts": "2026-11-13 20:45:58",
     "decision": "NO TRADE",
     "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
    }
@@ -1195,7 +1195,7 @@
    1728.1799999999998
   ],
   "last": {
-   "ts": "2026-11-15 23:01:14",
+   "ts": "2026-11-15 23:15:55",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1213,10 +1213,13 @@
    },
    "tech": {
     "bias": "bearish",
-    "score": 0,
-    "trigger": null,
-    "confirm": [],
-    "note": "M15 3887.60 di bawah tengah band (3887.6–3887.6) · RSI 54 · Stoch 50 · MACD -0.00 · H1 bearish"
+    "score": 2,
+    "trigger": "sell",
+    "confirm": [
+     "RSI",
+     "MACD"
+    ],
+    "note": "M15 3885.95 di bawah band bawah (3886.6–3888.5) · RSI 27 · Stoch 57 · MACD -0.07 · H1 bearish · setup SELL (RSI+MACD)"
    }
   },
   "fund": {
@@ -1301,26 +1304,26 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "bullish",
-    "score": 2,
-    "price": 3887.6,
-    "ema20": 3887.6,
-    "ema50": 3887.6,
-    "rsi": 77.9,
+    "bias": "bearish",
+    "score": -2,
+    "price": 3886.27,
+    "ema20": 3887.47,
+    "ema50": 3887.55,
+    "rsi": 0,
     "n": 299,
-    "slot": 2991306,
-    "at": 1794783655235
+    "slot": 2991307,
+    "at": 1794784255324
    },
    "M15": {
     "bias": "bullish",
     "score": 2,
-    "price": 3887.6,
-    "ema20": 3887.6,
-    "ema50": 3887.6,
-    "rsi": 54.4,
+    "price": 3888.65,
+    "ema20": 3887.7,
+    "ema50": 3887.64,
+    "rsi": 100,
     "n": 299,
-    "slot": 1994204,
-    "at": 1794783655242
+    "slot": 1994205,
+    "at": 1794784555255
    },
    "M30": {
     "bias": "sideways",
