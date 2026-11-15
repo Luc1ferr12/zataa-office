@@ -62,25 +62,25 @@ async function instagram() {
 }
 
 // ---------- TikTok (Zernio analytics, termasuk post yang di-upload manual)
-async function tiktok(keyEnv = 'ZERNIO_API_KEY', fallback = 'zataa.topup') {
+async function tiktok(keyEnv = 'ZERNIO_API_KEY', fallback = 'zataa.topup', platform = 'tiktok') {
   if (!env()[keyEnv]) throw new Error(`${keyEnv} belum ada`);
   const from = new Date(Date.now() - 365 * 86400_000).toISOString().slice(0, 10);
   const posts = [];
   let account = null;
   for (let page = 1; page <= 10; page++) {
-    const j = await zernio(`/analytics?platform=tiktok&fromDate=${from}&limit=100&page=${page}`, { keyEnv });
+    const j = await zernio(`/analytics?platform=${platform}&fromDate=${from}&limit=100&page=${page}`, { keyEnv });
     posts.push(...(j.posts ?? []));
-    account ??= j.accounts?.find((a) => a.platform === 'tiktok');
+    account ??= j.accounts?.find((a) => a.platform === platform);
     if (page >= (j.pagination?.pages ?? 1)) break;
   }
   const list = posts.filter((p) => p.status === 'published').map((p) => ({
-    pid: p.platforms?.find((x) => x.platform === 'tiktok')?.platformPostId ?? null,
+    pid: p.platforms?.find((x) => x.platform === platform)?.platformPostId ?? null,
     type: p.mediaType === 'video' ? 'video' : (p.mediaItems?.length ?? 0) > 1 ? 'carousel' : 'foto',
     title: short(p.content), text: p.content ?? '', url: p.platformPostUrl?.split('?')[0] ?? null, thumb: p.thumbnailUrl ?? null, at: p.publishedAt,
     views: p.analytics?.views ?? null, likes: p.analytics?.likes ?? 0, comments: p.analytics?.comments ?? 0,
   }));
   const handle = account?.username ?? fallback;
-  return summary(list, { handle: `@${handle}`, url: `https://www.tiktok.com/@${handle}`, followers: account?.followersCount ?? null });
+  return summary(list, { handle: `@${handle}`, url: platform === 'instagram' ? `https://instagram.com/${handle}` : `https://www.tiktok.com/@${handle}`, followers: account?.followersCount ?? null });
 }
 
 // ---------- YouTube Shorts (youtube.mjs stats, token pemilik channel)
@@ -123,8 +123,9 @@ export async function collect() {
   const out = { generated_at: new Date().toISOString() };
   const all = {};
   const KEYS = [['instagram', instagram], ['tiktok', () => tiktok()], ['youtube', () => youtube()], ['story_youtube', () => youtube('story')], ['story_tiktok', () => tiktok('ZERNIO_STORY_API_KEY', 'zataa.story')],
-    ['marvel_youtube', () => youtube('marvel')], ['marvel_tiktok', () => tiktok('ZERNIO_MARVEL_API_KEY', '')], ['clip_tiktok', () => tiktok('ZERNIO_CLIP_API_KEY', '')]];
+    ['marvel_youtube', () => youtube('marvel')], ['marvel_tiktok', () => tiktok('ZERNIO_MARVEL_API_KEY', '')], ['clip_tiktok', () => tiktok('ZERNIO_CLIP_API_KEY', '')], ['history_tiktok', () => tiktok('ZERNIO_HISTORY_API_KEY', '')], ['clip_instagram', () => tiktok('ZERNIO_CLIP_API_KEY', '', 'instagram')]];
   for (const [k, fn] of KEYS) {
+    if (k === 'history_tiktok' && !env().ZERNIO_HISTORY_API_KEY) continue; // opsional: TikTok Zaa History belum disambungkan
     try { out[k] = await fn(); all[k] = out[k].list; delete out[k].list; } catch (e) { out[k] = { error: e.message.slice(0, 160) }; }
   }
   await record('tiktok', 'tiktok_id', all.tiktok ?? []).catch(() => {});
@@ -134,7 +135,7 @@ export async function collect() {
   for (const k of Object.keys(all)) for (const p of out[k].top ?? []) { delete p.pid; delete p.text; }
   mkdirSync(dirname(OUT), { recursive: true });
   writeFileSync(OUT, `${JSON.stringify(out, null, 1)}\n`);
-  return Object.fromEntries(KEYS.map(([k]) => k).map((k) => [k, out[k].error ? `gagal: ${out[k].error}` : `${out[k].posts.total} post`]));
+  return Object.fromEntries(KEYS.map(([k]) => k).filter((k) => out[k]).map((k) => [k, out[k].error ? `gagal: ${out[k].error}` : `${out[k].posts.total} post`]));
 }
 
 // dipanggil watcher tiap menit: tarik ulang kalau file belum ada / sudah >1 jam
