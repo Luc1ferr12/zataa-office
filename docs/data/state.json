@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-15T23:31:10.452Z",
+ "generated_at": "2026-11-15T23:41:10.643Z",
  "today": "2026-11-16",
  "week_start": "2026-11-16",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-15 23:15:55"
+   "updated_at": "2026-11-15 23:31:11"
   },
   {
    "id": "tresearch",
@@ -111,15 +111,15 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Bias bearish: inflasi panas & USD menguat (DXY ~102), pasar ~80% price Fed hike Des; emas ~$4.100, support $3.870. Warsh speaks 17:00Z.",
-   "updated_at": "2026-11-15 23:15:55"
+   "updated_at": "2026-11-15 23:31:11"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Setup SELL di band (RSI+MACD)",
-   "updated_at": "2026-11-15 23:15:55"
+   "current_task": "Belum ada pantulan band · H1 bearish",
+   "updated_at": "2026-11-15 23:31:11"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
-   "updated_at": "2026-11-15 23:15:55"
+   "updated_at": "2026-11-15 23:31:11"
   },
   {
    "id": "texec",
@@ -595,6 +595,16 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-15 23:31:10",
+   "agent_id": "ttech",
+   "message": "M30 berubah arah: sideways → bearish"
+  },
+  {
+   "ts": "2026-11-15 23:31:10",
+   "agent_id": "ttech",
+   "message": "M15 berubah arah: bullish → bearish"
+  },
+  {
    "ts": "2026-11-15 23:30:54",
    "agent_id": "dir",
    "message": "Kode kantor diperbarui, restart otomatis: scripts/golink.mjs, scripts/trading/run.mjs, scripts/watch.mjs"
@@ -706,16 +716,6 @@
   },
   {
    "ts": "2026-11-15 16:00:58",
-   "agent_id": "analyst",
-   "message": "Update data 36 post IG 📈"
-  },
-  {
-   "ts": "2026-11-15 15:17:07",
-   "agent_id": "dir",
-   "message": "Kode kantor diperbarui, restart otomatis: scripts/watch.mjs, scripts/golink.mjs, scripts/trading/run.mjs"
-  },
-  {
-   "ts": "2026-11-15 13:00:37",
    "agent_id": "analyst",
    "message": "Update data 36 post IG 📈"
   }
@@ -1041,12 +1041,12 @@
    "yt_posted": 10,
    "yt_pending": 1,
    "yt_scheduled": 0,
-   "views": 18877,
+   "views": 18884,
    "likes": 233,
    "comments": 6,
    "shares": 3,
    "saves": 0,
-   "yt_views": 15815,
+   "yt_views": 15822,
    "top": [
     {
      "title": "Tulisan Tertua Indonesia Ada di 7 Tiang Batu Ini",
@@ -1058,7 +1058,7 @@
      "title": "Gubernur Jenderal Dikubur di Sini, Lalu Dilupakan",
      "format": "shorts",
      "pillar": "horor_sejarah",
-     "views": 2039
+     "views": 2040
     },
     {
      "title": "Misteri Penjara Benteng Rotterdam & Jejak Diponegoro",
@@ -1097,9 +1097,14 @@
   "paused": false,
   "balance": 1728.1799999999998,
   "today_pnl": 0,
-  "price": 3882.800049,
+  "price": 3889.449951,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-15 23:31:11",
+    "decision": "NO TRADE",
+    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
+   },
    {
     "ts": "2026-11-15 23:15:55",
     "decision": "NO TRADE",
@@ -1122,11 +1127,6 @@
    },
    {
     "ts": "2026-11-13 21:15:58",
-    "decision": "NO TRADE",
-    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
-   },
-   {
-    "ts": "2026-11-13 21:00:58",
     "decision": "NO TRADE",
     "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
    }
@@ -1195,7 +1195,7 @@
    1728.1799999999998
   ],
   "last": {
-   "ts": "2026-11-15 23:15:55",
+   "ts": "2026-11-15 23:31:11",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1213,13 +1213,10 @@
    },
    "tech": {
     "bias": "bearish",
-    "score": 2,
-    "trigger": "sell",
-    "confirm": [
-     "RSI",
-     "MACD"
-    ],
-    "note": "M15 3885.95 di bawah band bawah (3886.6–3888.5) · RSI 27 · Stoch 57 · MACD -0.07 · H1 bearish · setup SELL (RSI+MACD)"
+    "score": 0,
+    "trigger": null,
+    "confirm": [],
+    "note": "M15 3883.57 di bawah band bawah (3884.2–3890.2) · RSI 24 · Stoch 39 · MACD -0.41 · H1 bearish"
    }
   },
   "fund": {
@@ -1306,35 +1303,35 @@
    "M10": {
     "bias": "bearish",
     "score": -2,
-    "price": 3882.02,
-    "ema20": 3886.95,
-    "ema50": 3887.33,
-    "rsi": 0,
+    "price": 3882.95,
+    "ema20": 3886.21,
+    "ema50": 3886.99,
+    "rsi": 15.6,
     "n": 299,
-    "slot": 2991308,
-    "at": 1794784855251
+    "slot": 2991310,
+    "at": 1794786040783
    },
    "M15": {
-    "bias": "bullish",
-    "score": 2,
-    "price": 3888.65,
-    "ema20": 3887.7,
-    "ema50": 3887.64,
-    "rsi": 100,
+    "bias": "bearish",
+    "score": -2,
+    "price": 3882.8,
+    "ema20": 3887.23,
+    "ema50": 3887.45,
+    "rsi": 14.3,
     "n": 299,
-    "slot": 1994205,
-    "at": 1794784555255
+    "slot": 1994206,
+    "at": 1794785470784
    },
    "M30": {
-    "bias": "sideways",
-    "score": 0,
-    "price": 3887.6,
-    "ema20": 3887.6,
-    "ema50": 3887.78,
-    "rsi": 49.3,
+    "bias": "bearish",
+    "score": -2,
+    "price": 3882.8,
+    "ema20": 3887.14,
+    "ema50": 3887.59,
+    "rsi": 0.5,
     "n": 299,
-    "slot": 997102,
-    "at": 1794783655246
+    "slot": 997103,
+    "at": 1794785470790
    },
    "H1": {
     "bias": "bearish",
