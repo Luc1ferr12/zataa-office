@@ -213,7 +213,7 @@ export async function handleOwnerMessage(msg, log = console.log, photos = []) {
     chat(d, 'dir', null, 'Oke tim, ada titah dari Bos. Aku bagi tugasnya ya 👇', 'oper');
     await sayAs(lead, lead === 'dir' ? 'Siap Bos! 👌 Aku bagi tugas ke tim dulu, nanti hasilnya aku kabarin di sini.' : 'Siap Bos, aku kerjain! 👌 Nanti aku kabarin hasilnya di sini.').catch(() => {});
   }
-  // lampiran dari n8n (file_id foto/video/dokumen) + link di pesan → bisa dilihat tim (scripts/media.mjs)
+  // lampiran dari bot kantor (file_id foto/video/dokumen) + link di pesan → bisa dilihat tim (scripts/media.mjs)
   const files = photos.length ? await fetchMedia(loadEnv().TELEGRAM_BOT_TOKEN, photos.map((id) => ({ id, kind: 'doc' })), 'kantor') : [];
   const links = urlsOf(msg).length ? await readLinks(urlsOf(msg), 'kantor') : [];
   const note = mediaNote(files, links), refs = files.filter((f) => !f.err);

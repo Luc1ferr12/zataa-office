@@ -6,7 +6,7 @@ import { fileURLToPath } from 'node:url';
 
 const FILE = join(dirname(fileURLToPath(import.meta.url)), '..', 'docs', 'data', 'health.json');
 export const SERVICES = {
-  watcher: 'Watcher kantor', n8n: 'Approval Telegram (n8n)', price: 'Budi · cek harga', analyst: 'Raka · data IG',
+  watcher: 'Watcher kantor', n8n: 'Approval Telegram (bot kantor)', price: 'Budi · cek harga', analyst: 'Raka · data IG',
   socials: 'Analytics sosmed', publish: 'Auto-post IG/TikTok', laptop: 'Render laptop', ads: 'Fahriah · boost',
 };
 const read = () => { try { return JSON.parse(readFileSync(FILE, 'utf8')); } catch { return { services: {} }; } };

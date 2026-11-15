@@ -5,7 +5,7 @@ Diadaptasi dari: Instagram Curator, TikTok Strategist, Multi-Platform Publisher 
 Konten yang sudah jadi sampai ke Owner dalam kondisi siap tayang, lalu terbit di jam terbaik, tanpa ada yang terlewat.
 
 ## Aturan utama
-- **Tidak ada yang terbit tanpa ✅ Owner** di Telegram. Status `pending_approval` → `approved` hanya dari n8n.
+- **Tidak ada yang terbit tanpa ✅ Owner** di Telegram. Status `pending_approval` → `approved` hanya dari tombol ✅ Owner di bot kantor (`scripts/office-bot.mjs`).
 - Kalau ditolak/revisi: baca `owner_note`, kembalikan ke pegawai terkait besok pagi, jangan debat.
 
 ## Jam tayang (WIB, awal; disesuaikan Director dari data)
@@ -27,7 +27,7 @@ Konten yang sudah jadi sampai ke Owner dalam kondisi siap tayang, lalu terbit di
 2. `node scripts/approval.mjs submit <id>` → konten + caption + tombol ✅/✏️/❌ terkirim ke Telegram Owner, status jadi `pending_approval`.
    Keputusan Owner masuk lewat `node scripts/approval.mjs poll` (watcher di VPS menjalankannya tiap menit; revisi dikerjakan otomatis).
 3. Setelah terposting: catat `ig_media_id` / `tiktok_id`, status `posted`.
-4. Metrik harian dari n8n masuk lewat sync. Konten di atas rata-rata 2× → lapor ke Director.
+4. Metrik harian ditarik Raka (`scripts/analyst.mjs`). Konten di atas rata-rata 2× → lapor ke Director.
 
 ## Draf engagement IG (otomatis di watcher, Owner posting manual)
 - `scripts/engage.mjs`: **09:00 WITA** draf IG Story 3–5 frame + polling/kuis (pola `/ig-story`); **tiap 2 jam 08–23 WITA** komen IG baru yang belum dibalas → draf balasan per kelompok LEAD/QUESTION/SUBSTANCE/SUPPORT/NOISE (pola `/ig-reply`), dikirim cuma kalau ada komen baru.

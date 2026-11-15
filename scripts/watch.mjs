@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Watcher approval (tanpa AI, 0 token saat diam): tiap 60 dtk tarik keputusan Owner dari n8n.
+// Watcher approval (tanpa AI, 0 token saat diam): tiap 60 dtk proses keputusan Owner dari bot kantor (scripts/office-bot.mjs; dulu n8n).
 // Revisi → jalankan Claude Code CLI untuk memperbaiki + render ulang → kirim lagi ke Telegram.
 // Approved → auto-post ke IG/TikTok saat jam slot (scripts/publish.mjs). Pesan bebas Owner → scripts/ask.mjs.
 // Bot terpisah: Nabila keuangan (finance-bot.mjs), chit-chat Owner ↔ pegawai (chitchat-bot.mjs) & YouTube Shorts @zataashortbot (shorts-bot.mjs).
@@ -16,6 +16,7 @@ import { revisionText } from './chatter.mjs';
 import { adsReady, propose, runApproved } from './boost.mjs';
 import { handleOwnerMessage, handleDecision, runFollowups, syncMonitor } from './ask.mjs';
 import { startFinanceBot } from './finance-bot.mjs';
+import { startOfficeBot } from './office-bot.mjs';
 import { startChitchatBot } from './chitchat-bot.mjs';
 import { startShortsBot } from './shorts-bot.mjs';
 
@@ -289,6 +290,7 @@ if (!process.argv.includes('--once')) {
   setInterval(tick, EVERY);
   syncPages();
   setInterval(syncPages, SYNC_EVERY);
+  startOfficeBot(log).catch((e) => log(`bot kantor berhenti: ${e.message}`)); // bot About Esports langsung (pengganti n8n)
   startFinanceBot(log); // bot Telegram Nabila (keuangan Owner), long polling terpisah
   startChitchatBot(log, exportState); // bot chit-chat: obrolan santai pegawai ↔ Owner nimbrung
   startShortsBot(log); // bot @zataashortbot Zaa History (approval → upload Private → ingatkan Publik)

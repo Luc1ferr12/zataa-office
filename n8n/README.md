@@ -1,3 +1,5 @@
+> **PENSIUN sejak 16 Nov 2026.** Bot kantor sekarang langsung dari watcher VPS (`scripts/office-bot.mjs`, `.env` `OFFICE_BOT_DIRECT=1`), n8n nggak dipakai lagi. File di folder ini cuma arsip/cadangan.
+
 # Setup approval Telegram (sekali saja)
 
 Alur: PC kirim konten → Telegram Owner (✅ / ✏️ / ❌) → n8n simpan keputusan → watcher di PC ambil tiap 1 menit → revisi dikerjakan Claude Code CLI → dikirim ulang.

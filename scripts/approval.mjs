@@ -222,10 +222,18 @@ export async function submitIdeas() {
   return { ok: true, ideas: ids, round };
 }
 
-// tarik keputusan dari n8n (antrian dengan nomor urut; ack = nomor terakhir yang sudah diproses)
+// tarik keputusan Owner (antrian dengan nomor urut; ack = nomor terakhir yang sudah diproses)
+// sejak 16 Nov 2026: langsung dari bot kantor di watcher (scripts/office-bot.mjs, OFFICE_BOT_DIRECT=1); n8n cuma cadangan lama
 export async function poll() {
-  if (!env.N8N_DECISIONS_URL) throw new Error('N8N_DECISIONS_URL belum diisi di .env');
-  const ack = +(loadEnv().N8N_ACK ?? 0);
+  const ob = await import('./office-bot.mjs');
+  const direct = ob.directOn();
+  if (!direct && !env.N8N_DECISIONS_URL) throw new Error('N8N_DECISIONS_URL belum diisi di .env');
+  const ack = direct ? 0 : +(loadEnv().N8N_ACK ?? 0);
+  const fresh = direct ? ob.pending() : await pollN8n(ack);
+  if (!fresh.length) return [];
+  return applyDecisions(fresh, (seq) => (direct ? ob.ackTo(seq) : setEnv('N8N_ACK', seq)));
+}
+async function pollN8n(ack) {
   const r = await fetch(`${env.N8N_DECISIONS_URL}?ack=${ack}`, { headers: { 'x-zataa-key': env.N8N_KEY ?? '' } });
   // n8n di balik Cloudflare: kalau down balasannya halaman HTML utuh → cukup judulnya, jangan banjiri log
   if (!r.ok) {
@@ -234,8 +242,9 @@ export async function poll() {
     throw new Error(`n8n ${r.status} ${why.replace(/\s+/g, ' ').trim().slice(0, 100)}`);
   }
   const { decisions = [] } = await r.json();
-  const fresh = decisions.filter((x) => x.seq > ack);
-  if (!fresh.length) return [];
+  return decisions.filter((x) => x.seq > ack);
+}
+async function applyDecisions(fresh, setAck) {
   const d = await db();
   const log = (m) => d.prepare('INSERT INTO activity (agent_id, message) VALUES (?, ?)').run('owner', m);
   for (const x of fresh) {
@@ -270,7 +279,7 @@ export async function poll() {
       contentLesson(d, x.id, 'revision', x.note);
     }
   }
-  setEnv('N8N_ACK', Math.max(...fresh.map((x) => x.seq)));
+  setAck(Math.max(...fresh.map((x) => x.seq)));
   return fresh;
 }
 
