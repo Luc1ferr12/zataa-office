@@ -200,6 +200,16 @@ function renderDashboard() {
     }).join('');
   }
 
+  // Zaa Clips: job clip per hari (clip_jobs), status: queued → editing → ready → posted → submitted ke Clippo
+  const CLIPST = { queued: 'Antre', editing: 'Diedit', ready: 'Siap tayang', posted: 'Tayang', submitted: 'Diajukan ke Clippo', failed: 'Gagal' };
+  $('week-grid-clip').innerHTML = days.map((d, i) => {
+    const date = week ? addDays(week, i) : null;
+    const items = (s?.clip_jobs ?? []).filter((j) => j.day === date);
+    const chips = items.length ? items.map((j) => `<div class="chip yt s-${j.status === 'submitted' ? 'posted' : j.status === 'ready' ? 'scheduled' : j.status}" title="${esc(CLIPST[j.status] ?? j.status)}"><b>✂️ ${esc(CLIPST[j.status] ?? j.status)}${j.views ? ` · 👁 ${num(j.views)}` : ''}</b>${esc(j.campaign ?? 'Clip')}</div>`).join('')
+      : '<div class="chip slot"><b>✂️ clip</b>Belum ada clip</div>';
+    return `<div class="day ${date === s?.today ? 'today' : ''}"><h3>${d}<small>${date ? date.slice(8) : ''}</small></h3>${chips}</div>`;
+  }).join('');
+
   // aktivitas
   const acts = s?.activity ?? [];
   $('activity').innerHTML = acts.length

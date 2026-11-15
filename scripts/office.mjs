@@ -248,6 +248,9 @@ const commands = {
       agents: all('SELECT id, name, title, status, current_task, updated_at FROM agents'),
       week_contents: all(`SELECT id, day, slot, format, game, pillar, title, status, asset_url, scheduled_at, posted_at, channel
                           FROM contents WHERE day BETWEEN ? AND ? ORDER BY day, CASE slot WHEN 'pagi' THEN 0 WHEN 'siang' THEN 1 WHEN 'kilat' THEN 2 WHEN 'sore' THEN 3 WHEN 'malam' THEN 4 ELSE 5 END`, week, addDays(week, 6)),
+      // Zaa Clips: job clip minggu ini (tabel clip_jobs dibuat clipper.mjs; bisa belum ada → kosong)
+      clip_jobs: (() => { try { return all(`SELECT j.id, j.day, j.status, j.views, j.likes, j.tiktok_url, j.ig_url, c.title campaign FROM clip_jobs j LEFT JOIN clip_campaigns c ON c.id = j.campaign_id
+                          WHERE j.day BETWEEN ? AND ? AND j.status != 'join' ORDER BY j.day, j.id`, week, addDays(week, 6)); } catch { return []; } })(),
       today_tasks: all('SELECT agent_id, type, title, status FROM tasks WHERE day = ? ORDER BY id', t),
       activity: all('SELECT ts, agent_id, message FROM activity ORDER BY id DESC LIMIT 25'),
       chats: all('SELECT ts, agent_id, to_id, kind, message FROM chats ORDER BY id DESC LIMIT 40'),
