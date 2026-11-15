@@ -95,6 +95,19 @@ export async function readLinks(urls, bot = 'telegram') {
           continue;
         }
       }
+      // cadangan resmi kalau yt-dlp gagal/kuno: oEmbed YouTube & TikTok (judul, kreator, thumbnail; tanpa deskripsi)
+      const oe = /youtube\.com|youtu\.be/i.test(url) ? `https://www.youtube.com/oembed?format=json&url=${encodeURIComponent(url)}`
+        : /tiktok\.com/i.test(url) ? `https://www.tiktok.com/oembed?url=${encodeURIComponent(url)}` : null;
+      if (oe) {
+        const j = await fetch(oe, { signal: AbortSignal.timeout(15_000) }).then((x) => (x.ok ? x.json() : null)).catch(() => null);
+        if (j?.title) {
+          let thumb = null;
+          const tr = j.thumbnail_url ? await fetch(j.thumbnail_url, { signal: AbortSignal.timeout(15_000) }).catch(() => null) : null;
+          if (tr?.ok) { const rel = `tmp/telegram/${bot}/${Date.now()}-thumb.jpg`; mkdirSync(join(ROOT, dirname(rel)), { recursive: true }); writeFileSync(join(ROOT, rel), Buffer.from(await tr.arrayBuffer())); thumb = rel; }
+          out.push({ url, kind: 'video', title: j.title, by: j.author_name, thumb, text: '(deskripsi nggak kebaca, cuma judul & thumbnail)' });
+          continue;
+        }
+      }
       const r = await fetch(url, { headers: { 'User-Agent': 'Mozilla/5.0 (compatible; ZaaOfficeBot/1.0)', Accept: 'text/html,*/*' }, redirect: 'follow', signal: AbortSignal.timeout(20_000) });
       const type = r.headers.get('content-type') ?? '';
       if (/^image\//.test(type)) {
