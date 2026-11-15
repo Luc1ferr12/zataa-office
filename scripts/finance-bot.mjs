@@ -118,6 +118,17 @@ Kalau udah dibayar bilang aja "udah bayar ${esc(x.b.nama)}".`);
       log('keuangan: rekap pagi terkirim');
     } catch (e) { log(`keuangan pagi gagal: ${e.message}`); }
   }
+  // pengingat sekali jalan dari Owner: office/owner-reminders.json [{id, date:'YYYY-MM-DD', text}] → terkirim pagi tgl itu (atau besoknya kalau kelewat)
+  if (t.minutes >= 7 * 60 && t.minutes < 22 * 60) {
+    let list = [];
+    try { list = JSON.parse(readFileSync(join(ROOT, 'office', 'owner-reminders.json'), 'utf8')); } catch { /* belum ada */ }
+    for (const r of list) {
+      const k = `rem:${r.id}`;
+      if (!r.id || !r.text || done[k] || r.date > t.date) continue;
+      mark(k);
+      try { await send(`⏰ Bos, pengingat: ${esc(r.text)}`); log(`keuangan: pengingat ${r.id} terkirim`); } catch (e) { log(`pengingat ${r.id} gagal: ${e.message}`); }
+    }
+  }
   if (due('malam', 20 * 60, 22 * 60)) {
     mark('malam');
     try {
