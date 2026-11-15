@@ -11,6 +11,7 @@ import { spawn } from 'node:child_process';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { loadEnv, say, sayAs, NAMA, db, downloadPhotos, photoNote, SLOT } from './approval.mjs';
+import { fetchMedia, readLinks, urlsOf, mediaNote } from './media.mjs';
 import { chat } from './chatter.mjs';
 import { AGENTS, wita, activityAt, describe, approvalWaits, pairBilliard } from '../docs/js/schedule.js';
 import { isTradingCommand, handleTrading } from './trading/telegram.mjs';
@@ -212,13 +213,16 @@ export async function handleOwnerMessage(msg, log = console.log, photos = []) {
     chat(d, 'dir', null, 'Oke tim, ada titah dari Bos. Aku bagi tugasnya ya 👇', 'oper');
     await sayAs(lead, lead === 'dir' ? 'Siap Bos! 👌 Aku bagi tugas ke tim dulu, nanti hasilnya aku kabarin di sini.' : 'Siap Bos, aku kerjain! 👌 Nanti aku kabarin hasilnya di sini.').catch(() => {});
   }
-  const refs = await downloadPhotos(photos);
+  // lampiran dari n8n (file_id foto/video/dokumen) + link di pesan → bisa dilihat tim (scripts/media.mjs)
+  const files = photos.length ? await fetchMedia(loadEnv().TELEGRAM_BOT_TOKEN, photos.map((id) => ({ id, kind: 'doc' })), 'kantor') : [];
+  const links = urlsOf(msg).length ? await readLinks(urlsOf(msg), 'kantor') : [];
+  const note = mediaNote(files, links), refs = files.filter((f) => !f.err);
   // semua pesan non-tugas → Haiku duluan (murah), boleh jawab pertanyaan apa aja; butuh kerja beneran → dioper ke model utama
   if (!task && !refs.length) {
     const chatModel = loadEnv().CHAT_MODEL || 'haiku';
     const light = await haiku(`Kamu tim About Esports (eks Marketing) di Zaa Office, lagi ngobrol dengan Owner (Bos Zamiir) lewat bot Telegram kantor.${history}
 Pesan BARU Owner:
-"${msg}"
+"${msg}"${note}
 ${lead !== 'dir' ? `Yang diajak ngomong: ${NAMA[lead]} (${lead}) — dia yang jawab duluan.
 ` : ''}Bales natural & singkat, bahasa Indonesia santai ala gamer, sebagai pegawai kantor (pertanyaan soal divisi lain boleh dijawab pegawai marketing yang paling nyambung).
 ${OFFICE}
@@ -234,7 +238,7 @@ Akhiri dengan baris "BALASAN:" lalu 1–3 baris, TIAP baris diawali nama pegawai
     log(light.ok ? 'obrolan dioper ke model utama (eskalasi)' : `model chat gagal, pakai model utama: ${light.text.slice(0, 200)}`);
   }
   const r = await claude(`Kamu tim About Esports (eks Marketing, media esports; web top up zataa.my.id lagi mati → nol promo) di Zaa Office, folder ini.${history}
-Pesan BARU Owner (Bos Zamiir) lewat Telegram:\n"${msg || '(cuma kirim gambar)'}"${photoNote(refs)}
+Pesan BARU Owner (Bos Zamiir) lewat Telegram:\n"${msg || '(cuma kirim lampiran)'}"${note}
 ${lead !== 'dir' ? `Yang diajak ngomong / pegang: ${NAMA[lead]} (${lead}) — dia yang jawab duluan di BALASAN.\n` : ''}Baca pesan ini SESUAI KONTEKS obrolan di atas. Kalau cuma ngobrol, nyambung obrolan, atau ngasih info (bukan nyuruh bikin sesuatu): JANGAN bagi tugas / bikin konten, cukup bales natural sebagai pegawai itu (boleh catat infonya kalau relevan, mis. update skor ke followup yang ada).
 
 ${RULES}`);

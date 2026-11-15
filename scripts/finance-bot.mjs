@@ -11,6 +11,7 @@ import { OFFICE, ANSWER_ANY, LOOKUPS } from './haiku.mjs';
 import { wita } from '../docs/js/schedule.js';
 import { morning, reminders, todayTx, rp } from './finance.mjs';
 import { pushRge, laptopIdleMin, RGE_RE, holdReply } from './rge-queue.mjs';
+import { mediaIds, fetchMedia, readLinks, urlsOf, mediaNote } from './media.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const HIST = join(ROOT, 'tmp', 'finance-chat.json');
@@ -57,7 +58,7 @@ function saveHist(owner, reply) {
   try { mkdirSync(dirname(HIST), { recursive: true }); writeFileSync(HIST, JSON.stringify([...hist(), { t: Date.now(), owner: (owner || '(foto)').slice(0, 300), reply: reply.slice(0, 600) }].slice(-10))); } catch { /* abaikan */ }
 }
 
-export async function handleFinance(msg, refs = [], log = console.log) {
+export async function handleFinance(msg, refs = [], log = console.log, extra = '') {
   if (!refs.length && (RGE_RE.test(msg) || holdReply(msg))) return routeRge(msg, log);
   const t = wita(new Date());
   const day = (n) => new Date(Date.UTC(...t.date.split('-').map((x, i) => (i === 1 ? x - 1 : +x))) + n * 86400000).toISOString().slice(0, 10);
@@ -69,7 +70,7 @@ Sekarang ${t.dayName} ${t.date} ${t.hh}:${t.mm} WITA. Senin minggu ini ${monday}
 ${past ? `Obrolan terakhir:
 ${past}
 ` : ''}Pesan BARU dari Bos: "${msg || '(kirim foto tanpa caption)'}"${refs.length ? `
-Foto (baca pakai Read): ${refs.join(', ')}` : ''}
+Foto (baca pakai Read): ${refs.join(', ')}` : ''}${extra}
 
 Alat (satu-satunya): node scripts/finance.mjs lewat Bash. Perintah lengkap ada di header file itu & playbook. Ringkas:
 - Transaksi: add '<json array>' · list [dari] [sampai] [kata] · sum [dari] [sampai] · del <id…> · edit <id> '<json>'
@@ -154,16 +155,20 @@ export async function startFinanceBot(log = console.log) {
       const key = m.media_group_id ?? `m${m.message_id}`;
       const b = batch.get(key) ?? { text: '', files: [] };
       b.text = [b.text, m.text ?? m.caption ?? ''].filter(Boolean).join('\n');
-      if (m.photo?.length) b.files.push(m.photo.at(-1).file_id);
-      if (m.document && /^image\//.test(m.document.mime_type ?? '')) b.files.push(m.document.file_id);
+      b.files.push(...mediaIds(m)); // foto, video, PDF mutasi, dokumen (scripts/media.mjs)
       batch.set(key, b);
     }
     for (const b of batch.values()) {
       if (/^\/start\b/.test(b.text)) { await send('Halo Bos 👋 Saya Nabila, sekretaris baru. Kirim aja catatan duit, foto struk, mutasi, tagihan bulanan, atau tabungan ke sini, nanti saya catet. Tiap jam 7 pagi saya kirim rekap & jatah harian, jam 8 malem saya ingetin nyatet ya.').catch(() => {}); continue; }
       try {
         await api('sendChatAction', { chat_id: env.FINANCE_OWNER_ID, action: 'typing' }).catch(() => {});
-        const refs = await download(b.files);
-        await send(esc(await handleFinance(b.text.trim(), refs, log)).replace(/\*\*(.+?)\*\*/g, '<b>$1</b>'));
+        const got = b.files.length ? await fetchMedia(env.FINANCE_BOT_TOKEN, b.files, 'nabila') : [];
+        const links = urlsOf(b.text).length ? await readLinks(urlsOf(b.text), 'nabila') : [];
+        const refs = got.filter((f) => f.kind === 'image' && f.path).map((f) => f.path);
+        const extra = mediaNote(got.filter((f) => f.kind !== 'image' || !f.path), links);
+        const reply = await handleFinance(b.text.trim(), refs, log, extra);
+        for (const f of got) for (const x of [f.path, ...(f.frames ?? [])].filter(Boolean)) { try { unlinkSync(join(ROOT, x)); } catch { /* sudah dihapus */ } } // privasi
+        await send(esc(reply).replace(/\*\*(.+?)\*\*/g, '<b>$1</b>'));
       } catch (e) { log(`bot keuangan gagal: ${e.message}`); await send('Maaf Bos, ada error. Coba lagi ya 🙏').catch(() => {}); }
     }
   }

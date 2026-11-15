@@ -15,7 +15,7 @@ function envVal(key) {
 }
 
 // alat baca-saja: data kantor dari CLI masing-masing divisi + 2 pencarian web buat pertanyaan umum
-export const LOOKUPS = ['Read', 'Glob', 'Grep', 'WebSearch',
+export const LOOKUPS = ['Read', 'Glob', 'Grep', 'WebSearch', 'WebFetch',
   'Bash(node scripts/trading/cli.mjs status)', 'Bash(node scripts/shorts-bot.mjs list)', 'Bash(node scripts/shorts-bot.mjs list --brand=story)', 'Bash(node scripts/shorts-bot.mjs list --brand=marvel)', 'Bash(node scripts/clipper.mjs jobs)', 'Bash(node scripts/clipper.mjs list)', 'Bash(node scripts/office.mjs brief:*)', 'Bash(node scripts/price.mjs latest:*)'];
 
 export const OFFICE = `Zaa Office (kantor virtual; web top up zataa.my.id lagi DIMATIKAN Owner sejak 15 Nov 2026, jadi nggak ada jualan/promo), 7 divisi:

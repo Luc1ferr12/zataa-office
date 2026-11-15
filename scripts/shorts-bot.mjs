@@ -32,6 +32,7 @@ import { tdb, getTopic, checkQuota, syncTopic, weekStats, WEEK_TOTAL, CORE, CORE
 import { B, cliArgs } from './brand.mjs';
 import { claude, formatReply, ESCALATE, isStatusQuestion } from './ask.mjs';
 import { haiku, OFFICE, ANSWER_ANY } from './haiku.mjs';
+import { digest } from './media.mjs';
 import { wita } from '../docs/js/schedule.js';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -291,7 +292,7 @@ async function markPublic(id) {
 
 // revisi: Claude CLI (tim YouTube) ubah naskah/visual/judul → render ulang di laptop (atau langsung kirim kalau cuma judul/deskripsi)
 const NO_RENDER = '[[TANPA_RENDER]]';
-async function revise(id, note, log) {
+async function revise(id, note, log, extra = '') {
   const d = await db();
   const c = getShort(d, id);
   if (!c) return;
@@ -301,7 +302,7 @@ async function revise(id, note, log) {
   await sayAs(T.script, `🛠️ Siap Bos, revisi Shorts #${id} lagi dikerjain…`).catch(() => {});
   const r = await claude(`Kamu tim Shorts ${B.name} (${B.niche}, pilar di ${B.sop}) di folder ini. Owner minta REVISI Shorts #${id}:
 BRAND: tambahkan ${BR} di SETIAP perintah scripts/shorts-bot.mjs & scripts/shorts-topics.mjs.
-"${note}"
+"${note}"${extra}
 
 Langkah:
 1. Baca ${B.sop}, lalu playbook yang kepakai: office/roles/${T.script}.md (naskah), office/roles/${T.visual}.md (gambar), office/roles/${T.publish}.md (judul/deskripsi).
@@ -523,9 +524,9 @@ export async function weeklyReport({ dry = false } = {}) {
 }
 
 // pesan bebas Owner → Haiku duluan (jawab apa aja); butuh kerja Shorts beneran → model utama
-async function talk(msg, log) {
+async function talk(msg, log, extra = '') {
   const quick = await haiku(`Kamu tim Shorts "${B.name}" (${B.niche}), ngobrol dengan Owner (Bos Zamiir) lewat bot Telegram ${B.bot}.
-Pesan Owner: "${msg}"
+Pesan Owner: "${msg}"${extra}
 ${OFFICE}
 ${ANSWER_ANY}
 Kalau pesannya minta BIKIN/UBAH sesuatu (Shorts baru, ganti topik, revisi, upload): JANGAN dikerjakan, tulis persis ${ESCALATE} lalu berhenti.
@@ -534,7 +535,7 @@ Akhiri dengan baris "BALASAN:" lalu 1–3 baris, TIAP baris diawali nama pegawai
   if (!quick.ok) log(`bot shorts: haiku gagal, pakai model utama: ${quick.text.slice(0, 200)}`);
   const r = await claude(`Kamu tim Shorts "${B.name}" (${B.niche}) di folder ini, ngobrol dengan Owner (Bos Zamiir) lewat bot Telegram ${B.bot}.
 BRAND: tambahkan ${BR} di SETIAP perintah scripts/shorts-bot.mjs & scripts/shorts-topics.mjs.
-Pesan Owner: "${msg}"
+Pesan Owner: "${msg}"${extra}
 Tim: ${NAMA[T.dir]} (${T.dir}, manajer), ${NAMA[T.research]} (${T.research}, riset), ${NAMA[T.script]} (${T.script}, naskah + cek fakta), ${NAMA[T.visual]} (${T.visual}, visual berlisensi), ${NAMA[T.video]} (${T.video}, render + VO), ${NAMA[T.publish]} (${T.publish}, upload & SEO${B.tiktok ? ', YouTube + TikTok' : ''}).
 SOP & cara kerja: ${B.sop} (baca kalau perlu). Data Shorts: node scripts/shorts-bot.mjs list ${BR}. Jangan ngarang angka views.
 Tugas (mis. bikin Shorts baru / ganti topik): kerjakan sesuai ${B.sop} (new → render otomatis di laptop → ${NAMA[T.publish]} kirim ke sini). Jangan kirim Telegram sendiri.
@@ -636,7 +637,8 @@ async function handle(u, log) {
   }
   const m = u.message;
   if (!m || String(m.chat.id) !== me) return; // selain Owner: abaikan
-  const text = (m.text ?? m.caption ?? '').trim();
+  const dg = await digest(m, loadEnv()[B.tokenEnv], B.key); // foto / video / link dari Owner → bisa dibaca tim
+  const text = dg.text;
   if (!text) return;
   const s = state();
   const replyId = s.msgs?.[m.reply_to_message?.message_id];
@@ -644,7 +646,7 @@ async function handle(u, log) {
   if (s.awaitRev || replyId) {
     const id = s.awaitRev ?? replyId;
     patchState((x) => { delete x.awaitRev; });
-    return later(() => revise(id, text, log), log);
+    return later(() => revise(id, text, log, dg.note), log);
   }
   if (isStatusQuestion(text) || /^\/?(status|rekap)$/i.test(text)) return send(await statusText());
   const d = await db();
@@ -667,7 +669,7 @@ async function handle(u, log) {
     if (pick) return markPublic(pick.id);
   }
   await api('sendChatAction', { chat_id: me, action: 'typing' }).catch(() => {});
-  later(() => talk(text, log), log);
+  later(() => talk(text, log, dg.note), log);
 }
 
 // ---------- CLI

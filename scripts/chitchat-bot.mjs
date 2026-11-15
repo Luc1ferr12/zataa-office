@@ -11,6 +11,7 @@ import { loadEnv } from './approval.mjs';
 import { haiku, replyOf } from './haiku.mjs';
 import { openDb } from './db.mjs';
 import { chat } from './chatter.mjs';
+import { digest } from './media.mjs';
 import { AGENTS, activityAt, wita } from '../docs/js/schedule.js';
 import { simulatedChats } from '../docs/js/chatter.js';
 import { relationsOn } from '../docs/js/social.js';
@@ -116,7 +117,7 @@ function persona(id, date) {
   return `- ${a.name} (${a.gender === 'f' ? 'cewek' : 'cowok'}, ${a.title}${a.team ? ` tim ${TEAM[a.team]}` : ''}${extra})${rel.length ? `, ${rel.join(', ')}` : ''}; lagi: ${now?.label ?? 'santai'}`;
 }
 
-export async function handleChitchat(text, replyTo, log = console.log, { dry = false } = {}) {
+export async function handleChitchat(text, replyTo, log = console.log, { dry = false, extra = '' } = {}) {
   const s = load();
   const t = wita(new Date());
   const { ids, ctx } = pickTalkers(text, replyTo, s);
@@ -128,11 +129,11 @@ Sekarang ${t.dayName} ${t.hh}:${t.mm} WITA.
 Yang ngobrol sama Bos:
 ${ids.map((id) => persona(id, t.date)).join('\n')}
 ${ctx.length ? `Obrolan mereka barusan (Bos nimbrung ke sini):\n${ctx.join('\n')}\n` : ''}${hist ? `Chat terakhir di grup:\n${hist}\n` : ''}
-Pesan baru Bos: "${text}"
+Pesan baru Bos: "${text}"${extra}
 
-Balas 1–3 baris dari orang di atas (nggak harus semua; yang paling nyambung duluan). Boleh cari web maks 1× kalau Bos nanya hal terkini (skor match, rilis film), selain itu jangan pakai alat.
+Balas 1–3 baris dari orang di atas (nggak harus semua; yang paling nyambung duluan). Boleh cari web maks 1× kalau Bos nanya hal terkini (skor match, rilis film). Bos kirim foto/video/link → lihat dulu (Read / WebFetch) terus komentarin kayak temen. Selain itu jangan pakai alat.
 Akhiri dengan baris "BALASAN:" lalu tiap baris format "Nama: pesan".`;
-  const r = await haiku(prompt, { minutes: 2, tools: ['WebSearch'] });
+  const r = await haiku(prompt, { minutes: extra ? 4 : 2, tools: ['WebSearch', 'Read', 'WebFetch'] });
   const lines = r.ok ? replyOf(r.text).split('\n').map((l) => l.trim()).filter(Boolean).map((l) => {
     const m = l.match(/^\**([^:*]{2,20})\**:\s*(.+)$/);
     const a = m && PEOPLE.find((x) => x.name.toLowerCase() === m[1].trim().toLowerCase());
@@ -182,8 +183,10 @@ export async function startChitchatBot(log = console.log, onChange = () => {}) {
     for (const u of ups) {
       offset = u.update_id + 1;
       const m = u.message;
-      if (!m || String(m.chat.id) !== String(ownerId()) || !m.text) continue;   // selain Owner: abaikan
-      const text = m.text.trim();
+      if (!m || String(m.chat.id) !== String(ownerId())) continue;   // selain Owner: abaikan
+      const dg = await digest(m, loadEnv().CHITCHAT_BOT_TOKEN, 'chitchat').catch(() => ({ text: String(m.text ?? '').trim(), note: '' })); // foto/video/link (scripts/media.mjs)
+      const text = dg.text;
+      if (!text) continue;
       const cmd = text.match(/^\/(start|help|siapa|santai|rame|diem)\b/)?.[1];
       try {
         if (cmd === 'start' || cmd === 'help') { await send(HELP); continue; }
@@ -194,7 +197,7 @@ export async function startChitchatBot(log = console.log, onChange = () => {}) {
           continue;
         }
         await api('sendChatAction', { chat_id: ownerId(), action: 'typing' }).catch(() => {});
-        const lines = await handleChitchat(text, m.reply_to_message?.message_id, log);
+        const lines = await handleChitchat(text, m.reply_to_message?.message_id, log, { extra: dg.note });
         if (!lines.length) { await send('<i>(pada sibuk, nggak ada yang bales… coba lagi bentar 😅)</i>'); continue; }
         for (const l of lines) {
           await send(`<b>${esc(nameOf(l.id))}:</b> ${esc(l.msg)}`);

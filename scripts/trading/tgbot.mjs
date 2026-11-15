@@ -4,6 +4,7 @@
 import { readFileSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { digest } from '../media.mjs';
 
 // baca .env sendiri, biar jalan juga dari watcher (ask.mjs) yang nggak nge-load .env ke process.env
 let fileEnv = null;
@@ -40,8 +41,11 @@ export async function pollTrading(onText, { getOffset, setOffset, log = console.
       for (const u of ups) {
         setOffset(u.update_id + 1);
         const m = u.message;
-        if (!m?.text || String(m.chat?.id) !== String(chatId())) continue;
-        try { await onText(m.text.trim()); } catch (e) { log(`perintah trading: ${e.message}`); }
+        if (!m || String(m.chat?.id) !== String(chatId())) continue;
+        try {
+          const dg = await digest(m, token(), 'trading'); // screenshot chart, video, link berita → bisa dibaca tim
+          if (dg.text) await onText(dg.text, dg.note);
+        } catch (e) { log(`perintah trading: ${e.message}`); }
       }
     } catch (e) {
       log(`bot trading: ${e.message}`);

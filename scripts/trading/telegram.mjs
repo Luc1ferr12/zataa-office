@@ -9,9 +9,9 @@ import { haiku, replyOf, OFFICE, ANSWER_ANY } from '../haiku.mjs';
 export const isTradingCommand = (t) => /^\/?(trading|trade|xau)\b/i.test(String(t).trim());
 const esc = (s) => String(s ?? '').replace(/[&<>]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' })[c]);
 
-export async function handleTrading(msg) {
+export async function handleTrading(msg, extra = '') {
   const t = String(msg).trim().replace(/^\/?(trading|trade|xau)\s*/i, '').toLowerCase();
-  if (!t || /^status|^gimana|^cek/.test(t)) return status();
+  if (!extra && (!t || /^status|^gimana|^cek/.test(t))) return status();
   if (/^(jeda|pause|stop)\b/.test(t)) { setKv('paused', true); note('tdir', 'Trading dijeda Owner'); return sayAs('tdir', '⏸️ Siap Bos, tim trading berhenti ambil posisi baru. Posisi yang kebuka tetap dijaga SL/TP-nya.'); }
   if (/^(lanjut|resume|mulai)\b/.test(t)) { setKv('paused', false); note('tdir', 'Trading dilanjut Owner'); return sayAs('tdir', '▶️ Oke Bos, tim trading jalan lagi.'); }
   let m;
@@ -72,14 +72,25 @@ export async function handleTrading(msg) {
   // pertanyaan bebas → Haiku jawab pakai data trading asli (0 perubahan setelan)
   const ask = String(msg).trim().replace(/^\/?(trading|trade|xau)\s*/i, '');
   const r = await haiku(`Kamu tim Trading XAUUSD kantor Zaa, ngobrol dengan Owner (Bos Zamiir) lewat bot Zaa Office Trading.
-Pesan Owner: "${ask}"
+Pesan Owner: "${ask}"${extra}
+Butuh kerja lebih dari jawab singkat (analisa chart/screenshot yang Owner kirim secara mendalam, backtest ide, riset berita panjang, bandingin strategi) → tulis persis [[ESKALASI]] lalu berhenti.
 ${OFFICE}
 ${ANSWER_ANY}
 Pertanyaan soal posisi, saldo, alasan entry/NO TRADE, strategi → WAJIB cek "node scripts/trading/cli.mjs status" dulu. Mode sekarang ${mode()}.
 Kamu TIDAK bisa ubah setelan/eksekusi. Kalau Owner nyuruh ubah sesuatu, kasih tahu perintahnya: status, jeda, lanjut, mode paper|demo|live, terapkan <id>, tolak <id>, tutup semua, modal <rupiah> (paper).
 Akhiri dengan baris "BALASAN:" lalu jawaban singkat 1–4 baris (tanpa awalan nama).`);
-  if (r.ok && !r.escalate) return sayAs('tdir', esc(replyOf(r.text)).slice(0, 3000));
-  return sayAs('tdir', HELP);
+  if (r.ok && !r.escalate && !r.text.includes('[[ESKALASI]]')) return sayAs('tdir', esc(replyOf(r.text)).slice(0, 3000));
+  // kerja beneran (analisa/backtest/riset) → model utama, tetap di kamar Trading & TIDAK boleh ubah setelan/kode
+  await sayAs('tdir', 'Siap Bos, aku kerjain bareng tim dulu ya 🔎');
+  const { claude } = await import('../ask.mjs');
+  const big = await claude(`Kamu tim Trading XAUUSD (Mahendra tdir, Davina tresearch, Keira ttech, Aryaputra trisk, Wiratama texec, Jihan teval, Selena treport) di folder ini, ngobrol dengan Owner (Bos Zamiir) lewat bot Zaa Office Trading.
+Pesan Owner: "${ask}"${extra}
+Data asli: "node scripts/trading/cli.mjs status" (jangan ngarang angka). Playbook: office/roles/t*.md. Backtest: lihat header scripts/trading/backtest.mjs.
+Mode sekarang ${mode()}. Kamu BOLEH analisa, riset web, baca data, jalanin backtest. DILARANG ubah setelan/kode/eksekusi order: kalau perlu perubahan, tulis usulan jelas + perintah yang Owner bisa kirim (terapkan <id>, mode …, jeda …).
+Urusan divisi lain → jawab singkat aja, kerjaannya di bot divisinya.
+Akhiri dengan baris "BALASAN:" lalu jawaban (maks ±12 baris, tanpa awalan nama).`, 20, { tools: ['Bash(node scripts/trading/cli.mjs:*)', 'Bash(node scripts/trading/backtest.mjs:*)', 'Read', 'Glob', 'Grep', 'WebSearch', 'WebFetch'] });
+  if (!big.ok) return sayAs('tdir', `⚠️ Maaf Bos, lagi error (${esc(big.text.slice(0, 120))}). ${HELP}`);
+  return sayAs('tdir', esc(replyOf(big.text)).slice(0, 3800));
 }
 
 async function status() {

@@ -183,6 +183,6 @@ if (process.argv.includes('--once')) {
   // bot Telegram trading: semua pesan Owner di sana dianggap perintah trading ("status" = "trading status")
   if (tradingBotOn()) {
     log('bot Telegram trading aktif');
-    pollTrading((text) => handleTrading(asTradingCmd(text)), { getOffset: () => kv('tgOffset', 0), setOffset: (v) => setKv('tgOffset', v), log });
+    pollTrading((text, extra) => handleTrading(asTradingCmd(text), extra), { getOffset: () => kv('tgOffset', 0), setOffset: (v) => setKv('tgOffset', v), log });
   }
 }

@@ -29,6 +29,7 @@ function startChild(tag, args, tokenEnv = null) {
   p.stdout.on('data', pipe); p.stderr.on('data', pipe);
   p.on('exit', (code) => { log(`[${tag}] bot berhenti (kode ${code}), nyala lagi 30 dtk`); setTimeout(() => startChild(tag, args, tokenEnv), 30_000); });
 }
+import { fetchMedia, readLinks, urlsOf, mediaNote } from './media.mjs';
 import { analystTick } from './analyst.mjs';
 import { rosterTick } from './roster.mjs';
 import { engageTick } from './engage.mjs';
@@ -84,9 +85,11 @@ async function revise(x) {
   office('chat', maker, 'all', 'curhat', revisionText());
   exportState();
   await sayAs('copywriter', `🛠️ Revisi #${x.id} lagi dikerjain…${x.photos?.length ? ` (📷 ${x.photos.length} contoh desain ikut dibaca)` : ''}`).catch(() => {});
-  const refs = await downloadPhotos(x.photos ?? []);
+  // lampiran revisi (foto/video/dokumen) + link di catatan → scripts/media.mjs
+  const files = (x.photos ?? []).length ? await fetchMedia(loadEnv().TELEGRAM_BOT_TOKEN, x.photos.map((id) => ({ id, kind: 'doc' })), 'kantor') : [];
+  const links = urlsOf(x.note).length ? await readLinks(urlsOf(x.note), 'kantor') : [];
   const prompt = `Kamu tim About Esports (eks Marketing, media esports; web top up zataa.my.id lagi mati → nol promo) di Zaa Office, folder ini. Owner minta REVISI konten #${x.id}:
-"${x.note || '(tanpa teks — ikuti gambar contoh)'}"${photoNote(refs)}
+"${x.note || '(tanpa teks — ikuti lampiran contoh)'}"${mediaNote(files, links)}
 
 Langkah:
 1. Baca CLAUDE.md seperlunya, lalu office/roles/copywriter.md dan office/roles/designer.md (atau office/roles/video.md kalau formatnya video). Skema template: templates/README.md.

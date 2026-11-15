@@ -22,6 +22,8 @@ import { openDb } from './db.mjs';
 import { loadEnv } from './approval.mjs';
 import { chat } from './chatter.mjs';
 import { clipPost, postStatsMap } from './zernio.mjs';
+import { digest } from './media.mjs';
+import { haiku, replyOf, OFFICE, ANSWER_ANY, ESCALATE } from './haiku.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const BASE = 'https://app.clippo.id';
@@ -270,6 +272,35 @@ export function report() {
     `💸 Estimasi (views × rate, belum dipotong syarat Clippo): ${rp(est)}`].join('\n');
 }
 
+// ---------- pesan bebas Owner (pertanyaan, perintah, referensi foto/video/link) → Haiku dulu, kerja beneran → model utama
+const ROOM = `Kamar bot ini: divisi Zaa Clips (SOP office/clipper.md): ikut campaign Clippo (app.clippo.id), clip 9:16 TikTok + IG, 3 clip/hari, campaign wajib ✅ Owner.
+Tim: Hendra (cdir, manajer), Maya (cbrief, brief & momen), Rizky (cedit, editor), Wulan (ccopy, hook & caption), Tasya (cpublish, upload & ajuin ke Clippo).
+Data (baca-saja): node scripts/clipper.mjs list | jobs | job <id> | report --dry. Clippo nolak akses server (403): jangan coba buka API Clippo dari sini.`;
+async function talk(msg, extra = '') {
+  const q = await haiku(`${ROOM}
+Owner (Bos Zamiir) chat di bot Zaa Clips: "${msg}"${extra}
+${OFFICE}
+${ANSWER_ANY}
+Pertanyaan apa pun → jawab langsung. Perintah KERJA Zaa Clips (ambil/lewati campaign, bikin clip dari referensi, ubah kuota, cek kenapa gagal) → tulis persis ${ESCALATE} lalu berhenti.
+Akhiri dengan baris "BALASAN:" lalu 1–3 baris, tiap baris diawali nama pegawai Zaa Clips: "Nama: pesan".`, { tools: ['Read', 'WebSearch', 'WebFetch', 'Bash(node scripts/clipper.mjs list)', 'Bash(node scripts/clipper.mjs jobs)', 'Bash(node scripts/clipper.mjs job:*)'] });
+  let text = q.ok && !q.escalate ? q.text : null;
+  if (!text) {
+    const { claude } = await import('./ask.mjs');
+    const big = await claude(`${ROOM}
+Owner (Bos Zamiir) minta lewat bot Zaa Clips: "${msg}"${extra}
+Kerjakan yang diminta selama masih urusan Zaa Clips, pakai CLI: node scripts/clipper.mjs approve|skip <campaign_id> (keputusan Owner = boleh), plan, track, list, jobs, job <id>, setjob <id> (stdin JSON). Referensi gaya clip dari Owner → simpan 1 kalimat pelajaran: node scripts/office.mjs memory cbrief "...".
+JANGAN kirim Telegram sendiri, jangan ubah kode, jangan akses API Clippo dari server. Urusan divisi lain → bilang kirim ke bot divisinya.
+Akhiri dengan baris "BALASAN:" lalu 1–4 baris, tiap baris "Nama: pesan" (pegawai Zaa Clips).`, 20, { tools: ['Bash(node scripts/clipper.mjs:*)', 'Bash(node scripts/office.mjs memory:*)', 'Read', 'Glob', 'Grep', 'WebSearch', 'WebFetch'] });
+    text = big.ok ? big.text : null;
+  }
+  if (!text) return sayAs('cdir', '⚠️ Maaf Bos, lagi error. Coba lagi bentar ya.');
+  for (const line of replyOf(text).split(/\n/).map((l) => l.trim()).filter(Boolean).slice(0, 4)) {
+    const m = line.match(/^\**([A-Za-z ]{3,12})\**:\s*(.+)$/);
+    const id = m && Object.keys(NAMA).find((k) => NAMA[k].toLowerCase() === m[1].trim().toLowerCase());
+    await sayAs(id ?? 'cdir', esc(id ? m[2] : line));
+  }
+}
+
 // ---------- bot Telegram + jadwal harian (WITA)
 async function runBot() {
   let offset = 0;
@@ -301,14 +332,15 @@ async function runBot() {
           await sayAs(act === 'ok' ? 'cdir' : 'cdir', msg);
           if (act === 'ok') plan();
         } else {
-          const t = String(u.message.text ?? '').trim();
+          const dg = await digest(u.message, env().CLIPPER_BOT_TOKEN, 'clips'); // foto/video/link referensi (scripts/media.mjs)
+          const t = dg.text;
           if (/^\/(start|help)/.test(t)) await sayAs('cdir', 'Bot divisi Zaa Clips 🎬\n/campaign — cari & usulin campaign sekarang\n/status — laporan hari ini\n/jobs — antrean clip');
           else if (/^\/campaign/.test(t)) { const r = await propose(3); if (!r.sent) await sayAs('cdir', 'Belum ada campaign baru yang layak di data terakhir, Bos. Laptop baca ulang Clippo tiap pagi 07:30 (atau jalankan clipper-chrome.mjs scout di laptop).'); }
           else if (/^\/status/.test(t)) await sayAs('cpublish', report().replace(/^<b>Tasya<\/b>: /, ''));
           else if (/^\/jobs/.test(t)) {
             const rows = cdb().prepare('SELECT j.id, j.status, j.views, c.title FROM clip_jobs j JOIN clip_campaigns c ON c.id = j.campaign_id ORDER BY j.id DESC LIMIT 12').all();
             await sayAs('cedit', rows.map((r) => `#${r.id} ${r.status} · ${r.views} views · ${esc(r.title.slice(0, 40))}`).join('\n') || 'Antrean kosong.');
-          } else await sayAs('cdir', 'Bot ini buat urusan Zaa Clips aja ya Bos: /campaign, /status, /jobs. Ngobrol bebas di bot kantor 🙏');
+          } else if (t) { await tg('sendChatAction', { chat_id: owner(), action: 'typing' }).catch(() => {}); await talk(t, dg.note); }
         }
       } catch (e) { console.error(e.message); await sayAs('cdir', `⚠️ ${esc(e.message.slice(0, 200))}`).catch(() => {}); }
     }
