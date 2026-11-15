@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-15T04:12:05.377Z",
+ "generated_at": "2026-11-15T04:22:05.375Z",
  "today": "2026-11-15",
  "week_start": "2026-11-09",
  "campaign": {
@@ -850,6 +850,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-15 04:14:05",
+   "agent_id": "owner",
+   "message": "Chat: Yang mana belum aku acc?"
+  },
+  {
    "ts": "2026-11-15 04:00:35",
    "agent_id": "analyst",
    "message": "Update data 36 post IG 📈"
@@ -968,14 +973,37 @@
    "ts": "2026-11-14 19:00:47",
    "agent_id": "analyst",
    "message": "Update data 35 post IG 📈"
-  },
-  {
-   "ts": "2026-11-14 18:38:54",
-   "agent_id": "dir",
-   "message": "Kode kantor diperbarui, restart otomatis: scripts/golink.mjs, scripts/trading/run.mjs, scripts/watch.mjs"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-11-15 04:14:14",
+   "agent_id": "video",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Video sore 16:00 WIB masih di antrean render, belum dikirim ke Bos. Nanti otomatis masuk approval kalau udah jadi."
+  },
+  {
+   "ts": "2026-11-15 04:14:14",
+   "agent_id": "copywriter",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Naskah rekap transfer VCT udah siap, tinggal nunggu acc Bos."
+  },
+  {
+   "ts": "2026-11-15 04:14:14",
+   "agent_id": "researcher",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Yang nunggu acc itu naskah rekap transfer VCT dari Tiara, Bos. Datanya udah aman dicek ke 2 sumber."
+  },
+  {
+   "ts": "2026-11-15 04:14:05",
+   "agent_id": "owner",
+   "to_id": "researcher",
+   "kind": "bos",
+   "message": "Yang mana belum aku acc?"
+  },
   {
    "ts": "2026-11-15 03:55:19",
    "agent_id": "researcher",
@@ -1227,34 +1255,6 @@
    "to_id": "publisher",
    "kind": "oper",
    "message": "Render \"Video PRX masuk antrean render laptop\" selesai, Fikri. Cek cover-nya ya"
-  },
-  {
-   "ts": "2026-11-14 00:30:02",
-   "agent_id": "copywriter",
-   "to_id": "designer",
-   "kind": "oper",
-   "message": "Teks buat \"Naskah video PRX lepas Jinggg & d4v41\" ready. Vania, giliranmu bikin cakep!"
-  },
-  {
-   "ts": "2026-11-14 00:29:35",
-   "agent_id": "researcher",
-   "to_id": "copywriter",
-   "kind": "oper",
-   "message": "Tiara, bahan buat \"Cek berita PRX lepas Jinggg & d4v41\" udah aku rangkum + sumbernya. Tinggal kamu racik captionnya ✍️"
-  },
-  {
-   "ts": "2026-11-14 00:28:43",
-   "agent_id": "dir",
-   "to_id": null,
-   "kind": "oper",
-   "message": "Bos ACC 1 ide tambahan! \"RESMI: Paper Rex lepas Jinggg & d4v41, era baru PRX di VCT 2027\" 🎉"
-  },
-  {
-   "ts": "2026-11-14 00:28:10",
-   "agent_id": "researcher",
-   "to_id": "copywriter",
-   "kind": "oper",
-   "message": "Riset \"Cek FFWS/Worlds/patch: belum ada yang baru\" beres, udah dicek 2 sumber. Tiara, lanjut ya~"
   }
  ],
  "stats": {
