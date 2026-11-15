@@ -5,7 +5,7 @@
 // Alur: new (sesi harian) → antre render laptop (_laptop 1, scripts/shorts-laptop.mjs, OmniVoice) → submit (Kirana kirim video + ✅/✏️/❌)
 //       → ✅ → tunggu jam tayang (_jam) → upload YouTube Publik lewat Zernio (scripts/zernio.mjs) → 'posted'. Tanpa ZERNIO_API_KEY: scripts/youtube.mjs Private → 'uploaded' + pengingat → Owner tekan
 //       "Sudah Publik" → 'posted'. Shorts belum dianggap tayang sebelum Owner konfirmasi.
-//   node scripts/shorts-bot.mjs new <file.json>       {topic_id (bank topik, approved), title, caption, hashtags, sources?, day?, jam? (HH:MM WIB), test?, synthetic?, tags?, spec:{voice, mood, scenes[]}}
+//   node scripts/shorts-bot.mjs new <file.json>       {topic_id (bank topik, approved), title, caption, hashtags, sources?, day?, jam? (HH:MM WIB), test?, synthetic?, tags?, spec:{voice, mood, scenes[]}}  (adegan = {img, vo, sub} ATAU gaya klip {vo, hl?, clips:[{src, ss, x?}]}, lihat shorts-clip.mjs)
 //   node scripts/shorts-bot.mjs get <id> | set <id> <json|file> (+ jam) | list [tgl_senin]
 //   node scripts/shorts-bot.mjs queue <id>            antre render ulang di laptop
 //   node scripts/shorts-bot.mjs submit <id>           kirim ke Owner (dipanggil laptop setelah render)
@@ -98,9 +98,15 @@ const description = (c) => [c.caption, c.hashtags].filter(Boolean).join('\n\n');
 export async function newShort(p) {
   if (!p.title || !p.spec?.scenes?.length) throw new Error('butuh title + spec.scenes');
   if (p.jam && !JAM.test(p.jam)) throw new Error('jam harus HH:MM (WIB)');
-  for (const s of p.spec.scenes) if (!s.img || !s.vo || !s.sub) throw new Error('tiap adegan butuh img, vo, sub');
-  const missing = p.spec.scenes.map((s) => s.img).filter((f) => !existsSync(join(ROOT, f)));
-  if (missing.length) throw new Error(`gambar tidak ada (path relatif dari root repo): ${missing.join(', ')}`);
+  // dua gaya adegan: gambar (img + vo + sub) atau klip film (clips[{src, ss, x?}] + vo, gaya Marvel Talk → shorts-clip.mjs); tidak boleh campur
+  const isClip = (s) => Array.isArray(s.clips);
+  if (new Set(p.spec.scenes.map(isClip)).size > 1) throw new Error('adegan gambar dan adegan klip tidak boleh dicampur dalam satu video');
+  for (const s of p.spec.scenes) {
+    if (!s.vo) throw new Error('tiap adegan butuh vo');
+    if (isClip(s) ? !s.clips.length || s.clips.some((c) => !c.src || typeof c.ss !== 'number') : !s.img || !s.sub) throw new Error(isClip(s) ? 'tiap klip butuh src + ss (detik mulai)' : 'tiap adegan butuh img, vo, sub');
+  }
+  const missing = p.spec.scenes.flatMap((s) => (isClip(s) ? s.clips.map((c) => c.src) : [s.img])).filter((f) => !existsSync(join(ROOT, f)));
+  if (missing.length) throw new Error(`file tidak ada (path relatif dari root repo): ${missing.join(', ')}`);
   const d = await db();
   const today = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Makassar' }).format(new Date());
   const day = p.day ?? today;
