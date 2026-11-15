@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-15T00:16:33.822Z",
+ "generated_at": "2026-11-15T00:26:33.823Z",
  "today": "2026-11-15",
  "week_start": "2026-11-09",
  "campaign": {
@@ -29,25 +29,25 @@
    "id": "researcher",
    "name": "Salsa",
    "title": "Researcher",
-   "status": "working",
-   "current_task": "Mantau: Lanjutan arahan Owner 13 Nov (esport update, nol p (cek lagi 08.21)",
-   "updated_at": "2026-11-14 23:41:52"
+   "status": "done",
+   "current_task": "Konfirmasi juara Worlds 2026",
+   "updated_at": "2026-11-15 00:23:10"
   },
   {
    "id": "copywriter",
    "name": "Tiara",
    "title": "Copywriter",
    "status": "done",
-   "current_task": "Isi konten 159 & 160",
-   "updated_at": "2026-11-14 23:02:49"
+   "current_task": "Feed juara Worlds 2026",
+   "updated_at": "2026-11-15 00:23:16"
   },
   {
    "id": "designer",
    "name": "Vania",
    "title": "Graphic Designer",
    "status": "done",
-   "current_task": "Render feed 159",
-   "updated_at": "2026-11-14 23:02:49"
+   "current_task": "Render feed BLG juara",
+   "updated_at": "2026-11-15 00:23:35"
   },
   {
    "id": "video",
@@ -62,8 +62,8 @@
    "name": "Fikri",
    "title": "Social Media Publisher",
    "status": "done",
-   "current_task": "QA & kirim 159",
-   "updated_at": "2026-11-14 23:02:50"
+   "current_task": "QA feed BLG juara",
+   "updated_at": "2026-11-15 00:23:39"
   },
   {
    "id": "ads",
@@ -754,6 +754,20 @@
    "channel": null
   },
   {
+   "id": 178,
+   "day": "2026-11-15",
+   "slot": "kilat",
+   "format": "feed",
+   "game": "other",
+   "pillar": "esport",
+   "title": "BLG juara Worlds 2026, kalahkan Gen.G 3-1",
+   "status": "pending_approval",
+   "asset_url": "{\"feed\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-11-15/178-blg-juara-worlds-2026-kalahkan-gen-g-3-1.jpg\"],\"story\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-11-15/178-blg-juara-worlds-2026-kalahkan-gen-g-3-1-916.jpg\"]}",
+   "scheduled_at": null,
+   "posted_at": null,
+   "channel": null
+  },
+  {
    "id": 160,
    "day": "2026-11-15",
    "slot": "sore",
@@ -821,6 +835,16 @@
   }
  ],
  "activity": [
+  {
+   "ts": "2026-11-15 00:23:38",
+   "agent_id": "publisher",
+   "message": "Kirim #178 ke Owner buat approval"
+  },
+  {
+   "ts": "2026-11-15 00:23:16",
+   "agent_id": "researcher",
+   "message": "Nemu 1 topik baru"
+  },
   {
    "ts": "2026-11-14 23:13:38",
    "agent_id": "video",
@@ -935,19 +959,58 @@
    "ts": "2026-11-14 09:30:53",
    "agent_id": "yscript",
    "message": "Revisi Shorts #177 kelar: Intinya sekarang narasi dan deskripsi udah jelasin Absalom berontaknya ngapain aja: ngerebut hati rakyat, ngangkat diri "
-  },
-  {
-   "ts": "2026-11-14 09:29:59",
-   "agent_id": "owner",
-   "message": "Minta revisi Shorts #177: Jelasin dia berontaknya ngapain, biar lebih jelas"
-  },
-  {
-   "ts": "2026-11-14 09:17:48",
-   "agent_id": "yvideo",
-   "message": "Shorts #177 dirender di laptop (suara OmniVoice) & dikirim ke Owner"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-11-15 00:23:46",
+   "agent_id": "publisher",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Udah masuk antrean approval Telegram, tinggal ✅ ya Bos."
+  },
+  {
+   "ts": "2026-11-15 00:23:46",
+   "agent_id": "designer",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Feed juaranya udah jadi, tapi tanpa logo karena logo BLG di aset cuma versi Valorant. Kalau ada logo LoL-nya, kirim aja ya."
+  },
+  {
+   "ts": "2026-11-15 00:23:46",
+   "agent_id": "researcher",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Final Worlds udah kelar Bos, BLG juara 3-1 lawan Gen.G, dicek di dua sumber."
+  },
+  {
+   "ts": "2026-11-15 00:23:39",
+   "agent_id": "publisher",
+   "to_id": "owner",
+   "kind": "oper",
+   "message": "\"QA feed BLG juara\" udah lolos QA, tinggal nunggu ✅ dari Bos"
+  },
+  {
+   "ts": "2026-11-15 00:23:35",
+   "agent_id": "designer",
+   "to_id": "publisher",
+   "kind": "oper",
+   "message": "Fikri, desain \"Render feed BLG juara\" udah render 1080×1080. QA dulu ya sebelum ke bos"
+  },
+  {
+   "ts": "2026-11-15 00:23:16",
+   "agent_id": "copywriter",
+   "to_id": "designer",
+   "kind": "oper",
+   "message": "Teks buat \"Feed juara Worlds 2026\" ready. Vania, giliranmu bikin cakep!"
+  },
+  {
+   "ts": "2026-11-15 00:23:10",
+   "agent_id": "researcher",
+   "to_id": "copywriter",
+   "kind": "oper",
+   "message": "Riset \"Konfirmasi juara Worlds 2026\" beres, udah dicek 2 sumber. Tiara, lanjut ya~"
+  },
   {
    "ts": "2026-11-14 23:02:49",
    "agent_id": "researcher",
@@ -1178,63 +1241,14 @@
    "to_id": null,
    "kind": "oper",
    "message": "\"MOUZ juara IEM Beijing 2026 tanpa kehilangan 1 map\" udah tayang di IG 🚀 Makasih semua!"
-  },
-  {
-   "ts": "2026-11-13 12:22:02",
-   "agent_id": "researcher",
-   "to_id": "copywriter",
-   "kind": "oper",
-   "message": "Riset \"Cek FFWS W2D1 & patch: belum ada update\" beres, udah dicek 2 sumber. Tiara, lanjut ya~"
-  },
-  {
-   "ts": "2026-11-13 12:01:05",
-   "agent_id": "publisher",
-   "to_id": null,
-   "kind": "oper",
-   "message": "\"Patch VALORANT 13.10: Sentinel di-buff, replay bis\" udah tayang di IG 🚀 Makasih semua!"
-  },
-  {
-   "ts": "2026-11-13 11:00:46",
-   "agent_id": "analyst",
-   "to_id": "dir",
-   "kind": "oper",
-   "message": "Laporan harian marketing udah aku kirim ke Bos, 2 konten tayang hari ini 📊"
-  },
-  {
-   "ts": "2026-11-13 09:02:20",
-   "agent_id": "publisher",
-   "to_id": null,
-   "kind": "oper",
-   "message": "\"3 kebiasaan yang bikin aim kamu turun\" udah tayang di IG + TikTok 🚀 Makasih semua!"
-  },
-  {
-   "ts": "2026-11-13 08:50:10",
-   "agent_id": "researcher",
-   "to_id": "copywriter",
-   "kind": "oper",
-   "message": "Tiara, bahan buat \"Cek hasil FFWS & LoL Worlds (belum ada hasil final)\" udah aku rangkum + sumbernya. Tinggal kamu racik captionnya ✍️"
-  },
-  {
-   "ts": "2026-11-13 05:03:20",
-   "agent_id": "publisher",
-   "to_id": null,
-   "kind": "oper",
-   "message": "\"M8 di Istanbul Januari 2027: format 16 tim + Wild \" udah tayang di IG 🚀 Makasih semua!"
-  },
-  {
-   "ts": "2026-11-13 03:11:27",
-   "agent_id": "teval",
-   "to_id": "treport",
-   "kind": "oper",
-   "message": "Rugi setelah 71 menit: tren berbalik setelah entry. Cek ulang filter tren & berita sekitar jam itu."
   }
  ],
  "stats": {
   "this_week": {
    "week": "2026-11-09",
-   "total": 30,
+   "total": 31,
    "posted": 22,
-   "pending": 5,
+   "pending": 6,
    "scheduled": 0,
    "yt_total": 11,
    "yt_posted": 9,
