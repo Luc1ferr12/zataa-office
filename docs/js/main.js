@@ -189,14 +189,16 @@ function renderDashboard() {
         : date && date >= SHORTS_4WEEK_FROM && date < SHORTS_4WEEK_TO ? '<p class="empty">—</p>' : '<div class="chip slot"><b>18:00 · 🎬 shorts</b>Belum ada konten</div>';
     return `<div class="day ${off ? 'off' : ''} ${date === s?.today ? 'today' : ''}"><h3>${d}<small>${date ? date.slice(8) : ''}</small></h3>${chips}</div>`;
   }).join('');
-  // Zaa Story: 1 Shorts tiap hari (YouTube + TikTok)
-  $('week-grid-story').innerHTML = days.map((d, i) => {
-    const date = week ? addDays(week, i) : null;
-    const items = (s?.week_contents ?? []).filter((c) => c.day === date && c.channel === 'story');
-    const chips = items.length ? items.map((c) => `<div class="chip yt s-${c.status}" title="${esc(STATUS[c.status] ?? c.status)}"><b>👻 shorts + TikTok</b>${esc(c.title)}</div>`).join('')
-      : '<div class="chip slot"><b>👻 shorts + TikTok</b>Belum ada konten</div>';
-    return `<div class="day ${date === s?.today ? 'today' : ''}"><h3>${d}<small>${date ? date.slice(8) : ''}</small></h3>${chips}</div>`;
-  }).join('');
+  // Zaa Story & Marvel Talk: 1 Shorts tiap hari (YouTube + TikTok)
+  for (const [el, channel, icon] of [['week-grid-story', 'story', '👻'], ['week-grid-marvel', 'marvel', '🦸']]) {
+    $(el).innerHTML = days.map((d, i) => {
+      const date = week ? addDays(week, i) : null;
+      const items = (s?.week_contents ?? []).filter((c) => c.day === date && c.channel === channel);
+      const chips = items.length ? items.map((c) => `<div class="chip yt s-${c.status}" title="${esc(STATUS[c.status] ?? c.status)}"><b>${icon} shorts + TikTok</b>${esc(c.title)}</div>`).join('')
+        : `<div class="chip slot"><b>${icon} shorts + TikTok</b>Belum ada konten</div>`;
+      return `<div class="day ${date === s?.today ? 'today' : ''}"><h3>${d}<small>${date ? date.slice(8) : ''}</small></h3>${chips}</div>`;
+    }).join('');
+  }
 
   // aktivitas
   const acts = s?.activity ?? [];
