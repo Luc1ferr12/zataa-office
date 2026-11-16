@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-16T23:21:39.493Z",
+ "generated_at": "2026-11-16T23:31:39.496Z",
  "today": "2026-11-17",
  "week_start": "2026-11-16",
  "campaign": {
@@ -62,8 +62,8 @@
    "name": "Fikri",
    "title": "Social Media Publisher",
    "status": "done",
-   "current_task": "QA video transfer VCT (nunggu render laptop)",
-   "updated_at": "2026-11-16 23:10:30"
+   "current_task": "undefined",
+   "updated_at": "2026-11-16 23:27:39"
   },
   {
    "id": "ads",
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-16 23:15:55"
+   "updated_at": "2026-11-16 23:30:55"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Bearish: pasar price-in hike Fed Desember (~85-89%), emas turun ke terendah sejak Okt 2025 (~$3.900). Retail Sales 20:30 WITA.",
-   "updated_at": "2026-11-16 23:15:55"
+   "updated_at": "2026-11-16 23:30:55"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-11-16 23:15:55"
+   "updated_at": "2026-11-16 23:30:55"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
-   "updated_at": "2026-11-16 23:15:55"
+   "updated_at": "2026-11-16 23:30:55"
   },
   {
    "id": "texec",
@@ -425,8 +425,8 @@
    "game": "valorant",
    "pillar": "news",
    "title": "Transfer VCT 2027 yang paling bikin kaget: kamu setuju?",
-   "status": "draft",
-   "asset_url": null,
+   "status": "approved",
+   "asset_url": "{\"video\":\"https://luc1ferr12.github.io/zataa-office/media/2026-11-17/199-transfer-vct-2027-yang-paling-bikin-kage-ov.mp4\",\"cover\":\"https://luc1ferr12.github.io/zataa-office/media/2026-11-17/199-transfer-vct-2027-yang-paling-bikin-kage-ov-cover.jpg\"}",
    "scheduled_at": null,
    "posted_at": null,
    "channel": null
@@ -453,7 +453,7 @@
    "game": "sejarah",
    "pillar": "hidden_history",
    "title": "Kota Pelabuhan Mesir Ini Hilang 1.000 Tahun di Dasar Laut",
-   "status": "pending_approval",
+   "status": "approved",
    "asset_url": null,
    "scheduled_at": null,
    "posted_at": null,
@@ -467,7 +467,7 @@
    "game": "sejarah",
    "pillar": "horor_sejarah",
    "title": "Gua di Biak Ini Konon Jadi Kuburan Ribuan Tentara Jepang",
-   "status": "pending_approval",
+   "status": "approved",
    "asset_url": null,
    "scheduled_at": null,
    "posted_at": null,
@@ -481,7 +481,7 @@
    "game": "sejarah",
    "pillar": "lore_teori",
    "title": "Film Pembuka MCU Ternyata Syuting Tanpa Naskah Jadi",
-   "status": "draft",
+   "status": "approved",
    "asset_url": null,
    "scheduled_at": null,
    "posted_at": null,
@@ -690,6 +690,51 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-16 23:30:55",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: bearish → sideways"
+  },
+  {
+   "ts": "2026-11-16 23:27:51",
+   "agent_id": "owner",
+   "message": "Approve Shorts #198 ✅"
+  },
+  {
+   "ts": "2026-11-16 23:27:39",
+   "agent_id": "owner",
+   "message": "Approve konten #199 ✅"
+  },
+  {
+   "ts": "2026-11-16 23:27:00",
+   "agent_id": "owner",
+   "message": "Approve Shorts #196 ✅"
+  },
+  {
+   "ts": "2026-11-16 23:26:57",
+   "agent_id": "owner",
+   "message": "Approve Shorts #197 ✅"
+  },
+  {
+   "ts": "2026-11-16 23:26:41",
+   "agent_id": "video",
+   "message": "video #199 dirender di laptop (suara OmniVoice) & dikirim ke Owner"
+  },
+  {
+   "ts": "2026-11-16 23:26:40",
+   "agent_id": "publisher",
+   "message": "Kirim #199 ke Owner buat approval"
+  },
+  {
+   "ts": "2026-11-16 23:24:57",
+   "agent_id": "yvideo",
+   "message": "Shorts #198 dirender di laptop (suara OmniVoice) & dikirim ke Owner"
+  },
+  {
+   "ts": "2026-11-16 23:24:56",
+   "agent_id": "vpublish",
+   "message": "Kirim Shorts #198 ke Owner buat approval"
+  },
+  {
    "ts": "2026-11-16 23:16:19",
    "agent_id": "yvideo",
    "message": "Shorts #197 dirender di laptop (suara OmniVoice) & dikirim ke Owner"
@@ -768,51 +813,6 @@
    "ts": "2026-11-16 23:01:30",
    "agent_id": "ypublish",
    "message": "cek #193 upload_failed"
-  },
-  {
-   "ts": "2026-11-16 23:01:20",
-   "agent_id": "trisk",
-   "message": "NO TRADE · jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
-  },
-  {
-   "ts": "2026-11-16 23:01:18",
-   "agent_id": "dir",
-   "message": "Kirim 3 ide briefing ke Owner"
-  },
-  {
-   "ts": "2026-11-16 23:01:17",
-   "agent_id": "dir",
-   "message": "Pilih 3 ide terbaik dari briefing (2 feed + 1 video)"
-  },
-  {
-   "ts": "2026-11-16 23:01:05",
-   "agent_id": "publisher",
-   "message": "Kirim #181 ke Owner buat approval"
-  },
-  {
-   "ts": "2026-11-16 23:00:55",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: sideways → bearish"
-  },
-  {
-   "ts": "2026-11-16 22:01:15",
-   "agent_id": "analyst",
-   "message": "Update data 35 post IG 📈"
-  },
-  {
-   "ts": "2026-11-16 21:50:55",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: bearish → sideways"
-  },
-  {
-   "ts": "2026-11-16 21:45:55",
-   "agent_id": "trisk",
-   "message": "NO TRADE · jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
-  },
-  {
-   "ts": "2026-11-16 21:00:55",
-   "agent_id": "ttech",
-   "message": "M60 berubah arah: sideways → bearish"
   }
  ],
  "chats": [
@@ -1102,12 +1102,12 @@
    "week": "2026-11-16",
    "total": 20,
    "posted": 2,
-   "pending": 2,
-   "scheduled": 2,
+   "pending": 0,
+   "scheduled": 6,
    "yt_total": 6,
    "yt_posted": 1,
-   "yt_pending": 2,
-   "yt_scheduled": 0,
+   "yt_pending": 0,
+   "yt_scheduled": 3,
    "views": 124,
    "likes": 0,
    "comments": 0,
@@ -1199,9 +1199,14 @@
   "paused": false,
   "balance": 1728.1799999999998,
   "today_pnl": 0,
-  "price": 3858.25,
+  "price": 3858.52002,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-16 23:30:55",
+    "decision": "NO TRADE",
+    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
+   },
    {
     "ts": "2026-11-16 23:15:55",
     "decision": "NO TRADE",
@@ -1224,11 +1229,6 @@
    },
    {
     "ts": "2026-11-16 21:15:55",
-    "decision": "NO TRADE",
-    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
-   },
-   {
-    "ts": "2026-11-16 21:00:55",
     "decision": "NO TRADE",
     "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
    }
@@ -1297,7 +1297,7 @@
    1728.1799999999998
   ],
   "last": {
-   "ts": "2026-11-16 23:15:55",
+   "ts": "2026-11-16 23:30:55",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1318,7 +1318,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3855.60 di bawah tengah band (3849.0–3869.3) · RSI 43 · Stoch 33 · MACD +0.21 · H1 bearish"
+    "note": "M15 3858.10 di bawah tengah band (3850.8–3868.6) · RSI 46 · Stoch 39 · MACD +0.39 · H1 bearish"
    }
   },
   "fund": {
@@ -1385,37 +1385,37 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "bearish",
-    "score": -2,
-    "price": 3855.37,
-    "ema20": 3858.58,
-    "ema50": 3861.19,
-    "rsi": 40.8,
+    "bias": "sideways",
+    "score": 0,
+    "price": 3858.9,
+    "ema20": 3858.61,
+    "ema50": 3861.1,
+    "rsi": 49.5,
     "n": 299,
-    "slot": 2991452,
-    "at": 1794871255651
+    "slot": 2991453,
+    "at": 1794871855761
    },
    "M15": {
     "bias": "bearish",
     "score": -2,
-    "price": 3858.45,
-    "ema20": 3859.71,
-    "ema50": 3863.37,
-    "rsi": 46.7,
+    "price": 3858.9,
+    "ema20": 3859.63,
+    "ema50": 3863.19,
+    "rsi": 47.4,
     "n": 299,
-    "slot": 1994301,
-    "at": 1794870955720
+    "slot": 1994302,
+    "at": 1794871855768
    },
    "M30": {
     "bias": "bearish",
     "score": -2,
-    "price": 3858.75,
-    "ema20": 3862.62,
-    "ema50": 3868.73,
-    "rsi": 46.2,
+    "price": 3858.9,
+    "ema20": 3862.27,
+    "ema50": 3868.34,
+    "rsi": 46.3,
     "n": 299,
-    "slot": 997150,
-    "at": 1794870055742
+    "slot": 997151,
+    "at": 1794871855769
    },
    "H1": {
     "bias": "bearish",
