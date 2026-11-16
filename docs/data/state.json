@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-16T23:01:39.496Z",
+ "generated_at": "2026-11-16T23:11:39.491Z",
  "today": "2026-11-17",
  "week_start": "2026-11-16",
  "campaign": {
@@ -22,16 +22,16 @@
    "name": "Andre",
    "title": "Marketing Director",
    "status": "done",
-   "current_task": "Plan mingguan",
-   "updated_at": "2026-11-15 23:01:10"
+   "current_task": "Sesi pagi 17 Nov",
+   "updated_at": "2026-11-16 23:04:02"
   },
   {
    "id": "researcher",
    "name": "Salsa",
    "title": "Researcher",
-   "status": "working",
-   "current_task": "Riset feeds esport",
-   "updated_at": "2026-11-16 23:00:19"
+   "status": "done",
+   "current_task": "Sesi pagi 17 Nov",
+   "updated_at": "2026-11-16 23:04:02"
   },
   {
    "id": "copywriter",
@@ -39,7 +39,7 @@
    "title": "Copywriter",
    "status": "done",
    "current_task": "Naskah video transfer VCT",
-   "updated_at": "2026-11-15 23:08:38"
+   "updated_at": "2026-11-16 23:10:26"
   },
   {
    "id": "designer",
@@ -55,15 +55,15 @@
    "title": "Video Production",
    "status": "done",
    "current_task": "Render video transfer VCT",
-   "updated_at": "2026-11-15 23:08:40"
+   "updated_at": "2026-11-16 23:10:28"
   },
   {
    "id": "publisher",
    "name": "Fikri",
    "title": "Social Media Publisher",
    "status": "done",
-   "current_task": null,
-   "updated_at": "2026-11-16 12:04:04"
+   "current_task": "QA video transfer VCT (nunggu render laptop)",
+   "updated_at": "2026-11-16 23:10:30"
   },
   {
    "id": "ads",
@@ -397,10 +397,10 @@
    "game": "sejarah",
    "pillar": "lore_teori",
    "title": "Thanos Ternyata Lahir dari Kelas Psikologi",
-   "status": "pending_approval",
-   "asset_url": null,
+   "status": "posted",
+   "asset_url": "https://www.youtube.com/watch?v=2xNowTj8BmM",
    "scheduled_at": null,
-   "posted_at": null,
+   "posted_at": "2026-11-16 23:10:10",
    "channel": "marvel"
   },
   {
@@ -411,8 +411,22 @@
    "game": "mlbb",
    "pillar": "engagement",
    "title": "Kuis: tebak 2 tim ID yang lolos M8 Turkiye",
-   "status": "pending_approval",
+   "status": "approved",
    "asset_url": "{\"feed\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-11-17/181-kuis-tebak-2-tim-id-yang-lolos-m8-turkiy.jpg\"],\"story\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-11-17/181-kuis-tebak-2-tim-id-yang-lolos-m8-turkiy-916.jpg\"]}",
+   "scheduled_at": null,
+   "posted_at": null,
+   "channel": null
+  },
+  {
+   "id": 199,
+   "day": "2026-11-17",
+   "slot": "sore",
+   "format": "video",
+   "game": "valorant",
+   "pillar": "news",
+   "title": "Transfer VCT 2027 yang paling bikin kaget: kamu setuju?",
+   "status": "draft",
+   "asset_url": null,
    "scheduled_at": null,
    "posted_at": null,
    "channel": null
@@ -425,11 +439,53 @@
    "game": "freefire",
    "pillar": "esport",
    "title": "FFWS Global Finals: RRQ Kazu butuh apa untuk naik klasemen",
+   "status": "approved",
+   "asset_url": "{\"video\":\"https://luc1ferr12.github.io/zataa-office/media/2026-11-17/182-ffws-global-finals-rrq-kazu-butuh-apa-un-ov.mp4\",\"cover\":\"https://luc1ferr12.github.io/zataa-office/media/2026-11-17/182-ffws-global-finals-rrq-kazu-butuh-apa-un-ov-cover.jpg\"}",
+   "scheduled_at": null,
+   "posted_at": null,
+   "channel": null
+  },
+  {
+   "id": 196,
+   "day": "2026-11-17",
+   "slot": "shorts",
+   "format": "shorts",
+   "game": "sejarah",
+   "pillar": "hidden_history",
+   "title": "Kota Pelabuhan Mesir Ini Hilang 1.000 Tahun di Dasar Laut",
    "status": "draft",
    "asset_url": null,
    "scheduled_at": null,
    "posted_at": null,
-   "channel": null
+   "channel": "youtube"
+  },
+  {
+   "id": 197,
+   "day": "2026-11-17",
+   "slot": "shorts",
+   "format": "shorts",
+   "game": "sejarah",
+   "pillar": "horor_sejarah",
+   "title": "Gua di Biak Ini Konon Jadi Kuburan Ribuan Tentara Jepang",
+   "status": "draft",
+   "asset_url": null,
+   "scheduled_at": null,
+   "posted_at": null,
+   "channel": "story"
+  },
+  {
+   "id": 198,
+   "day": "2026-11-17",
+   "slot": "shorts",
+   "format": "shorts",
+   "game": "sejarah",
+   "pillar": "lore_teori",
+   "title": "Film Pembuka MCU Ternyata Syuting Tanpa Naskah Jadi",
+   "status": "draft",
+   "asset_url": null,
+   "scheduled_at": null,
+   "posted_at": null,
+   "channel": "marvel"
   },
   {
    "id": 183,
@@ -634,6 +690,61 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-16 23:10:25",
+   "agent_id": "vpublish",
+   "message": "Cross-post Shorts #195 ke TikTok Marvel Talk"
+  },
+  {
+   "ts": "2026-11-16 23:10:10",
+   "agent_id": "vpublish",
+   "message": "Upload Shorts #195 ke Marvel Talk (Publik via Zernio)"
+  },
+  {
+   "ts": "2026-11-16 23:09:57",
+   "agent_id": "owner",
+   "message": "Approve Shorts #195 ✅"
+  },
+  {
+   "ts": "2026-11-16 23:09:39",
+   "agent_id": "owner",
+   "message": "Approve konten #182 ✅"
+  },
+  {
+   "ts": "2026-11-16 23:09:39",
+   "agent_id": "owner",
+   "message": "Approve 1 ide konten tambahan 💡"
+  },
+  {
+   "ts": "2026-11-16 23:09:39",
+   "agent_id": "owner",
+   "message": "Approve konten #181 ✅"
+  },
+  {
+   "ts": "2026-11-16 23:03:56",
+   "agent_id": "vvideo",
+   "message": "Shorts #198 \"Film Pembuka MCU Ternyata Syuting Tanpa Naskah Jadi\" masuk antrean render laptop (OmniVoice)"
+  },
+  {
+   "ts": "2026-11-16 23:03:55",
+   "agent_id": "svideo",
+   "message": "Shorts #197 \"Gua di Biak Ini Konon Jadi Kuburan Ribuan Tentara Jepang\" masuk antrean render laptop (OmniVoice)"
+  },
+  {
+   "ts": "2026-11-16 23:03:55",
+   "agent_id": "yvideo",
+   "message": "Shorts #196 \"Kota Pelabuhan Mesir Ini Hilang 1.000 Tahun di Dasar Laut\" masuk antrean render laptop (OmniVoice)"
+  },
+  {
+   "ts": "2026-11-16 23:03:53",
+   "agent_id": "video",
+   "message": "video #182 dirender di laptop (suara OmniVoice) & dikirim ke Owner"
+  },
+  {
+   "ts": "2026-11-16 23:03:51",
+   "agent_id": "publisher",
+   "message": "Kirim #182 ke Owner buat approval"
+  },
+  {
    "ts": "2026-11-16 23:01:30",
    "agent_id": "ypublish",
    "message": "cek #193 upload_failed"
@@ -702,64 +813,58 @@
    "ts": "2026-11-16 20:30:55",
    "agent_id": "ttech",
    "message": "M10 berubah arah: sideways → bearish"
-  },
-  {
-   "ts": "2026-11-16 19:45:55",
-   "agent_id": "trisk",
-   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-  },
-  {
-   "ts": "2026-11-16 19:30:55",
-   "agent_id": "ttech",
-   "message": "M30 berubah arah: bearish → sideways"
-  },
-  {
-   "ts": "2026-11-16 19:30:55",
-   "agent_id": "ttech",
-   "message": "M15 berubah arah: bearish → sideways"
-  },
-  {
-   "ts": "2026-11-16 19:30:55",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: bearish → sideways"
-  },
-  {
-   "ts": "2026-11-16 19:01:26",
-   "agent_id": "analyst",
-   "message": "Update data 35 post IG 📈"
-  },
-  {
-   "ts": "2026-11-16 18:45:55",
-   "agent_id": "trisk",
-   "message": "NO TRADE · setup BUY di band, konfirmasi baru 2/3 (Stokastik+MACD) · London–NY (mode aman)"
-  },
-  {
-   "ts": "2026-11-16 18:30:55",
-   "agent_id": "ttech",
-   "message": "M30 berubah arah: sideways → bearish"
-  },
-  {
-   "ts": "2026-11-16 18:00:55",
-   "agent_id": "ttech",
-   "message": "M15 berubah arah: sideways → bearish"
-  },
-  {
-   "ts": "2026-11-16 17:50:55",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: sideways → bearish"
-  },
-  {
-   "ts": "2026-11-16 17:45:55",
-   "agent_id": "trisk",
-   "message": "NO TRADE · berita berdampak tinggi: Fed Chairman Warsh Speaks (01.00 WITA)"
-  },
-  {
-   "ts": "2026-11-16 17:15:55",
-   "agent_id": "ttech",
-   "message": "M15 berubah arah: bearish → sideways"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-11-16 23:10:37",
+   "agent_id": "publisher",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Videonya nunggu render suara di laptop. Begitu selesai langsung aku kirim ke Telegram Bos buat di-approve."
+  },
+  {
+   "ts": "2026-11-16 23:10:37",
+   "agent_id": "copywriter",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Caption sama pertanyaan penutupnya udah siap, ngajak komen \"transfer mana yang paling gila\" 👇"
+  },
+  {
+   "ts": "2026-11-16 23:10:37",
+   "agent_id": "researcher",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Dambi ke Gen.G dan OXY ke Sentinels udah resmi, Bos. crashies ke T1 masih kabar sumber, jadi aku tandai belum resmi."
+  },
+  {
+   "ts": "2026-11-16 23:10:30",
+   "agent_id": "publisher",
+   "to_id": "owner",
+   "kind": "oper",
+   "message": "\"QA video transfer VCT (nunggu render laptop)\" udah lolos QA, tinggal nunggu ✅ dari Bos"
+  },
+  {
+   "ts": "2026-11-16 23:10:28",
+   "agent_id": "video",
+   "to_id": "publisher",
+   "kind": "oper",
+   "message": "Fikri, video \"Render video transfer VCT\" udah render 9:16. Musiknya aman kok"
+  },
+  {
+   "ts": "2026-11-16 23:09:39",
+   "agent_id": "dir",
+   "to_id": null,
+   "kind": "oper",
+   "message": "Bos ACC 1 ide tambahan! \"Transfer VCT 2027 yang paling bikin kaget: kamu setuju?\" 🎉"
+  },
+  {
+   "ts": "2026-11-16 23:04:02",
+   "agent_id": "researcher",
+   "to_id": "copywriter",
+   "kind": "oper",
+   "message": "Riset \"Sesi pagi 17 Nov\" beres, udah dicek 2 sumber. Tiara, lanjut ya~"
+  },
   {
    "ts": "2026-11-16 12:04:04",
    "agent_id": "publisher",
@@ -990,67 +1095,18 @@
    "to_id": "owner",
    "kind": "santai",
    "message": "Videonya udah masuk antrean render laptop, nanti otomatis dikirim ke Bos buat di-approve, tayang sore 16:00 WIB."
-  },
-  {
-   "ts": "2026-11-15 02:44:46",
-   "agent_id": "copywriter",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Naskah rekap transfer VCT udah jadi Bos, ada pertanyaan \"transfer mana paling gila 1-4\" buat mancing komen."
-  },
-  {
-   "ts": "2026-11-15 02:44:38",
-   "agent_id": "video",
-   "to_id": "publisher",
-   "kind": "santai",
-   "message": "Fik, rekap transfer VCT udah masuk antrean laptop ya, nanti otomatis nyampe ke Bos."
-  },
-  {
-   "ts": "2026-11-15 02:44:38",
-   "agent_id": "video",
-   "to_id": "publisher",
-   "kind": "oper",
-   "message": "Render \"Render video rekap transfer VCT\" selesai, Fikri. Cek cover-nya ya"
-  },
-  {
-   "ts": "2026-11-15 02:44:36",
-   "agent_id": "copywriter",
-   "to_id": "designer",
-   "kind": "oper",
-   "message": "Vania, copy \"Naskah rekap transfer VCT\" udah masuk. Headline-nya jangan dikecilin ya 😆"
-  },
-  {
-   "ts": "2026-11-15 02:44:25",
-   "agent_id": "researcher",
-   "to_id": "copywriter",
-   "kind": "oper",
-   "message": "Tiara, bahan buat \"Cek sumber rekap transfer VCT 2027\" udah aku rangkum + sumbernya. Tinggal kamu racik captionnya ✍️"
-  },
-  {
-   "ts": "2026-11-15 02:43:34",
-   "agent_id": "dir",
-   "to_id": null,
-   "kind": "oper",
-   "message": "Bos ACC 1 ide tambahan! \"Video rekap transfer VCT 2027 minggu ini: Sentinels, T1, Gen.G, Paper Rex\" 🎉"
-  },
-  {
-   "ts": "2026-11-15 00:23:46",
-   "agent_id": "publisher",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Udah masuk antrean approval Telegram, tinggal ✅ ya Bos."
   }
  ],
  "stats": {
   "this_week": {
    "week": "2026-11-16",
-   "total": 16,
-   "posted": 1,
-   "pending": 2,
-   "scheduled": 0,
-   "yt_total": 3,
-   "yt_posted": 0,
-   "yt_pending": 1,
+   "total": 20,
+   "posted": 2,
+   "pending": 0,
+   "scheduled": 2,
+   "yt_total": 6,
+   "yt_posted": 1,
+   "yt_pending": 0,
    "yt_scheduled": 0,
    "views": 124,
    "likes": 0,
@@ -1143,7 +1199,7 @@
   "paused": false,
   "balance": 1728.1799999999998,
   "today_pnl": 0,
-  "price": 3858.75,
+  "price": 3859.52002,
   "open": [],
   "signals": [
    {
@@ -1331,13 +1387,13 @@
    "M10": {
     "bias": "bearish",
     "score": -2,
-    "price": 3858.75,
-    "ema20": 3858.94,
-    "ema50": 3861.54,
-    "rsi": 48.1,
+    "price": 3858.72,
+    "ema20": 3858.92,
+    "ema50": 3861.43,
+    "rsi": 48,
     "n": 299,
-    "slot": 2991450,
-    "at": 1794870055731
+    "slot": 2991451,
+    "at": 1794870655648
    },
    "M15": {
     "bias": "bearish",
