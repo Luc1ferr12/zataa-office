@@ -10,7 +10,7 @@ Kode sama dengan Zaa History/Story (`scripts/shorts-bot.mjs`, `shorts-topics.mjs
 | vdir | Reza | Manajer: antrean topik, approve bank topik, briefing, evaluasi Minggu |
 | vresearch | Citra | Riset lore/teori/fakta + berita MCU (≤5 pencarian/hari) |
 | vscript | Fajar | Naskah + hook + cek fakta (label FAKTA / TEORI / RUMOR) |
-| vvisual | Intan | Visual aman hak cipta: grafik kode, fan-art berlisensi, Blender |
+| vvisual | Intan | Visual klip film relevan (gaya klip, lihat Aturan wajib); grafik kode hanya pelengkap |
 | vvideo | Kevin | Render 9:16 + VO OmniVoice (laptop) |
 | vpublish | Putri | ✅ Owner di bot Marvel Talk, judul/deskripsi/caption, tayang YouTube + TikTok, laporan harian & mingguan |
 

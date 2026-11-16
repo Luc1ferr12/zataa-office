@@ -32,7 +32,7 @@ export const PILLARS = {
   misteri_kuno: { brand: 'story', code: 'MK', label: 'Misteri Kuno Nusantara', desc: 'situs, kerajaan, manusia purba & peninggalan Nusantara yang masih misterius' },
   ritual_mistis: { brand: 'story', code: 'RM', label: 'Ritual & Tradisi Mistis', desc: 'ritual, pemakaman & kepercayaan adat Nusantara (hormat, bukan diejek)' },
   peristiwa_aneh: { brand: 'story', code: 'PA', label: 'Peristiwa Aneh Nusantara', desc: 'kejadian/fenomena nyata yang ganjil, kapal hantu, hilang misterius (rumor/hoaks ditulis jelas)' },
-  // Marvel Talk (16 Nov 2026): lore, teori, fakta & berita MCU — visual aman (tanpa footage film/trailer asli)
+  // Marvel Talk (16 Nov 2026): lore, teori, fakta & berita MCU — visual = klip film relevan (gaya klip, shorts-clip.mjs)
   lore_teori: { brand: 'marvel', code: 'LT', label: 'Lore & Teori', desc: 'asal-usul karakter, timeline, multiverse & teori fans (teori ditulis "teori") (WAJIB ≥3/minggu)' },
   fakta_marvel: { brand: 'marvel', code: 'FM', label: 'Fakta & Easter Egg', desc: 'fakta jarang diketahui, easter egg, beda komik vs film, behind the scenes' },
   berita_mcu: { brand: 'marvel', code: 'BM', label: 'Berita & Rumor MCU', desc: 'casting, jadwal rilis, trailer, box office (≥2 sumber; rumor ditulis "rumor")' },

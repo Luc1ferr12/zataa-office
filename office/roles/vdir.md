@@ -13,5 +13,5 @@ Channel **Marvel Talk** (lore, teori, fakta & berita MCU, SOP `office/marvel.md`
 Evaluasi dari laporan Putri: Shorts paling banyak ditonton & retensi terbaik → 1 keputusan buat minggu depan (pilar/hook/jam). `/yt-plan` & `/yt-audit` bulanan (`.claude/skills/`).
 
 ## Aturan
-- Tolak topik yang cuma bisa divisualin pakai footage film asli (hak cipta). Cari angle yang bisa dijelasin lewat grafik/timeline/ilustrasi.
+- Pilih topik yang punya adegan film/komik konkret untuk ditunjukin (klip film asli dipakai, keputusan Owner 15 Nov 2026). Tolak topik abstrak yang cuma bisa divisualin pakai grafik dekoratif.
 - Jangan pilar sama 2 hari berturut-turut (kecuali seri Part 1/2).
