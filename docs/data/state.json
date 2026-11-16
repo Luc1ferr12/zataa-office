@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-16T02:51:10.895Z",
+ "generated_at": "2026-11-16T03:01:10.899Z",
  "today": "2026-11-16",
  "week_start": "2026-11-16",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-16 02:45:41"
+   "updated_at": "2026-11-16 03:00:41"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Bias bearish: inflasi panas & USD menguat (DXY ~102), pasar ~80% price Fed hike Des; emas ~$4.100, support $3.870. Warsh speaks 17:00Z.",
-   "updated_at": "2026-11-16 02:45:41"
+   "updated_at": "2026-11-16 03:00:41"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-16 02:45:41"
+   "updated_at": "2026-11-16 03:00:41"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
-   "updated_at": "2026-11-16 02:45:41"
+   "updated_at": "2026-11-16 03:00:41"
   },
   {
    "id": "texec",
@@ -595,6 +595,16 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-16 03:00:48",
+   "agent_id": "ypublish",
+   "message": "Cross-post Shorts #29 ke TikTok Zaa History"
+  },
+  {
+   "ts": "2026-11-16 03:00:40",
+   "agent_id": "ttech",
+   "message": "M15 berubah arah: sideways → bearish"
+  },
+  {
    "ts": "2026-11-16 02:40:40",
    "agent_id": "ttech",
    "message": "M10 berubah arah: sideways → bearish"
@@ -708,16 +718,6 @@
    "ts": "2026-11-15 23:50:40",
    "agent_id": "ttech",
    "message": "M10 berubah arah: bearish → sideways"
-  },
-  {
-   "ts": "2026-11-15 23:45:40",
-   "agent_id": "ttech",
-   "message": "M15 berubah arah: bearish → bullish"
-  },
-  {
-   "ts": "2026-11-15 23:31:10",
-   "agent_id": "ttech",
-   "message": "M30 berubah arah: sideways → bearish"
   }
  ],
  "chats": [
@@ -1097,9 +1097,14 @@
   "paused": false,
   "balance": 1728.1799999999998,
   "today_pnl": 0,
-  "price": 3880.620117,
+  "price": 3876.399902,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-16 03:00:41",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
+   },
    {
     "ts": "2026-11-16 02:45:41",
     "decision": "NO TRADE",
@@ -1122,11 +1127,6 @@
    },
    {
     "ts": "2026-11-16 01:45:40",
-    "decision": "NO TRADE",
-    "reason": "Bollinger Band melebar kencang (breakout), pantulan berisiko"
-   },
-   {
-    "ts": "2026-11-16 01:30:41",
     "decision": "NO TRADE",
     "reason": "Bollinger Band melebar kencang (breakout), pantulan berisiko"
    }
@@ -1195,7 +1195,7 @@
    1728.1799999999998
   ],
   "last": {
-   "ts": "2026-11-16 02:45:41",
+   "ts": "2026-11-16 03:00:41",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1216,7 +1216,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3881.67 di bawah tengah band (3871.9–3901.6) · RSI 46 · Stoch 48 · MACD -0.42 · H1 sideways"
+    "note": "M15 3876.35 di bawah tengah band (3869.9–3902.0) · RSI 42 · Stoch 35 · MACD -0.92 · H1 sideways"
    }
   },
   "fund": {
@@ -1303,46 +1303,46 @@
    "M10": {
     "bias": "bearish",
     "score": -3,
-    "price": 3878.67,
-    "ema20": 3884.08,
-    "ema50": 3885.95,
-    "rsi": 44.1,
+    "price": 3877.47,
+    "ema20": 3883.45,
+    "ema50": 3885.62,
+    "rsi": 43,
     "n": 299,
-    "slot": 2991329,
-    "at": 1794797440854
+    "slot": 2991330,
+    "at": 1794798040931
    },
    "M15": {
-    "bias": "sideways",
-    "score": -1,
-    "price": 3887.55,
-    "ema20": 3885.94,
-    "ema50": 3887,
-    "rsi": 51.2,
+    "bias": "bearish",
+    "score": -3,
+    "price": 3877.47,
+    "ema20": 3885.13,
+    "ema50": 3886.62,
+    "rsi": 42.4,
     "n": 299,
-    "slot": 1994219,
-    "at": 1794797140858
+    "slot": 1994220,
+    "at": 1794798040936
    },
    "M30": {
     "bias": "sideways",
     "score": -1,
-    "price": 3887.1,
-    "ema20": 3887.25,
-    "ema50": 3887.69,
-    "rsi": 49.7,
+    "price": 3877.47,
+    "ema20": 3886.32,
+    "ema50": 3887.29,
+    "rsi": 41.7,
     "n": 299,
-    "slot": 997109,
-    "at": 1794796240909
+    "slot": 997110,
+    "at": 1794798040940
    },
    "H1": {
     "bias": "sideways",
     "score": -1,
-    "price": 3873.75,
-    "ema20": 3887.97,
-    "ema50": 3892.24,
-    "rsi": 31.9,
+    "price": 3877.47,
+    "ema20": 3886.97,
+    "ema50": 3891.66,
+    "rsi": 37.7,
     "n": 299,
-    "slot": 498554,
-    "at": 1794794440822
+    "slot": 498555,
+    "at": 1794798040944
    }
   },
   "currency": "USC",
