@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-16T19:21:39.393Z",
+ "generated_at": "2026-11-16T19:31:39.415Z",
  "today": "2026-11-17",
  "week_start": "2026-11-16",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-16 19:15:55"
+   "updated_at": "2026-11-16 19:30:55"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Fed masih hawkish (hike Sep), NFP Okt kuat 165k, DXY ~102 & bias hike Des. Berita 24 jam tak ketemu, data terbaru terbatas.",
-   "updated_at": "2026-11-16 19:15:55"
+   "updated_at": "2026-11-16 19:30:55"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-11-16 19:15:55"
+   "updated_at": "2026-11-16 19:30:55"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-11-16 19:15:55"
+   "updated_at": "2026-11-16 19:30:55"
   },
   {
    "id": "texec",
@@ -634,6 +634,21 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-16 19:30:55",
+   "agent_id": "ttech",
+   "message": "M30 berubah arah: bearish → sideways"
+  },
+  {
+   "ts": "2026-11-16 19:30:55",
+   "agent_id": "ttech",
+   "message": "M15 berubah arah: bearish → sideways"
+  },
+  {
+   "ts": "2026-11-16 19:30:55",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: bearish → sideways"
+  },
+  {
    "ts": "2026-11-16 19:01:26",
    "agent_id": "analyst",
    "message": "Update data 35 post IG 📈"
@@ -742,21 +757,6 @@
    "ts": "2026-11-16 15:00:55",
    "agent_id": "ttech",
    "message": "M15 berubah arah: bullish → sideways"
-  },
-  {
-   "ts": "2026-11-16 14:50:55",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: bullish → sideways"
-  },
-  {
-   "ts": "2026-11-16 14:45:55",
-   "agent_id": "trisk",
-   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-  },
-  {
-   "ts": "2026-11-16 14:45:55",
-   "agent_id": "ttech",
-   "message": "M15 berubah arah: bearish → bullish"
   }
  ],
  "chats": [
@@ -1143,9 +1143,14 @@
   "paused": false,
   "balance": 1728.1799999999998,
   "today_pnl": 0,
-  "price": 3864.27002,
+  "price": 3869.370117,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-16 19:30:55",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
    {
     "ts": "2026-11-16 19:15:55",
     "decision": "NO TRADE",
@@ -1168,11 +1173,6 @@
    },
    {
     "ts": "2026-11-16 18:15:55",
-    "decision": "NO TRADE",
-    "reason": "berita berdampak tinggi: Fed Chairman Warsh Speaks (01.00 WITA)"
-   },
-   {
-    "ts": "2026-11-16 18:00:55",
     "decision": "NO TRADE",
     "reason": "berita berdampak tinggi: Fed Chairman Warsh Speaks (01.00 WITA)"
    }
@@ -1241,7 +1241,7 @@
    1728.1799999999998
   ],
   "last": {
-   "ts": "2026-11-16 19:15:55",
+   "ts": "2026-11-16 19:30:55",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1262,7 +1262,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3860.00 di bawah tengah band (3841.7–3887.9) · RSI 47 · Stoch 51 · MACD -0.58 · H1 bearish"
+    "note": "M15 3868.50 di atas tengah band (3843.4–3885.5) · RSI 53 · Stoch 74 · MACD +0.63 · H1 bearish"
    }
   },
   "fund": {
@@ -1338,37 +1338,37 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "bearish",
-    "score": -3,
-    "price": 3858.57,
-    "ema20": 3860.01,
-    "ema50": 3864.58,
-    "rsi": 46.1,
+    "bias": "sideways",
+    "score": -1,
+    "price": 3868.65,
+    "ema20": 3860.83,
+    "ema50": 3864.74,
+    "rsi": 57.2,
     "n": 299,
-    "slot": 2991428,
-    "at": 1794856855485
+    "slot": 2991429,
+    "at": 1794857455559
    },
    "M15": {
-    "bias": "bearish",
-    "score": -3,
-    "price": 3859.57,
-    "ema20": 3862.41,
-    "ema50": 3866.85,
-    "rsi": 46.2,
+    "bias": "sideways",
+    "score": -1,
+    "price": 3868.65,
+    "ema20": 3863,
+    "ema50": 3866.92,
+    "rsi": 53.6,
     "n": 299,
-    "slot": 1994285,
-    "at": 1794856555551
+    "slot": 1994286,
+    "at": 1794857455567
    },
    "M30": {
-    "bias": "bearish",
-    "score": -2,
-    "price": 3858.75,
-    "ema20": 3866.23,
-    "ema50": 3872,
-    "rsi": 45.1,
+    "bias": "sideways",
+    "score": -1,
+    "price": 3868.65,
+    "ema20": 3866.46,
+    "ema50": 3871.87,
+    "rsi": 50.4,
     "n": 299,
-    "slot": 997142,
-    "at": 1794855655543
+    "slot": 997143,
+    "at": 1794857455570
    },
    "H1": {
     "bias": "sideways",
