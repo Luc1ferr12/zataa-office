@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-16T15:11:39.265Z",
+ "generated_at": "2026-11-16T15:21:39.264Z",
  "today": "2026-11-16",
  "week_start": "2026-11-16",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-16 15:00:55"
+   "updated_at": "2026-11-16 15:15:55"
   },
   {
    "id": "tresearch",
@@ -111,15 +111,15 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Waspada rilis Fed Chairman Warsh Speaks (01.00 WITA)",
-   "updated_at": "2026-11-16 15:00:55"
+   "updated_at": "2026-11-16 15:15:55"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-16 15:00:55"
+   "current_task": "Belum ada pantulan band · H1 bearish",
+   "updated_at": "2026-11-16 15:15:55"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: berita berdampak tinggi: Fed Chairman Warsh Speaks (01.00 WITA)",
-   "updated_at": "2026-11-16 15:00:55"
+   "updated_at": "2026-11-16 15:15:55"
   },
   {
    "id": "texec",
@@ -576,7 +576,7 @@
   {
    "id": 2,
    "day": "2026-11-16",
-   "status": "queued",
+   "status": "failed",
    "views": 0,
    "likes": 0,
    "tiktok_url": null,
@@ -615,6 +615,16 @@
   }
  ],
  "activity": [
+  {
+   "ts": "2026-11-16 15:20:55",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: sideways → bullish"
+  },
+  {
+   "ts": "2026-11-16 15:11:40",
+   "agent_id": "yvideo",
+   "message": "Render laptop Shorts #195 gagal, cek logs/laptop-worker.log di laptop"
+  },
   {
    "ts": "2026-11-16 15:00:55",
    "agent_id": "ttech",
@@ -727,16 +737,6 @@
   },
   {
    "ts": "2026-11-16 09:45:55",
-   "agent_id": "trisk",
-   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-  },
-  {
-   "ts": "2026-11-16 09:21:41",
-   "agent_id": "yvideo",
-   "message": "Render laptop Shorts #195 gagal, cek logs/laptop-worker.log di laptop"
-  },
-  {
-   "ts": "2026-11-16 08:45:54",
    "agent_id": "trisk",
    "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
   }
@@ -1125,9 +1125,14 @@
   "paused": false,
   "balance": 1728.1799999999998,
   "today_pnl": 0,
-  "price": 3884.449951,
+  "price": 3884.699951,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-16 15:15:55",
+    "decision": "NO TRADE",
+    "reason": "berita berdampak tinggi: Fed Chairman Warsh Speaks (01.00 WITA)"
+   },
    {
     "ts": "2026-11-16 15:00:55",
     "decision": "NO TRADE",
@@ -1150,11 +1155,6 @@
    },
    {
     "ts": "2026-11-16 14:00:55",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-11-16 13:45:55",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1223,7 +1223,7 @@
    1728.1799999999998
   ],
   "last": {
-   "ts": "2026-11-16 15:00:55",
+   "ts": "2026-11-16 15:15:55",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1240,11 +1240,11 @@
     "blackout": "Fed Chairman Warsh Speaks (01.00 WITA)"
    },
    "tech": {
-    "bias": "sideways",
+    "bias": "bearish",
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3888.85 di atas band atas (3860.5–3888.7) · RSI 66 · Stoch 89 · MACD +1.55 · H1 sideways"
+    "note": "M15 3876.70 di atas tengah band (3863.2–3886.1) · RSI 54 · Stoch 61 · MACD +0.56 · H1 bearish"
    }
   },
   "fund": {
@@ -1320,26 +1320,26 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "sideways",
-    "score": 1,
-    "price": 3878.8,
-    "ema20": 3873.46,
-    "ema50": 3871.24,
-    "rsi": 55.5,
+    "bias": "bullish",
+    "score": 2,
+    "price": 3877.7,
+    "ema20": 3873.86,
+    "ema50": 3871.49,
+    "rsi": 54.5,
     "n": 299,
-    "slot": 2991403,
-    "at": 1794841855258
+    "slot": 2991404,
+    "at": 1794842455263
    },
    "M15": {
     "bias": "sideways",
     "score": 1,
-    "price": 3887.95,
-    "ema20": 3873.06,
-    "ema50": 3872.07,
-    "rsi": 65.4,
+    "price": 3877.55,
+    "ema20": 3873.49,
+    "ema50": 3872.29,
+    "rsi": 54.4,
     "n": 299,
-    "slot": 1994268,
-    "at": 1794841255321
+    "slot": 1994269,
+    "at": 1794842155254
    },
    "M30": {
     "bias": "sideways",
