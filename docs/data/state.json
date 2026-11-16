@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-16T05:01:10.901Z",
+ "generated_at": "2026-11-16T05:11:10.895Z",
  "today": "2026-11-16",
  "week_start": "2026-11-16",
  "campaign": {
@@ -397,7 +397,7 @@
    "game": "sejarah",
    "pillar": "lore_teori",
    "title": "Thanos Ternyata Lahir dari Kelas Psikologi",
-   "status": "draft",
+   "status": "pending_approval",
    "asset_url": null,
    "scheduled_at": null,
    "posted_at": null,
@@ -595,6 +595,31 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-16 05:09:17",
+   "agent_id": "vpublish",
+   "message": "Kirim Shorts #195 ke Owner buat approval"
+  },
+  {
+   "ts": "2026-11-16 05:09:11",
+   "agent_id": "vscript",
+   "message": "Revisi Shorts #195 kelar: Revisi #195 baru separuh: label \"FEBRUARI 1973\" di adegan 2 aku hapus supaya teks di layar tinggal satu lapis (subtitle)"
+  },
+  {
+   "ts": "2026-11-16 05:08:41",
+   "agent_id": "owner",
+   "message": "Minta revisi Shorts #195: Jelek bgt sih, lagi ngomongin thanos tapi gada thanos nya. Terus ada 2 tulisan di video, bingung mau baca yang mana. Salah satu aja kalo mau subtitle ya subtilte, kalo kek definisi ya definisi.\n\nyang gw mau kaya gini, contoh refrensi :\n- https://youtube.com/shorts/cGqP_Es0FQA\n- https://youtube.com/shorts/C6hMH5DKWQc\n- https://youtube.com/shorts/U3u1SJciQmk\n- https://youtube.com/shorts/gjwuO9ceu1U\n- https://youtube.com/shorts/EWdk26Zx-e8\n- https://youtube.com/shorts/tdo7i1-wcTc\n- https://youtube.com/shorts/Wi2BGoDmRKM\n- https://youtube.com/shorts/SR7KEaeHUrA"
+  },
+  {
+   "ts": "2026-11-16 05:06:31",
+   "agent_id": "yvideo",
+   "message": "Shorts #195 dirender di laptop (suara OmniVoice) & dikirim ke Owner"
+  },
+  {
+   "ts": "2026-11-16 05:06:29",
+   "agent_id": "vpublish",
+   "message": "Kirim Shorts #195 ke Owner buat approval"
+  },
+  {
    "ts": "2026-11-16 04:30:41",
    "agent_id": "trisk",
    "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (sesi Asia)"
@@ -693,31 +718,6 @@
    "ts": "2026-11-16 01:00:29",
    "agent_id": "publisher",
    "message": "Kirim draf IG Story ke Bos 📱"
-  },
-  {
-   "ts": "2026-11-16 00:50:40",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: bullish → sideways"
-  },
-  {
-   "ts": "2026-11-16 00:45:40",
-   "agent_id": "ttech",
-   "message": "M15 berubah arah: bullish → sideways"
-  },
-  {
-   "ts": "2026-11-16 00:41:10",
-   "agent_id": "owner",
-   "message": "Approve konten #180 ✅"
-  },
-  {
-   "ts": "2026-11-16 00:40:45",
-   "agent_id": "owner",
-   "message": "Approve Shorts #193 ✅"
-  },
-  {
-   "ts": "2026-11-16 00:15:41",
-   "agent_id": "trisk",
-   "message": "NO TRADE · ada candle spike di M15 (kemungkinan berita dadakan), tunggu tenang"
   }
  ],
  "chats": [
@@ -1007,11 +1007,11 @@
    "week": "2026-11-16",
    "total": 16,
    "posted": 0,
-   "pending": 0,
+   "pending": 1,
    "scheduled": 2,
    "yt_total": 3,
    "yt_posted": 0,
-   "yt_pending": 0,
+   "yt_pending": 1,
    "yt_scheduled": 1,
    "views": 0,
    "likes": 0,
@@ -1097,7 +1097,7 @@
   "paused": false,
   "balance": 1728.1799999999998,
   "today_pnl": 0,
-  "price": 3871.550049,
+  "price": 3872.800049,
   "open": [],
   "signals": [
    {
@@ -1303,13 +1303,13 @@
    "M10": {
     "bias": "bearish",
     "score": -2,
-    "price": 3874.25,
-    "ema20": 3877.06,
-    "ema50": 3881.22,
-    "rsi": 44.5,
+    "price": 3870.5,
+    "ema20": 3876.44,
+    "ema50": 3880.8,
+    "rsi": 40.4,
     "n": 299,
-    "slot": 2991342,
-    "at": 1794805241194
+    "slot": 2991343,
+    "at": 1794805840951
    },
    "M15": {
     "bias": "bearish",
