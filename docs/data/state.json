@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-15T23:51:10.645Z",
+ "generated_at": "2026-11-16T00:01:10.646Z",
  "today": "2026-11-16",
  "week_start": "2026-11-16",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-15 23:45:40"
+   "updated_at": "2026-11-16 00:00:40"
   },
   {
    "id": "tresearch",
@@ -111,23 +111,23 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Bias bearish: inflasi panas & USD menguat (DXY ~102), pasar ~80% price Fed hike Des; emas ~$4.100, support $3.870. Warsh speaks 17:00Z.",
-   "updated_at": "2026-11-15 23:45:40"
+   "updated_at": "2026-11-16 00:00:40"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Setup BUY di band (MACD)",
-   "updated_at": "2026-11-15 23:45:40"
+   "current_task": "Setup BUY di band (tanpa konfirmasi)",
+   "updated_at": "2026-11-16 00:00:40"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
-   "updated_at": "2026-11-15 23:45:40"
+   "current_task": "NO TRADE: ada candle spike di M15 (kemungkinan berita dadakan), tunggu tenang",
+   "updated_at": "2026-11-16 00:00:40"
   },
   {
    "id": "texec",
@@ -595,6 +595,21 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-16 00:00:40",
+   "agent_id": "ttech",
+   "message": "M60 berubah arah: bearish → sideways"
+  },
+  {
+   "ts": "2026-11-16 00:00:40",
+   "agent_id": "ttech",
+   "message": "M30 berubah arah: bearish → bullish"
+  },
+  {
+   "ts": "2026-11-16 00:00:40",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: sideways → bullish"
+  },
+  {
    "ts": "2026-11-15 23:50:40",
    "agent_id": "ttech",
    "message": "M10 berubah arah: bearish → sideways"
@@ -703,21 +718,6 @@
    "ts": "2026-11-15 23:00:55",
    "agent_id": "ttech",
    "message": "M10 berubah arah: bearish → bullish"
-  },
-  {
-   "ts": "2026-11-15 22:01:31",
-   "agent_id": "analyst",
-   "message": "Update data 36 post IG 📈"
-  },
-  {
-   "ts": "2026-11-15 19:01:32",
-   "agent_id": "analyst",
-   "message": "Update data 36 post IG 📈"
-  },
-  {
-   "ts": "2026-11-15 16:29:39",
-   "agent_id": "dir",
-   "message": "Kode kantor diperbarui, restart otomatis: scripts/golink.mjs, scripts/trading/run.mjs, scripts/watch.mjs"
   }
  ],
  "chats": [
@@ -1097,9 +1097,14 @@
   "paused": false,
   "balance": 1728.1799999999998,
   "today_pnl": 0,
-  "price": 3900.550049,
+  "price": 3903.899902,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-16 00:00:40",
+    "decision": "NO TRADE",
+    "reason": "ada candle spike di M15 (kemungkinan berita dadakan), tunggu tenang"
+   },
    {
     "ts": "2026-11-15 23:45:40",
     "decision": "NO TRADE",
@@ -1122,11 +1127,6 @@
    },
    {
     "ts": "2026-11-13 21:45:58",
-    "decision": "NO TRADE",
-    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
-   },
-   {
-    "ts": "2026-11-13 21:30:58",
     "decision": "NO TRADE",
     "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
    }
@@ -1195,7 +1195,7 @@
    1728.1799999999998
   ],
   "last": {
-   "ts": "2026-11-15 23:45:40",
+   "ts": "2026-11-16 00:00:40",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1204,7 +1204,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
+   "reason": "ada candle spike di M15 (kemungkinan berita dadakan), tunggu tenang",
    "fund": {
     "bias": -0.3,
     "note": "Bias bearish: inflasi panas & USD menguat (DXY ~102), pasar ~80% price Fed hike Des; emas ~$4.100, support $3.870. Warsh speaks 17:00Z.",
@@ -1212,13 +1212,11 @@
     "blackout": null
    },
    "tech": {
-    "bias": "bearish",
-    "score": 1,
+    "bias": "sideways",
+    "score": 0,
     "trigger": "buy",
-    "confirm": [
-     "MACD"
-    ],
-    "note": "M15 3891.65 di atas tengah band (3884.0–3891.8) · RSI 63 · Stoch 70 · MACD +0.36 · H1 bearish · setup BUY (MACD)"
+    "confirm": [],
+    "note": "M15 3903.90 di atas band atas (3878.5–3899.9) · RSI 81 · Stoch 97 · MACD +1.63 · H1 sideways · setup BUY (tanpa konfirmasi)"
    }
   },
   "fund": {
@@ -1303,48 +1301,48 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "sideways",
-    "score": 0,
-    "price": 3897.27,
-    "ema20": 3887.27,
-    "ema50": 3887.39,
-    "rsi": 77.5,
+    "bias": "bullish",
+    "score": 2,
+    "price": 3902.22,
+    "ema20": 3888.69,
+    "ema50": 3887.97,
+    "rsi": 82.3,
     "n": 299,
-    "slot": 2991311,
-    "at": 1794786640714
+    "slot": 2991312,
+    "at": 1794787240739
    },
    "M15": {
     "bias": "bullish",
     "score": 3,
-    "price": 3892.45,
-    "ema20": 3887.73,
-    "ema50": 3887.65,
-    "rsi": 66,
+    "price": 3902.22,
+    "ema20": 3889.11,
+    "ema50": 3888.22,
+    "rsi": 79.5,
     "n": 299,
-    "slot": 1994207,
-    "at": 1794786340720
+    "slot": 1994208,
+    "at": 1794787240748
    },
    "M30": {
-    "bias": "bearish",
-    "score": -2,
-    "price": 3882.8,
-    "ema20": 3887.14,
-    "ema50": 3887.59,
-    "rsi": 0.5,
+    "bias": "bullish",
+    "score": 2,
+    "price": 3902.22,
+    "ema20": 3888.58,
+    "ema50": 3888.16,
+    "rsi": 81.3,
     "n": 299,
-    "slot": 997103,
-    "at": 1794785470790
+    "slot": 997104,
+    "at": 1794787240750
    },
    "H1": {
-    "bias": "bearish",
-    "score": -2,
-    "price": 3887.6,
-    "ema20": 3887.64,
-    "ema50": 3892.6,
-    "rsi": 44.4,
+    "bias": "sideways",
+    "score": 0,
+    "price": 3902.22,
+    "ema20": 3889.03,
+    "ema50": 3892.97,
+    "rsi": 91.3,
     "n": 299,
-    "slot": 498551,
-    "at": 1794783655253
+    "slot": 498552,
+    "at": 1794787240758
    }
   },
   "currency": "USC",
