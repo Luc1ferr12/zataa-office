@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-16T23:31:39.496Z",
+ "generated_at": "2026-11-16T23:41:39.503Z",
  "today": "2026-11-17",
  "week_start": "2026-11-16",
  "campaign": {
@@ -690,6 +690,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-16 23:40:55",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: sideways → bearish"
+  },
+  {
    "ts": "2026-11-16 23:30:55",
    "agent_id": "ttech",
    "message": "M10 berubah arah: bearish → sideways"
@@ -808,11 +813,6 @@
    "ts": "2026-11-16 23:03:51",
    "agent_id": "publisher",
    "message": "Kirim #182 ke Owner buat approval"
-  },
-  {
-   "ts": "2026-11-16 23:01:30",
-   "agent_id": "ypublish",
-   "message": "cek #193 upload_failed"
   }
  ],
  "chats": [
@@ -1199,7 +1199,7 @@
   "paused": false,
   "balance": 1728.1799999999998,
   "today_pnl": 0,
-  "price": 3858.52002,
+  "price": 3856.070068,
   "open": [],
   "signals": [
    {
@@ -1385,15 +1385,15 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "sideways",
-    "score": 0,
-    "price": 3858.9,
-    "ema20": 3858.61,
-    "ema50": 3861.1,
-    "rsi": 49.5,
+    "bias": "bearish",
+    "score": -2,
+    "price": 3855.75,
+    "ema20": 3858.34,
+    "ema50": 3860.89,
+    "rsi": 43.4,
     "n": 299,
-    "slot": 2991453,
-    "at": 1794871855761
+    "slot": 2991454,
+    "at": 1794872455668
    },
    "M15": {
     "bias": "bearish",
