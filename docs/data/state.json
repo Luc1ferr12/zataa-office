@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-16T23:11:39.491Z",
+ "generated_at": "2026-11-16T23:21:39.493Z",
  "today": "2026-11-17",
  "week_start": "2026-11-16",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-16 23:01:20"
+   "updated_at": "2026-11-16 23:15:55"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Bearish: pasar price-in hike Fed Desember (~85-89%), emas turun ke terendah sejak Okt 2025 (~$3.900). Retail Sales 20:30 WITA.",
-   "updated_at": "2026-11-16 23:01:20"
+   "updated_at": "2026-11-16 23:15:55"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-11-16 23:01:20"
+   "updated_at": "2026-11-16 23:15:55"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
-   "updated_at": "2026-11-16 23:01:20"
+   "updated_at": "2026-11-16 23:15:55"
   },
   {
    "id": "texec",
@@ -453,7 +453,7 @@
    "game": "sejarah",
    "pillar": "hidden_history",
    "title": "Kota Pelabuhan Mesir Ini Hilang 1.000 Tahun di Dasar Laut",
-   "status": "draft",
+   "status": "pending_approval",
    "asset_url": null,
    "scheduled_at": null,
    "posted_at": null,
@@ -467,7 +467,7 @@
    "game": "sejarah",
    "pillar": "horor_sejarah",
    "title": "Gua di Biak Ini Konon Jadi Kuburan Ribuan Tentara Jepang",
-   "status": "draft",
+   "status": "pending_approval",
    "asset_url": null,
    "scheduled_at": null,
    "posted_at": null,
@@ -690,6 +690,26 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-16 23:16:19",
+   "agent_id": "yvideo",
+   "message": "Shorts #197 dirender di laptop (suara OmniVoice) & dikirim ke Owner"
+  },
+  {
+   "ts": "2026-11-16 23:16:18",
+   "agent_id": "spublish",
+   "message": "Kirim Shorts #197 ke Owner buat approval"
+  },
+  {
+   "ts": "2026-11-16 23:14:04",
+   "agent_id": "yvideo",
+   "message": "Shorts #196 dirender di laptop (suara OmniVoice) & dikirim ke Owner"
+  },
+  {
+   "ts": "2026-11-16 23:14:03",
+   "agent_id": "ypublish",
+   "message": "Kirim Shorts #196 ke Owner buat approval"
+  },
+  {
    "ts": "2026-11-16 23:10:25",
    "agent_id": "vpublish",
    "message": "Cross-post Shorts #195 ke TikTok Marvel Talk"
@@ -793,26 +813,6 @@
    "ts": "2026-11-16 21:00:55",
    "agent_id": "ttech",
    "message": "M60 berubah arah: sideways → bearish"
-  },
-  {
-   "ts": "2026-11-16 20:45:55",
-   "agent_id": "trisk",
-   "message": "NO TRADE · jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
-  },
-  {
-   "ts": "2026-11-16 20:30:55",
-   "agent_id": "ttech",
-   "message": "M30 berubah arah: sideways → bearish"
-  },
-  {
-   "ts": "2026-11-16 20:30:55",
-   "agent_id": "ttech",
-   "message": "M15 berubah arah: sideways → bearish"
-  },
-  {
-   "ts": "2026-11-16 20:30:55",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: sideways → bearish"
   }
  ],
  "chats": [
@@ -1102,11 +1102,11 @@
    "week": "2026-11-16",
    "total": 20,
    "posted": 2,
-   "pending": 0,
+   "pending": 2,
    "scheduled": 2,
    "yt_total": 6,
    "yt_posted": 1,
-   "yt_pending": 0,
+   "yt_pending": 2,
    "yt_scheduled": 0,
    "views": 124,
    "likes": 0,
@@ -1199,9 +1199,14 @@
   "paused": false,
   "balance": 1728.1799999999998,
   "today_pnl": 0,
-  "price": 3859.52002,
+  "price": 3858.25,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-16 23:15:55",
+    "decision": "NO TRADE",
+    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
+   },
    {
     "ts": "2026-11-16 23:01:20",
     "decision": "NO TRADE",
@@ -1224,11 +1229,6 @@
    },
    {
     "ts": "2026-11-16 21:00:55",
-    "decision": "NO TRADE",
-    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
-   },
-   {
-    "ts": "2026-11-16 20:45:55",
     "decision": "NO TRADE",
     "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
    }
@@ -1297,7 +1297,7 @@
    1728.1799999999998
   ],
   "last": {
-   "ts": "2026-11-16 23:01:20",
+   "ts": "2026-11-16 23:15:55",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1318,7 +1318,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3859.00 di atas tengah band (3847.9–3869.8) · RSI 47 · Stoch 40 · MACD +0.43 · H1 bearish"
+    "note": "M15 3855.60 di bawah tengah band (3849.0–3869.3) · RSI 43 · Stoch 33 · MACD +0.21 · H1 bearish"
    }
   },
   "fund": {
@@ -1339,7 +1339,7 @@
     "title": "Retail Sales m/m",
     "impact": "High",
     "at": 1794922200000,
-    "forecast": "0.2%",
+    "forecast": "0.1%",
     "previous": "0.8%",
     "wb": 60,
     "wa": 45
@@ -1387,24 +1387,24 @@
    "M10": {
     "bias": "bearish",
     "score": -2,
-    "price": 3858.72,
-    "ema20": 3858.92,
-    "ema50": 3861.43,
-    "rsi": 48,
+    "price": 3855.37,
+    "ema20": 3858.58,
+    "ema50": 3861.19,
+    "rsi": 40.8,
     "n": 299,
-    "slot": 2991451,
-    "at": 1794870655648
+    "slot": 2991452,
+    "at": 1794871255651
    },
    "M15": {
     "bias": "bearish",
     "score": -2,
-    "price": 3858.75,
-    "ema20": 3859.84,
-    "ema50": 3863.57,
-    "rsi": 47.1,
+    "price": 3858.45,
+    "ema20": 3859.71,
+    "ema50": 3863.37,
+    "rsi": 46.7,
     "n": 299,
-    "slot": 1994300,
-    "at": 1794870055740
+    "slot": 1994301,
+    "at": 1794870955720
    },
    "M30": {
     "bias": "bearish",
