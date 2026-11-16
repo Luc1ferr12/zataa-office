@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-16T07:11:39.094Z",
+ "generated_at": "2026-11-16T07:21:39.089Z",
  "today": "2026-11-16",
  "week_start": "2026-11-16",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-16 07:00:54"
+   "updated_at": "2026-11-16 07:15:54"
   },
   {
    "id": "tresearch",
@@ -111,23 +111,23 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Bias bearish: inflasi panas & USD menguat (DXY ~102), pasar ~80% price Fed hike Des; emas ~$4.100, support $3.870. Warsh speaks 17:00Z.",
-   "updated_at": "2026-11-16 07:00:54"
+   "updated_at": "2026-11-16 07:15:54"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Setup BUY di band (RSI+MACD)",
-   "updated_at": "2026-11-16 07:00:54"
+   "current_task": "Belum ada pantulan band · H1 sideways",
+   "updated_at": "2026-11-16 07:15:54"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: Bollinger Band melebar kencang (breakout), pantulan berisiko",
-   "updated_at": "2026-11-16 07:00:54"
+   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
+   "updated_at": "2026-11-16 07:15:54"
   },
   {
    "id": "texec",
@@ -1118,9 +1118,14 @@
   "paused": false,
   "balance": 1728.1799999999998,
   "today_pnl": 0,
-  "price": 3856.350098,
+  "price": 3857.449951,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-16 07:15:54",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
    {
     "ts": "2026-11-16 07:00:54",
     "decision": "NO TRADE",
@@ -1145,11 +1150,6 @@
     "ts": "2026-11-16 06:00:56",
     "decision": "NO TRADE",
     "reason": "ada candle spike di M15 (kemungkinan berita dadakan), tunggu tenang"
-   },
-   {
-    "ts": "2026-11-16 05:45:56",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
    }
   ],
   "trades": [
@@ -1216,7 +1216,7 @@
    1728.1799999999998
   ],
   "last": {
-   "ts": "2026-11-16 07:00:54",
+   "ts": "2026-11-16 07:15:54",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1225,7 +1225,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "Bollinger Band melebar kencang (breakout), pantulan berisiko",
+   "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
    "fund": {
     "bias": -0.3,
     "note": "Bias bearish: inflasi panas & USD menguat (DXY ~102), pasar ~80% price Fed hike Des; emas ~$4.100, support $3.870. Warsh speaks 17:00Z.",
@@ -1234,13 +1234,10 @@
    },
    "tech": {
     "bias": "sideways",
-    "score": 2,
-    "trigger": "buy",
-    "confirm": [
-     "RSI",
-     "MACD"
-    ],
-    "note": "M15 3854.87 di bawah tengah band (3837.7–3897.2) · RSI 42 · Stoch 27 · MACD -2.00 · H1 sideways · setup BUY (RSI+MACD)"
+    "score": 0,
+    "trigger": null,
+    "confirm": [],
+    "note": "M15 3856.35 di bawah tengah band (3837.9–3894.3) · RSI 43 · Stoch 37 · MACD -1.09 · H1 sideways"
    }
   },
   "fund": {
@@ -1317,25 +1314,25 @@
   "tf": {
    "M10": {
     "bias": "bearish",
-    "score": -3,
-    "price": 3856.42,
-    "ema20": 3860.35,
-    "ema50": 3870.85,
-    "rsi": 44.5,
+    "score": -2,
+    "price": 3843.67,
+    "ema20": 3858.76,
+    "ema50": 3869.78,
+    "rsi": 37.3,
     "n": 299,
-    "slot": 2991355,
-    "at": 1794813054676
+    "slot": 2991356,
+    "at": 1794813654684
    },
    "M15": {
     "bias": "bearish",
-    "score": -2,
-    "price": 3843.77,
-    "ema20": 3865.4,
-    "ema50": 3875.6,
-    "rsi": 32.5,
+    "score": -3,
+    "price": 3857.87,
+    "ema20": 3864.68,
+    "ema50": 3874.91,
+    "rsi": 43.5,
     "n": 299,
-    "slot": 1994236,
-    "at": 1794812454690
+    "slot": 1994237,
+    "at": 1794813354774
    },
    "M30": {
     "bias": "bearish",
