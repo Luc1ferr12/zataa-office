@@ -46,7 +46,7 @@ Kantor virtual **Zaa Office** (dulu Zataa, ganti nama 15 Nov 2026): divisi **Abo
 | vdir | Reza | Manajer **Marvel Talk** (lore, teori, fakta & berita MCU): antrean topik, briefing, evaluasi Minggu |
 | vresearch | Citra | Riset Marvel & berita/rumor MCU + sumber (≤5 pencarian/hari) |
 | vscript | Fajar | Naskah + hook + cek fakta (label FAKTA/TEORI/RUMOR) |
-| vvisual | Intan | Visual aman hak cipta: grafik kode / fan-art berlisensi / Blender (DILARANG footage film/trailer Marvel) |
+| vvisual | Intan | Visual = klip film/komik asli yang RELEVAN dengan topik (cari+unduh+pilih momen otomatis di laptop, `clip-scout.mjs`), potongan 1–2 dtk, grafik kode hanya pelengkap |
 | vvideo | Kevin | Render Shorts 9:16 + VO OmniVoice |
 | vpublish | Putri | ✅ Owner di bot Marvel Talk, tayang YouTube + TikTok (Zernio akun 3), laporan harian & mingguan |
 | cdir | Hendra | Manajer **Zaa Clips**: saring campaign Clippo (app.clippo.id), usul 3 terbaik ke Owner tiap pagi |
@@ -56,7 +56,7 @@ Kantor virtual **Zaa Office** (dulu Zataa, ganti nama 15 Nov 2026): divisi **Abo
 | cpublish | Tasya | Upload TikTok + IG (Zernio akun 4), pantau views, ajukan ke Clippo, laporan 19:00 |
 
 ## Shorts: tiga divisi, kode sama (`scripts/brand.mjs`, pilih `--brand=history|story|marvel`)
-**Marvel Talk** (tim Reza, `v*`, sejak 16 Nov 2026): lore/teori/fakta + berita MCU, YouTube + TikTok baru, 7/minggu ≥3 Lore & Teori, `channel 'marvel'`, SOP `office/marvel.md`, bot `MARVEL_BOT_TOKEN` (proses anak watcher, nyala sendiri begitu token diisi), Zernio akun 3 `ZERNIO_MARVEL_API_KEY`, YouTube `MARVEL_YT_*`. Visual WAJIB aman hak cipta (tanpa klip film/trailer/musik Marvel). Ruang & meeting di Lt.4 (Meeting Kreator 08:00).
+**Marvel Talk** (tim Reza, `v*`, sejak 16 Nov 2026): lore/teori/fakta + berita MCU, YouTube + TikTok baru, 7/minggu ≥3 Lore & Teori, `channel 'marvel'`, SOP `office/marvel.md`, bot `MARVEL_BOT_TOKEN` (proses anak watcher, nyala sendiri begitu token diisi), Zernio akun 3 `ZERNIO_MARVEL_API_KEY`, YouTube `MARVEL_YT_*`. Gaya video (Owner 15 Nov 2026): klip film relevan + narasi + teks kata-per-kata SATU lapis, render `shorts-clip.mjs`, spec klip `{vo, clips:[{find, note, n?}]}` (klip dicari di laptop, yt-dlp VPS diblok YouTube); risiko strike ditanggung Owner; DILARANG musik/soundtrack Marvel; BUKAN gaya gambar+grafik kode. Ruang & meeting di Lt.4 (Meeting Kreator 08:00).
 | | **Zaa History** (tim Bagas, `y*`) | **Zaa Story** (tim Raditya, `s*`) |
 |---|---|---|
 | Niche | sejarah misteri kuno dunia + mitologi Yunani | misteri & horor Nusantara berbasis sejarah (gaib selalu "konon") |

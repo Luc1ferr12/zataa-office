@@ -9,6 +9,7 @@ import { tmpdir } from 'node:os';
 import { join, dirname, basename } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { DB_SNIPPET } from './db.mjs';
+import { resolveClips } from './clip-scout.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const VPS = process.env.ZATAA_VPS ?? 'zataa-vps';
@@ -36,7 +37,7 @@ const tmp = mkdtempSync(join(tmpdir(), 'zataa-shorts-laptop-'));
 try {
   // gambar dari sesi harian (VPS) yang belum ada di laptop → ambil lewat scp (lewat folder tmp, path repo laptop ada spasinya)
   const isClip = spec.scenes.some((s) => Array.isArray(s.clips));   // gaya klip film (Marvel Talk) → shorts-clip.mjs
-  for (const img of [...new Set(spec.scenes.flatMap((s) => (isClip ? s.clips.map((k) => k.src) : [s.img])))]) {
+  for (const img of [...new Set(spec.scenes.flatMap((s) => (isClip ? s.clips.map((k) => k.src).filter(Boolean) : [s.img])))]) {
     const dst = join(ROOT, img);
     if (existsSync(dst)) continue;
     const t = join(tmp, basename(img));
@@ -46,7 +47,11 @@ try {
     copyFileSync(t, dst);
   }
   const { _laptop, _err, _test, duration, tags, synthetic, ...render } = spec;
-  render.scenes = render.scenes.map((s) => (isClip ? { ...s, clips: s.clips.map((k) => ({ ...k, src: join(ROOT, k.src) })) } : { ...s, img: join(ROOT, s.img) }));
+  render.scenes = render.scenes.map((s) => (isClip ? { ...s, clips: s.clips.map((k) => (k.src ? { ...k, src: join(ROOT, k.src) } : k)) } : { ...s, img: join(ROOT, s.img) }));
+  if (isClip) {   // klip `find`/`yt`: cari + unduh + pilih momen di laptop (yt-dlp di VPS diblok YouTube)
+    try { resolveClips(render, (m) => process.stderr.write(`${m}
+`)); } catch (e) { fail(`klip: ${e.message}`); }
+  }
   writeFileSync(join(tmp, 'spec.json'), JSON.stringify(render));
   const slug = String(c.title).toLowerCase().normalize('NFD').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 40);
   const files = { video: `${c.id}-${slug}.mp4`, cover: `${c.id}-${slug}-cover.jpg` };
