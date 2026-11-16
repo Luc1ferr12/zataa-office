@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-16T18:21:39.376Z",
+ "generated_at": "2026-11-16T18:31:39.403Z",
  "today": "2026-11-17",
  "week_start": "2026-11-16",
  "campaign": {
@@ -103,15 +103,15 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-16 18:15:55"
+   "updated_at": "2026-11-16 18:30:55"
   },
   {
    "id": "tresearch",
    "name": "Davina",
    "title": "Research & Fundamental",
    "status": "done",
-   "current_task": "Waspada rilis Fed Chairman Warsh Speaks (01.00 WITA)",
-   "updated_at": "2026-11-16 18:15:55"
+   "current_task": "Fundamental: Fed masih hawkish (hike Sep), NFP Okt kuat 165k, DXY ~102 & bias hike Des. Berita 24 jam tak ketemu, data terbaru terbatas.",
+   "updated_at": "2026-11-16 18:30:55"
   },
   {
    "id": "ttech",
@@ -119,15 +119,15 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-11-16 18:15:55"
+   "updated_at": "2026-11-16 18:30:55"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: berita berdampak tinggi: Fed Chairman Warsh Speaks (01.00 WITA)",
-   "updated_at": "2026-11-16 18:15:55"
+   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
+   "updated_at": "2026-11-16 18:30:55"
   },
   {
    "id": "texec",
@@ -634,6 +634,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-16 18:30:55",
+   "agent_id": "ttech",
+   "message": "M30 berubah arah: sideways → bearish"
+  },
+  {
    "ts": "2026-11-16 18:00:55",
    "agent_id": "ttech",
    "message": "M15 berubah arah: sideways → bearish"
@@ -752,11 +757,6 @@
    "ts": "2026-11-16 14:15:55",
    "agent_id": "ttech",
    "message": "M15 berubah arah: sideways → bearish"
-  },
-  {
-   "ts": "2026-11-16 14:01:41",
-   "agent_id": "yvideo",
-   "message": "Render laptop Shorts #195 gagal, cek logs/laptop-worker.log di laptop"
   }
  ],
  "chats": [
@@ -1143,9 +1143,14 @@
   "paused": false,
   "balance": 1728.1799999999998,
   "today_pnl": 0,
-  "price": 3848.27002,
+  "price": 3852.399902,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-16 18:30:55",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
    {
     "ts": "2026-11-16 18:15:55",
     "decision": "NO TRADE",
@@ -1168,11 +1173,6 @@
    },
    {
     "ts": "2026-11-16 17:15:55",
-    "decision": "NO TRADE",
-    "reason": "berita berdampak tinggi: Fed Chairman Warsh Speaks (01.00 WITA)"
-   },
-   {
-    "ts": "2026-11-16 17:00:55",
     "decision": "NO TRADE",
     "reason": "berita berdampak tinggi: Fed Chairman Warsh Speaks (01.00 WITA)"
    }
@@ -1241,7 +1241,7 @@
    1728.1799999999998
   ],
   "last": {
-   "ts": "2026-11-16 18:15:55",
+   "ts": "2026-11-16 18:30:55",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1250,19 +1250,19 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "berita berdampak tinggi: Fed Chairman Warsh Speaks (01.00 WITA)",
+   "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
    "fund": {
     "bias": -0.4,
     "note": "Fed masih hawkish (hike Sep), NFP Okt kuat 165k, DXY ~102 & bias hike Des. Berita 24 jam tak ketemu, data terbaru terbatas.",
     "danger": null,
-    "blackout": "Fed Chairman Warsh Speaks (01.00 WITA)"
+    "blackout": null
    },
    "tech": {
     "bias": "bearish",
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3845.02 di bawah tengah band (3844.6–3889.4) · RSI 33 · Stoch 2 · MACD -2.53 · H1 bearish"
+    "note": "M15 3848.32 di bawah tengah band (3842.9–3889.2) · RSI 36 · Stoch 8 · MACD -2.40 · H1 bearish"
    }
   },
   "fund": {
@@ -1340,35 +1340,35 @@
    "M10": {
     "bias": "bearish",
     "score": -3,
-    "price": 3849.3,
-    "ema20": 3863.83,
-    "ema50": 3867.18,
-    "rsi": 32.9,
+    "price": 3849.67,
+    "ema20": 3862.48,
+    "ema50": 3866.49,
+    "rsi": 33.4,
     "n": 299,
-    "slot": 2991422,
-    "at": 1794853255507
+    "slot": 2991423,
+    "at": 1794853855449
    },
    "M15": {
     "bias": "bearish",
     "score": -3,
-    "price": 3846.67,
-    "ema20": 3866.03,
-    "ema50": 3868.95,
-    "rsi": 33.7,
+    "price": 3849.67,
+    "ema20": 3864.47,
+    "ema50": 3868.19,
+    "rsi": 36.7,
     "n": 299,
-    "slot": 1994281,
-    "at": 1794852955443
+    "slot": 1994282,
+    "at": 1794853855455
    },
    "M30": {
-    "bias": "sideways",
-    "score": -1,
-    "price": 3858.6,
-    "ema20": 3868.84,
-    "ema50": 3873.47,
-    "rsi": 43.6,
+    "bias": "bearish",
+    "score": -2,
+    "price": 3849.67,
+    "ema20": 3867.02,
+    "ema50": 3872.54,
+    "rsi": 39.6,
     "n": 299,
-    "slot": 997140,
-    "at": 1794852055441
+    "slot": 997141,
+    "at": 1794853855456
    },
    "H1": {
     "bias": "sideways",
