@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-16T17:51:39.379Z",
+ "generated_at": "2026-11-16T18:01:39.385Z",
  "today": "2026-11-17",
  "week_start": "2026-11-16",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-16 17:45:55"
+   "updated_at": "2026-11-16 18:00:55"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Waspada rilis Fed Chairman Warsh Speaks (01.00 WITA)",
-   "updated_at": "2026-11-16 17:45:55"
+   "updated_at": "2026-11-16 18:00:55"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-11-16 17:45:55"
+   "updated_at": "2026-11-16 18:00:55"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: berita berdampak tinggi: Fed Chairman Warsh Speaks (01.00 WITA)",
-   "updated_at": "2026-11-16 17:45:55"
+   "updated_at": "2026-11-16 18:00:55"
   },
   {
    "id": "texec",
@@ -634,6 +634,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-16 18:00:55",
+   "agent_id": "ttech",
+   "message": "M15 berubah arah: sideways → bearish"
+  },
+  {
    "ts": "2026-11-16 17:50:55",
    "agent_id": "ttech",
    "message": "M10 berubah arah: sideways → bearish"
@@ -752,11 +757,6 @@
    "ts": "2026-11-16 14:01:41",
    "agent_id": "yvideo",
    "message": "Render laptop Shorts #195 gagal, cek logs/laptop-worker.log di laptop"
-  },
-  {
-   "ts": "2026-11-16 14:00:55",
-   "agent_id": "ttech",
-   "message": "M60 berubah arah: sideways → bearish"
   }
  ],
  "chats": [
@@ -1087,12 +1087,12 @@
    "yt_posted": 10,
    "yt_pending": 1,
    "yt_scheduled": 0,
-   "views": 18935,
+   "views": 18936,
    "likes": 234,
    "comments": 6,
    "shares": 3,
    "saves": 0,
-   "yt_views": 15857,
+   "yt_views": 15858,
    "top": [
     {
      "title": "Tulisan Tertua Indonesia Ada di 7 Tiang Batu Ini",
@@ -1143,9 +1143,14 @@
   "paused": false,
   "balance": 1728.1799999999998,
   "today_pnl": 0,
-  "price": 3864.850098,
+  "price": 3858.699951,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-16 18:00:55",
+    "decision": "NO TRADE",
+    "reason": "berita berdampak tinggi: Fed Chairman Warsh Speaks (01.00 WITA)"
+   },
    {
     "ts": "2026-11-16 17:45:55",
     "decision": "NO TRADE",
@@ -1168,11 +1173,6 @@
    },
    {
     "ts": "2026-11-16 16:45:55",
-    "decision": "NO TRADE",
-    "reason": "berita berdampak tinggi: Fed Chairman Warsh Speaks (01.00 WITA)"
-   },
-   {
-    "ts": "2026-11-16 16:30:55",
     "decision": "NO TRADE",
     "reason": "berita berdampak tinggi: Fed Chairman Warsh Speaks (01.00 WITA)"
    }
@@ -1241,7 +1241,7 @@
    1728.1799999999998
   ],
   "last": {
-   "ts": "2026-11-16 17:45:55",
+   "ts": "2026-11-16 18:00:55",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1262,7 +1262,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3864.92 di bawah tengah band (3854.4–3885.6) · RSI 46 · Stoch 29 · MACD -0.45 · H1 bearish"
+    "note": "M15 3858.62 di bawah tengah band (3851.9–3886.1) · RSI 41 · Stoch 11 · MACD -1.12 · H1 bearish"
    }
   },
   "fund": {
@@ -1340,46 +1340,46 @@
    "M10": {
     "bias": "bearish",
     "score": -3,
-    "price": 3861.5,
-    "ema20": 3867.95,
-    "ema50": 3869.08,
-    "rsi": 42.3,
+    "price": 3858.6,
+    "ema20": 3867.06,
+    "ema50": 3868.67,
+    "rsi": 39.7,
     "n": 299,
-    "slot": 2991419,
-    "at": 1794851455417
+    "slot": 2991420,
+    "at": 1794852055431
    },
    "M15": {
-    "bias": "sideways",
-    "score": 0,
-    "price": 3869.67,
-    "ema20": 3869.06,
-    "ema50": 3870.32,
-    "rsi": 50.4,
+    "bias": "bearish",
+    "score": -3,
+    "price": 3858.6,
+    "ema20": 3868.06,
+    "ema50": 3869.86,
+    "rsi": 41,
     "n": 299,
-    "slot": 1994279,
-    "at": 1794851155416
+    "slot": 1994280,
+    "at": 1794852055437
    },
    "M30": {
     "bias": "sideways",
-    "score": 1,
-    "price": 3871.77,
-    "ema20": 3869.92,
-    "ema50": 3874.08,
-    "rsi": 50.6,
+    "score": -1,
+    "price": 3858.6,
+    "ema20": 3868.84,
+    "ema50": 3873.47,
+    "rsi": 43.6,
     "n": 299,
-    "slot": 997139,
-    "at": 1794850255412
+    "slot": 997140,
+    "at": 1794852055441
    },
    "H1": {
     "bias": "sideways",
     "score": -1,
-    "price": 3861.45,
-    "ema20": 3872.41,
-    "ema50": 3880.97,
-    "rsi": 43.4,
+    "price": 3858.6,
+    "ema20": 3871.1,
+    "ema50": 3880.1,
+    "rsi": 42.2,
     "n": 299,
-    "slot": 498569,
-    "at": 1794848455406
+    "slot": 498570,
+    "at": 1794852055446
    }
   },
   "currency": "USC",
