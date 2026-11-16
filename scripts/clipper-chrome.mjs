@@ -27,7 +27,7 @@ function claudeChrome(prompt, timeoutMin = 15) {
 }
 
 // JS yang dijalankan DI halaman Clippo (sesi login Owner, sama persis dengan yang dilakukan web Clippo sendiri) → unduh 1 file JSON
-const SCOUT_JS = (name) => `(async () => {
+const SCOUT_JS = (name) => `window.__scout = 'running'; (async () => {
   const get = async (p) => (await (await fetch('/api/proxy' + p)).json()).data;
   const list = [];
   for (let page = 1; page <= 5; page++) { const d = await get('/campaigns?page=' + page); list.push(...(d.data || [])); if (page >= (d.totalPage || 1)) break; }
@@ -39,15 +39,15 @@ const SCOUT_JS = (name) => `(async () => {
   const a = document.createElement('a');
   a.href = URL.createObjectURL(new Blob([JSON.stringify(out)], { type: 'application/json' }));
   a.download = '${name}'; document.body.appendChild(a); a.click(); a.remove();
-  return out.length + ' campaign';
-})()`;
+  window.__scout = out.length + ' campaign';
+})().catch((e) => { window.__scout = 'ERROR ' + e.message; })`;
 
 async function scout() {
   const name = `clippo-campaigns-${Date.now()}.json`;
   const out = claudeChrome(`Buka tab baru di Chrome ke https://app.clippo.id/campaigns (akun Owner sudah login; kalau ternyata belum login, BERHENTI dan jawab "BELUM LOGIN").
-Tunggu halaman selesai dimuat, lalu jalankan JavaScript berikut di halaman itu PERSIS apa adanya (jangan diubah), tunggu sampai selesai, lalu tutup tab yang kamu buka:
+Tunggu halaman selesai dimuat, lalu jalankan JavaScript berikut di halaman itu PERSIS apa adanya (jangan diubah). Script jalan di latar (hasil async tidak ikut terkembalikan), jadi setelah itu jalankan \`window.__scout\` berulang (jeda ±5 detik, maks 3 menit) sampai nilainya bukan 'running'. Setelah selesai tunggu 5 detik lagi (biar file selesai terunduh), baru tutup tab yang kamu buka:
 ${SCOUT_JS(name)}
-Jawab singkat: jumlah campaign yang dikembalikan script, atau pesan error-nya.`);
+Jawab singkat: nilai akhir window.__scout (jumlah campaign, atau pesan ERROR-nya).`);
   if (/BELUM LOGIN/i.test(out)) throw new Error('Chrome laptop belum login Clippo');
   const file = join(DL, name);
   for (let i = 0; i < 30 && !existsSync(file); i++) await new Promise((r) => setTimeout(r, 1000));
