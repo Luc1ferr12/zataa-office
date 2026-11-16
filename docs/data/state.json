@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-16T14:51:39.265Z",
+ "generated_at": "2026-11-16T15:01:39.271Z",
  "today": "2026-11-16",
  "week_start": "2026-11-16",
  "campaign": {
@@ -103,15 +103,15 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-16 14:45:55"
+   "updated_at": "2026-11-16 15:00:55"
   },
   {
    "id": "tresearch",
    "name": "Davina",
    "title": "Research & Fundamental",
    "status": "done",
-   "current_task": "Fundamental: Fed masih hawkish (hike Sep), NFP Okt kuat 165k, DXY ~102 & bias hike Des. Berita 24 jam tak ketemu, data terbaru terbatas.",
-   "updated_at": "2026-11-16 14:45:55"
+   "current_task": "Waspada rilis Fed Chairman Warsh Speaks (01.00 WITA)",
+   "updated_at": "2026-11-16 15:00:55"
   },
   {
    "id": "ttech",
@@ -119,15 +119,15 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-16 14:45:55"
+   "updated_at": "2026-11-16 15:00:55"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-11-16 14:45:55"
+   "current_task": "NO TRADE: berita berdampak tinggi: Fed Chairman Warsh Speaks (01.00 WITA)",
+   "updated_at": "2026-11-16 15:00:55"
   },
   {
    "id": "texec",
@@ -616,6 +616,16 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-16 15:00:55",
+   "agent_id": "ttech",
+   "message": "M60 berubah arah: bearish → sideways"
+  },
+  {
+   "ts": "2026-11-16 15:00:55",
+   "agent_id": "ttech",
+   "message": "M15 berubah arah: bullish → sideways"
+  },
+  {
    "ts": "2026-11-16 14:50:55",
    "agent_id": "ttech",
    "message": "M10 berubah arah: bullish → sideways"
@@ -729,16 +739,6 @@
    "ts": "2026-11-16 08:45:54",
    "agent_id": "trisk",
    "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-  },
-  {
-   "ts": "2026-11-16 08:15:54",
-   "agent_id": "ttech",
-   "message": "M15 berubah arah: bearish → sideways"
-  },
-  {
-   "ts": "2026-11-16 08:11:40",
-   "agent_id": "yvideo",
-   "message": "Render laptop Shorts #195 gagal, cek logs/laptop-worker.log di laptop"
   }
  ],
  "chats": [
@@ -1125,9 +1125,14 @@
   "paused": false,
   "balance": 1728.1799999999998,
   "today_pnl": 0,
-  "price": 3888.149902,
+  "price": 3884.5,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-16 15:00:55",
+    "decision": "NO TRADE",
+    "reason": "berita berdampak tinggi: Fed Chairman Warsh Speaks (01.00 WITA)"
+   },
    {
     "ts": "2026-11-16 14:45:55",
     "decision": "NO TRADE",
@@ -1150,11 +1155,6 @@
    },
    {
     "ts": "2026-11-16 13:45:55",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-11-16 13:30:55",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1223,7 +1223,7 @@
    1728.1799999999998
   ],
   "last": {
-   "ts": "2026-11-16 14:45:55",
+   "ts": "2026-11-16 15:00:55",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1232,19 +1232,19 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
+   "reason": "berita berdampak tinggi: Fed Chairman Warsh Speaks (01.00 WITA)",
    "fund": {
     "bias": -0.4,
     "note": "Fed masih hawkish (hike Sep), NFP Okt kuat 165k, DXY ~102 & bias hike Des. Berita 24 jam tak ketemu, data terbaru terbatas.",
     "danger": null,
-    "blackout": null
+    "blackout": "Fed Chairman Warsh Speaks (01.00 WITA)"
    },
    "tech": {
     "bias": "sideways",
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3883.17 di atas tengah band (3861.2–3885.1) · RSI 62 · Stoch 62 · MACD +0.76 · H1 sideways"
+    "note": "M15 3888.85 di atas band atas (3860.5–3888.7) · RSI 66 · Stoch 89 · MACD +1.55 · H1 sideways"
    }
   },
   "fund": {
@@ -1321,47 +1321,47 @@
   "tf": {
    "M10": {
     "bias": "sideways",
-    "score": -1,
-    "price": 3869.47,
-    "ema20": 3871.31,
-    "ema50": 3870.23,
-    "rsi": 48.1,
+    "score": 1,
+    "price": 3887.95,
+    "ema20": 3872.9,
+    "ema50": 3870.93,
+    "rsi": 65.4,
     "n": 299,
-    "slot": 2991401,
-    "at": 1794840655222
+    "slot": 2991402,
+    "at": 1794841255315
    },
    "M15": {
-    "bias": "bullish",
-    "score": 2,
-    "price": 3884.25,
-    "ema20": 3871.5,
-    "ema50": 3871.43,
-    "rsi": 62.9,
+    "bias": "sideways",
+    "score": 1,
+    "price": 3887.95,
+    "ema20": 3873.06,
+    "ema50": 3872.07,
+    "rsi": 65.4,
     "n": 299,
-    "slot": 1994267,
-    "at": 1794840355210
+    "slot": 1994268,
+    "at": 1794841255321
    },
    "M30": {
     "bias": "sideways",
-    "score": -1,
-    "price": 3867.95,
-    "ema20": 3870.45,
-    "ema50": 3875.24,
-    "rsi": 47.2,
+    "score": 1,
+    "price": 3887.95,
+    "ema20": 3872.12,
+    "ema50": 3875.74,
+    "rsi": 60,
     "n": 299,
-    "slot": 997133,
-    "at": 1794839455188
+    "slot": 997134,
+    "at": 1794841255324
    },
    "H1": {
-    "bias": "bearish",
-    "score": -2,
-    "price": 3871,
-    "ema20": 3873.01,
-    "ema50": 3882.21,
-    "rsi": 47.2,
+    "bias": "sideways",
+    "score": 0,
+    "price": 3887.95,
+    "ema20": 3874.43,
+    "ema50": 3882.44,
+    "rsi": 56.7,
     "n": 299,
-    "slot": 498566,
-    "at": 1794837655187
+    "slot": 498567,
+    "at": 1794841255328
    }
   },
   "currency": "USC",
