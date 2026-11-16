@@ -19,8 +19,9 @@ const vps = (cmd) => {
 };
 // 1 tugas browser ke Claude (model ringan cukup), cuma boleh pakai tool Chrome
 function claudeChrome(prompt, timeoutMin = 15) {
-  const r = spawnSync(BIN, ['-p', '--chrome', '--model', process.env.CLIPPER_CHROME_MODEL || 'sonnet', '--allowedTools', 'mcp__claude-in-chrome__*', '--', prompt],
-    { encoding: 'utf8', timeout: timeoutMin * 60_000, shell: process.platform === 'win32' });
+  // Prompt lewat stdin, BUKAN argumen: di Windows shell:true (butuh buat claude.cmd) memecah prompt per spasi & baca || > | sebagai perintah cmd
+  const r = spawnSync(BIN, ['-p', '--chrome', '--model', process.env.CLIPPER_CHROME_MODEL || 'sonnet', '--allowedTools', 'mcp__claude-in-chrome__*'],
+    { input: prompt, encoding: 'utf8', timeout: timeoutMin * 60_000, shell: process.platform === 'win32' });
   if (r.status !== 0) throw new Error(`claude --chrome gagal: ${(r.stderr || r.stdout || r.error?.message || '').trim().slice(-300)}`);
   return r.stdout.trim();
 }
