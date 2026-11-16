@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-16T05:52:26.408Z",
+ "generated_at": "2026-11-16T06:02:26.407Z",
  "today": "2026-11-16",
  "week_start": "2026-11-16",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-16 05:45:56"
+   "updated_at": "2026-11-16 06:00:56"
   },
   {
    "id": "tresearch",
@@ -111,23 +111,23 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Bias bearish: inflasi panas & USD menguat (DXY ~102), pasar ~80% price Fed hike Des; emas ~$4.100, support $3.870. Warsh speaks 17:00Z.",
-   "updated_at": "2026-11-16 05:45:56"
+   "updated_at": "2026-11-16 06:00:56"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-16 05:45:56"
+   "current_task": "Setup BUY di band (RSI)",
+   "updated_at": "2026-11-16 06:00:56"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
-   "updated_at": "2026-11-16 05:45:56"
+   "current_task": "NO TRADE: ada candle spike di M15 (kemungkinan berita dadakan), tunggu tenang",
+   "updated_at": "2026-11-16 06:00:56"
   },
   {
    "id": "texec",
@@ -1097,9 +1097,14 @@
   "paused": false,
   "balance": 1728.1799999999998,
   "today_pnl": 0,
-  "price": 3853.800049,
+  "price": 3839.25,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-16 06:00:56",
+    "decision": "NO TRADE",
+    "reason": "ada candle spike di M15 (kemungkinan berita dadakan), tunggu tenang"
+   },
    {
     "ts": "2026-11-16 05:45:56",
     "decision": "NO TRADE",
@@ -1122,11 +1127,6 @@
    },
    {
     "ts": "2026-11-16 04:45:41",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-   },
-   {
-    "ts": "2026-11-16 04:30:41",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
    }
@@ -1195,7 +1195,7 @@
    1728.1799999999998
   ],
   "last": {
-   "ts": "2026-11-16 05:45:56",
+   "ts": "2026-11-16 06:00:56",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1204,7 +1204,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)",
+   "reason": "ada candle spike di M15 (kemungkinan berita dadakan), tunggu tenang",
    "fund": {
     "bias": -0.3,
     "note": "Bias bearish: inflasi panas & USD menguat (DXY ~102), pasar ~80% price Fed hike Des; emas ~$4.100, support $3.870. Warsh speaks 17:00Z.",
@@ -1213,10 +1213,12 @@
    },
    "tech": {
     "bias": "sideways",
-    "score": 0,
-    "trigger": null,
-    "confirm": [],
-    "note": "M15 3868.57 di bawah tengah band (3863.9–3888.0) · RSI 41 · Stoch 23 · MACD -0.46 · H1 sideways"
+    "score": 1,
+    "trigger": "buy",
+    "confirm": [
+     "RSI"
+    ],
+    "note": "M15 3856.95 di bawah tengah band (3851.7–3895.4) · RSI 39 · Stoch 17 · MACD -2.20 · H1 sideways · setup BUY (RSI)"
    }
   },
   "fund": {
@@ -1294,46 +1296,46 @@
    "M10": {
     "bias": "bearish",
     "score": -2,
-    "price": 3857.1,
-    "ema20": 3873.41,
-    "ema50": 3878.85,
-    "rsi": 33.4,
+    "price": 3841.6,
+    "ema20": 3870.38,
+    "ema50": 3877.39,
+    "rsi": 26,
     "n": 299,
-    "slot": 2991347,
-    "at": 1794808256470
+    "slot": 2991348,
+    "at": 1794808856481
    },
    "M15": {
     "bias": "bearish",
-    "score": -3,
-    "price": 3866.97,
-    "ema20": 3877.19,
-    "ema50": 3881.87,
-    "rsi": 39.1,
+    "score": -2,
+    "price": 3841.6,
+    "ema20": 3873.8,
+    "ema50": 3880.29,
+    "rsi": 26.6,
     "n": 299,
-    "slot": 1994231,
-    "at": 1794807956542
+    "slot": 1994232,
+    "at": 1794808856487
    },
    "M30": {
     "bias": "bearish",
     "score": -3,
-    "price": 3878.3,
-    "ema20": 3882.06,
-    "ema50": 3885.13,
-    "rsi": 45,
+    "price": 3841.6,
+    "ema20": 3878.21,
+    "ema50": 3883.43,
+    "rsi": 25.8,
     "n": 299,
-    "slot": 997115,
-    "at": 1794807056539
+    "slot": 997116,
+    "at": 1794808856489
    },
    "H1": {
     "bias": "sideways",
     "score": -1,
-    "price": 3874.25,
-    "ema20": 3884.81,
-    "ema50": 3890.39,
-    "rsi": 34.8,
+    "price": 3841.6,
+    "ema20": 3880.69,
+    "ema50": 3888.48,
+    "rsi": 18.7,
     "n": 299,
-    "slot": 498557,
-    "at": 1794805241208
+    "slot": 498558,
+    "at": 1794808856496
    }
   },
   "currency": "USC",
