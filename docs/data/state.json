@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-16T12:51:39.210Z",
+ "generated_at": "2026-11-16T13:01:39.226Z",
  "today": "2026-11-16",
  "week_start": "2026-11-16",
  "campaign": {
@@ -79,7 +79,7 @@
    "title": "Data Analyst",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-11-16 10:01:12"
+   "updated_at": "2026-11-16 13:01:21"
   },
   {
    "id": "price",
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-16 12:45:55"
+   "updated_at": "2026-11-16 13:00:55"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Fed masih hawkish (hike Sep), NFP Okt kuat 165k, DXY ~102 & bias hike Des. Berita 24 jam tak ketemu, data terbaru terbatas.",
-   "updated_at": "2026-11-16 12:45:55"
+   "updated_at": "2026-11-16 13:00:55"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-11-16 12:45:55"
+   "updated_at": "2026-11-16 13:00:55"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-11-16 12:45:55"
+   "updated_at": "2026-11-16 13:00:55"
   },
   {
    "id": "texec",
@@ -616,6 +616,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-16 13:01:21",
+   "agent_id": "analyst",
+   "message": "Update data 35 post IG 📈"
+  },
+  {
    "ts": "2026-11-16 12:50:54",
    "agent_id": "ttech",
    "message": "M10 berubah arah: bullish → sideways"
@@ -734,11 +739,6 @@
    "ts": "2026-11-16 06:51:44",
    "agent_id": "yvideo",
    "message": "Render laptop Shorts #195 gagal, cek logs/laptop-worker.log di laptop"
-  },
-  {
-   "ts": "2026-11-16 06:43:36",
-   "agent_id": "vscript",
-   "message": "Revisi Shorts #195 kelar: Shorts #195 sudah pakai gaya klip film baru: narasi dan hook tetap, 6 adegan sekarang berisi klip `{find, note, n}` (Tha"
   }
  ],
  "chats": [
@@ -1034,13 +1034,20 @@
    "yt_posted": 0,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 0,
+   "views": 21,
    "likes": 0,
    "comments": 0,
    "shares": 0,
    "saves": 0,
    "yt_views": 0,
-   "top": [],
+   "top": [
+    {
+     "title": "3 transfer VCT 2027 yang ubah peta kekuatan",
+     "format": "video",
+     "pillar": "news",
+     "views": 21
+    }
+   ],
    "clicks": 0,
    "click_visitors": 0,
    "click_src": [],
@@ -1118,9 +1125,14 @@
   "paused": false,
   "balance": 1728.1799999999998,
   "today_pnl": 0,
-  "price": 3871.169922,
+  "price": 3872.969971,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-16 13:00:55",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
    {
     "ts": "2026-11-16 12:45:55",
     "decision": "NO TRADE",
@@ -1145,11 +1157,6 @@
     "ts": "2026-11-16 11:45:55",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-11-16 11:30:55",
-    "decision": "NO TRADE",
-    "reason": "setup SELL di band, konfirmasi baru 0/3 (-) · London–NY (mode aman)"
    }
   ],
   "trades": [
@@ -1216,7 +1223,7 @@
    1728.1799999999998
   ],
   "last": {
-   "ts": "2026-11-16 12:45:55",
+   "ts": "2026-11-16 13:00:55",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1237,7 +1244,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3870.70 di atas tengah band (3852.9–3883.1) · RSI 51 · Stoch 77 · MACD +0.97 · H1 bearish"
+    "note": "M15 3872.85 di atas tengah band (3853.8–3883.8) · RSI 53 · Stoch 75 · MACD +0.87 · H1 bearish"
    }
   },
   "fund": {
@@ -1315,46 +1322,46 @@
    "M10": {
     "bias": "sideways",
     "score": 1,
-    "price": 3873,
-    "ema20": 3871.62,
-    "ema50": 3869.53,
-    "rsi": 53.4,
+    "price": 3875.05,
+    "ema20": 3871.95,
+    "ema50": 3869.75,
+    "rsi": 55.8,
     "n": 299,
-    "slot": 2991389,
-    "at": 1794833454966
+    "slot": 2991390,
+    "at": 1794834054975
    },
    "M15": {
     "bias": "sideways",
     "score": 1,
-    "price": 3871.52,
-    "ema20": 3869.67,
-    "ema50": 3870.9,
-    "rsi": 52.3,
+    "price": 3875.05,
+    "ema20": 3870.19,
+    "ema50": 3871.06,
+    "rsi": 55.4,
     "n": 299,
-    "slot": 1994259,
-    "at": 1794833155040
+    "slot": 1994260,
+    "at": 1794834054981
    },
    "M30": {
     "bias": "sideways",
-    "score": 0,
-    "price": 3879.12,
-    "ema20": 3869.99,
-    "ema50": 3875.88,
-    "rsi": 55.4,
+    "score": 1,
+    "price": 3875.05,
+    "ema20": 3870.47,
+    "ema50": 3875.85,
+    "rsi": 52.4,
     "n": 299,
-    "slot": 997129,
-    "at": 1794832254944
+    "slot": 997130,
+    "at": 1794834054983
    },
    "H1": {
     "bias": "sideways",
-    "score": -1,
-    "price": 3877.45,
-    "ema20": 3873.03,
-    "ema50": 3882.98,
-    "rsi": 51.1,
+    "score": 0,
+    "price": 3875.05,
+    "ema20": 3873.22,
+    "ema50": 3882.67,
+    "rsi": 49.7,
     "n": 299,
-    "slot": 498564,
-    "at": 1794830454937
+    "slot": 498565,
+    "at": 1794834054987
    }
   },
   "currency": "USC",
