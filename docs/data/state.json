@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-16T06:41:38.853Z",
+ "generated_at": "2026-11-16T06:51:39.123Z",
  "today": "2026-11-16",
  "week_start": "2026-11-16",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-16 06:30:56"
+   "updated_at": "2026-11-16 06:45:54"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Bias bearish: inflasi panas & USD menguat (DXY ~102), pasar ~80% price Fed hike Des; emas ~$4.100, support $3.870. Warsh speaks 17:00Z.",
-   "updated_at": "2026-11-16 06:30:56"
+   "updated_at": "2026-11-16 06:45:54"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-16 06:30:56"
+   "updated_at": "2026-11-16 06:45:54"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
-   "updated_at": "2026-11-16 06:30:56"
+   "updated_at": "2026-11-16 06:45:54"
   },
   {
    "id": "texec",
@@ -397,7 +397,7 @@
    "game": "sejarah",
    "pillar": "lore_teori",
    "title": "Thanos Ternyata Lahir dari Kelas Psikologi",
-   "status": "pending_approval",
+   "status": "revision",
    "asset_url": null,
    "scheduled_at": null,
    "posted_at": null,
@@ -616,6 +616,16 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-16 06:43:36",
+   "agent_id": "vscript",
+   "message": "Revisi Shorts #195 kelar: Shorts #195 sudah pakai gaya klip film baru: narasi dan hook tetap, 6 adegan sekarang berisi klip `{find, note, n}` (Tha"
+  },
+  {
+   "ts": "2026-11-16 06:43:09",
+   "agent_id": "owner",
+   "message": "Minta revisi Shorts #195: revisi pakai klip film gaya baru"
+  },
+  {
    "ts": "2026-11-16 06:41:38",
    "agent_id": "dir",
    "message": "Kode kantor diperbarui, restart otomatis: scripts/golink.mjs, scripts/trading/run.mjs"
@@ -729,19 +739,30 @@
    "ts": "2026-11-16 02:20:40",
    "agent_id": "ttech",
    "message": "M10 berubah arah: bearish → sideways"
-  },
-  {
-   "ts": "2026-11-16 01:45:40",
-   "agent_id": "ttech",
-   "message": "M15 berubah arah: sideways → bearish"
-  },
-  {
-   "ts": "2026-11-16 01:30:41",
-   "agent_id": "trisk",
-   "message": "NO TRADE · Bollinger Band melebar kencang (breakout), pantulan berisiko"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-11-16 06:42:35",
+   "agent_id": "tresearch",
+   "to_id": "owner",
+   "kind": "nimbrung",
+   "message": "Hahaha Bos, sabar ya, jodoh nggak ke mana kok. Yang penting Bos jangan lupa makan 🍿"
+  },
+  {
+   "ts": "2026-11-16 06:42:35",
+   "agent_id": "trisk",
+   "to_id": "owner",
+   "kind": "nimbrung",
+   "message": "Waduh Bos, jangan kenceng-kenceng nanti Davina cemburu 😆"
+  },
+  {
+   "ts": "2026-11-16 06:42:35",
+   "agent_id": "owner",
+   "to_id": null,
+   "kind": "nimbrung",
+   "message": "aku lagi jomblo, ada yg mau sama aku ga"
+  },
   {
    "ts": "2026-11-16 06:18:00",
    "agent_id": "cdir",
@@ -1000,27 +1021,6 @@
    "to_id": "owner",
    "kind": "santai",
    "message": "Final Worlds udah kelar Bos, BLG juara 3-1 lawan Gen.G, dicek di dua sumber."
-  },
-  {
-   "ts": "2026-11-15 00:23:39",
-   "agent_id": "publisher",
-   "to_id": "owner",
-   "kind": "oper",
-   "message": "\"QA feed BLG juara\" udah lolos QA, tinggal nunggu ✅ dari Bos"
-  },
-  {
-   "ts": "2026-11-15 00:23:35",
-   "agent_id": "designer",
-   "to_id": "publisher",
-   "kind": "oper",
-   "message": "Fikri, desain \"Render feed BLG juara\" udah render 1080×1080. QA dulu ya sebelum ke bos"
-  },
-  {
-   "ts": "2026-11-15 00:23:16",
-   "agent_id": "copywriter",
-   "to_id": "designer",
-   "kind": "oper",
-   "message": "Teks buat \"Feed juara Worlds 2026\" ready. Vania, giliranmu bikin cakep!"
   }
  ],
  "stats": {
@@ -1028,11 +1028,11 @@
    "week": "2026-11-16",
    "total": 16,
    "posted": 0,
-   "pending": 1,
+   "pending": 0,
    "scheduled": 2,
    "yt_total": 3,
    "yt_posted": 0,
-   "yt_pending": 1,
+   "yt_pending": 0,
    "yt_scheduled": 1,
    "views": 0,
    "likes": 0,
@@ -1118,9 +1118,14 @@
   "paused": false,
   "balance": 1728.1799999999998,
   "today_pnl": 0,
-  "price": 3843.050049,
+  "price": 3842.669922,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-16 06:45:54",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
+   },
    {
     "ts": "2026-11-16 06:30:56",
     "decision": "NO TRADE",
@@ -1143,11 +1148,6 @@
    },
    {
     "ts": "2026-11-16 05:30:56",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-   },
-   {
-    "ts": "2026-11-16 05:15:41",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
    }
@@ -1216,7 +1216,7 @@
    1728.1799999999998
   ],
   "last": {
-   "ts": "2026-11-16 06:30:56",
+   "ts": "2026-11-16 06:45:54",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1237,7 +1237,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3854.05 di bawah tengah band (3845.1–3896.6) · RSI 38 · Stoch 36 · MACD -2.24 · H1 sideways"
+    "note": "M15 3843.05 di bawah tengah band (3838.7–3899.2) · RSI 32 · Stoch 24 · MACD -2.91 · H1 sideways"
    }
   },
   "fund": {
@@ -1315,24 +1315,24 @@
    "M10": {
     "bias": "bearish",
     "score": -2,
-    "price": 3849.75,
-    "ema20": 3864.45,
-    "ema50": 3873.72,
-    "rsi": 35.6,
+    "price": 3844.45,
+    "ema20": 3862.55,
+    "ema50": 3872.57,
+    "rsi": 32.8,
     "n": 299,
-    "slot": 2991352,
-    "at": 1794811256511
+    "slot": 2991353,
+    "at": 1794811854734
    },
    "M15": {
     "bias": "bearish",
     "score": -2,
-    "price": 3852.02,
-    "ema20": 3869.98,
-    "ema50": 3878.17,
-    "rsi": 36.1,
+    "price": 3845.77,
+    "ema20": 3867.67,
+    "ema50": 3876.9,
+    "rsi": 33.4,
     "n": 299,
-    "slot": 1994234,
-    "at": 1794810656767
+    "slot": 1994235,
+    "at": 1794811554658
    },
    "M30": {
     "bias": "bearish",
