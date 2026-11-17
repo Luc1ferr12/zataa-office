@@ -468,8 +468,8 @@ async function ytRetention() {
   if (r.ok) return JSON.parse(r.out.split('\n').pop()).videos;
   const msg = (r.err || r.out).split('\n').find((l) => /Error|error/.test(l)) ?? '';
   if (/disabled|not been used|SERVICE_DISABLED/i.test(r.err)) return { _off: 'YouTube Analytics API belum aktif di Google Cloud (project zataa-shorts), Bos tolong klik Enable: https://console.developers.google.com/apis/api/youtubeanalytics.googleapis.com/overview?project=566338684407' };
-  if (/tidak ada channel|kosong di \.env|token YouTube gagal/i.test(r.err + r.out)) return { _off: `retensi detail butuh login YouTube (OAuth) yang belum tersambung ke channel ${B.name}; statistik views/likes tetap dari Zernio` };
-  return { _off: `data retensi gagal diambil: ${esc(msg.slice(0, 150))}` };
+  if (/tidak ada channel|kosong di \.env|token YouTube gagal|Forbidden/i.test(r.err + r.out)) return { _off: `retensi detail butuh login YouTube (OAuth) yang belum tersambung ke channel ${B.name}; statistik views/likes tetap dari Zernio` };
+  return { _off: `data retensi gagal diambil: ${esc(errLine(r.err || r.out))}` };
 }
 const mark = (v, min) => (v == null ? '' : v >= min ? ' ✅' : ' ⚠️');
 function retentionLines(ret, list, n = 7) {
