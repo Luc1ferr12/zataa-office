@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-17T13:56:19.097Z",
+ "generated_at": "2026-11-17T14:06:19.110Z",
  "today": "2026-11-17",
  "week_start": "2026-11-16",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-17 13:45:58"
+   "updated_at": "2026-11-17 14:00:58"
   },
   {
    "id": "tresearch",
@@ -111,15 +111,15 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Waspada rilis Core Retail Sales m/m (21.30 WITA)",
-   "updated_at": "2026-11-17 13:45:58"
+   "updated_at": "2026-11-17 14:00:58"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Setup BUY di band (RSI)",
-   "updated_at": "2026-11-17 13:45:58"
+   "current_task": "Setup BUY di band (Stokastik+MACD)",
+   "updated_at": "2026-11-17 14:00:58"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: berita berdampak tinggi: Core Retail Sales m/m (21.30 WITA)",
-   "updated_at": "2026-11-17 13:45:58"
+   "updated_at": "2026-11-17 14:00:58"
   },
   {
    "id": "texec",
@@ -1241,9 +1241,14 @@
   "paused": false,
   "balance": 1728.1799999999998,
   "today_pnl": 0,
-  "price": 3850,
+  "price": 3863.52002,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-17 14:00:58",
+    "decision": "NO TRADE",
+    "reason": "berita berdampak tinggi: Core Retail Sales m/m (21.30 WITA)"
+   },
    {
     "ts": "2026-11-17 13:45:58",
     "decision": "NO TRADE",
@@ -1266,11 +1271,6 @@
    },
    {
     "ts": "2026-11-17 12:45:58",
-    "decision": "NO TRADE",
-    "reason": "berita berdampak tinggi: Core Retail Sales m/m (21.30 WITA)"
-   },
-   {
-    "ts": "2026-11-17 12:30:58",
     "decision": "NO TRADE",
     "reason": "berita berdampak tinggi: Core Retail Sales m/m (21.30 WITA)"
    }
@@ -1339,7 +1339,7 @@
    1728.1799999999998
   ],
   "last": {
-   "ts": "2026-11-17 13:45:58",
+   "ts": "2026-11-17 14:00:58",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1357,12 +1357,13 @@
    },
    "tech": {
     "bias": "bearish",
-    "score": 1,
+    "score": 2,
     "trigger": "buy",
     "confirm": [
-     "RSI"
+     "Stokastik",
+     "MACD"
     ],
-    "note": "M15 3849.50 di bawah tengah band (3845.8–3877.1) · RSI 39 · Stoch 17 · MACD -1.56 · H1 bearish · setup BUY (RSI)"
+    "note": "M15 3853.45 di bawah tengah band (3846.2–3875.6) · RSI 43 · Stoch 27 · MACD -1.07 · H1 bearish · setup BUY (Stokastik+MACD)"
    }
   },
   "fund": {
@@ -1431,46 +1432,46 @@
    "M10": {
     "bias": "sideways",
     "score": -1,
-    "price": 3848.17,
-    "ema20": 3861.26,
-    "ema50": 3865.03,
-    "rsi": 29.7,
+    "price": 3854.7,
+    "ema20": 3860.64,
+    "ema50": 3864.62,
+    "rsi": 40.6,
     "n": 299,
-    "slot": 2991539,
-    "at": 1794923458670
+    "slot": 2991540,
+    "at": 1794924058685
    },
    "M15": {
     "bias": "bearish",
     "score": -3,
-    "price": 3841.35,
-    "ema20": 3862.2,
-    "ema50": 3865.74,
-    "rsi": 30.1,
+    "price": 3854.7,
+    "ema20": 3861.49,
+    "ema50": 3865.31,
+    "rsi": 43.5,
     "n": 299,
-    "slot": 1994359,
-    "at": 1794923158680
+    "slot": 1994360,
+    "at": 1794924058690
    },
    "M30": {
     "bias": "bearish",
     "score": -3,
-    "price": 3858.97,
-    "ema20": 3866.34,
-    "ema50": 3868.06,
-    "rsi": 43.7,
+    "price": 3854.7,
+    "ema20": 3865.23,
+    "ema50": 3867.54,
+    "rsi": 40.9,
     "n": 299,
-    "slot": 997179,
-    "at": 1794922258716
+    "slot": 997180,
+    "at": 1794924058691
    },
    "H1": {
     "bias": "bearish",
     "score": -2,
-    "price": 3861.8,
-    "ema20": 3868.14,
-    "ema50": 3873.24,
-    "rsi": 46.2,
+    "price": 3854.7,
+    "ema20": 3866.86,
+    "ema50": 3872.51,
+    "rsi": 42.9,
     "n": 299,
-    "slot": 498589,
-    "at": 1794920458610
+    "slot": 498590,
+    "at": 1794924058695
    }
   },
   "currency": "USC",
