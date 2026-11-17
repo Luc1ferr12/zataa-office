@@ -39,17 +39,32 @@ try {
   setjob({ status: 'editing' });
   if (!job.source_url) throw new Error('campaign nggak punya link footage');
 
-  // ---- 2) footage (cache per URL, dipakai ulang buat clip berikutnya)
-  const key = createHash('sha1').update(job.source_url).digest('hex').slice(0, 12);
-  const srcDir = join(CACHE, 'src', key);
-  mkdirSync(srcDir, { recursive: true });
-  const vids = () => readdirSync(srcDir).filter((f) => /\.(mp4|mkv|webm|mov)$/i.test(f)).map((f) => join(srcDir, f));
-  if (!vids().length) {
-    if (/drive\.google\.com\/drive\/folders/.test(job.source_url)) run('python', ['-m', 'gdown', '--folder', '--quiet', '-O', srcDir, job.source_url]);
-    else run('yt-dlp', ['-q', '--no-playlist', '-f', 'bv*[height<=1080]+ba/b[height<=1080]/b', '--merge-output-format', 'mp4', '-o', join(srcDir, '%(id)s.%(ext)s'), job.source_url]);
+  // ---- 2) footage (cache per URL, dipakai ulang buat clip berikutnya).
+  // Sumber gagal / bukan video (mis. slideshow TikTok cuma audio) → dicoba aset lain campaign yang sama, dan URL itu dicatat nggak bisa dipakai.
+  const BAD = join(CACHE, 'bad-sources.json');
+  const bad = new Set(existsSync(BAD) ? JSON.parse(readFileSync(BAD, 'utf8')) : []);
+  const cands = [job.source_url, ...JSON.parse(job.assets || '[]').sort((x, y) => (y.required - x.required)).map((x) => x.url)]
+    .filter((u, i, arr) => u && arr.indexOf(u) === i);
+  const ordered = [...cands.filter((u) => !bad.has(u)), ...(cands.filter((u) => bad.has(u)).length === cands.length ? cands : [])];
+  let all = [], usedSrc = null, lastErr = '';
+  for (const url of ordered) {
+    const srcDir = join(CACHE, 'src', createHash('sha1').update(url).digest('hex').slice(0, 12));
+    mkdirSync(srcDir, { recursive: true });
+    const vids = () => readdirSync(srcDir).filter((f) => /\.(mp4|mkv|webm|mov)$/i.test(f)).map((f) => join(srcDir, f));
+    if (!vids().length) {
+      try {
+        if (/drive\.google\.com\/drive\/folders/.test(url)) run('python', ['-m', 'gdown', '--folder', '--quiet', '-O', srcDir, url]);
+        else run('yt-dlp', ['-q', '--no-playlist', '-f', 'bv*[height<=1080]+ba/b[height<=1080]/b', '--merge-output-format', 'mp4', '-o', join(srcDir, '%(id)s.%(ext)s'), url]);
+      } catch (e) { lastErr = e.message; }
+    }
+    all = vids().sort((x, y) => statSync(y).size - statSync(x).size);
+    if (all.length) { usedSrc = url; break; }
+    bad.add(url); lastErr ||= 'nggak ada file video (cuma audio/foto?)';
+    console.log(`sumber dilewati: ${url.slice(0, 70)} (${lastErr.slice(0, 100)})`);
   }
-  const all = vids().sort((a, b) => statSync(b).size - statSync(a).size);
-  if (!all.length) throw new Error('footage gagal didownload (link Drive private? minta akses / pip install gdown)');
+  writeFileSync(BAD, JSON.stringify([...bad]));
+  if (!all.length) throw new Error(`footage gagal didownload dari semua sumber campaign (${lastErr.slice(0, 120)})`);
+  if (usedSrc !== job.source_url) { setjob({ source_url: usedSrc }); job.source_url = usedSrc; }
   const src = all[id % all.length]; // folder isi banyak video → gilir
 
   // ---- 3) transkrip (sekali per video)

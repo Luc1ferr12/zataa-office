@@ -373,7 +373,7 @@ if (import.meta.url === pathToFileURL(process.argv[1] ?? '').href) {
       show({ ok: true });
     }
     else if (cmd === 'submitted') show(await submitted(a, process.argv.slice(2).filter((x) => !x.startsWith('--'))[2] ?? 'ok'));
-    else if (cmd === 'job') show(cdb().prepare('SELECT j.*, c.title ctitle, c.brief, c.min_views, c.platforms FROM clip_jobs j JOIN clip_campaigns c ON c.id = j.campaign_id WHERE j.id = ?').get(+a));
+    else if (cmd === 'job') show(cdb().prepare('SELECT j.*, c.title ctitle, c.brief, c.min_views, c.platforms, c.assets FROM clip_jobs j JOIN clip_campaigns c ON c.id = j.campaign_id WHERE j.id = ?').get(+a));
     else if (cmd === 'bot') await runBot();
     else console.log('pakai: clipper.mjs scout|propose|list|jobs|approve|skip|plan|post|track|report|bot (lihat header file)');
   } catch (e) { console.error(`Error: ${e.message}`); process.exit(1); }
