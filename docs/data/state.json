@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-17T02:41:39.683Z",
+ "generated_at": "2026-11-17T02:51:39.694Z",
  "today": "2026-11-17",
  "week_start": "2026-11-16",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-17 02:30:56"
+   "updated_at": "2026-11-17 02:45:56"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Bearish: pasar price-in hike Fed Desember (~85-89%), emas turun ke terendah sejak Okt 2025 (~$3.900). Retail Sales 20:30 WITA.",
-   "updated_at": "2026-11-17 02:30:56"
+   "updated_at": "2026-11-17 02:45:56"
   },
   {
    "id": "ttech",
@@ -119,15 +119,15 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Setup SELL di band (Stokastik+MACD)",
-   "updated_at": "2026-11-17 02:30:56"
+   "updated_at": "2026-11-17 02:45:56"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: tengah band terlalu dekat buat target (RR 0.4 < 1.2)",
-   "updated_at": "2026-11-17 02:30:56"
+   "current_task": "NO TRADE: tengah band terlalu dekat buat target (RR 0.6 < 1.2)",
+   "updated_at": "2026-11-17 02:45:56"
   },
   {
    "id": "texec",
@@ -1229,9 +1229,14 @@
   "paused": false,
   "balance": 1728.1799999999998,
   "today_pnl": 0,
-  "price": 3865.600098,
+  "price": 3869.169922,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-17 02:45:56",
+    "decision": "NO TRADE",
+    "reason": "tengah band terlalu dekat buat target (RR 0.6 < 1.2)"
+   },
    {
     "ts": "2026-11-17 02:30:56",
     "decision": "NO TRADE",
@@ -1254,11 +1259,6 @@
    },
    {
     "ts": "2026-11-17 01:30:55",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-   },
-   {
-    "ts": "2026-11-17 01:15:55",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
    }
@@ -1327,7 +1327,7 @@
    1728.1799999999998
   ],
   "last": {
-   "ts": "2026-11-17 02:30:56",
+   "ts": "2026-11-17 02:45:56",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1336,7 +1336,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "tengah band terlalu dekat buat target (RR 0.4 < 1.2)",
+   "reason": "tengah band terlalu dekat buat target (RR 0.6 < 1.2)",
    "fund": {
     "bias": -0.6,
     "note": "Bearish: pasar price-in hike Fed Desember (~85-89%), emas turun ke terendah sejak Okt 2025 (~$3.900). Retail Sales 20:30 WITA.",
@@ -1351,7 +1351,7 @@
      "Stokastik",
      "MACD"
     ],
-    "note": "M15 3866.55 di atas tengah band (3850.1–3872.6) · RSI 54 · Stoch 80 · MACD +1.33 · H1 bearish · setup SELL (Stokastik+MACD)"
+    "note": "M15 3868.45 di atas tengah band (3850.0–3873.7) · RSI 57 · Stoch 76 · MACD +1.28 · H1 bearish · setup SELL (Stokastik+MACD)"
    }
   },
   "fund": {
@@ -1420,24 +1420,24 @@
    "M10": {
     "bias": "bullish",
     "score": 2,
-    "price": 3869.97,
-    "ema20": 3862.78,
-    "ema50": 3861.73,
-    "rsi": 59.9,
+    "price": 3868.85,
+    "ema20": 3863.36,
+    "ema50": 3862.01,
+    "rsi": 58.3,
     "n": 299,
-    "slot": 2991472,
-    "at": 1794883255777
+    "slot": 2991473,
+    "at": 1794883855850
    },
    "M15": {
     "bias": "sideways",
     "score": 0,
-    "price": 3869.45,
-    "ema20": 3862.43,
-    "ema50": 3863.05,
-    "rsi": 57.9,
+    "price": 3867.97,
+    "ema20": 3862.96,
+    "ema50": 3863.25,
+    "rsi": 56.1,
     "n": 299,
-    "slot": 1994314,
-    "at": 1794882655965
+    "slot": 1994315,
+    "at": 1794883555861
    },
    "M30": {
     "bias": "sideways",
