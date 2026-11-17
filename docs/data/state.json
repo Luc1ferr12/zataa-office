@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-17T20:26:19.259Z",
+ "generated_at": "2026-11-17T20:36:19.270Z",
  "today": "2026-11-18",
  "week_start": "2026-11-16",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-17 20:15:59"
+   "updated_at": "2026-11-17 20:30:59"
   },
   {
    "id": "tresearch",
@@ -111,15 +111,15 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Campur: safe-haven & minyak naik vs USD kuat & Fed hawkish. Retail Sales hari ini bisa tekan emas. Info perang belum terkonfirmasi.",
-   "updated_at": "2026-11-17 20:15:59"
+   "updated_at": "2026-11-17 20:30:59"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Setup BUY di band (RSI+Stokastik+MACD)",
-   "updated_at": "2026-11-17 20:15:59"
+   "current_task": "Belum ada pantulan band · H1 bearish",
+   "updated_at": "2026-11-17 20:30:59"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
-   "updated_at": "2026-11-17 20:15:59"
+   "updated_at": "2026-11-17 20:30:59"
   },
   {
    "id": "texec",
@@ -1185,12 +1185,12 @@
    "yt_posted": 10,
    "yt_pending": 1,
    "yt_scheduled": 0,
-   "views": 19400,
+   "views": 19406,
    "likes": 238,
    "comments": 6,
    "shares": 3,
    "saves": 0,
-   "yt_views": 16311,
+   "yt_views": 16317,
    "top": [
     {
      "title": "Tulisan Tertua Indonesia Ada di 7 Tiang Batu Ini",
@@ -1241,9 +1241,14 @@
   "paused": false,
   "balance": 1728.1799999999998,
   "today_pnl": 0,
-  "price": 3850.75,
+  "price": 3854.850098,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-17 20:30:59",
+    "decision": "NO TRADE",
+    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
+   },
    {
     "ts": "2026-11-17 20:15:59",
     "decision": "NO TRADE",
@@ -1266,11 +1271,6 @@
    },
    {
     "ts": "2026-11-17 19:15:59",
-    "decision": "NO TRADE",
-    "reason": "kondisi berita bahaya: Dugaan serangan AS-Israel ke Iran (belum terkonfirmasi); Retail Sales 13:30Z"
-   },
-   {
-    "ts": "2026-11-17 19:00:59",
     "decision": "NO TRADE",
     "reason": "kondisi berita bahaya: Dugaan serangan AS-Israel ke Iran (belum terkonfirmasi); Retail Sales 13:30Z"
    }
@@ -1339,7 +1339,7 @@
    1728.1799999999998
   ],
   "last": {
-   "ts": "2026-11-17 20:15:59",
+   "ts": "2026-11-17 20:30:59",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1357,14 +1357,10 @@
    },
    "tech": {
     "bias": "bearish",
-    "score": 3,
-    "trigger": "buy",
-    "confirm": [
-     "RSI",
-     "Stokastik",
-     "MACD"
-    ],
-    "note": "M15 3849.95 di bawah tengah band (3843.8–3885.8) · RSI 37 · Stoch 10 · MACD -2.13 · H1 bearish · setup BUY (RSI+Stokastik+MACD)"
+    "score": 0,
+    "trigger": null,
+    "confirm": [],
+    "note": "M15 3851.92 di bawah tengah band (3843.4–3883.6) · RSI 39 · Stoch 19 · MACD -1.70 · H1 bearish"
    }
   },
   "fund": {
@@ -1415,35 +1411,35 @@
    "M10": {
     "bias": "bearish",
     "score": -3,
-    "price": 3851.65,
-    "ema20": 3859.37,
-    "ema50": 3863.38,
-    "rsi": 33.3,
+    "price": 3851.95,
+    "ema20": 3858.66,
+    "ema50": 3862.93,
+    "rsi": 34,
     "n": 299,
-    "slot": 2991578,
-    "at": 1794946858983
+    "slot": 2991579,
+    "at": 1794947458988
    },
    "M15": {
     "bias": "bearish",
     "score": -2,
-    "price": 3848.67,
-    "ema20": 3861.18,
-    "ema50": 3864.4,
-    "rsi": 35,
+    "price": 3851.95,
+    "ema20": 3860.3,
+    "ema50": 3863.91,
+    "rsi": 39.3,
     "n": 299,
-    "slot": 1994385,
-    "at": 1794946558980
+    "slot": 1994386,
+    "at": 1794947458994
    },
    "M30": {
     "bias": "bearish",
     "score": -2,
-    "price": 3849.5,
-    "ema20": 3864.77,
-    "ema50": 3866.83,
-    "rsi": 36.5,
+    "price": 3851.95,
+    "ema20": 3863.55,
+    "ema50": 3866.25,
+    "rsi": 39,
     "n": 299,
-    "slot": 997192,
-    "at": 1794945658972
+    "slot": 997193,
+    "at": 1794947458995
    },
    "H1": {
     "bias": "bearish",
