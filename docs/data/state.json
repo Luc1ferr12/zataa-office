@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-17T16:36:19.164Z",
+ "generated_at": "2026-11-17T16:46:19.164Z",
  "today": "2026-11-18",
  "week_start": "2026-11-16",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-17 16:30:59"
+   "updated_at": "2026-11-17 16:45:59"
   },
   {
    "id": "tresearch",
@@ -111,15 +111,15 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Campur: safe-haven & minyak naik vs USD kuat & Fed hawkish. Retail Sales hari ini bisa tekan emas. Info perang belum terkonfirmasi.",
-   "updated_at": "2026-11-17 16:30:59"
+   "updated_at": "2026-11-17 16:45:59"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Setup SELL di band (MACD)",
-   "updated_at": "2026-11-17 16:30:59"
+   "current_task": "Belum ada pantulan band · H1 bearish",
+   "updated_at": "2026-11-17 16:45:59"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: kondisi berita bahaya: Dugaan serangan AS-Israel ke Iran (belum terkonfirmasi); Retail Sales 13:30Z",
-   "updated_at": "2026-11-17 16:30:59"
+   "updated_at": "2026-11-17 16:45:59"
   },
   {
    "id": "texec",
@@ -720,6 +720,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-17 16:45:59",
+   "agent_id": "trisk",
+   "message": "NO TRADE · kondisi berita bahaya: Dugaan serangan AS-Israel ke Iran (belum terkonfirmasi); Retail Sales 13:30Z"
+  },
+  {
    "ts": "2026-11-17 16:15:58",
    "agent_id": "ttech",
    "message": "M15 berubah arah: sideways → bullish"
@@ -838,11 +843,6 @@
    "ts": "2026-11-17 12:01:01",
    "agent_id": "spublish",
    "message": "Cross-post Shorts #197 ke TikTok Zaa Story"
-  },
-  {
-   "ts": "2026-11-17 12:00:58",
-   "agent_id": "ttech",
-   "message": "M60 berubah arah: bearish → sideways"
   }
  ],
  "chats": [
@@ -1241,9 +1241,14 @@
   "paused": false,
   "balance": 1728.1799999999998,
   "today_pnl": 0,
-  "price": 3871.899902,
+  "price": 3868.820068,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-17 16:45:59",
+    "decision": "NO TRADE",
+    "reason": "kondisi berita bahaya: Dugaan serangan AS-Israel ke Iran (belum terkonfirmasi); Retail Sales 13:30Z"
+   },
    {
     "ts": "2026-11-17 16:30:59",
     "decision": "NO TRADE",
@@ -1266,11 +1271,6 @@
    },
    {
     "ts": "2026-11-17 15:30:58",
-    "decision": "NO TRADE",
-    "reason": "kondisi berita bahaya: Dugaan serangan AS-Israel ke Iran (belum terkonfirmasi); Retail Sales 13:30Z"
-   },
-   {
-    "ts": "2026-11-17 15:15:58",
     "decision": "NO TRADE",
     "reason": "kondisi berita bahaya: Dugaan serangan AS-Israel ke Iran (belum terkonfirmasi); Retail Sales 13:30Z"
    }
@@ -1339,7 +1339,7 @@
    1728.1799999999998
   ],
   "last": {
-   "ts": "2026-11-17 16:30:59",
+   "ts": "2026-11-17 16:45:59",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1356,13 +1356,11 @@
     "blackout": null
    },
    "tech": {
-    "bias": "sideways",
-    "score": 1,
-    "trigger": "sell",
-    "confirm": [
-     "MACD"
-    ],
-    "note": "M15 3872.47 di atas tengah band (3845.8–3885.2) · RSI 54 · Stoch 61 · MACD +1.68 · H1 sideways · setup SELL (MACD)"
+    "bias": "bearish",
+    "score": 0,
+    "trigger": null,
+    "confirm": [],
+    "note": "M15 3868.82 di atas tengah band (3845.9–3884.6) · RSI 51 · Stoch 56 · MACD +1.02 · H1 bearish"
    }
   },
   "fund": {
@@ -1413,24 +1411,24 @@
    "M10": {
     "bias": "bullish",
     "score": 3,
-    "price": 3873.12,
-    "ema20": 3868.64,
-    "ema50": 3866.77,
-    "rsi": 55.7,
+    "price": 3872.47,
+    "ema20": 3869.01,
+    "ema50": 3867,
+    "rsi": 55,
     "n": 299,
-    "slot": 2991555,
-    "at": 1794933058833
+    "slot": 2991556,
+    "at": 1794933658837
    },
    "M15": {
     "bias": "bullish",
     "score": 3,
-    "price": 3873.12,
-    "ema20": 3867.43,
-    "ema50": 3866.89,
-    "rsi": 54.5,
+    "price": 3869,
+    "ema20": 3867.58,
+    "ema50": 3866.97,
+    "rsi": 51.4,
     "n": 299,
-    "slot": 1994370,
-    "at": 1794933058837
+    "slot": 1994371,
+    "at": 1794933958840
    },
    "M30": {
     "bias": "sideways",
