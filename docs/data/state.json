@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-17T13:26:19.093Z",
+ "generated_at": "2026-11-17T13:36:19.093Z",
  "today": "2026-11-17",
  "week_start": "2026-11-16",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-17 13:15:58"
+   "updated_at": "2026-11-17 13:30:58"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Waspada rilis Core Retail Sales m/m (21.30 WITA)",
-   "updated_at": "2026-11-17 13:15:58"
+   "updated_at": "2026-11-17 13:30:58"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-11-17 13:15:58"
+   "updated_at": "2026-11-17 13:30:58"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: berita berdampak tinggi: Core Retail Sales m/m (21.30 WITA)",
-   "updated_at": "2026-11-17 13:15:58"
+   "updated_at": "2026-11-17 13:30:58"
   },
   {
    "id": "texec",
@@ -720,6 +720,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-17 13:30:58",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: bearish → sideways"
+  },
+  {
    "ts": "2026-11-17 13:00:58",
    "agent_id": "ttech",
    "message": "M60 berubah arah: sideways → bearish"
@@ -838,11 +843,6 @@
    "ts": "2026-11-17 09:40:42",
    "agent_id": "ttech",
    "message": "M10 berubah arah: sideways → bearish"
-  },
-  {
-   "ts": "2026-11-17 09:01:43",
-   "agent_id": "publisher",
-   "message": "Posting #199 ke IG + TikTok ✅"
   }
  ],
  "chats": [
@@ -1241,9 +1241,14 @@
   "paused": false,
   "balance": 1728.1799999999998,
   "today_pnl": 0,
-  "price": 3856.800049,
+  "price": 3851.550049,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-17 13:30:58",
+    "decision": "NO TRADE",
+    "reason": "berita berdampak tinggi: Core Retail Sales m/m (21.30 WITA)"
+   },
    {
     "ts": "2026-11-17 13:15:58",
     "decision": "NO TRADE",
@@ -1266,11 +1271,6 @@
    },
    {
     "ts": "2026-11-17 12:15:58",
-    "decision": "NO TRADE",
-    "reason": "kondisi berita bahaya: Dugaan serangan AS-Israel ke Iran (belum terkonfirmasi); Retail Sales 13:30Z"
-   },
-   {
-    "ts": "2026-11-17 12:00:58",
     "decision": "NO TRADE",
     "reason": "kondisi berita bahaya: Dugaan serangan AS-Israel ke Iran (belum terkonfirmasi); Retail Sales 13:30Z"
    }
@@ -1339,7 +1339,7 @@
    1728.1799999999998
   ],
   "last": {
-   "ts": "2026-11-17 13:15:58",
+   "ts": "2026-11-17 13:30:58",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1360,7 +1360,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3860.47 di bawah tengah band (3853.4–3874.5) · RSI 44 · Stoch 35 · MACD -0.19 · H1 bearish"
+    "note": "M15 3860.47 di bawah tengah band (3853.1–3873.7) · RSI 44 · Stoch 30 · MACD -0.23 · H1 bearish"
    }
   },
   "fund": {
@@ -1427,37 +1427,37 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "bearish",
-    "score": -2,
-    "price": 3860.15,
-    "ema20": 3864.27,
-    "ema50": 3866.58,
-    "rsi": 42.2,
+    "bias": "sideways",
+    "score": -1,
+    "price": 3858.97,
+    "ema20": 3863.77,
+    "ema50": 3866.28,
+    "rsi": 40.6,
     "n": 299,
-    "slot": 2991536,
-    "at": 1794921658631
+    "slot": 2991537,
+    "at": 1794922258707
    },
    "M15": {
     "bias": "bearish",
     "score": -3,
-    "price": 3859.77,
-    "ema20": 3864.96,
-    "ema50": 3867.05,
-    "rsi": 43.2,
+    "price": 3858.97,
+    "ema20": 3864.39,
+    "ema50": 3866.73,
+    "rsi": 42.5,
     "n": 299,
-    "slot": 1994357,
-    "at": 1794921358696
+    "slot": 1994358,
+    "at": 1794922258715
    },
    "M30": {
     "bias": "bearish",
     "score": -3,
-    "price": 3861.8,
-    "ema20": 3867.11,
-    "ema50": 3868.43,
-    "rsi": 45.6,
+    "price": 3858.97,
+    "ema20": 3866.34,
+    "ema50": 3868.06,
+    "rsi": 43.7,
     "n": 299,
-    "slot": 997178,
-    "at": 1794920458606
+    "slot": 997179,
+    "at": 1794922258716
    },
    "H1": {
     "bias": "bearish",
