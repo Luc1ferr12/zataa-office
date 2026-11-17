@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-17T06:54:11.090Z",
+ "generated_at": "2026-11-17T07:04:11.090Z",
  "today": "2026-11-17",
  "week_start": "2026-11-16",
  "campaign": {
@@ -79,7 +79,7 @@
    "title": "Data Analyst",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-11-17 04:01:14"
+   "updated_at": "2026-11-17 07:00:41"
   },
   {
    "id": "price",
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-17 06:45:41"
+   "updated_at": "2026-11-17 07:00:41"
   },
   {
    "id": "tresearch",
@@ -111,23 +111,23 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Bearish: pasar price-in hike Fed Desember (~85-89%), emas turun ke terendah sejak Okt 2025 (~$3.900). Retail Sales 20:30 WITA.",
-   "updated_at": "2026-11-17 06:45:41"
+   "updated_at": "2026-11-17 07:00:41"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-17 06:45:41"
+   "current_task": "Belum ada pantulan band · H1 bearish",
+   "updated_at": "2026-11-17 07:00:41"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
-   "updated_at": "2026-11-17 06:45:41"
+   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
+   "updated_at": "2026-11-17 07:00:41"
   },
   {
    "id": "texec",
@@ -720,6 +720,16 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-17 07:00:41",
+   "agent_id": "analyst",
+   "message": "Update data 35 post IG 📈"
+  },
+  {
+   "ts": "2026-11-17 07:00:41",
+   "agent_id": "ttech",
+   "message": "M15 berubah arah: bullish → sideways"
+  },
+  {
    "ts": "2026-11-17 06:50:41",
    "agent_id": "ttech",
    "message": "M10 berubah arah: bullish → sideways"
@@ -833,16 +843,6 @@
    "ts": "2026-11-17 01:01:04",
    "agent_id": "publisher",
    "message": "Kirim draf IG Story ke Bos 📱"
-  },
-  {
-   "ts": "2026-11-17 01:00:55",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: sideways → bearish"
-  },
-  {
-   "ts": "2026-11-17 00:40:55",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: bearish → sideways"
   }
  ],
  "chats": [
@@ -1138,7 +1138,7 @@
    "yt_posted": 1,
    "yt_pending": 0,
    "yt_scheduled": 3,
-   "views": 130,
+   "views": 136,
    "likes": 0,
    "comments": 0,
    "shares": 0,
@@ -1149,7 +1149,13 @@
      "title": "3 transfer VCT 2027 yang ubah peta kekuatan",
      "format": "video",
      "pillar": "news",
-     "views": 130
+     "views": 134
+    },
+    {
+     "title": "Kuis: tebak 2 tim ID yang lolos M8 Turkiye",
+     "format": "feed",
+     "pillar": "engagement",
+     "views": 2
     }
    ],
    "clicks": 0,
@@ -1229,9 +1235,14 @@
   "paused": false,
   "balance": 1728.1799999999998,
   "today_pnl": 0,
-  "price": 3873.449951,
+  "price": 3879.649902,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-17 07:00:41",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
    {
     "ts": "2026-11-17 06:45:41",
     "decision": "NO TRADE",
@@ -1256,11 +1267,6 @@
     "ts": "2026-11-17 05:45:55",
     "decision": "NO TRADE",
     "reason": "tengah band terlalu dekat buat target (RR 1.2 < 1.2)"
-   },
-   {
-    "ts": "2026-11-17 05:30:55",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
    }
   ],
   "trades": [
@@ -1327,7 +1333,7 @@
    1728.1799999999998
   ],
   "last": {
-   "ts": "2026-11-17 06:45:41",
+   "ts": "2026-11-17 07:00:41",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1336,7 +1342,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)",
+   "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
    "fund": {
     "bias": -0.6,
     "note": "Bearish: pasar price-in hike Fed Desember (~85-89%), emas turun ke terendah sejak Okt 2025 (~$3.900). Retail Sales 20:30 WITA.",
@@ -1344,11 +1350,11 @@
     "blackout": null
    },
    "tech": {
-    "bias": "sideways",
+    "bias": "bearish",
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3877.65 di atas tengah band (3864.3–3886.0) · RSI 56 · Stoch 47 · MACD -0.26 · H1 sideways"
+    "note": "M15 3873.97 di bawah tengah band (3864.6–3885.7) · RSI 52 · Stoch 37 · MACD -0.77 · H1 bearish"
    }
   },
   "fund": {
@@ -1417,46 +1423,46 @@
    "M10": {
     "bias": "sideways",
     "score": 1,
-    "price": 3873.95,
-    "ema20": 3876.24,
-    "ema50": 3871.12,
+    "price": 3873.97,
+    "ema20": 3876.02,
+    "ema50": 3871.23,
     "rsi": 48.8,
     "n": 299,
-    "slot": 2991497,
-    "at": 1794898241215
+    "slot": 2991498,
+    "at": 1794898841320
    },
    "M15": {
-    "bias": "bullish",
-    "score": 3,
-    "price": 3876.25,
-    "ema20": 3874.4,
-    "ema50": 3869.58,
-    "rsi": 54.8,
+    "bias": "sideways",
+    "score": 1,
+    "price": 3873.97,
+    "ema20": 3874.36,
+    "ema50": 3869.75,
+    "rsi": 51.7,
     "n": 299,
-    "slot": 1994331,
-    "at": 1794897941212
+    "slot": 1994332,
+    "at": 1794898841325
    },
    "M30": {
     "bias": "bullish",
     "score": 3,
-    "price": 3877.27,
-    "ema20": 3870.43,
-    "ema50": 3869.61,
-    "rsi": 56,
+    "price": 3873.97,
+    "ema20": 3870.76,
+    "ema50": 3869.78,
+    "rsi": 53.3,
     "n": 299,
-    "slot": 997165,
-    "at": 1794897041289
+    "slot": 997166,
+    "at": 1794898841329
    },
    "H1": {
     "bias": "sideways",
     "score": 0,
-    "price": 3883.65,
-    "ema20": 3869.2,
-    "ema50": 3875.07,
-    "rsi": 57.8,
+    "price": 3873.97,
+    "ema20": 3869.66,
+    "ema50": 3875.02,
+    "rsi": 52,
     "n": 299,
-    "slot": 498582,
-    "at": 1794895255478
+    "slot": 498583,
+    "at": 1794898841333
    }
   },
   "currency": "USC",
