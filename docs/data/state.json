@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-17T07:14:11.100Z",
+ "generated_at": "2026-11-17T07:24:11.107Z",
  "today": "2026-11-17",
  "week_start": "2026-11-16",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-17 07:00:41"
+   "updated_at": "2026-11-17 07:15:41"
   },
   {
    "id": "tresearch",
@@ -111,15 +111,15 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Bearish: pasar price-in hike Fed Desember (~85-89%), emas turun ke terendah sejak Okt 2025 (~$3.900). Retail Sales 20:30 WITA.",
-   "updated_at": "2026-11-17 07:00:41"
+   "updated_at": "2026-11-17 07:15:41"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-11-17 07:00:41"
+   "current_task": "Belum ada pantulan band · H1 sideways",
+   "updated_at": "2026-11-17 07:15:41"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-11-17 07:00:41"
+   "updated_at": "2026-11-17 07:15:41"
   },
   {
    "id": "texec",
@@ -720,6 +720,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-17 07:15:41",
+   "agent_id": "ttech",
+   "message": "M15 berubah arah: sideways → bullish"
+  },
+  {
    "ts": "2026-11-17 07:10:41",
    "agent_id": "ttech",
    "message": "M10 berubah arah: sideways → bullish"
@@ -838,11 +843,6 @@
    "ts": "2026-11-17 01:15:55",
    "agent_id": "trisk",
    "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-  },
-  {
-   "ts": "2026-11-17 01:01:25",
-   "agent_id": "analyst",
-   "message": "Update data 35 post IG 📈"
   }
  ],
  "chats": [
@@ -1235,9 +1235,14 @@
   "paused": false,
   "balance": 1728.1799999999998,
   "today_pnl": 0,
-  "price": 3879.149902,
+  "price": 3880.149902,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-17 07:15:41",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
    {
     "ts": "2026-11-17 07:00:41",
     "decision": "NO TRADE",
@@ -1262,11 +1267,6 @@
     "ts": "2026-11-17 06:00:55",
     "decision": "NO TRADE",
     "reason": "tengah band terlalu dekat buat target (RR 0.8 < 1.2)"
-   },
-   {
-    "ts": "2026-11-17 05:45:55",
-    "decision": "NO TRADE",
-    "reason": "tengah band terlalu dekat buat target (RR 1.2 < 1.2)"
    }
   ],
   "trades": [
@@ -1333,7 +1333,7 @@
    1728.1799999999998
   ],
   "last": {
-   "ts": "2026-11-17 07:00:41",
+   "ts": "2026-11-17 07:15:41",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1350,11 +1350,11 @@
     "blackout": null
    },
    "tech": {
-    "bias": "bearish",
+    "bias": "sideways",
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3873.97 di bawah tengah band (3864.6–3885.7) · RSI 52 · Stoch 37 · MACD -0.77 · H1 bearish"
+    "note": "M15 3880.30 di atas tengah band (3865.4–3886.7) · RSI 59 · Stoch 53 · MACD -0.28 · H1 sideways"
    }
   },
   "fund": {
@@ -1423,24 +1423,24 @@
    "M10": {
     "bias": "bullish",
     "score": 3,
-    "price": 3878.55,
-    "ema20": 3876.26,
-    "ema50": 3871.52,
-    "rsi": 55.3,
+    "price": 3879.37,
+    "ema20": 3876.56,
+    "ema50": 3871.83,
+    "rsi": 56.4,
     "n": 299,
-    "slot": 2991499,
-    "at": 1794899441241
+    "slot": 2991500,
+    "at": 1794900041226
    },
    "M15": {
-    "bias": "sideways",
-    "score": 1,
-    "price": 3873.97,
-    "ema20": 3874.36,
-    "ema50": 3869.75,
-    "rsi": 51.7,
+    "bias": "bullish",
+    "score": 3,
+    "price": 3880.67,
+    "ema20": 3874.96,
+    "ema50": 3870.18,
+    "rsi": 59.1,
     "n": 299,
-    "slot": 1994332,
-    "at": 1794898841325
+    "slot": 1994333,
+    "at": 1794899741237
    },
    "M30": {
     "bias": "bullish",
