@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-17T13:36:19.093Z",
+ "generated_at": "2026-11-17T13:46:19.093Z",
  "today": "2026-11-17",
  "week_start": "2026-11-16",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-17 13:30:58"
+   "updated_at": "2026-11-17 13:45:58"
   },
   {
    "id": "tresearch",
@@ -111,15 +111,15 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Waspada rilis Core Retail Sales m/m (21.30 WITA)",
-   "updated_at": "2026-11-17 13:30:58"
+   "updated_at": "2026-11-17 13:45:58"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-11-17 13:30:58"
+   "current_task": "Setup BUY di band (RSI)",
+   "updated_at": "2026-11-17 13:45:58"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: berita berdampak tinggi: Core Retail Sales m/m (21.30 WITA)",
-   "updated_at": "2026-11-17 13:30:58"
+   "updated_at": "2026-11-17 13:45:58"
   },
   {
    "id": "texec",
@@ -720,6 +720,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-17 13:45:58",
+   "agent_id": "trisk",
+   "message": "NO TRADE · berita berdampak tinggi: Core Retail Sales m/m (21.30 WITA)"
+  },
+  {
    "ts": "2026-11-17 13:30:58",
    "agent_id": "ttech",
    "message": "M10 berubah arah: bearish → sideways"
@@ -838,11 +843,6 @@
    "ts": "2026-11-17 09:45:42",
    "agent_id": "trisk",
    "message": "NO TRADE · setup BUY di band, konfirmasi baru 2/3 (Stokastik+MACD) · London–NY (mode aman)"
-  },
-  {
-   "ts": "2026-11-17 09:40:42",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: sideways → bearish"
   }
  ],
  "chats": [
@@ -1241,9 +1241,14 @@
   "paused": false,
   "balance": 1728.1799999999998,
   "today_pnl": 0,
-  "price": 3851.550049,
+  "price": 3849.5,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-17 13:45:58",
+    "decision": "NO TRADE",
+    "reason": "berita berdampak tinggi: Core Retail Sales m/m (21.30 WITA)"
+   },
    {
     "ts": "2026-11-17 13:30:58",
     "decision": "NO TRADE",
@@ -1268,11 +1273,6 @@
     "ts": "2026-11-17 12:30:58",
     "decision": "NO TRADE",
     "reason": "berita berdampak tinggi: Core Retail Sales m/m (21.30 WITA)"
-   },
-   {
-    "ts": "2026-11-17 12:15:58",
-    "decision": "NO TRADE",
-    "reason": "kondisi berita bahaya: Dugaan serangan AS-Israel ke Iran (belum terkonfirmasi); Retail Sales 13:30Z"
    }
   ],
   "trades": [
@@ -1339,7 +1339,7 @@
    1728.1799999999998
   ],
   "last": {
-   "ts": "2026-11-17 13:30:58",
+   "ts": "2026-11-17 13:45:58",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1357,10 +1357,12 @@
    },
    "tech": {
     "bias": "bearish",
-    "score": 0,
-    "trigger": null,
-    "confirm": [],
-    "note": "M15 3860.47 di bawah tengah band (3853.1–3873.7) · RSI 44 · Stoch 30 · MACD -0.23 · H1 bearish"
+    "score": 1,
+    "trigger": "buy",
+    "confirm": [
+     "RSI"
+    ],
+    "note": "M15 3849.50 di bawah tengah band (3845.8–3877.1) · RSI 39 · Stoch 17 · MACD -1.56 · H1 bearish · setup BUY (RSI)"
    }
   },
   "fund": {
@@ -1429,24 +1431,24 @@
    "M10": {
     "bias": "sideways",
     "score": -1,
-    "price": 3858.97,
-    "ema20": 3863.77,
-    "ema50": 3866.28,
-    "rsi": 40.6,
+    "price": 3851.9,
+    "ema20": 3862.64,
+    "ema50": 3865.71,
+    "rsi": 32.9,
     "n": 299,
-    "slot": 2991537,
-    "at": 1794922258707
+    "slot": 2991538,
+    "at": 1794922858649
    },
    "M15": {
     "bias": "bearish",
     "score": -3,
-    "price": 3858.97,
-    "ema20": 3864.39,
-    "ema50": 3866.73,
-    "rsi": 42.5,
+    "price": 3841.35,
+    "ema20": 3862.2,
+    "ema50": 3865.74,
+    "rsi": 30.1,
     "n": 299,
-    "slot": 1994358,
-    "at": 1794922258715
+    "slot": 1994359,
+    "at": 1794923158680
    },
    "M30": {
     "bias": "bearish",
