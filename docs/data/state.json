@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-17T21:46:19.290Z",
+ "generated_at": "2026-11-17T21:56:19.290Z",
  "today": "2026-11-18",
  "week_start": "2026-11-16",
  "campaign": {
@@ -720,6 +720,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-17 21:50:59",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: sideways → bearish"
+  },
+  {
    "ts": "2026-11-17 21:40:59",
    "agent_id": "ttech",
    "message": "M10 berubah arah: bearish → sideways"
@@ -838,11 +843,6 @@
    "ts": "2026-11-17 15:10:58",
    "agent_id": "ttech",
    "message": "M10 berubah arah: sideways → bearish"
-  },
-  {
-   "ts": "2026-11-17 14:45:58",
-   "agent_id": "trisk",
-   "message": "NO TRADE · kondisi berita bahaya: Dugaan serangan AS-Israel ke Iran (belum terkonfirmasi); Retail Sales 13:30Z"
   }
  ],
  "chats": [
@@ -1241,7 +1241,7 @@
   "paused": false,
   "balance": 1728.1799999999998,
   "today_pnl": 0,
-  "price": 3853.5,
+  "price": 3852.02002,
   "open": [],
   "signals": [
    {
@@ -1406,15 +1406,15 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "sideways",
-    "score": 0,
-    "price": 3856.45,
-    "ema20": 3855.82,
-    "ema50": 3860.49,
-    "rsi": 48.1,
+    "bias": "bearish",
+    "score": -2,
+    "price": 3852.82,
+    "ema20": 3855.54,
+    "ema50": 3860.19,
+    "rsi": 41.8,
     "n": 299,
-    "slot": 2991586,
-    "at": 1794951659119
+    "slot": 2991587,
+    "at": 1794952259035
    },
    "M15": {
     "bias": "bearish",
