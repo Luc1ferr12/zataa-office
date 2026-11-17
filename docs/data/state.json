@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-17T09:34:42.647Z",
+ "generated_at": "2026-11-17T09:44:42.655Z",
  "today": "2026-11-17",
  "week_start": "2026-11-16",
  "campaign": {
@@ -720,6 +720,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-17 09:40:42",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: sideways → bearish"
+  },
+  {
    "ts": "2026-11-17 09:01:43",
    "agent_id": "publisher",
    "message": "Posting #199 ke IG + TikTok ✅"
@@ -838,11 +843,6 @@
    "ts": "2026-11-17 04:02:39",
    "agent_id": "dir",
    "message": "Kode kantor diperbarui, restart otomatis: scripts/watch.mjs, scripts/golink.mjs, scripts/trading/run.mjs"
-  },
-  {
-   "ts": "2026-11-17 04:01:14",
-   "agent_id": "analyst",
-   "message": "Update data 35 post IG 📈"
   }
  ],
  "chats": [
@@ -1235,7 +1235,7 @@
   "paused": false,
   "balance": 1728.1799999999998,
   "today_pnl": 0,
-  "price": 3864.550049,
+  "price": 3866.699951,
   "open": [],
   "signals": [
    {
@@ -1418,15 +1418,15 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "sideways",
-    "score": -1,
-    "price": 3865.2,
-    "ema20": 3871.71,
-    "ema50": 3871.36,
-    "rsi": 41.5,
+    "bias": "bearish",
+    "score": -3,
+    "price": 3865.55,
+    "ema20": 3871.13,
+    "ema50": 3871.13,
+    "rsi": 42,
     "n": 299,
-    "slot": 2991513,
-    "at": 1794907842830
+    "slot": 2991514,
+    "at": 1794908442747
    },
    "M15": {
     "bias": "sideways",
