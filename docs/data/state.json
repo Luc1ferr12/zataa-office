@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-17T11:59:18.887Z",
+ "generated_at": "2026-11-17T12:06:19.050Z",
  "today": "2026-11-17",
  "week_start": "2026-11-16",
  "campaign": {
@@ -63,7 +63,7 @@
    "title": "Social Media Publisher",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-11-17 09:01:43"
+   "updated_at": "2026-11-17 12:01:21"
   },
   {
    "id": "ads",
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-17 11:45:58"
+   "updated_at": "2026-11-17 12:00:58"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Campur: safe-haven & minyak naik vs USD kuat & Fed hawkish. Retail Sales hari ini bisa tekan emas. Info perang belum terkonfirmasi.",
-   "updated_at": "2026-11-17 11:45:58"
+   "updated_at": "2026-11-17 12:00:58"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-11-17 11:45:58"
+   "updated_at": "2026-11-17 12:00:58"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: kondisi berita bahaya: Dugaan serangan AS-Israel ke Iran (belum terkonfirmasi); Retail Sales 13:30Z",
-   "updated_at": "2026-11-17 11:45:58"
+   "updated_at": "2026-11-17 12:00:58"
   },
   {
    "id": "texec",
@@ -439,10 +439,10 @@
    "game": "freefire",
    "pillar": "esport",
    "title": "FFWS Global Finals: RRQ Kazu butuh apa untuk naik klasemen",
-   "status": "approved",
+   "status": "posted",
    "asset_url": "{\"video\":\"https://luc1ferr12.github.io/zataa-office/media/2026-11-17/182-ffws-global-finals-rrq-kazu-butuh-apa-un-ov.mp4\",\"cover\":\"https://luc1ferr12.github.io/zataa-office/media/2026-11-17/182-ffws-global-finals-rrq-kazu-butuh-apa-un-ov-cover.jpg\"}",
    "scheduled_at": null,
-   "posted_at": null,
+   "posted_at": "2026-11-17 12:01:21",
    "channel": null
   },
   {
@@ -467,10 +467,10 @@
    "game": "sejarah",
    "pillar": "horor_sejarah",
    "title": "Gua di Biak Ini Konon Jadi Kuburan Ribuan Tentara Jepang",
-   "status": "approved",
-   "asset_url": null,
+   "status": "posted",
+   "asset_url": "https://www.youtube.com/watch?v=vMisMp9I3ng",
    "scheduled_at": null,
-   "posted_at": null,
+   "posted_at": "2026-11-17 12:00:39",
    "channel": "story"
   },
   {
@@ -481,10 +481,10 @@
    "game": "sejarah",
    "pillar": "lore_teori",
    "title": "Film Pembuka MCU Ternyata Syuting Tanpa Naskah Jadi",
-   "status": "approved",
-   "asset_url": null,
+   "status": "posted",
+   "asset_url": "https://www.youtube.com/watch?v=84Z9O6Ra0MM",
    "scheduled_at": null,
-   "posted_at": null,
+   "posted_at": "2026-11-17 12:00:31",
    "channel": "marvel"
   },
   {
@@ -720,6 +720,46 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-17 12:01:21",
+   "agent_id": "publisher",
+   "message": "Posting #182 ke IG + TikTok ✅"
+  },
+  {
+   "ts": "2026-11-17 12:01:01",
+   "agent_id": "spublish",
+   "message": "Cross-post Shorts #197 ke TikTok Zaa Story"
+  },
+  {
+   "ts": "2026-11-17 12:00:58",
+   "agent_id": "ttech",
+   "message": "M60 berubah arah: bearish → sideways"
+  },
+  {
+   "ts": "2026-11-17 12:00:58",
+   "agent_id": "ttech",
+   "message": "M30 berubah arah: bearish → sideways"
+  },
+  {
+   "ts": "2026-11-17 12:00:58",
+   "agent_id": "ttech",
+   "message": "M15 berubah arah: bearish → sideways"
+  },
+  {
+   "ts": "2026-11-17 12:00:46",
+   "agent_id": "vpublish",
+   "message": "Cross-post Shorts #198 ke TikTok Marvel Talk"
+  },
+  {
+   "ts": "2026-11-17 12:00:39",
+   "agent_id": "spublish",
+   "message": "Upload Shorts #197 ke Zaa Story (Publik via Zernio)"
+  },
+  {
+   "ts": "2026-11-17 12:00:31",
+   "agent_id": "vpublish",
+   "message": "Upload Shorts #198 ke Marvel Talk (Publik via Zernio)"
+  },
+  {
    "ts": "2026-11-17 11:50:58",
    "agent_id": "ttech",
    "message": "M10 berubah arah: bearish → sideways"
@@ -803,49 +843,16 @@
    "ts": "2026-11-17 07:53:11",
    "agent_id": "dir",
    "message": "Kode kantor diperbarui, restart otomatis: scripts/golink.mjs, scripts/trading/run.mjs, scripts/watch.mjs"
-  },
-  {
-   "ts": "2026-11-17 07:50:41",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: bullish → sideways"
-  },
-  {
-   "ts": "2026-11-17 07:45:41",
-   "agent_id": "trisk",
-   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-  },
-  {
-   "ts": "2026-11-17 07:15:41",
-   "agent_id": "ttech",
-   "message": "M15 berubah arah: sideways → bullish"
-  },
-  {
-   "ts": "2026-11-17 07:10:41",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: sideways → bullish"
-  },
-  {
-   "ts": "2026-11-17 07:00:41",
-   "agent_id": "analyst",
-   "message": "Update data 35 post IG 📈"
-  },
-  {
-   "ts": "2026-11-17 07:00:41",
-   "agent_id": "ttech",
-   "message": "M15 berubah arah: bullish → sideways"
-  },
-  {
-   "ts": "2026-11-17 06:50:41",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: bullish → sideways"
-  },
-  {
-   "ts": "2026-11-17 06:45:41",
-   "agent_id": "trisk",
-   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (sesi Asia)"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-11-17 12:01:21",
+   "agent_id": "publisher",
+   "to_id": null,
+   "kind": "oper",
+   "message": "\"FFWS Global Finals: RRQ Kazu butuh apa untuk naik \" udah tayang di IG + TikTok 🚀 Makasih semua!"
+  },
   {
    "ts": "2026-11-17 11:00:21",
    "agent_id": "analyst",
@@ -1118,26 +1125,19 @@
    "to_id": "owner",
    "kind": "santai",
    "message": "Naskah rekap transfer VCT udah siap, tinggal nunggu acc Bos."
-  },
-  {
-   "ts": "2026-11-15 04:14:14",
-   "agent_id": "researcher",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Yang nunggu acc itu naskah rekap transfer VCT dari Tiara, Bos. Datanya udah aman dicek ke 2 sumber."
   }
  ],
  "stats": {
   "this_week": {
    "week": "2026-11-16",
    "total": 20,
-   "posted": 4,
+   "posted": 7,
    "pending": 0,
-   "scheduled": 3,
+   "scheduled": 0,
    "yt_total": 6,
-   "yt_posted": 1,
+   "yt_posted": 3,
    "yt_pending": 0,
-   "yt_scheduled": 2,
+   "yt_scheduled": 0,
    "views": 242,
    "likes": 5,
    "comments": 0,
@@ -1241,9 +1241,14 @@
   "paused": false,
   "balance": 1728.1799999999998,
   "today_pnl": 0,
-  "price": 3869.820068,
+  "price": 3870.820068,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-17 12:00:58",
+    "decision": "NO TRADE",
+    "reason": "kondisi berita bahaya: Dugaan serangan AS-Israel ke Iran (belum terkonfirmasi); Retail Sales 13:30Z"
+   },
    {
     "ts": "2026-11-17 11:45:58",
     "decision": "NO TRADE",
@@ -1268,11 +1273,6 @@
     "ts": "2026-11-17 10:45:58",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-11-17 10:30:58",
-    "decision": "NO TRADE",
-    "reason": "setup BUY di band, konfirmasi baru 0/3 (-) · London–NY (mode aman)"
    }
   ],
   "trades": [
@@ -1339,7 +1339,7 @@
    1728.1799999999998
   ],
   "last": {
-   "ts": "2026-11-17 11:45:58",
+   "ts": "2026-11-17 12:00:58",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1360,7 +1360,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3865.65 di bawah tengah band (3852.3–3882.4) · RSI 48 · Stoch 43 · MACD -0.32 · H1 bearish"
+    "note": "M15 3869.75 di atas tengah band (3853.4–3880.6) · RSI 53 · Stoch 62 · MACD +0.43 · H1 bearish"
    }
   },
   "fund": {
@@ -1429,46 +1429,46 @@
    "M10": {
     "bias": "sideways",
     "score": -1,
-    "price": 3870.47,
-    "ema20": 3864.68,
-    "ema50": 3867.47,
-    "rsi": 56.4,
+    "price": 3869.97,
+    "ema20": 3865.18,
+    "ema50": 3867.57,
+    "rsi": 55.7,
     "n": 299,
-    "slot": 2991527,
-    "at": 1794916258594
+    "slot": 2991528,
+    "at": 1794916858603
    },
    "M15": {
-    "bias": "bearish",
-    "score": -3,
-    "price": 3864,
-    "ema20": 3865.97,
-    "ema50": 3867.83,
-    "rsi": 46.2,
+    "bias": "sideways",
+    "score": -1,
+    "price": 3869.97,
+    "ema20": 3866.35,
+    "ema50": 3867.92,
+    "rsi": 53.3,
     "n": 299,
-    "slot": 1994351,
-    "at": 1794915958508
+    "slot": 1994352,
+    "at": 1794916858608
    },
    "M30": {
-    "bias": "bearish",
-    "score": -2,
-    "price": 3861.27,
-    "ema20": 3867.55,
-    "ema50": 3868.74,
-    "rsi": 44.8,
+    "bias": "sideways",
+    "score": -1,
+    "price": 3869.97,
+    "ema20": 3867.78,
+    "ema50": 3868.79,
+    "rsi": 51.6,
     "n": 299,
-    "slot": 997175,
-    "at": 1794915058597
+    "slot": 997176,
+    "at": 1794916858611
    },
    "H1": {
-    "bias": "bearish",
-    "score": -3,
-    "price": 3856.35,
-    "ema20": 3868.68,
-    "ema50": 3873.86,
-    "rsi": 42.4,
+    "bias": "sideways",
+    "score": -1,
+    "price": 3869.97,
+    "ema20": 3868.8,
+    "ema50": 3873.71,
+    "rsi": 50.3,
     "n": 299,
-    "slot": 498587,
-    "at": 1794913258500
+    "slot": 498588,
+    "at": 1794916858616
    }
   },
   "currency": "USC",
