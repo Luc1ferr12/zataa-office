@@ -86,8 +86,30 @@ async function tiktok(keyEnv = 'ZERNIO_API_KEY', fallback = 'zataa.topup', platf
 // ---------- YouTube Shorts (youtube.mjs stats, token pemilik channel)
 const ytStats = (brand = 'history') => new Promise((ok, no) => execFile(process.execPath, [join(ROOT, 'scripts', 'youtube.mjs'), 'stats', `--brand=${brand}`], { cwd: ROOT, timeout: 120_000, maxBuffer: 1 << 23 },
   (e, so, se) => { if (e) { const l = String(se || e.message).trim().split('\n'); return no(new Error((l.find((x) => /Error:/.test(x)) ?? l.pop()).replace(/^.*?Error: /, ''))); } try { ok(JSON.parse(String(so).trim().split('\n').pop())); } catch (x) { no(x); } }));
+// cadangan kalau OAuth Google gagal (mis. token menunjuk akun tanpa channel): statistik YouTube lewat Zernio /analytics akun brand itu
+const YT_ZERNIO_KEY = { history: 'ZERNIO_API_KEY', story: 'ZERNIO_STORY_API_KEY', marvel: 'ZERNIO_MARVEL_API_KEY' };
+async function ytStatsZernio(brand) {
+  const keyEnv = YT_ZERNIO_KEY[brand];
+  if (!keyEnv || !env()[keyEnv]) throw new Error(`${keyEnv ?? 'kunci Zernio'} belum ada`);
+  const from = new Date(Date.now() - 365 * 86400_000).toISOString().slice(0, 10);
+  const list = [];
+  let account = null;
+  for (let page = 1; page <= 10; page++) {
+    const j = await zernio(`/analytics?platform=youtube&fromDate=${from}&limit=100&page=${page}`, { keyEnv });
+    account ??= j.accounts?.find((a) => a.platform === 'youtube');
+    for (const p of j.posts ?? []) {
+      if (p.status !== 'published') continue;
+      const pl = p.platforms?.find((x) => x.platform === 'youtube') ?? {};
+      const id = pl.platformPostId ?? (pl.platformPostUrl ?? '').split('v=')[1];
+      if (id) list.push({ id, title: String(p.content ?? '').split('\n')[0], published: p.publishedAt, privacy: 'public', views: p.analytics?.views ?? 0, likes: p.analytics?.likes ?? 0, comments: p.analytics?.comments ?? 0 });
+    }
+    if (page >= (j.pagination?.pages ?? 1)) break;
+  }
+  if (!account) throw new Error('akun YouTube belum tersambung di Zernio');
+  return { title: account.displayName, handle: account.username ? `@${account.username}` : null, subscribers: account.followersCount ?? null, views: sum(list, 'views'), list };
+}
 async function youtube(brand = 'history') {
-  const s = await ytStats(brand);
+  const s = await ytStats(brand).catch(async (e) => { try { return await ytStatsZernio(brand); } catch { throw e; } });
   const list = (s.list ?? []).filter((v) => v.privacy === 'public').map((v) => ({
     pid: v.id, type: 'video', title: short(v.title), url: `https://youtube.com/shorts/${v.id}`, thumb: `https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`, at: v.published,
     views: v.views, likes: v.likes, comments: v.comments,
