@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-17T19:06:19.232Z",
+ "generated_at": "2026-11-17T19:16:19.229Z",
  "today": "2026-11-18",
  "week_start": "2026-11-16",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-17 19:00:59"
+   "updated_at": "2026-11-17 19:15:59"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Campur: safe-haven & minyak naik vs USD kuat & Fed hawkish. Retail Sales hari ini bisa tekan emas. Info perang belum terkonfirmasi.",
-   "updated_at": "2026-11-17 19:00:59"
+   "updated_at": "2026-11-17 19:15:59"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-11-17 19:00:59"
+   "updated_at": "2026-11-17 19:15:59"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: kondisi berita bahaya: Dugaan serangan AS-Israel ke Iran (belum terkonfirmasi); Retail Sales 13:30Z",
-   "updated_at": "2026-11-17 19:00:59"
+   "updated_at": "2026-11-17 19:15:59"
   },
   {
    "id": "texec",
@@ -1241,9 +1241,14 @@
   "paused": false,
   "balance": 1728.1799999999998,
   "today_pnl": 0,
-  "price": 3856.870117,
+  "price": 3857.370117,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-17 19:15:59",
+    "decision": "NO TRADE",
+    "reason": "kondisi berita bahaya: Dugaan serangan AS-Israel ke Iran (belum terkonfirmasi); Retail Sales 13:30Z"
+   },
    {
     "ts": "2026-11-17 19:00:59",
     "decision": "NO TRADE",
@@ -1266,11 +1271,6 @@
    },
    {
     "ts": "2026-11-17 18:00:59",
-    "decision": "NO TRADE",
-    "reason": "kondisi berita bahaya: Dugaan serangan AS-Israel ke Iran (belum terkonfirmasi); Retail Sales 13:30Z"
-   },
-   {
-    "ts": "2026-11-17 17:45:59",
     "decision": "NO TRADE",
     "reason": "kondisi berita bahaya: Dugaan serangan AS-Israel ke Iran (belum terkonfirmasi); Retail Sales 13:30Z"
    }
@@ -1339,7 +1339,7 @@
    1728.1799999999998
   ],
   "last": {
-   "ts": "2026-11-17 19:00:59",
+   "ts": "2026-11-17 19:15:59",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1360,7 +1360,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3858.60 di bawah tengah band (3854.6–3882.1) · RSI 42 · Stoch 5 · MACD -1.52 · H1 bearish"
+    "note": "M15 3857.37 di bawah tengah band (3853.2–3882.8) · RSI 41 · Stoch 3 · MACD -1.70 · H1 bearish"
    }
   },
   "fund": {
@@ -1411,24 +1411,24 @@
    "M10": {
     "bias": "bearish",
     "score": -3,
-    "price": 3859.07,
-    "ema20": 3866.74,
-    "ema50": 3866.98,
-    "rsi": 37.3,
+    "price": 3858.35,
+    "ema20": 3865.94,
+    "ema50": 3866.65,
+    "rsi": 36.5,
     "n": 299,
-    "slot": 2991570,
-    "at": 1794942058928
+    "slot": 2991571,
+    "at": 1794942659109
    },
    "M15": {
     "bias": "bearish",
     "score": -2,
-    "price": 3859.07,
-    "ema20": 3866.68,
-    "ema50": 3866.92,
-    "rsi": 42.3,
+    "price": 3856.8,
+    "ema20": 3865.74,
+    "ema50": 3866.52,
+    "rsi": 40.5,
     "n": 299,
-    "slot": 1994380,
-    "at": 1794942058936
+    "slot": 1994381,
+    "at": 1794942959020
    },
    "M30": {
     "bias": "bearish",
