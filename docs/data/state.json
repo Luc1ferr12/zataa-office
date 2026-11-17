@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-17T01:51:39.686Z",
+ "generated_at": "2026-11-17T02:01:39.707Z",
  "today": "2026-11-17",
  "week_start": "2026-11-16",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-17 01:45:55"
+   "updated_at": "2026-11-17 02:00:56"
   },
   {
    "id": "tresearch",
@@ -111,23 +111,23 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Bearish: pasar price-in hike Fed Desember (~85-89%), emas turun ke terendah sejak Okt 2025 (~$3.900). Retail Sales 20:30 WITA.",
-   "updated_at": "2026-11-17 01:45:55"
+   "updated_at": "2026-11-17 02:00:56"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-11-17 01:45:55"
+   "current_task": "Setup BUY di band (divergensi)",
+   "updated_at": "2026-11-17 02:00:56"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
-   "updated_at": "2026-11-17 01:45:55"
+   "current_task": "NO TRADE: setup BUY di band, konfirmasi baru 1/2 (divergensi) · sesi Asia",
+   "updated_at": "2026-11-17 02:00:56"
   },
   {
    "id": "texec",
@@ -720,6 +720,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-17 02:00:55",
+   "agent_id": "ttech",
+   "message": "M30 berubah arah: bearish → sideways"
+  },
+  {
    "ts": "2026-11-17 01:50:55",
    "agent_id": "ttech",
    "message": "M10 berubah arah: bearish → sideways"
@@ -838,11 +843,6 @@
    "ts": "2026-11-16 23:24:56",
    "agent_id": "vpublish",
    "message": "Kirim Shorts #198 ke Owner buat approval"
-  },
-  {
-   "ts": "2026-11-16 23:16:19",
-   "agent_id": "yvideo",
-   "message": "Shorts #197 dirender di laptop (suara OmniVoice) & dikirim ke Owner"
   }
  ],
  "chats": [
@@ -1173,12 +1173,12 @@
    "yt_posted": 10,
    "yt_pending": 1,
    "yt_scheduled": 0,
-   "views": 18952,
+   "views": 18954,
    "likes": 234,
    "comments": 6,
    "shares": 3,
    "saves": 0,
-   "yt_views": 15868,
+   "yt_views": 15870,
    "top": [
     {
      "title": "Tulisan Tertua Indonesia Ada di 7 Tiang Batu Ini",
@@ -1229,9 +1229,14 @@
   "paused": false,
   "balance": 1728.1799999999998,
   "today_pnl": 0,
-  "price": 3867.570068,
+  "price": 3869.120117,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-17 02:00:56",
+    "decision": "NO TRADE",
+    "reason": "setup BUY di band, konfirmasi baru 1/2 (divergensi) · sesi Asia"
+   },
    {
     "ts": "2026-11-17 01:45:55",
     "decision": "NO TRADE",
@@ -1254,11 +1259,6 @@
    },
    {
     "ts": "2026-11-17 00:45:55",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-   },
-   {
-    "ts": "2026-11-17 00:30:55",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
    }
@@ -1327,7 +1327,7 @@
    1728.1799999999998
   ],
   "last": {
-   "ts": "2026-11-17 01:45:55",
+   "ts": "2026-11-17 02:00:56",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1336,7 +1336,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)",
+   "reason": "setup BUY di band, konfirmasi baru 1/2 (divergensi) · sesi Asia",
    "fund": {
     "bias": -0.6,
     "note": "Bearish: pasar price-in hike Fed Desember (~85-89%), emas turun ke terendah sejak Okt 2025 (~$3.900). Retail Sales 20:30 WITA.",
@@ -1345,10 +1345,12 @@
    },
    "tech": {
     "bias": "bearish",
-    "score": 0,
-    "trigger": null,
-    "confirm": [],
-    "note": "M15 3871.40 di atas band atas (3849.3–3869.5) · RSI 60 · Stoch 75 · MACD +1.25 · H1 bearish"
+    "score": 1,
+    "trigger": "buy",
+    "confirm": [
+     "divergensi"
+    ],
+    "note": "M15 3868.50 di atas tengah band (3849.9–3870.3) · RSI 57 · Stoch 91 · MACD +1.38 · H1 bearish · setup BUY (divergensi)"
    }
   },
   "fund": {
@@ -1417,46 +1419,46 @@
    "M10": {
     "bias": "sideways",
     "score": -1,
-    "price": 3872.92,
-    "ema20": 3858.67,
-    "ema50": 3860.1,
-    "rsi": 64.3,
+    "price": 3870.35,
+    "ema20": 3859.78,
+    "ema50": 3860.5,
+    "rsi": 61.1,
     "n": 299,
-    "slot": 2991467,
-    "at": 1794880255751
+    "slot": 2991468,
+    "at": 1794880855830
    },
    "M15": {
     "bias": "sideways",
     "score": 1,
-    "price": 3868.1,
-    "ema20": 3859.76,
-    "ema50": 3862.16,
-    "rsi": 57.3,
+    "price": 3870.35,
+    "ema20": 3860.77,
+    "ema50": 3862.48,
+    "rsi": 59,
     "n": 299,
-    "slot": 1994311,
-    "at": 1794879955813
+    "slot": 1994312,
+    "at": 1794880855835
    },
    "M30": {
-    "bias": "bearish",
-    "score": -2,
-    "price": 3853.05,
-    "ema20": 3860.81,
-    "ema50": 3866.83,
-    "rsi": 42.8,
+    "bias": "sideways",
+    "score": 0,
+    "price": 3870.35,
+    "ema20": 3861.72,
+    "ema50": 3866.97,
+    "rsi": 54.9,
     "n": 299,
-    "slot": 997155,
-    "at": 1794879055732
+    "slot": 997156,
+    "at": 1794880855836
    },
    "H1": {
     "bias": "sideways",
-    "score": -1,
-    "price": 3856.95,
-    "ema20": 3865.57,
-    "ema50": 3875.23,
-    "rsi": 43.8,
+    "score": 1,
+    "price": 3870.35,
+    "ema20": 3866.02,
+    "ema50": 3875.03,
+    "rsi": 51.2,
     "n": 299,
-    "slot": 498577,
-    "at": 1794877255715
+    "slot": 498578,
+    "at": 1794880855841
    }
   },
   "currency": "USC",
