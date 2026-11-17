@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-17T08:24:42.615Z",
+ "generated_at": "2026-11-17T08:34:42.625Z",
  "today": "2026-11-17",
  "week_start": "2026-11-16",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-17 08:15:42"
+   "updated_at": "2026-11-17 08:30:42"
   },
   {
    "id": "tresearch",
@@ -111,23 +111,23 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Bearish: pasar price-in hike Fed Desember (~85-89%), emas turun ke terendah sejak Okt 2025 (~$3.900). Retail Sales 20:30 WITA.",
-   "updated_at": "2026-11-17 08:15:42"
+   "updated_at": "2026-11-17 08:30:42"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-11-17 08:15:42"
+   "current_task": "Setup BUY di band (tanpa konfirmasi)",
+   "updated_at": "2026-11-17 08:30:42"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-11-17 08:15:42"
+   "current_task": "NO TRADE: setup BUY di band, konfirmasi baru 0/3 (-) · London–NY (mode aman)",
+   "updated_at": "2026-11-17 08:30:42"
   },
   {
    "id": "texec",
@@ -720,6 +720,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-17 08:30:42",
+   "agent_id": "ttech",
+   "message": "M30 berubah arah: bullish → sideways"
+  },
+  {
    "ts": "2026-11-17 08:15:42",
    "agent_id": "ttech",
    "message": "M15 berubah arah: bullish → sideways"
@@ -838,11 +843,6 @@
    "ts": "2026-11-17 03:01:08",
    "agent_id": "ypublish",
    "message": "Cross-post Shorts #33 ke TikTok Zaa History"
-  },
-  {
-   "ts": "2026-11-17 02:20:55",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: sideways → bullish"
   }
  ],
  "chats": [
@@ -1235,9 +1235,14 @@
   "paused": false,
   "balance": 1728.1799999999998,
   "today_pnl": 0,
-  "price": 3868.820068,
+  "price": 3868.100098,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-17 08:30:42",
+    "decision": "NO TRADE",
+    "reason": "setup BUY di band, konfirmasi baru 0/3 (-) · London–NY (mode aman)"
+   },
    {
     "ts": "2026-11-17 08:15:42",
     "decision": "NO TRADE",
@@ -1260,11 +1265,6 @@
    },
    {
     "ts": "2026-11-17 07:15:41",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-11-17 07:00:41",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1333,7 +1333,7 @@
    1728.1799999999998
   ],
   "last": {
-   "ts": "2026-11-17 08:15:42",
+   "ts": "2026-11-17 08:30:42",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1342,7 +1342,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
+   "reason": "setup BUY di band, konfirmasi baru 0/3 (-) · London–NY (mode aman)",
    "fund": {
     "bias": -0.6,
     "note": "Bearish: pasar price-in hike Fed Desember (~85-89%), emas turun ke terendah sejak Okt 2025 (~$3.900). Retail Sales 20:30 WITA.",
@@ -1352,9 +1352,9 @@
    "tech": {
     "bias": "bearish",
     "score": 0,
-    "trigger": null,
+    "trigger": "buy",
     "confirm": [],
-    "note": "M15 3867.95 di bawah tengah band (3865.9–3886.5) · RSI 43 · Stoch 15 · MACD -1.67 · H1 bearish"
+    "note": "M15 3869.90 di bawah tengah band (3865.5–3886.3) · RSI 46 · Stoch 13 · MACD -1.64 · H1 bearish · setup BUY (tanpa konfirmasi)"
    }
   },
   "fund": {
@@ -1423,35 +1423,35 @@
    "M10": {
     "bias": "sideways",
     "score": 0,
-    "price": 3866.57,
-    "ema20": 3875.05,
-    "ema50": 3872.22,
-    "rsi": 38.3,
+    "price": 3869.45,
+    "ema20": 3874.52,
+    "ema50": 3872.11,
+    "rsi": 43.1,
     "n": 299,
-    "slot": 2991506,
-    "at": 1794903642690
+    "slot": 2991507,
+    "at": 1794904242700
    },
    "M15": {
     "bias": "sideways",
     "score": 0,
-    "price": 3867.77,
-    "ema20": 3874.79,
-    "ema50": 3870.85,
-    "rsi": 43,
+    "price": 3869.45,
+    "ema20": 3874.28,
+    "ema50": 3870.79,
+    "rsi": 45.2,
     "n": 299,
-    "slot": 1994337,
-    "at": 1794903342695
+    "slot": 1994338,
+    "at": 1794904242707
    },
    "M30": {
-    "bias": "bullish",
-    "score": 3,
-    "price": 3875.9,
-    "ema20": 3872.02,
-    "ema50": 3870.39,
-    "rsi": 54,
+    "bias": "sideways",
+    "score": 1,
+    "price": 3869.45,
+    "ema20": 3871.77,
+    "ema50": 3870.36,
+    "rsi": 49.1,
     "n": 299,
-    "slot": 997168,
-    "at": 1794902457042
+    "slot": 997169,
+    "at": 1794904242708
    },
    "H1": {
     "bias": "sideways",
