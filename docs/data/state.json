@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-17T03:41:39.690Z",
+ "generated_at": "2026-11-17T03:51:39.686Z",
  "today": "2026-11-17",
  "week_start": "2026-11-16",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-17 03:30:56"
+   "updated_at": "2026-11-17 03:45:56"
   },
   {
    "id": "tresearch",
@@ -111,23 +111,23 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Bearish: pasar price-in hike Fed Desember (~85-89%), emas turun ke terendah sejak Okt 2025 (~$3.900). Retail Sales 20:30 WITA.",
-   "updated_at": "2026-11-17 03:30:56"
+   "updated_at": "2026-11-17 03:45:56"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Setup SELL di band (tanpa konfirmasi)",
-   "updated_at": "2026-11-17 03:30:56"
+   "current_task": "Setup SELL di band (MACD)",
+   "updated_at": "2026-11-17 03:45:56"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: setup SELL di band, konfirmasi baru 0/2 (-) · sesi Asia",
-   "updated_at": "2026-11-17 03:30:56"
+   "current_task": "NO TRADE: setup SELL di band, konfirmasi baru 1/2 (MACD) · sesi Asia",
+   "updated_at": "2026-11-17 03:45:56"
   },
   {
    "id": "texec",
@@ -1229,9 +1229,14 @@
   "paused": false,
   "balance": 1728.1799999999998,
   "today_pnl": 0,
-  "price": 3876.27002,
+  "price": 3874.77002,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-17 03:45:56",
+    "decision": "NO TRADE",
+    "reason": "setup SELL di band, konfirmasi baru 1/2 (MACD) · sesi Asia"
+   },
    {
     "ts": "2026-11-17 03:30:56",
     "decision": "NO TRADE",
@@ -1256,11 +1261,6 @@
     "ts": "2026-11-17 02:30:56",
     "decision": "NO TRADE",
     "reason": "tengah band terlalu dekat buat target (RR 0.4 < 1.2)"
-   },
-   {
-    "ts": "2026-11-17 02:15:55",
-    "decision": "NO TRADE",
-    "reason": "setup SELL di band, konfirmasi baru 0/2 (-) · sesi Asia"
    }
   ],
   "trades": [
@@ -1327,7 +1327,7 @@
    1728.1799999999998
   ],
   "last": {
-   "ts": "2026-11-17 03:30:56",
+   "ts": "2026-11-17 03:45:56",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1336,7 +1336,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "setup SELL di band, konfirmasi baru 0/2 (-) · sesi Asia",
+   "reason": "setup SELL di band, konfirmasi baru 1/2 (MACD) · sesi Asia",
    "fund": {
     "bias": -0.6,
     "note": "Bearish: pasar price-in hike Fed Desember (~85-89%), emas turun ke terendah sejak Okt 2025 (~$3.900). Retail Sales 20:30 WITA.",
@@ -1345,10 +1345,12 @@
    },
    "tech": {
     "bias": "sideways",
-    "score": 0,
+    "score": 1,
     "trigger": "sell",
-    "confirm": [],
-    "note": "M15 3877.17 di atas tengah band (3848.7–3879.9) · RSI 63 · Stoch 86 · MACD +1.69 · H1 sideways · setup SELL (tanpa konfirmasi)"
+    "confirm": [
+     "MACD"
+    ],
+    "note": "M15 3875.85 di atas tengah band (3848.9–3881.4) · RSI 61 · Stoch 84 · MACD +1.57 · H1 sideways · setup SELL (MACD)"
    }
   },
   "fund": {
@@ -1417,24 +1419,24 @@
    "M10": {
     "bias": "bullish",
     "score": 3,
-    "price": 3874.85,
-    "ema20": 3867.45,
-    "ema50": 3864.1,
-    "rsi": 62.3,
+    "price": 3875,
+    "ema20": 3868.17,
+    "ema50": 3864.53,
+    "rsi": 62.5,
     "n": 299,
-    "slot": 2991478,
-    "at": 1794886855889
+    "slot": 2991479,
+    "at": 1794887455825
    },
    "M15": {
     "bias": "bullish",
     "score": 2,
-    "price": 3874.72,
-    "ema20": 3865.42,
-    "ema50": 3864.27,
-    "rsi": 61.3,
+    "price": 3877.3,
+    "ema20": 3866.55,
+    "ema50": 3864.78,
+    "rsi": 63.4,
     "n": 299,
-    "slot": 1994318,
-    "at": 1794886255889
+    "slot": 1994319,
+    "at": 1794887155891
    },
    "M30": {
     "bias": "sideways",
