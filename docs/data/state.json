@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-17T08:59:42.475Z",
+ "generated_at": "2026-11-17T09:04:42.644Z",
  "today": "2026-11-17",
  "week_start": "2026-11-16",
  "campaign": {
@@ -63,7 +63,7 @@
    "title": "Social Media Publisher",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-11-17 05:02:56"
+   "updated_at": "2026-11-17 09:01:43"
   },
   {
    "id": "ads",
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-17 08:45:42"
+   "updated_at": "2026-11-17 09:00:42"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Bearish: pasar price-in hike Fed Desember (~85-89%), emas turun ke terendah sejak Okt 2025 (~$3.900). Retail Sales 20:30 WITA.",
-   "updated_at": "2026-11-17 08:45:42"
+   "updated_at": "2026-11-17 09:00:42"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-11-17 08:45:42"
+   "updated_at": "2026-11-17 09:00:42"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-11-17 08:45:42"
+   "updated_at": "2026-11-17 09:00:42"
   },
   {
    "id": "texec",
@@ -425,10 +425,10 @@
    "game": "valorant",
    "pillar": "news",
    "title": "Transfer VCT 2027 yang paling bikin kaget: kamu setuju?",
-   "status": "approved",
+   "status": "posted",
    "asset_url": "{\"video\":\"https://luc1ferr12.github.io/zataa-office/media/2026-11-17/199-transfer-vct-2027-yang-paling-bikin-kage-ov.mp4\",\"cover\":\"https://luc1ferr12.github.io/zataa-office/media/2026-11-17/199-transfer-vct-2027-yang-paling-bikin-kage-ov-cover.jpg\"}",
    "scheduled_at": null,
-   "posted_at": null,
+   "posted_at": "2026-11-17 09:01:43",
    "channel": null
   },
   {
@@ -720,6 +720,16 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-17 09:01:43",
+   "agent_id": "publisher",
+   "message": "Posting #199 ke IG + TikTok ✅"
+  },
+  {
+   "ts": "2026-11-17 09:00:42",
+   "agent_id": "ttech",
+   "message": "M60 berubah arah: sideways → bearish"
+  },
+  {
    "ts": "2026-11-17 08:45:42",
    "agent_id": "trisk",
    "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
@@ -833,19 +843,16 @@
    "ts": "2026-11-17 04:01:14",
    "agent_id": "analyst",
    "message": "Update data 35 post IG 📈"
-  },
-  {
-   "ts": "2026-11-17 03:15:56",
-   "agent_id": "trisk",
-   "message": "NO TRADE · setup SELL di band, konfirmasi baru 0/2 (-) · sesi Asia"
-  },
-  {
-   "ts": "2026-11-17 03:15:55",
-   "agent_id": "ttech",
-   "message": "M15 berubah arah: sideways → bullish"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-11-17 09:01:43",
+   "agent_id": "publisher",
+   "to_id": null,
+   "kind": "oper",
+   "message": "\"Transfer VCT 2027 yang paling bikin kaget: kamu se\" udah tayang di IG + TikTok 🚀 Makasih semua!"
+  },
   {
    "ts": "2026-11-17 05:02:56",
    "agent_id": "publisher",
@@ -1118,22 +1125,15 @@
    "to_id": "researcher",
    "kind": "bos",
    "message": "Yang mana belum aku acc?"
-  },
-  {
-   "ts": "2026-11-15 03:55:19",
-   "agent_id": "researcher",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Rumor PatMen sama Ray ke Gen.G masih di luar naskah, jadi aman."
   }
  ],
  "stats": {
   "this_week": {
    "week": "2026-11-16",
    "total": 20,
-   "posted": 3,
+   "posted": 4,
    "pending": 0,
-   "scheduled": 5,
+   "scheduled": 4,
    "yt_total": 6,
    "yt_posted": 1,
    "yt_pending": 0,
@@ -1235,9 +1235,14 @@
   "paused": false,
   "balance": 1728.1799999999998,
   "today_pnl": 0,
-  "price": 3869.550049,
+  "price": 3872.800049,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-17 09:00:42",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
    {
     "ts": "2026-11-17 08:45:42",
     "decision": "NO TRADE",
@@ -1260,11 +1265,6 @@
    },
    {
     "ts": "2026-11-17 07:45:41",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-11-17 07:30:41",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1333,7 +1333,7 @@
    1728.1799999999998
   ],
   "last": {
-   "ts": "2026-11-17 08:45:42",
+   "ts": "2026-11-17 09:00:42",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1354,13 +1354,10 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3868.67 di bawah tengah band (3864.9–3886.6) · RSI 44 · Stoch 18 · MACD -1.68 · H1 bearish"
+    "note": "M15 3872.15 di bawah tengah band (3864.9–3886.5) · RSI 49 · Stoch 23 · MACD -1.43 · H1 bearish"
    }
   },
-  "fund": {
-   "bias": -0.6,
-   "note": "Bearish: pasar price-in hike Fed Desember (~85-89%), emas turun ke terendah sejak Okt 2025 (~$3.900). Retail Sales 20:30 WITA."
-  },
+  "fund": null,
   "calendar": [
    {
     "title": "Core Retail Sales m/m",
@@ -1423,46 +1420,46 @@
    "M10": {
     "bias": "sideways",
     "score": -1,
-    "price": 3873.97,
-    "ema20": 3874.06,
-    "ema50": 3872.1,
-    "rsi": 50,
+    "price": 3868.75,
+    "ema20": 3873.56,
+    "ema50": 3871.97,
+    "rsi": 43.4,
     "n": 299,
-    "slot": 2991509,
-    "at": 1794905442711
+    "slot": 2991510,
+    "at": 1794906042733
    },
    "M15": {
     "bias": "sideways",
-    "score": 0,
-    "price": 3870.2,
-    "ema20": 3873.89,
-    "ema50": 3870.77,
-    "rsi": 46.2,
+    "score": -1,
+    "price": 3868.75,
+    "ema20": 3873.4,
+    "ema50": 3870.69,
+    "rsi": 44.5,
     "n": 299,
-    "slot": 1994339,
-    "at": 1794905142780
+    "slot": 1994340,
+    "at": 1794906042738
    },
    "M30": {
     "bias": "sideways",
     "score": 1,
-    "price": 3869.45,
-    "ema20": 3871.77,
-    "ema50": 3870.36,
-    "rsi": 49.1,
+    "price": 3868.75,
+    "ema20": 3871.49,
+    "ema50": 3870.29,
+    "rsi": 48.5,
     "n": 299,
-    "slot": 997169,
-    "at": 1794904242708
+    "slot": 997170,
+    "at": 1794906042742
    },
    "H1": {
-    "bias": "sideways",
-    "score": -1,
-    "price": 3875.9,
-    "ema20": 3870.25,
-    "ema50": 3875.06,
-    "rsi": 53,
+    "bias": "bearish",
+    "score": -3,
+    "price": 3868.75,
+    "ema20": 3870.11,
+    "ema50": 3874.81,
+    "rsi": 49,
     "n": 299,
-    "slot": 498584,
-    "at": 1794902457047
+    "slot": 498585,
+    "at": 1794906042747
    }
   },
   "currency": "USC",
