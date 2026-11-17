@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-17T17:46:19.191Z",
+ "generated_at": "2026-11-17T17:56:19.195Z",
  "today": "2026-11-18",
  "week_start": "2026-11-16",
  "campaign": {
@@ -720,6 +720,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-17 17:50:58",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: bullish → sideways"
+  },
+  {
    "ts": "2026-11-17 17:45:59",
    "agent_id": "trisk",
    "message": "NO TRADE · kondisi berita bahaya: Dugaan serangan AS-Israel ke Iran (belum terkonfirmasi); Retail Sales 13:30Z"
@@ -838,11 +843,6 @@
    "ts": "2026-11-17 12:30:58",
    "agent_id": "ttech",
    "message": "M15 berubah arah: sideways → bearish"
-  },
-  {
-   "ts": "2026-11-17 12:01:21",
-   "agent_id": "publisher",
-   "message": "Posting #182 ke IG + TikTok ✅"
   }
  ],
  "chats": [
@@ -1241,7 +1241,7 @@
   "paused": false,
   "balance": 1728.1799999999998,
   "today_pnl": 0,
-  "price": 3867.75,
+  "price": 3867.550049,
   "open": [],
   "signals": [
    {
@@ -1409,15 +1409,15 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "bullish",
-    "score": 2,
-    "price": 3870.75,
-    "ema20": 3870.21,
+    "bias": "sideways",
+    "score": -1,
+    "price": 3867.95,
+    "ema20": 3869.99,
     "ema50": 3867.99,
-    "rsi": 52.1,
+    "rsi": 48.3,
     "n": 299,
-    "slot": 2991562,
-    "at": 1794937258871
+    "slot": 2991563,
+    "at": 1794937858879
    },
    "M15": {
     "bias": "bullish",
