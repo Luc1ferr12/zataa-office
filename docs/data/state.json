@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-17T15:06:19.133Z",
+ "generated_at": "2026-11-17T15:16:19.137Z",
  "today": "2026-11-17",
  "week_start": "2026-11-16",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-17 15:00:58"
+   "updated_at": "2026-11-17 15:15:58"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Campur: safe-haven & minyak naik vs USD kuat & Fed hawkish. Retail Sales hari ini bisa tekan emas. Info perang belum terkonfirmasi.",
-   "updated_at": "2026-11-17 15:00:58"
+   "updated_at": "2026-11-17 15:15:58"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-11-17 15:00:58"
+   "updated_at": "2026-11-17 15:15:58"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: kondisi berita bahaya: Dugaan serangan AS-Israel ke Iran (belum terkonfirmasi); Retail Sales 13:30Z",
-   "updated_at": "2026-11-17 15:00:58"
+   "updated_at": "2026-11-17 15:15:58"
   },
   {
    "id": "texec",
@@ -720,6 +720,16 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-17 15:15:58",
+   "agent_id": "ttech",
+   "message": "M15 berubah arah: sideways → bearish"
+  },
+  {
+   "ts": "2026-11-17 15:10:58",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: sideways → bearish"
+  },
+  {
    "ts": "2026-11-17 14:45:58",
    "agent_id": "trisk",
    "message": "NO TRADE · kondisi berita bahaya: Dugaan serangan AS-Israel ke Iran (belum terkonfirmasi); Retail Sales 13:30Z"
@@ -833,16 +843,6 @@
    "ts": "2026-11-17 11:00:34",
    "agent_id": "ypublish",
    "message": "Upload Shorts #196 gagal"
-  },
-  {
-   "ts": "2026-11-17 10:45:58",
-   "agent_id": "trisk",
-   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-  },
-  {
-   "ts": "2026-11-17 10:30:58",
-   "agent_id": "ttech",
-   "message": "M30 berubah arah: sideways → bearish"
   }
  ],
  "chats": [
@@ -1241,9 +1241,14 @@
   "paused": false,
   "balance": 1728.1799999999998,
   "today_pnl": 0,
-  "price": 3864.719971,
+  "price": 3859.570068,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-17 15:15:58",
+    "decision": "NO TRADE",
+    "reason": "kondisi berita bahaya: Dugaan serangan AS-Israel ke Iran (belum terkonfirmasi); Retail Sales 13:30Z"
+   },
    {
     "ts": "2026-11-17 15:00:58",
     "decision": "NO TRADE",
@@ -1266,11 +1271,6 @@
    },
    {
     "ts": "2026-11-17 14:00:58",
-    "decision": "NO TRADE",
-    "reason": "berita berdampak tinggi: Core Retail Sales m/m (21.30 WITA)"
-   },
-   {
-    "ts": "2026-11-17 13:45:58",
     "decision": "NO TRADE",
     "reason": "berita berdampak tinggi: Core Retail Sales m/m (21.30 WITA)"
    }
@@ -1339,7 +1339,7 @@
    1728.1799999999998
   ],
   "last": {
-   "ts": "2026-11-17 15:00:58",
+   "ts": "2026-11-17 15:15:58",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1360,7 +1360,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3863.65 di atas tengah band (3847.3–3875.3) · RSI 50 · Stoch 78 · MACD +0.99 · H1 bearish"
+    "note": "M15 3859.57 di bawah tengah band (3847.2–3875.1) · RSI 47 · Stoch 61 · MACD +0.53 · H1 bearish"
    }
   },
   "fund": {
@@ -1427,26 +1427,26 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "sideways",
-    "score": 0,
-    "price": 3863.65,
-    "ema20": 3861.34,
-    "ema50": 3864.02,
-    "rsi": 51.8,
+    "bias": "bearish",
+    "score": -2,
+    "price": 3860.5,
+    "ema20": 3861.26,
+    "ema50": 3863.88,
+    "rsi": 48.4,
     "n": 299,
-    "slot": 2991546,
-    "at": 1794927658752
+    "slot": 2991547,
+    "at": 1794928258948
    },
    "M15": {
-    "bias": "sideways",
-    "score": -1,
-    "price": 3863.65,
-    "ema20": 3862.66,
-    "ema50": 3865.25,
-    "rsi": 50.1,
+    "bias": "bearish",
+    "score": -3,
+    "price": 3858.75,
+    "ema20": 3862.29,
+    "ema50": 3865,
+    "rsi": 46.7,
     "n": 299,
-    "slot": 1994364,
-    "at": 1794927658757
+    "slot": 1994365,
+    "at": 1794928558778
    },
    "M30": {
     "bias": "bearish",
