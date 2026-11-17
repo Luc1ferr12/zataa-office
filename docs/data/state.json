@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-17T10:56:19.026Z",
+ "generated_at": "2026-11-17T11:06:19.044Z",
  "today": "2026-11-17",
  "week_start": "2026-11-16",
  "campaign": {
@@ -103,15 +103,15 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-17 10:45:58"
+   "updated_at": "2026-11-17 11:01:21"
   },
   {
    "id": "tresearch",
    "name": "Davina",
    "title": "Research & Fundamental",
    "status": "done",
-   "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
-   "updated_at": "2026-11-17 10:45:58"
+   "current_task": "Fundamental: Campur: safe-haven & minyak naik vs USD kuat & Fed hawkish. Retail Sales hari ini bisa tekan emas. Info perang belum terkonfirmasi.",
+   "updated_at": "2026-11-17 11:01:21"
   },
   {
    "id": "ttech",
@@ -119,15 +119,15 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-11-17 10:45:58"
+   "updated_at": "2026-11-17 11:01:21"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-11-17 10:45:58"
+   "current_task": "NO TRADE: kondisi berita bahaya: Dugaan serangan AS-Israel ke Iran (belum terkonfirmasi); Retail Sales 13:30Z",
+   "updated_at": "2026-11-17 11:01:21"
   },
   {
    "id": "texec",
@@ -453,7 +453,7 @@
    "game": "sejarah",
    "pillar": "hidden_history",
    "title": "Kota Pelabuhan Mesir Ini Hilang 1.000 Tahun di Dasar Laut",
-   "status": "approved",
+   "status": "upload_failed",
    "asset_url": null,
    "scheduled_at": null,
    "posted_at": null,
@@ -720,6 +720,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-17 11:00:34",
+   "agent_id": "ypublish",
+   "message": "Upload Shorts #196 gagal"
+  },
+  {
    "ts": "2026-11-17 10:45:58",
    "agent_id": "trisk",
    "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
@@ -838,14 +843,16 @@
    "ts": "2026-11-17 06:20:41",
    "agent_id": "ttech",
    "message": "M10 berubah arah: bullish → sideways"
-  },
-  {
-   "ts": "2026-11-17 06:00:55",
-   "agent_id": "ttech",
-   "message": "M30 berubah arah: sideways → bullish"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-11-17 11:00:21",
+   "agent_id": "analyst",
+   "to_id": "dir",
+   "kind": "oper",
+   "message": "Laporan harian marketing udah aku kirim ke Bos, 2 konten tayang hari ini 📊"
+  },
   {
    "ts": "2026-11-17 09:01:43",
    "agent_id": "publisher",
@@ -1118,13 +1125,6 @@
    "to_id": "owner",
    "kind": "santai",
    "message": "Yang nunggu acc itu naskah rekap transfer VCT dari Tiara, Bos. Datanya udah aman dicek ke 2 sumber."
-  },
-  {
-   "ts": "2026-11-15 04:14:05",
-   "agent_id": "owner",
-   "to_id": "researcher",
-   "kind": "bos",
-   "message": "Yang mana belum aku acc?"
   }
  ],
  "stats": {
@@ -1133,11 +1133,11 @@
    "total": 20,
    "posted": 4,
    "pending": 0,
-   "scheduled": 4,
+   "scheduled": 3,
    "yt_total": 6,
    "yt_posted": 1,
    "yt_pending": 0,
-   "yt_scheduled": 3,
+   "yt_scheduled": 2,
    "views": 168,
    "likes": 0,
    "comments": 0,
@@ -1241,9 +1241,14 @@
   "paused": false,
   "balance": 1728.1799999999998,
   "today_pnl": 0,
-  "price": 3855.300049,
+  "price": 3857.850098,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-17 11:01:21",
+    "decision": "NO TRADE",
+    "reason": "kondisi berita bahaya: Dugaan serangan AS-Israel ke Iran (belum terkonfirmasi); Retail Sales 13:30Z"
+   },
    {
     "ts": "2026-11-17 10:45:58",
     "decision": "NO TRADE",
@@ -1268,11 +1273,6 @@
     "ts": "2026-11-17 09:45:42",
     "decision": "NO TRADE",
     "reason": "setup BUY di band, konfirmasi baru 2/3 (Stokastik+MACD) · London–NY (mode aman)"
-   },
-   {
-    "ts": "2026-11-17 09:30:43",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
   ],
   "trades": [
@@ -1339,7 +1339,7 @@
    1728.1799999999998
   ],
   "last": {
-   "ts": "2026-11-17 10:45:58",
+   "ts": "2026-11-17 11:01:21",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1348,11 +1348,11 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
+   "reason": "kondisi berita bahaya: Dugaan serangan AS-Israel ke Iran (belum terkonfirmasi); Retail Sales 13:30Z",
    "fund": {
-    "bias": 0,
-    "note": "netral (belum ada ringkasan hari ini)",
-    "danger": null,
+    "bias": -0.15,
+    "note": "Campur: safe-haven & minyak naik vs USD kuat & Fed hawkish. Retail Sales hari ini bisa tekan emas. Info perang belum terkonfirmasi.",
+    "danger": "Dugaan serangan AS-Israel ke Iran (belum terkonfirmasi); Retail Sales 13:30Z",
     "blackout": null
    },
    "tech": {
@@ -1360,10 +1360,13 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3860.70 di bawah tengah band (3855.2–3885.2) · RSI 39 · Stoch 15 · MACD -1.70 · H1 bearish"
+    "note": "M15 3856.05 di bawah tengah band (3852.3–3885.6) · RSI 35 · Stoch 12 · MACD -1.93 · H1 bearish"
    }
   },
-  "fund": null,
+  "fund": {
+   "bias": -0.15,
+   "note": "Campur: safe-haven & minyak naik vs USD kuat & Fed hawkish. Retail Sales hari ini bisa tekan emas. Info perang belum terkonfirmasi."
+  },
   "calendar": [
    {
     "title": "Core Retail Sales m/m",
@@ -1426,46 +1429,46 @@
    "M10": {
     "bias": "bearish",
     "score": -3,
-    "price": 3857.3,
-    "ema20": 3866.05,
-    "ema50": 3868.79,
-    "rsi": 36.3,
+    "price": 3856.35,
+    "ema20": 3865.13,
+    "ema50": 3868.3,
+    "rsi": 35.4,
     "n": 299,
-    "slot": 2991521,
-    "at": 1794912658647
+    "slot": 2991522,
+    "at": 1794913258487
    },
    "M15": {
     "bias": "bearish",
     "score": -3,
-    "price": 3860.6,
-    "ema20": 3868.43,
-    "ema50": 3869.05,
-    "rsi": 39.3,
+    "price": 3856.35,
+    "ema20": 3867.28,
+    "ema50": 3868.56,
+    "rsi": 35.5,
     "n": 299,
-    "slot": 1994347,
-    "at": 1794912358531
+    "slot": 1994348,
+    "at": 1794913258493
    },
    "M30": {
     "bias": "bearish",
     "score": -2,
-    "price": 3857.8,
-    "ema20": 3869.46,
-    "ema50": 3869.56,
-    "rsi": 41.3,
+    "price": 3856.35,
+    "ema20": 3868.21,
+    "ema50": 3869.04,
+    "rsi": 40.4,
     "n": 299,
-    "slot": 997173,
-    "at": 1794911458458
+    "slot": 997174,
+    "at": 1794913258495
    },
    "H1": {
     "bias": "bearish",
     "score": -3,
-    "price": 3868.75,
-    "ema20": 3869.98,
-    "ema50": 3874.57,
-    "rsi": 49,
+    "price": 3856.35,
+    "ema20": 3868.68,
+    "ema50": 3873.86,
+    "rsi": 42.4,
     "n": 299,
-    "slot": 498586,
-    "at": 1794909642765
+    "slot": 498587,
+    "at": 1794913258500
    }
   },
   "currency": "USC",
