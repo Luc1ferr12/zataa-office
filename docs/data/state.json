@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-17T14:56:19.139Z",
+ "generated_at": "2026-11-17T15:06:19.133Z",
  "today": "2026-11-17",
  "week_start": "2026-11-16",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-17 14:45:58"
+   "updated_at": "2026-11-17 15:00:58"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Campur: safe-haven & minyak naik vs USD kuat & Fed hawkish. Retail Sales hari ini bisa tekan emas. Info perang belum terkonfirmasi.",
-   "updated_at": "2026-11-17 14:45:58"
+   "updated_at": "2026-11-17 15:00:58"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-11-17 14:45:58"
+   "updated_at": "2026-11-17 15:00:58"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: kondisi berita bahaya: Dugaan serangan AS-Israel ke Iran (belum terkonfirmasi); Retail Sales 13:30Z",
-   "updated_at": "2026-11-17 14:45:58"
+   "updated_at": "2026-11-17 15:00:58"
   },
   {
    "id": "texec",
@@ -1241,9 +1241,14 @@
   "paused": false,
   "balance": 1728.1799999999998,
   "today_pnl": 0,
-  "price": 3868.75,
+  "price": 3864.719971,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-17 15:00:58",
+    "decision": "NO TRADE",
+    "reason": "kondisi berita bahaya: Dugaan serangan AS-Israel ke Iran (belum terkonfirmasi); Retail Sales 13:30Z"
+   },
    {
     "ts": "2026-11-17 14:45:58",
     "decision": "NO TRADE",
@@ -1266,11 +1271,6 @@
    },
    {
     "ts": "2026-11-17 13:45:58",
-    "decision": "NO TRADE",
-    "reason": "berita berdampak tinggi: Core Retail Sales m/m (21.30 WITA)"
-   },
-   {
-    "ts": "2026-11-17 13:30:58",
     "decision": "NO TRADE",
     "reason": "berita berdampak tinggi: Core Retail Sales m/m (21.30 WITA)"
    }
@@ -1339,7 +1339,7 @@
    1728.1799999999998
   ],
   "last": {
-   "ts": "2026-11-17 14:45:58",
+   "ts": "2026-11-17 15:00:58",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1360,7 +1360,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3867.27 di atas tengah band (3846.9–3875.5) · RSI 53 · Stoch 81 · MACD +1.21 · H1 bearish"
+    "note": "M15 3863.65 di atas tengah band (3847.3–3875.3) · RSI 50 · Stoch 78 · MACD +0.99 · H1 bearish"
    }
   },
   "fund": {
@@ -1429,46 +1429,46 @@
    "M10": {
     "bias": "sideways",
     "score": 0,
-    "price": 3868.45,
-    "ema20": 3861.09,
-    "ema50": 3864.03,
-    "rsi": 57.5,
+    "price": 3863.65,
+    "ema20": 3861.34,
+    "ema50": 3864.02,
+    "rsi": 51.8,
     "n": 299,
-    "slot": 2991545,
-    "at": 1794927058728
+    "slot": 2991546,
+    "at": 1794927658752
    },
    "M15": {
     "bias": "sideways",
     "score": -1,
-    "price": 3871.12,
-    "ema20": 3862.56,
-    "ema50": 3865.32,
-    "rsi": 55.7,
+    "price": 3863.65,
+    "ema20": 3862.66,
+    "ema50": 3865.25,
+    "rsi": 50.1,
     "n": 299,
-    "slot": 1994363,
-    "at": 1794926758721
+    "slot": 1994364,
+    "at": 1794927658757
    },
    "M30": {
     "bias": "bearish",
     "score": -3,
-    "price": 3862.95,
-    "ema20": 3865.01,
-    "ema50": 3867.36,
-    "rsi": 47.9,
+    "price": 3863.65,
+    "ema20": 3864.88,
+    "ema50": 3867.21,
+    "rsi": 48.4,
     "n": 299,
-    "slot": 997181,
-    "at": 1794925858732
+    "slot": 997182,
+    "at": 1794927658760
    },
    "H1": {
     "bias": "bearish",
     "score": -2,
-    "price": 3854.7,
-    "ema20": 3866.86,
-    "ema50": 3872.51,
-    "rsi": 42.9,
+    "price": 3863.65,
+    "ema20": 3866.55,
+    "ema50": 3872.16,
+    "rsi": 47.9,
     "n": 299,
-    "slot": 498590,
-    "at": 1794924058695
+    "slot": 498591,
+    "at": 1794927658764
    }
   },
   "currency": "USC",
