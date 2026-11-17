@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-17T04:59:55.158Z",
+ "generated_at": "2026-11-17T05:12:55.324Z",
  "today": "2026-11-17",
  "week_start": "2026-11-16",
  "campaign": {
@@ -63,7 +63,7 @@
    "title": "Social Media Publisher",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-11-17 01:01:04"
+   "updated_at": "2026-11-17 05:02:56"
   },
   {
    "id": "ads",
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-17 04:45:55"
+   "updated_at": "2026-11-17 05:00:55"
   },
   {
    "id": "tresearch",
@@ -111,15 +111,15 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Bearish: pasar price-in hike Fed Desember (~85-89%), emas turun ke terendah sejak Okt 2025 (~$3.900). Retail Sales 20:30 WITA.",
-   "updated_at": "2026-11-17 04:45:55"
+   "updated_at": "2026-11-17 05:00:55"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-11-17 04:45:55"
+   "current_task": "Belum ada pantulan band · H1 sideways",
+   "updated_at": "2026-11-17 05:00:55"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
-   "updated_at": "2026-11-17 04:45:55"
+   "updated_at": "2026-11-17 05:00:55"
   },
   {
    "id": "texec",
@@ -411,10 +411,10 @@
    "game": "mlbb",
    "pillar": "engagement",
    "title": "Kuis: tebak 2 tim ID yang lolos M8 Turkiye",
-   "status": "approved",
+   "status": "posted",
    "asset_url": "{\"feed\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-11-17/181-kuis-tebak-2-tim-id-yang-lolos-m8-turkiy.jpg\"],\"story\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-11-17/181-kuis-tebak-2-tim-id-yang-lolos-m8-turkiy-916.jpg\"]}",
    "scheduled_at": null,
-   "posted_at": null,
+   "posted_at": "2026-11-17 05:02:56",
    "channel": null
   },
   {
@@ -720,6 +720,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-17 05:02:56",
+   "agent_id": "publisher",
+   "message": "Posting #181 ke IG ✅"
+  },
+  {
    "ts": "2026-11-17 04:50:55",
    "agent_id": "ttech",
    "message": "M10 berubah arah: sideways → bullish"
@@ -838,14 +843,16 @@
    "ts": "2026-11-17 00:00:55",
    "agent_id": "ttech",
    "message": "M10 berubah arah: bearish → sideways"
-  },
-  {
-   "ts": "2026-11-16 23:45:55",
-   "agent_id": "ttech",
-   "message": "M15 berubah arah: bearish → sideways"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-11-17 05:02:56",
+   "agent_id": "publisher",
+   "to_id": null,
+   "kind": "oper",
+   "message": "\"Kuis: tebak 2 tim ID yang lolos M8 Turkiye\" udah tayang di IG 🚀 Makasih semua!"
+  },
   {
    "ts": "2026-11-17 01:21:47",
    "agent_id": "texec",
@@ -1118,22 +1125,15 @@
    "to_id": "owner",
    "kind": "santai",
    "message": "Rumor PatMen sama Ray ke Gen.G masih di luar naskah, jadi aman."
-  },
-  {
-   "ts": "2026-11-15 03:55:19",
-   "agent_id": "researcher",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Hadir Bos, semua transfer VCT udah dicek minimal 2 sumber."
   }
  ],
  "stats": {
   "this_week": {
    "week": "2026-11-16",
    "total": 20,
-   "posted": 2,
+   "posted": 3,
    "pending": 0,
-   "scheduled": 6,
+   "scheduled": 5,
    "yt_total": 6,
    "yt_posted": 1,
    "yt_pending": 0,
@@ -1229,9 +1229,14 @@
   "paused": false,
   "balance": 1728.1799999999998,
   "today_pnl": 0,
-  "price": 3877.25,
+  "price": 3877.399902,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-17 05:00:55",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
+   },
    {
     "ts": "2026-11-17 04:45:55",
     "decision": "NO TRADE",
@@ -1256,11 +1261,6 @@
     "ts": "2026-11-17 03:45:56",
     "decision": "NO TRADE",
     "reason": "setup SELL di band, konfirmasi baru 1/2 (MACD) · sesi Asia"
-   },
-   {
-    "ts": "2026-11-17 03:30:56",
-    "decision": "NO TRADE",
-    "reason": "setup SELL di band, konfirmasi baru 0/2 (-) · sesi Asia"
    }
   ],
   "trades": [
@@ -1327,7 +1327,7 @@
    1728.1799999999998
   ],
   "last": {
-   "ts": "2026-11-17 04:45:55",
+   "ts": "2026-11-17 05:00:55",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1344,11 +1344,11 @@
     "blackout": null
    },
    "tech": {
-    "bias": "bearish",
+    "bias": "sideways",
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3872.85 di atas tengah band (3852.6–3882.4) · RSI 57 · Stoch 73 · MACD +0.35 · H1 bearish"
+    "note": "M15 3877.37 di atas tengah band (3852.7–3884.3) · RSI 62 · Stoch 82 · MACD +0.66 · H1 sideways"
    }
   },
   "fund": {
@@ -1417,46 +1417,46 @@
    "M10": {
     "bias": "bullish",
     "score": 3,
-    "price": 3873.17,
-    "ema20": 3869.41,
-    "ema50": 3865.9,
-    "rsi": 57.3,
+    "price": 3877.35,
+    "ema20": 3870.84,
+    "ema50": 3866.78,
+    "rsi": 62,
     "n": 299,
-    "slot": 2991485,
-    "at": 1794891055420
+    "slot": 2991487,
+    "at": 1794892255500
    },
    "M15": {
     "bias": "bullish",
     "score": 2,
-    "price": 3872.65,
-    "ema20": 3868.35,
-    "ema50": 3865.85,
-    "rsi": 57,
+    "price": 3877.25,
+    "ema20": 3869.2,
+    "ema50": 3866.3,
+    "rsi": 61.5,
     "n": 299,
-    "slot": 1994323,
-    "at": 1794890755417
+    "slot": 1994324,
+    "at": 1794891655441
    },
    "M30": {
     "bias": "sideways",
     "score": 0,
-    "price": 3870.97,
-    "ema20": 3865.37,
-    "ema50": 3867.68,
-    "rsi": 54.3,
+    "price": 3877.25,
+    "ema20": 3866.5,
+    "ema50": 3868.06,
+    "rsi": 58.3,
     "n": 299,
-    "slot": 997161,
-    "at": 1794889855500
+    "slot": 997162,
+    "at": 1794891655445
    },
    "H1": {
     "bias": "sideways",
     "score": 0,
-    "price": 3872.52,
-    "ema20": 3866.67,
-    "ema50": 3874.61,
-    "rsi": 52.3,
+    "price": 3877.25,
+    "ema20": 3867.68,
+    "ema50": 3874.71,
+    "rsi": 54.7,
     "n": 299,
-    "slot": 498580,
-    "at": 1794888055915
+    "slot": 498581,
+    "at": 1794891655451
    }
   },
   "currency": "USC",
