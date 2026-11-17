@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-17T01:21:39.716Z",
+ "generated_at": "2026-11-17T01:31:39.686Z",
  "today": "2026-11-17",
  "week_start": "2026-11-16",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-17 01:15:55"
+   "updated_at": "2026-11-17 01:30:55"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Bearish: pasar price-in hike Fed Desember (~85-89%), emas turun ke terendah sejak Okt 2025 (~$3.900). Retail Sales 20:30 WITA.",
-   "updated_at": "2026-11-17 01:15:55"
+   "updated_at": "2026-11-17 01:30:55"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-11-17 01:15:55"
+   "updated_at": "2026-11-17 01:30:55"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
-   "updated_at": "2026-11-17 01:15:55"
+   "updated_at": "2026-11-17 01:30:55"
   },
   {
    "id": "texec",
@@ -847,6 +847,20 @@
  ],
  "chats": [
   {
+   "ts": "2026-11-17 01:21:47",
+   "agent_id": "texec",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Sabar Bos, tebakan taruhanku tetep di grup ML mabar 😎"
+  },
+  {
+   "ts": "2026-11-17 01:21:47",
+   "agent_id": "sec",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Hehe, Bos mau dicoba lagi ya 😆 Bracketnya masih aku kunci di laci, nanti malam aku bocorin satu-satu ya 🤫"
+  },
+  {
    "ts": "2026-11-17 01:21:39",
    "agent_id": "owner",
    "to_id": "dir",
@@ -1111,20 +1125,6 @@
    "to_id": "owner",
    "kind": "santai",
    "message": "Hadir Bos, semua transfer VCT udah dicek minimal 2 sumber."
-  },
-  {
-   "ts": "2026-11-15 03:55:12",
-   "agent_id": "owner",
-   "to_id": "researcher",
-   "kind": "bos",
-   "message": "Tess"
-  },
-  {
-   "ts": "2026-11-15 03:55:12",
-   "agent_id": "researcher",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Hadir Bos, semua transfer udah dicek minimal 2 sumber."
   }
  ],
  "stats": {
@@ -1229,9 +1229,14 @@
   "paused": false,
   "balance": 1728.1799999999998,
   "today_pnl": 0,
-  "price": 3849.469971,
+  "price": 3850.620117,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-17 01:30:55",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
+   },
    {
     "ts": "2026-11-17 01:15:55",
     "decision": "NO TRADE",
@@ -1254,11 +1259,6 @@
    },
    {
     "ts": "2026-11-17 00:15:55",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-   },
-   {
-    "ts": "2026-11-17 00:00:55",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
    }
@@ -1327,7 +1327,7 @@
    1728.1799999999998
   ],
   "last": {
-   "ts": "2026-11-17 01:15:55",
+   "ts": "2026-11-17 01:30:55",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1348,7 +1348,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3854.27 di bawah tengah band (3851.4–3864.6) · RSI 44 · Stoch 33 · MACD -0.05 · H1 bearish"
+    "note": "M15 3847.22 di bawah band bawah (3849.0–3866.0) · RSI 37 · Stoch 26 · MACD -0.73 · H1 bearish"
    }
   },
   "fund": {
@@ -1417,35 +1417,35 @@
    "M10": {
     "bias": "bearish",
     "score": -3,
-    "price": 3851.35,
-    "ema20": 3858.19,
-    "ema50": 3860.16,
-    "rsi": 39.5,
+    "price": 3853.05,
+    "ema20": 3857.7,
+    "ema50": 3859.88,
+    "rsi": 42.3,
     "n": 299,
-    "slot": 2991464,
-    "at": 1794878455786
+    "slot": 2991465,
+    "at": 1794879055726
    },
    "M15": {
     "bias": "sideways",
     "score": -1,
-    "price": 3858.12,
-    "ema20": 3859.49,
-    "ema50": 3862.28,
-    "rsi": 47.7,
+    "price": 3853.05,
+    "ema20": 3858.88,
+    "ema50": 3861.91,
+    "rsi": 42.5,
     "n": 299,
-    "slot": 1994309,
-    "at": 1794878155721
+    "slot": 1994310,
+    "at": 1794879055731
    },
    "M30": {
     "bias": "bearish",
     "score": -2,
-    "price": 3856.95,
-    "ema20": 3861.63,
-    "ema50": 3867.4,
-    "rsi": 45.4,
+    "price": 3853.05,
+    "ema20": 3860.81,
+    "ema50": 3866.83,
+    "rsi": 42.8,
     "n": 299,
-    "slot": 997154,
-    "at": 1794877255711
+    "slot": 997155,
+    "at": 1794879055732
    },
    "H1": {
     "bias": "sideways",
