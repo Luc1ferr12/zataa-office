@@ -13,7 +13,7 @@ Setiap konten harus bikin orang **berhenti scroll dalam 1–3 detik**, lalu tahu
 Maksimal 8 kata di gambar/teks pertama.
 
 ## Struktur isi
-- **Feed single**: headline (≤8 kata) + subjudul (≤14 kata) + badge (harga/tanggal/game).
+- **Feed single**: headline (≤8 kata) + subjudul (≤14 kata) + badge (tanggal/game; harga hanya kalau toko nyala lagi).
 - **Carousel 5–7 slide**: 1 Hook → 2–5 isi (1 ide per slide, ≤25 kata) → slide terakhir CTA.
 - **Video script** 15–30 dtk: `[0–3s] hook` → `[3–20s] 3–5 poin` → `[akhir] CTA`, tiap baris teks di layar ≤7 kata.
   - Pilih `style`: topup → `promo` / `flash` (flash sale); esport → `breaking` (berita/transfer), `matchday` (jadwal/preview), `glitch` (hasil/upset/juara), `tribute` (pensiun/perpisahan). Contoh lengkap: `templates/samples/video-<style>.json`.
@@ -32,7 +32,7 @@ Hashtag: MAKS 5 (batas IG sejak Des 2025) → 1 besar (#mobilelegends) + 2–3 n
 ```
 - **125 karakter pertama** = yang kelihatan sebelum "...selengkapnya". Feed/carousel: hook di situ. Reel: video udah nge-hook, baris 1 cukup ajakan + konteks.
 - **Kata yang dicari orang** (mis. "jadwal MPL ID", "klasemen MPL ID") tulis di kalimat caption, bukan cuma di hashtag: search IG baca teks caption.
-- **1 ajakan interaksi** (komen / simpan / kirim ke temen) + CTA zataa lembut. Dua ajakan interaksi = nggak ada yang jalan.
+- **1 ajakan interaksi** (komen / simpan / kirim ke temen) (CTA follow/simpan/komen saja; tanpa zataa.my.id selama toko mati). Dua ajakan interaksi = nggak ada yang jalan.
 - Hashtag kosong makna (#fyp #viral #explorepage) jangan dipakai.
 
 ## Skill IG (`.claude/skills/ig-*`, MIT)

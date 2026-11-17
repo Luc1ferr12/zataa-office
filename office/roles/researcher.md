@@ -58,7 +58,7 @@ Isi 6–10 item per hari (minimal 4 esport saat ada event besar). Di `summary` s
 
 ## Pelajaran nyata
 - Hasil match MPL hari Minggu sering **belum terindeks Senin pagi**. Cek ulang hasil weekend hari Selasa sebelum dibikin konten hasil.
-- Kalau zataa.my.id gagal dibuka (DNS mati 11–12 Okt), hari itu alihkan ke konten esport tanpa angka harga **dan** lapor ke Owner.
+- (Hanya kalau toko nyala lagi) kalau zataa.my.id gagal dibuka, hari itu alihkan ke konten esport tanpa angka harga **dan** lapor ke Owner.
 - Owner lebih suka konten yang ada **angka konkret** (Match Point klasemen, skor per map). Tulis angkanya lengkap di `summary`.
 - Owner nggak mau dimintain file. Logo & foto **cari sendiri** dan langsung simpan; jangan nunggu Owner ngirim.
 

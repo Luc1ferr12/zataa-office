@@ -136,7 +136,7 @@ export async function dailyReport({ dry = false } = {}) {
     ...(posted.length ? posted.map((c) => `• #${c.id} ${esc(c.title.slice(0, 50))}
    📸 👀 ${num(c.views)} · ❤️ ${num(c.likes)} · 💬 ${num(c.comments)}${c.tiktok_id ? ` | 🎵 ${c.tv != null ? `👀 ${num(c.tv)} · ❤️ ${num(c.tl)}` : 'data belum masuk'}` : ''}`) : ['• belum ada yang tayang']), '',
     ...(storeOn() ? [visits, `💰 Budi: harga zataa.my.id ${prices ? `berubah ${prices}× hari ini` : 'stabil hari ini'}`] : []),
-    `🚀 Fahriah: ${boosts.length ? boosts.map((b) => `${esc(b.title.slice(0, 30))} (${b.status}, ${rp(b.amount)})`).join('; ') : 'nggak ada boost baru'}`,
+    ...(boosts.length ? [`🚀 Fahriah: ${boosts.map((b) => `${esc(b.title.slice(0, 30))} (${b.status}, ${rp(b.amount)})`).join('; ')}`] : []),   // Fahriah libur → baris disembunyikan kalau tak ada boost
     `⏳ Nunggu ✅/revisi Bos: ${waiting} · 📅 Besok terjadwal: ${tomorrow} konten`,
     prev ? '\n<i>(angka dalam kurung = kenaikan sejak laporan kemarin)</i>' : '',
   ].join('\n').trim();

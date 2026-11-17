@@ -12,7 +12,7 @@ Budget iklan kecil dipakai cuma buat post yang sudah terbukti rame secara organi
 
 ## Cara pilih post
 1. Kandidat: sudah tayang di IG 20–72 jam lalu, belum pernah diusulkan.
-2. Skor = like + 3×komentar; konten pilar `promo` ×1,5 (langsung jualan zataa.my.id).
+2. Skor = like + 3×komentar; pilar `promo` ×1,5 hanya kalau toko nyala lagi (`STORE_ON=1`); selama mati tidak dipakai.
 3. Ambil skor tertinggi → usul ke Owner jam `ADS_HOUR` WITA (default 10:00).
 
 ## Setelan iklan

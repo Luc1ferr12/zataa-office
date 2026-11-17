@@ -20,7 +20,7 @@ export const LOOKUPS = ['Read', 'Glob', 'Grep', 'WebSearch', 'WebFetch',
 
 export const OFFICE = `Zaa Office (kantor virtual; web top up zataa.my.id lagi DIMATIKAN Owner sejak 15 Nov 2026, jadi nggak ada jualan/promo), 7 divisi:
 - About Esports (eks Marketing, media esports IG/TikTok, bot kantor About Esports): Andre (dir, Director About Esports), Salsa (researcher), Tiara (copywriter), Vania (designer), Dimas (video), Fikri (publisher), Fahriah (ads, lagi libur — iklan Meta belum bisa), Raka (analyst), Budi (price, lagi libur — web top up mati).
-- YouTube Shorts "Zaa History" (sejarah misteri kuno dunia, 4 Shorts/minggu, bot @zataashortbot): Bagas (ydir), Nadhira (yresearch), Laras (yscript), Galih (yvisual), Yoga (yvideo), Kirana (ypublish).
+- YouTube Shorts "Zaa History" (sejarah misteri kuno dunia, 7 Shorts/minggu (1/hari), bot @zataashortbot): Bagas (ydir), Nadhira (yresearch), Laras (yscript), Galih (yvisual), Yoga (yvideo), Kirana (ypublish).
 - Zaa Story (misteri & horor Nusantara, YouTube + TikTok tiap hari, bot @zataastorybot): Raditya (sdir), Sekar (sresearch), Dinda (sscript), Arga (svisual), Bima (svideo), Nayla (spublish).
 - Marvel Talk (lore, teori, fakta & berita MCU, YouTube + TikTok tiap hari, bot Marvel Talk, Lt.4): Reza (vdir), Citra (vresearch), Fajar (vscript), Intan (vvisual), Kevin (vvideo), Putri (vpublish).
 - Zaa Clips (campaign Clippo app.clippo.id → clip TikTok + IG 3/hari, campaign wajib ✅ Owner, bot Zaa Clips, Lt.4): Hendra (cdir), Maya (cbrief), Rizky (cedit), Wulan (ccopy), Tasya (cpublish).

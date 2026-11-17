@@ -2,7 +2,7 @@
 
 **Channel lama @zataastory, sejak 25 Okt berganti nama jadi Zaa History** (akun zataatopup@gmail.com, Zernio akun 1). Niche misteri/horor Nusantara pindah ke divisi baru **Zaa Story** (tim Raditya, `office/story.md`); divisi ini tetap sejarah misteri kuno dunia.
 
-**Status: JALAN** (sejak 16 Okt 2026). Produksi **4 Shorts/minggu** (mulai 26 Okt; dulu 7/minggu) lewat sesi harian; render otomatis di laptop, approval & upload lewat bot **@zataashortbot** (`scripts/shorts-bot.mjs`, jalan di watcher VPS).
+**Status: JALAN** (sejak 16 Okt 2026). Produksi **7 Shorts/minggu** (1/hari, keputusan Owner 30 Okt; 25–29 Okt sempat 4/minggu) lewat sesi harian; render otomatis di laptop, approval & upload lewat bot **@zataashortbot** (`scripts/shorts-bot.mjs`, jalan di watcher VPS).
 
 ## Alur otomatis
 1. **Sesi harian** (Bagas → Nadhira → Laras → Galih): topik dari **bank topik** (`shorts-topics.mjs next`), riset, naskah, gambar di `assets/shorts/<topik>/` (+ `credits.txt`), lalu

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Bank topik Shorts (DB tabel shorts_topics), satu bank untuk dua channel: tiap pilar milik satu brand (scripts/brand.mjs).
 // Tiap ide video punya data lengkap sebelum diproduksi (aturan Owner 18 Okt). Tanpa AI → 0 token.
-// Kuota mingguan (Senin–Minggu, mulai 26 Okt): Zaa History maks 4 Shorts, ≥2 Hidden History · Zaa Story 7 Shorts, ≥3 Horor Bersejarah.
+// Kuota mingguan (Senin–Minggu, mulai 26 Okt): Zaa History 7 Shorts, ≥2 Hidden History · Zaa Story 7 Shorts, ≥3 Horor Bersejarah.
 //   node scripts/shorts-topics.mjs pillars [--brand=story]              daftar pilar brand itu + kode
 //   node scripts/shorts-topics.mjs add <json|file>                      tambah 1 topik atau array topik (topic_id otomatis, status awal backlog)
 //   node scripts/shorts-topics.mjs list [status] [pillar] [--brand=…]   daftar ringkas brand itu (default: semua kecuali published)
