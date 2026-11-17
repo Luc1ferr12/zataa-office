@@ -412,7 +412,32 @@ async function ytStats() {
 const ytOff = (st) => [`⚠️ YouTube belum bisa dibaca: ${esc(st.err.slice(0, 150))}${/kosong di \.env/.test(st.err) ? ` (Bos izinkan sekali di laptop: <code>node scripts/youtube.mjs auth ${BR}</code>, login akun channel ${B.name})` : ''}`];
 // error proses anak: ambil baris "Error: …" (baris terakhir stderr node cuma versi Node)
 const errLine = (t) => { const l = String(t).split('\n'); return (l.find((x) => /Error:/.test(x)) ?? l.pop()).replace(/^.*?Error: /, '').slice(0, 200); };
+// statistik YouTube lewat Zernio /analytics (akun YouTube brand ini; tanpa OAuth Google). Subscriber = followersCount Zernio (update berkala, bisa telat)
+async function ytStatsZernio() {
+  const from = new Date(Date.now() - 365 * 864e5).toISOString().slice(0, 10);
+  const list = [];
+  let acc = null, page = 1, pages = 1;
+  do {
+    const j = await zernioApi(`/analytics?platform=youtube&fromDate=${from}&limit=100&page=${page}`);
+    acc ??= j.accounts?.find((a) => a.platform === 'youtube');
+    for (const p of j.posts ?? []) {
+      if (p.status !== 'published') continue;
+      const pl = p.platforms?.find((x) => x.platform === 'youtube') ?? {};
+      const id = pl.platformPostId ?? (pl.platformPostUrl ?? '').split('v=')[1];
+      if (!id) continue;
+      list.push({ id, title: String(p.content ?? '').split('\n')[0], published: p.publishedAt ?? '', privacy: 'public',
+        views: p.analytics?.views ?? 0, likes: p.analytics?.likes ?? 0, comments: p.analytics?.comments ?? 0 });
+    }
+    pages = j.pagination?.pages ?? 1;
+  } while (++page <= pages);
+  if (!acc) throw new Error('akun YouTube belum tersambung di Zernio');
+  return { title: acc.displayName, handle: acc.username, subscribers: acc.followersCount ?? null, views: list.reduce((a, v) => a + v.views, 0),
+    videos: list.length, likes: list.reduce((a, v) => a + v.likes, 0), list };
+}
 async function ytStatsRaw() {
+  if (zernioOn()) {
+    try { const st = await ytStatsZernio(); return { st, views: st.views }; } catch (e) { console.error('Zernio YouTube stats gagal, coba YouTube API langsung:', e.message); }
+  }
   const r = await run(['scripts/youtube.mjs', 'stats', BR], 3);
   if (!r.ok) throw new Error(errLine(r.err || r.out));
   const st = JSON.parse(r.out.split('\n').pop());
@@ -443,6 +468,7 @@ async function ytRetention() {
   if (r.ok) return JSON.parse(r.out.split('\n').pop()).videos;
   const msg = (r.err || r.out).split('\n').find((l) => /Error|error/.test(l)) ?? '';
   if (/disabled|not been used|SERVICE_DISABLED/i.test(r.err)) return { _off: 'YouTube Analytics API belum aktif di Google Cloud (project zataa-shorts), Bos tolong klik Enable: https://console.developers.google.com/apis/api/youtubeanalytics.googleapis.com/overview?project=566338684407' };
+  if (/tidak ada channel|kosong di \.env|token YouTube gagal/i.test(r.err + r.out)) return { _off: `retensi detail butuh login YouTube (OAuth) yang belum tersambung ke channel ${B.name}; statistik views/likes tetap dari Zernio` };
   return { _off: `data retensi gagal diambil: ${esc(msg.slice(0, 150))}` };
 }
 const mark = (v, min) => (v == null ? '' : v >= min ? ' ✅' : ' ⚠️');
