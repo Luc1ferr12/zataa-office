@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-18T00:56:19.363Z",
+ "generated_at": "2026-11-18T01:06:19.375Z",
  "today": "2026-11-18",
  "week_start": "2026-11-16",
  "campaign": {
@@ -62,8 +62,8 @@
    "name": "Fikri",
    "title": "Social Media Publisher",
    "status": "done",
-   "current_task": "undefined",
-   "updated_at": "2026-11-17 23:20:19"
+   "current_task": null,
+   "updated_at": "2026-11-18 01:00:44"
   },
   {
    "id": "ads",
@@ -79,7 +79,7 @@
    "title": "Data Analyst",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-11-17 22:00:55"
+   "updated_at": "2026-11-18 01:00:50"
   },
   {
    "id": "price",
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-18 00:45:59"
+   "updated_at": "2026-11-18 01:00:59"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Pasar bertaruh Fed naik suku bunga, bukan turun. NFP Okt kuat 165rb, DXY ~102. Emas tetap tahan meski CPI panas. Bias sedikit bearish.",
-   "updated_at": "2026-11-18 00:45:59"
+   "updated_at": "2026-11-18 01:00:59"
   },
   {
    "id": "ttech",
@@ -119,15 +119,15 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-18 00:45:59"
+   "updated_at": "2026-11-18 01:00:59"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: ada candle spike di M15 (kemungkinan berita dadakan), tunggu tenang",
-   "updated_at": "2026-11-18 00:45:59"
+   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
+   "updated_at": "2026-11-18 01:00:59"
   },
   {
    "id": "texec",
@@ -806,6 +806,16 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-18 01:00:50",
+   "agent_id": "analyst",
+   "message": "Update data 36 post IG 📈"
+  },
+  {
+   "ts": "2026-11-18 01:00:44",
+   "agent_id": "publisher",
+   "message": "Kirim draf IG Story ke Bos 📱"
+  },
+  {
    "ts": "2026-11-18 00:15:59",
    "agent_id": "trisk",
    "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (sesi Asia)"
@@ -919,16 +929,6 @@
    "ts": "2026-11-17 21:50:59",
    "agent_id": "ttech",
    "message": "M10 berubah arah: sideways → bearish"
-  },
-  {
-   "ts": "2026-11-17 21:40:59",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: bearish → sideways"
-  },
-  {
-   "ts": "2026-11-17 21:30:59",
-   "agent_id": "ttech",
-   "message": "M30 berubah arah: bearish → sideways"
   }
  ],
  "chats": [
@@ -1224,8 +1224,8 @@
    "yt_posted": 3,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 2369,
-   "likes": 40,
+   "views": 2398,
+   "likes": 41,
    "comments": 0,
    "shares": 0,
    "saves": 0,
@@ -1241,7 +1241,7 @@
      "title": "Transfer VCT 2027 yang paling bikin kaget: kamu setuju?",
      "format": "video",
      "pillar": "news",
-     "views": 286
+     "views": 315
     },
     {
      "title": "3 transfer VCT 2027 yang ubah peta kekuatan",
@@ -1327,9 +1327,14 @@
   "paused": false,
   "balance": 1728.1799999999998,
   "today_pnl": 0,
-  "price": 3821.669922,
+  "price": 3817.669922,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-18 01:00:59",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
+   },
    {
     "ts": "2026-11-18 00:45:59",
     "decision": "NO TRADE",
@@ -1352,11 +1357,6 @@
    },
    {
     "ts": "2026-11-17 23:45:59",
-    "decision": "NO TRADE",
-    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
-   },
-   {
-    "ts": "2026-11-17 23:30:59",
     "decision": "NO TRADE",
     "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
    }
@@ -1425,7 +1425,7 @@
    1728.1799999999998
   ],
   "last": {
-   "ts": "2026-11-18 00:45:59",
+   "ts": "2026-11-18 01:00:59",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1434,7 +1434,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "ada candle spike di M15 (kemungkinan berita dadakan), tunggu tenang",
+   "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)",
    "fund": {
     "bias": -0.35,
     "note": "Pasar bertaruh Fed naik suku bunga, bukan turun. NFP Okt kuat 165rb, DXY ~102. Emas tetap tahan meski CPI panas. Bias sedikit bearish.",
@@ -1446,7 +1446,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3822.55 di bawah band bawah (3827.3–3869.1) · RSI 24 · Stoch 4 · MACD -2.79 · H1 sideways"
+    "note": "M15 3818.25 di bawah band bawah (3819.8–3873.1) · RSI 23 · Stoch 3 · MACD -3.51 · H1 sideways"
    }
   },
   "fund": {
@@ -1497,46 +1497,46 @@
    "M10": {
     "bias": "bearish",
     "score": -2,
-    "price": 3819.9,
-    "ema20": 3845.72,
-    "ema50": 3853.09,
-    "rsi": 19.3,
+    "price": 3817.3,
+    "ema20": 3843.02,
+    "ema50": 3851.69,
+    "rsi": 18.3,
     "n": 299,
-    "slot": 2991605,
-    "at": 1794963059155
+    "slot": 2991606,
+    "at": 1794963659193
    },
    "M15": {
     "bias": "bearish",
     "score": -2,
-    "price": 3823.75,
-    "ema20": 3849.29,
-    "ema50": 3856.31,
-    "rsi": 24.8,
+    "price": 3817.3,
+    "ema20": 3846.24,
+    "ema50": 3854.78,
+    "rsi": 22.2,
     "n": 299,
-    "slot": 1994403,
-    "at": 1794962759226
+    "slot": 1994404,
+    "at": 1794963659198
    },
    "M30": {
     "bias": "bearish",
     "score": -2,
-    "price": 3835.5,
-    "ema20": 3856.34,
-    "ema50": 3862.03,
-    "rsi": 30.7,
+    "price": 3817.3,
+    "ema20": 3852.62,
+    "ema50": 3860.27,
+    "rsi": 23.4,
     "n": 299,
-    "slot": 997201,
-    "at": 1794961859136
+    "slot": 997202,
+    "at": 1794963659199
    },
    "H1": {
     "bias": "bearish",
     "score": -2,
-    "price": 3854.5,
-    "ema20": 3861.35,
-    "ema50": 3868.17,
-    "rsi": 44.6,
+    "price": 3817.3,
+    "ema20": 3857.15,
+    "ema50": 3866.17,
+    "rsi": 30.3,
     "n": 299,
-    "slot": 498600,
-    "at": 1794960059137
+    "slot": 498601,
+    "at": 1794963659203
    }
   },
   "currency": "USC",
