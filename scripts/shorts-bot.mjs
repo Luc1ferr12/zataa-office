@@ -612,11 +612,23 @@ async function runJobs(log) {
   const t = wita(new Date());
   // klaim laptop macet >60 mnt (laptop mati di tengah render) → antre lagi
   d.prepare(`UPDATE contents SET data_json = json_set(data_json, '$._laptop', 1) WHERE channel = '${CH}' AND json_extract(data_json, '$._laptop') = 2 AND updated_at < datetime('now', '-60 minutes')`).run();
-  for (const c of d.prepare(`SELECT id, title, updated_at, json_extract(data_json, '$._laptop') lap, json_extract(data_json, '$._err') err FROM contents WHERE channel = '${CH}' AND status IN ('draft', 'revision') AND json_extract(data_json, '$._laptop') IN (1, 3)`).all()) {
+  for (const c of d.prepare(`SELECT id, title, updated_at, status, owner_note, json_extract(data_json, '$._laptop') lap, json_extract(data_json, '$._err') err FROM contents WHERE channel = '${CH}' AND status IN ('draft', 'revision') AND json_extract(data_json, '$._laptop') IN (1, 3)`).all()) {
     if (c.lap === 3 && !notified[`err${c.id}`]) {
       notified[`err${c.id}`] = 1;
       await sayAs(T.video, `⚠️ Render Shorts #${c.id} "${esc(c.title)}" di laptop gagal: ${esc(String(c.err ?? '').slice(0, 300))}\nNanti dibenerin tim di sesi berikutnya, atau balas di sini kalau mau ubah sesuatu.`).catch(() => {});
       log(`shorts #${c.id}: render laptop gagal, Owner dikabari`);
+    }
+    // render gagal karena klip/gambar → tim benerin spec sendiri (maks 2×, tercatat di state biar aman dari restart)
+    if (c.lap === 3 && c.status === 'revision' && c.owner_note) {
+      const af = (state().autofix ?? {})[c.id] ?? 0;
+      if (af < 2 && !revising.has(c.id)) {
+        patchState((st) => { (st.autofix ??= {})[c.id] = af + 1; });
+        revising.add(c.id);
+        log(`shorts #${c.id}: render gagal, auto-perbaiki spec (${af + 1}/2)`);
+        later(() => revise(c.id, c.owner_note, log, `
+RENDER OTOMATIS GAGAL: ${String(c.err ?? '').slice(0, 400)}
+Perbaiki spec: ganti query find yang gagal dengan query lebih umum & pasti ada di YouTube (mis. "<judul film> official trailer", "<karakter> <film> scene"); jangan ubah isi naskah yang tidak perlu.`, true).finally(() => revising.delete(c.id)), log);
+      }
     }
     if (c.lap === 1 && !notified[`wait${c.id}`] && new Date(`${c.updated_at.replace(' ', 'T')}Z`) < Date.now() - 3 * 3600e3) {
       notified[`wait${c.id}`] = 1;
@@ -656,6 +668,7 @@ async function runJobs(log) {
 let reporting = false;
 
 // antrean kerja panjang (upload/revisi/obrolan Claude) satu per satu, polling tetap jalan
+const revising = new Set();
 let chain = Promise.resolve();
 const later = (fn, log) => { chain = chain.then(fn).catch((e) => log(`bot shorts: ${e.message}`)); };
 
