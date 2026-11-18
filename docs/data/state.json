@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-18T03:01:04.455Z",
+ "generated_at": "2026-11-18T03:11:04.623Z",
  "today": "2026-11-18",
  "week_start": "2026-11-16",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-18 02:45:51"
+   "updated_at": "2026-11-18 03:01:20"
   },
   {
    "id": "tresearch",
@@ -111,23 +111,23 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Pasar bertaruh Fed naik suku bunga, bukan turun. NFP Okt kuat 165rb, DXY ~102. Emas tetap tahan meski CPI panas. Bias sedikit bearish.",
-   "updated_at": "2026-11-18 02:45:51"
+   "updated_at": "2026-11-18 03:01:20"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Setup BUY di band (MACD)",
-   "updated_at": "2026-11-18 02:45:51"
+   "current_task": "Belum ada pantulan band · H1 sideways",
+   "updated_at": "2026-11-18 03:01:20"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: Bollinger Band melebar kencang (breakout), pantulan berisiko",
-   "updated_at": "2026-11-18 02:45:51"
+   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
+   "updated_at": "2026-11-18 03:01:20"
   },
   {
    "id": "texec",
@@ -310,8 +310,8 @@
    "name": "Hendra",
    "title": "Manajer Zaa Clips",
    "status": "done",
-   "current_task": "Campaign LIGHT+ X TASYA FARASYA masuk produksi",
-   "updated_at": "2026-11-16 06:18:00"
+   "current_task": "Campaign BEAR BRAND X JEROME POLIN X DION WIYOKO masuk produksi",
+   "updated_at": "2026-11-18 03:08:32"
   },
   {
    "id": "cbrief",
@@ -325,9 +325,9 @@
    "id": "cedit",
    "name": "Rizky",
    "title": "Video Editor",
-   "status": "working",
-   "current_task": "3 clip baru di antrean laptop",
-   "updated_at": "2026-11-18 00:00:19"
+   "status": "waiting",
+   "current_task": "Clip #4 nunggu ✅ Bos",
+   "updated_at": "2026-11-18 03:06:48"
   },
   {
    "id": "ccopy",
@@ -708,7 +708,7 @@
   {
    "id": 4,
    "day": "2026-11-17",
-   "status": "cancelled",
+   "status": "review",
    "views": 0,
    "likes": 0,
    "tiktok_url": null,
@@ -805,6 +805,11 @@
   }
  ],
  "activity": [
+  {
+   "ts": "2026-11-18 03:06:37",
+   "agent_id": "cedit",
+   "message": "Clip #4 (LIGHT+ X TASYA FARASYA) kelar diedit: 15 dtk, nunggu approval Bos"
+  },
   {
    "ts": "2026-11-18 03:01:04",
    "agent_id": "dir",
@@ -924,14 +929,16 @@
    "ts": "2026-11-18 01:24:53",
    "agent_id": "yvideo",
    "message": "Shorts #200 dirender di laptop (suara OmniVoice) & dikirim ke Owner"
-  },
-  {
-   "ts": "2026-11-18 01:24:52",
-   "agent_id": "ypublish",
-   "message": "Kirim Shorts #200 ke Owner buat approval"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-11-18 03:08:32",
+   "agent_id": "cdir",
+   "to_id": "cbrief",
+   "kind": "oper",
+   "message": "Maya, campaign \"BEAR BRAND X JEROME POLIN X DION WIYOKO\" udah di-✅ Bos. Baca brief-nya teliti ya 📋"
+  },
   {
    "ts": "2026-11-18 02:55:36",
    "agent_id": "cpublish",
@@ -1204,13 +1211,6 @@
    "to_id": "publisher",
    "kind": "oper",
    "message": "Fik, video transfer VCT udah masuk antrean render laptop, nanti otomatis kekirim ke Bos."
-  },
-  {
-   "ts": "2026-11-15 23:08:40",
-   "agent_id": "video",
-   "to_id": "publisher",
-   "kind": "oper",
-   "message": "Render \"Render video transfer VCT\" selesai, Fikri. Cek cover-nya ya"
   }
  ],
  "stats": {
@@ -1327,9 +1327,14 @@
   "paused": false,
   "balance": 1728.1799999999998,
   "today_pnl": 0,
-  "price": 3801.800049,
+  "price": 3801.100098,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-18 03:01:20",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
+   },
    {
     "ts": "2026-11-18 02:45:51",
     "decision": "NO TRADE",
@@ -1352,11 +1357,6 @@
    },
    {
     "ts": "2026-11-18 01:45:59",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-   },
-   {
-    "ts": "2026-11-18 01:30:59",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
    }
@@ -1425,7 +1425,7 @@
    1728.1799999999998
   ],
   "last": {
-   "ts": "2026-11-18 02:45:51",
+   "ts": "2026-11-18 03:01:20",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1434,7 +1434,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "Bollinger Band melebar kencang (breakout), pantulan berisiko",
+   "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)",
    "fund": {
     "bias": -0.35,
     "note": "Pasar bertaruh Fed naik suku bunga, bukan turun. NFP Okt kuat 165rb, DXY ~102. Emas tetap tahan meski CPI panas. Bias sedikit bearish.",
@@ -1443,12 +1443,10 @@
    },
    "tech": {
     "bias": "sideways",
-    "score": 1,
-    "trigger": "buy",
-    "confirm": [
-     "MACD"
-    ],
-    "note": "M15 3800.77 di bawah tengah band (3788.0–3875.9) · RSI 25 · Stoch 11 · MACD -3.08 · H1 sideways · setup BUY (MACD)"
+    "score": 0,
+    "trigger": null,
+    "confirm": [],
+    "note": "M15 3799.65 di bawah tengah band (3783.5–3874.9) · RSI 26 · Stoch 7 · MACD -2.85 · H1 sideways"
    }
   },
   "fund": {
@@ -1499,46 +1497,46 @@
    "M10": {
     "bias": "bearish",
     "score": -3,
-    "price": 3797.8,
-    "ema20": 3820.29,
-    "ema50": 3837.03,
-    "rsi": 29.6,
+    "price": 3801.55,
+    "ema20": 3816.63,
+    "ema50": 3834.19,
+    "rsi": 33.5,
     "n": 299,
-    "slot": 2991617,
-    "at": 1794970251195
+    "slot": 2991619,
+    "at": 1794971450173
    },
    "M15": {
     "bias": "bearish",
     "score": -3,
-    "price": 3801.85,
-    "ema20": 3828.87,
-    "ema50": 3844.5,
-    "rsi": 25.6,
+    "price": 3798.5,
+    "ema20": 3825.98,
+    "ema50": 3842.7,
+    "rsi": 24.4,
     "n": 299,
-    "slot": 1994411,
-    "at": 1794969951198
+    "slot": 1994412,
+    "at": 1794970880111
    },
    "M30": {
     "bias": "bearish",
     "score": -2,
-    "price": 3805.15,
-    "ema20": 3842.4,
-    "ema50": 3854.97,
-    "rsi": 22.6,
+    "price": 3798.5,
+    "ema20": 3838.21,
+    "ema50": 3852.76,
+    "rsi": 20.8,
     "n": 299,
-    "slot": 997205,
-    "at": 1794969059203
+    "slot": 997206,
+    "at": 1794970880113
    },
    "H1": {
     "bias": "bearish",
     "score": -2,
-    "price": 3820,
-    "ema20": 3853.61,
-    "ema50": 3864.36,
-    "rsi": 32,
+    "price": 3798.5,
+    "ema20": 3848.36,
+    "ema50": 3861.78,
+    "rsi": 26.5,
     "n": 299,
-    "slot": 498602,
-    "at": 1794967259185
+    "slot": 498603,
+    "at": 1794970880117
    }
   },
   "currency": "USC",
