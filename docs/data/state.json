@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-18T02:26:19.638Z",
+ "generated_at": "2026-11-18T02:36:19.635Z",
  "today": "2026-11-18",
  "week_start": "2026-11-16",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-18 02:15:59"
+   "updated_at": "2026-11-18 02:30:59"
   },
   {
    "id": "tresearch",
@@ -111,15 +111,15 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Pasar bertaruh Fed naik suku bunga, bukan turun. NFP Okt kuat 165rb, DXY ~102. Emas tetap tahan meski CPI panas. Bias sedikit bearish.",
-   "updated_at": "2026-11-18 02:15:59"
+   "updated_at": "2026-11-18 02:30:59"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Setup BUY di band (RSI+MACD)",
-   "updated_at": "2026-11-18 02:15:59"
+   "current_task": "Setup BUY di band (MACD)",
+   "updated_at": "2026-11-18 02:30:59"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: Bollinger Band melebar kencang (breakout), pantulan berisiko",
-   "updated_at": "2026-11-18 02:15:59"
+   "updated_at": "2026-11-18 02:30:59"
   },
   {
    "id": "texec",
@@ -564,7 +564,7 @@
    "format": "shorts",
    "game": "sejarah",
    "pillar": "lore_teori",
-   "title": "Iron Man Balik ke MCU, Tapi Sebagai Musuh Avengers",
+   "title": "Siapa Saja Tim Doctor Doom di Avengers: Doomsday?",
    "status": "pending_approval",
    "asset_url": null,
    "scheduled_at": null,
@@ -688,7 +688,7 @@
   {
    "id": 2,
    "day": "2026-11-16",
-   "status": "queued",
+   "status": "failed",
    "views": 0,
    "likes": 0,
    "tiktok_url": null,
@@ -806,6 +806,21 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-18 02:34:27",
+   "agent_id": "vpublish",
+   "message": "Kirim Shorts #202 ke Owner buat approval"
+  },
+  {
+   "ts": "2026-11-18 02:34:18",
+   "agent_id": "vscript",
+   "message": "Revisi Shorts #202 kelar: Topik Shorts #202 diganti total ke \"Siapa saja tim Doctor Doom di Avengers: Doomsday?\" (Russo = FAKTA, Wanda/Strange/Cle"
+  },
+  {
+   "ts": "2026-11-18 02:32:53",
+   "agent_id": "owner",
+   "message": "Minta revisi Shorts #202: Take another topic. Ini topik uda lama dan bulan depan film nya uda rilis. Coba cari topik nya siapa aja yg bakal jadi tim nya doctor doom. Kan ada banyak rumor beredear, ada wanda, dr strange, hulk, dan lainnya yg gw gatau, nah lu cari tau"
+  },
+  {
    "ts": "2026-11-18 02:26:19",
    "agent_id": "owner",
    "message": "Approve konten #203 ✅"
@@ -914,21 +929,6 @@
    "ts": "2026-11-18 00:00:59",
    "agent_id": "ttech",
    "message": "M15 berubah arah: sideways → bearish"
-  },
-  {
-   "ts": "2026-11-18 00:00:59",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: bearish → sideways"
-  },
-  {
-   "ts": "2026-11-17 23:50:59",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: sideways → bearish"
-  },
-  {
-   "ts": "2026-11-17 23:21:08",
-   "agent_id": "publisher",
-   "message": "Video 203 antre render laptop, tanpa submit manual"
   }
  ],
  "chats": [
@@ -1224,18 +1224,18 @@
    "yt_posted": 3,
    "yt_pending": 1,
    "yt_scheduled": 2,
-   "views": 2507,
+   "views": 2510,
    "likes": 45,
    "comments": 0,
    "shares": 0,
    "saves": 0,
-   "yt_views": 1923,
+   "yt_views": 1926,
    "top": [
     {
      "title": "Gua di Biak Ini Konon Jadi Kuburan Ribuan Tentara Jepang",
      "format": "shorts",
      "pillar": "horor_sejarah",
-     "views": 1923
+     "views": 1926
     },
     {
      "title": "Transfer VCT 2027 yang paling bikin kaget: kamu setuju?",
@@ -1271,12 +1271,12 @@
    "yt_posted": 10,
    "yt_pending": 1,
    "yt_scheduled": 0,
-   "views": 19415,
+   "views": 19416,
    "likes": 238,
    "comments": 6,
    "shares": 3,
    "saves": 0,
-   "yt_views": 16325,
+   "yt_views": 16326,
    "top": [
     {
      "title": "Tulisan Tertua Indonesia Ada di 7 Tiang Batu Ini",
@@ -1327,9 +1327,14 @@
   "paused": false,
   "balance": 1728.1799999999998,
   "today_pnl": 0,
-  "price": 3801.699951,
+  "price": 3806.600098,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-18 02:30:59",
+    "decision": "NO TRADE",
+    "reason": "Bollinger Band melebar kencang (breakout), pantulan berisiko"
+   },
    {
     "ts": "2026-11-18 02:15:59",
     "decision": "NO TRADE",
@@ -1352,11 +1357,6 @@
    },
    {
     "ts": "2026-11-18 01:15:59",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-   },
-   {
-    "ts": "2026-11-18 01:00:59",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
    }
@@ -1425,7 +1425,7 @@
    1728.1799999999998
   ],
   "last": {
-   "ts": "2026-11-18 02:15:59",
+   "ts": "2026-11-18 02:30:59",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1443,13 +1443,12 @@
    },
    "tech": {
     "bias": "sideways",
-    "score": 2,
+    "score": 1,
     "trigger": "buy",
     "confirm": [
-     "RSI",
      "MACD"
     ],
-    "note": "M15 3807.32 di bawah tengah band (3798.1–3876.2) · RSI 29 · Stoch 18 · MACD -3.17 · H1 sideways · setup BUY (RSI+MACD)"
+    "note": "M15 3803.12 di bawah tengah band (3792.8–3876.3) · RSI 26 · Stoch 13 · MACD -3.21 · H1 sideways · setup BUY (MACD)"
    }
   },
   "fund": {
@@ -1500,35 +1499,35 @@
    "M10": {
     "bias": "bearish",
     "score": -2,
-    "price": 3800.35,
-    "ema20": 3826.74,
-    "ema50": 3841.5,
-    "rsi": 28.4,
+    "price": 3805.15,
+    "ema20": 3824.69,
+    "ema50": 3840.08,
+    "rsi": 32.8,
     "n": 299,
-    "slot": 2991614,
-    "at": 1794968459188
+    "slot": 2991615,
+    "at": 1794969059196
    },
    "M15": {
     "bias": "bearish",
     "score": -3,
-    "price": 3804.17,
-    "ema20": 3834.51,
-    "ema50": 3847.92,
-    "rsi": 25.9,
+    "price": 3805.15,
+    "ema20": 3831.71,
+    "ema50": 3846.24,
+    "rsi": 26.9,
     "n": 299,
-    "slot": 1994409,
-    "at": 1794968159271
+    "slot": 1994410,
+    "at": 1794969059202
    },
    "M30": {
     "bias": "bearish",
     "score": -2,
-    "price": 3820,
-    "ema20": 3846.32,
-    "ema50": 3857.01,
-    "rsi": 27.6,
+    "price": 3805.15,
+    "ema20": 3842.4,
+    "ema50": 3854.97,
+    "rsi": 22.6,
     "n": 299,
-    "slot": 997204,
-    "at": 1794967259182
+    "slot": 997205,
+    "at": 1794969059203
    },
    "H1": {
     "bias": "bearish",
