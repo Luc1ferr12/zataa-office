@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-18T22:55:20.692Z",
+ "generated_at": "2026-11-18T23:05:20.694Z",
  "today": "2026-11-19",
  "week_start": "2026-11-16",
  "campaign": {
@@ -103,15 +103,15 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-18 21:45:51"
+   "updated_at": "2026-11-18 23:01:13"
   },
   {
    "id": "tresearch",
    "name": "Davina",
    "title": "Research & Fundamental",
    "status": "done",
-   "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
-   "updated_at": "2026-11-18 21:45:51"
+   "current_task": "Fundamental: Berita 24 jam tak ketemu; NFP Okt kuat & pasar price hike Fed Des, USD kuat → emas tertekan. Tak ada eskalasi/darurat terdeteksi.",
+   "updated_at": "2026-11-18 23:01:13"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-11-18 21:45:51"
+   "updated_at": "2026-11-18 23:01:13"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
-   "updated_at": "2026-11-18 21:45:51"
+   "updated_at": "2026-11-18 23:01:13"
   },
   {
    "id": "texec",
@@ -579,8 +579,8 @@
    "game": "valorant",
    "pillar": "engagement",
    "title": "Polling: roster T1 dengan TenZ bisa juara VCT Pacific 2027?",
-   "status": "draft",
-   "asset_url": null,
+   "status": "pending_approval",
+   "asset_url": "{\"feed\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-11-19/185-polling-roster-t1-dengan-tenz-bisa-juara.jpg\"],\"story\":[\"https://luc1ferr12.github.io/zataa-office/media/2026-11-19/185-polling-roster-t1-dengan-tenz-bisa-juara-916.jpg\"]}",
    "scheduled_at": null,
    "posted_at": null,
    "channel": null
@@ -826,6 +826,31 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-18 23:01:15",
+   "agent_id": "ypublish",
+   "message": "Shorts #193 #196 #200 status upload_failed (16-18 Nov), perlu cek Zernio"
+  },
+  {
+   "ts": "2026-11-18 23:01:13",
+   "agent_id": "trisk",
+   "message": "NO TRADE · jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
+  },
+  {
+   "ts": "2026-11-18 23:01:11",
+   "agent_id": "dir",
+   "message": "Kirim 3 ide briefing ke Owner"
+  },
+  {
+   "ts": "2026-11-18 23:01:10",
+   "agent_id": "dir",
+   "message": "Pilih 3 ide terbaik dari briefing (2 feed + 1 video)"
+  },
+  {
+   "ts": "2026-11-18 23:01:01",
+   "agent_id": "publisher",
+   "message": "Kirim #185 ke Owner buat approval"
+  },
+  {
    "ts": "2026-11-18 22:01:04",
    "agent_id": "analyst",
    "message": "Update data 35 post IG 📈"
@@ -924,31 +949,6 @@
    "ts": "2026-11-18 12:45:50",
    "agent_id": "trisk",
    "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-  },
-  {
-   "ts": "2026-11-18 12:30:50",
-   "agent_id": "ttech",
-   "message": "M15 berubah arah: sideways → bearish"
-  },
-  {
-   "ts": "2026-11-18 12:30:50",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: sideways → bearish"
-  },
-  {
-   "ts": "2026-11-18 12:10:50",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: bearish → sideways"
-  },
-  {
-   "ts": "2026-11-18 12:01:21",
-   "agent_id": "publisher",
-   "message": "Posting #184 ke IG + TikTok ✅"
-  },
-  {
-   "ts": "2026-11-18 12:01:12",
-   "agent_id": "spublish",
-   "message": "Cross-post Shorts #201 ke TikTok Zaa Story"
   }
  ],
  "chats": [
@@ -1238,7 +1238,7 @@
    "week": "2026-11-16",
    "total": 24,
    "posted": 12,
-   "pending": 0,
+   "pending": 1,
    "scheduled": 0,
    "yt_total": 9,
    "yt_posted": 5,
@@ -1291,12 +1291,12 @@
    "yt_posted": 10,
    "yt_pending": 1,
    "yt_scheduled": 0,
-   "views": 19470,
+   "views": 19471,
    "likes": 238,
    "comments": 6,
    "shares": 3,
    "saves": 0,
-   "yt_views": 16375,
+   "yt_views": 16376,
    "top": [
     {
      "title": "Tulisan Tertua Indonesia Ada di 7 Tiang Batu Ini",
@@ -1347,9 +1347,14 @@
   "paused": false,
   "balance": 1728.1799999999998,
   "today_pnl": 0,
-  "price": 3727.800049,
+  "price": 3732.320068,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-18 23:01:13",
+    "decision": "NO TRADE",
+    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
+   },
    {
     "ts": "2026-11-18 21:45:51",
     "decision": "NO TRADE",
@@ -1372,11 +1377,6 @@
    },
    {
     "ts": "2026-11-18 20:45:51",
-    "decision": "NO TRADE",
-    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
-   },
-   {
-    "ts": "2026-11-18 20:30:51",
     "decision": "NO TRADE",
     "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
    }
@@ -1445,7 +1445,7 @@
    1728.1799999999998
   ],
   "last": {
-   "ts": "2026-11-18 21:45:51",
+   "ts": "2026-11-18 23:01:13",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1456,8 +1456,8 @@
    "risk_usd": null,
    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
    "fund": {
-    "bias": 0,
-    "note": "netral (belum ada ringkasan hari ini)",
+    "bias": -0.4,
+    "note": "Berita 24 jam tak ketemu; NFP Okt kuat & pasar price hike Fed Des, USD kuat → emas tertekan. Tak ada eskalasi/darurat terdeteksi.",
     "danger": null,
     "blackout": null
    },
@@ -1466,10 +1466,13 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3726.47 di bawah tengah band (3717.4–3752.0) · RSI 38 · Stoch 20 · MACD +0.61 · H1 bearish"
+    "note": "M15 3727.80 di bawah tengah band (3718.7–3743.2) · RSI 41 · Stoch 53 · MACD +1.35 · H1 bearish"
    }
   },
-  "fund": null,
+  "fund": {
+   "bias": -0.4,
+   "note": "Berita 24 jam tak ketemu; NFP Okt kuat & pasar price hike Fed Des, USD kuat → emas tertekan. Tak ada eskalasi/darurat terdeteksi."
+  },
   "calendar": [
    {
     "title": "Unemployment Claims",
@@ -1504,47 +1507,47 @@
   "tf": {
    "M10": {
     "bias": "sideways",
-    "score": -1,
-    "price": 3726.37,
-    "ema20": 3732.17,
-    "ema50": 3743.65,
-    "rsi": 37.9,
+    "score": 0,
+    "price": 3733.4,
+    "ema20": 3730.44,
+    "ema50": 3739.96,
+    "rsi": 52,
     "n": 299,
-    "slot": 2991731,
-    "at": 1795038651136
+    "slot": 2991738,
+    "at": 1795042851295
    },
    "M15": {
     "bias": "bearish",
-    "score": -3,
-    "price": 3726,
-    "ema20": 3736.31,
-    "ema50": 3753.15,
-    "rsi": 37,
+    "score": -2,
+    "price": 3733.4,
+    "ema20": 3733.41,
+    "ema50": 3748.73,
+    "rsi": 46.2,
     "n": 299,
-    "slot": 1994487,
-    "at": 1795038351132
+    "slot": 1994492,
+    "at": 1795042851303
    },
    "M30": {
     "bias": "bearish",
     "score": -2,
-    "price": 3730.85,
-    "ema20": 3749.05,
-    "ema50": 3778.66,
-    "rsi": 33.6,
+    "price": 3733.4,
+    "ema20": 3743.97,
+    "ema50": 3773.08,
+    "rsi": 37.7,
     "n": 299,
-    "slot": 997243,
-    "at": 1795037451132
+    "slot": 997246,
+    "at": 1795042851309
    },
    "H1": {
     "bias": "bearish",
     "score": -2,
-    "price": 3732.77,
-    "ema20": 3770.94,
-    "ema50": 3810.16,
-    "rsi": 31.6,
+    "price": 3733.4,
+    "ema20": 3763.53,
+    "ema50": 3804,
+    "rsi": 33.6,
     "n": 299,
-    "slot": 498621,
-    "at": 1795035651204
+    "slot": 498623,
+    "at": 1795042851317
    }
   },
   "currency": "USC",
