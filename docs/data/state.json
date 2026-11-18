@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-18T13:45:20.479Z",
+ "generated_at": "2026-11-18T13:55:20.479Z",
  "today": "2026-11-18",
  "week_start": "2026-11-16",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-18 13:30:50"
+   "updated_at": "2026-11-18 13:45:50"
   },
   {
    "id": "tresearch",
@@ -111,23 +111,23 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Hawkish: NFP Okt 165K, CPI panas, pasar price hike Desember ~81%, DXY ~102; Hormuz/minyak tinggi tahan emas. Berita 24 jam belum terkonfirmasi.",
-   "updated_at": "2026-11-18 13:30:50"
+   "updated_at": "2026-11-18 13:45:50"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Setup BUY di band (Stokastik+MACD+divergensi)",
-   "updated_at": "2026-11-18 13:30:50"
+   "current_task": "Belum ada pantulan band · H1 bearish",
+   "updated_at": "2026-11-18 13:45:50"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: BUY lawan tren H1 (bearish), di luar jam Asia cari aman",
-   "updated_at": "2026-11-18 13:30:50"
+   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
+   "updated_at": "2026-11-18 13:45:50"
   },
   {
    "id": "texec",
@@ -826,6 +826,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-18 13:45:50",
+   "agent_id": "trisk",
+   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+  },
+  {
    "ts": "2026-11-18 13:30:50",
    "agent_id": "ttech",
    "message": "M15 berubah arah: bearish → sideways"
@@ -944,11 +949,6 @@
    "ts": "2026-11-18 09:23:06",
    "agent_id": "yvideo",
    "message": "Shorts #202 dirender di laptop (suara OmniVoice) & dikirim ke Owner"
-  },
-  {
-   "ts": "2026-11-18 09:23:05",
-   "agent_id": "vpublish",
-   "message": "Kirim Shorts #202 ke Owner buat approval"
   }
  ],
  "chats": [
@@ -1244,30 +1244,30 @@
    "yt_posted": 5,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 2727,
-   "likes": 52,
+   "views": 3346,
+   "likes": 60,
    "comments": 0,
    "shares": 0,
    "saves": 0,
-   "yt_views": 1969,
+   "yt_views": 2588,
    "top": [
     {
      "title": "Gua di Biak Ini Konon Jadi Kuburan Ribuan Tentara Jepang",
      "format": "shorts",
      "pillar": "horor_sejarah",
-     "views": 1965
+     "views": 1968
+    },
+    {
+     "title": "Kuburan Belanda di Jakarta Ini Sekarang Jadi Museum, Konon Angker",
+     "format": "shorts",
+     "pillar": "horor_sejarah",
+     "views": 620
     },
     {
      "title": "Transfer VCT 2027 yang paling bikin kaget: kamu setuju?",
      "format": "video",
      "pillar": "news",
      "views": 396
-    },
-    {
-     "title": "3 transfer VCT 2027 yang ubah peta kekuatan",
-     "format": "video",
-     "pillar": "news",
-     "views": 138
     }
    ],
    "clicks": 0,
@@ -1347,9 +1347,14 @@
   "paused": false,
   "balance": 1728.1799999999998,
   "today_pnl": 0,
-  "price": 3785.649902,
+  "price": 3786.620117,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-18 13:45:50",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
    {
     "ts": "2026-11-18 13:30:50",
     "decision": "NO TRADE",
@@ -1372,11 +1377,6 @@
    },
    {
     "ts": "2026-11-18 12:30:50",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-11-18 12:15:50",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1445,7 +1445,7 @@
    1728.1799999999998
   ],
   "last": {
-   "ts": "2026-11-18 13:30:50",
+   "ts": "2026-11-18 13:45:50",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1454,7 +1454,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "BUY lawan tren H1 (bearish), di luar jam Asia cari aman",
+   "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
    "fund": {
     "bias": -0.4,
     "note": "Hawkish: NFP Okt 165K, CPI panas, pasar price hike Desember ~81%, DXY ~102; Hormuz/minyak tinggi tahan emas. Berita 24 jam belum terkonfirmasi.",
@@ -1463,14 +1463,10 @@
    },
    "tech": {
     "bias": "bearish",
-    "score": 3,
-    "trigger": "buy",
-    "confirm": [
-     "Stokastik",
-     "MACD",
-     "divergensi"
-    ],
-    "note": "M15 3774.45 di atas tengah band (3750.9–3788.7) · RSI 51 · Stoch 61 · MACD +1.37 · H1 bearish · setup BUY (Stokastik+MACD+divergensi)"
+    "score": 0,
+    "trigger": null,
+    "confirm": [],
+    "note": "M15 3785.25 di atas tengah band (3749.5–3792.5) · RSI 57 · Stoch 91 · MACD +2.99 · H1 bearish"
    }
   },
   "fund": {
@@ -1521,24 +1517,24 @@
    "M10": {
     "bias": "sideways",
     "score": -1,
-    "price": 3779.9,
-    "ema20": 3767.19,
-    "ema50": 3776.12,
-    "rsi": 58.7,
+    "price": 3773.05,
+    "ema20": 3767.74,
+    "ema50": 3776,
+    "rsi": 53,
     "n": 299,
-    "slot": 2991682,
-    "at": 1795009250675
+    "slot": 2991683,
+    "at": 1795009850687
    },
    "M15": {
     "bias": "sideways",
     "score": -1,
-    "price": 3773.65,
-    "ema20": 3769.02,
+    "price": 3785.65,
+    "ema20": 3770.6,
     "ema50": 3785.81,
-    "rsi": 50.7,
+    "rsi": 57.4,
     "n": 299,
-    "slot": 1994454,
-    "at": 1795008650678
+    "slot": 1994455,
+    "at": 1795009550782
    },
    "M30": {
     "bias": "bearish",
