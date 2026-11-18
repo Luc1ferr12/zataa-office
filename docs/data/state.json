@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-18T11:35:20.416Z",
+ "generated_at": "2026-11-18T11:45:20.415Z",
  "today": "2026-11-18",
  "week_start": "2026-11-16",
  "campaign": {
@@ -826,6 +826,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-18 11:40:50",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: sideways → bearish"
+  },
+  {
    "ts": "2026-11-18 11:00:50",
    "agent_id": "ttech",
    "message": "M15 berubah arah: bearish → sideways"
@@ -944,11 +949,6 @@
    "ts": "2026-11-18 08:00:28",
    "agent_id": "vscript",
    "message": "Revisi Shorts #202 kelar: Saya tidak merender dan tidak mengirim ke Telegram."
-  },
-  {
-   "ts": "2026-11-18 07:59:57",
-   "agent_id": "dir",
-   "message": "Kode kantor diperbarui, restart otomatis: scripts/golink.mjs, scripts/trading/run.mjs"
   }
  ],
  "chats": [
@@ -1244,24 +1244,24 @@
    "yt_posted": 3,
    "yt_pending": 0,
    "yt_scheduled": 2,
-   "views": 2620,
-   "likes": 47,
+   "views": 2688,
+   "likes": 52,
    "comments": 0,
    "shares": 0,
    "saves": 0,
-   "yt_views": 1950,
+   "yt_views": 1965,
    "top": [
     {
      "title": "Gua di Biak Ini Konon Jadi Kuburan Ribuan Tentara Jepang",
      "format": "shorts",
      "pillar": "horor_sejarah",
-     "views": 1950
+     "views": 1965
     },
     {
      "title": "Transfer VCT 2027 yang paling bikin kaget: kamu setuju?",
      "format": "video",
      "pillar": "news",
-     "views": 392
+     "views": 396
     },
     {
      "title": "3 transfer VCT 2027 yang ubah peta kekuatan",
@@ -1291,24 +1291,24 @@
    "yt_posted": 10,
    "yt_pending": 1,
    "yt_scheduled": 0,
-   "views": 19437,
+   "views": 19450,
    "likes": 238,
    "comments": 6,
    "shares": 3,
    "saves": 0,
-   "yt_views": 16342,
+   "yt_views": 16355,
    "top": [
     {
      "title": "Tulisan Tertua Indonesia Ada di 7 Tiang Batu Ini",
      "format": "shorts",
      "pillar": "misteri_kuno",
-     "views": 2242
+     "views": 2246
     },
     {
      "title": "Misteri Penjara Benteng Rotterdam & Jejak Diponegoro",
      "format": "shorts",
      "pillar": "horor_sejarah",
-     "views": 2186
+     "views": 2195
     },
     {
      "title": "Gubernur Jenderal Dikubur di Sini, Lalu Dilupakan",
@@ -1347,7 +1347,7 @@
   "paused": false,
   "balance": 1728.1799999999998,
   "today_pnl": 0,
-  "price": 3769.570068,
+  "price": 3765.870117,
   "open": [],
   "signals": [
    {
@@ -1515,15 +1515,15 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "sideways",
-    "score": -1,
-    "price": 3765.65,
-    "ema20": 3772.99,
-    "ema50": 3783.9,
-    "rsi": 40,
+    "bias": "bearish",
+    "score": -2,
+    "price": 3765.35,
+    "ema20": 3772.26,
+    "ema50": 3783.17,
+    "rsi": 39.8,
     "n": 299,
-    "slot": 2991669,
-    "at": 1795001450551
+    "slot": 2991670,
+    "at": 1795002050543
    },
    "M15": {
     "bias": "sideways",
