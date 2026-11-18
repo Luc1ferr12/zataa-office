@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-18T23:05:20.694Z",
+ "generated_at": "2026-11-18T23:15:20.704Z",
  "today": "2026-11-19",
  "week_start": "2026-11-16",
  "campaign": {
@@ -826,6 +826,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-18 23:10:51",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: sideways → bearish"
+  },
+  {
    "ts": "2026-11-18 23:01:15",
    "agent_id": "ypublish",
    "message": "Shorts #193 #196 #200 status upload_failed (16-18 Nov), perlu cek Zernio"
@@ -944,11 +949,6 @@
    "ts": "2026-11-18 13:00:54",
    "agent_id": "analyst",
    "message": "Update data 37 post IG 📈"
-  },
-  {
-   "ts": "2026-11-18 12:45:50",
-   "agent_id": "trisk",
-   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
   }
  ],
  "chats": [
@@ -1347,7 +1347,7 @@
   "paused": false,
   "balance": 1728.1799999999998,
   "today_pnl": 0,
-  "price": 3732.320068,
+  "price": 3736.870117,
   "open": [],
   "signals": [
    {
@@ -1506,15 +1506,15 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "sideways",
-    "score": 0,
-    "price": 3733.4,
-    "ema20": 3730.44,
-    "ema50": 3739.96,
-    "rsi": 52,
+    "bias": "bearish",
+    "score": -2,
+    "price": 3729.87,
+    "ema20": 3730.38,
+    "ema50": 3739.56,
+    "rsi": 46,
     "n": 299,
-    "slot": 2991738,
-    "at": 1795042851295
+    "slot": 2991739,
+    "at": 1795043451226
    },
    "M15": {
     "bias": "bearish",
