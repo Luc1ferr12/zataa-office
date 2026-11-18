@@ -85,7 +85,7 @@ ${lines}
 Bagian yang SUDAH dipakai clip lain (hindari tumpang tindih): ${JSON.stringify(used)}
 Pilih SATU momen paling kuat yang patuh brief (angle wajib, do & don'ts), durasi ${dmin}-${Math.min(dmax, 75)} detik, mulai di awal kalimat dan selesai di akhir kalimat, 3 detik pertama langsung menarik.
 Jawab HANYA JSON satu baris: {"start": detik, "end": detik, "hook": "teks layar ≤8 kata, bahasa Indonesia, tanpa emoji", "caption": "caption TikTok/IG ≤300 karakter: 1 kalimat pancingan + SEMUA hashtag wajib + SEMUA tag akun wajib dari brief", "reason": "alasan singkat"}`;
-  const out = run(process.env.CLAUDE_BIN || 'claude', ['-p', '--model', process.env.CLIPPER_MODEL || 'sonnet', '--', prompt], { timeout: 8 * 60_000, shell: process.platform === 'win32' });
+  const out = run(process.env.CLAUDE_BIN || 'claude', ['-p', '--model', process.env.CLIPPER_MODEL || 'sonnet'], { input: prompt, timeout: 8 * 60_000, shell: process.platform === 'win32' });
   const pick = JSON.parse(out.match(/\{[\s\S]*\}/)?.[0] ?? 'null');
   if (!pick || !(pick.end > pick.start)) throw new Error(`pilihan momen nggak valid: ${out.slice(0, 200)}`);
   const start = Math.max(0, +pick.start), end = Math.min(dur, +pick.end);
