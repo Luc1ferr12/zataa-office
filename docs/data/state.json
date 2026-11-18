@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-18T02:52:06.688Z",
+ "generated_at": "2026-11-18T03:01:04.455Z",
  "today": "2026-11-18",
  "week_start": "2026-11-16",
  "campaign": {
@@ -342,8 +342,8 @@
    "name": "Tasya",
    "title": "Publisher TikTok/IG & Submit Clippo",
    "status": "done",
-   "current_task": "Clip #2 tayang",
-   "updated_at": "2026-11-18 02:45:52"
+   "current_task": "Clip #6 tayang",
+   "updated_at": "2026-11-18 02:55:36"
   }
  ],
  "week_contents": [
@@ -698,17 +698,17 @@
   {
    "id": 3,
    "day": "2026-11-16",
-   "status": "editing",
+   "status": "posted",
    "views": 0,
    "likes": 0,
    "tiktok_url": null,
-   "ig_url": null,
+   "ig_url": "https://www.instagram.com/reel/Df3ehKrCe09/",
    "campaign": "LIGHT+ X TASYA FARASYA"
   },
   {
    "id": 4,
    "day": "2026-11-17",
-   "status": "failed",
+   "status": "cancelled",
    "views": 0,
    "likes": 0,
    "tiktok_url": null,
@@ -718,7 +718,7 @@
   {
    "id": 5,
    "day": "2026-11-17",
-   "status": "failed",
+   "status": "cancelled",
    "views": 0,
    "likes": 0,
    "tiktok_url": null,
@@ -728,17 +728,17 @@
   {
    "id": 6,
    "day": "2026-11-17",
-   "status": "queued",
+   "status": "posted",
    "views": 0,
    "likes": 0,
    "tiktok_url": null,
-   "ig_url": null,
+   "ig_url": "https://www.instagram.com/reel/Df3ew5_nGCN/",
    "campaign": "LIGHT+ X TASYA FARASYA"
   },
   {
    "id": 7,
    "day": "2026-11-18",
-   "status": "queued",
+   "status": "cancelled",
    "views": 0,
    "likes": 0,
    "tiktok_url": null,
@@ -748,7 +748,7 @@
   {
    "id": 8,
    "day": "2026-11-18",
-   "status": "queued",
+   "status": "cancelled",
    "views": 0,
    "likes": 0,
    "tiktok_url": null,
@@ -758,7 +758,7 @@
   {
    "id": 9,
    "day": "2026-11-18",
-   "status": "queued",
+   "status": "cancelled",
    "views": 0,
    "likes": 0,
    "tiktok_url": null,
@@ -805,6 +805,26 @@
   }
  ],
  "activity": [
+  {
+   "ts": "2026-11-18 03:01:04",
+   "agent_id": "dir",
+   "message": "Kode kantor diperbarui, restart otomatis: scripts/golink.mjs, scripts/trading/run.mjs"
+  },
+  {
+   "ts": "2026-11-18 03:00:50",
+   "agent_id": "ypublish",
+   "message": "Cross-post Shorts #30 ke TikTok Zaa History"
+  },
+  {
+   "ts": "2026-11-18 02:53:56",
+   "agent_id": "cedit",
+   "message": "Clip #6 (LIGHT+ X TASYA FARASYA) kelar diedit: 1 dtk"
+  },
+  {
+   "ts": "2026-11-18 02:52:20",
+   "agent_id": "cedit",
+   "message": "Clip #3 (LIGHT+ X TASYA FARASYA) kelar diedit: 18 dtk"
+  },
   {
    "ts": "2026-11-18 02:51:51",
    "agent_id": "dir",
@@ -909,29 +929,23 @@
    "ts": "2026-11-18 01:24:52",
    "agent_id": "ypublish",
    "message": "Kirim Shorts #200 ke Owner buat approval"
-  },
-  {
-   "ts": "2026-11-18 01:22:38",
-   "agent_id": "video",
-   "message": "video #184 dirender di laptop (suara OmniVoice) & dikirim ke Owner"
-  },
-  {
-   "ts": "2026-11-18 01:22:38",
-   "agent_id": "publisher",
-   "message": "Kirim #184 ke Owner buat approval"
-  },
-  {
-   "ts": "2026-11-18 01:15:59",
-   "agent_id": "trisk",
-   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-  },
-  {
-   "ts": "2026-11-18 01:00:50",
-   "agent_id": "analyst",
-   "message": "Update data 36 post IG 📈"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-11-18 02:55:36",
+   "agent_id": "cpublish",
+   "to_id": "all",
+   "kind": "oper",
+   "message": "Clip \"LIGHT+ X TASYA FARASYA\" udah tayang di TikTok & IG. Tinggal nunggu 1rb views 💸"
+  },
+  {
+   "ts": "2026-11-18 02:53:28",
+   "agent_id": "cpublish",
+   "to_id": "all",
+   "kind": "oper",
+   "message": "Clip \"LIGHT+ X TASYA FARASYA\" udah tayang di TikTok & IG. Tinggal nunggu 1rb views 💸"
+  },
   {
    "ts": "2026-11-18 02:45:52",
    "agent_id": "cpublish",
@@ -1197,20 +1211,6 @@
    "to_id": "publisher",
    "kind": "oper",
    "message": "Render \"Render video transfer VCT\" selesai, Fikri. Cek cover-nya ya"
-  },
-  {
-   "ts": "2026-11-15 23:08:38",
-   "agent_id": "copywriter",
-   "to_id": "designer",
-   "kind": "oper",
-   "message": "Teks buat \"Naskah video transfer VCT\" ready. Vania, giliranmu bikin cakep!"
-  },
-  {
-   "ts": "2026-11-15 23:08:20",
-   "agent_id": "researcher",
-   "to_id": "copywriter",
-   "kind": "oper",
-   "message": "Tiara, bahan buat \"Riset 3 transfer VCT 2027\" udah aku rangkum + sumbernya. Tinggal kamu racik captionnya ✍️"
   }
  ],
  "stats": {
@@ -1327,7 +1327,7 @@
   "paused": false,
   "balance": 1728.1799999999998,
   "today_pnl": 0,
-  "price": 3797.649902,
+  "price": 3801.800049,
   "open": [],
   "signals": [
    {
