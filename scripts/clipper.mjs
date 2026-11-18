@@ -183,6 +183,46 @@ export function plan() {
   return { day, have, added };
 }
 
+// ---------- hasil render → Owner dulu (video + hook + caption), tayang HANYA setelah ✅
+async function tgVideo(file, caption, extra = {}) {
+  const fd = new FormData();
+  fd.append('chat_id', String(owner()));
+  fd.append('caption', caption.slice(0, 1000));
+  fd.append('parse_mode', 'HTML');
+  fd.append('supports_streaming', 'true');
+  for (const [k, v] of Object.entries(extra)) fd.append(k, typeof v === 'string' ? v : JSON.stringify(v));
+  fd.append('video', new Blob([readFileSync(file)], { type: 'video/mp4' }), 'clip.mp4');
+  const r = await fetch(`https://api.telegram.org/bot${env().CLIPPER_BOT_TOKEN}/sendVideo`, { method: 'POST', body: fd });
+  const j = await r.json();
+  if (!j.ok) throw new Error(`Telegram sendVideo: ${j.description}`);
+  return j.result;
+}
+export async function review(jobId) {
+  const d = cdb();
+  const j = d.prepare('SELECT j.*, c.title ctitle FROM clip_jobs j JOIN clip_campaigns c ON c.id = j.campaign_id WHERE j.id = ?').get(+jobId);
+  if (!j?.file) throw new Error(`job ${jobId} belum ada file`);
+  const file = join(ROOT, j.file);
+  if (!existsSync(file)) throw new Error(`file ${j.file} nggak ada di VPS`);
+  const cap = `🎬 <b>Clip #${j.id} — ${esc(j.ctitle)}</b>\nHook: <i>${esc(j.hook ?? '')}</i>\n\nCaption:\n${esc(j.caption ?? '')}\n\nTayang ke TikTok + IG setelah kamu ✅.`;
+  await tgVideo(file, cap, { reply_markup: { inline_keyboard: [[{ text: '✅ Approve & tayang', callback_data: `cv:ok:${j.id}` }, { text: '❌ Tolak (bikin ulang)', callback_data: `cv:no:${j.id}` }]] } });
+  setAgent(d, 'cedit', 'waiting', `Clip #${j.id} nunggu ✅ Bos`);
+  return `clip #${j.id} dikirim ke Owner buat approval`;
+}
+export async function decideClip(jobId, ok) {
+  const d = cdb();
+  const j = d.prepare('SELECT * FROM clip_jobs WHERE id = ?').get(+jobId);
+  if (!j) return 'job nggak ketemu';
+  if (j.status !== 'review') return `clip #${j.id} sudah ${j.status}, nggak diproses lagi`;
+  if (!ok) {
+    d.prepare("UPDATE clip_jobs SET status = 'rejected', updated_at = datetime('now') WHERE id = ?").run(j.id);
+    d.prepare('INSERT INTO clip_jobs (campaign_id, day, source_url) VALUES (?, ?, ?)').run(j.campaign_id, today(), j.source_url);
+    return `❌ Clip #${j.id} ditolak, tim bikin versi baru (laptop ±10 menit).`;
+  }
+  d.prepare("UPDATE clip_jobs SET status = 'ready', updated_at = datetime('now') WHERE id = ?").run(j.id);
+  await post(j.id);
+  return `✅ Clip #${j.id} di-approve, lagi diupload.`;
+}
+
 // ---------- upload hasil render laptop → TikTok + IG
 export async function post(jobId) {
   const d = cdb();
@@ -325,12 +365,12 @@ async function runBot() {
       if (from !== String(owner())) continue;
       try {
         if (u.callback_query) {
-          const [, act, id] = String(u.callback_query.data).split(':');
-          const msg = await decide(id, act === 'ok');
-          await tg('answerCallbackQuery', { callback_query_id: u.callback_query.id, text: act === 'ok' ? 'Siap, masuk produksi' : 'Oke, dilewati' }).catch(() => {});
+          const [kind, act, id] = String(u.callback_query.data).split(':');
+          const msg = kind === 'cv' ? await decideClip(id, act === 'ok') : await decide(id, act === 'ok');
+          await tg('answerCallbackQuery', { callback_query_id: u.callback_query.id, text: kind === 'cv' ? (act === 'ok' ? 'Approve, diupload' : 'Ditolak, dibikin ulang') : (act === 'ok' ? 'Siap, masuk produksi' : 'Oke, dilewati') }).catch(() => {});
           await tg('editMessageReplyMarkup', { chat_id: owner(), message_id: u.callback_query.message.message_id, reply_markup: { inline_keyboard: [] } }).catch(() => {});
-          await sayAs(act === 'ok' ? 'cdir' : 'cdir', msg);
-          if (act === 'ok') plan();
+          await sayAs(kind === 'cv' ? 'cpublish' : 'cdir', msg);
+          if (act === 'ok' && kind !== 'cv') plan();
         } else {
           const dg = await digest(u.message, env().CLIPPER_BOT_TOKEN, 'clips'); // foto/video/link referensi (scripts/media.mjs)
           const t = dg.text;
@@ -359,6 +399,7 @@ if (import.meta.url === pathToFileURL(process.argv[1] ?? '').href) {
     else if (cmd === 'approve' || cmd === 'skip') show(await decide(a, cmd === 'approve'));
     else if (cmd === 'plan') show(plan());
     else if (cmd === 'post') show(await post(a));
+    else if (cmd === 'review') show(await review(a));
     else if (cmd === 'track') show(await track({ dry }));
     else if (cmd === 'report') { const r = report(); if (dry) show(r); else await sayAs('cpublish', r.replace(/^<b>Tasya<\/b>: /, '')); }
     else if (cmd === 'ingest') { const raw = JSON.parse(readFileSync(a, 'utf8')); show(await scout({ dry, list: Array.isArray(raw) ? raw : raw.data ?? [] })); }
