@@ -21,14 +21,23 @@ const log = (m) => appendFileSync(join(ROOT, 'logs', 'laptop-worker.log'), `${ne
 let VPS = HOSTS[0];
 const vps = (cmd, input) => spawnSync('ssh', ['-o', 'ConnectTimeout=10', '-o', 'BatchMode=yes', VPS, `cd ~/zataa-office && ${cmd}`], { input, encoding: 'utf8' });
 
-async function tg(text) {
-  if (process.env.TRD_SILENT === '1') return log(`(silent) telegram: ${text}`);
+// bot = clips | shorts | office. Tiap divisi punya bot sendiri: JANGAN kirim ke bot kantor About Esports (TELEGRAM_BOT_TOKEN).
+// Token bot divisi dipakai dari .env laptop kalau ada, kalau tidak dikirim lewat SSH ke VPS (scripts/tgsay.mjs); gagal semua → cuma dilog.
+const BOT_ENV = { clips: ['CLIPPER_BOT_TOKEN', 'CLIPPER_OWNER_ID'], shorts: ['SHORTS_BOT_TOKEN', 'SHORTS_OWNER_ID'], office: ['TELEGRAM_BOT_TOKEN', 'TELEGRAM_CHAT_ID'] };
+async function tg(text, bot = 'office') {
+  if (process.env.TRD_SILENT === '1') return log(`(silent) telegram[${bot}]: ${text}`);
   const env = existsSync(join(ROOT, '.env')) ? Object.fromEntries(readFileSync(join(ROOT, '.env'), 'utf8').split(/\r?\n/).filter((l) => l.includes('=') && !l.startsWith('#')).map((l) => [l.slice(0, l.indexOf('=')).trim(), l.slice(l.indexOf('=') + 1).trim()])) : {};
-  if (!env.TELEGRAM_BOT_TOKEN || !env.TELEGRAM_CHAT_ID) return log('telegram: TELEGRAM_BOT_TOKEN/CHAT_ID kosong di .env laptop');
-  try {
-    const r = await fetch(`https://api.telegram.org/bot${env.TELEGRAM_BOT_TOKEN}/sendMessage`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ chat_id: env.TELEGRAM_CHAT_ID, text }) });
-    if (!r.ok) log(`telegram gagal: ${r.status}`);
-  } catch (e) { log(`telegram gagal: ${e.message}`); }
+  const [tk, ck] = BOT_ENV[bot];
+  const chat = env[ck] || (bot === 'clips' ? env.SHORTS_OWNER_ID : '');
+  if (env[tk] && chat) {
+    try {
+      const r = await fetch(`https://api.telegram.org/bot${env[tk]}/sendMessage`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ chat_id: chat, text }) });
+      if (r.ok) return;
+      log(`telegram[${bot}] gagal: ${r.status}`);
+    } catch (e) { log(`telegram[${bot}] gagal: ${e.message}`); }
+  }
+  const r = vps(`node scripts/tgsay.mjs ${bot} "$(cat)"`, text);
+  if (r.status !== 0) log(`telegram[${bot}] via VPS gagal: ${(r.stderr || '').trim().slice(-150)}`);
 }
 const readDown = () => { try { return JSON.parse(readFileSync(DOWN, 'utf8')); } catch { return null; } };
 
@@ -36,7 +45,7 @@ const readDown = () => { try { return JSON.parse(readFileSync(DOWN, 'utf8')); } 
 // (clipper-chrome.mjs scout), dan maks tiap 30 menit kerjain antrean join/ajukan ke Clippo (clipper-chrome.mjs submit).
 const CSTATE = join(ROOT, 'logs', 'clipper-chrome.json');
 async function clipperWork() {
-  const node = (args, min = 30) => spawnSync(process.execPath, [join(ROOT, 'scripts', ...args)], { encoding: 'utf8', timeout: min * 60_000, env: { ...process.env, ZATAA_VPS: VPS } });
+  const node = (args, min = 30) => spawnSync(process.execPath, [join(ROOT, 'scripts', args[0]), ...args.slice(1)], { encoding: 'utf8', timeout: min * 60_000, env: { ...process.env, ZATAA_VPS: VPS } });
   const say = (r) => `${(r.stdout ?? '').trim().slice(-200)} ${(r.stderr ?? '').trim().slice(-200)}`.trim();
   const ids = (() => { const r = vps('node scripts/clipper.mjs queue'); try { return r.status === 0 ? JSON.parse(r.stdout.trim() || '[]') : []; } catch { return []; } })();
   for (const id of ids.slice(0, 3)) { const r = node(['clipper-laptop.mjs', String(id)]); log(`clip #${id} ${r.status === 0 ? 'ok' : 'gagal'}: ${say(r)}`); }
@@ -44,7 +53,7 @@ async function clipperWork() {
   const w = new Date(Date.now() + 8 * 3600e3), day = w.toISOString().slice(0, 10), min = w.getUTCHours() * 60 + w.getUTCMinutes();
   if (min >= 7 * 60 + 30 && st.scout !== day) {
     const r = node(['clipper-chrome.mjs', 'scout'], 20); log(`clippo scout ${r.status === 0 ? 'ok' : 'gagal'}: ${say(r)}`);
-    if (r.status === 0) st.scout = day; else if ((st.fail ?? '') !== day) { st.fail = day; await tg(`Hendra: Bos, laptop gagal baca campaign Clippo lewat Chrome (${say(r).slice(0, 160)}). Pastikan Chrome kebuka, login app.clippo.id & ekstensi Claude in Chrome nyambung ya.`); }
+    if (r.status === 0) st.scout = day; else if ((st.fail ?? '') !== day) { st.fail = day; await tg(`Hendra: Bos, laptop gagal baca campaign Clippo lewat Chrome (${say(r).slice(0, 160)}). Pastikan Chrome kebuka, login app.clippo.id & ekstensi Claude in Chrome nyambung ya.`, 'clips'); }
   }
   if (Date.now() - (st.submitAt ?? 0) >= 30 * 60e3) {
     const q = vps('node scripts/clipper.mjs submitq');
@@ -82,14 +91,14 @@ try {
     const d = down ?? { since: Date.now(), notified: 0 };
     if (Date.now() - d.since >= 20 * 60e3 && Date.now() - d.notified >= 3 * 3600e3) {
       const menit = Math.round((Date.now() - d.since) / 60e3);
-      await tg(`Yoga: Bos, laptop udah ${menit} menit nggak bisa nyambung ke VPS (SSH port 22 & 443 gagal), jadi antrean render OmniVoice (Shorts/video) ketahan. Coba ganti wifi / pakai hotspot HP ya. Begitu nyambung aku langsung render.`);
+      await tg(`Yoga: Bos, laptop udah ${menit} menit nggak bisa nyambung ke VPS (SSH port 22 & 443 gagal), jadi antrean render OmniVoice (Shorts/video) ketahan. Coba ganti wifi / pakai hotspot HP ya. Begitu nyambung aku langsung render.`, 'shorts');
       d.notified = Date.now();
     }
     writeFileSync(DOWN, JSON.stringify(d));
   } else {
     if (down) {
       unlinkSync(DOWN);
-      if (down.notified) await tg(`Yoga: Laptop udah nyambung lagi ke VPS (lewat ${VPS}), antrean render jalan lagi, Bos.`);
+      if (down.notified) await tg(`Yoga: Laptop udah nyambung lagi ke VPS (lewat ${VPS}), antrean render jalan lagi, Bos.`, 'shorts');
     }
     if (VPS !== HOSTS[0]) log(`pakai ${VPS} (port 22 diblok?)`);
     process.env.ZATAA_VPS = VPS; // render-laptop.mjs / shorts-laptop.mjs ikut host yang tembus
