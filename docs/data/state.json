@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-18T13:25:20.456Z",
+ "generated_at": "2026-11-18T13:35:20.458Z",
  "today": "2026-11-18",
  "week_start": "2026-11-16",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-18 13:15:50"
+   "updated_at": "2026-11-18 13:30:50"
   },
   {
    "id": "tresearch",
@@ -111,23 +111,23 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Hawkish: NFP Okt 165K, CPI panas, pasar price hike Desember ~81%, DXY ~102; Hormuz/minyak tinggi tahan emas. Berita 24 jam belum terkonfirmasi.",
-   "updated_at": "2026-11-18 13:15:50"
+   "updated_at": "2026-11-18 13:30:50"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-11-18 13:15:50"
+   "current_task": "Setup BUY di band (Stokastik+MACD+divergensi)",
+   "updated_at": "2026-11-18 13:30:50"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-11-18 13:15:50"
+   "current_task": "NO TRADE: BUY lawan tren H1 (bearish), di luar jam Asia cari aman",
+   "updated_at": "2026-11-18 13:30:50"
   },
   {
    "id": "texec",
@@ -826,6 +826,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-18 13:30:50",
+   "agent_id": "ttech",
+   "message": "M15 berubah arah: bearish → sideways"
+  },
+  {
    "ts": "2026-11-18 13:20:50",
    "agent_id": "ttech",
    "message": "M10 berubah arah: bearish → sideways"
@@ -944,11 +949,6 @@
    "ts": "2026-11-18 09:23:05",
    "agent_id": "vpublish",
    "message": "Kirim Shorts #202 ke Owner buat approval"
-  },
-  {
-   "ts": "2026-11-18 09:15:04",
-   "agent_id": "dir",
-   "message": "Kode kantor diperbarui, restart otomatis: scripts/watch.mjs, scripts/golink.mjs, scripts/trading/run.mjs"
   }
  ],
  "chats": [
@@ -1347,9 +1347,14 @@
   "paused": false,
   "balance": 1728.1799999999998,
   "today_pnl": 0,
-  "price": 3773.149902,
+  "price": 3779.899902,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-18 13:30:50",
+    "decision": "NO TRADE",
+    "reason": "BUY lawan tren H1 (bearish), di luar jam Asia cari aman"
+   },
    {
     "ts": "2026-11-18 13:15:50",
     "decision": "NO TRADE",
@@ -1372,11 +1377,6 @@
    },
    {
     "ts": "2026-11-18 12:15:50",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-11-18 12:00:50",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1445,7 +1445,7 @@
    1728.1799999999998
   ],
   "last": {
-   "ts": "2026-11-18 13:15:50",
+   "ts": "2026-11-18 13:30:50",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1454,7 +1454,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
+   "reason": "BUY lawan tren H1 (bearish), di luar jam Asia cari aman",
    "fund": {
     "bias": -0.4,
     "note": "Hawkish: NFP Okt 165K, CPI panas, pasar price hike Desember ~81%, DXY ~102; Hormuz/minyak tinggi tahan emas. Berita 24 jam belum terkonfirmasi.",
@@ -1463,10 +1463,14 @@
    },
    "tech": {
     "bias": "bearish",
-    "score": 0,
-    "trigger": null,
-    "confirm": [],
-    "note": "M15 3772.75 di atas tengah band (3750.7–3788.2) · RSI 50 · Stoch 37 · MACD +0.47 · H1 bearish"
+    "score": 3,
+    "trigger": "buy",
+    "confirm": [
+     "Stokastik",
+     "MACD",
+     "divergensi"
+    ],
+    "note": "M15 3774.45 di atas tengah band (3750.9–3788.7) · RSI 51 · Stoch 61 · MACD +1.37 · H1 bearish · setup BUY (Stokastik+MACD+divergensi)"
    }
   },
   "fund": {
@@ -1517,35 +1521,35 @@
    "M10": {
     "bias": "sideways",
     "score": -1,
-    "price": 3769.85,
-    "ema20": 3765.03,
-    "ema50": 3776.06,
-    "rsi": 51.9,
+    "price": 3773.65,
+    "ema20": 3765.85,
+    "ema50": 3775.96,
+    "rsi": 54.6,
     "n": 299,
-    "slot": 2991680,
-    "at": 1795008050725
+    "slot": 2991681,
+    "at": 1795008650672
    },
    "M15": {
-    "bias": "bearish",
-    "score": -3,
-    "price": 3757.45,
-    "ema20": 3768.53,
-    "ema50": 3786.31,
-    "rsi": 38.7,
+    "bias": "sideways",
+    "score": -1,
+    "price": 3773.65,
+    "ema20": 3769.02,
+    "ema50": 3785.81,
+    "rsi": 50.7,
     "n": 299,
-    "slot": 1994453,
-    "at": 1795007750645
+    "slot": 1994454,
+    "at": 1795008650678
    },
    "M30": {
     "bias": "bearish",
     "score": -3,
-    "price": 3748.62,
-    "ema20": 3781.36,
-    "ema50": 3810.28,
-    "rsi": 23.4,
+    "price": 3773.65,
+    "ema20": 3780.62,
+    "ema50": 3808.84,
+    "rsi": 42.2,
     "n": 299,
-    "slot": 997226,
-    "at": 1795006850719
+    "slot": 997227,
+    "at": 1795008650681
    },
    "H1": {
     "bias": "bearish",
