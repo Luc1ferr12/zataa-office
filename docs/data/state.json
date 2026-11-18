@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-18T03:42:20.345Z",
+ "generated_at": "2026-11-18T03:52:20.358Z",
  "today": "2026-11-18",
  "week_start": "2026-11-16",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-18 03:30:50"
+   "updated_at": "2026-11-18 03:45:50"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Pasar bertaruh Fed naik suku bunga, bukan turun. NFP Okt kuat 165rb, DXY ~102. Emas tetap tahan meski CPI panas. Bias sedikit bearish.",
-   "updated_at": "2026-11-18 03:30:50"
+   "updated_at": "2026-11-18 03:45:50"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-18 03:30:50"
+   "updated_at": "2026-11-18 03:45:50"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
-   "updated_at": "2026-11-18 03:30:50"
+   "updated_at": "2026-11-18 03:45:50"
   },
   {
    "id": "texec",
@@ -310,8 +310,8 @@
    "name": "Hendra",
    "title": "Manajer Zaa Clips",
    "status": "done",
-   "current_task": "Campaign BEAR BRAND X JEROME POLIN X DION WIYOKO masuk produksi",
-   "updated_at": "2026-11-18 03:08:32"
+   "current_task": "Campaign WARDAH CIRCUIT COLOUR - GHEA INDRAWARI masuk produksi",
+   "updated_at": "2026-11-18 03:50:54"
   },
   {
    "id": "cbrief",
@@ -933,6 +933,20 @@
  ],
  "chats": [
   {
+   "ts": "2026-11-18 03:50:54",
+   "agent_id": "cdir",
+   "to_id": "cbrief",
+   "kind": "oper",
+   "message": "Maya, campaign \"WARDAH CIRCUIT COLOUR - GHEA INDRAWARI\" udah di-✅ Bos. Baca brief-nya teliti ya 📋"
+  },
+  {
+   "ts": "2026-11-18 03:50:54",
+   "agent_id": "cdir",
+   "to_id": "cbrief",
+   "kind": "oper",
+   "message": "Maya, campaign \"KOL.ID X KAK PERMATA X KO LEO (Hanya Clip Wajah Kak Permata dan Ko Leo)\" udah di-✅ Bos. Baca brief-nya teliti ya 📋"
+  },
+  {
    "ts": "2026-11-18 03:08:32",
    "agent_id": "cdir",
    "to_id": "cbrief",
@@ -1197,20 +1211,6 @@
    "to_id": "owner",
    "kind": "santai",
    "message": "Naskahnya 3 transfer (Sentinels, PRX, crashies ke T1), penutupnya pertanyaan pilih 1/2/3 biar komennya rame."
-  },
-  {
-   "ts": "2026-11-15 23:08:47",
-   "agent_id": "video",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Video transfer VCT 2027 udah aku masukin antrean render laptop Bos, nyala laptopnya ya biar langsung jadi."
-  },
-  {
-   "ts": "2026-11-15 23:08:40",
-   "agent_id": "video",
-   "to_id": "publisher",
-   "kind": "oper",
-   "message": "Fik, video transfer VCT udah masuk antrean render laptop, nanti otomatis kekirim ke Bos."
   }
  ],
  "stats": {
@@ -1327,9 +1327,14 @@
   "paused": false,
   "balance": 1728.1799999999998,
   "today_pnl": 0,
-  "price": 3792.399902,
+  "price": 3795.449951,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-18 03:45:50",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
+   },
    {
     "ts": "2026-11-18 03:30:50",
     "decision": "NO TRADE",
@@ -1352,11 +1357,6 @@
    },
    {
     "ts": "2026-11-18 02:30:59",
-    "decision": "NO TRADE",
-    "reason": "Bollinger Band melebar kencang (breakout), pantulan berisiko"
-   },
-   {
-    "ts": "2026-11-18 02:15:59",
     "decision": "NO TRADE",
     "reason": "Bollinger Band melebar kencang (breakout), pantulan berisiko"
    }
@@ -1425,7 +1425,7 @@
    1728.1799999999998
   ],
   "last": {
-   "ts": "2026-11-18 03:30:50",
+   "ts": "2026-11-18 03:45:50",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1446,7 +1446,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3789.05 di bawah tengah band (3774.7–3871.7) · RSI 23 · Stoch 7 · MACD -2.70 · H1 sideways"
+    "note": "M15 3796.42 di bawah tengah band (3773.6–3867.7) · RSI 28 · Stoch 12 · MACD -1.77 · H1 sideways"
    }
   },
   "fund": {
@@ -1497,24 +1497,24 @@
    "M10": {
     "bias": "bearish",
     "score": -3,
-    "price": 3798.25,
-    "ema20": 3811.73,
-    "ema50": 3830.08,
-    "rsi": 34.7,
+    "price": 3796.55,
+    "ema20": 3810.28,
+    "ema50": 3828.76,
+    "rsi": 33.7,
     "n": 299,
-    "slot": 2991622,
-    "at": 1794973250461
+    "slot": 2991623,
+    "at": 1794973850468
    },
    "M15": {
     "bias": "bearish",
     "score": -3,
-    "price": 3793.4,
-    "ema20": 3820.7,
-    "ema50": 3839.18,
-    "rsi": 24.1,
+    "price": 3794.25,
+    "ema20": 3818.18,
+    "ema50": 3837.42,
+    "rsi": 25.1,
     "n": 299,
-    "slot": 1994414,
-    "at": 1794972650467
+    "slot": 1994415,
+    "at": 1794973550470
    },
    "M30": {
     "bias": "bearish",
