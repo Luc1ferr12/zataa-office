@@ -327,6 +327,8 @@ async function revise(id, note, log, extra = '', resume = false) {
     lesson(d, [T.script, T.visual, T.publish], `✏️ revisi Shorts "${String(c.title).slice(0, 60)}": ${note}`);
     await sayAs(T.script, `🛠️ Siap Bos, revisi Shorts #${id} lagi dikerjain…`).catch(() => {});
   }
+  const specOf = () => { try { const j = JSON.parse(getShort(d, id).data_json); return JSON.stringify([j.scenes, j.voice, j.speed]); } catch { return ''; } };
+  const before = specOf();
   const r = await claude(`Kamu tim Shorts ${B.name} (${B.niche}, pilar di ${B.sop}) di folder ini. Owner minta REVISI Shorts #${id}:
 BRAND: tambahkan ${BR} di SETIAP perintah scripts/shorts-bot.mjs & scripts/shorts-topics.mjs.
 "${note}"${extra}
@@ -335,7 +337,8 @@ Langkah:
 1. Baca ${B.sop}, lalu playbook yang kepakai: office/roles/${T.script}.md (naskah), office/roles/${T.visual}.md (gambar), office/roles/${T.publish}.md (judul/deskripsi).
 2. node scripts/shorts-bot.mjs get ${id}
 3. Ubah seperlunya (tulis JSON ke file sementara di tmp/ lalu: node scripts/shorts-bot.mjs set ${id} <file.json>; kunci: title, caption, hashtags, sources, data_json = spec render lengkap { voice, speed, tag, mood, scenes[{img, vo, sub, place?, credit?, move?}] }).
-   Path img relatif dari root repo (mis. assets/shorts/<topik>/s1.jpg). Durasi 30–40 dtk (5–6 adegan, 55–70 kata narasi, spec.hook wajib). Aturan fakta/teori/mitos & kredit visual tetap berlaku.
+   Path img relatif dari root repo (mis. assets/shorts/<topik>/s1.jpg). Durasi 30–40 dtk (5–6 adegan, 55–70 kata narasi, spec.hook wajib). Aturan fakta/teori/mitos & kredit visual tetap berlaku.${B.key === 'marvel' ? `
+   KHUSUS MARVEL: adegan BUKAN pakai img, tapi { vo, hl:[kata], clips:[{find:"query klip film yang PERSIS menampilkan hal yang diomongin", note:"apa yang harus terlihat", n?}] }. Kalau Owner komplain isi/visual, ubah vo DAN find tiap adegan supaya klipnya relevan (bukan klip generik Avengers/Thanos); naskah & klip yang berubah WAJIB dirender ulang.` : ''}
 4. JANGAN render (render OmniVoice jalan otomatis di laptop), jangan kirim Telegram, jangan ubah konten lain.
 Kalau yang diubah cuma judul/deskripsi/hashtag (naskah & gambar tetap), tulis persis ${NO_RENDER} di baris terakhir sebelum ringkasan.
 Akhiri dengan SATU kalimat ringkas (santai) tentang apa yang diubah.`, 20);
@@ -345,7 +348,8 @@ Akhiri dengan SATU kalimat ringkas (santai) tentang apa yang diubah.`, 20);
   }
   const summary = r.text.split('\n').filter((l) => l.trim() && !l.includes(NO_RENDER)).pop() ?? '';
   act(d, T.script, `Revisi Shorts #${id} kelar: ${summary.slice(0, 120)}`);
-  if (r.text.includes(NO_RENDER) && getShort(d, id).asset_path) {
+  // render ulang ditentukan dari perubahan spec (bukan omongan model): scenes/voice/speed berubah → wajib render
+  if (r.text.includes(NO_RENDER) && specOf() === before && getShort(d, id).asset_path) {
     await submit(id, { note: `Hasil revisi: ${summary}` }).catch((e) => sayAs(T.publish, `⚠️ Gagal kirim ulang #${id}: ${esc(e.message)}`));
   } else {
     await queue(id);
