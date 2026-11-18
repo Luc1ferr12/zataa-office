@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-18T01:26:19.376Z",
+ "generated_at": "2026-11-18T01:36:19.387Z",
  "today": "2026-11-18",
  "week_start": "2026-11-16",
  "campaign": {
@@ -62,8 +62,8 @@
    "name": "Fikri",
    "title": "Social Media Publisher",
    "status": "done",
-   "current_task": null,
-   "updated_at": "2026-11-18 01:00:44"
+   "current_task": "undefined",
+   "updated_at": "2026-11-18 01:30:19"
   },
   {
    "id": "ads",
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-18 01:15:59"
+   "updated_at": "2026-11-18 01:30:59"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Pasar bertaruh Fed naik suku bunga, bukan turun. NFP Okt kuat 165rb, DXY ~102. Emas tetap tahan meski CPI panas. Bias sedikit bearish.",
-   "updated_at": "2026-11-18 01:15:59"
+   "updated_at": "2026-11-18 01:30:59"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-18 01:15:59"
+   "updated_at": "2026-11-18 01:30:59"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
-   "updated_at": "2026-11-18 01:15:59"
+   "updated_at": "2026-11-18 01:30:59"
   },
   {
    "id": "texec",
@@ -523,7 +523,7 @@
    "game": "mlbb",
    "pillar": "esport",
    "title": "Road to M8: 16 tim, Knockout 14-19 Jan di Istanbul",
-   "status": "pending_approval",
+   "status": "approved",
    "asset_url": "{\"video\":\"https://luc1ferr12.github.io/zataa-office/media/2026-11-18/184-road-to-m8-16-tim-knockout-14-19-jan-di--ov.mp4\",\"cover\":\"https://luc1ferr12.github.io/zataa-office/media/2026-11-18/184-road-to-m8-16-tim-knockout-14-19-jan-di--ov-cover.jpg\"}",
    "scheduled_at": null,
    "posted_at": null,
@@ -537,7 +537,7 @@
    "game": "sejarah",
    "pillar": "hidden_history",
    "title": "Negara dengan Piramida Terbanyak di Dunia Bukan Mesir",
-   "status": "pending_approval",
+   "status": "approved",
    "asset_url": null,
    "scheduled_at": null,
    "posted_at": null,
@@ -551,7 +551,7 @@
    "game": "sejarah",
    "pillar": "horor_sejarah",
    "title": "Kuburan Belanda di Jakarta Ini Sekarang Jadi Museum, Konon Angker",
-   "status": "draft",
+   "status": "approved",
    "asset_url": null,
    "scheduled_at": null,
    "posted_at": null,
@@ -806,6 +806,31 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-18 01:30:19",
+   "agent_id": "owner",
+   "message": "Approve konten #184 ✅"
+  },
+  {
+   "ts": "2026-11-18 01:29:53",
+   "agent_id": "owner",
+   "message": "Approve Shorts #201 ✅"
+  },
+  {
+   "ts": "2026-11-18 01:29:49",
+   "agent_id": "owner",
+   "message": "Approve Shorts #200 ✅"
+  },
+  {
+   "ts": "2026-11-18 01:28:44",
+   "agent_id": "yvideo",
+   "message": "Shorts #201 dirender di laptop (suara OmniVoice) & dikirim ke Owner"
+  },
+  {
+   "ts": "2026-11-18 01:28:43",
+   "agent_id": "spublish",
+   "message": "Kirim Shorts #201 ke Owner buat approval"
+  },
+  {
    "ts": "2026-11-18 01:24:53",
    "agent_id": "yvideo",
    "message": "Shorts #200 dirender di laptop (suara OmniVoice) & dikirim ke Owner"
@@ -904,31 +929,6 @@
    "ts": "2026-11-17 23:02:12",
    "agent_id": "yvideo",
    "message": "Shorts #200 \"Negara dengan Piramida Terbanyak di Dunia Bukan Mesir\" masuk antrean render laptop (OmniVoice)"
-  },
-  {
-   "ts": "2026-11-17 23:01:18",
-   "agent_id": "trisk",
-   "message": "NO TRADE · jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
-  },
-  {
-   "ts": "2026-11-17 23:01:17",
-   "agent_id": "dir",
-   "message": "Kirim 3 ide briefing ke Owner"
-  },
-  {
-   "ts": "2026-11-17 23:01:16",
-   "agent_id": "dir",
-   "message": "Pilih 3 ide terbaik dari briefing (2 feed + 1 video)"
-  },
-  {
-   "ts": "2026-11-17 23:01:05",
-   "agent_id": "publisher",
-   "message": "Kirim #183 ke Owner buat approval"
-  },
-  {
-   "ts": "2026-11-17 23:00:59",
-   "agent_id": "ttech",
-   "message": "M60 berubah arah: bearish → sideways"
   }
  ],
  "chats": [
@@ -1218,30 +1218,30 @@
    "week": "2026-11-16",
    "total": 24,
    "posted": 7,
-   "pending": 2,
-   "scheduled": 1,
+   "pending": 0,
+   "scheduled": 4,
    "yt_total": 9,
    "yt_posted": 3,
-   "yt_pending": 1,
-   "yt_scheduled": 0,
-   "views": 2398,
-   "likes": 41,
+   "yt_pending": 0,
+   "yt_scheduled": 2,
+   "views": 2507,
+   "likes": 45,
    "comments": 0,
    "shares": 0,
    "saves": 0,
-   "yt_views": 1820,
+   "yt_views": 1923,
    "top": [
     {
      "title": "Gua di Biak Ini Konon Jadi Kuburan Ribuan Tentara Jepang",
      "format": "shorts",
      "pillar": "horor_sejarah",
-     "views": 1820
+     "views": 1923
     },
     {
      "title": "Transfer VCT 2027 yang paling bikin kaget: kamu setuju?",
      "format": "video",
      "pillar": "news",
-     "views": 315
+     "views": 318
     },
     {
      "title": "3 transfer VCT 2027 yang ubah peta kekuatan",
@@ -1271,7 +1271,7 @@
    "yt_posted": 10,
    "yt_pending": 1,
    "yt_scheduled": 0,
-   "views": 19414,
+   "views": 19415,
    "likes": 238,
    "comments": 6,
    "shares": 3,
@@ -1327,9 +1327,14 @@
   "paused": false,
   "balance": 1728.1799999999998,
   "today_pnl": 0,
-  "price": 3820.419922,
+  "price": 3819.649902,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-18 01:30:59",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
+   },
    {
     "ts": "2026-11-18 01:15:59",
     "decision": "NO TRADE",
@@ -1352,11 +1357,6 @@
    },
    {
     "ts": "2026-11-18 00:15:59",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-   },
-   {
-    "ts": "2026-11-18 00:00:59",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
    }
@@ -1425,7 +1425,7 @@
    1728.1799999999998
   ],
   "last": {
-   "ts": "2026-11-18 01:15:59",
+   "ts": "2026-11-18 01:30:59",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1446,7 +1446,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3825.05 di bawah tengah band (3818.5–3872.4) · RSI 32 · Stoch 19 · MACD -2.83 · H1 sideways"
+    "note": "M15 3817.35 di bawah tengah band (3811.7–3874.6) · RSI 29 · Stoch 16 · MACD -3.32 · H1 sideways"
    }
   },
   "fund": {
@@ -1497,35 +1497,35 @@
    "M10": {
     "bias": "bearish",
     "score": -2,
-    "price": 3819.12,
-    "ema20": 3839.42,
-    "ema50": 3849.51,
-    "rsi": 28.8,
+    "price": 3815.52,
+    "ema20": 3837.14,
+    "ema50": 3848.17,
+    "rsi": 27,
     "n": 299,
-    "slot": 2991608,
-    "at": 1794964859172
+    "slot": 2991609,
+    "at": 1794965459172
    },
    "M15": {
     "bias": "bearish",
     "score": -2,
-    "price": 3825.37,
-    "ema20": 3844.25,
-    "ema50": 3853.63,
-    "rsi": 31.8,
+    "price": 3815.52,
+    "ema20": 3841.52,
+    "ema50": 3852.14,
+    "rsi": 27.3,
     "n": 299,
-    "slot": 1994405,
-    "at": 1794964559165
+    "slot": 1994406,
+    "at": 1794965459178
    },
    "M30": {
     "bias": "bearish",
     "score": -2,
-    "price": 3817.3,
-    "ema20": 3852.62,
-    "ema50": 3860.27,
-    "rsi": 23.4,
+    "price": 3815.52,
+    "ema20": 3849.09,
+    "ema50": 3858.52,
+    "rsi": 22.9,
     "n": 299,
-    "slot": 997202,
-    "at": 1794963659199
+    "slot": 997203,
+    "at": 1794965459179
    },
    "H1": {
     "bias": "bearish",
