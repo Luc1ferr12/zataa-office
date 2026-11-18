@@ -314,14 +314,19 @@ async function markPublic(id) {
 
 // revisi: Claude CLI (tim YouTube) ubah naskah/visual/judul → render ulang di laptop (atau langsung kirim kalau cuma judul/deskripsi)
 const NO_RENDER = '[[TANPA_RENDER]]';
-async function revise(id, note, log, extra = '') {
+async function revise(id, note, log, extra = '', resume = false) {
   const d = await db();
   const c = getShort(d, id);
   if (!c) return;
-  d.prepare("UPDATE contents SET status = 'revision', owner_note = ?, revisions = revisions + 1, updated_at = datetime('now') WHERE id = ?").run(note, id);
-  act(d, 'owner', `Minta revisi Shorts #${id}: ${note}`);
-  lesson(d, [T.script, T.visual, T.publish], `✏️ revisi Shorts "${String(c.title).slice(0, 60)}": ${note}`);
-  await sayAs(T.script, `🛠️ Siap Bos, revisi Shorts #${id} lagi dikerjain…`).catch(() => {});
+  if (resume) {
+    d.prepare("UPDATE contents SET updated_at = datetime('now') WHERE id = ?").run(id);
+    await sayAs(T.script, `🛠️ Revisi Shorts #${id} sempat kepotong (server restart), dilanjutin lagi ya Bos…`).catch(() => {});
+  } else {
+    d.prepare("UPDATE contents SET status = 'revision', owner_note = ?, revisions = revisions + 1, updated_at = datetime('now') WHERE id = ?").run(note, id);
+    act(d, 'owner', `Minta revisi Shorts #${id}: ${note}`);
+    lesson(d, [T.script, T.visual, T.publish], `✏️ revisi Shorts "${String(c.title).slice(0, 60)}": ${note}`);
+    await sayAs(T.script, `🛠️ Siap Bos, revisi Shorts #${id} lagi dikerjain…`).catch(() => {});
+  }
   const r = await claude(`Kamu tim Shorts ${B.name} (${B.niche}, pilar di ${B.sop}) di folder ini. Owner minta REVISI Shorts #${id}:
 BRAND: tambahkan ${BR} di SETIAP perintah scripts/shorts-bot.mjs & scripts/shorts-topics.mjs.
 "${note}"${extra}
@@ -656,6 +661,14 @@ export async function startShortsBot(log = console.log) {
   await db(); // pastikan kolom channel/youtube_id ada
   let offset = 0, fails = 0;
   log(`bot Shorts ${B.name} (${B.bot}) jalan`);
+  // revisi yang kepotong restart watcher (deploy) → status 'revision' tanpa render antre = yatim; lanjutin
+  try {
+    const d = await db();
+    for (const c of d.prepare(`SELECT id, owner_note FROM contents WHERE channel = '${CH}' AND status = 'revision' AND json_extract(data_json, '$._laptop') IS NULL AND owner_note IS NOT NULL`).all()) {
+      log(`revisi shorts #${c.id} yatim, dilanjutin`);
+      later(() => revise(c.id, c.owner_note, log, '', true), log);
+    }
+  } catch (e) { log(`recovery revisi: ${e.message}`); }
   setInterval(() => runJobs(log).catch((e) => log(`bot shorts jobs: ${e.message}`)), 60_000);
   for (;;) {
     let ups = [];
