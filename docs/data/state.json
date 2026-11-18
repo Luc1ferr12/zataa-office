@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-18T21:15:20.659Z",
+ "generated_at": "2026-11-18T21:25:20.670Z",
  "today": "2026-11-19",
  "week_start": "2026-11-16",
  "campaign": {
@@ -103,15 +103,15 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-18 21:00:51"
+   "updated_at": "2026-11-18 21:15:51"
   },
   {
    "id": "tresearch",
    "name": "Davina",
    "title": "Research & Fundamental",
    "status": "done",
-   "current_task": "Fundamental: Hawkish: NFP Okt 165K, CPI panas, pasar price hike Desember ~81%, DXY ~102; Hormuz/minyak tinggi tahan emas. Berita 24 jam belum terkonfirmasi.",
-   "updated_at": "2026-11-18 21:00:51"
+   "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
+   "updated_at": "2026-11-18 21:15:51"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-11-18 21:00:51"
+   "updated_at": "2026-11-18 21:15:51"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
-   "updated_at": "2026-11-18 21:00:51"
+   "updated_at": "2026-11-18 21:15:51"
   },
   {
    "id": "texec",
@@ -1347,9 +1347,14 @@
   "paused": false,
   "balance": 1728.1799999999998,
   "today_pnl": 0,
-  "price": 3727.570068,
+  "price": 3728.719971,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-18 21:15:51",
+    "decision": "NO TRADE",
+    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
+   },
    {
     "ts": "2026-11-18 21:00:51",
     "decision": "NO TRADE",
@@ -1374,11 +1379,6 @@
     "ts": "2026-11-18 20:00:51",
     "decision": "NO TRADE",
     "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
-   },
-   {
-    "ts": "2026-11-18 19:45:51",
-    "decision": "NO TRADE",
-    "reason": "berita berdampak tinggi: FOMC Meeting Minutes (03.00 WITA)"
    }
   ],
   "trades": [
@@ -1445,7 +1445,7 @@
    1728.1799999999998
   ],
   "last": {
-   "ts": "2026-11-18 21:00:51",
+   "ts": "2026-11-18 21:15:51",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1456,8 +1456,8 @@
    "risk_usd": null,
    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
    "fund": {
-    "bias": -0.4,
-    "note": "Hawkish: NFP Okt 165K, CPI panas, pasar price hike Desember ~81%, DXY ~102; Hormuz/minyak tinggi tahan emas. Berita 24 jam belum terkonfirmasi.",
+    "bias": 0,
+    "note": "netral (belum ada ringkasan hari ini)",
     "danger": null,
     "blackout": null
    },
@@ -1466,7 +1466,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3733.35 di bawah tengah band (3720.6–3754.1) · RSI 41 · Stoch 37 · MACD +0.75 · H1 bearish"
+    "note": "M15 3728.10 di bawah tengah band (3718.9–3753.6) · RSI 37 · Stoch 24 · MACD +0.49 · H1 bearish"
    }
   },
   "fund": null,
@@ -1514,24 +1514,24 @@
    "M10": {
     "bias": "bearish",
     "score": -2,
-    "price": 3727.15,
-    "ema20": 3734.16,
-    "ema50": 3746.33,
-    "rsi": 36.8,
+    "price": 3728.27,
+    "ema20": 3733.6,
+    "ema50": 3745.62,
+    "rsi": 38.6,
     "n": 299,
-    "slot": 2991727,
-    "at": 1795036251106
+    "slot": 2991728,
+    "at": 1795036851319
    },
    "M15": {
     "bias": "bearish",
     "score": -2,
-    "price": 3732.77,
-    "ema20": 3739.19,
-    "ema50": 3756.34,
-    "rsi": 40.3,
+    "price": 3727.57,
+    "ema20": 3738.08,
+    "ema50": 3755.21,
+    "rsi": 36.8,
     "n": 299,
-    "slot": 1994484,
-    "at": 1795035651199
+    "slot": 1994485,
+    "at": 1795036551358
    },
    "M30": {
     "bias": "bearish",
