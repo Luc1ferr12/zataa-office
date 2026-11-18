@@ -39,17 +39,24 @@ try {
   setjob({ status: 'editing' });
   if (!job.source_url) throw new Error('campaign nggak punya link footage');
 
-  // ---- 2) footage (cache per URL, dipakai ulang buat clip berikutnya)
-  const key = createHash('sha1').update(job.source_url).digest('hex').slice(0, 12);
-  const srcDir = join(CACHE, 'src', key);
-  mkdirSync(srcDir, { recursive: true });
-  const vids = () => readdirSync(srcDir).filter((f) => /\.(mp4|mkv|webm|mov)$/i.test(f)).map((f) => join(srcDir, f));
-  if (!vids().length) {
-    if (/drive\.google\.com\/drive\/folders/.test(job.source_url)) run('python', ['-m', 'gdown', '--folder', '--quiet', '-O', srcDir, job.source_url]);
-    else run('yt-dlp', ['-q', '--no-playlist', '-f', 'bv*[height<=1080]+ba/b[height<=1080]/b', '--merge-output-format', 'mp4', '-o', join(srcDir, '%(id)s.%(ext)s'), job.source_url]);
+  // ---- 2) footage: coba link job dulu, kalau nggak ada videonya (mis. TikTok cuma kasih audio) lanjut ke materi campaign lain (folder Drive dst)
+  const walk = (d) => readdirSync(d, { withFileTypes: true }).flatMap((e) => (e.isDirectory() ? walk(join(d, e.name)) : [join(d, e.name)]));
+  const urls = [...new Set([job.source_url, ...JSON.parse(job.assets || '[]').map((x) => x.url)].filter(Boolean))];
+  let all = [];
+  for (const url of urls) {
+    const srcDir = join(CACHE, 'src', createHash('sha1').update(url).digest('hex').slice(0, 12));
+    mkdirSync(srcDir, { recursive: true });
+    const vids = () => walk(srcDir).filter((f) => /\.(mp4|mkv|webm|mov)$/i.test(f));
+    if (!vids().length) {
+      try {
+        if (/drive\.google\.com\/drive\/folders/.test(url)) run('python', ['-m', 'gdown', '--folder', '--quiet', '-O', srcDir, url]);
+        else run('yt-dlp', ['-q', '--no-playlist', '-f', 'bv*[height<=1080]+ba/b[height<=1080]/b', '--merge-output-format', 'mp4', '-o', join(srcDir, '%(id)s.%(ext)s'), url]);
+      } catch (e) { console.error(`footage ${url.slice(0, 60)} gagal: ${e.message.slice(0, 120)}`); }
+    }
+    all = vids().sort((x, y) => statSync(y).size - statSync(x).size);
+    if (all.length) break;
   }
-  const all = vids().sort((a, b) => statSync(b).size - statSync(a).size);
-  if (!all.length) throw new Error('footage gagal didownload (link Drive private? minta akses / pip install gdown)');
+  if (!all.length) throw new Error('footage gagal didownload dari semua link campaign (link Drive private? minta akses / pip install gdown)');
   const src = all[id % all.length]; // folder isi banyak video → gilir
 
   // ---- 3) transkrip (sekali per video)
