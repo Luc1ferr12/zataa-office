@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-18T09:15:20.172Z",
+ "generated_at": "2026-11-18T09:25:20.348Z",
  "today": "2026-11-18",
  "week_start": "2026-11-16",
  "campaign": {
@@ -103,15 +103,15 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-18 09:00:50"
+   "updated_at": "2026-11-18 09:15:50"
   },
   {
    "id": "tresearch",
    "name": "Davina",
    "title": "Research & Fundamental",
    "status": "done",
-   "current_task": "Fundamental: Pasar bertaruh Fed naik suku bunga, bukan turun. NFP Okt kuat 165rb, DXY ~102. Emas tetap tahan meski CPI panas. Bias sedikit bearish.",
-   "updated_at": "2026-11-18 09:00:50"
+   "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
+   "updated_at": "2026-11-18 09:15:50"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-18 09:00:50"
+   "updated_at": "2026-11-18 09:15:50"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-11-18 09:00:50"
+   "updated_at": "2026-11-18 09:15:50"
   },
   {
    "id": "texec",
@@ -565,7 +565,7 @@
    "game": "sejarah",
    "pillar": "lore_teori",
    "title": "Siapa Aja Pasukan Doctor Doom di Doomsday?",
-   "status": "revision",
+   "status": "pending_approval",
    "asset_url": null,
    "scheduled_at": null,
    "posted_at": null,
@@ -826,6 +826,16 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-18 09:23:06",
+   "agent_id": "yvideo",
+   "message": "Shorts #202 dirender di laptop (suara OmniVoice) & dikirim ke Owner"
+  },
+  {
+   "ts": "2026-11-18 09:23:05",
+   "agent_id": "vpublish",
+   "message": "Kirim Shorts #202 ke Owner buat approval"
+  },
+  {
    "ts": "2026-11-18 09:15:04",
    "agent_id": "dir",
    "message": "Kode kantor diperbarui, restart otomatis: scripts/watch.mjs, scripts/golink.mjs, scripts/trading/run.mjs"
@@ -939,16 +949,6 @@
    "ts": "2026-11-18 03:12:04",
    "agent_id": "dir",
    "message": "Kode kantor diperbarui, restart otomatis: scripts/watch.mjs, scripts/golink.mjs, scripts/trading/run.mjs"
-  },
-  {
-   "ts": "2026-11-18 03:06:37",
-   "agent_id": "cedit",
-   "message": "Clip #4 (LIGHT+ X TASYA FARASYA) kelar diedit: 15 dtk, nunggu approval Bos"
-  },
-  {
-   "ts": "2026-11-18 03:01:04",
-   "agent_id": "dir",
-   "message": "Kode kantor diperbarui, restart otomatis: scripts/golink.mjs, scripts/trading/run.mjs"
   }
  ],
  "chats": [
@@ -1238,11 +1238,11 @@
    "week": "2026-11-16",
    "total": 24,
    "posted": 9,
-   "pending": 0,
+   "pending": 1,
    "scheduled": 3,
    "yt_total": 9,
    "yt_posted": 3,
-   "yt_pending": 0,
+   "yt_pending": 1,
    "yt_scheduled": 2,
    "views": 2581,
    "likes": 47,
@@ -1347,9 +1347,14 @@
   "paused": false,
   "balance": 1728.1799999999998,
   "today_pnl": 0,
-  "price": 3772.649902,
+  "price": 3769.370117,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-18 09:15:50",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
    {
     "ts": "2026-11-18 09:00:50",
     "decision": "NO TRADE",
@@ -1374,11 +1379,6 @@
     "ts": "2026-11-18 08:00:43",
     "decision": "NO TRADE",
     "reason": "setup BUY di band, konfirmasi baru 2/3 (RSI+Stokastik) · London–NY (mode aman)"
-   },
-   {
-    "ts": "2026-11-18 07:45:50",
-    "decision": "NO TRADE",
-    "reason": "setup BUY di band, konfirmasi baru 1/3 (RSI) · London–NY (mode aman)"
    }
   ],
   "trades": [
@@ -1445,7 +1445,7 @@
    1728.1799999999998
   ],
   "last": {
-   "ts": "2026-11-18 09:00:50",
+   "ts": "2026-11-18 09:15:50",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1456,8 +1456,8 @@
    "risk_usd": null,
    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
    "fund": {
-    "bias": -0.35,
-    "note": "Pasar bertaruh Fed naik suku bunga, bukan turun. NFP Okt kuat 165rb, DXY ~102. Emas tetap tahan meski CPI panas. Bias sedikit bearish.",
+    "bias": 0,
+    "note": "netral (belum ada ringkasan hari ini)",
     "danger": null,
     "blackout": null
    },
@@ -1466,7 +1466,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3770.15 di bawah tengah band (3761.3–3797.9) · RSI 33 · Stoch 28 · MACD +1.01 · H1 sideways"
+    "note": "M15 3769.95 di bawah tengah band (3761.1–3796.2) · RSI 33 · Stoch 33 · MACD +1.23 · H1 sideways"
    }
   },
   "fund": null,
@@ -1514,24 +1514,24 @@
    "M10": {
     "bias": "bearish",
     "score": -3,
-    "price": 3773.9,
-    "ema20": 3775.74,
-    "ema50": 3791.99,
-    "rsi": 44.5,
+    "price": 3775.4,
+    "ema20": 3775.71,
+    "ema50": 3791.34,
+    "rsi": 46.1,
     "n": 299,
-    "slot": 2991655,
-    "at": 1794993050232
+    "slot": 2991656,
+    "at": 1794993650450
    },
    "M15": {
     "bias": "bearish",
     "score": -3,
-    "price": 3772.3,
-    "ema20": 3781.91,
-    "ema50": 3804.45,
-    "rsi": 34.6,
+    "price": 3772.65,
+    "ema20": 3781.03,
+    "ema50": 3803.2,
+    "rsi": 35,
     "n": 299,
-    "slot": 1994436,
-    "at": 1794992450163
+    "slot": 1994437,
+    "at": 1794993350447
    },
    "M30": {
     "bias": "bearish",
