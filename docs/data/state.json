@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-18T19:55:20.620Z",
+ "generated_at": "2026-11-18T20:05:20.628Z",
  "today": "2026-11-19",
  "week_start": "2026-11-16",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-18 19:45:51"
+   "updated_at": "2026-11-18 20:00:51"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Waspada rilis FOMC Meeting Minutes (03.00 WITA)",
-   "updated_at": "2026-11-18 19:45:51"
+   "updated_at": "2026-11-18 20:00:51"
   },
   {
    "id": "ttech",
@@ -119,15 +119,15 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-11-18 19:45:51"
+   "updated_at": "2026-11-18 20:00:51"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: berita berdampak tinggi: FOMC Meeting Minutes (03.00 WITA)",
-   "updated_at": "2026-11-18 19:45:51"
+   "current_task": "NO TRADE: jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
+   "updated_at": "2026-11-18 20:00:51"
   },
   {
    "id": "texec",
@@ -826,6 +826,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-18 20:00:51",
+   "agent_id": "trisk",
+   "message": "NO TRADE · jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
+  },
+  {
    "ts": "2026-11-18 19:00:56",
    "agent_id": "analyst",
    "message": "Update data 35 post IG 📈"
@@ -944,11 +949,6 @@
    "ts": "2026-11-18 12:00:31",
    "agent_id": "vpublish",
    "message": "Upload Shorts #202 ke Marvel Talk (Publik via Zernio)"
-  },
-  {
-   "ts": "2026-11-18 11:45:50",
-   "agent_id": "trisk",
-   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
   }
  ],
  "chats": [
@@ -1347,9 +1347,14 @@
   "paused": false,
   "balance": 1728.1799999999998,
   "today_pnl": 0,
-  "price": 3724.850098,
+  "price": 3725.199951,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-18 20:00:51",
+    "decision": "NO TRADE",
+    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
+   },
    {
     "ts": "2026-11-18 19:45:51",
     "decision": "NO TRADE",
@@ -1372,11 +1377,6 @@
    },
    {
     "ts": "2026-11-18 18:45:51",
-    "decision": "NO TRADE",
-    "reason": "berita berdampak tinggi: FOMC Meeting Minutes (03.00 WITA)"
-   },
-   {
-    "ts": "2026-11-18 18:30:51",
     "decision": "NO TRADE",
     "reason": "berita berdampak tinggi: FOMC Meeting Minutes (03.00 WITA)"
    }
@@ -1445,7 +1445,7 @@
    1728.1799999999998
   ],
   "last": {
-   "ts": "2026-11-18 19:45:51",
+   "ts": "2026-11-18 20:00:51",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1454,7 +1454,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "berita berdampak tinggi: FOMC Meeting Minutes (03.00 WITA)",
+   "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
    "fund": {
     "bias": -0.4,
     "note": "Hawkish: NFP Okt 165K, CPI panas, pasar price hike Desember ~81%, DXY ~102; Hormuz/minyak tinggi tahan emas. Berita 24 jam belum terkonfirmasi.",
@@ -1466,7 +1466,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3723.47 di bawah tengah band (3720.9–3766.6) · RSI 30 · Stoch 4 · MACD -1.46 · H1 bearish"
+    "note": "M15 3724.85 di bawah tengah band (3719.6–3764.5) · RSI 31 · Stoch 6 · MACD -1.26 · H1 bearish"
    }
   },
   "fund": {
@@ -1517,46 +1517,46 @@
    "M10": {
     "bias": "bearish",
     "score": -3,
-    "price": 3724.6,
-    "ema20": 3739.99,
-    "ema50": 3752.8,
-    "rsi": 28.9,
+    "price": 3725.55,
+    "ema20": 3738.61,
+    "ema50": 3751.73,
+    "rsi": 30.4,
     "n": 299,
-    "slot": 2991719,
-    "at": 1795031451058
+    "slot": 2991720,
+    "at": 1795032051068
    },
    "M15": {
     "bias": "bearish",
     "score": -2,
-    "price": 3723.87,
-    "ema20": 3745.22,
-    "ema50": 3762.25,
-    "rsi": 29.9,
+    "price": 3725.55,
+    "ema20": 3743.35,
+    "ema50": 3760.81,
+    "rsi": 31.7,
     "n": 299,
-    "slot": 1994479,
-    "at": 1795031151063
+    "slot": 1994480,
+    "at": 1795032051073
    },
    "M30": {
     "bias": "bearish",
     "score": -2,
-    "price": 3731.85,
-    "ema20": 3758.76,
-    "ema50": 3787.24,
-    "rsi": 30.7,
+    "price": 3725.55,
+    "ema20": 3755.6,
+    "ema50": 3784.83,
+    "rsi": 28.7,
     "n": 299,
-    "slot": 997239,
-    "at": 1795030251049
+    "slot": 997240,
+    "at": 1795032051074
    },
    "H1": {
     "bias": "bearish",
     "score": -2,
-    "price": 3740.5,
-    "ema20": 3780.16,
-    "ema50": 3816.9,
-    "rsi": 31.1,
+    "price": 3725.55,
+    "ema20": 3774.96,
+    "ema50": 3813.32,
+    "rsi": 28,
     "n": 299,
-    "slot": 498619,
-    "at": 1795028451035
+    "slot": 498620,
+    "at": 1795032051079
    }
   },
   "currency": "USC",
