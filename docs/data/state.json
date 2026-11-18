@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-18T02:37:35.367Z",
+ "generated_at": "2026-11-18T02:40:50.913Z",
  "today": "2026-11-18",
  "week_start": "2026-11-16",
  "campaign": {
@@ -688,7 +688,7 @@
   {
    "id": 2,
    "day": "2026-11-16",
-   "status": "failed",
+   "status": "editing",
    "views": 0,
    "likes": 0,
    "tiktok_url": null,
@@ -805,6 +805,11 @@
   }
  ],
  "activity": [
+  {
+   "ts": "2026-11-18 02:40:35",
+   "agent_id": "dir",
+   "message": "Kode kantor diperbarui, restart otomatis: scripts/golink.mjs, scripts/trading/run.mjs, scripts/watch.mjs"
+  },
   {
    "ts": "2026-11-18 02:37:19",
    "agent_id": "dir",
@@ -924,11 +929,6 @@
    "ts": "2026-11-18 00:15:59",
    "agent_id": "trisk",
    "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-  },
-  {
-   "ts": "2026-11-18 00:10:59",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: sideways → bearish"
   }
  ],
  "chats": [
@@ -1327,7 +1327,7 @@
   "paused": false,
   "balance": 1728.1799999999998,
   "today_pnl": 0,
-  "price": 3805.050049,
+  "price": 3808.800049,
   "open": [],
   "signals": [
    {
