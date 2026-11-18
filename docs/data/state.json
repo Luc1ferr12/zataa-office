@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-18T10:55:20.389Z",
+ "generated_at": "2026-11-18T11:05:20.391Z",
  "today": "2026-11-18",
  "week_start": "2026-11-16",
  "campaign": {
@@ -103,23 +103,23 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-18 10:45:50"
+   "updated_at": "2026-11-18 11:01:09"
   },
   {
    "id": "tresearch",
    "name": "Davina",
    "title": "Research & Fundamental",
    "status": "done",
-   "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
-   "updated_at": "2026-11-18 10:45:50"
+   "current_task": "Fundamental: Hawkish: NFP Okt 165K, CPI panas, pasar price hike Desember ~81%, DXY ~102; Hormuz/minyak tinggi tahan emas. Berita 24 jam belum terkonfirmasi.",
+   "updated_at": "2026-11-18 11:01:09"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-18 10:45:50"
+   "current_task": "Belum ada pantulan band · H1 bearish",
+   "updated_at": "2026-11-18 11:01:09"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-11-18 10:45:50"
+   "updated_at": "2026-11-18 11:01:09"
   },
   {
    "id": "texec",
@@ -537,7 +537,7 @@
    "game": "sejarah",
    "pillar": "hidden_history",
    "title": "Negara dengan Piramida Terbanyak di Dunia Bukan Mesir",
-   "status": "approved",
+   "status": "upload_failed",
    "asset_url": null,
    "scheduled_at": null,
    "posted_at": null,
@@ -826,6 +826,16 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-18 11:00:50",
+   "agent_id": "ttech",
+   "message": "M15 berubah arah: bearish → sideways"
+  },
+  {
+   "ts": "2026-11-18 11:00:29",
+   "agent_id": "ypublish",
+   "message": "Upload Shorts #200 gagal"
+  },
+  {
    "ts": "2026-11-18 10:45:50",
    "agent_id": "trisk",
    "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
@@ -939,19 +949,16 @@
    "ts": "2026-11-18 07:59:57",
    "agent_id": "dir",
    "message": "Kode kantor diperbarui, restart otomatis: scripts/golink.mjs, scripts/trading/run.mjs"
-  },
-  {
-   "ts": "2026-11-18 07:30:50",
-   "agent_id": "trisk",
-   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-  },
-  {
-   "ts": "2026-11-18 07:00:49",
-   "agent_id": "analyst",
-   "message": "Update data 36 post IG 📈"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-11-18 11:00:22",
+   "agent_id": "analyst",
+   "to_id": "dir",
+   "kind": "oper",
+   "message": "Laporan harian marketing udah aku kirim ke Bos, 2 konten tayang hari ini 📊"
+  },
   {
    "ts": "2026-11-18 09:01:07",
    "agent_id": "publisher",
@@ -1224,13 +1231,6 @@
    "to_id": "owner",
    "kind": "nimbrung",
    "message": "Waduh Bos, jangan kenceng-kenceng nanti Davina cemburu 😆"
-  },
-  {
-   "ts": "2026-11-16 06:42:35",
-   "agent_id": "owner",
-   "to_id": null,
-   "kind": "nimbrung",
-   "message": "aku lagi jomblo, ada yg mau sama aku ga"
   }
  ],
  "stats": {
@@ -1239,11 +1239,11 @@
    "total": 24,
    "posted": 9,
    "pending": 0,
-   "scheduled": 4,
+   "scheduled": 3,
    "yt_total": 9,
    "yt_posted": 3,
    "yt_pending": 0,
-   "yt_scheduled": 3,
+   "yt_scheduled": 2,
    "views": 2620,
    "likes": 47,
    "comments": 0,
@@ -1347,9 +1347,14 @@
   "paused": false,
   "balance": 1728.1799999999998,
   "today_pnl": 0,
-  "price": 3770.5,
+  "price": 3771.5,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-18 11:01:09",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
    {
     "ts": "2026-11-18 10:45:50",
     "decision": "NO TRADE",
@@ -1372,11 +1377,6 @@
    },
    {
     "ts": "2026-11-18 09:45:50",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-11-18 09:30:50",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1445,7 +1445,7 @@
    1728.1799999999998
   ],
   "last": {
-   "ts": "2026-11-18 10:45:50",
+   "ts": "2026-11-18 11:01:09",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1456,20 +1456,23 @@
    "risk_usd": null,
    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
    "fund": {
-    "bias": 0,
-    "note": "netral (belum ada ringkasan hari ini)",
+    "bias": -0.4,
+    "note": "Hawkish: NFP Okt 165K, CPI panas, pasar price hike Desember ~81%, DXY ~102; Hormuz/minyak tinggi tahan emas. Berita 24 jam belum terkonfirmasi.",
     "danger": null,
     "blackout": null
    },
    "tech": {
-    "bias": "sideways",
+    "bias": "bearish",
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3771.30 di bawah tengah band (3763.7–3786.9) · RSI 39 · Stoch 41 · MACD +1.50 · H1 sideways"
+    "note": "M15 3772.15 di bawah tengah band (3764.9–3784.6) · RSI 41 · Stoch 45 · MACD +1.59 · H1 bearish"
    }
   },
-  "fund": null,
+  "fund": {
+   "bias": -0.4,
+   "note": "Hawkish: NFP Okt 165K, CPI panas, pasar price hike Desember ~81%, DXY ~102; Hormuz/minyak tinggi tahan emas. Berita 24 jam belum terkonfirmasi."
+  },
   "calendar": [
    {
     "title": "FOMC Meeting Minutes",
@@ -1513,47 +1516,47 @@
   "tf": {
    "M10": {
     "bias": "sideways",
-    "score": -1,
-    "price": 3770.5,
-    "ema20": 3775.31,
-    "ema50": 3786.56,
-    "rsi": 41.8,
+    "score": 1,
+    "price": 3776.1,
+    "ema20": 3775.38,
+    "ema50": 3786.15,
+    "rsi": 48.8,
     "n": 299,
-    "slot": 2991665,
-    "at": 1794999050570
+    "slot": 2991666,
+    "at": 1794999650537
    },
    "M15": {
-    "bias": "bearish",
-    "score": -2,
-    "price": 3770.2,
-    "ema20": 3778.83,
-    "ema50": 3797.51,
-    "rsi": 37.5,
+    "bias": "sideways",
+    "score": -1,
+    "price": 3776.1,
+    "ema20": 3778.57,
+    "ema50": 3796.67,
+    "rsi": 44,
     "n": 299,
-    "slot": 1994443,
-    "at": 1794998750514
+    "slot": 1994444,
+    "at": 1794999650542
    },
    "M30": {
     "bias": "bearish",
     "score": -3,
-    "price": 3773.67,
-    "ema20": 3792.51,
-    "ema50": 3820.35,
-    "rsi": 28.7,
+    "price": 3776.1,
+    "ema20": 3790.94,
+    "ema50": 3818.61,
+    "rsi": 31.3,
     "n": 299,
-    "slot": 997221,
-    "at": 1794997850579
+    "slot": 997222,
+    "at": 1794999650545
    },
    "H1": {
     "bias": "bearish",
-    "score": -2,
-    "price": 3780.9,
-    "ema20": 3814.64,
-    "ema50": 3842.31,
-    "rsi": 29.2,
+    "score": -3,
+    "price": 3776.1,
+    "ema20": 3810.97,
+    "ema50": 3839.72,
+    "rsi": 27.9,
     "n": 299,
-    "slot": 498610,
-    "at": 1794996050498
+    "slot": 498611,
+    "at": 1794999650550
    }
   },
   "currency": "USC",
