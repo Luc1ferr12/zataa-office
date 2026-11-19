@@ -82,7 +82,20 @@
       <button role="tab" data-tab="analytics" style="--acc:var(--c-pink)">📊 Analytics</button>
       <button role="tab" data-tab="tim" style="--acc:var(--c-boss)">👥 Tim</button>
       <button role="tab" data-tab="trading" style="--acc:var(--c-trd)">📈 Trading</button>
+      <button role="tab" data-tab="approval" style="--acc:var(--ok)">✅ Approval <span class="ap-badge" id="ap-badge" hidden></span></button>
     </nav>
+
+    <section class="panel" data-panel="approval" hidden>
+      <div class="card approval">
+        <div class="card-head"><h2>Approval Owner</h2><span class="muted" id="ap-status"></span></div>
+        <form class="ap-login" id="ap-login" hidden>
+          <p class="muted">Khusus Owner. Masukkan kunci approval (WEB_APPROVAL_TOKEN di .env VPS). Disimpan di browser ini saja.</p>
+          <div class="ap-row"><input type="password" id="ap-token" autocomplete="off" placeholder="Kunci approval" aria-label="Kunci approval" required><button class="ap-btn ok" type="submit">Masuk</button></div>
+        </form>
+        <div id="ap-list" class="ap-list"></div>
+        <div class="ap-foot" id="ap-foot" hidden><button class="ap-btn ghost" id="ap-refresh" type="button">↻ Muat ulang</button><button class="ap-btn ghost" id="ap-logout" type="button">Keluar</button></div>
+      </div>
+    </section>
 
     <section class="panel" data-panel="ringkasan">
       <div class="card health">
@@ -153,5 +166,6 @@
   </main>
 
   <script type="module" src="js/main.js"></script>
+  <script type="module" src="js/approve.js"></script>
 </body>
 </html>

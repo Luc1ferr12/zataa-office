@@ -18,6 +18,7 @@ import { handleOwnerMessage, handleDecision, runFollowups, syncMonitor } from '.
 import { startFinanceBot } from './finance-bot.mjs';
 import { startOfficeBot } from './office-bot.mjs';
 import { startChitchatBot } from './chitchat-bot.mjs';
+import { startWebApi } from './web-api.mjs';
 import { startShortsBot } from './shorts-bot.mjs';
 
 // Bot divisi lain = proses anak watcher (modul beda), mati → hidup lagi 30 dtk:
@@ -186,7 +187,7 @@ async function talk() {
 
 // GitHub Pages: push state.json tiap 10 menit kalau ada perubahan (status pegawai, aktivitas, chit-chat). 0 token.
 const SYNC_EVERY = 10 * 60_000;
-const PAGES_DATA = () => ['docs/data/state.json', 'docs/data/tiktok.json', 'docs/data/socials.json', 'docs/data/health.json'].filter((f) => existsSync(join(ROOT, f)));
+const PAGES_DATA = () => ['docs/data/state.json', 'docs/data/tiktok.json', 'docs/data/socials.json', 'docs/data/health.json', 'docs/data/api.json'].filter((f) => existsSync(join(ROOT, f)));
 async function syncPages() {
   if (posting) return; // publish.mjs juga lagi push media, jangan tabrakan
   const git = (...a) => execFileSync('git', a, { cwd: ROOT, encoding: 'utf8', windowsHide: true, stdio: ['ignore', 'pipe', 'pipe'] });
@@ -293,6 +294,7 @@ if (!process.argv.includes('--once')) {
   syncPages();
   setInterval(syncPages, SYNC_EVERY);
   startOfficeBot(log).catch((e) => log(`bot kantor berhenti: ${e.message}`)); // bot About Esports langsung (pengganti n8n)
+  startWebApi(log, () => setTimeout(syncPages, 5_000)); // panel approval web (alamat tunnel baru → langsung push api.json)
   startFinanceBot(log); // bot Telegram Nabila (keuangan Owner), long polling terpisah
   startChitchatBot(log, exportState); // bot chit-chat: obrolan santai pegawai ↔ Owner nimbrung
   startShortsBot(log); // bot @zataashortbot Zaa History (approval → upload Private → ingatkan Publik)

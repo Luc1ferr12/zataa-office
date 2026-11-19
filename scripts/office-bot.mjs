@@ -98,6 +98,29 @@ export function handleUpdate(u, owner = String(env().TELEGRAM_CHAT_ID)) {
   return out;
 }
 
+// keputusan dari panel approval web (scripts/web-api.mjs) → antrean yang sama dengan tombol Telegram + kabari Owner di chat bot
+const WEB_TEXT = {
+  approve: (id) => `✅ #${id} di-approve. Masuk antrian tayang.`,
+  reject: (id) => `❌ #${id} ditolak.`,
+  revision: (id, note) => `📝 Revisi #${id} dicatat:\n«${note}»\nTim lagi ngerjain, nanti dikirim ulang ke sini.`,
+  plan_approve: () => '✅ Plan minggu ini di-approve. Tim mulai produksi!',
+  plan_revision: () => '📝 Revisi plan dicatat. Andre lagi benerin, nanti dikirim ulang.',
+  idea_approve: (id, note) => `💡 ${String(note).split(',').length} ide di-approve, gas!`,
+  idea_skip: () => '🔄 Semua ide ditolak. Tim cari ide baru, nanti Andre kirim lagi.',
+};
+export function webDecision(id, action, note = '') {
+  if (!WEB_TEXT[action]) throw new Error(`aksi ${action} nggak dikenal`);
+  const s = state();
+  s.seq += 1;
+  s.queue.push({ seq: s.seq, id: Number(id), action, note, photos: [], ts: new Date().toISOString(), via: 'web' });
+  if (['approve', 'reject', 'revision'].includes(action) && String(s.waiting) === String(id)) s.waiting = null;
+  if (action === 'plan_revision' && s.waiting === `plan:${id}`) s.waiting = null;
+  save();
+  const text = `🌐 Dari web: ${WEB_TEXT[action](id, note)}`;
+  if (env().TELEGRAM_BOT_TOKEN && env().TELEGRAM_CHAT_ID) api('sendMessage', { chat_id: env().TELEGRAM_CHAT_ID, text }).catch(() => {});
+  return text;
+}
+
 // webhook n8n masih nempel → getUpdates ditolak (409). Lepas webhook-nya (update yang numpuk tetap diambil).
 async function dropWebhook(log) {
   const w = await api('getWebhookInfo');

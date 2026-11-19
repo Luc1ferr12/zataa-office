@@ -22,7 +22,7 @@ process.removeAllListeners('warning');
 import { join, dirname, basename } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { openDb } from './db.mjs';
-import { readFileSync, writeFileSync, existsSync, mkdirSync, unlinkSync, statSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync, mkdirSync, unlinkSync, statSync, readdirSync } from 'node:fs';
 import { readFile } from 'node:fs/promises';
 import { execFile } from 'node:child_process';
 import ffmpegPath from 'ffmpeg-static';
@@ -687,6 +687,7 @@ export async function startShortsBot(log = console.log) {
     }
   } catch (e) { log(`recovery revisi: ${e.message}`); }
   setInterval(() => runJobs(log).catch((e) => log(`bot shorts jobs: ${e.message}`)), 60_000);
+  setInterval(() => webInbox(log).catch((e) => log(`bot shorts web: ${e.message}`)), 5_000);
   for (;;) {
     let ups = [];
     try { ups = await api('getUpdates', { offset, timeout: 50, allowed_updates: ['message', 'callback_query'] }); fails = 0; } catch (e) {
@@ -698,6 +699,27 @@ export async function startShortsBot(log = console.log) {
       offset = u.update_id + 1;
       try { await handle(u, log); } catch (e) { log(`bot shorts gagal: ${e.message}`); }
     }
+  }
+}
+
+// keputusan dari panel approval web (scripts/web-api.mjs): 1 file per keputusan di tmp/web-inbox/<brand>/, diambil tiap 5 dtk.
+// Lewat file karena bot Story/Marvel proses anak watcher (beda proses dengan server web).
+export const inboxDir = (brand = B.key) => join(ROOT, 'tmp', 'web-inbox', brand);
+export async function webInbox(log) {
+  const dir = inboxDir();
+  if (!existsSync(dir)) return;
+  for (const f of readdirSync(dir).filter((x) => x.endsWith('.json')).sort()) {
+    let x;
+    try { x = JSON.parse(readFileSync(join(dir, f), 'utf8')); } catch { x = null; }
+    try { unlinkSync(join(dir, f)); } catch { continue; } // sudah diambil proses lain
+    if (!x?.id) continue;
+    const c = getShort(await db(), +x.id);
+    if (!c || c.status !== 'pending_approval') { log(`web: Shorts #${x.id} statusnya ${c?.status ?? 'nggak ada'}, keputusan ${x.action} dilewati`); continue; }
+    log(`web: ${x.action} Shorts #${x.id}`);
+    await send(`🌐 Dari web: ${x.action === 'approve' ? '✅ Approve' : x.action === 'reject' ? '❌ Tolak' : '✏️ Revisi'} Shorts #${x.id}${x.note ? `\n«${esc(x.note)}»` : ''}`).catch(() => {});
+    if (x.action === 'approve') later(() => approve(+x.id, log), log);
+    else if (x.action === 'reject') await reject(+x.id, log);
+    else if (x.action === 'revision' && x.note) later(() => revise(+x.id, String(x.note), log), log);
   }
 }
 

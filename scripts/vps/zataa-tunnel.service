@@ -1,0 +1,20 @@
+# HTTPS gratis (tanpa domain) buat panel approval web: Cloudflare quick tunnel → server approval di watcher (scripts/web-api.mjs, 127.0.0.1:8790)
+# Alamat *.trycloudflare.com berubah tiap restart; watcher baca /quicktunnel di port metrics & tulis docs/data/api.json otomatis.
+# pasang sekali:
+#   curl -L -o /tmp/cloudflared.deb https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb && sudo dpkg -i /tmp/cloudflared.deb
+#   sudo cp scripts/vps/zataa-tunnel.service /etc/systemd/system/ && sudo systemctl enable --now zataa-tunnel
+[Unit]
+Description=Zaa Office tunnel HTTPS panel approval web
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=ubuntu
+ExecStart=/usr/bin/cloudflared tunnel --no-autoupdate --metrics 127.0.0.1:20241 --url http://127.0.0.1:8790
+Restart=always
+RestartSec=10
+StandardOutput=append:/home/ubuntu/zataa-office/logs/tunnel.log
+StandardError=append:/home/ubuntu/zataa-office/logs/tunnel.log
+
+[Install]
+WantedBy=multi-user.target
