@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-19T01:15:20.765Z",
+ "generated_at": "2026-11-19T01:25:20.767Z",
  "today": "2026-11-19",
  "week_start": "2026-11-16",
  "campaign": {
@@ -102,8 +102,8 @@
    "name": "Mahendra",
    "title": "Trading Director",
    "status": "done",
-   "current_task": "Siklus beres: SELL",
-   "updated_at": "2026-11-19 01:00:52"
+   "current_task": "Siklus beres: NO TRADE",
+   "updated_at": "2026-11-19 01:15:51"
   },
   {
    "id": "tresearch",
@@ -111,23 +111,23 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Berita 24 jam tak ketemu; NFP Okt kuat & pasar price hike Fed Des, USD kuat → emas tertekan. Tak ada eskalasi/darurat terdeteksi.",
-   "updated_at": "2026-11-19 01:00:51"
+   "updated_at": "2026-11-19 01:15:51"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Setup SELL di band (RSI+MACD)",
-   "updated_at": "2026-11-19 01:00:51"
+   "current_task": "Setup SELL di band (RSI+Stokastik+MACD)",
+   "updated_at": "2026-11-19 01:15:51"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "SELL 0.02 lot, RR 1:2",
-   "updated_at": "2026-11-19 01:00:51"
+   "current_task": "NO TRADE: masih ada posisi terbuka",
+   "updated_at": "2026-11-19 01:15:51"
   },
   {
    "id": "texec",
@@ -870,6 +870,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-19 01:15:51",
+   "agent_id": "trisk",
+   "message": "NO TRADE · masih ada posisi terbuka"
+  },
+  {
    "ts": "2026-11-19 01:10:51",
    "agent_id": "ttech",
    "message": "M10 berubah arah: sideways → bullish"
@@ -988,11 +993,6 @@
    "ts": "2026-11-18 20:00:51",
    "agent_id": "trisk",
    "message": "NO TRADE · jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
-  },
-  {
-   "ts": "2026-11-18 19:00:56",
-   "agent_id": "analyst",
-   "message": "Update data 35 post IG 📈"
   }
  ],
  "chats": [
@@ -1391,7 +1391,7 @@
   "paused": false,
   "balance": 1728.1799999999998,
   "today_pnl": 0,
-  "price": 3757.219971,
+  "price": 3751.469971,
   "open": [
    {
     "side": "sell",
@@ -1403,6 +1403,11 @@
    }
   ],
   "signals": [
+   {
+    "ts": "2026-11-19 01:15:51",
+    "decision": "NO TRADE",
+    "reason": "masih ada posisi terbuka"
+   },
    {
     "ts": "2026-11-19 01:00:51",
     "decision": "SELL",
@@ -1427,11 +1432,6 @@
     "ts": "2026-11-19 00:00:51",
     "decision": "NO TRADE",
     "reason": "tengah band terlalu dekat buat target (RR 1.0 < 1.2)"
-   },
-   {
-    "ts": "2026-11-18 23:45:51",
-    "decision": "NO TRADE",
-    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
    }
   ],
   "trades": [
@@ -1498,16 +1498,16 @@
    1728.1799999999998
   ],
   "last": {
-   "ts": "2026-11-19 01:00:51",
-   "decision": "SELL",
-   "side": "sell",
-   "entry": 3753.65,
-   "sl": 3760.98,
-   "tp": 3739,
-   "lot": 0.02,
-   "rr": 2,
-   "risk_usd": 14.65,
-   "reason": "pantulan band atas BB M15, konfirmasi RSI+MACD · sesi Asia risiko 1% · SL 7.33 · TP tengah band RR 1:2.0 · fundamental: Berita 24 jam tak ketemu; NFP Okt kuat & pasar price hike Fed Des, USD kuat → emas tertekan. Tak ada eskalasi/darurat terdeteksi.",
+   "ts": "2026-11-19 01:15:51",
+   "decision": "NO TRADE",
+   "side": null,
+   "entry": null,
+   "sl": null,
+   "tp": null,
+   "lot": null,
+   "rr": null,
+   "risk_usd": null,
+   "reason": "masih ada posisi terbuka",
    "fund": {
     "bias": -0.4,
     "note": "Berita 24 jam tak ketemu; NFP Okt kuat & pasar price hike Fed Des, USD kuat → emas tertekan. Tak ada eskalasi/darurat terdeteksi.",
@@ -1516,13 +1516,14 @@
    },
    "tech": {
     "bias": "bearish",
-    "score": 2,
+    "score": 3,
     "trigger": "sell",
     "confirm": [
      "RSI",
+     "Stokastik",
      "MACD"
     ],
-    "note": "M15 3753.80 di atas tengah band (3715.9–3757.3) · RSI 62 · Stoch 94 · MACD +3.47 · H1 bearish · setup SELL (RSI+MACD)"
+    "note": "M15 3753.62 di atas tengah band (3715.7–3760.4) · RSI 61 · Stoch 93 · MACD +3.36 · H1 bearish · setup SELL (RSI+Stokastik+MACD)"
    }
   },
   "fund": {
@@ -1564,24 +1565,24 @@
    "M10": {
     "bias": "bullish",
     "score": 3,
-    "price": 3753.35,
-    "ema20": 3742.17,
-    "ema50": 3742.08,
-    "rsi": 67,
+    "price": 3754.3,
+    "ema20": 3743.33,
+    "ema50": 3742.56,
+    "rsi": 67.9,
     "n": 299,
-    "slot": 2991751,
-    "at": 1795050651318
+    "slot": 2991752,
+    "at": 1795051251328
    },
    "M15": {
     "bias": "sideways",
     "score": 0,
-    "price": 3756.1,
-    "ema20": 3740.19,
-    "ema50": 3747.71,
-    "rsi": 65.3,
+    "price": 3757.22,
+    "ema20": 3741.81,
+    "ema50": 3748.08,
+    "rsi": 66.1,
     "n": 299,
-    "slot": 1994500,
-    "at": 1795050051315
+    "slot": 1994501,
+    "at": 1795050951341
    },
    "M30": {
     "bias": "sideways",
