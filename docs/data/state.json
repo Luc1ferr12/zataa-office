@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-19T00:15:20.731Z",
+ "generated_at": "2026-11-19T00:25:20.736Z",
  "today": "2026-11-19",
  "week_start": "2026-11-16",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-19 00:00:51"
+   "updated_at": "2026-11-19 00:15:51"
   },
   {
    "id": "tresearch",
@@ -111,23 +111,23 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Berita 24 jam tak ketemu; NFP Okt kuat & pasar price hike Fed Des, USD kuat → emas tertekan. Tak ada eskalasi/darurat terdeteksi.",
-   "updated_at": "2026-11-19 00:00:51"
+   "updated_at": "2026-11-19 00:15:51"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Setup SELL di band (Stokastik+MACD)",
-   "updated_at": "2026-11-19 00:00:51"
+   "current_task": "Setup SELL di band (MACD)",
+   "updated_at": "2026-11-19 00:15:51"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: tengah band terlalu dekat buat target (RR 1.0 < 1.2)",
-   "updated_at": "2026-11-19 00:00:51"
+   "current_task": "NO TRADE: setup SELL di band, konfirmasi baru 1/2 (MACD) · sesi Asia",
+   "updated_at": "2026-11-19 00:15:51"
   },
   {
    "id": "texec",
@@ -870,6 +870,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-19 00:15:51",
+   "agent_id": "trisk",
+   "message": "NO TRADE · setup SELL di band, konfirmasi baru 1/2 (MACD) · sesi Asia"
+  },
+  {
    "ts": "2026-11-18 23:20:51",
    "agent_id": "ttech",
    "message": "M10 berubah arah: bearish → sideways"
@@ -988,11 +993,6 @@
    "ts": "2026-11-18 14:30:50",
    "agent_id": "ttech",
    "message": "M30 berubah arah: sideways → bearish"
-  },
-  {
-   "ts": "2026-11-18 14:00:50",
-   "agent_id": "ttech",
-   "message": "M30 berubah arah: bearish → sideways"
   }
  ],
  "chats": [
@@ -1391,9 +1391,14 @@
   "paused": false,
   "balance": 1728.1799999999998,
   "today_pnl": 0,
-  "price": 3738.149902,
+  "price": 3742,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-19 00:15:51",
+    "decision": "NO TRADE",
+    "reason": "setup SELL di band, konfirmasi baru 1/2 (MACD) · sesi Asia"
+   },
    {
     "ts": "2026-11-19 00:00:51",
     "decision": "NO TRADE",
@@ -1416,11 +1421,6 @@
    },
    {
     "ts": "2026-11-18 23:01:13",
-    "decision": "NO TRADE",
-    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
-   },
-   {
-    "ts": "2026-11-18 21:45:51",
     "decision": "NO TRADE",
     "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
    }
@@ -1489,7 +1489,7 @@
    1728.1799999999998
   ],
   "last": {
-   "ts": "2026-11-19 00:00:51",
+   "ts": "2026-11-19 00:15:51",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1498,7 +1498,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "tengah band terlalu dekat buat target (RR 1.0 < 1.2)",
+   "reason": "setup SELL di band, konfirmasi baru 1/2 (MACD) · sesi Asia",
    "fund": {
     "bias": -0.4,
     "note": "Berita 24 jam tak ketemu; NFP Okt kuat & pasar price hike Fed Des, USD kuat → emas tertekan. Tak ada eskalasi/darurat terdeteksi.",
@@ -1507,13 +1507,12 @@
    },
    "tech": {
     "bias": "bearish",
-    "score": 2,
+    "score": 1,
     "trigger": "sell",
     "confirm": [
-     "Stokastik",
      "MACD"
     ],
-    "note": "M15 3740.50 di atas tengah band (3718.4–3745.4) · RSI 53 · Stoch 89 · MACD +2.85 · H1 bearish · setup SELL (Stokastik+MACD)"
+    "note": "M15 3738.82 di atas tengah band (3718.5–3745.7) · RSI 51 · Stoch 77 · MACD +2.41 · H1 bearish · setup SELL (MACD)"
    }
   },
   "fund": {
@@ -1555,24 +1554,24 @@
    "M10": {
     "bias": "sideways",
     "score": 0,
-    "price": 3738.55,
-    "ema20": 3735.26,
-    "ema50": 3739.9,
-    "rsi": 54.8,
+    "price": 3741.37,
+    "ema20": 3735.85,
+    "ema50": 3739.96,
+    "rsi": 58.3,
     "n": 299,
-    "slot": 2991745,
-    "at": 1795047051308
+    "slot": 2991746,
+    "at": 1795047651454
    },
    "M15": {
     "bias": "sideways",
     "score": 0,
-    "price": 3743.27,
-    "ema20": 3736.17,
-    "ema50": 3747.68,
-    "rsi": 56.2,
+    "price": 3738.15,
+    "ema20": 3736.36,
+    "ema50": 3747.3,
+    "rsi": 50.1,
     "n": 299,
-    "slot": 1994496,
-    "at": 1795046451662
+    "slot": 1994497,
+    "at": 1795047351352
    },
    "M30": {
     "bias": "bearish",
