@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-19T03:15:20.824Z",
+ "generated_at": "2026-11-19T03:25:20.823Z",
  "today": "2026-11-19",
  "week_start": "2026-11-16",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-19 03:00:51"
+   "updated_at": "2026-11-19 03:15:51"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Berita 24 jam tak ketemu; NFP Okt kuat & pasar price hike Fed Des, USD kuat → emas tertekan. Tak ada eskalasi/darurat terdeteksi.",
-   "updated_at": "2026-11-19 03:00:51"
+   "updated_at": "2026-11-19 03:15:51"
   },
   {
    "id": "ttech",
@@ -119,15 +119,15 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-11-19 03:00:51"
+   "updated_at": "2026-11-19 03:15:51"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: ada candle spike di M15 (kemungkinan berita dadakan), tunggu tenang",
-   "updated_at": "2026-11-19 03:00:51"
+   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
+   "updated_at": "2026-11-19 03:15:51"
   },
   {
    "id": "texec",
@@ -870,6 +870,16 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-19 03:15:51",
+   "agent_id": "trisk",
+   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (sesi Asia)"
+  },
+  {
+   "ts": "2026-11-19 03:15:51",
+   "agent_id": "ttech",
+   "message": "M15 berubah arah: sideways → bearish"
+  },
+  {
    "ts": "2026-11-19 03:10:51",
    "agent_id": "ttech",
    "message": "M10 berubah arah: bullish → bearish"
@@ -983,16 +993,6 @@
    "ts": "2026-11-19 00:15:51",
    "agent_id": "trisk",
    "message": "NO TRADE · setup SELL di band, konfirmasi baru 1/2 (MACD) · sesi Asia"
-  },
-  {
-   "ts": "2026-11-18 23:20:51",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: bearish → sideways"
-  },
-  {
-   "ts": "2026-11-18 23:20:20",
-   "agent_id": "owner",
-   "message": "Approve konten #185 ✅"
   }
  ],
  "chats": [
@@ -1391,9 +1391,14 @@
   "paused": false,
   "balance": 1757.48,
   "today_pnl": 29.3,
-  "price": 3697.649902,
+  "price": 3708.850098,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-19 03:15:51",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
+   },
    {
     "ts": "2026-11-19 03:00:51",
     "decision": "NO TRADE",
@@ -1416,11 +1421,6 @@
    },
    {
     "ts": "2026-11-19 02:00:51",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-   },
-   {
-    "ts": "2026-11-19 01:45:51",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
    }
@@ -1500,7 +1500,7 @@
    1757.48
   ],
   "last": {
-   "ts": "2026-11-19 03:00:51",
+   "ts": "2026-11-19 03:15:51",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1509,7 +1509,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "ada candle spike di M15 (kemungkinan berita dadakan), tunggu tenang",
+   "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)",
    "fund": {
     "bias": -0.4,
     "note": "Berita 24 jam tak ketemu; NFP Okt kuat & pasar price hike Fed Des, USD kuat → emas tertekan. Tak ada eskalasi/darurat terdeteksi.",
@@ -1521,7 +1521,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3708.75 di bawah band bawah (3717.2–3767.0) · RSI 33 · Stoch 30 · MACD -2.42 · H1 bearish"
+    "note": "M15 3698.00 di bawah band bawah (3705.0–3775.1) · RSI 31 · Stoch 27 · MACD -4.96 · H1 bearish"
    }
   },
   "fund": {
@@ -1563,24 +1563,24 @@
    "M10": {
     "bias": "bearish",
     "score": -2,
-    "price": 3707.87,
-    "ema20": 3741.77,
-    "ema50": 3742.54,
-    "rsi": 30.6,
+    "price": 3701.6,
+    "ema20": 3737.94,
+    "ema50": 3740.94,
+    "rsi": 28.6,
     "n": 299,
-    "slot": 2991763,
-    "at": 1795057851420
+    "slot": 2991764,
+    "at": 1795058451419
    },
    "M15": {
-    "bias": "sideways",
-    "score": 0,
-    "price": 3747.75,
-    "ema20": 3744.29,
-    "ema50": 3747.83,
-    "rsi": 52.9,
+    "bias": "bearish",
+    "score": -2,
+    "price": 3697.65,
+    "ema20": 3739.85,
+    "ema50": 3745.86,
+    "rsi": 30.3,
     "n": 299,
-    "slot": 1994508,
-    "at": 1795057251417
+    "slot": 1994509,
+    "at": 1795058151415
    },
    "M30": {
     "bias": "sideways",
