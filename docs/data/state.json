@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-19T01:35:20.769Z",
+ "generated_at": "2026-11-19T01:45:20.784Z",
  "today": "2026-11-19",
  "week_start": "2026-11-16",
  "campaign": {
@@ -870,6 +870,16 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-19 01:40:51",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: bullish → sideways"
+  },
+  {
+   "ts": "2026-11-19 01:37:21",
+   "agent_id": "texec",
+   "message": "Posisi #5 ditutup (TP) +29,3 USC"
+  },
+  {
    "ts": "2026-11-19 01:29:20",
    "agent_id": "owner",
    "message": "Approve konten #204 ✅"
@@ -983,19 +993,23 @@
    "ts": "2026-11-18 23:01:01",
    "agent_id": "publisher",
    "message": "Kirim #185 ke Owner buat approval"
-  },
-  {
-   "ts": "2026-11-18 22:01:04",
-   "agent_id": "analyst",
-   "message": "Update data 35 post IG 📈"
-  },
-  {
-   "ts": "2026-11-18 21:30:51",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: bearish → sideways"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-11-19 01:37:21",
+   "agent_id": "teval",
+   "to_id": "treport",
+   "kind": "oper",
+   "message": "Profit sesuai rencana (TP, 37 menit). Setup bearish jalan, pertahankan."
+  },
+  {
+   "ts": "2026-11-19 01:37:21",
+   "agent_id": "texec",
+   "to_id": "teval",
+   "kind": "oper",
+   "message": "#5 kena TP, +29,3 USC. Evaluasi ya Jihan"
+  },
   {
    "ts": "2026-11-19 01:00:52",
    "agent_id": "trisk",
@@ -1261,20 +1275,6 @@
    "to_id": "owner",
    "kind": "santai",
    "message": "Hehe, Bos mau dicoba lagi ya 😆 Bracketnya masih aku kunci di laci, nanti malam aku bocorin satu-satu ya 🤫"
-  },
-  {
-   "ts": "2026-11-17 01:21:39",
-   "agent_id": "owner",
-   "to_id": "dir",
-   "kind": "bos",
-   "message": "Coba lagi"
-  },
-  {
-   "ts": "2026-11-16 23:55:47",
-   "agent_id": "tresearch",
-   "to_id": "owner",
-   "kind": "nimbrung",
-   "message": "Bracket sama jodoh sama-sama bikin deg-degan Bos, tapi aku tetep dukung Bos di turnamen 🍿"
   }
  ],
  "stats": {
@@ -1389,19 +1389,10 @@
  "trading": {
   "mode": "paper",
   "paused": false,
-  "balance": 1728.1799999999998,
-  "today_pnl": 0,
-  "price": 3741.5,
-  "open": [
-   {
-    "side": "sell",
-    "lot": 0.02,
-    "entry": 3753.65,
-    "sl": 3760.98,
-    "tp": 3739,
-    "open_ts": "2026-11-19 01:00:51"
-   }
-  ],
+  "balance": 1757.48,
+  "today_pnl": 29.3,
+  "price": 3752.149902,
+  "open": [],
   "signals": [
    {
     "ts": "2026-11-19 01:30:51",
@@ -1435,6 +1426,16 @@
    }
   ],
   "trades": [
+   {
+    "side": "sell",
+    "lot": 0.02,
+    "entry": 3753.65,
+    "exit": 3739,
+    "pnl": 29.300000000000182,
+    "r": 1.9986357435198139,
+    "close_ts": "2026-11-19 01:37:21",
+    "reason_close": "TP"
+   },
    {
     "side": "sell",
     "lot": 0.01,
@@ -1477,25 +1478,26 @@
    }
   ],
   "stats": {
-   "n": 4,
-   "wins": 3,
+   "n": 5,
+   "wins": 4,
    "losses": 1,
-   "pnl": 51.58,
-   "week_pnl": -12.01,
-   "gross_win": 63.59,
+   "pnl": 80.88,
+   "week_pnl": 17.29,
+   "gross_win": 92.89,
    "gross_loss": -12.01,
    "max_loss": -12.010000000000218,
-   "avg_r": 1.12,
-   "today_n": 0,
+   "avg_r": 1.3,
+   "today_n": 1,
    "consec_loss": 0
   },
-  "peak": 1743.439766,
+  "peak": 1757.48,
   "curve": [
    1676.6,
    1687.5099999999998,
    1716.0099999999998,
    1740.19,
-   1728.1799999999998
+   1728.1799999999998,
+   1757.48
   ],
   "last": {
    "ts": "2026-11-19 01:30:51",
@@ -1559,15 +1561,15 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "bullish",
-    "score": 3,
-    "price": 3745.55,
-    "ema20": 3743.54,
-    "ema50": 3742.67,
-    "rsi": 54.3,
+    "bias": "sideways",
+    "score": 1,
+    "price": 3743,
+    "ema20": 3743.49,
+    "ema50": 3742.69,
+    "rsi": 51.1,
     "n": 299,
-    "slot": 2991753,
-    "at": 1795051851345
+    "slot": 2991754,
+    "at": 1795052451409
    },
    "M15": {
     "bias": "sideways",
