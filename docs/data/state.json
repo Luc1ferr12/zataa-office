@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-19T02:35:20.796Z",
+ "generated_at": "2026-11-19T02:45:20.799Z",
  "today": "2026-11-19",
  "week_start": "2026-11-16",
  "campaign": {
@@ -870,6 +870,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-19 02:40:51",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: bullish → sideways"
+  },
+  {
    "ts": "2026-11-19 02:15:51",
    "agent_id": "trisk",
    "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (sesi Asia)"
@@ -988,11 +993,6 @@
    "ts": "2026-11-18 23:01:13",
    "agent_id": "trisk",
    "message": "NO TRADE · jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
-  },
-  {
-   "ts": "2026-11-18 23:01:11",
-   "agent_id": "dir",
-   "message": "Kirim 3 ide briefing ke Owner"
   }
  ],
  "chats": [
@@ -1391,7 +1391,7 @@
   "paused": false,
   "balance": 1757.48,
   "today_pnl": 29.3,
-  "price": 3743.070068,
+  "price": 3735.27002,
   "open": [],
   "signals": [
    {
@@ -1561,15 +1561,15 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "bullish",
-    "score": 2,
-    "price": 3747.7,
-    "ema20": 3746.15,
-    "ema50": 3744.1,
-    "rsi": 53.4,
+    "bias": "sideways",
+    "score": 0,
+    "price": 3743.05,
+    "ema20": 3745.86,
+    "ema50": 3744.05,
+    "rsi": 48.4,
     "n": 299,
-    "slot": 2991759,
-    "at": 1795055451467
+    "slot": 2991760,
+    "at": 1795056051399
    },
    "M15": {
     "bias": "sideways",
