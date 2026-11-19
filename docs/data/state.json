@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-19T23:37:22.827Z",
+ "generated_at": "2026-11-19T23:47:22.829Z",
  "today": "2026-11-20",
  "week_start": "2026-11-16",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-19 23:31:07"
+   "updated_at": "2026-11-19 23:46:07"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Berita 24 jam tak terverifikasi. Emas rebound dari low <3.900 (6 Nov); Fed tahan 3,75-4% (10-2). Bias netral, belum ada sinyal bahaya.",
-   "updated_at": "2026-11-19 23:31:07"
+   "updated_at": "2026-11-19 23:46:07"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-11-19 23:31:07"
+   "updated_at": "2026-11-19 23:46:07"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
-   "updated_at": "2026-11-19 23:31:07"
+   "updated_at": "2026-11-19 23:46:07"
   },
   {
    "id": "texec",
@@ -649,7 +649,7 @@
    "game": "sejarah",
    "pillar": "historical_figures",
    "title": "Jenderal Ini Bawa Gajah Perang Melewati Salju Pegunungan Alpen",
-   "status": "pending_approval",
+   "status": "approved",
    "asset_url": null,
    "scheduled_at": null,
    "posted_at": null,
@@ -663,7 +663,7 @@
    "game": "sejarah",
    "pillar": "legenda_mitos",
    "title": "Legenda Danau Toba Konon Menyimpan Jejak Letusan Terbesar",
-   "status": "pending_approval",
+   "status": "approved",
    "asset_url": null,
    "scheduled_at": null,
    "posted_at": null,
@@ -677,7 +677,7 @@
    "game": "sejarah",
    "pillar": "lore_teori",
    "title": "Wajah di Balik Topeng Doctor Doom Itu Sebenarnya Apa?",
-   "status": "draft",
+   "status": "approved",
    "asset_url": null,
    "scheduled_at": null,
    "posted_at": null,
@@ -912,6 +912,31 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-19 23:43:01",
+   "agent_id": "owner",
+   "message": "Approve Shorts #207 ✅"
+  },
+  {
+   "ts": "2026-11-19 23:42:20",
+   "agent_id": "owner",
+   "message": "Approve Shorts #205 ✅"
+  },
+  {
+   "ts": "2026-11-19 23:42:18",
+   "agent_id": "owner",
+   "message": "Approve Shorts #206 ✅"
+  },
+  {
+   "ts": "2026-11-19 23:41:57",
+   "agent_id": "yvideo",
+   "message": "Shorts #207 dirender di laptop (suara OmniVoice) & dikirim ke Owner"
+  },
+  {
+   "ts": "2026-11-19 23:41:56",
+   "agent_id": "vpublish",
+   "message": "Kirim Shorts #207 ke Owner buat approval"
+  },
+  {
    "ts": "2026-11-19 23:27:21",
    "agent_id": "dir",
    "message": "Kode kantor diperbarui, restart otomatis: scripts/golink.mjs, scripts/trading/run.mjs, scripts/watch.mjs"
@@ -1010,31 +1035,6 @@
    "ts": "2026-11-19 22:00:56",
    "agent_id": "analyst",
    "message": "Update data 36 post IG 📈"
-  },
-  {
-   "ts": "2026-11-19 21:30:52",
-   "agent_id": "trisk",
-   "message": "NO TRADE · jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
-  },
-  {
-   "ts": "2026-11-19 20:30:52",
-   "agent_id": "trisk",
-   "message": "NO TRADE · jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
-  },
-  {
-   "ts": "2026-11-19 19:30:52",
-   "agent_id": "trisk",
-   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-  },
-  {
-   "ts": "2026-11-19 19:00:57",
-   "agent_id": "analyst",
-   "message": "Update data 36 post IG 📈"
-  },
-  {
-   "ts": "2026-11-19 18:30:52",
-   "agent_id": "trisk",
-   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
   }
  ],
  "chats": [
@@ -1324,12 +1324,12 @@
    "week": "2026-11-16",
    "total": 28,
    "posted": 15,
-   "pending": 2,
-   "scheduled": 2,
+   "pending": 0,
+   "scheduled": 5,
    "yt_total": 12,
    "yt_posted": 5,
-   "yt_pending": 2,
-   "yt_scheduled": 0,
+   "yt_pending": 0,
+   "yt_scheduled": 3,
    "views": 5685,
    "likes": 102,
    "comments": 2,
@@ -1433,9 +1433,14 @@
   "paused": false,
   "balance": 1757.48,
   "today_pnl": 29.3,
-  "price": 3628.25,
+  "price": 3610.300049,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-19 23:46:07",
+    "decision": "NO TRADE",
+    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
+   },
    {
     "ts": "2026-11-19 23:31:07",
     "decision": "NO TRADE",
@@ -1458,11 +1463,6 @@
    },
    {
     "ts": "2026-11-19 21:30:52",
-    "decision": "NO TRADE",
-    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
-   },
-   {
-    "ts": "2026-11-19 21:15:52",
     "decision": "NO TRADE",
     "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
    }
@@ -1542,7 +1542,7 @@
    1757.48
   ],
   "last": {
-   "ts": "2026-11-19 23:31:07",
+   "ts": "2026-11-19 23:46:07",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1563,7 +1563,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3628.20 di bawah tengah band (3603.9–3698.5) · RSI 24 · Stoch 11 · MACD -0.97 · H1 bearish"
+    "note": "M15 3598.80 di bawah tengah band (3591.7–3700.1) · RSI 14 · Stoch 8 · MACD -3.06 · H1 bearish"
    }
   },
   "fund": {
@@ -1595,24 +1595,24 @@
    "M10": {
     "bias": "bearish",
     "score": -3,
-    "price": 3626.37,
-    "ema20": 3641.92,
-    "ema50": 3664.12,
-    "rsi": 27.7,
+    "price": 3600,
+    "ema20": 3637.92,
+    "ema50": 3661.61,
+    "rsi": 18,
     "n": 299,
-    "slot": 2991885,
-    "at": 1795131067421
+    "slot": 2991886,
+    "at": 1795131667404
    },
    "M15": {
     "bias": "bearish",
     "score": -3,
-    "price": 3626.37,
-    "ema20": 3649.57,
-    "ema50": 3676.44,
-    "rsi": 21.5,
+    "price": 3604.95,
+    "ema20": 3645.32,
+    "ema50": 3673.63,
+    "rsi": 15.4,
     "n": 299,
-    "slot": 1994590,
-    "at": 1795131067427
+    "slot": 1994591,
+    "at": 1795131967422
    },
    "M30": {
     "bias": "bearish",
