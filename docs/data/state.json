@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-19T15:45:21.091Z",
+ "generated_at": "2026-11-19T15:55:21.092Z",
  "today": "2026-11-19",
  "week_start": "2026-11-16",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-19 15:30:52"
+   "updated_at": "2026-11-19 15:45:52"
   },
   {
    "id": "tresearch",
@@ -111,23 +111,23 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Fed hawkish (hold 3,75-4%, pasar price hike Des ~80%), USD kuat DXY ~102, emas tertekan. Data awal Nov, belum ada update 16-19 Nov.",
-   "updated_at": "2026-11-19 15:30:52"
+   "updated_at": "2026-11-19 15:45:52"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Setup BUY di band (RSI)",
-   "updated_at": "2026-11-19 15:30:52"
+   "current_task": "Setup BUY di band (tanpa konfirmasi)",
+   "updated_at": "2026-11-19 15:45:52"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: setup BUY di band, konfirmasi baru 1/3 (RSI) · London–NY (mode aman)",
-   "updated_at": "2026-11-19 15:30:52"
+   "current_task": "NO TRADE: setup BUY di band, konfirmasi baru 0/3 (-) · London–NY (mode aman)",
+   "updated_at": "2026-11-19 15:45:52"
   },
   {
    "id": "texec",
@@ -1391,9 +1391,14 @@
   "paused": false,
   "balance": 1757.48,
   "today_pnl": 29.3,
-  "price": 3694.649902,
+  "price": 3688.100098,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-19 15:45:52",
+    "decision": "NO TRADE",
+    "reason": "setup BUY di band, konfirmasi baru 0/3 (-) · London–NY (mode aman)"
+   },
    {
     "ts": "2026-11-19 15:30:52",
     "decision": "NO TRADE",
@@ -1418,11 +1423,6 @@
     "ts": "2026-11-19 14:30:52",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-11-19 14:15:52",
-    "decision": "NO TRADE",
-    "reason": "setup BUY di band, konfirmasi baru 2/3 (MACD+divergensi) · London–NY (mode aman)"
    }
   ],
   "trades": [
@@ -1500,7 +1500,7 @@
    1757.48
   ],
   "last": {
-   "ts": "2026-11-19 15:30:52",
+   "ts": "2026-11-19 15:45:52",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1509,7 +1509,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "setup BUY di band, konfirmasi baru 1/3 (RSI) · London–NY (mode aman)",
+   "reason": "setup BUY di band, konfirmasi baru 0/3 (-) · London–NY (mode aman)",
    "fund": {
     "bias": -0.4,
     "note": "Fed hawkish (hold 3,75-4%, pasar price hike Des ~80%), USD kuat DXY ~102, emas tertekan. Data awal Nov, belum ada update 16-19 Nov.",
@@ -1518,12 +1518,10 @@
    },
    "tech": {
     "bias": "bearish",
-    "score": 1,
+    "score": 0,
     "trigger": "buy",
-    "confirm": [
-     "RSI"
-    ],
-    "note": "M15 3699.90 di bawah tengah band (3695.8–3739.5) · RSI 37 · Stoch 16 · MACD -1.70 · H1 bearish · setup BUY (RSI)"
+    "confirm": [],
+    "note": "M15 3693.55 di bawah tengah band (3691.6–3738.9) · RSI 32 · Stoch 14 · MACD -2.23 · H1 bearish · setup BUY (tanpa konfirmasi)"
    }
   },
   "fund": {
@@ -1565,24 +1563,24 @@
    "M10": {
     "bias": "bearish",
     "score": -3,
-    "price": 3686.15,
-    "ema20": 3711.15,
-    "ema50": 3720.41,
-    "rsi": 25.3,
+    "price": 3692.87,
+    "ema20": 3709.41,
+    "ema50": 3719.33,
+    "rsi": 33.2,
     "n": 299,
-    "slot": 2991838,
-    "at": 1795102852085
+    "slot": 2991839,
+    "at": 1795103452063
    },
    "M15": {
     "bias": "bearish",
     "score": -3,
-    "price": 3696.8,
-    "ema20": 3717.2,
-    "ema50": 3726.04,
-    "rsi": 33.8,
+    "price": 3694.65,
+    "ema20": 3715.06,
+    "ema50": 3724.81,
+    "rsi": 32.9,
     "n": 299,
-    "slot": 1994558,
-    "at": 1795102252327
+    "slot": 1994559,
+    "at": 1795103152053
    },
    "M30": {
     "bias": "bearish",
