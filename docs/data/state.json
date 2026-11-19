@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-19T01:05:20.756Z",
+ "generated_at": "2026-11-19T01:15:20.765Z",
  "today": "2026-11-19",
  "week_start": "2026-11-16",
  "campaign": {
@@ -802,7 +802,7 @@
   {
    "id": 14,
    "day": "2026-11-19",
-   "status": "editing",
+   "status": "failed",
    "views": 0,
    "likes": 0,
    "tiktok_url": null,
@@ -812,7 +812,7 @@
   {
    "id": 15,
    "day": "2026-11-19",
-   "status": "queued",
+   "status": "failed",
    "views": 0,
    "likes": 0,
    "tiktok_url": null,
@@ -822,7 +822,7 @@
   {
    "id": 16,
    "day": "2026-11-19",
-   "status": "queued",
+   "status": "failed",
    "views": 0,
    "likes": 0,
    "tiktok_url": null,
@@ -869,6 +869,11 @@
   }
  ],
  "activity": [
+  {
+   "ts": "2026-11-19 01:10:51",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: sideways → bullish"
+  },
   {
    "ts": "2026-11-19 01:01:29",
    "agent_id": "video",
@@ -988,11 +993,6 @@
    "ts": "2026-11-18 19:00:56",
    "agent_id": "analyst",
    "message": "Update data 35 post IG 📈"
-  },
-  {
-   "ts": "2026-11-18 19:00:51",
-   "agent_id": "trisk",
-   "message": "NO TRADE · berita berdampak tinggi: FOMC Meeting Minutes (03.00 WITA)"
   }
  ],
  "chats": [
@@ -1391,7 +1391,7 @@
   "paused": false,
   "balance": 1728.1799999999998,
   "today_pnl": 0,
-  "price": 3750.5,
+  "price": 3757.219971,
   "open": [
    {
     "side": "sell",
@@ -1562,15 +1562,15 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "sideways",
-    "score": 1,
-    "price": 3756.1,
-    "ema20": 3741,
-    "ema50": 3741.62,
-    "rsi": 72,
+    "bias": "bullish",
+    "score": 3,
+    "price": 3753.35,
+    "ema20": 3742.17,
+    "ema50": 3742.08,
+    "rsi": 67,
     "n": 299,
-    "slot": 2991750,
-    "at": 1795050051309
+    "slot": 2991751,
+    "at": 1795050651318
    },
    "M15": {
     "bias": "sideways",
