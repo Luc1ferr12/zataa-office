@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-19T11:59:20.832Z",
+ "generated_at": "2026-11-19T12:05:21.002Z",
  "today": "2026-11-19",
  "week_start": "2026-11-16",
  "campaign": {
@@ -63,7 +63,7 @@
    "title": "Social Media Publisher",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-11-19 09:01:39"
+   "updated_at": "2026-11-19 12:01:27"
   },
   {
    "id": "ads",
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-19 11:45:52"
+   "updated_at": "2026-11-19 12:00:52"
   },
   {
    "id": "tresearch",
@@ -111,23 +111,23 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Fed hawkish (hold 3,75-4%, pasar price hike Des ~80%), USD kuat DXY ~102, emas tertekan. Data awal Nov, belum ada update 16-19 Nov.",
-   "updated_at": "2026-11-19 11:45:52"
+   "updated_at": "2026-11-19 12:00:51"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-11-19 11:45:52"
+   "current_task": "Setup BUY di band (Stokastik+MACD)",
+   "updated_at": "2026-11-19 12:00:52"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-11-19 11:45:52"
+   "current_task": "NO TRADE: setup BUY di band, konfirmasi baru 2/3 (Stokastik+MACD) · London–NY (mode aman)",
+   "updated_at": "2026-11-19 12:00:52"
   },
   {
    "id": "texec",
@@ -607,10 +607,10 @@
    "game": "valorant",
    "pillar": "news",
    "title": "Paper Rex tanpa Jinggg dan d4v41: apa dampaknya",
-   "status": "approved",
+   "status": "posted",
    "asset_url": "{\"video\":\"https://luc1ferr12.github.io/zataa-office/media/2026-11-19/186-paper-rex-tanpa-jinggg-dan-d4v41-apa-dam-ov.mp4\",\"cover\":\"https://luc1ferr12.github.io/zataa-office/media/2026-11-19/186-paper-rex-tanpa-jinggg-dan-d4v41-apa-dam-ov-cover.jpg\"}",
    "scheduled_at": null,
-   "posted_at": null,
+   "posted_at": "2026-11-19 12:01:27",
    "channel": null
   },
   {
@@ -870,6 +870,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-19 12:01:27",
+   "agent_id": "publisher",
+   "message": "Posting #186 ke IG + TikTok ✅"
+  },
+  {
    "ts": "2026-11-19 11:30:51",
    "agent_id": "ttech",
    "message": "M30 berubah arah: sideways → bearish"
@@ -988,14 +993,16 @@
    "ts": "2026-11-19 07:40:51",
    "agent_id": "ttech",
    "message": "M10 berubah arah: sideways → bearish"
-  },
-  {
-   "ts": "2026-11-19 07:15:51",
-   "agent_id": "trisk",
-   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-11-19 12:01:27",
+   "agent_id": "publisher",
+   "to_id": null,
+   "kind": "oper",
+   "message": "\"Paper Rex tanpa Jinggg dan d4v41: apa dampaknya\" udah tayang di IG + TikTok 🚀 Makasih semua!"
+  },
   {
    "ts": "2026-11-19 11:00:23",
    "agent_id": "analyst",
@@ -1268,22 +1275,15 @@
    "to_id": "dir",
    "kind": "oper",
    "message": "Laporan harian marketing udah aku kirim ke Bos, 2 konten tayang hari ini 📊"
-  },
-  {
-   "ts": "2026-11-17 09:01:43",
-   "agent_id": "publisher",
-   "to_id": null,
-   "kind": "oper",
-   "message": "\"Transfer VCT 2027 yang paling bikin kaget: kamu se\" udah tayang di IG + TikTok 🚀 Makasih semua!"
   }
  ],
  "stats": {
   "this_week": {
    "week": "2026-11-16",
    "total": 25,
-   "posted": 14,
+   "posted": 15,
    "pending": 0,
-   "scheduled": 1,
+   "scheduled": 0,
    "yt_total": 9,
    "yt_posted": 5,
    "yt_pending": 0,
@@ -1391,9 +1391,14 @@
   "paused": false,
   "balance": 1757.48,
   "today_pnl": 29.3,
-  "price": 3723.070068,
+  "price": 3720.669922,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-19 12:00:52",
+    "decision": "NO TRADE",
+    "reason": "setup BUY di band, konfirmasi baru 2/3 (Stokastik+MACD) · London–NY (mode aman)"
+   },
    {
     "ts": "2026-11-19 11:45:52",
     "decision": "NO TRADE",
@@ -1416,11 +1421,6 @@
    },
    {
     "ts": "2026-11-19 10:45:52",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-11-19 10:30:52",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1500,7 +1500,7 @@
    1757.48
   ],
   "last": {
-   "ts": "2026-11-19 11:45:52",
+   "ts": "2026-11-19 12:00:52",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1509,7 +1509,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
+   "reason": "setup BUY di band, konfirmasi baru 2/3 (Stokastik+MACD) · London–NY (mode aman)",
    "fund": {
     "bias": -0.4,
     "note": "Fed hawkish (hold 3,75-4%, pasar price hike Des ~80%), USD kuat DXY ~102, emas tertekan. Data awal Nov, belum ada update 16-19 Nov.",
@@ -1518,10 +1518,13 @@
    },
    "tech": {
     "bias": "bearish",
-    "score": 0,
-    "trigger": null,
-    "confirm": [],
-    "note": "M15 3726.47 di bawah tengah band (3724.3–3742.8) · RSI 45 · Stoch 15 · MACD -0.55 · H1 bearish"
+    "score": 2,
+    "trigger": "buy",
+    "confirm": [
+     "Stokastik",
+     "MACD"
+    ],
+    "note": "M15 3727.80 di bawah tengah band (3723.1–3742.4) · RSI 46 · Stoch 21 · MACD -0.68 · H1 bearish · setup BUY (Stokastik+MACD)"
    }
   },
   "fund": {
@@ -1563,46 +1566,46 @@
    "M10": {
     "bias": "bearish",
     "score": -2,
-    "price": 3725.25,
-    "ema20": 3731.64,
-    "ema50": 3733.45,
-    "rsi": 42.3,
+    "price": 3723.5,
+    "ema20": 3730.87,
+    "ema50": 3733.06,
+    "rsi": 40.7,
     "n": 299,
-    "slot": 2991815,
-    "at": 1795089051814
+    "slot": 2991816,
+    "at": 1795089651807
    },
    "M15": {
     "bias": "bearish",
     "score": -3,
-    "price": 3731.72,
-    "ema20": 3732.75,
-    "ema50": 3735.79,
-    "rsi": 48.7,
+    "price": 3723.5,
+    "ema20": 3731.87,
+    "ema50": 3735.31,
+    "rsi": 42.7,
     "n": 299,
-    "slot": 1994543,
-    "at": 1795088751907
+    "slot": 1994544,
+    "at": 1795089651813
    },
    "M30": {
     "bias": "bearish",
     "score": -2,
-    "price": 3728.75,
-    "ema20": 3734.39,
-    "ema50": 3748.95,
-    "rsi": 44.6,
+    "price": 3723.5,
+    "ema20": 3733.35,
+    "ema50": 3747.95,
+    "rsi": 41.6,
     "n": 299,
-    "slot": 997271,
-    "at": 1795087851885
+    "slot": 997272,
+    "at": 1795089651815
    },
    "H1": {
     "bias": "bearish",
     "score": -3,
-    "price": 3736.25,
-    "ema20": 3744.58,
-    "ema50": 3778.56,
-    "rsi": 43.5,
+    "price": 3723.5,
+    "ema20": 3742.57,
+    "ema50": 3776.41,
+    "rsi": 39.6,
     "n": 299,
-    "slot": 498635,
-    "at": 1795086051850
+    "slot": 498636,
+    "at": 1795089651819
    }
   },
   "currency": "USC",
