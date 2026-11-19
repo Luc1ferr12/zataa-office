@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-19T06:55:20.903Z",
+ "generated_at": "2026-11-19T07:05:20.902Z",
  "today": "2026-11-19",
  "week_start": "2026-11-16",
  "campaign": {
@@ -79,7 +79,7 @@
    "title": "Data Analyst",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-11-19 04:00:55"
+   "updated_at": "2026-11-19 07:00:52"
   },
   {
    "id": "price",
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-19 06:45:51"
+   "updated_at": "2026-11-19 07:00:51"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Berita 24 jam tak ketemu; NFP Okt kuat & pasar price hike Fed Des, USD kuat → emas tertekan. Tak ada eskalasi/darurat terdeteksi.",
-   "updated_at": "2026-11-19 06:45:51"
+   "updated_at": "2026-11-19 07:00:51"
   },
   {
    "id": "ttech",
@@ -119,15 +119,15 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-11-19 06:45:51"
+   "updated_at": "2026-11-19 07:00:51"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
-   "updated_at": "2026-11-19 06:45:51"
+   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
+   "updated_at": "2026-11-19 07:00:51"
   },
   {
    "id": "texec",
@@ -870,6 +870,16 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-19 07:00:52",
+   "agent_id": "analyst",
+   "message": "Update data 35 post IG 📈"
+  },
+  {
+   "ts": "2026-11-19 07:00:51",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: sideways → bearish"
+  },
+  {
    "ts": "2026-11-19 06:30:51",
    "agent_id": "ttech",
    "message": "M30 berubah arah: sideways → bearish"
@@ -983,16 +993,6 @@
    "ts": "2026-11-19 01:29:20",
    "agent_id": "owner",
    "message": "Approve konten #204 ✅"
-  },
-  {
-   "ts": "2026-11-19 01:29:20",
-   "agent_id": "owner",
-   "message": "Approve konten #186 ✅"
-  },
-  {
-   "ts": "2026-11-19 01:15:51",
-   "agent_id": "trisk",
-   "message": "NO TRADE · masih ada posisi terbuka"
   }
  ],
  "chats": [
@@ -1288,24 +1288,24 @@
    "yt_posted": 5,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 5040,
+   "views": 5060,
    "likes": 80,
    "comments": 2,
    "shares": 0,
    "saves": 0,
-   "yt_views": 4000,
+   "yt_views": 4006,
    "top": [
     {
      "title": "Gua di Biak Ini Konon Jadi Kuburan Ribuan Tentara Jepang",
      "format": "shorts",
      "pillar": "horor_sejarah",
-     "views": 2097
+     "views": 2099
     },
     {
      "title": "Kuburan Belanda di Jakarta Ini Sekarang Jadi Museum, Konon Angker",
      "format": "shorts",
      "pillar": "horor_sejarah",
-     "views": 1903
+     "views": 1907
     },
     {
      "title": "Transfer VCT 2027 yang paling bikin kaget: kamu setuju?",
@@ -1391,9 +1391,14 @@
   "paused": false,
   "balance": 1757.48,
   "today_pnl": 29.3,
-  "price": 3730.350098,
+  "price": 3739.350098,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-19 07:00:51",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
    {
     "ts": "2026-11-19 06:45:51",
     "decision": "NO TRADE",
@@ -1416,11 +1421,6 @@
    },
    {
     "ts": "2026-11-19 05:45:51",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-   },
-   {
-    "ts": "2026-11-19 05:30:51",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
    }
@@ -1500,7 +1500,7 @@
    1757.48
   ],
   "last": {
-   "ts": "2026-11-19 06:45:51",
+   "ts": "2026-11-19 07:00:51",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1509,7 +1509,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)",
+   "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
    "fund": {
     "bias": -0.4,
     "note": "Berita 24 jam tak ketemu; NFP Okt kuat & pasar price hike Fed Des, USD kuat → emas tertekan. Tak ada eskalasi/darurat terdeteksi.",
@@ -1521,7 +1521,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3732.22 di atas tengah band (3702.1–3758.3) · RSI 49 · Stoch 81 · MACD +1.27 · H1 bearish"
+    "note": "M15 3730.35 di atas tengah band (3702.7–3755.8) · RSI 47 · Stoch 72 · MACD +0.84 · H1 bearish"
    }
   },
   "fund": {
@@ -1561,48 +1561,48 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "sideways",
-    "score": -1,
-    "price": 3733.6,
-    "ema20": 3733.63,
-    "ema50": 3735.24,
-    "rsi": 50,
+    "bias": "bearish",
+    "score": -2,
+    "price": 3731.65,
+    "ema20": 3733.45,
+    "ema50": 3735.1,
+    "rsi": 48.3,
     "n": 299,
-    "slot": 2991785,
-    "at": 1795071051750
+    "slot": 2991786,
+    "at": 1795071651648
    },
    "M15": {
     "bias": "sideways",
-    "score": 1,
-    "price": 3735.2,
-    "ema20": 3733.42,
-    "ema50": 3738.85,
-    "rsi": 50.8,
+    "score": -1,
+    "price": 3731.65,
+    "ema20": 3733.25,
+    "ema50": 3738.57,
+    "rsi": 48.3,
     "n": 299,
-    "slot": 1994523,
-    "at": 1795070751560
+    "slot": 1994524,
+    "at": 1795071651655
    },
    "M30": {
     "bias": "bearish",
-    "score": -2,
-    "price": 3736.67,
-    "ema20": 3737.73,
-    "ema50": 3756.91,
-    "rsi": 47.5,
+    "score": -3,
+    "price": 3731.65,
+    "ema20": 3737.15,
+    "ema50": 3755.92,
+    "rsi": 45.1,
     "n": 299,
-    "slot": 997261,
-    "at": 1795069851566
+    "slot": 997262,
+    "at": 1795071651656
    },
    "H1": {
     "bias": "bearish",
     "score": -3,
-    "price": 3741.37,
-    "ema20": 3751.17,
-    "ema50": 3788.33,
-    "rsi": 43.2,
+    "price": 3731.65,
+    "ema20": 3749.31,
+    "ema50": 3786.11,
+    "rsi": 40.5,
     "n": 299,
-    "slot": 498630,
-    "at": 1795068051571
+    "slot": 498631,
+    "at": 1795071651660
    }
   },
   "currency": "USC",
