@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-19T11:05:20.979Z",
+ "generated_at": "2026-11-19T11:15:20.988Z",
  "today": "2026-11-19",
  "week_start": "2026-11-16",
  "campaign": {
@@ -870,6 +870,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-19 11:10:51",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: sideways → bearish"
+  },
+  {
    "ts": "2026-11-19 11:00:51",
    "agent_id": "ttech",
    "message": "M30 berubah arah: bearish → sideways"
@@ -988,11 +993,6 @@
    "ts": "2026-11-19 07:00:51",
    "agent_id": "ttech",
    "message": "M10 berubah arah: sideways → bearish"
-  },
-  {
-   "ts": "2026-11-19 06:30:51",
-   "agent_id": "ttech",
-   "message": "M30 berubah arah: sideways → bearish"
   }
  ],
  "chats": [
@@ -1335,12 +1335,12 @@
    "yt_posted": 10,
    "yt_pending": 1,
    "yt_scheduled": 0,
-   "views": 19474,
+   "views": 19476,
    "likes": 238,
    "comments": 6,
    "shares": 3,
    "saves": 0,
-   "yt_views": 16379,
+   "yt_views": 16381,
    "top": [
     {
      "title": "Tulisan Tertua Indonesia Ada di 7 Tiang Batu Ini",
@@ -1391,7 +1391,7 @@
   "paused": false,
   "balance": 1757.48,
   "today_pnl": 29.3,
-  "price": 3736.969971,
+  "price": 3729.469971,
   "open": [],
   "signals": [
    {
@@ -1561,15 +1561,15 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "sideways",
-    "score": 0,
-    "price": 3736.25,
-    "ema20": 3733.43,
-    "ema50": 3734.42,
-    "rsi": 52.8,
+    "bias": "bearish",
+    "score": -2,
+    "price": 3730.4,
+    "ema20": 3733.14,
+    "ema50": 3734.26,
+    "rsi": 47,
     "n": 299,
-    "slot": 2991810,
-    "at": 1795086051838
+    "slot": 2991811,
+    "at": 1795086651763
    },
    "M15": {
     "bias": "sideways",
