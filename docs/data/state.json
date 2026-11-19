@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-19T21:25:21.223Z",
+ "generated_at": "2026-11-19T21:35:21.221Z",
  "today": "2026-11-20",
  "week_start": "2026-11-16",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-19 21:15:52"
+   "updated_at": "2026-11-19 21:30:52"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
-   "updated_at": "2026-11-19 21:15:52"
+   "updated_at": "2026-11-19 21:30:52"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-11-19 21:15:52"
+   "updated_at": "2026-11-19 21:30:52"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
-   "updated_at": "2026-11-19 21:15:52"
+   "updated_at": "2026-11-19 21:30:52"
   },
   {
    "id": "texec",
@@ -870,6 +870,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-19 21:30:52",
+   "agent_id": "trisk",
+   "message": "NO TRADE · jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
+  },
+  {
    "ts": "2026-11-19 20:30:52",
    "agent_id": "trisk",
    "message": "NO TRADE · jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
@@ -988,11 +993,6 @@
    "ts": "2026-11-19 10:00:51",
    "agent_id": "ttech",
    "message": "M10 berubah arah: sideways → bearish"
-  },
-  {
-   "ts": "2026-11-19 09:50:51",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: bearish → sideways"
   }
  ],
  "chats": [
@@ -1391,9 +1391,14 @@
   "paused": false,
   "balance": 1757.48,
   "today_pnl": 29.3,
-  "price": 3653.550049,
+  "price": 3636.199951,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-19 21:30:52",
+    "decision": "NO TRADE",
+    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
+   },
    {
     "ts": "2026-11-19 21:15:52",
     "decision": "NO TRADE",
@@ -1416,11 +1421,6 @@
    },
    {
     "ts": "2026-11-19 20:15:52",
-    "decision": "NO TRADE",
-    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
-   },
-   {
-    "ts": "2026-11-19 20:00:52",
     "decision": "NO TRADE",
     "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
    }
@@ -1500,7 +1500,7 @@
    1757.48
   ],
   "last": {
-   "ts": "2026-11-19 21:15:52",
+   "ts": "2026-11-19 21:30:52",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1521,7 +1521,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3661.17 di bawah tengah band (3657.2–3695.8) · RSI 34 · Stoch 11 · MACD -0.20 · H1 bearish"
+    "note": "M15 3643.95 di bawah band bawah (3649.5–3698.4) · RSI 27 · Stoch 18 · MACD -1.46 · H1 bearish"
    }
   },
   "fund": null,
@@ -1550,35 +1550,35 @@
    "M10": {
     "bias": "bearish",
     "score": -3,
-    "price": 3661.25,
-    "ema20": 3673.3,
-    "ema50": 3687.07,
-    "rsi": 32.1,
+    "price": 3655.57,
+    "ema20": 3671.61,
+    "ema50": 3685.84,
+    "rsi": 28.4,
     "n": 299,
-    "slot": 2991872,
-    "at": 1795123252309
+    "slot": 2991873,
+    "at": 1795123852359
    },
    "M15": {
     "bias": "bearish",
     "score": -3,
-    "price": 3662.12,
-    "ema20": 3678.28,
-    "ema50": 3696.27,
-    "rsi": 34.2,
+    "price": 3655.57,
+    "ema20": 3676.11,
+    "ema50": 3694.67,
+    "rsi": 31.2,
     "n": 299,
-    "slot": 1994581,
-    "at": 1795122952286
+    "slot": 1994582,
+    "at": 1795123852364
    },
    "M30": {
     "bias": "bearish",
     "score": -3,
-    "price": 3667.9,
-    "ema20": 3691.91,
-    "ema50": 3717.35,
-    "rsi": 29,
+    "price": 3655.57,
+    "ema20": 3688.45,
+    "ema50": 3714.93,
+    "rsi": 24.8,
     "n": 299,
-    "slot": 997290,
-    "at": 1795122052286
+    "slot": 997291,
+    "at": 1795123852365
    },
    "H1": {
     "bias": "bearish",
