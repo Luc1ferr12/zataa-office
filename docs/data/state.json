@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-19T13:35:21.044Z",
+ "generated_at": "2026-11-19T13:45:21.056Z",
  "today": "2026-11-19",
  "week_start": "2026-11-16",
  "campaign": {
@@ -870,6 +870,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-19 13:40:51",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: sideways → bearish"
+  },
+  {
    "ts": "2026-11-19 13:30:52",
    "agent_id": "trisk",
    "message": "NO TRADE · berita berdampak tinggi: Unemployment Claims (21.30 WITA)"
@@ -988,11 +993,6 @@
    "ts": "2026-11-19 08:45:51",
    "agent_id": "ttech",
    "message": "M15 berubah arah: sideways → bearish"
-  },
-  {
-   "ts": "2026-11-19 08:30:51",
-   "agent_id": "ttech",
-   "message": "M30 berubah arah: sideways → bearish"
   }
  ],
  "chats": [
@@ -1391,7 +1391,7 @@
   "paused": false,
   "balance": 1757.48,
   "today_pnl": 29.3,
-  "price": 3727.149902,
+  "price": 3720.469971,
   "open": [],
   "signals": [
    {
@@ -1561,15 +1561,15 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "sideways",
-    "score": -1,
-    "price": 3724.77,
-    "ema20": 3724.15,
-    "ema50": 3728.9,
-    "rsi": 48.8,
+    "bias": "bearish",
+    "score": -3,
+    "price": 3717.87,
+    "ema20": 3723.55,
+    "ema50": 3728.47,
+    "rsi": 41,
     "n": 299,
-    "slot": 2991825,
-    "at": 1795095051905
+    "slot": 2991826,
+    "at": 1795095651913
    },
    "M15": {
     "bias": "bearish",
