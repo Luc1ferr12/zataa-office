@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-19T01:25:20.767Z",
+ "generated_at": "2026-11-19T01:35:20.769Z",
  "today": "2026-11-19",
  "week_start": "2026-11-16",
  "campaign": {
@@ -62,8 +62,8 @@
    "name": "Fikri",
    "title": "Social Media Publisher",
    "status": "done",
-   "current_task": null,
-   "updated_at": "2026-11-19 01:00:42"
+   "current_task": "undefined",
+   "updated_at": "2026-11-19 01:29:20"
   },
   {
    "id": "ads",
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-19 01:15:51"
+   "updated_at": "2026-11-19 01:30:51"
   },
   {
    "id": "tresearch",
@@ -111,15 +111,15 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Berita 24 jam tak ketemu; NFP Okt kuat & pasar price hike Fed Des, USD kuat → emas tertekan. Tak ada eskalasi/darurat terdeteksi.",
-   "updated_at": "2026-11-19 01:15:51"
+   "updated_at": "2026-11-19 01:30:51"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Setup SELL di band (RSI+Stokastik+MACD)",
-   "updated_at": "2026-11-19 01:15:51"
+   "current_task": "Belum ada pantulan band · H1 bearish",
+   "updated_at": "2026-11-19 01:30:51"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: masih ada posisi terbuka",
-   "updated_at": "2026-11-19 01:15:51"
+   "updated_at": "2026-11-19 01:30:51"
   },
   {
    "id": "texec",
@@ -593,7 +593,7 @@
    "game": "freefire",
    "pillar": "esport",
    "title": "Prediksi Phase 2 FFWS: kenapa tim bakal lebih defensif",
-   "status": "pending_approval",
+   "status": "approved",
    "asset_url": "{\"video\":\"https://luc1ferr12.github.io/zataa-office/media/2026-11-19/204-prediksi-phase-2-ffws-kenapa-tim-bakal-l-ov.mp4\",\"cover\":\"https://luc1ferr12.github.io/zataa-office/media/2026-11-19/204-prediksi-phase-2-ffws-kenapa-tim-bakal-l-ov-cover.jpg\"}",
    "scheduled_at": null,
    "posted_at": null,
@@ -607,7 +607,7 @@
    "game": "valorant",
    "pillar": "news",
    "title": "Paper Rex tanpa Jinggg dan d4v41: apa dampaknya",
-   "status": "pending_approval",
+   "status": "approved",
    "asset_url": "{\"video\":\"https://luc1ferr12.github.io/zataa-office/media/2026-11-19/186-paper-rex-tanpa-jinggg-dan-d4v41-apa-dam-ov.mp4\",\"cover\":\"https://luc1ferr12.github.io/zataa-office/media/2026-11-19/186-paper-rex-tanpa-jinggg-dan-d4v41-apa-dam-ov-cover.jpg\"}",
    "scheduled_at": null,
    "posted_at": null,
@@ -870,6 +870,16 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-19 01:29:20",
+   "agent_id": "owner",
+   "message": "Approve konten #204 ✅"
+  },
+  {
+   "ts": "2026-11-19 01:29:20",
+   "agent_id": "owner",
+   "message": "Approve konten #186 ✅"
+  },
+  {
    "ts": "2026-11-19 01:15:51",
    "agent_id": "trisk",
    "message": "NO TRADE · masih ada posisi terbuka"
@@ -983,16 +993,6 @@
    "ts": "2026-11-18 21:30:51",
    "agent_id": "ttech",
    "message": "M10 berubah arah: bearish → sideways"
-  },
-  {
-   "ts": "2026-11-18 21:00:51",
-   "agent_id": "trisk",
-   "message": "NO TRADE · jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
-  },
-  {
-   "ts": "2026-11-18 20:00:51",
-   "agent_id": "trisk",
-   "message": "NO TRADE · jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
   }
  ],
  "chats": [
@@ -1282,8 +1282,8 @@
    "week": "2026-11-16",
    "total": 25,
    "posted": 12,
-   "pending": 2,
-   "scheduled": 1,
+   "pending": 0,
+   "scheduled": 3,
    "yt_total": 9,
    "yt_posted": 5,
    "yt_pending": 0,
@@ -1391,7 +1391,7 @@
   "paused": false,
   "balance": 1728.1799999999998,
   "today_pnl": 0,
-  "price": 3751.469971,
+  "price": 3741.5,
   "open": [
    {
     "side": "sell",
@@ -1403,6 +1403,11 @@
    }
   ],
   "signals": [
+   {
+    "ts": "2026-11-19 01:30:51",
+    "decision": "NO TRADE",
+    "reason": "masih ada posisi terbuka"
+   },
    {
     "ts": "2026-11-19 01:15:51",
     "decision": "NO TRADE",
@@ -1427,11 +1432,6 @@
     "ts": "2026-11-19 00:15:51",
     "decision": "NO TRADE",
     "reason": "setup SELL di band, konfirmasi baru 1/2 (MACD) · sesi Asia"
-   },
-   {
-    "ts": "2026-11-19 00:00:51",
-    "decision": "NO TRADE",
-    "reason": "tengah band terlalu dekat buat target (RR 1.0 < 1.2)"
    }
   ],
   "trades": [
@@ -1489,7 +1489,7 @@
    "today_n": 0,
    "consec_loss": 0
   },
-  "peak": 1741.7900489999997,
+  "peak": 1743.439766,
   "curve": [
    1676.6,
    1687.5099999999998,
@@ -1498,7 +1498,7 @@
    1728.1799999999998
   ],
   "last": {
-   "ts": "2026-11-19 01:15:51",
+   "ts": "2026-11-19 01:30:51",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1516,14 +1516,10 @@
    },
    "tech": {
     "bias": "bearish",
-    "score": 3,
-    "trigger": "sell",
-    "confirm": [
-     "RSI",
-     "Stokastik",
-     "MACD"
-    ],
-    "note": "M15 3753.62 di atas tengah band (3715.7–3760.4) · RSI 61 · Stoch 93 · MACD +3.36 · H1 bearish · setup SELL (RSI+Stokastik+MACD)"
+    "score": 0,
+    "trigger": null,
+    "confirm": [],
+    "note": "M15 3745.87 di atas tengah band (3716.8–3759.8) · RSI 53 · Stoch 73 · MACD +2.19 · H1 bearish"
    }
   },
   "fund": {
@@ -1565,35 +1561,35 @@
    "M10": {
     "bias": "bullish",
     "score": 3,
-    "price": 3754.3,
-    "ema20": 3743.33,
-    "ema50": 3742.56,
-    "rsi": 67.9,
+    "price": 3745.55,
+    "ema20": 3743.54,
+    "ema50": 3742.67,
+    "rsi": 54.3,
     "n": 299,
-    "slot": 2991752,
-    "at": 1795051251328
+    "slot": 2991753,
+    "at": 1795051851345
    },
    "M15": {
     "bias": "sideways",
     "score": 0,
-    "price": 3757.22,
-    "ema20": 3741.81,
-    "ema50": 3748.08,
-    "rsi": 66.1,
+    "price": 3745.55,
+    "ema20": 3742.16,
+    "ema50": 3747.98,
+    "rsi": 53.1,
     "n": 299,
-    "slot": 1994501,
-    "at": 1795050951341
+    "slot": 1994502,
+    "at": 1795051851350
    },
    "M30": {
     "bias": "sideways",
     "score": 0,
-    "price": 3756.1,
-    "ema20": 3745.03,
-    "ema50": 3769.2,
-    "rsi": 54.1,
+    "price": 3745.55,
+    "ema20": 3745.08,
+    "ema50": 3768.27,
+    "rsi": 47.2,
     "n": 299,
-    "slot": 997250,
-    "at": 1795050051316
+    "slot": 997251,
+    "at": 1795051851352
    },
    "H1": {
     "bias": "bearish",
