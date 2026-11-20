@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-20T02:23:26.764Z",
+ "generated_at": "2026-11-20T02:33:27.003Z",
  "today": "2026-11-20",
  "week_start": "2026-11-16",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-20 02:16:00"
+   "updated_at": "2026-11-20 02:30:42"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Berita 24 jam tak terverifikasi. Emas rebound dari low <3.900 (6 Nov); Fed tahan 3,75-4% (10-2). Bias netral, belum ada sinyal bahaya.",
-   "updated_at": "2026-11-20 02:16:00"
+   "updated_at": "2026-11-20 02:30:42"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-11-20 02:16:00"
+   "updated_at": "2026-11-20 02:30:42"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
-   "updated_at": "2026-11-20 02:16:00"
+   "updated_at": "2026-11-20 02:30:42"
   },
   {
    "id": "texec",
@@ -758,7 +758,7 @@
   {
    "id": 2,
    "day": "2026-11-16",
-   "status": "posted",
+   "status": "deleted",
    "views": 0,
    "likes": 0,
    "tiktok_url": null,
@@ -768,7 +768,7 @@
   {
    "id": 3,
    "day": "2026-11-16",
-   "status": "posted",
+   "status": "deleted",
    "views": 0,
    "likes": 0,
    "tiktok_url": null,
@@ -798,7 +798,7 @@
   {
    "id": 6,
    "day": "2026-11-17",
-   "status": "posted",
+   "status": "deleted",
    "views": 0,
    "likes": 0,
    "tiktok_url": null,
@@ -956,6 +956,16 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-20 02:30:42",
+   "agent_id": "trisk",
+   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (sesi Asia)"
+  },
+  {
+   "ts": "2026-11-20 02:24:45",
+   "agent_id": "owner",
+   "message": "Hapus clip Zaa Clips #2 #3 #6 dari TikTok + IG (kualitas kurang)"
+  },
+  {
    "ts": "2026-11-20 02:23:26",
    "agent_id": "dir",
    "message": "Kode kantor diperbarui, restart otomatis: scripts/golink.mjs, scripts/trading/run.mjs"
@@ -1069,16 +1079,6 @@
    "ts": "2026-11-19 23:25:03",
    "agent_id": "spublish",
    "message": "Kirim Shorts #206 ke Owner buat approval"
-  },
-  {
-   "ts": "2026-11-19 23:20:59",
-   "agent_id": "yvideo",
-   "message": "Shorts #205 dirender di laptop (suara OmniVoice) & dikirim ke Owner"
-  },
-  {
-   "ts": "2026-11-19 23:20:58",
-   "agent_id": "ypublish",
-   "message": "Kirim Shorts #205 ke Owner buat approval"
   }
  ],
  "chats": [
@@ -1477,9 +1477,14 @@
   "paused": false,
   "balance": 1757.48,
   "today_pnl": 0,
-  "price": 3539.300049,
+  "price": 3542.350098,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-20 02:30:42",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
+   },
    {
     "ts": "2026-11-20 02:16:00",
     "decision": "NO TRADE",
@@ -1502,11 +1507,6 @@
    },
    {
     "ts": "2026-11-20 01:16:07",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-   },
-   {
-    "ts": "2026-11-20 01:01:07",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
    }
@@ -1586,7 +1586,7 @@
    1757.48
   ],
   "last": {
-   "ts": "2026-11-20 02:16:00",
+   "ts": "2026-11-20 02:30:42",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1607,7 +1607,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3540.12 di bawah tengah band (3537.7–3667.8) · RSI 20 · Stoch 0 · MACD -5.55 · H1 bearish"
+    "note": "M15 3534.37 di bawah tengah band (3525.5–3669.7) · RSI 20 · Stoch 0 · MACD -5.86 · H1 bearish"
    }
   },
   "fund": {
@@ -1639,35 +1639,35 @@
    "M10": {
     "bias": "bearish",
     "score": -3,
-    "price": 3542.5,
-    "ema20": 3592.91,
-    "ema50": 3626.52,
-    "rsi": 24.8,
+    "price": 3534.5,
+    "ema20": 3587.35,
+    "ema50": 3622.91,
+    "rsi": 23.3,
     "n": 299,
-    "slot": 2991902,
-    "at": 1795141260662
+    "slot": 2991903,
+    "at": 1795141842474
    },
    "M15": {
     "bias": "bearish",
     "score": -3,
-    "price": 3541.3,
-    "ema20": 3605.1,
-    "ema50": 3644.67,
-    "rsi": 20.6,
+    "price": 3534.5,
+    "ema20": 3598.38,
+    "ema50": 3640.35,
+    "rsi": 19.6,
     "n": 299,
-    "slot": 1994601,
-    "at": 1795140960663
+    "slot": 1994602,
+    "at": 1795141842480
    },
    "M30": {
     "bias": "bearish",
     "score": -3,
-    "price": 3560,
-    "ema20": 3636.31,
-    "ema50": 3681.45,
-    "rsi": 13.1,
+    "price": 3534.5,
+    "ema20": 3626.61,
+    "ema50": 3675.69,
+    "rsi": 10.9,
     "n": 299,
-    "slot": 997300,
-    "at": 1795140060659
+    "slot": 997301,
+    "at": 1795141842482
    },
    "H1": {
     "bias": "bearish",
