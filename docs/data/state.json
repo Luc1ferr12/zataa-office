@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-20T01:07:22.859Z",
+ "generated_at": "2026-11-20T01:17:22.871Z",
  "today": "2026-11-20",
  "week_start": "2026-11-16",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-20 01:01:07"
+   "updated_at": "2026-11-20 01:16:07"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Berita 24 jam tak terverifikasi. Emas rebound dari low <3.900 (6 Nov); Fed tahan 3,75-4% (10-2). Bias netral, belum ada sinyal bahaya.",
-   "updated_at": "2026-11-20 01:01:07"
+   "updated_at": "2026-11-20 01:16:07"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-11-20 01:01:07"
+   "updated_at": "2026-11-20 01:16:07"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
-   "updated_at": "2026-11-20 01:01:07"
+   "updated_at": "2026-11-20 01:16:07"
   },
   {
    "id": "texec",
@@ -956,6 +956,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-20 01:16:07",
+   "agent_id": "trisk",
+   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (sesi Asia)"
+  },
+  {
    "ts": "2026-11-20 01:06:07",
    "agent_id": "video",
    "message": "Konten 208 (FFWS Phase 1 klasemen) antre render laptop, auto-submit ke Owner"
@@ -1074,11 +1079,6 @@
    "ts": "2026-11-19 23:04:40",
    "agent_id": "svideo",
    "message": "Shorts #206 \"Legenda Danau Toba Konon Menyimpan Jejak Letusan Terbesar\" masuk antrean render laptop (OmniVoice)"
-  },
-  {
-   "ts": "2026-11-19 23:04:00",
-   "agent_id": "yvideo",
-   "message": "Shorts #205 \"Jenderal Ini Bawa Gajah Perang Melewati Salju Pegunungan Alpen\" masuk antrean render laptop (OmniVoice)"
   }
  ],
  "chats": [
@@ -1477,9 +1477,14 @@
   "paused": false,
   "balance": 1757.48,
   "today_pnl": 0,
-  "price": 3602.149902,
+  "price": 3591.449951,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-20 01:16:07",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
+   },
    {
     "ts": "2026-11-20 01:01:07",
     "decision": "NO TRADE",
@@ -1504,11 +1509,6 @@
     "ts": "2026-11-20 00:01:09",
     "decision": "NO TRADE",
     "reason": "Bollinger Band melebar kencang (breakout), pantulan berisiko"
-   },
-   {
-    "ts": "2026-11-19 23:46:07",
-    "decision": "NO TRADE",
-    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
    }
   ],
   "trades": [
@@ -1586,7 +1586,7 @@
    1757.48
   ],
   "last": {
-   "ts": "2026-11-20 01:01:07",
+   "ts": "2026-11-20 01:16:07",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1607,7 +1607,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3608.92 di bawah tengah band (3578.8–3680.8) · RSI 36 · Stoch 16 · MACD -0.92 · H1 bearish"
+    "note": "M15 3598.40 di bawah tengah band (3577.6–3674.4) · RSI 33 · Stoch 23 · MACD -0.73 · H1 bearish"
    }
   },
   "fund": {
@@ -1639,24 +1639,24 @@
    "M10": {
     "bias": "bearish",
     "score": -3,
-    "price": 3588.27,
-    "ema20": 3620.78,
-    "ema50": 3646.83,
-    "rsi": 26.7,
+    "price": 3600.9,
+    "ema20": 3618.89,
+    "ema50": 3645.03,
+    "rsi": 36.2,
     "n": 299,
-    "slot": 2991894,
-    "at": 1795136467526
+    "slot": 2991895,
+    "at": 1795137067473
    },
    "M15": {
     "bias": "bearish",
     "score": -3,
-    "price": 3588.27,
-    "ema20": 3629.55,
-    "ema50": 3661.38,
-    "rsi": 21.6,
+    "price": 3607.5,
+    "ema20": 3627.45,
+    "ema50": 3659.27,
+    "rsi": 35.5,
     "n": 299,
-    "slot": 1994596,
-    "at": 1795136467532
+    "slot": 1994597,
+    "at": 1795137367662
    },
    "M30": {
     "bias": "bearish",
