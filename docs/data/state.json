@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-11-20T15:54:42.897Z",
- "today": "2026-11-20",
+ "generated_at": "2026-11-20T16:04:42.903Z",
+ "today": "2026-11-21",
  "week_start": "2026-11-16",
  "campaign": {
   "week_start": "2026-11-16",
@@ -79,7 +79,7 @@
    "title": "Data Analyst",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-11-20 13:01:31"
+   "updated_at": "2026-11-20 16:01:36"
   },
   {
    "id": "price",
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-20 15:45:43"
+   "updated_at": "2026-11-20 16:00:43"
   },
   {
    "id": "tresearch",
@@ -111,15 +111,15 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Tak ada berita 24 jam terakhir terverifikasi. USD menguat (DXY ~103, Fed hawkish per 12 Nov); data inflasi/NFP Nov 2026 belum rilis.",
-   "updated_at": "2026-11-20 15:45:43"
+   "updated_at": "2026-11-20 16:00:43"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Setup BUY di band (RSI+MACD+divergensi)",
-   "updated_at": "2026-11-20 15:45:43"
+   "current_task": "Setup BUY di band (MACD+divergensi)",
+   "updated_at": "2026-11-20 16:00:43"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: kondisi berita bahaya: Berita 24 jam tidak terverifikasi; harga emas tak terkonfirmasi",
-   "updated_at": "2026-11-20 15:45:43"
+   "updated_at": "2026-11-20 16:00:43"
   },
   {
    "id": "texec",
@@ -920,41 +920,51 @@
   {
    "agent_id": "copywriter",
    "type": "copy",
-   "title": "Fase penentuan FFWS Global Finals: jadwal dan wakil Indonesia",
+   "title": "5 pelajaran grand final MPL ID S18 untuk ranked",
    "status": "todo"
   },
   {
    "agent_id": "designer",
    "type": "design",
-   "title": "Fase penentuan FFWS Global Finals: jadwal dan wakil Indonesia",
+   "title": "5 pelajaran grand final MPL ID S18 untuk ranked",
    "status": "todo"
   },
   {
    "agent_id": "publisher",
    "type": "publish",
-   "title": "Fase penentuan FFWS Global Finals: jadwal dan wakil Indonesia",
+   "title": "5 pelajaran grand final MPL ID S18 untuk ranked",
    "status": "todo"
   },
   {
    "agent_id": "copywriter",
    "type": "copy",
-   "title": "Matchday FFWS Global Finals malam ini + jam WIB",
+   "title": "Kuis cepat: tebak pemain yang pindah tim 2027",
    "status": "todo"
   },
   {
    "agent_id": "video",
    "type": "video",
-   "title": "Matchday FFWS Global Finals malam ini + jam WIB",
+   "title": "Kuis cepat: tebak pemain yang pindah tim 2027",
    "status": "todo"
   },
   {
    "agent_id": "publisher",
    "type": "publish",
-   "title": "Matchday FFWS Global Finals malam ini + jam WIB",
+   "title": "Kuis cepat: tebak pemain yang pindah tim 2027",
    "status": "todo"
   }
  ],
  "activity": [
+  {
+   "ts": "2026-11-20 16:01:36",
+   "agent_id": "analyst",
+   "message": "Update data 36 post IG 📈"
+  },
+  {
+   "ts": "2026-11-20 16:00:43",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: sideways → bearish"
+  },
   {
    "ts": "2026-11-20 15:30:43",
    "agent_id": "trisk",
@@ -1069,16 +1079,6 @@
    "ts": "2026-11-20 11:01:01",
    "agent_id": "ypublish",
    "message": "Upload Shorts #205 gagal"
-  },
-  {
-   "ts": "2026-11-20 10:30:43",
-   "agent_id": "trisk",
-   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-  },
-  {
-   "ts": "2026-11-20 10:30:43",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: sideways → bullish"
   }
  ],
  "chats": [
@@ -1374,8 +1374,8 @@
    "yt_posted": 7,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 6914,
-   "likes": 124,
+   "views": 7036,
+   "likes": 125,
    "comments": 2,
    "shares": 0,
    "saves": 0,
@@ -1477,9 +1477,14 @@
   "paused": false,
   "balance": 1757.48,
   "today_pnl": 0,
-  "price": 3552.399902,
+  "price": 3553.699951,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-20 16:00:43",
+    "decision": "NO TRADE",
+    "reason": "kondisi berita bahaya: Berita 24 jam tidak terverifikasi; harga emas tak terkonfirmasi"
+   },
    {
     "ts": "2026-11-20 15:45:43",
     "decision": "NO TRADE",
@@ -1502,11 +1507,6 @@
    },
    {
     "ts": "2026-11-20 14:45:43",
-    "decision": "NO TRADE",
-    "reason": "kondisi berita bahaya: Berita 24 jam tidak terverifikasi; harga emas tak terkonfirmasi"
-   },
-   {
-    "ts": "2026-11-20 14:30:43",
     "decision": "NO TRADE",
     "reason": "kondisi berita bahaya: Berita 24 jam tidak terverifikasi; harga emas tak terkonfirmasi"
    }
@@ -1586,7 +1586,7 @@
    1757.48
   ],
   "last": {
-   "ts": "2026-11-20 15:45:43",
+   "ts": "2026-11-20 16:00:43",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1604,14 +1604,13 @@
    },
    "tech": {
     "bias": "bearish",
-    "score": 3,
+    "score": 2,
     "trigger": "buy",
     "confirm": [
-     "RSI",
      "MACD",
      "divergensi"
     ],
-    "note": "M15 3556.45 di bawah tengah band (3540.4–3601.6) · RSI 45 · Stoch 29 · MACD -2.83 · H1 bearish · setup BUY (RSI+MACD+divergensi)"
+    "note": "M15 3551.02 di bawah tengah band (3538.3–3600.0) · RSI 43 · Stoch 41 · MACD -2.78 · H1 bearish · setup BUY (MACD+divergensi)"
    }
   },
   "fund": {
@@ -1641,48 +1640,48 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "sideways",
-    "score": -1,
-    "price": 3549.35,
-    "ema20": 3564.27,
-    "ema50": 3569.83,
-    "rsi": 42.1,
+    "bias": "bearish",
+    "score": -2,
+    "price": 3556.15,
+    "ema20": 3563.49,
+    "ema50": 3569.29,
+    "rsi": 45.6,
     "n": 299,
-    "slot": 2991983,
-    "at": 1795189843486
+    "slot": 2991984,
+    "at": 1795190443500
    },
    "M15": {
     "bias": "bearish",
     "score": -2,
-    "price": 3552.97,
-    "ema20": 3567.78,
-    "ema50": 3576.25,
-    "rsi": 43.4,
+    "price": 3556.15,
+    "ema20": 3566.67,
+    "ema50": 3575.46,
+    "rsi": 44.8,
     "n": 299,
-    "slot": 1994655,
-    "at": 1795189543478
+    "slot": 1994656,
+    "at": 1795190443508
    },
    "M30": {
     "bias": "bearish",
     "score": -2,
-    "price": 3532.07,
-    "ema20": 3571.84,
-    "ema50": 3604.63,
-    "rsi": 34.9,
+    "price": 3556.15,
+    "ema20": 3570.34,
+    "ema50": 3602.73,
+    "rsi": 43.8,
     "n": 299,
-    "slot": 997327,
-    "at": 1795188643458
+    "slot": 997328,
+    "at": 1795190443510
    },
    "H1": {
     "bias": "bearish",
     "score": -3,
-    "price": 3574.95,
-    "ema20": 3596,
-    "ema50": 3659.99,
-    "rsi": 37.2,
+    "price": 3556.15,
+    "ema20": 3592.2,
+    "ema50": 3655.91,
+    "rsi": 33,
     "n": 299,
-    "slot": 498663,
-    "at": 1795186843427
+    "slot": 498664,
+    "at": 1795190443514
    }
   },
   "currency": "USC",
