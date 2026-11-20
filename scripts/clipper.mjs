@@ -259,9 +259,10 @@ export async function track({ dry = false } = {}) {
   const out = [];
   for (const j of jobs) {
     const tt = maps.tiktok[j.tiktok_post] ?? {}, ig = maps.instagram[j.ig_post] ?? {};
-    const tiktok_url = j.tiktok_url ?? tt.url, ig_url = j.ig_url ?? ig.url;
+    // node:sqlite nolak undefined → post yang belum ada di analytics Zernio bikin error tiap jam (sejak 18 Nov)
+    const tiktok_url = j.tiktok_url ?? tt.url ?? null, ig_url = j.ig_url ?? ig.url ?? null;
     d.prepare("UPDATE clip_jobs SET views = ?, likes = ?, tiktok_url = ?, ig_url = ?, updated_at = datetime('now') WHERE id = ?")
-      .run((tt.views ?? 0) + (ig.views ?? 0), (tt.likes ?? 0) + (ig.likes ?? 0), tiktok_url, ig_url, j.id);
+      .run(Math.max(j.views ?? 0, (tt.views ?? 0) + (ig.views ?? 0)), Math.max(j.likes ?? 0, (tt.likes ?? 0) + (ig.likes ?? 0)), tiktok_url, ig_url, j.id);
     // syarat Clippo dicek per video (bukan total): ≥ min views & like rate ≥ 0,5%
     const ready = [['TikTok', tt, tiktok_url], ['Instagram', ig, ig_url]].filter(([, s, u]) => u && (s.views ?? 0) >= (j.min_views || 1000) && (s.likes ?? 0) / Math.max(1, s.views) >= 0.005);
     if (!ready.length) continue;

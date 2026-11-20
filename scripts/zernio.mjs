@@ -97,7 +97,12 @@ export async function postStatsMap(platform, keyEnv = 'ZERNIO_CLIP_API_KEY', day
   const out = {};
   for (let page = 1; page <= 5; page++) {
     const j = await api(`/analytics?platform=${platform}&fromDate=${from}&limit=100&page=${page}`, { keyEnv });
-    for (const p of j.posts ?? []) out[p._id] = { views: p.analytics?.views ?? 0, likes: p.analytics?.likes ?? 0, comments: p.analytics?.comments ?? 0, url: p.platformPostUrl ?? null };
+    // id post yang kita simpan (hasil POST /posts) ada di latePostId; _id = id record analytics → simpan dua-duanya
+    for (const p of j.posts ?? []) {
+      const s = { views: p.analytics?.views ?? 0, likes: p.analytics?.likes ?? 0, comments: p.analytics?.comments ?? 0, url: p.platformPostUrl ?? null };
+      out[p._id] = s;
+      if (p.latePostId) out[p.latePostId] = s;
+    }
     if (page >= (j.pagination?.pages ?? 1)) break;
   }
   return out;
