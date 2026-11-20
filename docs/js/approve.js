@@ -97,13 +97,30 @@ function ideasCard(ideas) {
   </article>`;
 }
 
+// default cuma yang jadwalnya hari ini ke depan; yang lewat jadwal (nyangkut, dulu nggak dipencet di Telegram) dilipat & nggak masuk badge
+const todayWita = () => new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Makassar' }).format(new Date());
+let oldOpen = false;
 function render() {
-  const n = data.contents.length + (data.plan ? 1 : 0) + (data.ideas.length ? 1 : 0);
+  const t = todayWita();
+  const now = data.contents.filter((c) => !c.day || c.day >= t), old = data.contents.filter((c) => c.day && c.day < t);
+  const n = now.length + (data.plan ? 1 : 0) + (data.ideas.length ? 1 : 0);
   badge(n);
-  $('ap-list').innerHTML = n
-    ? [data.plan ? planCard(data.plan) : '', data.ideas.length ? ideasCard(data.ideas) : '', ...data.contents.map(contentCard)].join('')
-    : '<p class="muted">Nggak ada yang nunggu approval. Santai dulu, Bos ☕</p>';
-  for (const img of $('ap-list').querySelectorAll('img[data-img]')) loadMedia(img.dataset.img).then((u) => { img.src = u; }).catch(() => img.remove());
+  $('ap-list').innerHTML = [
+    data.plan ? planCard(data.plan) : '', data.ideas.length ? ideasCard(data.ideas) : '', ...now.map(contentCard),
+    n ? '' : '<p class="muted">Nggak ada yang nunggu approval hari ini. Santai dulu, Bos ☕</p>',
+    old.length ? `<details class="ap-old"${oldOpen ? ' open' : ''}><summary>🕓 Lewat jadwal (${old.length}): konten lama yang belum pernah diputusin</summary>
+      <p class="muted">Approve = tayang secepatnya (jam slotnya udah lewat), cek dulu beritanya masih relevan. Kalau udah basi, ❌ Tolak aja biar bersih.</p>
+      <div class="ap-list">${old.map(contentCard).join('')}</div></details>` : '',
+  ].join('');
+  const box = $('ap-list').querySelector('.ap-old');
+  box?.addEventListener('toggle', () => { oldOpen = box.open; if (box.open) loadImgs(box); });
+  loadImgs($('ap-list'), true);
+}
+function loadImgs(root, skipOld = false) {
+  for (const img of root.querySelectorAll('img[data-img]:not([src])')) {
+    if (skipOld && img.closest('.ap-old:not([open])')) continue;
+    loadMedia(img.dataset.img).then((u) => { img.src = u; }).catch(() => img.remove());
+  }
 }
 
 // media lewat fetch + Authorization (img/video src biasa nggak bisa bawa header)
@@ -126,7 +143,7 @@ async function decide(card, payload, okText) {
     const r = await call('/api/decide', { method: 'POST', body: JSON.stringify(payload) });
     msg.classList.add('ok'); msg.textContent = `${okText} ${r.text ? `· ${r.text.replace(/^🌐 Dari web: /, '').split('\n')[0]}` : ''}`;
     card.classList.add('done');
-    badge(Math.max(0, (+$('ap-badge').textContent || 1) - 1));
+    if (!card.closest('.ap-old')) badge(Math.max(0, (+$('ap-badge').textContent || 1) - 1));
   } catch (e) {
     msg.classList.add('err'); msg.textContent = e.message;
     btns.forEach((b) => { b.disabled = false; });

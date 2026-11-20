@@ -385,3 +385,6 @@ button.ap-media.vid { aspect-ratio: 9 / 16; max-height: 300px; width: auto; heig
 .ap-msg.ok { color: var(--ok); } .ap-msg.err { color: #f87171; }
 .ap-foot { display: flex; gap: 8px; margin-top: 12px; }
 .ap-foot[hidden], .ap-login[hidden] { display: none; }
+.ap-old { grid-column: 1 / -1; margin-top: 4px; border-top: 1px dashed var(--line); padding-top: 10px; }
+.ap-old > summary { cursor: pointer; font: 600 13px Sora, sans-serif; color: var(--warn); }
+.ap-old > p { font-size: 12.5px; margin: 8px 0 10px; }
