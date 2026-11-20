@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-20T10:54:42.784Z",
+ "generated_at": "2026-11-20T11:04:42.789Z",
  "today": "2026-11-20",
  "week_start": "2026-11-16",
  "campaign": {
@@ -103,15 +103,15 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-20 10:45:43"
+   "updated_at": "2026-11-20 11:01:01"
   },
   {
    "id": "tresearch",
    "name": "Davina",
    "title": "Research & Fundamental",
    "status": "done",
-   "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
-   "updated_at": "2026-11-20 10:45:43"
+   "current_task": "Fundamental: Tak ada berita 24 jam terakhir terverifikasi. USD menguat (DXY ~103, Fed hawkish per 12 Nov); data inflasi/NFP Nov 2026 belum rilis.",
+   "updated_at": "2026-11-20 11:01:01"
   },
   {
    "id": "ttech",
@@ -119,15 +119,15 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-11-20 10:45:43"
+   "updated_at": "2026-11-20 11:01:01"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-11-20 10:45:43"
+   "current_task": "NO TRADE: kondisi berita bahaya: Berita 24 jam tidak terverifikasi; harga emas tak terkonfirmasi",
+   "updated_at": "2026-11-20 11:01:01"
   },
   {
    "id": "texec",
@@ -663,7 +663,7 @@
    "game": "sejarah",
    "pillar": "historical_figures",
    "title": "Jenderal Ini Bawa Gajah Perang Melewati Salju Pegunungan Alpen",
-   "status": "approved",
+   "status": "upload_failed",
    "asset_url": null,
    "scheduled_at": null,
    "posted_at": null,
@@ -956,6 +956,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-20 11:01:01",
+   "agent_id": "ypublish",
+   "message": "Upload Shorts #205 gagal"
+  },
+  {
    "ts": "2026-11-20 10:30:43",
    "agent_id": "trisk",
    "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
@@ -1074,14 +1079,16 @@
    "ts": "2026-11-20 04:30:42",
    "agent_id": "trisk",
    "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-  },
-  {
-   "ts": "2026-11-20 04:01:09",
-   "agent_id": "analyst",
-   "message": "Update data 36 post IG 📈"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-11-20 11:00:45",
+   "agent_id": "analyst",
+   "to_id": "dir",
+   "kind": "oper",
+   "message": "Laporan harian marketing udah aku kirim ke Bos, 2 konten tayang hari ini 📊"
+  },
   {
    "ts": "2026-11-20 09:01:40",
    "agent_id": "publisher",
@@ -1354,13 +1361,6 @@
    "to_id": null,
    "kind": "oper",
    "message": "Bos ACC 1 ide tambahan! \"Prediksi Phase 2 FFWS: kenapa tim bakal lebih defensif\" 🎉"
-  },
-  {
-   "ts": "2026-11-18 12:01:21",
-   "agent_id": "publisher",
-   "to_id": null,
-   "kind": "oper",
-   "message": "\"Road to M8: 16 tim, Knockout 14-19 Jan di Istanbul\" udah tayang di IG + TikTok 🚀 Makasih semua!"
   }
  ],
  "stats": {
@@ -1369,11 +1369,11 @@
    "total": 29,
    "posted": 17,
    "pending": 0,
-   "scheduled": 4,
+   "scheduled": 3,
    "yt_total": 12,
    "yt_posted": 5,
    "yt_pending": 0,
-   "yt_scheduled": 3,
+   "yt_scheduled": 2,
    "views": 5947,
    "likes": 114,
    "comments": 2,
@@ -1477,9 +1477,14 @@
   "paused": false,
   "balance": 1757.48,
   "today_pnl": 0,
-  "price": 3589.870117,
+  "price": 3590.25,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-20 11:01:01",
+    "decision": "NO TRADE",
+    "reason": "kondisi berita bahaya: Berita 24 jam tidak terverifikasi; harga emas tak terkonfirmasi"
+   },
    {
     "ts": "2026-11-20 10:45:43",
     "decision": "NO TRADE",
@@ -1502,11 +1507,6 @@
    },
    {
     "ts": "2026-11-20 09:45:43",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-11-20 09:30:43",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1586,7 +1586,7 @@
    1757.48
   ],
   "last": {
-   "ts": "2026-11-20 10:45:43",
+   "ts": "2026-11-20 11:01:01",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1595,11 +1595,11 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
+   "reason": "kondisi berita bahaya: Berita 24 jam tidak terverifikasi; harga emas tak terkonfirmasi",
    "fund": {
-    "bias": 0,
-    "note": "netral (belum ada ringkasan hari ini)",
-    "danger": null,
+    "bias": -0.2,
+    "note": "Tak ada berita 24 jam terakhir terverifikasi. USD menguat (DXY ~103, Fed hawkish per 12 Nov); data inflasi/NFP Nov 2026 belum rilis.",
+    "danger": "Berita 24 jam tidak terverifikasi; harga emas tak terkonfirmasi",
     "blackout": null
    },
    "tech": {
@@ -1607,10 +1607,13 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3595.45 di atas tengah band (3539.8–3602.6) · RSI 63 · Stoch 92 · MACD +3.54 · H1 bearish"
+    "note": "M15 3588.15 di atas tengah band (3542.6–3602.6) · RSI 59 · Stoch 88 · MACD +2.80 · H1 bearish"
    }
   },
-  "fund": null,
+  "fund": {
+   "bias": -0.2,
+   "note": "Tak ada berita 24 jam terakhir terverifikasi. USD menguat (DXY ~103, Fed hawkish per 12 Nov); data inflasi/NFP Nov 2026 belum rilis."
+  },
   "calendar": [],
   "ea": {
    "connected": false,
@@ -1636,46 +1639,46 @@
    "M10": {
     "bias": "bullish",
     "score": 2,
-    "price": 3582.87,
-    "ema20": 3574.81,
-    "ema50": 3573.37,
-    "rsi": 57.1,
+    "price": 3588.55,
+    "ema20": 3576.12,
+    "ema50": 3573.97,
+    "rsi": 60.2,
     "n": 299,
-    "slot": 2991953,
-    "at": 1795171843143
+    "slot": 2991954,
+    "at": 1795172443076
    },
    "M15": {
     "bias": "sideways",
     "score": 1,
-    "price": 3593.95,
-    "ema20": 3571.66,
-    "ema50": 3583.49,
-    "rsi": 62.5,
+    "price": 3588.55,
+    "ema20": 3573.27,
+    "ema50": 3583.69,
+    "rsi": 58.9,
     "n": 299,
-    "slot": 1994635,
-    "at": 1795171543068
+    "slot": 1994636,
+    "at": 1795172443082
    },
    "M30": {
     "bias": "sideways",
     "score": 1,
-    "price": 3582.17,
-    "ema20": 3576.9,
-    "ema50": 3621.16,
-    "rsi": 48.4,
+    "price": 3588.55,
+    "ema20": 3578.01,
+    "ema50": 3619.88,
+    "rsi": 50.6,
     "n": 299,
-    "slot": 997317,
-    "at": 1795170643049
+    "slot": 997318,
+    "at": 1795172443083
    },
    "H1": {
     "bias": "bearish",
     "score": -3,
-    "price": 3569.05,
-    "ema20": 3608.45,
-    "ema50": 3678.29,
-    "rsi": 31.3,
+    "price": 3588.55,
+    "ema20": 3606.55,
+    "ema50": 3674.77,
+    "rsi": 38.8,
     "n": 299,
-    "slot": 498658,
-    "at": 1795168843042
+    "slot": 498659,
+    "at": 1795172443087
    }
   },
   "currency": "USC",
