@@ -117,7 +117,7 @@ try {
     const msg = ok ? `${what} #${id} dirender di laptop (suara OmniVoice) & dikirim ke Owner` : `Render laptop ${what} #${id} gagal, cek logs/laptop-worker.log di laptop`;
     vps(`node scripts/office.mjs log ${shorts ? 'yvideo' : 'video'} ${JSON.stringify(msg)}`);
   }
-  if (q.status === 0) await clipperWork();
+  if (q.status === 0 && process.env.CLIPPER_ON === '1') await clipperWork(); // Zaa Clips LIBUR sejak 20 Nov 2026 (nyalain: .env CLIPPER_ON=1)
 } finally {
   closeSync(fd);
   try { unlinkSync(LOCK); } catch {}

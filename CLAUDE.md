@@ -69,6 +69,7 @@ Alur: sesi harian `node scripts/shorts-bot.mjs new <file.json> [--brand=story]` 
 Skill `.claude/skills/yt-*` (MIT): manajer `/yt-plan` + `/yt-audit` bulanan, riset `/yt-viral`, naskah `/yt-script` (`hookscore.py`), publisher `/yt-package` `/yt-seo` `/yt-retention` (`youtube.mjs retention <id>` → CSV) `/yt-comment`; suara `office/youtube/voice-<brand>.md`. Cara pakai per pegawai ada di playbook-nya.
 
 ## Divisi Zaa Clips (campaign Clippo → TikTok + IG, sejak 16 Nov 2026, SOP `office/clipper.md`)
+**LIBUR sejak 20 Nov 2026 (Owner)**: jangan kerjain apa pun untuk Clips (`cdir`/`cbrief`/`cedit`/`ccopy`/`cpublish`) sampai Owner prompt lagi. Worker laptop & bot Clips mati kecuali `.env` `CLIPPER_ON=1`.
 `scripts/clipper.mjs` (VPS, bot `CLIPPER_BOT_TOKEN` proses anak watcher) + `clipper-chrome.mjs` & `clipper-laptop.mjs` (laptop, dipanggil `laptop-worker.mjs`). Clippo **nolak request dari server (403)** → semua akses Clippo (baca campaign, Join, ajukan clip) lewat **Chrome laptop Owner yang login** + ekstensi Claude in Chrome (`claude --chrome`); jangan akalin proteksinya. Alur: 07:30 laptop baca campaign → 07:45 bot usul 3 terbaik → **Owner ✅ wajib** → 3 clip/hari (`CLIP_PER_DAY`): yt-dlp/gdown → whisper.cpp → Claude pilih momen sesuai brief → ffmpeg 9:16 → TikTok + IG Reels (Zernio akun 4 `ZERNIO_CLIP_API_KEY`) → tiap jam cek views; ≥ min views (1.000) & like rate ≥0,5% → laptop ajukan ke Clippo. Video jangan dihapus 180 hari.
 
 ## Tim Trading (XAUUSD saja)
