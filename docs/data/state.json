@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-20T18:44:42.974Z",
+ "generated_at": "2026-11-20T18:54:42.981Z",
  "today": "2026-11-21",
  "week_start": "2026-11-16",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-20 18:30:43"
+   "updated_at": "2026-11-20 18:45:44"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Tak ada berita 24 jam terakhir terverifikasi. USD menguat (DXY ~103, Fed hawkish per 12 Nov); data inflasi/NFP Nov 2026 belum rilis.",
-   "updated_at": "2026-11-20 18:30:43"
+   "updated_at": "2026-11-20 18:45:43"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-11-20 18:30:43"
+   "updated_at": "2026-11-20 18:45:44"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: kondisi berita bahaya: Berita 24 jam tidak terverifikasi; harga emas tak terkonfirmasi",
-   "updated_at": "2026-11-20 18:30:43"
+   "updated_at": "2026-11-20 18:45:44"
   },
   {
    "id": "texec",
@@ -1477,9 +1477,14 @@
   "paused": false,
   "balance": 1757.48,
   "today_pnl": 0,
-  "price": 3509.600098,
+  "price": 3508.399902,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-20 18:45:44",
+    "decision": "NO TRADE",
+    "reason": "kondisi berita bahaya: Berita 24 jam tidak terverifikasi; harga emas tak terkonfirmasi"
+   },
    {
     "ts": "2026-11-20 18:30:43",
     "decision": "NO TRADE",
@@ -1502,11 +1507,6 @@
    },
    {
     "ts": "2026-11-20 17:30:43",
-    "decision": "NO TRADE",
-    "reason": "kondisi berita bahaya: Berita 24 jam tidak terverifikasi; harga emas tak terkonfirmasi"
-   },
-   {
-    "ts": "2026-11-20 17:15:43",
     "decision": "NO TRADE",
     "reason": "kondisi berita bahaya: Berita 24 jam tidak terverifikasi; harga emas tak terkonfirmasi"
    }
@@ -1586,7 +1586,7 @@
    1757.48
   ],
   "last": {
-   "ts": "2026-11-20 18:30:43",
+   "ts": "2026-11-20 18:45:44",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1607,7 +1607,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3514.90 di bawah tengah band (3501.1–3593.3) · RSI 32 · Stoch 1 · MACD -3.29 · H1 bearish"
+    "note": "M15 3515.62 di bawah tengah band (3496.4–3592.0) · RSI 34 · Stoch 5 · MACD -3.10 · H1 bearish"
    }
   },
   "fund": {
@@ -1639,24 +1639,24 @@
    "M10": {
     "bias": "bearish",
     "score": -2,
-    "price": 3516.25,
-    "ema20": 3536.53,
-    "ema50": 3551.91,
-    "rsi": 35.7,
+    "price": 3509.25,
+    "ema20": 3533.93,
+    "ema50": 3550.24,
+    "rsi": 33,
     "n": 299,
-    "slot": 2992000,
-    "at": 1795200043685
+    "slot": 2992001,
+    "at": 1795200643699
    },
    "M15": {
     "bias": "bearish",
     "score": -2,
-    "price": 3513.75,
-    "ema20": 3544.28,
-    "ema50": 3561.48,
-    "rsi": 30.8,
+    "price": 3509.45,
+    "ema20": 3540.96,
+    "ema50": 3559.44,
+    "rsi": 29.4,
     "n": 299,
-    "slot": 1994666,
-    "at": 1795199443677
+    "slot": 1994667,
+    "at": 1795200343784
    },
    "M30": {
     "bias": "bearish",
