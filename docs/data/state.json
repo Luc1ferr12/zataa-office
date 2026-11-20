@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-20T08:14:42.713Z",
+ "generated_at": "2026-11-20T08:24:42.716Z",
  "today": "2026-11-20",
  "week_start": "2026-11-16",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-20 08:00:43"
+   "updated_at": "2026-11-20 08:15:43"
   },
   {
    "id": "tresearch",
@@ -111,23 +111,23 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Berita 24 jam tak terverifikasi. Emas rebound dari low <3.900 (6 Nov); Fed tahan 3,75-4% (10-2). Bias netral, belum ada sinyal bahaya.",
-   "updated_at": "2026-11-20 08:00:43"
+   "updated_at": "2026-11-20 08:15:43"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-11-20 08:00:43"
+   "current_task": "Setup SELL di band (tanpa konfirmasi)",
+   "updated_at": "2026-11-20 08:15:43"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-11-20 08:00:43"
+   "current_task": "NO TRADE: setup SELL di band, konfirmasi baru 0/3 (-) · London–NY (mode aman)",
+   "updated_at": "2026-11-20 08:15:43"
   },
   {
    "id": "texec",
@@ -1477,9 +1477,14 @@
   "paused": false,
   "balance": 1757.48,
   "today_pnl": 0,
-  "price": 3573.699951,
+  "price": 3577.75,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-20 08:15:43",
+    "decision": "NO TRADE",
+    "reason": "setup SELL di band, konfirmasi baru 0/3 (-) · London–NY (mode aman)"
+   },
    {
     "ts": "2026-11-20 08:00:43",
     "decision": "NO TRADE",
@@ -1504,11 +1509,6 @@
     "ts": "2026-11-20 07:00:43",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-11-20 06:45:42",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
    }
   ],
   "trades": [
@@ -1586,7 +1586,7 @@
    1757.48
   ],
   "last": {
-   "ts": "2026-11-20 08:00:43",
+   "ts": "2026-11-20 08:15:43",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1595,7 +1595,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
+   "reason": "setup SELL di band, konfirmasi baru 0/3 (-) · London–NY (mode aman)",
    "fund": {
     "bias": 0,
     "note": "Berita 24 jam tak terverifikasi. Emas rebound dari low <3.900 (6 Nov); Fed tahan 3,75-4% (10-2). Bias netral, belum ada sinyal bahaya.",
@@ -1605,9 +1605,9 @@
    "tech": {
     "bias": "bearish",
     "score": 0,
-    "trigger": null,
+    "trigger": "sell",
     "confirm": [],
-    "note": "M15 3568.95 di atas tengah band (3515.6–3577.5) · RSI 54 · Stoch 88 · MACD +6.73 · H1 bearish"
+    "note": "M15 3574.75 di atas tengah band (3516.2–3582.1) · RSI 56 · Stoch 94 · MACD +7.03 · H1 bearish · setup SELL (tanpa konfirmasi)"
    }
   },
   "fund": {
@@ -1639,24 +1639,24 @@
    "M10": {
     "bias": "sideways",
     "score": -1,
-    "price": 3577.75,
-    "ema20": 3554.94,
-    "ema50": 3567.68,
-    "rsi": 62,
+    "price": 3574.65,
+    "ema20": 3556.82,
+    "ema50": 3567.95,
+    "rsi": 60,
     "n": 299,
-    "slot": 2991937,
-    "at": 1795162242817
+    "slot": 2991938,
+    "at": 1795162842831
    },
    "M15": {
     "bias": "sideways",
-    "score": -1,
-    "price": 3574.05,
-    "ema20": 3554.97,
-    "ema50": 3585.56,
-    "rsi": 55.9,
+    "score": 0,
+    "price": 3573.7,
+    "ema20": 3556.76,
+    "ema50": 3585.09,
+    "rsi": 55.8,
     "n": 299,
-    "slot": 1994624,
-    "at": 1795161642909
+    "slot": 1994625,
+    "at": 1795162542832
    },
    "M30": {
     "bias": "bearish",
