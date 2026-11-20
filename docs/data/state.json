@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-20T09:14:42.742Z",
+ "generated_at": "2026-11-20T09:24:42.745Z",
  "today": "2026-11-20",
  "week_start": "2026-11-16",
  "campaign": {
@@ -103,31 +103,31 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-20 09:00:43"
+   "updated_at": "2026-11-20 09:15:43"
   },
   {
    "id": "tresearch",
    "name": "Davina",
    "title": "Research & Fundamental",
    "status": "done",
-   "current_task": "Fundamental: Berita 24 jam tak terverifikasi. Emas rebound dari low <3.900 (6 Nov); Fed tahan 3,75-4% (10-2). Bias netral, belum ada sinyal bahaya.",
-   "updated_at": "2026-11-20 09:00:43"
+   "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
+   "updated_at": "2026-11-20 09:15:43"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Setup SELL di band (Stokastik+MACD)",
-   "updated_at": "2026-11-20 09:00:43"
+   "current_task": "Belum ada pantulan band · H1 bearish",
+   "updated_at": "2026-11-20 09:15:43"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: setup SELL di band, konfirmasi baru 2/3 (Stokastik+MACD) · London–NY (mode aman)",
-   "updated_at": "2026-11-20 09:00:43"
+   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
+   "updated_at": "2026-11-20 09:15:43"
   },
   {
    "id": "texec",
@@ -1477,9 +1477,14 @@
   "paused": false,
   "balance": 1757.48,
   "today_pnl": 0,
-  "price": 3587,
+  "price": 3583.620117,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-20 09:15:43",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
    {
     "ts": "2026-11-20 09:00:43",
     "decision": "NO TRADE",
@@ -1502,11 +1507,6 @@
    },
    {
     "ts": "2026-11-20 08:00:43",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-11-20 07:45:42",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1586,7 +1586,7 @@
    1757.48
   ],
   "last": {
-   "ts": "2026-11-20 09:00:43",
+   "ts": "2026-11-20 09:15:43",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1595,22 +1595,19 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "setup SELL di band, konfirmasi baru 2/3 (Stokastik+MACD) · London–NY (mode aman)",
+   "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
    "fund": {
     "bias": 0,
-    "note": "Berita 24 jam tak terverifikasi. Emas rebound dari low <3.900 (6 Nov); Fed tahan 3,75-4% (10-2). Bias netral, belum ada sinyal bahaya.",
+    "note": "netral (belum ada ringkasan hari ini)",
     "danger": null,
     "blackout": null
    },
    "tech": {
     "bias": "bearish",
-    "score": 2,
-    "trigger": "sell",
-    "confirm": [
-     "Stokastik",
-     "MACD"
-    ],
-    "note": "M15 3581.22 di atas tengah band (3510.4–3599.1) · RSI 57 · Stoch 91 · MACD +6.75 · H1 bearish · setup SELL (Stokastik+MACD)"
+    "score": 0,
+    "trigger": null,
+    "confirm": [],
+    "note": "M15 3580.62 di atas tengah band (3510.8–3601.9) · RSI 57 · Stoch 87 · MACD +5.84 · H1 bearish"
    }
   },
   "fund": null,
@@ -1639,24 +1636,24 @@
    "M10": {
     "bias": "sideways",
     "score": 0,
-    "price": 3578.5,
-    "ema20": 3567.34,
-    "ema50": 3570.81,
-    "rsi": 58.3,
+    "price": 3581.85,
+    "ema20": 3568.73,
+    "ema50": 3571.25,
+    "rsi": 60,
     "n": 299,
-    "slot": 2991943,
-    "at": 1795165842920
+    "slot": 2991944,
+    "at": 1795166442951
    },
    "M15": {
     "bias": "sideways",
     "score": 0,
-    "price": 3584.65,
-    "ema20": 3564.14,
-    "ema50": 3585.11,
-    "rsi": 59.5,
+    "price": 3579.4,
+    "ema20": 3565.59,
+    "ema50": 3584.88,
+    "rsi": 56.4,
     "n": 299,
-    "slot": 1994628,
-    "at": 1795165242972
+    "slot": 1994629,
+    "at": 1795166143017
    },
    "M30": {
     "bias": "sideways",
