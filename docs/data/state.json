@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-20T08:24:42.716Z",
+ "generated_at": "2026-11-20T08:34:42.728Z",
  "today": "2026-11-20",
  "week_start": "2026-11-16",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-20 08:15:43"
+   "updated_at": "2026-11-20 08:30:43"
   },
   {
    "id": "tresearch",
@@ -111,23 +111,23 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Berita 24 jam tak terverifikasi. Emas rebound dari low <3.900 (6 Nov); Fed tahan 3,75-4% (10-2). Bias netral, belum ada sinyal bahaya.",
-   "updated_at": "2026-11-20 08:15:43"
+   "updated_at": "2026-11-20 08:30:43"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Setup SELL di band (tanpa konfirmasi)",
-   "updated_at": "2026-11-20 08:15:43"
+   "current_task": "Belum ada pantulan band · H1 bearish",
+   "updated_at": "2026-11-20 08:30:43"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: setup SELL di band, konfirmasi baru 0/3 (-) · London–NY (mode aman)",
-   "updated_at": "2026-11-20 08:15:43"
+   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
+   "updated_at": "2026-11-20 08:30:43"
   },
   {
    "id": "texec",
@@ -956,6 +956,16 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-20 08:30:43",
+   "agent_id": "trisk",
+   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+  },
+  {
+   "ts": "2026-11-20 08:30:43",
+   "agent_id": "ttech",
+   "message": "M30 berubah arah: bearish → sideways"
+  },
+  {
    "ts": "2026-11-20 07:50:42",
    "agent_id": "ttech",
    "message": "M10 berubah arah: bearish → sideways"
@@ -1069,16 +1079,6 @@
    "ts": "2026-11-20 01:37:47",
    "agent_id": "cedit",
    "message": "Clip #18 (BEAR BRAND X JEROME POLIN X DION WIYOKO) kelar diedit: 26 dtk, nunggu approval Bos"
-  },
-  {
-   "ts": "2026-11-20 01:34:31",
-   "agent_id": "dir",
-   "message": "Kode kantor diperbarui, restart otomatis: scripts/golink.mjs, scripts/trading/run.mjs"
-  },
-  {
-   "ts": "2026-11-20 01:34:22",
-   "agent_id": "owner",
-   "message": "Approve konten #208 ✅"
   }
  ],
  "chats": [
@@ -1374,24 +1374,24 @@
    "yt_posted": 5,
    "yt_pending": 0,
    "yt_scheduled": 3,
-   "views": 5875,
+   "views": 5887,
    "likes": 114,
    "comments": 2,
    "shares": 0,
    "saves": 0,
-   "yt_views": 4109,
+   "yt_views": 4121,
    "top": [
     {
      "title": "Gua di Biak Ini Konon Jadi Kuburan Ribuan Tentara Jepang",
      "format": "shorts",
      "pillar": "horor_sejarah",
-     "views": 2137
+     "views": 2138
     },
     {
      "title": "Kuburan Belanda di Jakarta Ini Sekarang Jadi Museum, Konon Angker",
      "format": "shorts",
      "pillar": "horor_sejarah",
-     "views": 1972
+     "views": 1983
     },
     {
      "title": "Transfer VCT 2027 yang paling bikin kaget: kamu setuju?",
@@ -1477,9 +1477,14 @@
   "paused": false,
   "balance": 1757.48,
   "today_pnl": 0,
-  "price": 3577.75,
+  "price": 3585.850098,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-20 08:30:43",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
    {
     "ts": "2026-11-20 08:15:43",
     "decision": "NO TRADE",
@@ -1502,11 +1507,6 @@
    },
    {
     "ts": "2026-11-20 07:15:43",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-11-20 07:00:43",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1586,7 +1586,7 @@
    1757.48
   ],
   "last": {
-   "ts": "2026-11-20 08:15:43",
+   "ts": "2026-11-20 08:30:43",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1595,7 +1595,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "setup SELL di band, konfirmasi baru 0/3 (-) · London–NY (mode aman)",
+   "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
    "fund": {
     "bias": 0,
     "note": "Berita 24 jam tak terverifikasi. Emas rebound dari low <3.900 (6 Nov); Fed tahan 3,75-4% (10-2). Bias netral, belum ada sinyal bahaya.",
@@ -1605,9 +1605,9 @@
    "tech": {
     "bias": "bearish",
     "score": 0,
-    "trigger": "sell",
+    "trigger": null,
     "confirm": [],
-    "note": "M15 3574.75 di atas tengah band (3516.2–3582.1) · RSI 56 · Stoch 94 · MACD +7.03 · H1 bearish · setup SELL (tanpa konfirmasi)"
+    "note": "M15 3582.15 di atas tengah band (3512.8–3589.5) · RSI 59 · Stoch 96 · MACD +7.58 · H1 bearish"
    }
   },
   "fund": {
@@ -1639,35 +1639,35 @@
    "M10": {
     "bias": "sideways",
     "score": -1,
-    "price": 3574.65,
-    "ema20": 3556.82,
-    "ema50": 3567.95,
-    "rsi": 60,
+    "price": 3584.47,
+    "ema20": 3559.45,
+    "ema50": 3568.6,
+    "rsi": 64,
     "n": 299,
-    "slot": 2991938,
-    "at": 1795162842831
+    "slot": 2991939,
+    "at": 1795163443020
    },
    "M15": {
     "bias": "sideways",
     "score": 0,
-    "price": 3573.7,
-    "ema20": 3556.76,
-    "ema50": 3585.09,
-    "rsi": 55.8,
+    "price": 3584.47,
+    "ema20": 3559.4,
+    "ema50": 3585.07,
+    "rsi": 59.9,
     "n": 299,
-    "slot": 1994625,
-    "at": 1795162542832
+    "slot": 1994626,
+    "at": 1795163443026
    },
    "M30": {
-    "bias": "bearish",
-    "score": -2,
-    "price": 3574.05,
-    "ema20": 3575.82,
-    "ema50": 3630.55,
-    "rsi": 44.9,
+    "bias": "sideways",
+    "score": 0,
+    "price": 3584.47,
+    "ema20": 3576.64,
+    "ema50": 3628.74,
+    "rsi": 48.2,
     "n": 299,
-    "slot": 997312,
-    "at": 1795161642910
+    "slot": 997313,
+    "at": 1795163443027
    },
    "H1": {
     "bias": "bearish",
