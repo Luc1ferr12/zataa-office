@@ -100,13 +100,40 @@ function ideasCard(ideas) {
 // default cuma yang jadwalnya hari ini ke depan; yang lewat jadwal (nyangkut, dulu nggak dipencet di Telegram) dilipat & nggak masuk badge
 const todayWita = () => new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Makassar' }).format(new Date());
 let oldOpen = false;
+// Zaa Clips: campaign Clippo usulan Hendra (✅ Ambil / ❌ Lewati) + clip jadi (✅ tayang TikTok+IG / ❌ bikin ulang)
+const rp = (n) => `Rp${Number(n ?? 0).toLocaleString('id-ID')}`;
+function clipCampaignCard(c) {
+  return `<article class="ap-item" data-clipcamp="${esc(c.id)}">
+    <header><b>Campaign Clippo</b> <span class="ap-chip ch-clips">Zaa Clips</span><span class="muted">usulan Hendra</span></header>
+    <h3>${esc(c.title)}</h3>
+    <p class="muted">💰 ${rp(c.rate)} / 1rb views · ${esc(c.platforms ?? '')} · budget sisa ${Math.round(c.budget ?? 0)}% · min ${esc(c.min_views ?? '-')} views per clip</p>
+    ${c.brief ? `<details><summary>Brief</summary><p class="ap-text">${esc(c.brief)}</p></details>` : ''}
+    <a class="ap-link" href="${esc(c.url)}" target="_blank" rel="noopener">Buka di Clippo ↗</a>
+    <div class="ap-actions"><button class="ap-btn ok" data-act="ok">✅ Ambil</button><button class="ap-btn no" data-act="no">❌ Lewati</button></div>
+    <p class="ap-msg" role="status"></p>
+  </article>`;
+}
+function clipCard(j) {
+  return `<article class="ap-item" data-clip="${j.id}">
+    <header><b>Clip #${j.id}</b> <span class="ap-chip ch-clips">Zaa Clips</span><span class="muted">${esc(dayLabel(j.day))} · TikTok + IG</span></header>
+    <h3>${esc(j.ctitle)}</h3>
+    ${j.video ? `<div class="ap-gallery"><button class="ap-media vid" type="button" data-vid="clip:${j.id}">▶ Putar clip</button></div>` : ''}
+    ${j.hook ? `<p><span class="muted">Hook:</span> <i>${esc(j.hook)}</i></p>` : ''}
+    ${j.caption ? `<details><summary>Caption</summary><p class="ap-text">${esc(j.caption)}</p></details>` : ''}
+    <div class="ap-actions"><button class="ap-btn ok" data-act="ok">✅ Approve &amp; tayang</button><button class="ap-btn no" data-act="no">❌ Tolak (bikin ulang)</button></div>
+    <p class="ap-msg" role="status"></p>
+  </article>`;
+}
+
 function render() {
   const t = todayWita();
   const now = data.contents.filter((c) => !c.day || c.day >= t), old = data.contents.filter((c) => c.day && c.day < t);
-  const n = now.length + (data.plan ? 1 : 0) + (data.ideas.length ? 1 : 0);
+  const camps = data.clipCampaigns ?? [], clips = data.clips ?? [];
+  const n = now.length + (data.plan ? 1 : 0) + (data.ideas.length ? 1 : 0) + camps.length + clips.length;
   badge(n);
   $('ap-list').innerHTML = [
     data.plan ? planCard(data.plan) : '', data.ideas.length ? ideasCard(data.ideas) : '', ...now.map(contentCard),
+    ...clips.map(clipCard), ...camps.map(clipCampaignCard),
     n ? '' : '<p class="muted">Nggak ada yang nunggu approval hari ini. Santai dulu, Bos ☕</p>',
     old.length ? `<details class="ap-old"${oldOpen ? ' open' : ''}><summary>🕓 Lewat jadwal (${old.length}): konten lama yang belum pernah diputusin</summary>
       <p class="muted">Approve = tayang secepatnya (jam slotnya udah lewat), cek dulu beritanya masih relevan. Kalau udah basi, ❌ Tolak aja biar bersih.</p>
@@ -127,7 +154,7 @@ function loadImgs(root, skipOld = false) {
 async function loadMedia(key) {
   if (!blobs.has(key)) {
     const [id, i] = key.split(':');
-    blobs.set(key, fetch(`${base}/api/media?id=${id}&i=${i}`, { headers: { Authorization: `Bearer ${token()}` } })
+    blobs.set(key, fetch(`${base}/api/media?${id === 'clip' ? `clip=${i}` : `id=${id}&i=${i}`}`, { headers: { Authorization: `Bearer ${token()}` } })
       .then((r) => { if (!r.ok) throw new Error(r.status); return r.blob(); }).then((b) => URL.createObjectURL(b))
       .catch((e) => { blobs.delete(key); throw e; }));
   }
@@ -174,6 +201,11 @@ $('ap-list').addEventListener('click', async (ev) => {
     if (act === 'plan_revision' && !note) return card.querySelector('textarea').focus();
     return decide(card, { kind: 'plan', id: +card.dataset.plan, action: act, note }, act === 'plan_approve' ? '✅ Plan di-approve' : '📝 Revisi plan terkirim');
   }
+  if (card.dataset.clip) {
+    if (act === 'no' && !confirm(`Tolak clip #${card.dataset.clip}? Tim bikin versi baru.`)) return;
+    return decide(card, { kind: 'clip', id: +card.dataset.clip, action: act }, act === 'ok' ? '✅ Clip di-approve' : '❌ Clip ditolak');
+  }
+  if (card.dataset.clipcamp) return decide(card, { kind: 'clip_campaign', id: card.dataset.clipcamp, action: act }, act === 'ok' ? '✅ Campaign diambil' : '❌ Campaign dilewati');
   if (card.dataset.ideas) {
     const ids = [...card.querySelectorAll('input:checked')].map((x) => +x.value);
     if (act === 'idea_approve' && !ids.length) return;

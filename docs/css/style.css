@@ -388,3 +388,6 @@ button.ap-media.vid { aspect-ratio: 9 / 16; max-height: 300px; width: auto; heig
 .ap-old { grid-column: 1 / -1; margin-top: 4px; border-top: 1px dashed var(--line); padding-top: 10px; }
 .ap-old > summary { cursor: pointer; font: 600 13px Sora, sans-serif; color: var(--warn); }
 .ap-old > p { font-size: 12.5px; margin: 8px 0 10px; }
+.ap-chip.ch-clips { --cc: var(--c-clip); }
+.ap-link { font-size: 12.5px; color: var(--c-clip); justify-self: start; }
+.ap-item p { margin: 0; font-size: 13px; }

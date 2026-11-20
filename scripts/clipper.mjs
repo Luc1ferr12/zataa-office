@@ -17,7 +17,7 @@
 process.removeAllListeners('warning');
 import { join, dirname } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
-import { existsSync, readFileSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync, unlinkSync } from 'node:fs';
 import { openDb } from './db.mjs';
 import { loadEnv } from './approval.mjs';
 import { chat } from './chatter.mjs';
@@ -150,6 +150,7 @@ export async function decide(id, ok) {
   const d = cdb();
   const c = d.prepare('SELECT * FROM clip_campaigns WHERE id = ?').get(id);
   if (!c) return 'campaign nggak ketemu';
+  if (!['new', 'proposed'].includes(c.status)) return `campaign "${c.title}" sudah ${c.status}, nggak diproses lagi`; // tombol di pesan lama
   if (!ok) { d.prepare("UPDATE clip_campaigns SET status = 'skipped', decided_at = datetime('now') WHERE id = ?").run(id); return `❌ dilewati: ${c.title}`; }
   d.prepare("UPDATE clip_campaigns SET status = 'approved', decided_at = datetime('now') WHERE id = ?").run(id);
   chat(d, 'cdir', 'cbrief', `Maya, campaign "${c.title}" udah di-✅ Bos. Baca brief-nya teliti ya 📋`, 'oper');
@@ -342,6 +343,26 @@ Akhiri dengan baris "BALASAN:" lalu 1–4 baris, tiap baris "Nama: pesan" (pegaw
 }
 
 // ---------- bot Telegram + jadwal harian (WITA)
+// keputusan dari panel approval web (scripts/web-api.mjs): 1 file per keputusan di tmp/web-inbox/clips/, diambil tiap 5 dtk
+// (bot ini proses anak watcher, beda proses dengan server web). kind: campaign (✅ Ambil / ❌ Lewati) | clip (✅ tayang / ❌ bikin ulang)
+async function webInbox() {
+  const dir = join(ROOT, 'tmp', 'web-inbox', 'clips');
+  if (!existsSync(dir)) return;
+  for (const f of readdirSync(dir).filter((x) => x.endsWith('.json')).sort()) {
+    let x;
+    try { x = JSON.parse(readFileSync(join(dir, f), 'utf8')); } catch { x = null; }
+    try { unlinkSync(join(dir, f)); } catch { continue; } // sudah diambil
+    if (!x?.id) continue;
+    const ok = x.action === 'ok';
+    console.log(`web: ${x.kind} ${x.id} ${x.action}`);
+    try {
+      const msg = x.kind === 'clip' ? await decideClip(x.id, ok) : await decide(String(x.id), ok);
+      await sayAs(x.kind === 'clip' ? 'cpublish' : 'cdir', `🌐 Dari web: ${msg}`).catch(() => {});
+      if (ok && x.kind !== 'clip') plan();
+    } catch (e) { console.error(`[web] ${e.message}`); }
+  }
+}
+
 async function runBot() {
   let offset = 0;
   const once = new Set();
@@ -355,6 +376,7 @@ async function runBot() {
     at('report', 19, 0, async () => sayAs('cpublish', report().replace(/^<b>Tasya<\/b>: /, '')));
     if (Date.now() - lastTrack > 3600_000) { lastTrack = Date.now(); track().then((r) => r.tracked && console.log('track', JSON.stringify(r))).catch((e) => console.error('[track]', e.message)); }
   }, 60_000);
+  setInterval(() => webInbox().catch((e) => console.error('[web]', e.message)), 5_000);
   console.log('bot clipper jalan');
   for (;;) {
     let ups = [];

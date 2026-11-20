@@ -1,6 +1,7 @@
 // Panel approval di web (docs/js/approve.js) → server kecil di dalam watcher VPS. Owner bisa ✅/✏️/❌ dari web selain Telegram.
 // Keputusan masuk jalur yang sama dengan tombol Telegram:
 //   About Esports (konten, plan mingguan, ide briefing) → antrean office-bot.mjs (webDecision) → approval.mjs poll()
+//   Zaa Clips (campaign usulan Hendra + clip jadi) → file tmp/web-inbox/clips/*.json → diambil bot clipper.mjs (webInbox)
 //   Shorts History/Story/Marvel → file tmp/web-inbox/<brand>/*.json → diambil bot brand itu (shorts-bot.mjs webInbox)
 // Aman: wajib header Authorization: Bearer <WEB_APPROVAL_TOKEN> (.env VPS, acak ≥32 karakter), salah 8× per IP / 10 menit = diblok.
 // HTTPS lewat Cloudflare quick tunnel (scripts/vps/zataa-tunnel.service, gratis tanpa domain); alamatnya berubah tiap tunnel restart,
@@ -49,6 +50,7 @@ async function body(req, max = 20_000) {
 }
 
 // ---------- data yang nunggu keputusan Owner
+const safe = (fn) => { try { return fn(); } catch { return []; } };
 const today = () => new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Makassar' }).format(new Date());
 const mediaOf = (c) => {
   let A = {};
@@ -68,7 +70,12 @@ export async function pendingItems() {
   const plan = d.prepare("SELECT id, week_start, theme, goals FROM campaigns WHERE status = 'pending' ORDER BY week_start DESC LIMIT 1").get() ?? null;
   if (plan) plan.items = d.prepare("SELECT day, slot, format, game, pillar, title FROM contents WHERE campaign_id = ? ORDER BY day, id").all(plan.id);
   const ideas = d.prepare("SELECT id, agent_id, format, title, concept, slot FROM ideas WHERE day = ? AND status = 'proposed' ORDER BY format = 'video', id").all(today());
-  return { contents, plan, ideas, at: new Date().toISOString() };
+  // Zaa Clips (tabel dibikin clipper.mjs; belum pernah jalan = kosong)
+  const clipCampaigns = safe(() => d.prepare("SELECT id, title, creator, rate, platforms, budget, min_views, brief, proposed_at FROM clip_campaigns WHERE status = 'proposed' ORDER BY score DESC").all()
+    .map((c) => ({ ...c, brief: String(c.brief ?? '').split('\n').filter(Boolean).slice(0, 8).join('\n').slice(0, 700), url: `https://app.clippo.id/campaigns/${c.id}` })));
+  const clips = safe(() => d.prepare("SELECT j.id, j.day, j.hook, j.caption, j.file, c.title ctitle FROM clip_jobs j JOIN clip_campaigns c ON c.id = j.campaign_id WHERE j.status = 'review' ORDER BY j.id").all()
+    .map(({ file, ...j }) => ({ ...j, video: !!file && existsSync(join(ROOT, file)) })));
+  return { contents, plan, ideas, clipCampaigns, clips, at: new Date().toISOString() };
 }
 
 // klik dobel / dua tab kebuka → keputusan kedua ditolak (antrean diproses watcher tiap 60 dtk, status DB belum berubah)
@@ -109,17 +116,37 @@ export async function decide(x) {
     if (action !== 'idea_approve' || !ids.length) { recent.delete(`i${open.join('-')}`); throw Object.assign(new Error('pilih minimal 1 ide'), { code: 400 }); }
     return { ok: true, text: webDecision(ids[0], 'idea_approve', ids.join(',')) };
   }
+  if (x.kind === 'clip_campaign' || x.kind === 'clip') {
+    if (!['ok', 'no'].includes(action)) throw Object.assign(new Error('aksi nggak dikenal'), { code: 400 });
+    const row = x.kind === 'clip'
+      ? safe(() => [d.prepare("SELECT id, status FROM clip_jobs WHERE id = ?").get(+x.id)])[0]
+      : safe(() => [d.prepare("SELECT id, status, title FROM clip_campaigns WHERE id = ?").get(String(x.id))])[0];
+    if (!row) throw Object.assign(new Error('nggak ketemu'), { code: 404 });
+    if (row.status !== (x.kind === 'clip' ? 'review' : 'proposed')) throw Object.assign(new Error(`udah nggak nunggu approval (status ${row.status})`), { code: 409 });
+    if (dupe(`${x.kind}${row.id}`)) throw Object.assign(new Error('barusan udah diputusin'), { code: 409 });
+    const dir = join(ROOT, 'tmp', 'web-inbox', 'clips');
+    mkdirSync(dir, { recursive: true });
+    writeFileSync(join(dir, `${Date.now()}-${String(row.id).replace(/[^\w-]/g, '')}.json`), JSON.stringify({ kind: x.kind === 'clip' ? 'clip' : 'campaign', id: row.id, action, ts: new Date().toISOString() }));
+    const what = x.kind === 'clip' ? `clip #${row.id}` : `campaign "${row.title}"`;
+    return { ok: true, text: `${action === 'ok' ? '✅' : '❌'} ${what} diteruskan ke bot Zaa Clips (±5 dtk)` };
+  }
   throw Object.assign(new Error('jenis keputusan nggak dikenal'), { code: 400 });
 }
 
 // file media konten (cuma file dari asset_path konten yang lagi nunggu approval, path dikunci di dalam repo)
 const TYPES = { '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.png': 'image/png', '.webp': 'image/webp', '.mp4': 'video/mp4' };
 async function media(req, res, url) {
-  const c = (await db()).prepare("SELECT asset_path, status FROM contents WHERE id = ?").get(+url.searchParams.get('id'));
-  if (!c || c.status !== 'pending_approval') return json(res, 404, { error: 'nggak ada' });
-  const f = mediaOf(c)[+url.searchParams.get('i')];
-  const abs = f && resolve(ROOT, f.path);
-  if (!abs || !abs.startsWith(resolve(ROOT) + sep) || !TYPES[extname(abs).toLowerCase()]) return json(res, 404, { error: 'nggak ada' });
+  const d = await db();
+  let path = null;
+  if (url.searchParams.has('clip')) { // video clip Zaa Clips yang lagi nunggu ✅
+    const j = safe(() => [d.prepare("SELECT file, status FROM clip_jobs WHERE id = ?").get(+url.searchParams.get('clip'))])[0];
+    path = j?.status === 'review' ? j.file : null;
+  } else {
+    const c = d.prepare("SELECT asset_path, status FROM contents WHERE id = ?").get(+url.searchParams.get('id'));
+    if (c?.status === 'pending_approval') path = mediaOf(c)[+url.searchParams.get('i')]?.path ?? null;
+  }
+  const abs = path && resolve(ROOT, path);
+  if (!abs || !existsSync(abs) || !abs.startsWith(resolve(ROOT) + sep) || !TYPES[extname(abs).toLowerCase()]) return json(res, 404, { error: 'nggak ada' });
   const size = statSync(abs).size;
   res.writeHead(200, { 'Content-Type': TYPES[extname(abs).toLowerCase()], 'Content-Length': size, 'Cache-Control': 'private, max-age=300' });
   createReadStream(abs).pipe(res);
