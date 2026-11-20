@@ -51,7 +51,8 @@ async function clipperWork() {
   for (const id of ids.slice(0, 3)) { const r = node(['clipper-laptop.mjs', String(id)]); log(`clip #${id} ${r.status === 0 ? 'ok' : 'gagal'}: ${say(r)}`); }
   const st = (() => { try { return JSON.parse(readFileSync(CSTATE, 'utf8')); } catch { return {}; } })();
   const w = new Date(Date.now() + 8 * 3600e3), day = w.toISOString().slice(0, 10), min = w.getUTCHours() * 60 + w.getUTCMinutes();
-  if (min >= 7 * 60 + 30 && st.scout !== day) {
+  if (min >= 7 * 60 + 30 && st.scout !== day && Date.now() - (st.scoutTry ?? 0) >= 60 * 60e3) { // gagal → coba lagi paling cepat 1 jam kemudian
+    st.scoutTry = Date.now();
     const r = node(['clipper-chrome.mjs', 'scout'], 20); log(`clippo scout ${r.status === 0 ? 'ok' : 'gagal'}: ${say(r)}`);
     if (r.status === 0) st.scout = day; else if ((st.fail ?? '') !== day) { st.fail = day; await tg(`Hendra: Bos, laptop gagal baca campaign Clippo lewat Chrome (${say(r).slice(0, 160)}). Pastikan Chrome kebuka, login app.clippo.id & ekstensi Claude in Chrome nyambung ya.`, 'clips'); }
   }

@@ -7,7 +7,10 @@
 import { spawnSync } from 'node:child_process';
 import { existsSync, unlinkSync, mkdtempSync, copyFileSync } from 'node:fs';
 import { homedir, tmpdir } from 'node:os';
-import { join } from 'node:path';
+import { join, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 
 const VPS = process.env.ZATAA_VPS ?? 'zataa-vps';
 const BIN = process.env.CLAUDE_BIN || 'claude';
@@ -49,9 +52,12 @@ Tunggu halaman selesai dimuat, lalu jalankan JavaScript berikut di halaman itu P
 ${SCOUT_JS(name)}
 Jawab singkat: nilai akhir window.__scout (jumlah campaign, atau pesan ERROR-nya).`);
   if (/BELUM LOGIN/i.test(out)) throw new Error('Chrome laptop belum login Clippo');
-  const file = join(DL, name);
-  for (let i = 0; i < 30 && !existsSync(file); i++) await new Promise((r) => setTimeout(r, 1000));
-  if (!existsSync(file)) throw new Error(`file ${name} nggak muncul di ${DL} (output Claude: ${out.slice(0, 200)})`);
+  // Folder simpan Chrome bisa beda dari ~/Downloads (mis. root proyek) → cek semua kandidat
+  const dirs = [...new Set([DL, join(homedir(), 'Downloads'), ROOT, process.cwd(), ...(process.env.CLIPPO_DL_EXTRA || '').split(';').filter(Boolean)])];
+  const find = () => dirs.map((d) => join(d, name)).find((f) => existsSync(f));
+  for (let i = 0; i < 30 && !find(); i++) await new Promise((r) => setTimeout(r, 1000));
+  const file = find();
+  if (!file) throw new Error(`file ${name} nggak muncul di ${dirs.join(' | ')} (output Claude: ${out.slice(0, 200)})`);
   const tmp = join(mkdtempSync(join(tmpdir(), 'clippo-')), 'c.json');
   copyFileSync(file, tmp); unlinkSync(file);
   const up = spawnSync('scp', ['-q', tmp, `${VPS}:zataa-office/tmp/clippo-campaigns.json`], { stdio: 'inherit' });
