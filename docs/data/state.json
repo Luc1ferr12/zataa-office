@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-20T00:57:22.865Z",
+ "generated_at": "2026-11-20T01:07:22.859Z",
  "today": "2026-11-20",
  "week_start": "2026-11-16",
  "campaign": {
@@ -29,17 +29,17 @@
    "id": "researcher",
    "name": "Salsa",
    "title": "Researcher",
-   "status": "working",
-   "current_task": "Mantau: Idea 251 (video breaking, slot sore, game freefire (cek lagi 09.03)",
-   "updated_at": "2026-11-20 00:03:52"
+   "status": "done",
+   "current_task": "Klasemen FFWS pekan 2 terverifikasi 3 sumber",
+   "updated_at": "2026-11-20 01:05:42"
   },
   {
    "id": "copywriter",
    "name": "Tiara",
    "title": "Copywriter",
    "status": "done",
-   "current_task": "Sesi pagi 20 Nov",
-   "updated_at": "2026-11-19 23:05:27"
+   "current_task": "Naskah video breaking FFWS pekan 2",
+   "updated_at": "2026-11-20 01:06:03"
   },
   {
    "id": "designer",
@@ -54,16 +54,16 @@
    "name": "Dimas",
    "title": "Video Production",
    "status": "done",
-   "current_task": "Sesi pagi 20 Nov",
-   "updated_at": "2026-11-19 23:05:27"
+   "current_task": "Video FFWS pekan 2 masuk antrean render laptop",
+   "updated_at": "2026-11-20 01:06:07"
   },
   {
    "id": "publisher",
    "name": "Fikri",
    "title": "Social Media Publisher",
    "status": "done",
-   "current_task": "undefined",
-   "updated_at": "2026-11-19 23:17:21"
+   "current_task": null,
+   "updated_at": "2026-11-20 01:00:41"
   },
   {
    "id": "ads",
@@ -79,7 +79,7 @@
    "title": "Data Analyst",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-11-19 22:00:56"
+   "updated_at": "2026-11-20 01:01:00"
   },
   {
    "id": "price",
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-20 00:46:07"
+   "updated_at": "2026-11-20 01:01:07"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Berita 24 jam tak terverifikasi. Emas rebound dari low <3.900 (6 Nov); Fed tahan 3,75-4% (10-2). Bias netral, belum ada sinyal bahaya.",
-   "updated_at": "2026-11-20 00:46:07"
+   "updated_at": "2026-11-20 01:01:07"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-11-20 00:46:07"
+   "updated_at": "2026-11-20 01:01:07"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
-   "updated_at": "2026-11-20 00:46:07"
+   "updated_at": "2026-11-20 01:01:07"
   },
   {
    "id": "texec",
@@ -628,6 +628,20 @@
    "channel": null
   },
   {
+   "id": 208,
+   "day": "2026-11-20",
+   "slot": "sore",
+   "format": "video",
+   "game": "freefire",
+   "pillar": "esport",
+   "title": "FFWS Global Finals 2026: RRQ Kazu #8, ONIC #10 usai Phase 1",
+   "status": "draft",
+   "asset_url": null,
+   "scheduled_at": null,
+   "posted_at": null,
+   "channel": null
+  },
+  {
    "id": 188,
    "day": "2026-11-20",
    "slot": "malam",
@@ -942,6 +956,26 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-20 01:06:07",
+   "agent_id": "video",
+   "message": "Konten 208 (FFWS Phase 1 klasemen) antre render laptop, auto-submit ke Owner"
+  },
+  {
+   "ts": "2026-11-20 01:05:42",
+   "agent_id": "researcher",
+   "message": "Nemu 1 topik baru"
+  },
+  {
+   "ts": "2026-11-20 01:01:00",
+   "agent_id": "analyst",
+   "message": "Update data 36 post IG 📈"
+  },
+  {
+   "ts": "2026-11-20 01:00:41",
+   "agent_id": "publisher",
+   "message": "Kirim draf IG Story ke Bos 📱"
+  },
+  {
    "ts": "2026-11-20 00:01:09",
    "agent_id": "trisk",
    "message": "NO TRADE · Bollinger Band melebar kencang (breakout), pantulan berisiko"
@@ -1045,29 +1079,79 @@
    "ts": "2026-11-19 23:04:00",
    "agent_id": "yvideo",
    "message": "Shorts #205 \"Jenderal Ini Bawa Gajah Perang Melewati Salju Pegunungan Alpen\" masuk antrean render laptop (OmniVoice)"
-  },
-  {
-   "ts": "2026-11-19 23:02:42",
-   "agent_id": "dir",
-   "message": "Kirim 3 ide briefing ke Owner"
-  },
-  {
-   "ts": "2026-11-19 23:02:41",
-   "agent_id": "dir",
-   "message": "Pilih 3 ide terbaik dari briefing (2 feed + 1 video)"
-  },
-  {
-   "ts": "2026-11-19 23:02:14",
-   "agent_id": "publisher",
-   "message": "Kirim #187 ke Owner buat approval"
-  },
-  {
-   "ts": "2026-11-19 23:01:09",
-   "agent_id": "trisk",
-   "message": "NO TRADE · jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-11-20 01:06:20",
+   "agent_id": "video",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "- [Sportskeeda – Knockout Week 2 overall standings](https://www.sportskeeda.com/free-fire/news-ffws-2026-global-finals-knockout-week-2-overall-standings-summary)"
+  },
+  {
+   "ts": "2026-11-20 01:06:20",
+   "agent_id": "video",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "- [Ligagame – FFWS Global Finals 2026 Week 2](https://www.ligagame.tv/free-fire/ffws-global-finals-2026-week-2-rrq-kazu-dan-onic-tembus-12-besar-bigetron-terpeleset)"
+  },
+  {
+   "ts": "2026-11-20 01:06:20",
+   "agent_id": "video",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "- [Medcom – FFWS Global Finals 2026 Week 2](https://www.medcom.id/teknologi/esports/dN6y7dRK-ffws-global-finals-2026-week-2-rrq-kazu-dan-onic-masuk-12-besar-btr-turun)"
+  },
+  {
+   "ts": "2026-11-20 01:06:20",
+   "agent_id": "video",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Sources:"
+  },
+  {
+   "ts": "2026-11-20 01:06:20",
+   "agent_id": "video",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Video breaking-nya (konten 208) lagi antre render di laptop, nanti otomatis nyampe ke Bos buat di-✅ ya!"
+  },
+  {
+   "ts": "2026-11-20 01:06:20",
+   "agent_id": "researcher",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Bos, angka FFWS pekan 2 udah cocok di Medcom + Ligagame (+ Sportskeeda): RRQ Kazu #8 527 poin, ONIC #10 488 poin, Bigetron #15."
+  },
+  {
+   "ts": "2026-11-20 01:06:07",
+   "agent_id": "researcher",
+   "to_id": "video",
+   "kind": "santai",
+   "message": "Akhirnya angka FFWS-nya kompak juga di Medcom sama Ligagame, lega 😮‍💨"
+  },
+  {
+   "ts": "2026-11-20 01:06:07",
+   "agent_id": "video",
+   "to_id": "publisher",
+   "kind": "oper",
+   "message": "Render \"Video FFWS pekan 2 masuk antrean render laptop\" selesai, Fikri. Cek cover-nya ya"
+  },
+  {
+   "ts": "2026-11-20 01:06:03",
+   "agent_id": "copywriter",
+   "to_id": "designer",
+   "kind": "oper",
+   "message": "Vania, copy \"Naskah video breaking FFWS pekan 2\" udah masuk. Headline-nya jangan dikecilin ya 😆"
+  },
+  {
+   "ts": "2026-11-20 01:05:42",
+   "agent_id": "researcher",
+   "to_id": "copywriter",
+   "kind": "oper",
+   "message": "Tiara, bahan buat \"Klasemen FFWS pekan 2 terverifikasi 3 sumber\" udah aku rangkum + sumbernya. Tinggal kamu racik captionnya ✍️"
+  },
   {
    "ts": "2026-11-20 00:03:53",
    "agent_id": "researcher",
@@ -1277,82 +1361,12 @@
    "to_id": "cbrief",
    "kind": "oper",
    "message": "Maya, campaign \"WARDAH CIRCUIT COLOUR - GHEA INDRAWARI\" udah di-✅ Bos. Baca brief-nya teliti ya 📋"
-  },
-  {
-   "ts": "2026-11-18 03:50:54",
-   "agent_id": "cdir",
-   "to_id": "cbrief",
-   "kind": "oper",
-   "message": "Maya, campaign \"KOL.ID X KAK PERMATA X KO LEO (Hanya Clip Wajah Kak Permata dan Ko Leo)\" udah di-✅ Bos. Baca brief-nya teliti ya 📋"
-  },
-  {
-   "ts": "2026-11-18 03:08:32",
-   "agent_id": "cdir",
-   "to_id": "cbrief",
-   "kind": "oper",
-   "message": "Maya, campaign \"BEAR BRAND X JEROME POLIN X DION WIYOKO\" udah di-✅ Bos. Baca brief-nya teliti ya 📋"
-  },
-  {
-   "ts": "2026-11-18 02:55:36",
-   "agent_id": "cpublish",
-   "to_id": "all",
-   "kind": "oper",
-   "message": "Clip \"LIGHT+ X TASYA FARASYA\" udah tayang di TikTok & IG. Tinggal nunggu 1rb views 💸"
-  },
-  {
-   "ts": "2026-11-18 02:53:28",
-   "agent_id": "cpublish",
-   "to_id": "all",
-   "kind": "oper",
-   "message": "Clip \"LIGHT+ X TASYA FARASYA\" udah tayang di TikTok & IG. Tinggal nunggu 1rb views 💸"
-  },
-  {
-   "ts": "2026-11-18 02:45:52",
-   "agent_id": "cpublish",
-   "to_id": "all",
-   "kind": "oper",
-   "message": "Clip \"LIGHT+ X TASYA FARASYA\" udah tayang di TikTok & IG. Tinggal nunggu 1rb views 💸"
-  },
-  {
-   "ts": "2026-11-17 23:21:15",
-   "agent_id": "video",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Video #203 udah masuk antrean render laptop, nanti otomatis jadi dan dikirim ke Bos begitu laptop nyala ya."
-  },
-  {
-   "ts": "2026-11-17 23:21:15",
-   "agent_id": "copywriter",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Naskahnya hook angka \"3 transfer\", terus nutup pertanyaan roster mana paling kuat, biar kolom komen rame."
-  },
-  {
-   "ts": "2026-11-17 23:21:15",
-   "agent_id": "researcher",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Bos, ketiga transfer udah kecek ke dua sumber. crashies sekarang udah resmi di T1, jadi bukan rumor lagi."
-  },
-  {
-   "ts": "2026-11-17 23:21:08",
-   "agent_id": "video",
-   "to_id": "publisher",
-   "kind": "santai",
-   "message": "Fikri, video transfer VCT udah masuk antrean laptop ya, tinggal nunggu nyala."
-  },
-  {
-   "ts": "2026-11-17 23:21:08",
-   "agent_id": "video",
-   "to_id": "publisher",
-   "kind": "oper",
-   "message": "Fikri, video \"Render video transfer VCT 2027\" udah render 9:16. Musiknya aman kok"
   }
  ],
  "stats": {
   "this_week": {
    "week": "2026-11-16",
-   "total": 28,
+   "total": 29,
    "posted": 15,
    "pending": 0,
    "scheduled": 5,
@@ -1360,7 +1374,7 @@
    "yt_posted": 5,
    "yt_pending": 0,
    "yt_scheduled": 3,
-   "views": 5756,
+   "views": 5773,
    "likes": 111,
    "comments": 2,
    "shares": 0,
@@ -1463,9 +1477,14 @@
   "paused": false,
   "balance": 1757.48,
   "today_pnl": 0,
-  "price": 3591.800049,
+  "price": 3602.149902,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-20 01:01:07",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
+   },
    {
     "ts": "2026-11-20 00:46:07",
     "decision": "NO TRADE",
@@ -1488,11 +1507,6 @@
    },
    {
     "ts": "2026-11-19 23:46:07",
-    "decision": "NO TRADE",
-    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
-   },
-   {
-    "ts": "2026-11-19 23:31:07",
     "decision": "NO TRADE",
     "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
    }
@@ -1572,7 +1586,7 @@
    1757.48
   ],
   "last": {
-   "ts": "2026-11-20 00:46:07",
+   "ts": "2026-11-20 01:01:07",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1593,7 +1607,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3601.85 di bawah tengah band (3583.0–3683.8) · RSI 26 · Stoch 13 · MACD -1.15 · H1 bearish"
+    "note": "M15 3608.92 di bawah tengah band (3578.8–3680.8) · RSI 36 · Stoch 16 · MACD -0.92 · H1 bearish"
    }
   },
   "fund": {
@@ -1625,46 +1639,46 @@
    "M10": {
     "bias": "bearish",
     "score": -3,
-    "price": 3597.9,
-    "ema20": 3624.2,
-    "ema50": 3649.22,
-    "rsi": 29.9,
+    "price": 3588.27,
+    "ema20": 3620.78,
+    "ema50": 3646.83,
+    "rsi": 26.7,
     "n": 299,
-    "slot": 2991893,
-    "at": 1795135867451
+    "slot": 2991894,
+    "at": 1795136467526
    },
    "M15": {
     "bias": "bearish",
     "score": -3,
-    "price": 3599.9,
-    "ema20": 3633.9,
-    "ema50": 3664.36,
-    "rsi": 24.5,
+    "price": 3588.27,
+    "ema20": 3629.55,
+    "ema50": 3661.38,
+    "rsi": 21.6,
     "n": 299,
-    "slot": 1994595,
-    "at": 1795135567456
+    "slot": 1994596,
+    "at": 1795136467532
    },
    "M30": {
     "bias": "bearish",
     "score": -3,
-    "price": 3615.82,
-    "ema20": 3658.13,
-    "ema50": 3695.08,
-    "rsi": 21.5,
+    "price": 3588.27,
+    "ema20": 3651.47,
+    "ema50": 3690.89,
+    "rsi": 16.6,
     "n": 299,
-    "slot": 997297,
-    "at": 1795134667447
+    "slot": 997298,
+    "at": 1795136467533
    },
    "H1": {
     "bias": "bearish",
     "score": -3,
-    "price": 3607.9,
-    "ema20": 3685.9,
-    "ema50": 3735.16,
-    "rsi": 18.2,
+    "price": 3588.27,
+    "ema20": 3676.6,
+    "ema50": 3729.4,
+    "rsi": 16,
     "n": 299,
-    "slot": 498648,
-    "at": 1795132869285
+    "slot": 498649,
+    "at": 1795136467537
    }
   },
   "currency": "USC",
