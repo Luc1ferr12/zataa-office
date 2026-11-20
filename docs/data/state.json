@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-20T20:04:43.006Z",
+ "generated_at": "2026-11-20T20:14:43.008Z",
  "today": "2026-11-21",
  "week_start": "2026-11-16",
  "campaign": {
@@ -956,6 +956,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-20 20:10:43",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: sideways → bearish"
+  },
+  {
    "ts": "2026-11-20 20:00:43",
    "agent_id": "ttech",
    "message": "M10 berubah arah: bearish → sideways"
@@ -1074,11 +1079,6 @@
    "ts": "2026-11-20 13:01:31",
    "agent_id": "analyst",
    "message": "Update data 36 post IG 📈"
-  },
-  {
-   "ts": "2026-11-20 12:30:43",
-   "agent_id": "trisk",
-   "message": "NO TRADE · kondisi berita bahaya: Berita 24 jam tidak terverifikasi; harga emas tak terkonfirmasi"
   }
  ],
  "chats": [
@@ -1477,7 +1477,7 @@
   "paused": false,
   "balance": 1757.48,
   "today_pnl": 0,
-  "price": 3517.570068,
+  "price": 3519.070068,
   "open": [],
   "signals": [
    {
@@ -1637,15 +1637,15 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "sideways",
-    "score": -1,
-    "price": 3521.95,
-    "ema20": 3527.32,
-    "ema50": 3543,
-    "rsi": 44.4,
+    "bias": "bearish",
+    "score": -2,
+    "price": 3516.85,
+    "ema20": 3526.33,
+    "ema50": 3541.98,
+    "rsi": 42,
     "n": 299,
-    "slot": 2992008,
-    "at": 1795204843757
+    "slot": 2992009,
+    "at": 1795205443759
    },
    "M15": {
     "bias": "bearish",
