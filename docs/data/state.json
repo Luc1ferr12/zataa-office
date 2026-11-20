@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-20T01:44:32.141Z",
+ "generated_at": "2026-11-20T01:54:32.152Z",
  "today": "2026-11-20",
  "week_start": "2026-11-16",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-20 01:31:07"
+   "updated_at": "2026-11-20 01:45:47"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Berita 24 jam tak terverifikasi. Emas rebound dari low <3.900 (6 Nov); Fed tahan 3,75-4% (10-2). Bias netral, belum ada sinyal bahaya.",
-   "updated_at": "2026-11-20 01:31:07"
+   "updated_at": "2026-11-20 01:45:47"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-11-20 01:31:07"
+   "updated_at": "2026-11-20 01:45:47"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
-   "updated_at": "2026-11-20 01:31:07"
+   "updated_at": "2026-11-20 01:45:47"
   },
   {
    "id": "texec",
@@ -342,8 +342,8 @@
    "name": "Tasya",
    "title": "Publisher TikTok/IG & Submit Clippo",
    "status": "done",
-   "current_task": "Clip #6 tayang",
-   "updated_at": "2026-11-18 02:55:36"
+   "current_task": "Clip #18 tayang",
+   "updated_at": "2026-11-20 01:53:29"
   }
  ],
  "week_contents": [
@@ -898,11 +898,11 @@
   {
    "id": 18,
    "day": "2026-11-20",
-   "status": "review",
+   "status": "posted",
    "views": 0,
    "likes": 0,
    "tiktok_url": null,
-   "ig_url": null,
+   "ig_url": "https://www.instagram.com/reel/Df8hORnjl-D/",
    "campaign": "BEAR BRAND X JEROME POLIN X DION WIYOKO"
   },
   {
@@ -1082,6 +1082,13 @@
   }
  ],
  "chats": [
+  {
+   "ts": "2026-11-20 01:53:29",
+   "agent_id": "cpublish",
+   "to_id": "all",
+   "kind": "oper",
+   "message": "Clip \"BEAR BRAND X JEROME POLIN X DION WIYOKO\" udah tayang di TikTok & IG. Tinggal nunggu 1rb views 💸"
+  },
   {
    "ts": "2026-11-20 01:06:20",
    "agent_id": "video",
@@ -1354,13 +1361,6 @@
    "to_id": "cbrief",
    "kind": "oper",
    "message": "Maya, campaign \"BEAR BRAND X JEROME POLIN X DION WIYOKO\" udah di-✅ Bos. Baca brief-nya teliti ya 📋"
-  },
-  {
-   "ts": "2026-11-18 03:50:54",
-   "agent_id": "cdir",
-   "to_id": "cbrief",
-   "kind": "oper",
-   "message": "Maya, campaign \"WARDAH CIRCUIT COLOUR - GHEA INDRAWARI\" udah di-✅ Bos. Baca brief-nya teliti ya 📋"
   }
  ],
  "stats": {
@@ -1477,9 +1477,14 @@
   "paused": false,
   "balance": 1757.48,
   "today_pnl": 0,
-  "price": 3566.25,
+  "price": 3561.649902,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-20 01:45:47",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
+   },
    {
     "ts": "2026-11-20 01:31:07",
     "decision": "NO TRADE",
@@ -1502,11 +1507,6 @@
    },
    {
     "ts": "2026-11-20 00:31:07",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-   },
-   {
-    "ts": "2026-11-20 00:16:07",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
    }
@@ -1586,7 +1586,7 @@
    1757.48
   ],
   "last": {
-   "ts": "2026-11-20 01:31:07",
+   "ts": "2026-11-20 01:45:47",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1607,7 +1607,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3574.25 di bawah tengah band (3566.9–3673.8) · RSI 27 · Stoch 15 · MACD -2.69 · H1 bearish"
+    "note": "M15 3578.87 di bawah tengah band (3562.6–3668.5) · RSI 32 · Stoch 7 · MACD -2.70 · H1 bearish"
    }
   },
   "fund": {
@@ -1639,24 +1639,24 @@
    "M10": {
     "bias": "bearish",
     "score": -3,
-    "price": 3581.1,
-    "ema20": 3609.51,
-    "ema50": 3638,
-    "rsi": 31.3,
+    "price": 3590.47,
+    "ema20": 3607.69,
+    "ema50": 3636.14,
+    "rsi": 37.4,
     "n": 299,
-    "slot": 2991898,
-    "at": 1795138847648
+    "slot": 2991899,
+    "at": 1795139447671
    },
    "M15": {
     "bias": "bearish",
     "score": -3,
-    "price": 3576.62,
-    "ema20": 3622.61,
-    "ema50": 3656.03,
-    "rsi": 27.2,
+    "price": 3566.57,
+    "ema20": 3617.27,
+    "ema50": 3652.52,
+    "rsi": 25.1,
     "n": 299,
-    "slot": 1994598,
-    "at": 1795138267503
+    "slot": 1994599,
+    "at": 1795139147645
    },
    "M30": {
     "bias": "bearish",
