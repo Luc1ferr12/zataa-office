@@ -362,7 +362,11 @@ Akhiri dengan SATU kalimat ringkas (santai) tentang apa yang diubah.`, 20);
 async function reject(id, log) {
   const d = await db();
   const c = getShort(d, id);
-  if (!c) return;
+  if (!c) return sayAs(T.publish, `Shorts #${id} nggak ketemu, Bos 🤔`).catch(() => {});
+  // tombol ❌ di pesan lama (udah ditolak / diganti / tayang / lagi direvisi) → jangan bikin pengganti lagi
+  if (c.youtube_id || !['pending_approval', 'upload_failed', 'approved'].includes(c.status)) {
+    return sayAs(T.publish, `Shorts #${id} statusnya "${esc(c.status)}"${c.youtube_id ? ' (udah ke-upload)' : ''}, jadi ❌ ini nggak diproses. Nggak ada konten pengganti yang dibikin.`).catch(() => {});
+  }
   d.prepare(`UPDATE contents SET status = 'rejected', updated_at = datetime('now') WHERE id = ? AND channel = '${CH}'`).run(id);
   syncTopic(d, dataOf(c)._topic, 'backlog', { note: `[ditolak Owner di Shorts #${id}]` });
   act(d, 'owner', `Tolak Shorts #${id}`);
