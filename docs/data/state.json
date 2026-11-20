@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-20T08:59:42.546Z",
+ "generated_at": "2026-11-20T09:04:42.749Z",
  "today": "2026-11-20",
  "week_start": "2026-11-16",
  "campaign": {
@@ -63,7 +63,7 @@
    "title": "Social Media Publisher",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-11-20 05:02:39"
+   "updated_at": "2026-11-20 09:01:40"
   },
   {
    "id": "ads",
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-20 08:45:42"
+   "updated_at": "2026-11-20 09:00:43"
   },
   {
    "id": "tresearch",
@@ -111,23 +111,23 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Berita 24 jam tak terverifikasi. Emas rebound dari low <3.900 (6 Nov); Fed tahan 3,75-4% (10-2). Bias netral, belum ada sinyal bahaya.",
-   "updated_at": "2026-11-20 08:45:42"
+   "updated_at": "2026-11-20 09:00:43"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-11-20 08:45:42"
+   "current_task": "Setup SELL di band (Stokastik+MACD)",
+   "updated_at": "2026-11-20 09:00:43"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-11-20 08:45:42"
+   "current_task": "NO TRADE: setup SELL di band, konfirmasi baru 2/3 (Stokastik+MACD) · London–NY (mode aman)",
+   "updated_at": "2026-11-20 09:00:43"
   },
   {
    "id": "texec",
@@ -635,10 +635,10 @@
    "game": "freefire",
    "pillar": "esport",
    "title": "FFWS Global Finals 2026: RRQ Kazu #8, ONIC #10 usai Phase 1",
-   "status": "approved",
+   "status": "posted",
    "asset_url": "{\"video\":\"https://luc1ferr12.github.io/zataa-office/media/2026-11-20/208-ffws-global-finals-2026-rrq-kazu-8-onic--ov.mp4\",\"cover\":\"https://luc1ferr12.github.io/zataa-office/media/2026-11-20/208-ffws-global-finals-2026-rrq-kazu-8-onic--ov-cover.jpg\"}",
    "scheduled_at": null,
-   "posted_at": null,
+   "posted_at": "2026-11-20 09:01:40",
    "channel": null
   },
   {
@@ -956,6 +956,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-20 09:01:40",
+   "agent_id": "publisher",
+   "message": "Posting #208 ke IG + TikTok ✅"
+  },
+  {
    "ts": "2026-11-20 08:30:43",
    "agent_id": "trisk",
    "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
@@ -1074,14 +1079,16 @@
    "ts": "2026-11-20 01:56:44",
    "agent_id": "dir",
    "message": "Kode kantor diperbarui, restart otomatis: scripts/golink.mjs, scripts/trading/run.mjs"
-  },
-  {
-   "ts": "2026-11-20 01:37:47",
-   "agent_id": "cedit",
-   "message": "Clip #18 (BEAR BRAND X JEROME POLIN X DION WIYOKO) kelar diedit: 26 dtk, nunggu approval Bos"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-11-20 09:01:40",
+   "agent_id": "publisher",
+   "to_id": null,
+   "kind": "oper",
+   "message": "\"FFWS Global Finals 2026: RRQ Kazu #8, ONIC #10 usa\" udah tayang di IG + TikTok 🚀 Makasih semua!"
+  },
   {
    "ts": "2026-11-20 05:02:39",
    "agent_id": "publisher",
@@ -1354,22 +1361,15 @@
    "to_id": null,
    "kind": "oper",
    "message": "\"Road to M8: 16 tim, Knockout 14-19 Jan di Istanbul\" udah tayang di IG + TikTok 🚀 Makasih semua!"
-  },
-  {
-   "ts": "2026-11-18 11:00:22",
-   "agent_id": "analyst",
-   "to_id": "dir",
-   "kind": "oper",
-   "message": "Laporan harian marketing udah aku kirim ke Bos, 2 konten tayang hari ini 📊"
   }
  ],
  "stats": {
   "this_week": {
    "week": "2026-11-16",
    "total": 29,
-   "posted": 16,
+   "posted": 17,
    "pending": 0,
-   "scheduled": 5,
+   "scheduled": 4,
    "yt_total": 12,
    "yt_posted": 5,
    "yt_pending": 0,
@@ -1477,9 +1477,14 @@
   "paused": false,
   "balance": 1757.48,
   "today_pnl": 0,
-  "price": 3582.199951,
+  "price": 3582.449951,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-20 09:00:43",
+    "decision": "NO TRADE",
+    "reason": "setup SELL di band, konfirmasi baru 2/3 (Stokastik+MACD) · London–NY (mode aman)"
+   },
    {
     "ts": "2026-11-20 08:45:42",
     "decision": "NO TRADE",
@@ -1502,11 +1507,6 @@
    },
    {
     "ts": "2026-11-20 07:45:42",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-11-20 07:30:43",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1586,7 +1586,7 @@
    1757.48
   ],
   "last": {
-   "ts": "2026-11-20 08:45:42",
+   "ts": "2026-11-20 09:00:43",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1595,7 +1595,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
+   "reason": "setup SELL di band, konfirmasi baru 2/3 (Stokastik+MACD) · London–NY (mode aman)",
    "fund": {
     "bias": 0,
     "note": "Berita 24 jam tak terverifikasi. Emas rebound dari low <3.900 (6 Nov); Fed tahan 3,75-4% (10-2). Bias netral, belum ada sinyal bahaya.",
@@ -1604,16 +1604,16 @@
    },
    "tech": {
     "bias": "bearish",
-    "score": 0,
-    "trigger": null,
-    "confirm": [],
-    "note": "M15 3586.47 di atas tengah band (3510.5–3595.8) · RSI 61 · Stoch 96 · MACD +7.64 · H1 bearish"
+    "score": 2,
+    "trigger": "sell",
+    "confirm": [
+     "Stokastik",
+     "MACD"
+    ],
+    "note": "M15 3581.22 di atas tengah band (3510.4–3599.1) · RSI 57 · Stoch 91 · MACD +6.75 · H1 bearish · setup SELL (Stokastik+MACD)"
    }
   },
-  "fund": {
-   "bias": 0,
-   "note": "Berita 24 jam tak terverifikasi. Emas rebound dari low <3.900 (6 Nov); Fed tahan 3,75-4% (10-2). Bias netral, belum ada sinyal bahaya."
-  },
+  "fund": null,
   "calendar": [],
   "ea": {
    "connected": false,
@@ -1639,46 +1639,46 @@
    "M10": {
     "bias": "sideways",
     "score": -1,
-    "price": 3583.85,
-    "ema20": 3564.22,
-    "ema50": 3569.92,
-    "rsi": 62.5,
+    "price": 3584.65,
+    "ema20": 3566.17,
+    "ema50": 3570.5,
+    "rsi": 62.8,
     "n": 299,
-    "slot": 2991941,
-    "at": 1795164642954
+    "slot": 2991942,
+    "at": 1795165242966
    },
    "M15": {
     "bias": "sideways",
     "score": 0,
-    "price": 3586.55,
-    "ema20": 3561.98,
-    "ema50": 3585.13,
-    "rsi": 60.6,
+    "price": 3584.65,
+    "ema20": 3564.14,
+    "ema50": 3585.11,
+    "rsi": 59.5,
     "n": 299,
-    "slot": 1994627,
-    "at": 1795164342930
+    "slot": 1994628,
+    "at": 1795165242972
    },
    "M30": {
     "bias": "sideways",
-    "score": 0,
-    "price": 3584.47,
-    "ema20": 3576.64,
-    "ema50": 3628.74,
-    "rsi": 48.2,
+    "score": 1,
+    "price": 3584.65,
+    "ema20": 3577.4,
+    "ema50": 3627.01,
+    "rsi": 48.3,
     "n": 299,
-    "slot": 997313,
-    "at": 1795163443027
+    "slot": 997314,
+    "at": 1795165242974
    },
    "H1": {
     "bias": "bearish",
     "score": -3,
-    "price": 3574.05,
-    "ema20": 3615.53,
-    "ema50": 3686.75,
-    "rsi": 30,
+    "price": 3584.65,
+    "ema20": 3612.59,
+    "ema50": 3682.75,
+    "rsi": 34.5,
     "n": 299,
-    "slot": 498656,
-    "at": 1795161642914
+    "slot": 498657,
+    "at": 1795165242977
    }
   },
   "currency": "USC",
