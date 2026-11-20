@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-20T03:23:27.070Z",
+ "generated_at": "2026-11-20T03:33:27.051Z",
  "today": "2026-11-20",
  "week_start": "2026-11-16",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-20 03:15:42"
+   "updated_at": "2026-11-20 03:30:42"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Berita 24 jam tak terverifikasi. Emas rebound dari low <3.900 (6 Nov); Fed tahan 3,75-4% (10-2). Bias netral, belum ada sinyal bahaya.",
-   "updated_at": "2026-11-20 03:15:42"
+   "updated_at": "2026-11-20 03:30:42"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-11-20 03:15:42"
+   "updated_at": "2026-11-20 03:30:42"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
-   "updated_at": "2026-11-20 03:15:42"
+   "updated_at": "2026-11-20 03:30:42"
   },
   {
    "id": "texec",
@@ -899,8 +899,8 @@
    "id": 18,
    "day": "2026-11-20",
    "status": "posted",
-   "views": 4,
-   "likes": 0,
+   "views": 165,
+   "likes": 2,
    "tiktok_url": "https://www.tiktok.com/@zaaclips12/video/7710065641511849268?utm_campaign=tt4d_open_api&utm_source=7608030276714774544",
    "ig_url": "https://www.instagram.com/reel/Df8hORnjl-D/",
    "campaign": "BEAR BRAND X JEROME POLIN X DION WIYOKO"
@@ -955,6 +955,11 @@
   }
  ],
  "activity": [
+  {
+   "ts": "2026-11-20 03:30:42",
+   "agent_id": "trisk",
+   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (sesi Asia)"
+  },
   {
    "ts": "2026-11-20 03:00:51",
    "agent_id": "ypublish",
@@ -1074,14 +1079,16 @@
    "ts": "2026-11-19 23:27:21",
    "agent_id": "dir",
    "message": "Kode kantor diperbarui, restart otomatis: scripts/golink.mjs, scripts/trading/run.mjs, scripts/watch.mjs"
-  },
-  {
-   "ts": "2026-11-19 23:25:04",
-   "agent_id": "yvideo",
-   "message": "Shorts #206 dirender di laptop (suara OmniVoice) & dikirim ke Owner"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-11-20 03:27:28",
+   "agent_id": "sec",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "⚠️ Bos, limit sesi (5 jam) Claude udah 99%. Reset Jumat, 20 Nov, 11.30 WITA.\nKalau penuh, kerjaan AI ketunda sebentar sampai reset."
+  },
   {
    "ts": "2026-11-20 03:17:28",
    "agent_id": "sec",
@@ -1354,13 +1361,6 @@
    "to_id": null,
    "kind": "oper",
    "message": "\"Transfer VCT 2027: 3 roster baru yang paling bikin\" udah tayang di IG + TikTok 🚀 Makasih semua!"
-  },
-  {
-   "ts": "2026-11-18 05:03:03",
-   "agent_id": "publisher",
-   "to_id": null,
-   "kind": "oper",
-   "message": "\"Patch 13.10: 3 agent Sentinel di-buff dan cara mai\" udah tayang di IG 🚀 Makasih semua!"
   }
  ],
  "stats": {
@@ -1477,9 +1477,14 @@
   "paused": false,
   "balance": 1757.48,
   "today_pnl": 0,
-  "price": 3524.600098,
+  "price": 3529.75,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-20 03:30:42",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
+   },
    {
     "ts": "2026-11-20 03:15:42",
     "decision": "NO TRADE",
@@ -1502,11 +1507,6 @@
    },
    {
     "ts": "2026-11-20 02:16:00",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-   },
-   {
-    "ts": "2026-11-20 02:01:00",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
    }
@@ -1586,7 +1586,7 @@
    1757.48
   ],
   "last": {
-   "ts": "2026-11-20 03:15:42",
+   "ts": "2026-11-20 03:30:42",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1607,7 +1607,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3524.27 di bawah tengah band (3505.2–3663.7) · RSI 25 · Stoch 8 · MACD -4.00 · H1 bearish"
+    "note": "M15 3527.60 di bawah tengah band (3499.5–3659.6) · RSI 26 · Stoch 5 · MACD -3.19 · H1 bearish"
    }
   },
   "fund": {
@@ -1639,35 +1639,35 @@
    "M10": {
     "bias": "bearish",
     "score": -3,
-    "price": 3524.35,
-    "ema20": 3569.45,
-    "ema50": 3608.39,
-    "rsi": 27.1,
+    "price": 3527.1,
+    "ema20": 3565.42,
+    "ema50": 3605.2,
+    "rsi": 28.7,
     "n": 299,
-    "slot": 2991908,
-    "at": 1795144842504
+    "slot": 2991909,
+    "at": 1795145442514
    },
    "M15": {
     "bias": "bearish",
     "score": -3,
-    "price": 3524.2,
-    "ema20": 3583.94,
-    "ema50": 3629.38,
-    "rsi": 24.5,
+    "price": 3527.1,
+    "ema20": 3578.53,
+    "ema50": 3625.37,
+    "rsi": 26,
     "n": 299,
-    "slot": 1994605,
-    "at": 1795144542431
+    "slot": 1994606,
+    "at": 1795145442518
    },
    "M30": {
     "bias": "bearish",
     "score": -3,
-    "price": 3552.95,
-    "ema20": 3619.6,
-    "ema50": 3670.87,
-    "rsi": 21.4,
+    "price": 3527.1,
+    "ema20": 3610.79,
+    "ema50": 3665.24,
+    "rsi": 18.2,
     "n": 299,
-    "slot": 997302,
-    "at": 1795143642421
+    "slot": 997303,
+    "at": 1795145442520
    },
    "H1": {
     "bias": "bearish",
