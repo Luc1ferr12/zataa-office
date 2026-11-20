@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-20T09:24:42.745Z",
+ "generated_at": "2026-11-20T09:34:42.745Z",
  "today": "2026-11-20",
  "week_start": "2026-11-16",
  "campaign": {
@@ -103,7 +103,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-20 09:15:43"
+   "updated_at": "2026-11-20 09:30:43"
   },
   {
    "id": "tresearch",
@@ -111,7 +111,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
-   "updated_at": "2026-11-20 09:15:43"
+   "updated_at": "2026-11-20 09:30:43"
   },
   {
    "id": "ttech",
@@ -119,7 +119,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-11-20 09:15:43"
+   "updated_at": "2026-11-20 09:30:43"
   },
   {
    "id": "trisk",
@@ -127,7 +127,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-11-20 09:15:43"
+   "updated_at": "2026-11-20 09:30:43"
   },
   {
    "id": "texec",
@@ -956,6 +956,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-20 09:30:43",
+   "agent_id": "trisk",
+   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+  },
+  {
    "ts": "2026-11-20 09:01:40",
    "agent_id": "publisher",
    "message": "Posting #208 ke IG + TikTok ✅"
@@ -1072,11 +1077,6 @@
   },
   {
    "ts": "2026-11-20 02:23:26",
-   "agent_id": "dir",
-   "message": "Kode kantor diperbarui, restart otomatis: scripts/golink.mjs, scripts/trading/run.mjs"
-  },
-  {
-   "ts": "2026-11-20 01:56:44",
    "agent_id": "dir",
    "message": "Kode kantor diperbarui, restart otomatis: scripts/golink.mjs, scripts/trading/run.mjs"
   }
@@ -1421,12 +1421,12 @@
    "yt_posted": 10,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 19501,
+   "views": 19502,
    "likes": 239,
    "comments": 6,
    "shares": 3,
    "saves": 0,
-   "yt_views": 16402,
+   "yt_views": 16403,
    "top": [
     {
      "title": "Tulisan Tertua Indonesia Ada di 7 Tiang Batu Ini",
@@ -1477,9 +1477,14 @@
   "paused": false,
   "balance": 1757.48,
   "today_pnl": 0,
-  "price": 3583.620117,
+  "price": 3573.370117,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-20 09:30:43",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
    {
     "ts": "2026-11-20 09:15:43",
     "decision": "NO TRADE",
@@ -1504,11 +1509,6 @@
     "ts": "2026-11-20 08:15:43",
     "decision": "NO TRADE",
     "reason": "setup SELL di band, konfirmasi baru 0/3 (-) · London–NY (mode aman)"
-   },
-   {
-    "ts": "2026-11-20 08:00:43",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
   ],
   "trades": [
@@ -1586,7 +1586,7 @@
    1757.48
   ],
   "last": {
-   "ts": "2026-11-20 09:15:43",
+   "ts": "2026-11-20 09:30:43",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1607,7 +1607,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3580.62 di atas tengah band (3510.8–3601.9) · RSI 57 · Stoch 87 · MACD +5.84 · H1 bearish"
+    "note": "M15 3571.92 di atas tengah band (3515.2–3601.3) · RSI 52 · Stoch 73 · MACD +4.27 · H1 bearish"
    }
   },
   "fund": null,
@@ -1636,35 +1636,35 @@
    "M10": {
     "bias": "sideways",
     "score": 0,
-    "price": 3581.85,
-    "ema20": 3568.73,
-    "ema50": 3571.25,
-    "rsi": 60,
+    "price": 3574.35,
+    "ema20": 3569.26,
+    "ema50": 3571.37,
+    "rsi": 54.7,
     "n": 299,
-    "slot": 2991944,
-    "at": 1795166442951
+    "slot": 2991945,
+    "at": 1795167042956
    },
    "M15": {
     "bias": "sideways",
-    "score": 0,
-    "price": 3579.4,
-    "ema20": 3565.59,
-    "ema50": 3584.88,
-    "rsi": 56.4,
+    "score": 1,
+    "price": 3574.35,
+    "ema20": 3566.43,
+    "ema50": 3584.47,
+    "rsi": 53.6,
     "n": 299,
-    "slot": 1994629,
-    "at": 1795166143017
+    "slot": 1994630,
+    "at": 1795167042962
    },
    "M30": {
     "bias": "sideways",
-    "score": 1,
-    "price": 3584.65,
-    "ema20": 3577.4,
-    "ema50": 3627.01,
-    "rsi": 48.3,
+    "score": -1,
+    "price": 3574.35,
+    "ema20": 3577.11,
+    "ema50": 3624.94,
+    "rsi": 45.2,
     "n": 299,
-    "slot": 997314,
-    "at": 1795165242974
+    "slot": 997315,
+    "at": 1795167042965
    },
    "H1": {
     "bias": "bearish",
