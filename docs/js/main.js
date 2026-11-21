@@ -80,7 +80,8 @@ function renderHealth() {
 
 // ---------- analytics sosmed (docs/data/socials.json, ditarik watcher tiap 3 jam lewat scripts/socials.mjs)
 const PLATFORMS = [
-  { key: 'instagram', name: 'Instagram', icon: '📸', audience: 'followers', audLabel: 'Followers', group: 'esports', acc: '#ec4899' },
+  // IG About Esports dijeda (susah dapat view): analytics esports sekarang YouTube + TikTok lewat Zernio
+  { key: 'esports_youtube', name: 'YouTube', icon: '▶️', audience: 'subscribers', audLabel: 'Subscribers', group: 'esports', acc: '#f43f5e', optional: true },
   { key: 'tiktok', name: 'TikTok', icon: '🎵', audience: 'followers', audLabel: 'Followers', group: 'esports', acc: '#22d3ee' },
   { key: 'youtube', name: 'YouTube', icon: '▶️', audience: 'subscribers', audLabel: 'Subscribers', group: 'history', acc: '#f43f5e' },
   { key: 'history_tiktok', name: 'TikTok', icon: '🎵', audience: 'followers', audLabel: 'Followers', group: 'history', acc: '#22d3ee', optional: true },
@@ -93,7 +94,7 @@ const PLATFORMS = [
   { key: 'clip_instagram', name: 'Instagram', icon: '📸', audience: 'followers', audLabel: 'Followers', group: 'clip', acc: '#ec4899' },
 ];
 const GROUPS = {
-  esports: { logo: 'about-esports-logo.png', name: 'About Esports', sub: 'media esports IG & TikTok · tim Andre' },
+  esports: { logo: 'about-esports-logo.png', name: 'About Esports', sub: 'media esports YouTube & TikTok · tim Andre' },
   history: { logo: 'zaa-history-logo.png', name: 'Zaa History', sub: 'sejarah misteri kuno dunia · tim Bagas' },
   story: { logo: 'zataa-story-logo.png', name: 'Zaa Story', sub: 'misteri & horor Nusantara · tim Raditya' },
   marvel: { logo: 'marvel-talk-logo.png', name: 'Marvel Talk', sub: 'lore, teori & berita MCU · tim Reza' },
@@ -147,10 +148,18 @@ function renderDashboard() {
   $('k-pending-sub').textContent = `${split(st.pending, st.yt_pending)} · cek Telegram`;
   $('k-posted').textContent = st.posted ?? 0;
   $('k-sched').textContent = `${split(st.posted, st.yt_posted)} · ${st.scheduled ?? 0} terjadwal`;
-  $('k-views').textContent = (st.views ?? 0).toLocaleString('id-ID');
-  const diff = lw.views ? Math.round(((st.views - lw.views) / lw.views) * 100) : null;
-  const vSplit = `About Esports ${((st.views ?? 0) - (st.yt_views ?? 0)).toLocaleString('id-ID')} · Shorts ${(st.yt_views ?? 0).toLocaleString('id-ID')}`;
-  $('k-views-sub').textContent = diff === null ? vSplit : `${diff >= 0 ? '▲' : '▼'} ${Math.abs(diff)}% vs minggu lalu · ${vSplit}`;
+  // KPI audiens: dijumlah dari semua akun YouTube & TikTok di socials.json (IG dijeda, tidak dihitung)
+  const sumOf = (re, f) => Object.entries(socials ?? {}).filter(([k, p]) => re.test(k) && p && !p.error).reduce((a, [, p]) => a + (+p[f] || 0), 0);
+  const have = (re) => Object.entries(socials ?? {}).some(([k, p]) => re.test(k) && p && !p.error);
+  const YT = /youtube$/, TT = /^(.+_)?tiktok$/;
+  const kpi = (id, re, f, sub) => { $(id).textContent = have(re) ? sumOf(re, f).toLocaleString('id-ID') : '—'; if (sub) $(`${id}-sub`).textContent = sub; };
+  kpi('k-yt-views', YT, 'views', 'semua channel YouTube');
+  kpi('k-tt-views', TT, 'views', 'semua akun TikTok');
+  kpi('k-yt-subs', YT, 'subscribers', 'semua channel YouTube');
+  kpi('k-tt-fol', TT, 'followers', 'semua akun TikTok');
+  const allViews = sumOf(YT, 'views') + sumOf(TT, 'views');
+  $('k-views').textContent = have(YT) || have(TT) ? allViews.toLocaleString('id-ID') : '—';
+  $('k-views-sub').textContent = `YouTube ${sumOf(YT, 'views').toLocaleString('id-ID')} · TikTok ${sumOf(TT, 'views').toLocaleString('id-ID')}`;
   // klik link pelacak (golink.mjs) → toko (scripts/golink.mjs); nama sumber sama dengan SOURCES di sana
   const SRC = { ig: 'IG bio', igs: 'IG Story', tt: 'TikTok', tg: 'Telegram', yt: 'YouTube', wa: 'WA', '(direct)': 'langsung', google: 'Google' };
   const g = st.ga4;

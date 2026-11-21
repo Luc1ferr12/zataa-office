@@ -117,7 +117,7 @@ const slotLabel = (c) => (c.slot === 'kilat' ? 'langsung tayang' : `${SLOT[c.slo
 const tiktokOn = () => !!loadEnv().TIKTOK_REFRESH_TOKEN;
 // TikTok default manual: setelah IG tayang Fikri kirim file video + caption ke Telegram (publish.mjs sendTikTokManual); TIKTOK_MODE=auto = auto-post private
 // ZERNIO_API_KEY ada → TikTok otomatis Publik lewat Zernio (scripts/zernio.mjs), mengalahkan mode manual/private
-const ttZernio = () => !!loadEnv().ZERNIO_API_KEY;
+const ttZernio = () => !!(loadEnv().ZERNIO_ESPORTS_API_KEY || loadEnv().ZERNIO_API_KEY);
 const tiktokAuto = () => ttZernio() || (tiktokOn() && loadEnv().TIKTOK_MODE === 'auto');
 export const targets = (c) => (c.format === 'video' && tiktokAuto() ? ['ig', 'tiktok'] : ['ig']);
 export const targetLabel = (c) => (c.format === 'video' ? (ttZernio() ? 'IG Reels + TikTok (publik)' : tiktokAuto() ? 'IG Reels + TikTok (private)' : tiktokOn() ? 'IG Reels (+ TikTok upload manual)' : 'IG Reels') : c.format === 'carousel' ? 'IG Feed (carousel)' : 'IG Feed');

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Upload TikTok & YouTube lewat Zernio (zernio.com, app-nya sudah lolos audit → langsung Publik). IG tetap lewat publish.mjs.
 // Aktif kalau ZERNIO_API_KEY ada di .env (VPS). Tanpa AI → 0 token.
-// Dua akun Zernio: akun 1 (ZERNIO_API_KEY) = TikTok zataa.topup + YouTube Zaa History; akun 2 (ZERNIO_STORY_API_KEY) = TikTok + YouTube Zaa Story.
+// About Esports: ZERNIO_ESPORTS_API_KEY (TikTok esports.news12 + YouTube aboutesports). Dua akun lain: akun 1 (ZERNIO_API_KEY) = TikTok zataa.topup + YouTube Zaa History; akun 2 (ZERNIO_STORY_API_KEY) = TikTok + YouTube Zaa Story.
 // Key default ikut brand proses (--brand=story → akun 2); socials.mjs bisa pilih lewat opsi keyEnv.
 //   node scripts/zernio.mjs accounts                         cek key + akun yang terhubung
 //   node scripts/zernio.mjs youtube <video.mp4> <meta.json>  upload Shorts publik (meta: title, description, tags, synthetic) → JSON {id,url,privacy}

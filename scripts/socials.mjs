@@ -87,7 +87,7 @@ async function tiktok(keyEnv = 'ZERNIO_API_KEY', fallback = 'zataa.topup', platf
 const ytStats = (brand = 'history') => new Promise((ok, no) => execFile(process.execPath, [join(ROOT, 'scripts', 'youtube.mjs'), 'stats', `--brand=${brand}`], { cwd: ROOT, timeout: 120_000, maxBuffer: 1 << 23 },
   (e, so, se) => { if (e) { const l = String(se || e.message).trim().split('\n'); return no(new Error((l.find((x) => /Error:/.test(x)) ?? l.pop()).replace(/^.*?Error: /, ''))); } try { ok(JSON.parse(String(so).trim().split('\n').pop())); } catch (x) { no(x); } }));
 // cadangan kalau OAuth Google gagal (mis. token menunjuk akun tanpa channel): statistik YouTube lewat Zernio /analytics akun brand itu
-const YT_ZERNIO_KEY = { history: 'ZERNIO_API_KEY', story: 'ZERNIO_STORY_API_KEY', marvel: 'ZERNIO_MARVEL_API_KEY' };
+const YT_ZERNIO_KEY = { esports: 'ZERNIO_ESPORTS_API_KEY', history: 'ZERNIO_API_KEY', story: 'ZERNIO_STORY_API_KEY', marvel: 'ZERNIO_MARVEL_API_KEY' };
 async function ytStatsZernio(brand) {
   const keyEnv = YT_ZERNIO_KEY[brand];
   if (!keyEnv || !env()[keyEnv]) throw new Error(`${keyEnv ?? 'kunci Zernio'} belum ada`);
@@ -109,7 +109,8 @@ async function ytStatsZernio(brand) {
   return { title: account.displayName, handle: account.username ? `@${account.username}` : null, subscribers: account.followersCount ?? null, views: sum(list, 'views'), list };
 }
 async function youtube(brand = 'history') {
-  const s = await ytStats(brand).catch(async (e) => { try { return await ytStatsZernio(brand); } catch { throw e; } });
+  // About Esports: tidak punya OAuth YouTube sendiri, langsung statistik Zernio (ZERNIO_ESPORTS_API_KEY)
+  const s = brand === 'esports' ? await ytStatsZernio(brand) : await ytStats(brand).catch(async (e) => { try { return await ytStatsZernio(brand); } catch { throw e; } });
   const list = (s.list ?? []).filter((v) => v.privacy === 'public').map((v) => ({
     pid: v.id, type: 'video', title: short(v.title), url: `https://youtube.com/shorts/${v.id}`, thumb: `https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`, at: v.published,
     views: v.views, likes: v.likes, comments: v.comments,
@@ -144,13 +145,15 @@ function linkTiktok(d, p) {
 export async function collect() {
   const out = { generated_at: new Date().toISOString() };
   const all = {};
-  const KEYS = [['instagram', instagram], ['tiktok', () => tiktok()], ['youtube', () => youtube()], ['story_youtube', () => youtube('story')], ['story_tiktok', () => tiktok('ZERNIO_STORY_API_KEY', 'zataa.story')],
+  const KEYS = [['instagram', instagram], ['tiktok', () => tiktok('ZERNIO_ESPORTS_API_KEY', 'zataa.topup')], ['esports_youtube', () => youtube('esports')], ['youtube', () => youtube()], ['story_youtube', () => youtube('story')], ['story_tiktok', () => tiktok('ZERNIO_STORY_API_KEY', 'zataa.story')],
     ['marvel_youtube', () => youtube('marvel')], ['marvel_tiktok', () => tiktok('ZERNIO_MARVEL_API_KEY', '')], ['clip_tiktok', () => tiktok('ZERNIO_CLIP_API_KEY', '')], ['history_tiktok', () => tiktok('ZERNIO_HISTORY_API_KEY', '')], ['clip_instagram', () => tiktok('ZERNIO_CLIP_API_KEY', '', 'instagram')]];
   for (const [k, fn] of KEYS) {
+    if ((k === 'instagram' && !env().IG_ACCESS_TOKEN) || (k === 'esports_youtube' && !env().ZERNIO_ESPORTS_API_KEY)) continue; // IG About Esports dijeda (susah views); YouTube baru ada kalau key Zernio About Esports diisi
     if (k === 'history_tiktok' && !env().ZERNIO_HISTORY_API_KEY) continue; // opsional: TikTok Zaa History belum disambungkan
     try { out[k] = await fn(); all[k] = out[k].list; delete out[k].list; } catch (e) { out[k] = { error: e.message.slice(0, 160) }; }
   }
   await record('tiktok', 'tiktok_id', all.tiktok ?? []).catch(() => {});
+  await record('youtube', 'youtube_id', all.esports_youtube ?? []).catch(() => {});
   await record('youtube', 'youtube_id', all.youtube ?? []).catch(() => {});
   await record('youtube', 'youtube_id', all.story_youtube ?? []).catch(() => {});
   await record('tiktok', 'tiktok_id', all.story_tiktok ?? []).catch(() => {});
