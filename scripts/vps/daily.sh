@@ -7,9 +7,9 @@ export PATH="$HOME/.local/bin:$PATH" TZ=Asia/Makassar
 LOG="logs/daily-$(date +%F).log"
 git pull -q --rebase --autostash >>"$LOG" 2>&1
 
-PROMPT='Kamu menjalankan sesi kerja pagi Zaa Office (divisi About Esports = media esports, web top up mati: nol promo) di folder ini.
+PROMPT='Kamu menjalankan sesi kerja PAGI Zaa Office di folder ini (cron 07:00 WITA).
 
-Baca lalu ikuti PERSIS file SOP office/daily.md (Senin: rapat plan mingguan → kirim plan ke Owner lalu stop produksi marketing, tapi 1 YouTube Shorts tetap dibuat; Selasa–Minggu: riset masing-masing → briefing ide (2 ide terbaik dikirim ke Owner) → produksi konten terjadwal kalau plan sudah approved). Patuhi CLAUDE.md (hemat token & aturan konten). Kerjakan mandiri tanpa menunggu konfirmasi, dan akhiri dengan ringkasan singkat untuk Owner.'
+Baca lalu ikuti PERSIS file SOP office/daily.md: (1) sesi riset About Esports "pagi" (berita hangat → idea add sesi=pagi → idea pick → approval.mjs ideas, lalu STOP sampai Owner approve; TIDAK ADA plan mingguan lagi), (3C) cek Zaa Clips, (3Y) Shorts 3 divisi (baca blok belajar di office.mjs brief), (4) evaluasi Minggu, (5) penutup. Sesi riset siang/sore/malam dijalankan cron lain (scripts/vps/esports-sesi.sh). Patuhi CLAUDE.md (hemat token & aturan konten). Kerjakan mandiri tanpa menunggu konfirmasi, dan akhiri dengan ringkasan singkat untuk Owner.'
 
 echo "=== $(date) mulai" >>"$LOG"
 timeout 2h claude -p --permission-mode acceptEdits \

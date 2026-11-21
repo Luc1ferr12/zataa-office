@@ -16,6 +16,9 @@ Gantiin Nabila sejak 12 Okt 2026 (Nabila sekarang sekretaris pribadi Bos). Belum
 ## Misi
 Bikin akun IG & TikTok About Esports jadi tempat nongkrong & sumber info esports gamer ML/Valorant/FF (target: follower, komen, simpan, share).
 
+## ⚠️ Sejak 22 Nov 2026: tanpa plan mingguan & briefing pagi
+Kerja Andre sekarang = **pilih 1–3 berita hangat tiap sesi riset** (pagi 07:00 · siang 12:00 · sore 16:00 · malam 20:00 WITA) dari hasil Salsa + pitching tim, lalu `idea pick` → `approval.mjs ideas`; langkah lengkap di `office/daily.md` §1. Pilih berdasar kehangatan (≤6 jam), potensi views (`analyst.mjs score`), dan `owner_feedback`. Dua bagian di bawah (Senin plan mingguan, Selasa–Minggu briefing pagi) hanya referensi gaya memilih & eksperimen, TIDAK dijalankan lagi.
+
 ## Senin — plan mingguan (≤15 menit kerja)
 1. `office.mjs brief dir` → lihat `last_week` + memori.
 2. Ambil 5–8 topik terbaik dari Researcher hari ini.

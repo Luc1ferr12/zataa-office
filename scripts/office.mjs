@@ -8,6 +8,7 @@
 //   node scripts/office.mjs export
 process.removeAllListeners('warning'); // sembunyikan ExperimentalWarning node:sqlite
 import { openDb } from './db.mjs';
+import { briefFor } from './learn-core.mjs';
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -43,14 +44,14 @@ try {
     ('cpublish', 'Tasya', 'Publisher TikTok/IG & Submit Clippo')`);
 } catch { /* db belum init */ }
 // YouTube Shorts disimpan di contents juga: channel 'youtube' (kosong = Marketing IG/TikTok), youtube_id = id video (scripts/shorts-bot.mjs)
-for (const col of ['channel TEXT', 'youtube_id TEXT']) { try { db.exec(`ALTER TABLE contents ADD COLUMN ${col}`); } catch { /* sudah ada / db belum init */ } }
+for (const col of ['channel TEXT', 'youtube_id TEXT', 'auto INTEGER DEFAULT 0']) { try { db.exec(`ALTER TABLE contents ADD COLUMN ${col}`); } catch { /* sudah ada / db belum init */ } }
 // plan mingguan perlu ✅ Owner; campaign lama dianggap sudah approved
 try { db.exec("ALTER TABLE campaigns ADD COLUMN status TEXT DEFAULT 'approved'"); } catch { /* sudah ada */ }
 // ide konten tambahan dari briefing pagi: Andre pilih 3 (2 feed + 1 video) per ronde; Owner ❌ semua → ronde baru
 db.exec(`CREATE TABLE IF NOT EXISTS ideas (id INTEGER PRIMARY KEY AUTOINCREMENT, day TEXT NOT NULL, agent_id TEXT NOT NULL,
   title TEXT NOT NULL, concept TEXT, game TEXT, pillar TEXT, chosen INTEGER NOT NULL DEFAULT 0,
   status TEXT NOT NULL DEFAULT 'pitched', content_id INTEGER, created_at TEXT DEFAULT (datetime('now')))`); // pitched | proposed | approved | skipped | made
-for (const col of ["format TEXT DEFAULT 'feed'", 'slot TEXT']) { try { db.exec(`ALTER TABLE ideas ADD COLUMN ${col}`); } catch { /* sudah ada */ } }
+for (const col of ["format TEXT DEFAULT 'feed'", 'slot TEXT', 'sesi TEXT', 'sources TEXT']) { try { db.exec(`ALTER TABLE ideas ADD COLUMN ${col}`); } catch { /* sudah ada */ } }
 db.exec(`CREATE TABLE IF NOT EXISTS followups (id INTEGER PRIMARY KEY AUTOINCREMENT, note TEXT NOT NULL, due_at TEXT NOT NULL,
   done INTEGER NOT NULL DEFAULT 0, created_at TEXT DEFAULT (datetime('now')))`);
 
@@ -94,6 +95,8 @@ const commands = {
     const revisions = all("SELECT id, title, owner_note FROM contents WHERE status = 'revision' AND COALESCE(channel, '') NOT IN ('youtube', 'story', 'marvel') ORDER BY id");
     const brief = { today: t, campaign: camp ?? null, memory: mem, ...(owner.length ? { owner_feedback: owner } : {}), tasks };
     if (revisions.length) brief.revisions = revisions;
+    // tim Shorts: pola views per video (terbaik/terburuk, kelompok hook/suara/jam) + eksperimen mingguan (scripts/learn-core.mjs)
+    try { const l = briefFor(db, agent); if (l) brief.belajar = l; } catch { /* tabel/belum ada data */ }
     if (agent === 'researcher' || agent === 'dir') {
       brief.recent_topics = all('SELECT topic FROM research WHERE day >= ? ORDER BY id DESC LIMIT 15', addDays(t, -14)).map((r) => r.topic);
     }
@@ -116,15 +119,22 @@ const commands = {
   idea(sub, a, b, c) {
     if (sub === 'add') {
       const items = JSON.parse(existsSync(a) ? readFileSync(a, 'utf8') : a);
-      const ids = items.map((i) => Number(run('INSERT INTO ideas (day, agent_id, title, concept, format, game, pillar) VALUES (?, ?, ?, ?, ?, ?, ?)',
-        today(), i.agent, i.title, i.concept ?? null, i.format === 'video' ? 'video' : 'feed', i.game ?? null, i.pillar ?? null).lastInsertRowid));
+      const ids = items.map((i) => Number(run('INSERT INTO ideas (day, agent_id, title, concept, format, game, pillar, sesi, sources) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)',
+        today(), i.agent, i.title, i.concept ?? null, i.format === 'video' ? 'video' : 'feed', i.game ?? null, i.pillar ?? null, i.sesi ?? null, Array.isArray(i.sources) ? i.sources.join(' ') : (i.sources ?? null)).lastInsertRowid));
       return out({ ok: true, ids });
     }
     if (sub === 'pick') { // wajib 3 ide ronde ini: 2 feed + 1 video
       const ids = [a, b, c].filter(Boolean).map(Number);
-      const rows = ids.map((id) => get("SELECT id, format, status FROM ideas WHERE id = ?", id));
+      const rows = ids.map((id) => get("SELECT id, format, status, sesi FROM ideas WHERE id = ?", id));
       if (rows.some((r) => !r || r.status !== 'pitched')) return out({ ok: false, error: 'ide nggak ada / bukan dari ronde ini (status harus pitched)' });
       const v = rows.filter((r) => r.format === 'video').length;
+      // sesi riset About Esports (22 Nov 2026): 1–3 ide bebas format, berita hangat apa adanya (tanpa kuota 2 feed + 1 video)
+      if (rows.every((r) => r.sesi)) {
+        if (!ids.length || ids.length > 3) return out({ ok: false, error: 'sesi riset: pilih 1–3 ide' });
+        for (const id of ids) run('UPDATE ideas SET chosen = 1 WHERE id = ?', id);
+        log('dir', `Pilih ${ids.length} berita hangat dari sesi riset ${rows[0].sesi}`);
+        return out('ok');
+      }
       if (ids.length !== 3 || v !== 1) return out({ ok: false, error: `pilih 3 ide: 2 feed + 1 video (sekarang ${ids.length} ide, ${v} video)` });
       for (const id of ids) run('UPDATE ideas SET chosen = 1 WHERE id = ?', id);
       log('dir', 'Pilih 3 ide terbaik dari briefing (2 feed + 1 video)');
@@ -132,7 +142,7 @@ const commands = {
     }
     if (sub === 'list') return out(all('SELECT id, agent_id, format, title, concept, chosen, status, content_id FROM ideas WHERE day = ? ORDER BY id', a ?? today()));
     if (sub === 'done') { run("UPDATE ideas SET status = 'made', content_id = ? WHERE id = ?", b, a); return out('ok'); }
-    out('pakai: idea add <file.json> | pick <id1> <id2> <id3> (2 feed + 1 video) | list [day] | done <idea_id> <content_id>');
+    out('pakai: idea add <file.json> (+ sesi:"pagi|siang|sore|malam", sources:[url]) | pick <id1> <id2> <id3> (2 feed + 1 video) | list [day] | done <idea_id> <content_id>');
   },
 
   // followup <menit> "<apa yang dicek>" — minta watcher membangunkan Claude lagi nanti (mis. pantau skor pertandingan)
@@ -202,8 +212,8 @@ const commands = {
     // content new '{"format":"feed","game":"mlbb","pillar":"promo","title":"..."}' → konten dadakan (permintaan Owner), slot "kilat" = tayang begitu di-approve
     if (sub === 'new') {
       const p = existsSync(id) ? JSON.parse(readFileSync(id, 'utf8')) : JSON.parse(id);
-      const r = run('INSERT INTO contents (day, slot, format, game, pillar, title) VALUES (?, ?, ?, ?, ?, ?)',
-        p.day ?? today(), p.slot ?? 'kilat', p.format ?? 'feed', p.game ?? null, p.pillar ?? null, p.title);
+      const r = run('INSERT INTO contents (day, slot, format, game, pillar, title, auto) VALUES (?, ?, ?, ?, ?, ?, ?)',
+        p.day ?? today(), p.slot ?? 'kilat', p.format ?? 'feed', p.game ?? null, p.pillar ?? null, p.title, p.auto ? 1 : 0);
       return out({ ok: true, id: Number(r.lastInsertRowid) });
     }
     if (sub === 'set') {
