@@ -3,7 +3,7 @@
 //   Zaa History: bot @zataashortbot, DB channel 'youtube', tim Bagas dkk · Zaa Story: bot @zataastorybot, DB channel 'story', tim Raditya dkk (+ TikTok).
 // Bot History jalan di dalam watcher, bot Story = proses anak watcher (shorts-bot.mjs bot --brand=story); cuma nerima pesan & tombol dari SHORTS_OWNER_ID.
 // Alur: new (sesi harian) → antre render laptop (_laptop 1, scripts/shorts-laptop.mjs, OmniVoice) → submit (Kirana kirim video + ✅/✏️/❌)
-//       → ✅ → tunggu jam tayang (_jam) → upload YouTube Publik lewat Zernio (scripts/zernio.mjs) → 'posted'. Tanpa key Zernio brand: scripts/youtube.mjs Private → 'uploaded' + pengingat → Owner tekan
+//       → ✅ → tunggu jam tayang (_jam) → upload YouTube Publik lewat Zernio (scripts/zernio.mjs) → 'posted'. Sejak 21 Nov 2026 YouTube CUMA lewat Zernio (tanpa OAuth Google); key Zernio brand kosong = upload gagal. Status lama 'uploaded' → Owner tekan
 //       "Sudah Publik" → 'posted'. Shorts belum dianggap tayang sebelum Owner konfirmasi.
 //   node scripts/shorts-bot.mjs new <file.json>       {topic_id (bank topik, approved), title, caption, hashtags, sources?, day?, jam? (HH:MM WIB), test?, synthetic?, tags?, spec:{voice, mood, scenes[]}}  (adegan = {img, vo, sub} ATAU gaya klip {vo, hl?, clips:[{find, note, n?} | {src, ss, x?}]}, lihat shorts-clip.mjs)
 //   node scripts/shorts-bot.mjs get <id> | set <id> <json|file> (+ jam) | list [tgl_senin]
@@ -199,10 +199,7 @@ export async function upload(id) {
   let r, res = null;
   if (zernioOn()) { // lewat Zernio: app sudah diaudit → langsung Publik (keputusan Owner 18 Okt)
     try { res = await youtubeUpload(video, meta, B.key === 'history' ? `yt-${id}` : `yt-${B.key}-${id}`); r = { ok: true }; } catch (e) { r = { ok: false, out: '', err: e.message }; }
-  } else {
-    r = await run(['scripts/youtube.mjs', 'upload', video, metaPath, BR]);
-    try { res = JSON.parse(r.out.split('\n').pop()); } catch { /* bukan JSON */ }
-  }
+  } else r = { ok: false, out: '', err: `${B.zernioEnv} kosong di .env (YouTube cuma lewat Zernio)` };
   try { unlinkSync(metaPath); } catch { /* abaikan */ }
   if (!r.ok || !res?.id) {
     d.prepare("UPDATE contents SET status = 'upload_failed', updated_at = datetime('now') WHERE id = ?").run(id);
@@ -422,7 +419,7 @@ const prodLine = (c) => `#${c.id} ${esc(c.title.slice(0, 45))} — ${LAP[c.lap] 
 async function ytStats() {
   return ytStatsRaw().catch((e) => ({ st: { list: [], subscribers: null, likes: null, err: e.message }, views: null }));
 }
-const ytOff = (st) => [`⚠️ YouTube belum bisa dibaca: ${esc(st.err.slice(0, 150))}${/kosong di \.env/.test(st.err) ? ` (Bos izinkan sekali di laptop: <code>node scripts/youtube.mjs auth ${BR}</code>, login akun channel ${B.name})` : ''}`];
+const ytOff = (st) => [`⚠️ YouTube belum bisa dibaca: ${esc(st.err.slice(0, 150))}${/belum diisi di \.env/.test(st.err) ? ` (isi ${B.zernioEnv} di .env VPS)` : ''}`];
 // error proses anak: ambil baris "Error: …" (baris terakhir stderr node cuma versi Node)
 const errLine = (t) => { const l = String(t).split('\n'); return (l.find((x) => /Error:/.test(x)) ?? l.pop()).replace(/^.*?Error: /, '').slice(0, 200); };
 // statistik YouTube lewat Zernio /analytics (akun YouTube brand ini; tanpa OAuth Google). Subscriber = followersCount Zernio (update berkala, bisa telat)
@@ -448,13 +445,8 @@ async function ytStatsZernio() {
     videos: list.length, likes: list.reduce((a, v) => a + v.likes, 0), list };
 }
 async function ytStatsRaw() {
-  if (zernioOn()) {
-    try { const st = await ytStatsZernio(); return { st, views: st.views }; } catch (e) { console.error('Zernio YouTube stats gagal, coba YouTube API langsung:', e.message); }
-  }
-  const r = await run(['scripts/youtube.mjs', 'stats', BR], 3);
-  if (!r.ok) throw new Error(errLine(r.err || r.out));
-  const st = JSON.parse(r.out.split('\n').pop());
-  return { st, views: st.list.reduce((a, v) => a + v.views, 0) }; // total channel dari API telat update → jumlahkan per video
+  const st = await ytStatsZernio(); // cuma Zernio (tanpa OAuth Google, 21 Nov 2026)
+  return { st, views: st.views };
 }
 
 // retensi per video dari YouTube Analytics (telat ±2 hari). Target: bertahan (engaged/views) ≥70%, ditonton ≥90% (>100% = diulang)
@@ -476,13 +468,29 @@ function tiktokLines(tt) {
   return ['', `<b>TikTok @${esc(tt.handle ?? '')}</b>`, `👥 Followers: <b>${num(tt.followers)}</b> · 🎬 ${tt.posts.length} video · 👁️ ${num(tt.views)} views · 👍 ${num(tt.likes)}`,
     ...[...tt.posts].sort((a, b) => b.views - a.views).slice(0, 3).map((p, i) => `${i + 1}. ${esc(p.title.slice(0, 45))} · 👁️ ${num(p.views)} · 👍 ${num(p.likes)} · 💬 ${num(p.comments)}`)];
 }
-async function ytRetention() {
-  const r = await run(['scripts/youtube.mjs', 'analytics', BR], 3);
-  if (r.ok) return JSON.parse(r.out.split('\n').pop()).videos;
-  const msg = (r.err || r.out).split('\n').find((l) => /Error|error/.test(l)) ?? '';
-  if (/disabled|not been used|SERVICE_DISABLED/i.test(r.err)) return { _off: 'YouTube Analytics API belum aktif di Google Cloud (project zataa-shorts), Bos tolong klik Enable: https://console.developers.google.com/apis/api/youtubeanalytics.googleapis.com/overview?project=566338684407' };
-  if (/tidak ada channel|kosong di \.env|token YouTube gagal|Forbidden/i.test(r.err + r.out)) return { _off: `retensi detail butuh login YouTube (OAuth) yang belum tersambung ke channel ${B.name}; statistik views/likes tetap dari Zernio` };
-  return { _off: `data retensi gagal diambil: ${esc(errLine(r.err || r.out))}` };
+// retensi lewat Zernio /analytics/youtube/daily-views per video (data YouTube Analytics, telat 2–3 hari, kuota harian dibagi Zernio).
+// Field dibaca longgar: averageViewPercentage / averageViewDuration / subscribersGained per hari, dirata-rata berbobot views. engagedViews nggak ada → 'bertahan' kosong.
+async function ytRetention(list = []) {
+  const { accounts = [] } = await zernioApi('/accounts');
+  const acc = accounts.find((a) => a.platform === 'youtube' && a.isActive !== false)?._id;
+  if (!acc) return { _off: 'akun YouTube belum tersambung di Zernio' };
+  const out = {};
+  for (const v of [...list].sort((a, b) => String(b.published).localeCompare(String(a.published))).slice(0, 7)) {
+    let j;
+    try { j = await zernioApi(`/analytics/youtube/daily-views?videoId=${v.id}&accountId=${acc}`); } catch (e) {
+      if (/429|quota/i.test(e.message)) return Object.keys(out).length ? out : { _off: 'kuota YouTube Analytics di Zernio habis hari ini, coba lagi besok' };
+      continue;
+    }
+    const rows = [j.dailyViews, j.data, j.days, j.rows, j.views].find(Array.isArray) ?? [];
+    let n = 0, apv = 0, avd = 0, subs = 0, w = 0;
+    for (const r of rows) {
+      const vv = +(r.views ?? 0); n += vv; subs += +(r.subscribersGained ?? 0);
+      if (r.averageViewPercentage != null) { apv += r.averageViewPercentage * (vv || 1); avd += +(r.averageViewDuration ?? 0) * (vv || 1); w += vv || 1; }
+    }
+    if (rows.length) out[v.id] = { views: n, engaged: null, stay: null, apv: w ? Math.round(apv / w) : null, avd: w ? Math.round(avd / w) : null, subs, comments: null, shares: null };
+  }
+  if (!Object.values(out).some((x) => x.apv != null)) return { _off: 'persen ditonton (retensi) belum tersedia dari Zernio; views/likes/subs tetap jalan' };
+  return out;
 }
 const mark = (v, min) => (v == null ? '' : v >= min ? ' ✅' : ' ⚠️');
 function retentionLines(ret, list, n = 7) {
@@ -496,13 +504,13 @@ function retentionLines(ret, list, n = 7) {
     : apv != null && apv < APV_MIN ? 'Hook oke, tapi penonton keluar di tengah → padatkan naskah / pendekkan durasi.'
     : 'Retensi sesuai target → saatnya tambah volume / seri.';
   return ['', `<b>Retensi ${vids.length} video terakhir</b> <i>(data YouTube, telat ±2 hari)</i>`,
-    ...vids.map((v) => { const x = ret[v.id]; return `• ${esc(v.title.slice(0, 32))} · bertahan ${x.stay ?? '–'}%${mark(x.stay, STAY_MIN)} · ditonton ${x.apv}%${mark(x.apv, APV_MIN)} · +${x.subs} subs`; }),
+    ...vids.map((v) => { const x = ret[v.id]; return `• ${esc(v.title.slice(0, 32))} · bertahan ${x.stay ?? '–'}%${mark(x.stay, STAY_MIN)} · ditonton ${x.apv ?? '–'}%${mark(x.apv, APV_MIN)} · +${x.subs ?? 0} subs`; }),
     `Rata-rata: bertahan <b>${stay ?? '–'}%</b> (target ≥${STAY_MIN}%) · ditonton <b>${apv ?? '–'}%</b> (target ≥${APV_MIN}%)`, `💡 ${tip}`];
 }
 
 export async function dailyReport({ dry = false } = {}) {
   const { st, views } = await ytStats();
-  const ret = st.err ? null : await ytRetention().catch(() => null);
+  const ret = st.err ? null : await ytRetention(st.list).catch(() => null);
   const tt = await ttStats();
   const d = await db();
   const prev = state().snap;
@@ -545,7 +553,7 @@ export async function dailyReport({ dry = false } = {}) {
 // rekap mingguan (Senin–Minggu): target kuota brand (B.week, ≥B.coreMin pilar inti), top video, pilar paling ditonton → bahan evaluasi Bagas
 export async function weeklyReport({ dry = false } = {}) {
   const { st, views } = await ytStats();
-  const ret = st.err ? null : await ytRetention().catch(() => null);
+  const ret = st.err ? null : await ytRetention(st.list).catch(() => null);
   const tt = await ttStats();
   const d = await db();
   const t = wita(new Date());

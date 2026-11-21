@@ -1,13 +1,11 @@
 #!/usr/bin/env node
-// Analytics semua sosmed untuk dashboard (docs/data/socials.json): IG (Graph API), TikTok (Zernio), YouTube Shorts (youtube.mjs stats).
-// Zaa Story punya akun sendiri: story_youtube (youtube.mjs stats --brand=story) & story_tiktok (Zernio akun 2, ZERNIO_STORY_API_KEY).
+// Analytics semua sosmed untuk dashboard (docs/data/socials.json): IG (Graph API), TikTok + YouTube (Zernio, 1 login per divisi, tanpa OAuth Google).
 // Per platform: jumlah post (video/foto/carousel), views, likes, komentar, follower/subscriber, top konten. Tanpa AI → 0 token.
 // Watcher panggil socialsTick() tiap menit, narik ulang kalau data sudah >1 jam.
 //   node scripts/socials.mjs collect     tarik sekarang + tulis docs/data/socials.json
 process.removeAllListeners('warning');
 import { writeFileSync, existsSync, statSync, mkdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';
-import { execFile } from 'node:child_process';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { loadEnv, db } from './approval.mjs';
 import { api as zernio } from './zernio.mjs';
@@ -83,9 +81,7 @@ async function tiktok(keyEnv = 'ZERNIO_ESPORTS_API_KEY', fallback = 'zataa.topup
   return summary(list, { handle: `@${handle}`, url: platform === 'instagram' ? `https://instagram.com/${handle}` : `https://www.tiktok.com/@${handle}`, followers: account?.followersCount ?? null });
 }
 
-// ---------- YouTube Shorts (youtube.mjs stats, token pemilik channel)
-const ytStats = (brand = 'history') => new Promise((ok, no) => execFile(process.execPath, [join(ROOT, 'scripts', 'youtube.mjs'), 'stats', `--brand=${brand}`], { cwd: ROOT, timeout: 120_000, maxBuffer: 1 << 23 },
-  (e, so, se) => { if (e) { const l = String(se || e.message).trim().split('\n'); return no(new Error((l.find((x) => /Error:/.test(x)) ?? l.pop()).replace(/^.*?Error: /, ''))); } try { ok(JSON.parse(String(so).trim().split('\n').pop())); } catch (x) { no(x); } }));
+// ---------- YouTube Shorts (Zernio)
 // statistik YouTube lewat Zernio /analytics login divisi itu (sumber utama)
 const YT_ZERNIO_KEY = { esports: 'ZERNIO_ESPORTS_API_KEY', history: 'ZERNIO_HISTORY_API_KEY', story: 'ZERNIO_STORY_API_KEY', marvel: 'ZERNIO_MARVEL_API_KEY' };
 async function ytStatsZernio(brand) {
@@ -109,8 +105,7 @@ async function ytStatsZernio(brand) {
   return { title: account.displayName, handle: account.username ? `@${account.username}` : null, subscribers: account.followersCount ?? null, views: sum(list, 'views'), list };
 }
 async function youtube(brand = 'history') {
-  // Zernio dulu (1 login per divisi, pasti channel yang benar); OAuth Google (youtube.mjs) cuma cadangan — 21 Nov 2026 token History ternyata nunjuk channel About Esports
-  const s = await ytStatsZernio(brand).catch(async (e) => { if (brand === 'esports') throw e; try { return await ytStats(brand); } catch { throw e; } });
+  const s = await ytStatsZernio(brand); // cuma Zernio (21 Nov 2026: OAuth Google dipensiunkan)
   const list = (s.list ?? []).filter((v) => v.privacy === 'public').map((v) => ({
     pid: v.id, type: 'video', title: short(v.title), url: `https://youtube.com/shorts/${v.id}`, thumb: `https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`, at: v.published,
     views: v.views, likes: v.likes, comments: v.comments,

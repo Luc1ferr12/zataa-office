@@ -17,7 +17,7 @@ Kode sama dengan Zaa History/Story (`scripts/shorts-bot.mjs`, `shorts-topics.mjs
 ## Akun & kunci (.env VPS) — diisi Owner
 - Bot Telegram Marvel Talk (bikin di BotFather): `MARVEL_BOT_TOKEN` (penerima tetap `SHORTS_OWNER_ID`). Watcher otomatis nyalain `shorts-bot.mjs bot --brand=marvel` begitu token ada (cek tiap 10 menit).
 - Zernio **akun 3** (login akun Google channel Marvel Talk, sambungkan YouTube + TikTok): `ZERNIO_MARVEL_API_KEY`; kunci id akun kalau perlu: `ZERNIO_MARVEL_YOUTUBE_ACCOUNT`, `ZERNIO_MARVEL_TIKTOK_ACCOUNT`. **Jangan pakai key akun 1/2.**
-- Statistik YouTube: `MARVEL_YT_CLIENT_ID/SECRET` + `MARVEL_YT_REFRESH_TOKEN` (sekali izin: `node scripts/youtube.mjs auth --brand=marvel` di laptop). Belum ada → laporan TikTok + produksi saja.
+- Statistik YouTube + TikTok: Zernio `ZERNIO_MARVEL_API_KEY` saja (OAuth Google dipensiunkan 21 Nov 2026).
 
 ## Alur otomatis (sama persis dengan Zaa Story, `office/story.md`)
 1. Sesi harian (Reza → Citra → Fajar → Intan): `shorts-topics.mjs next --brand=marvel` → riset → naskah → gambar di `assets/shorts/<topik>/` (+ `credits.txt`) → `node scripts/shorts-bot.mjs new <file.json> --brand=marvel` (antrean laptop). `spec.tag` default "MARVEL TALK", hashtags "#Shorts #marvel #mcu …".

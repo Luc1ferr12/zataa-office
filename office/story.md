@@ -17,7 +17,7 @@ Kode sama dengan Zaa History (`scripts/shorts-bot.mjs`, `shorts-topics.mjs`, `sh
 ## Akun & kunci (.env VPS)
 - Bot Telegram **@zataastorybot**: `STORY_BOT_TOKEN` (penerima tetap `SHORTS_OWNER_ID`). Jalan sebagai proses anak watcher (`shorts-bot.mjs bot --brand=story`).
 - Zernio **akun 2** (login zataastory@gmail.com): `ZERNIO_STORY_API_KEY` → TikTok @zataa.story + YouTube Zaa Story. Key Zernio divisi lain (`ZERNIO_HISTORY_API_KEY`, `ZERNIO_ESPORTS_API_KEY`) **jangan pernah dipakai untuk Story**.
-- Statistik/retensi YouTube Zaa Story: `STORY_YT_REFRESH_TOKEN` (sekali izin: `node scripts/youtube.mjs auth --brand=story` di laptop, login zataastory@gmail.com). Belum ada → laporan cuma TikTok + produksi.
+- Statistik/retensi YouTube Zaa Story: Zernio `ZERNIO_STORY_API_KEY` saja (OAuth Google dipensiunkan 21 Nov 2026).
 
 ## Alur otomatis
 1. **Sesi harian** (Raditya → Sekar → Dinda → Arga): topik dari bank (`shorts-topics.mjs next --brand=story`), riset, naskah, gambar di `assets/shorts/<topik>/` (+ `credits.txt`), lalu
