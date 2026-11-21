@@ -5,6 +5,7 @@ import { readFileSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { digest } from '../media.mjs';
+import { addressedAgent, redirectText } from '../bots.mjs';
 
 // baca .env sendiri, biar jalan juga dari watcher (ask.mjs) yang nggak nge-load .env ke process.env
 let fileEnv = null;
@@ -44,6 +45,8 @@ export async function pollTrading(onText, { getOffset, setOffset, log = console.
         if (!m || String(m.chat?.id) !== String(chatId())) continue;
         try {
           const dg = await digest(m, token(), 'trading'); // screenshot chart, video, link berita → bisa dibaca tim
+          const wrong = redirectText('trading', addressedAgent(dg.text)); // pegawai divisi lain dipanggil di bot trading → arahkan
+          if (wrong) { await sendTrading(`<b>Mahendra</b>: ${wrong}`).catch(() => {}); continue; }
           if (dg.text) await onText(dg.text, dg.note);
         } catch (e) { log(`perintah trading: ${e.message}`); }
       }

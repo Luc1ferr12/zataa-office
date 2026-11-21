@@ -11,7 +11,8 @@ import { spawn } from 'node:child_process';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { loadEnv, say, sayAs, NAMA, db, downloadPhotos, photoNote, SLOT } from './approval.mjs';
-import { fetchMedia, readLinks, urlsOf, mediaNote } from './media.mjs';
+import { fetchMedia, readLinks, urlsOf, mediaNote, voiceText, deafNote } from './media.mjs';
+import { WHO, homeOf, addressedAgent, redirectText } from './bots.mjs';
 import { chat } from './chatter.mjs';
 import { AGENTS, wita, activityAt, describe, approvalWaits, pairBilliard } from '../docs/js/schedule.js';
 import { isTradingCommand, handleTrading } from './trading/telegram.mjs';
@@ -57,12 +58,6 @@ export async function statusReport() {
 }
 
 // ---------- siapa yang dipanggil Owner → dia yang nyaut (balasan selalu "<b>Nama</b>: ...")
-const WHO = { andre: 'dir', nabila: 'sec', salsa: 'researcher', tiara: 'copywriter', vania: 'designer', dimas: 'video', fikri: 'publisher', fahriah: 'ads', raka: 'analyst', budi: 'price', sari: 'ob',
-  mahendra: 'tdir', davina: 'tresearch', keira: 'ttech', aryaputra: 'trisk', arya: 'trisk', wiratama: 'texec', wira: 'texec', jihan: 'teval', selena: 'treport',
-  bagas: 'ydir', nadhira: 'yresearch', laras: 'yscript', galih: 'yvisual', yoga: 'yvideo', kirana: 'ypublish',
-  raditya: 'sdir', sekar: 'sresearch', dinda: 'sscript', arga: 'svisual', bima: 'svideo', nayla: 'spublish',
-  reza: 'vdir', citra: 'vresearch', fajar: 'vscript', intan: 'vvisual', kevin: 'vvideo', putri: 'vpublish',
-  hendra: 'cdir', maya: 'cbrief', rizky: 'cedit', wulan: 'ccopy', tasya: 'cpublish' };
 const NAME_RE = new RegExp(`\\b(${Object.keys(WHO).join('|')})\\b`, 'i');
 export const calledAgent = (t) => WHO[(String(t).match(NAME_RE)?.[1] ?? '').toLowerCase()] ?? null;
 // cuma manggil nama ("Vania", "halo Tiara", "p dimas", "kak nabila?") → yang dipanggil langsung nyaut, tanpa AI (0 token)
@@ -97,7 +92,8 @@ const REPLY = {
 export async function smallTalk(msg) {
   const d = await db();
   const low = msg.toLowerCase();
-  const agent = calledAgent(low) ?? 'dir';
+  const c0 = calledAgent(low);
+  const agent = c0 && homeOf(c0) === 'office' ? c0 : 'dir';
   const pool = THANKS.test(msg) ? REPLY.thanks : REPLY.praise;
   const text = pool[Math.floor(Math.random() * pool.length)];
   chat(d, 'owner', agent, msg, 'bos');
@@ -175,12 +171,31 @@ export function formatReply(text, fallback = 'dir') {
   let who = NAMA[fallback] ?? 'Andre';
   return lines.map((l) => {
     const m = l.match(SPEAKER_RE);
-    if (m) { who = nameOf(m[1]); l = l.slice(m[0].length); }
+    if (m) { // pembicara dari divisi lain (mis. Nabila di bot kantor) nggak boleh ikut ngomong di kamar ini → tetap yang bicara sekarang
+      const id = WHO[m[1].toLowerCase().replace('mbak ', '')] ?? Object.entries(NAMA).find(([, n]) => n.toLowerCase() === m[1].toLowerCase())?.[0];
+      if (!id || homeOf(id) === homeOf(fallback)) who = nameOf(m[1]);
+      l = l.slice(m[0].length);
+    }
     return `<b>${who}</b>: ${esc(l)}`;
   }).join('\n');
 }
 
 export async function handleOwnerMessage(msg, log = console.log, photos = []) {
+  // lampiran diunduh SEKALI di awal: voice note / audio → transkrip jadi teks pesan (scripts/media.mjs), sisanya (gambar/video/dokumen) dipakai di bawah
+  let pre = [];
+  if (photos.length) {
+    pre = await fetchMedia(loadEnv().TELEGRAM_BOT_TOKEN, photos.map((id) => ({ id, kind: 'doc' })), 'kantor');
+    const spoken = voiceText(pre);
+    if (spoken) msg = [msg, spoken].filter(Boolean).join('\n');
+  }
+  const deaf = deafNote(pre); // voice note yang belum bisa ditranskrip (mesin belum terpasang) → jujur ke Owner
+  const isAudio = (f) => f.kind === 'audio';
+  photos = photos.filter((_, i) => !isAudio(pre[i] ?? {}));
+  pre = pre.filter((f) => !isAudio(f));
+  if (deaf && !msg.trim() && !pre.length) { await sayAs('dir', esc(deaf)).catch(() => {}); return { kind: 'voice-unavailable' }; }
+  // penjaga kamar: Owner manggil pegawai divisi lain di bot ini → arahkan ke bot yang benar, jangan dijawab orang asing
+  const wrong = redirectText('office', addressedAgent(msg));
+  if (wrong) { await sayAs('dir', wrong).catch(() => {}); return { kind: 'redirect' }; }
   if (!photos.length && isTradingCommand(msg)) {
     // bot trading sudah aktif → balasan trading cuma di sana, jangan dobel lewat bot marketing
     if (tradingBotOn()) { await sayAs('dir', 'Perintah trading sekarang lewat bot <b>Zaa Office Trading</b> ya Bos, kirim ulang di sana 🙏'); return { kind: 'trading-redirect' }; }
@@ -204,7 +219,8 @@ export async function handleOwnerMessage(msg, log = console.log, photos = []) {
   if (!photos.length && isSmallTalk(msg)) return smallTalk(msg);
   const d = await db();
   // yang jawab: yang dipanggil namanya → kalau nggak ada, yang barusan ngobrol sama Owner (≤20 menit) → Andre
-  const lead = calledAgent(msg) ?? lastSpeaker(d) ?? 'dir';
+  const mine = (a) => (a && homeOf(a) === 'office' ? a : null);
+  const lead = mine(calledAgent(msg)) ?? mine(lastSpeaker(d)) ?? 'dir';
   const task = photos.length > 0 || isTask(msg);
   const history = recentTalk(d);
   chat(d, 'owner', lead, msg || '📷 (kirim gambar contoh)', 'bos');
@@ -214,9 +230,10 @@ export async function handleOwnerMessage(msg, log = console.log, photos = []) {
     await sayAs(lead, lead === 'dir' ? 'Siap Bos! 👌 Aku bagi tugas ke tim dulu, nanti hasilnya aku kabarin di sini.' : 'Siap Bos, aku kerjain! 👌 Nanti aku kabarin hasilnya di sini.').catch(() => {});
   }
   // lampiran dari bot kantor (file_id foto/video/dokumen) + link di pesan → bisa dilihat tim (scripts/media.mjs)
-  const files = photos.length ? await fetchMedia(loadEnv().TELEGRAM_BOT_TOKEN, photos.map((id) => ({ id, kind: 'doc' })), 'kantor') : [];
+  const files = pre;
   const links = urlsOf(msg).length ? await readLinks(urlsOf(msg), 'kantor') : [];
-  const note = mediaNote(files, links), refs = files.filter((f) => !f.err);
+  const note = mediaNote(files, links) + (deaf ? `
+(${deaf})` : ''), refs = files.filter((f) => !f.err);
   // semua pesan non-tugas → Haiku duluan (murah), boleh jawab pertanyaan apa aja; butuh kerja beneran → dioper ke model utama
   if (!task && !refs.length) {
     const chatModel = loadEnv().CHAT_MODEL || 'haiku';

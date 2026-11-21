@@ -33,6 +33,7 @@ import { B, cliArgs } from './brand.mjs';
 import { claude, formatReply, ESCALATE, isStatusQuestion } from './ask.mjs';
 import { haiku, OFFICE, ANSWER_ANY } from './haiku.mjs';
 import { annotate } from './learn-core.mjs';
+import { addressedAgent, redirectText } from './bots.mjs';
 import { digest } from './media.mjs';
 import { wita } from '../docs/js/schedule.js';
 
@@ -769,6 +770,8 @@ async function handle(u, log) {
     patchState((x) => { delete x.awaitRev; });
     return later(() => revise(id, text, log, dg.note), log);
   }
+  const wrong = redirectText(B.key, addressedAgent(text)); // Owner manggil pegawai divisi lain di bot ini → arahkan ke kamar yang benar
+  if (wrong) return sayAs(T.dir, wrong);
   if (isStatusQuestion(text) || /^\/?(status|rekap)$/i.test(text)) return send(await statusText());
   const d = await db();
   if (/\blangsung\s+(post|posting|upload|tayang)/i.test(text)) { // "langsung post" = approval

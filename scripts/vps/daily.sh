@@ -24,7 +24,7 @@ if [ "$CODE" -ne 0 ]; then
 $(tail -n 2 "$LOG" | head -n 1 | cut -c1-200)" \
   node --input-type=module -e "
 const { sayAs } = await import('./scripts/approval.mjs');
-await sayAs('sec', process.env.ALERT_MSG);
+await sayAs('dir', process.env.ALERT_MSG);
 process.exit(0);
 " >>"$LOG" 2>&1
 fi

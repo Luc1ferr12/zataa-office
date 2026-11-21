@@ -11,7 +11,8 @@ import { OFFICE, ANSWER_ANY, LOOKUPS } from './haiku.mjs';
 import { wita } from '../docs/js/schedule.js';
 import { morning, reminders, todayTx, rp } from './finance.mjs';
 import { pushRge, laptopIdleMin, RGE_RE, holdReply } from './rge-queue.mjs';
-import { mediaIds, fetchMedia, readLinks, urlsOf, mediaNote } from './media.mjs';
+import { mediaIds, fetchMedia, readLinks, urlsOf, mediaNote, voiceText, deafNote } from './media.mjs';
+import { addressedAgent, redirectText } from './bots.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const HIST = join(ROOT, 'tmp', 'finance-chat.json');
@@ -176,8 +177,14 @@ export async function startFinanceBot(log = console.log) {
         const got = b.files.length ? await fetchMedia(env.FINANCE_BOT_TOKEN, b.files, 'nabila') : [];
         const links = urlsOf(b.text).length ? await readLinks(urlsOf(b.text), 'nabila') : [];
         const refs = got.filter((f) => f.kind === 'image' && f.path).map((f) => f.path);
-        const extra = mediaNote(got.filter((f) => f.kind !== 'image' || !f.path), links);
-        const reply = await handleFinance(b.text.trim(), refs, log, extra);
+        const extra = mediaNote(got.filter((f) => (f.kind !== 'image' || !f.path) && !(f.kind === 'audio' && f.transcript)), links);
+        // voice note → transkrip jadi isi pesan (scripts/media.mjs); belum bisa didengar → jujur ke Owner
+        const said = [b.text, voiceText(got)].filter(Boolean).join('\n').trim();
+        const deaf = deafNote(got);
+        const wrong = redirectText('finance', addressedAgent(said)); // Owner manggil pegawai divisi lain di bot keuangan → arahkan ke bot yang benar
+        if (wrong) { await send(wrong); continue; }
+        if (deaf && !said && !refs.length) { await send(esc(deaf)); continue; }
+        const reply = await handleFinance(said, refs, log, extra);
         for (const f of got) for (const x of [f.path, ...(f.frames ?? [])].filter(Boolean)) { try { unlinkSync(join(ROOT, x)); } catch { /* sudah dihapus */ } } // privasi
         await send(esc(reply).replace(/\*\*(.+?)\*\*/g, '<b>$1</b>'));
       } catch (e) { log(`bot keuangan gagal: ${e.message}`); await send('Maaf Bos, ada error. Coba lagi ya 🙏').catch(() => {}); }

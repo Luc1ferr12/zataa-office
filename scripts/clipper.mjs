@@ -23,6 +23,7 @@ import { loadEnv } from './approval.mjs';
 import { chat } from './chatter.mjs';
 import { clipPost, postStatsMap } from './zernio.mjs';
 import { digest } from './media.mjs';
+import { addressedAgent, redirectText } from './bots.mjs';
 import { haiku, replyOf, OFFICE, ANSWER_ANY, ESCALATE } from './haiku.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -397,6 +398,8 @@ async function runBot() {
         } else {
           const dg = await digest(u.message, env().CLIPPER_BOT_TOKEN, 'clips'); // foto/video/link referensi (scripts/media.mjs)
           const t = dg.text;
+          const wrong = t && !t.startsWith('/') ? redirectText('clips', addressedAgent(t)) : null; // pegawai divisi lain dipanggil di bot Clips → arahkan
+          if (wrong) { await sayAs('cdir', wrong); continue; }
           if (/^\/(start|help)/.test(t)) await sayAs('cdir', 'Bot divisi Zaa Clips 🎬\n/campaign — cari & usulin campaign sekarang\n/status — laporan hari ini\n/jobs — antrean clip');
           else if (/^\/campaign/.test(t)) { const r = await propose(3); if (!r.sent) await sayAs('cdir', 'Belum ada campaign baru yang layak di data terakhir, Bos. Laptop baca ulang Clippo tiap pagi 07:30 (atau jalankan clipper-chrome.mjs scout di laptop).'); }
           else if (/^\/status/.test(t)) await sayAs('cpublish', report().replace(/^<b>Tasya<\/b>: /, ''));

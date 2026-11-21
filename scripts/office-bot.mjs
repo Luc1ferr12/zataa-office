@@ -77,7 +77,13 @@ export function handleUpdate(u, owner = String(env().TELEGRAM_CHAT_ID)) {
       const replied = rtext.includes('Usulan boost') || rtext.includes('Ide konten tambahan') || /harga di web berubah/i.test(rtext) ? null : rtext.match(/#(\d+)/);
       const id = planReply ? `plan:${planReply[1]}` : replied ? replied[1] : s.waiting;
       const isPlan = String(id || '').startsWith('plan:');
-      if (media.length && !txt) {
+      if ((m.voice || m.audio) && !txt) {
+        // voice note = perintah/catatan lisan → langsung diproses (ditranskrip di ask.mjs / watch.mjs revise), jangan minta diketik ulang
+        const photos = takePhotos();
+        if (isPlan) { push(String(id).slice(5), 'plan_revision', '(voice note, lihat transkrip di lampiran)', photos); s.waiting = null; out.text = '🎙️ Voice note revisi plan diterima, lagi didengerin.'; }
+        else if (id) { push(id, 'revision', '(voice note, lihat transkrip di lampiran)', photos); s.waiting = null; out.text = `🎙️ Voice note revisi #${id} diterima, lagi didengerin.`; }
+        else push(0, 'chat', '', photos);
+      } else if (media.length && !txt) {
         out.text = m.media_group_id && s.photos.length > 1 ? `📷 Lampiran ke-${s.photos.length} diterima.` : `📎 Lampiran diterima${id ? ` buat #${id}` : ''}. Sekarang ketik catatannya ya bos.`;
       } else if (txt && !txt.startsWith('/') && isPlan) {
         const photos = takePhotos();
@@ -160,7 +166,7 @@ if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1] && pro
   const O = '1', msg = (text, extra = {}) => ({ message: { chat: { id: 1 }, from: { id: 1 }, text, ...extra } });
   const cb = (data) => ({ callback_query: { id: 'q', from: { id: 1 }, message: { chat: { id: 1 } }, data } });
   const steps = [cb('ok:12'), cb('rev:13'), msg(undefined, { photo: [{ file_id: 'P1' }] }), msg('warnanya lebih gelap'), msg('bikinin jadwal MPL'),
-    msg('judulnya ganti', { reply_to_message: { text: 'Konten #14 siap' } }), cb('planrev:3'), msg('tambah 1 video'), cb('ideas:5-6'), cb('boost:2')];
+    msg('judulnya ganti', { reply_to_message: { text: 'Konten #14 siap' } }), cb('planrev:3'), msg('tambah 1 video'), cb('ideas:5-6'), cb('boost:2'), msg(undefined, { voice: { file_id: 'V1', duration: 6 } }), cb('rev:20'), msg(undefined, { voice: { file_id: 'V2' } })];
   for (const u of steps) console.log(handleUpdate(u, O).text ?? '(tanpa balasan)');
   console.log(JSON.stringify(pending().map(({ seq, id, action, note, photos }) => ({ seq, id, action, note, photos }))));
 }

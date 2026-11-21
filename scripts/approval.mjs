@@ -5,6 +5,7 @@
 //   node scripts/approval.mjs poll          tarik keputusan dari n8n → approved / rejected / revision
 //   node scripts/approval.mjs say "<teks>"  kirim pesan biasa ke Owner
 process.removeAllListeners('warning');
+import { homeOf, botReady, sayVia } from './bots.mjs';
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { readFile } from 'node:fs/promises';
 import { join, dirname, basename } from 'node:path';
@@ -109,7 +110,13 @@ export const NAMA = { dir: 'Andre', sec: 'Nabila', researcher: 'Salsa', copywrit
   sdir: 'Raditya', sresearch: 'Sekar', sscript: 'Dinda', svisual: 'Arga', svideo: 'Bima', spublish: 'Nayla',
   vdir: 'Reza', vresearch: 'Citra', vscript: 'Fajar', vvisual: 'Intan', vvideo: 'Kevin', vpublish: 'Putri',
   cdir: 'Hendra', cbrief: 'Maya', cedit: 'Rizky', ccopy: 'Wulan', cpublish: 'Tasya' };
-export const sayAs = (agent, text) => say(`<b>${NAMA[agent] ?? agent}</b>: ${text}`);
+// tiap pegawai ngomong di bot kamarnya sendiri (scripts/bots.mjs): Nabila → bot keuangan, Bagas → bot Zaa History, dst. Bot kamarnya belum diisi di .env → jatuh ke bot kantor.
+export const sayAs = async (agent, text) => {
+  const html = `<b>${NAMA[agent] ?? agent}</b>: ${text}`;
+  const home = homeOf(agent);
+  if (home !== 'office' && botReady(home)) return sayVia(home, html);
+  return say(html);
+};
 
 export const SLOT = { pagi: '10:00', siang: '12:00', sore: '16:00', malam: '19:00', petang: '21:00', kilat: 'langsung' }; // WIB; plan: siang (feed) & malam (video); ide briefing: pagi & petang (feed), sore (video)
 const slotLabel = (c) => (c.slot === 'kilat' ? 'langsung tayang' : `${SLOT[c.slot] ?? '?'} WIB`);
