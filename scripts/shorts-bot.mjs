@@ -17,7 +17,7 @@
 //   Semua perintah: tambah --brand=story untuk Zaa Story.
 //   node scripts/shorts-bot.mjs report [--dry]        laporan harian sekarang (otomatis tiap 19:00 WITA; --dry = cetak saja, tidak dikirim)
 //   node scripts/shorts-bot.mjs weekly [--dry]        laporan mingguan sekarang (otomatis Minggu 19:30 WITA)
-//   .env: SHORTS_OWNER_ID + per brand: History SHORTS_BOT_TOKEN / ZERNIO_HISTORY_API_KEY / YT_REFRESH_TOKEN · Story STORY_BOT_TOKEN / ZERNIO_STORY_API_KEY / STORY_YT_REFRESH_TOKEN
+//   .env: SHORTS_OWNER_ID + per brand: History SHORTS_BOT_TOKEN / ZERNIO_HISTORY_API_KEY · Story STORY_BOT_TOKEN / ZERNIO_STORY_API_KEY
 process.removeAllListeners('warning');
 import { join, dirname, basename } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -38,7 +38,7 @@ import { wita } from '../docs/js/schedule.js';
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const STATE = join(ROOT, B.state);
 const CH = B.channel, T = B.team;           // channel DB & id pegawai brand ini
-const BR = `--brand=${B.key}`;              // ikut diteruskan ke perintah anak (youtube.mjs, prompt Claude)
+const BR = `--brand=${B.key}`;              // ikut diteruskan ke perintah anak (prompt Claude)
 const OWN = Object.keys(PILLARS).filter((k) => PILLARS[k].brand === B.key).map((k) => `'${k}'`).join(', ');
 const DAYS = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
 const SLOT_WIB = '18:00'; // default; jam tayang per Shorts (hasil riset harian Kirana) di data_json._jam
