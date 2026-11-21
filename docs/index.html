@@ -52,10 +52,14 @@
           <strong>ZAA OFFICE</strong>
           <span>ESPORTS · SEJARAH · HOROR · MARVEL · CLIPS · TRADING</span>
         </div>
-        <div class="legend">
+        <div class="legend" id="legend">
+          <button type="button" class="legend-toggle" id="legend-toggle" aria-expanded="true" title="Sembunyikan/tampilkan legend">🗺️ Legend ▴</button>
+          <div class="legend-list">
           <span>Lt.4 🦸 Marvel Talk · 🎬 Zaa Clips · 🎙️ Studio</span><span>Lt.3 👔 Boss · 🗣️ Meeting · 🎱 Billiard · 🍿 Bioskop</span><span>Lt.2 🎬 YouTube · 👻 Story · 🎮 About Esports · 📈 Trading</span>
           <span>Lt.1 🕌 Mushola · ☕ Cafe · 🛋️ Santai</span><span>🌿 Taman &amp; Gazebo · 🏊 Kolam</span>
+          </div>
         </div>
+        <script>(function(){var l=document.getElementById("legend"),b=document.getElementById("legend-toggle");if(!l||!b)return;function s(h){l.classList.toggle("is-hidden",h);b.setAttribute("aria-expanded",!h);b.textContent=h?"🗺️ Legend ▾":"🗺️ Legend ▴";try{localStorage.setItem("legendHidden",h?"1":"0")}catch(e){}}var v=0;try{v=localStorage.getItem("legendHidden")==="1"}catch(e){}s(!!v);b.addEventListener("click",function(){s(!l.classList.contains("is-hidden"))})})();</script>
         <aside class="inspector" id="inspector" hidden>
           <button class="close" id="insp-close" aria-label="Tutup">×</button>
           <div class="insp-name" id="insp-name"></div>

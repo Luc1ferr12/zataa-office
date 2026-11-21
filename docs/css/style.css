@@ -227,7 +227,7 @@ main { padding: 20px 24px 40px; max-width: 1440px; margin: 0 auto; display: grid
 .px-labels > * { position: absolute; left: 0; top: 0; will-change: transform; }
 .px-labels > [hidden] { display: none; }
 .office-title {
-  position: absolute; top: 12px; left: 14px; z-index: 3; pointer-events: none; display: grid; gap: 2px;
+  position: absolute; bottom: 12px; left: 14px; z-index: 3; pointer-events: none; display: grid; gap: 2px;
   padding: 8px 12px 9px; border-radius: 6px; background: #12082bd9; border: 2px solid #7c3aed; box-shadow: 0 3px 0 #0009;
 }
 .office-title strong { font: 700 24px/1 'Pixelify Sans', Sora, sans-serif; letter-spacing: 0.06em; color: #fff; text-shadow: 2px 2px 0 #5b21b6; }
@@ -248,7 +248,11 @@ main { padding: 20px 24px 40px; max-width: 1440px; margin: 0 auto; display: grid
 .bubble:hover .b-act, .bubble.is-selected .b-act { max-width: 220px; }
 .bubble.is-selected { border-color: var(--brand-2); background: #2a1366ee; }
 
-.legend { position: absolute; left: 12px; bottom: 12px; right: 60px; display: flex; flex-wrap: wrap; gap: 6px; pointer-events: none; z-index: 3; }
+.legend { position: absolute; left: 12px; top: 12px; right: 300px; display: grid; justify-items: start; gap: 6px; pointer-events: none; z-index: 3; }
+.legend-toggle { pointer-events: auto; cursor: pointer; background: #160b34e6; color: #fff; border: 2px solid #7c3aed; border-radius: 6px; padding: 3px 10px; font: 600 12px 'Pixelify Sans', Sora, sans-serif; box-shadow: 0 2px 0 #0009; }
+.legend-toggle:hover { background: #2a1366; }
+.legend-list { display: flex; flex-wrap: wrap; gap: 6px; }
+.legend.is-hidden .legend-list { display: none; }
 .legend span { background: #120a26d9; border: 1px solid #ffffff1a; border-radius: 4px; padding: 2px 8px; font: 500 11.5px 'Pixelify Sans', Sora, sans-serif; display: flex; align-items: center; gap: 6px; }
 
 .inspector { z-index: 5; position: absolute; right: 12px; top: 12px; width: 270px; background: #150d2bf0; border: 1px solid var(--line); border-radius: 14px; padding: 14px; backdrop-filter: blur(8px); }
