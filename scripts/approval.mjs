@@ -133,6 +133,8 @@ export async function submit(id, { note = '', strict = false } = {}) {
   const check = ['youtube', 'story', 'marvel'].includes(c.channel) ? { errors: [], warnings: [] } : await qa(c);
   if (strict && check.errors.length) throw new Error(`QA Fikri belum lolos #${id}: ${check.errors.join(' · ')} (benerin dulu, atau --force kalau Owner yang minta)`);
   const qaNote = [...check.errors, ...check.warnings];
+  // konten dari sesi riset yang sudah di-ACC Owner (contents.auto): QA bersih → langsung 'approved' (tayang otomatis), Owner cuma dikabari. QA bermasalah → tetap minta ✅ Owner.
+  const auto = !!c.auto && !check.errors.length; // kolom contents.auto diisi `office.mjs content new '{...,"auto":1}'`
   const A = JSON.parse(c.asset_path);
   const abs = (p) => join(ROOT, p);
   const rev = c.revisions ? ` · revisi ke-${c.revisions}` : '';
@@ -153,7 +155,7 @@ export async function submit(id, { note = '', strict = false } = {}) {
   }
   // 2) detail + tombol
   const lines = [
-    head, `<b>${esc(c.title)}</b>`, `📍 Tayang di: ${targetLabel(c)} · ${slotLabel(c)} (otomatis setelah Approve)`, '',
+    head, `<b>${esc(c.title)}</b>`, auto ? `🚀 <b>Langsung tayang</b> di ${targetLabel(c)} (riset sudah di-ACC Bos, QA Fikri lolos)` : `📍 Tayang di: ${targetLabel(c)} · ${slotLabel(c)} (otomatis setelah Approve)`, '',
     note ? `🔁 <i>${esc(note)}</i>\n` : '',
     qaNote.length ? `🔎 <b>QA Fikri:</b> ${esc(qaNote.join(' · '))}\n` : '',
     // permintaan Owner: app TikTok sendiri belum diaudit → akun harus Private dulu sebelum Approve (tidak perlu kalau lewat Zernio)
@@ -161,17 +163,18 @@ export async function submit(id, { note = '', strict = false } = {}) {
     `<b>Caption:</b>\n${esc(c.caption ?? '-')}`,
     c.hashtags ? `\n${esc(c.hashtags)}` : '',
     c.sources ? `\n<b>Sumber:</b> ${esc(c.sources)}` : '',
-    '', 'Balas pesan ini atau tekan ✏️ Revisi lalu ketik catatannya.',
+    '', auto ? 'Kalau ada yang salah, kabari di chat ini — nanti dibenerin / dihapus manual.' : 'Balas pesan ini atau tekan ✏️ Revisi lalu ketik catatannya.',
   ].filter((l) => l !== '');
   let text = lines.join('\n');
   if (text.length > 4000) text = `${text.slice(0, 3990)}…`;
   await tg('sendMessage', {
     chat_id: chat, text, parse_mode: 'HTML', disable_web_page_preview: true,
-    reply_markup: { inline_keyboard: [[{ text: '✅ Approve', callback_data: `ok:${c.id}` }, { text: '✏️ Revisi', callback_data: `rev:${c.id}` }, { text: '❌ Tolak', callback_data: `no:${c.id}` }]] },
+    ...(auto ? {} : { reply_markup: { inline_keyboard: [[{ text: '✅ Approve', callback_data: `ok:${c.id}` }, { text: '✏️ Revisi', callback_data: `rev:${c.id}` }, { text: '❌ Tolak', callback_data: `no:${c.id}` }]] } }),
   });
-  d.prepare("UPDATE contents SET status = 'pending_approval', updated_at = datetime('now') WHERE id = ?").run(c.id);
-  d.prepare('INSERT INTO activity (agent_id, message) VALUES (?, ?)').run('publisher', `Kirim #${c.id} ke Owner buat approval${rev}`);
-  return { ok: true, id: c.id, status: 'pending_approval' };
+  const st = auto ? 'approved' : 'pending_approval';
+  d.prepare("UPDATE contents SET status = ?, updated_at = datetime('now') WHERE id = ?").run(st, c.id);
+  d.prepare('INSERT INTO activity (agent_id, message) VALUES (?, ?)').run('publisher', auto ? `#${c.id} lolos QA & langsung dijadwalkan tayang (riset di-ACC Owner)` : `Kirim #${c.id} ke Owner buat approval${rev}`);
+  return { ok: true, id: c.id, status: st };
 }
 
 // ---------- plan mingguan (Senin) → ✅ / ✏️ Owner
@@ -199,7 +202,8 @@ export async function submitPlan() {
 
 // ---------- ide briefing pagi (Selasa–Minggu): 3 ide pilihan Andre (2 feed + 1 video) → Owner ✅ sebagian/semua atau ❌ semua (→ ronde ide baru)
 // slot ide: feed pertama pagi 10:00, video sore 16:00, feed kedua petang 21:00 WIB (konten plan: feed siang 12:00, video malam 19:00)
-export const ideaSlots = (ideas) => { let f = 0; return ideas.map((x) => (x.format === 'video' ? 'sore' : f++ === 0 ? 'pagi' : 'petang')); };
+export const ideaSlots = (ideas) => { let f = 0; return ideas.map((x) => (x.sesi ? 'kilat' : x.format === 'video' ? 'sore' : f++ === 0 ? 'pagi' : 'petang')); }; // ide dari sesi riset (22 Nov 2026) = langsung tayang begitu jadi
+const SESI = { pagi: '🌅 pagi', siang: '☀️ siang', sore: '🌇 sore', malam: '🌙 malam' };
 export async function submitIdeas() {
   const d = await db();
   const today = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Makassar' }).format(new Date());
@@ -208,7 +212,12 @@ export async function submitIdeas() {
   if (!ideas.length) throw new Error('belum ada ide yang dipilih ronde ini (office.mjs idea pick <id1> <id2> <id3>)');
   const round = Math.ceil(d.prepare('SELECT COUNT(*) n FROM ideas WHERE day = ? AND chosen = 1').get(today).n / 3); // tiap ronde Andre pilih 3
   const slots = ideaSlots(ideas);
-  const text = [`💡 <b>Ide konten tambahan hari ini</b>${round > 1 ? ` (ronde ${round}, ide baru)` : ''} · dipilih Andre`, '',
+  const sesi = ideas.every((x) => x.sesi) ? ideas[0].sesi : null; // sesi riset About Esports: berita hangat → ✅ → dibuat → LANGSUNG tayang (tanpa approval kedua)
+  const text = sesi
+    ? [`🔎 <b>Riset sesi ${SESI[sesi] ?? sesi}</b> · berita hangat dari Salsa, dipilih Andre`, '',
+      ...ideas.map((x, i) => `<b>${i + 1}.</b> ${x.format === 'video' ? '🎬 video' : '🖼️ feed'} · ${esc(x.game ?? '')}\n<b>${esc(x.title)}</b>\n${esc(x.concept ?? '')}${x.sources ? `\n🔗 ${esc(String(x.sources).split(/\s+/).slice(0, 3).join(' '))}` : ''}`), '',
+      'Tekan ✅ yang mau dibikin → tim langsung bikin & <b>otomatis tayang</b> begitu jadi (QA Fikri tetap jalan, kalau ada temuan masalah balik ke Bos dulu). ❌ Tolak semua = tunggu sesi riset berikutnya.'].join('\n')
+    : [`💡 <b>Ide konten tambahan hari ini</b>${round > 1 ? ` (ronde ${round}, ide baru)` : ''} · dipilih Andre`, '',
     ...ideas.map((x, i) => `<b>Ide ${i + 1}</b> · ${x.format === 'video' ? '🎬 video' : '🖼️ feed'} · dari ${NAMA[x.agent_id] ?? x.agent_id} · tayang ${SLOT[slots[i]]} WIB\n<b>${esc(x.title)}</b>\n${esc(x.concept ?? '')}`), '',
     'Pilih yang mau dibikin (boleh 1, 2, atau semua). ❌ Tolak semua = tim cari ide baru & Andre kirim lagi.'].join('\n');
   const ids = ideas.map((x) => x.id);
@@ -255,12 +264,12 @@ async function applyDecisions(fresh, setAck) {
     if (x.action === 'idea_approve') {
       const ids = String(x.note || x.id).split(',').map(Number).filter(Boolean);
       for (const id of ids) d.prepare("UPDATE ideas SET status = 'approved' WHERE id = ?").run(id);
-      d.prepare(`UPDATE ideas SET status = 'skipped' WHERE status = 'proposed' AND day = (SELECT day FROM ideas WHERE id = ?)`).run(ids[0] ?? 0);
+      d.prepare(`UPDATE ideas SET status = 'skipped' WHERE status = 'proposed' AND day = (SELECT day FROM ideas WHERE id = ?) AND COALESCE(sesi, '') = COALESCE((SELECT sesi FROM ideas WHERE id = ?), '')`).run(ids[0] ?? 0, ids[0] ?? 0);
       log(`Approve ${ids.length} ide konten tambahan 💡`); continue;
     }
     if (x.action === 'idea_skip') {
-      const no = d.prepare("SELECT title FROM ideas WHERE status = 'proposed' AND day = (SELECT day FROM ideas WHERE id = ?)").all(x.id).map((r) => r.title);
-      d.prepare("UPDATE ideas SET status = 'skipped' WHERE status = 'proposed' AND day = (SELECT day FROM ideas WHERE id = ?)").run(x.id);
+      const no = d.prepare("SELECT title FROM ideas WHERE status = 'proposed' AND day = (SELECT day FROM ideas WHERE id = ?) AND COALESCE(sesi, '') = COALESCE((SELECT sesi FROM ideas WHERE id = ?), '')").all(x.id, x.id).map((r) => r.title);
+      d.prepare("UPDATE ideas SET status = 'skipped' WHERE status = 'proposed' AND day = (SELECT day FROM ideas WHERE id = ?) AND COALESCE(sesi, '') = COALESCE((SELECT sesi FROM ideas WHERE id = ?), '')").run(x.id, x.id);
       if (no.length) lesson(d, ['dir'], `❌ semua ide ditolak: ${no.join(' | ')}`);
       log('Skip ide tambahan hari ini'); continue;
     }

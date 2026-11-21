@@ -37,6 +37,7 @@ import { rosterTick } from './roster.mjs';
 import { engageTick } from './engage.mjs';
 import { remindTick } from './approval-remind.mjs';
 import { socialsTick } from './socials.mjs';
+import { learnTick } from './learn.mjs';
 import { priceTick, storeOn } from './price.mjs';
 import { limitsTick } from './limits.mjs';
 import { laptopFallback } from './laptop-fallback.mjs';
@@ -222,6 +223,8 @@ async function staff() {
     if (l) log(`limit claude: ${JSON.stringify(l)}`);
     const so = await socialsTick().catch((e) => { log(`analytics sosmed gagal: ${e.message}`); beat('socials', false, e.message); });
     if (so) { log(`analytics sosmed: ${JSON.stringify(so)}`); beat('socials', true, 'data akun ketarik'); }
+    const lr = await learnTick(log).catch((e) => log(`loop belajar gagal: ${e.message}`)); // views per video → eksperimen → laporan belajar Minggu
+    if (lr) log(`belajar: ${JSON.stringify(lr).slice(0, 300)}`);
     if (a || p) exportState();
   } catch (e) { log(`raka/budi gagal: ${e.message}`); beat('analyst', false, e.message); }
   crunching = false;

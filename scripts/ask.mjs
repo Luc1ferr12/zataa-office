@@ -306,13 +306,23 @@ export async function handleDecision(x, log = console.log) {
     chat(d, 'dir', null, `Bos ACC ${rows.length} ide tambahan! ${rows.map((r) => `"${r.title}"`).join(' & ')} 🎉`, 'oper');
     await sayAs('dir', `Siap Bos, ${rows.length} ide di-ACC: ${rows.map((r) => `${r.format === 'video' ? '🎬' : '🖼️'} ${esc(r.title)} (${SLOT[r.slot] ?? '?'} WIB)`).join(', ')}. Tim langsung produksi 🔥`).catch(() => {});
     const list = rows.map((r) => `- idea id ${r.id}: ${r.format === 'video' ? 'VIDEO' : 'FEED'} "${r.title}" — ${r.concept ?? ''} (dari ${r.agent_id}${r.game ? `, game ${r.game}` : ''}${r.pillar ? `, pilar ${r.pillar}` : ''}) → format "${r.format === 'video' ? 'video' : 'feed'}", slot "${r.slot ?? (r.format === 'video' ? 'sore' : 'pagi')}"`).join('\n');
+    if (rows.every((r) => r.sesi)) { // dari sesi riset (22 Nov 2026): dibuat → QA → TAYANG LANGSUNG, tanpa approval kedua
+      return team(`Owner APPROVE berita hangat hasil sesi riset ${rows[0].sesi}:\n` + rows.map((r) => `- idea id ${r.id}: ${r.format === 'video' ? 'VIDEO' : 'FEED'} "${r.title}" — ${r.concept ?? ''} (game ${r.game ?? '-'}, sumber: ${r.sources ?? '-'})`).join('\n'),
+        'Untuk tiap ide, SEKARANG juga (berita cepat basi): node scripts/office.mjs content new \'{"format":"<feed|video>","slot":"kilat","auto":1,"game":"...","pillar":"news","title":"..."}\' (auto:1 WAJIB = tayang otomatis setelah QA lolos). Tiara isi teks + sources (>=2 sumber, rumor ditulis rumor; nol promo/harga/top up). Vania render feed / Dimas render video (node scripts/render.mjs <id>). Fikri jalankan node scripts/approval.mjs submit <id>: QA lolos → otomatis tayang & Owner dikabari (video bersuara OmniVoice dirender & disubmit laptop). Catat: node scripts/office.mjs idea done <idea_id> <content_id>. Jangan tunggu approval kedua.', log);
+    }
     return team('Owner APPROVE ide konten tambahan hasil briefing pagi:\n' + list,
       'Untuk tiap ide: buat konten baru (node scripts/office.mjs content new \'{"format":"<format>","slot":"<slot>","game":"...","pillar":"...","title":"..."}\'), Tiara isi teks, Vania render feed / Dimas render video (node scripts/render.mjs <id>), Fikri QA lalu node scripts/approval.mjs submit <id> (video bersuara OmniVoice otomatis dirender & dikirim laptop), dan catat: node scripts/office.mjs idea done <idea_id> <content_id>.', log);
   }
   if (x.action === 'idea_skip') { // Owner ❌ semua ide → ronde baru: semua pegawai marketing cari ide lagi, Andre pilih 3, kirim ulang
     const day = d.prepare('SELECT day FROM ideas WHERE id = ?').get(x.id)?.day;
     if (!day) return false;
-    const old = d.prepare("SELECT title, format FROM ideas WHERE day = ? ORDER BY id").all(day);
+    const sesiRow = d.prepare('SELECT sesi FROM ideas WHERE id = ?').get(x.id);
+    if (sesiRow?.sesi) { // sesi riset ditolak semua → tidak ada ronde ulang, tunggu sesi riset berikutnya (4×/hari) dengan berita lebih baru
+      d.prepare("UPDATE ideas SET status = 'skipped' WHERE day = ? AND sesi = ? AND status IN ('pitched', 'proposed')").run(day, sesiRow.sesi);
+      await sayAs('dir', `Siap Bos, riset sesi ${sesiRow.sesi} ditolak semua. Aku catat biar nggak diulang, sesi riset berikutnya cari berita yang lebih hangat 🙏`).catch(() => {});
+      return true;
+    }
+    const old =d.prepare("SELECT title, format FROM ideas WHERE day = ? ORDER BY id").all(day);
     d.prepare("UPDATE ideas SET status = 'skipped' WHERE day = ? AND status = 'pitched'").run(day); // ide ronde lama yang nggak kepilih nggak boleh diajukan lagi
     const round = Math.ceil(d.prepare('SELECT COUNT(*) n FROM ideas WHERE day = ? AND chosen = 1').get(day).n / 3);
     if (round >= MAX_IDEA_ROUNDS) {

@@ -32,6 +32,7 @@ import { tdb, getTopic, checkQuota, syncTopic, weekStats, WEEK_TOTAL, CORE, CORE
 import { B, cliArgs } from './brand.mjs';
 import { claude, formatReply, ESCALATE, isStatusQuestion } from './ask.mjs';
 import { haiku, OFFICE, ANSWER_ANY } from './haiku.mjs';
+import { annotate } from './learn-core.mjs';
 import { digest } from './media.mjs';
 import { wita } from '../docs/js/schedule.js';
 
@@ -119,13 +120,15 @@ export async function newShort(p) {
     if (topic.status !== 'approved') throw new Error(`topik ${p.topic_id} statusnya ${topic.status}, harus approved dulu`);
     checkQuota(d, day, topic.pillar);
   }
-  const data = { tag: B.tag, ...p.spec, ...(p.tags ? { tags: p.tags } : {}), ...(p.synthetic ? { synthetic: true } : {}), ...(p.test ? { _test: 1 } : {}), ...(p.jam ? { _jam: p.jam } : {}), ...(topic ? { _topic: topic.topic_id } : {}), _laptop: 1 };
+  // Fase 1/2/4 (learn-core.mjs): eksperimen mingguan memasang varian (suara/kecepatan/mood/jam), gerak visual diacak, atribut video dicatat buat dianalisis
+  const ann = annotate(d, B.key, p, day);
+  const data = { tag: B.tag, ...ann.spec, ...(p.tags ? { tags: p.tags } : {}), ...(p.synthetic ? { synthetic: true } : {}), ...(p.test ? { _test: 1 } : {}), ...(ann.jam ? { _jam: ann.jam } : {}), ...(topic ? { _topic: topic.topic_id } : {}), ...ann.meta, _laptop: 1 };
   const r = d.prepare("INSERT INTO contents (channel, day, slot, format, game, pillar, title, data_json, caption, hashtags, sources, template) VALUES (?, ?, 'shorts', 'shorts', 'sejarah', ?, ?, ?, ?, ?, ?, 'shorts')")
     .run(CH, day, topic?.pillar ?? 'misteri', String(p.title).slice(0, 100), JSON.stringify(data), p.caption ?? '', p.hashtags ?? B.hashtags, p.sources ?? null);
   const id = Number(r.lastInsertRowid);
   if (topic) syncTopic(d, topic.topic_id, 'production', { contentId: id });
   act(d, T.video, `Shorts #${id} "${p.title}" masuk antrean render laptop (OmniVoice)`);
-  return { ok: true, id, topic_id: topic?.topic_id ?? null, queued: 'laptop' };
+  return { ok: true, id, topic_id: topic?.topic_id ?? null, queued: 'laptop', ...(ann.meta._exp ? { eksperimen: ann.meta._exp } : {}), ...(ann.notes.length ? { catatan: ann.notes } : {}) };
 }
 
 export async function queue(id) {

@@ -1,7 +1,7 @@
 # Zaa Office — handbook
 
 Kantor virtual **Zaa Office** (dulu Zataa, ganti nama 15 Nov 2026): divisi **About Esports** (eks Marketing, media esports IG/TikTok), **Zaa History**, **Zaa Story**, Trading.
-**Web top up zataa.my.id DIMATIKAN Owner (15 Nov 2026)** → About Esports nol promo/top up/harga/zataa.my.id; Budi libur. Nyalain lagi: `.env` `STORE_ON=1` (Budi jalan, QA balik wajib CTA toko). Handle/akun/bot/env/service lama (`zataa*`) tetap, cuma nama tampilan yang ganti. Claude memerankan semua pegawai secara berurutan dalam satu sesi per hari. Owner (user) approve tiap konten via Telegram sebelum publish.
+**Web top up zataa.my.id DIMATIKAN Owner (15 Nov 2026)** → About Esports nol promo/top up/harga/zataa.my.id; Budi libur. Nyalain lagi: `.env` `STORE_ON=1` (Budi jalan, QA balik wajib CTA toko). Handle/akun/bot/env/service lama (`zataa*`) tetap, cuma nama tampilan yang ganti. Claude memerankan semua pegawai secara berurutan: sesi Shorts 1× pagi + **About Esports 4 sesi riset/hari** (pagi 07:00, siang 12:00, sore 16:00, malam 20:00 WITA, sejak 22 Nov 2026). Owner approve via Telegram/web: Shorts = tiap video; About Esports = **hasil riset tiap sesi** (✅ → konten dibuat → lolos QA langsung tayang tanpa approval kedua).
 
 ## Aturan hemat token (wajib)
 - Jangan baca file besar/riwayat. Konteks per pegawai cukup dari `node scripts/office.mjs brief <agent>`.
@@ -13,7 +13,7 @@ Kantor virtual **Zaa Office** (dulu Zataa, ganti nama 15 Nov 2026): divisi **Abo
 ## Pegawai (`agent id`)
 | id | Nama | Tugas |
 |---|---|---|
-| dir | Andre | Director About Esports (santai tapi tegas). Senin: plan mingguan (`office.mjs campaign plan.json`). Minggu: evaluasi + ide minggu depan |
+| dir | Andre | Director About Esports (santai tapi tegas). Pilih 1–3 berita hangat tiap sesi riset (tanpa plan mingguan sejak 22 Nov 2026). Minggu: evaluasi + ide minggu depan |
 | sec | Nabila | Sekretaris pribadi Owner: catat keuangan pribadi Owner lewat bot Telegram sendiri @zataaaccountingbot ke Google Sheet (`scripts/finance-bot.mjs` + `finance.mjs`, haiku, data TIDAK masuk DB/web). Meja sendiri di ruang Bos |
 | researcher | Salsa | Tren & berita ML / Valorant / Free Fire, turnamen, transfer pemain, update patch |
 | copywriter | Tiara | Headline, isi template, caption, hashtag, CTA |
@@ -92,16 +92,17 @@ Bot **chit-chat** (`scripts/chitchat-bot.mjs`, di watcher, `CHITCHAT_BOT_TOKEN`)
 **Lampiran (16 Nov 2026):** ke-8 bot bisa baca foto, video (6 frame, ffmpeg-static), PDF/dokumen & link (web: isi ringkas; YouTube/TikTok/IG: judul+deskripsi+thumbnail via `yt-dlp`) lewat `scripts/media.mjs` (`digest(m, token, bot)` → catatan prompt), tetap sesuai kamar bot-nya. Bot kantor (About Esports) sejak 16 Nov 2026 **tanpa n8n**: long polling langsung di watcher (`scripts/office-bot.mjs`, `OFFICE_BOT_DIRECT=1`; antrean keputusan `tmp/office-bot.json` → `approval.mjs poll()`). File di `tmp/telegram/<bot>/`, dihapus >3 hari (Nabila langsung dihapus).
 Semua bot (About Esports, Shorts, Trading, Nabila) jawab pertama pakai **Haiku** (`scripts/haiku.mjs`): pertanyaan apa pun dijawab langsung (data kantor read-only), cuma perintah kerja yang dioper ke model utama / bot divisinya. ❌/✏️ Owner otomatis jadi `owner_feedback` di `office.mjs brief`. Pesan bebas Owner di Telegram dikerjakan watcher lewat `scripts/ask.mjs`: "lagi pada ngapain" dijawab tanpa AI; tugas lain dijalankan Claude CLI. Konten dadakan: `office.mjs content new '<json>'` (slot `kilat` = tayang begitu approved). Owner bilang "langsung post" = approval. Tugas pantau: `office.mjs followup <menit> "<konteks>"` (maks 16×/hari).
 
+## Loop belajar Shorts (22 Nov 2026, `scripts/learn-core.mjs` + `learn.mjs`)
+Tiap video Shorts dicatat atributnya (tipe hook, panjang, suara, kecepatan, mood, jam, pilar) dan angka views/likes/retensi ditarik dari Zernio tiap ±6 jam ke tabel `video_stats`. **Satu variabel eksperimen per minggu per brand** (hook · jam · suara · panjang · kecepatan · mood, bergilir): varian voice/speed/mood/jam dipasang otomatis oleh `shorts-bot.mjs new`; pemenang (≥3 video per varian, lift ≥25%) otomatis terkunci jadi default. `office.mjs brief <agent tim Shorts>` memuat blok `belajar` (TERBAIK vs TERBURUK + pola + eksperimen), laporan belajar Minggu 19:45 WITA di bot tiap brand. `node scripts/learn.mjs exp|report|collect|decide`.
+
 ## Server (VPS)
 Kantor jalan di VPS (`~/zataa-office`, watcher = service `zataa-watcher`, cron sesi harian + backup DB: `scripts/vps/`). DB & `.env` asli hanya di VPS.
 Kalau sesi ini jalan di laptop (Windows): jangan nyalain watcher lokal; ubah kode → commit + push → selesai: watcher VPS `git pull` tiap 10 menit, lalu `scripts/reload.mjs` (lewat `office.mjs export`) restart sendiri watcher & trading yang masih pakai kode lama. Mau langsung: `ssh zataa-vps "cd ~/zataa-office && git pull && sudo systemctl restart zataa-watcher zataa-trading"` (port 22 kadang diblok jaringan laptop → pakai `ssh zataa-vps-443`, sshd VPS juga dengar di 443; `laptop-worker.mjs` fallback otomatis & kabari Owner di Telegram kalau dua-duanya gagal ≥20 menit).
 
 ## Ritme kerja
 - Kantor jalan **24 jam** (VPS), nggak ada yang pulang/tidur: di luar jam kerja tiap pegawai aktivitas acak (`docs/js/schedule.js`); tugas dadakan Owner → langsung ke meja. Divisi yang nunggu ✅ Owner → manajernya duduk nunggu di depan ruang Bos sampai di-approve. Sesi kerja Claude otomatis 07:00 WITA, SOP lengkap: `office/daily.md`.
-- **Senin 07:00–08:00**: rapat plan mingguan → `approval.mjs plan` → produksi baru jalan setelah Owner ✅ plan.
-- **Selasa–Minggu**: 07:00–08:00 riset masing-masing, 08:00–08:30 briefing (tiap pegawai marketing 1 ide tambahan feed/video, Andre pilih **3: 2 feed + 1 video** → `approval.mjs ideas`; Owner ✅ 1/2/3 ide atau ❌ semua → tim langsung cari ide baru, Andre pilih 3 lagi & kirim ulang, maks 3 ronde/hari), lalu produksi konten terjadwal.
-- Plan: **tiap hari 1 feed + 1 video** (mulai 19 Okt 2026).
-- Slot WIB (jam tayang ikut zona mayoritas audiens): plan `siang` 12:00 (feed) & `malam` 19:00 (video); ide tambahan yang di-✅: `pagi` 10:00 (feed), `sore` 16:00 (video), `petang` 21:00 (feed); `kilat` = langsung setelah approve.
+- **About Esports = 4 sesi riset/hari** (pagi 07:00 · siang 12:00 · sore 16:00 · malam 20:00 WITA, `office/daily.md` §1): Salsa riset berita hangat → Andre pilih 1–3 → `approval.mjs ideas` (Telegram + web) → Owner ✅ → konten dibuat slot `kilat` dengan `auto:1` → QA Fikri lolos = langsung tayang (QA gagal = minta ✅ Owner). ❌ semua = tunggu sesi berikut. Tidak ada plan mingguan & briefing ide pagi lagi.
+- Slot WIB lama (`pagi` 10:00, `siang` 12:00, `sore` 16:00, `malam` 19:00, `petang` 21:00) hanya untuk konten lama; konten sesi riset pakai `kilat`.
 - Mix konten mingguan About Esports: ~60% berita/esport (hasil, jadwal, turnamen, transfer, patch), ~40% tips/engagement (kuis, polling, prediksi, meme aman), game lain di luar ML/Valorant/FF maksimal 1×/minggu. Pilar `promo`, template `promo` & gaya video `flash` nggak dipakai selama toko mati.
 
 ## Aturan konten
