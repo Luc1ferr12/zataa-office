@@ -9,7 +9,7 @@ export const BRAND_KEY = arg ? arg.slice(8) : process.env.SHORTS_BRAND || 'histo
 export const BRANDS = {
   history: {
     key: 'history', name: 'Zaa History', channel: 'youtube', niche: 'sejarah misteri kuno dunia + mitologi Yunani',
-    bot: '@zataashortbot', tokenEnv: 'SHORTS_BOT_TOKEN', zernioEnv: 'ZERNIO_API_KEY', zernioAcct: 'ZERNIO', ytTokenEnv: 'YT_REFRESH_TOKEN', ytClientEnv: 'YT_CLIENT_ID', ytSecretEnv: 'YT_CLIENT_SECRET', tiktok: true, tiktokEnv: 'ZERNIO_HISTORY_API_KEY', tiktokAcct: 'ZERNIO_HISTORY', ttTags: ['#sejarah', '#misteri', '#fyp'], ttBackfill: '10:00', ttStart: '2026-11-16', // TikTok @zaa.history = Zernio akun terpisah dari YouTube (akun 1)
+    bot: '@zataashortbot', tokenEnv: 'SHORTS_BOT_TOKEN', zernioEnv: 'ZERNIO_HISTORY_API_KEY', zernioAcct: 'ZERNIO_HISTORY', ytTokenEnv: 'YT_REFRESH_TOKEN', ytClientEnv: 'YT_CLIENT_ID', ytSecretEnv: 'YT_CLIENT_SECRET', tiktok: true, ttTags: ['#sejarah', '#misteri', '#fyp'], ttBackfill: '10:00', ttStart: '2026-11-16', // 21 Nov 2026: satu login Zernio History (YouTube + TikTok @zaa.history)
    
     sop: 'office/youtube.md', state: 'tmp/shorts-bot.json', hashtags: '#Shorts #sejarah #misteri', tag: 'MISTERI KUNO',
     team: { dir: 'ydir', research: 'yresearch', script: 'yscript', visual: 'yvisual', video: 'yvideo', publish: 'ypublish' },

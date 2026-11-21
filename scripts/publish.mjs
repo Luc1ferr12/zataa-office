@@ -236,8 +236,8 @@ export async function publishOne(id) {
   }
   if (want.includes('tiktok')) {
     try {
-      if (zernioOn()) { // lewat Zernio: langsung Publik. About Esports WAJIB akun 1 (TikTok zataa.topup), bukan TikTok Zaa History
-        const r = await tiktokPost(join(ROOT, A.video), caption, `tt-${c.id}`, null, loadEnv().ZERNIO_ESPORTS_API_KEY ? { keyEnv: 'ZERNIO_ESPORTS_API_KEY', prefix: 'ZERNIO_ESPORTS' } : { keyEnv: 'ZERNIO_API_KEY', prefix: 'ZERNIO' });
+      if (zernioOn()) { // lewat Zernio: langsung Publik. About Esports WAJIB login Zernio sendiri (ZERNIO_ESPORTS_API_KEY)
+        const r = await tiktokPost(join(ROOT, A.video), caption, `tt-${c.id}`, null, { keyEnv: 'ZERNIO_ESPORTS_API_KEY', prefix: 'ZERNIO_ESPORTS' });
         d.prepare('UPDATE contents SET tiktok_id = ? WHERE id = ?').run(String(r.id), c.id);
         done.push('TikTok');
       } else {

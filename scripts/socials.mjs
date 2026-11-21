@@ -62,7 +62,7 @@ async function instagram() {
 }
 
 // ---------- TikTok (Zernio analytics, termasuk post yang di-upload manual)
-async function tiktok(keyEnv = 'ZERNIO_API_KEY', fallback = 'zataa.topup', platform = 'tiktok') {
+async function tiktok(keyEnv = 'ZERNIO_ESPORTS_API_KEY', fallback = 'zataa.topup', platform = 'tiktok') {
   if (!env()[keyEnv]) throw new Error(`${keyEnv} belum ada`);
   const from = new Date(Date.now() - 365 * 86400_000).toISOString().slice(0, 10);
   const posts = [];
@@ -87,7 +87,7 @@ async function tiktok(keyEnv = 'ZERNIO_API_KEY', fallback = 'zataa.topup', platf
 const ytStats = (brand = 'history') => new Promise((ok, no) => execFile(process.execPath, [join(ROOT, 'scripts', 'youtube.mjs'), 'stats', `--brand=${brand}`], { cwd: ROOT, timeout: 120_000, maxBuffer: 1 << 23 },
   (e, so, se) => { if (e) { const l = String(se || e.message).trim().split('\n'); return no(new Error((l.find((x) => /Error:/.test(x)) ?? l.pop()).replace(/^.*?Error: /, ''))); } try { ok(JSON.parse(String(so).trim().split('\n').pop())); } catch (x) { no(x); } }));
 // cadangan kalau OAuth Google gagal (mis. token menunjuk akun tanpa channel): statistik YouTube lewat Zernio /analytics akun brand itu
-const YT_ZERNIO_KEY = { esports: 'ZERNIO_ESPORTS_API_KEY', history: 'ZERNIO_API_KEY', story: 'ZERNIO_STORY_API_KEY', marvel: 'ZERNIO_MARVEL_API_KEY' };
+const YT_ZERNIO_KEY = { esports: 'ZERNIO_ESPORTS_API_KEY', history: 'ZERNIO_HISTORY_API_KEY', story: 'ZERNIO_STORY_API_KEY', marvel: 'ZERNIO_MARVEL_API_KEY' };
 async function ytStatsZernio(brand) {
   const keyEnv = YT_ZERNIO_KEY[brand];
   if (!keyEnv || !env()[keyEnv]) throw new Error(`${keyEnv ?? 'kunci Zernio'} belum ada`);
@@ -149,7 +149,6 @@ export async function collect() {
     ['marvel_youtube', () => youtube('marvel')], ['marvel_tiktok', () => tiktok('ZERNIO_MARVEL_API_KEY', '')], ['clip_tiktok', () => tiktok('ZERNIO_CLIP_API_KEY', '')], ['history_tiktok', () => tiktok('ZERNIO_HISTORY_API_KEY', '')], ['clip_instagram', () => tiktok('ZERNIO_CLIP_API_KEY', '', 'instagram')]];
   for (const [k, fn] of KEYS) {
     if ((k === 'instagram' && !env().IG_ACCESS_TOKEN) || (k === 'esports_youtube' && !env().ZERNIO_ESPORTS_API_KEY)) continue; // IG About Esports dijeda (susah views); YouTube baru ada kalau key Zernio About Esports diisi
-    if (k === 'history_tiktok' && !env().ZERNIO_HISTORY_API_KEY) continue; // opsional: TikTok Zaa History belum disambungkan
     try { out[k] = await fn(); all[k] = out[k].list; delete out[k].list; } catch (e) { out[k] = { error: e.message.slice(0, 160) }; }
   }
   await record('tiktok', 'tiktok_id', all.tiktok ?? []).catch(() => {});

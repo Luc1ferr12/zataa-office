@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 // Upload TikTok & YouTube lewat Zernio (zernio.com, app-nya sudah lolos audit → langsung Publik). IG tetap lewat publish.mjs.
-// Aktif kalau ZERNIO_API_KEY ada di .env (VPS). Tanpa AI → 0 token.
-// About Esports: ZERNIO_ESPORTS_API_KEY (TikTok esports.news12 + YouTube aboutesports). Dua akun lain: akun 1 (ZERNIO_API_KEY) = TikTok zataa.topup + YouTube Zaa History; akun 2 (ZERNIO_STORY_API_KEY) = TikTok + YouTube Zaa Story.
+// Tanpa AI → 0 token. Satu login Zernio per divisi (21 Nov 2026), masing-masing TikTok + YouTube:
+//   ZERNIO_ESPORTS_API_KEY About Esports · ZERNIO_HISTORY_API_KEY Zaa History · ZERNIO_STORY_API_KEY Zaa Story · ZERNIO_MARVEL_API_KEY Marvel Talk · ZERNIO_CLIP_API_KEY Zaa Clips
+//   Id akun tetap opsional: <PREFIX>_<PLATFORM>_ACCOUNT (mis. ZERNIO_STORY_TIKTOK_ACCOUNT); kosong = akun aktif pertama di login itu.
 // Key default ikut brand proses (--brand=story → akun 2); socials.mjs bisa pilih lewat opsi keyEnv.
 //   node scripts/zernio.mjs accounts                         cek key + akun yang terhubung
 //   node scripts/zernio.mjs youtube <video.mp4> <meta.json>  upload Shorts publik (meta: title, description, tags, synthetic) → JSON {id,url,privacy}
@@ -19,7 +20,7 @@ const API = 'https://zernio.com/api/v1';
 const env = () => ({ ...loadEnv(), ...process.env });
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 export const zernioOn = () => !!env()[B.zernioEnv];
-// TikTok brand: History pakai login Zernio sendiri (tiktokEnv), Story/Marvel satu login dengan YouTube-nya
+// TikTok brand: satu login dengan YouTube-nya (B.tiktokEnv opsional kalau suatu saat dipisah)
 export const tiktokEnv = () => B.tiktokEnv ?? B.zernioEnv;
 export const tiktokOn = () => !!env()[tiktokEnv()];
 
@@ -36,7 +37,7 @@ export async function api(path, { method = 'GET', body, headers = {}, keyEnv = B
 }
 
 // akun per platform: id tetap dari .env kalau diisi (lihat di bawah), kalau tidak ambil akun aktif pertama di login Zernio itu
-async function accountId(platform, keyEnv = B.zernioEnv, prefix = B.zernioAcct ?? 'ZERNIO') {
+async function accountId(platform, keyEnv = B.zernioEnv, prefix = B.zernioAcct) {
   // kunci akun per Zernio login: akun 1 ZERNIO_<PLATFORM>_ACCOUNT, akun 2 (Story) ZERNIO_STORY_…, akun 3 (Marvel) ZERNIO_MARVEL_… — jangan sampai id akun 1 dipakai di akun lain
   const fixed = env()[`${prefix}_${platform.toUpperCase()}_ACCOUNT`];
   if (fixed) return fixed;
@@ -109,7 +110,7 @@ export async function postStatsMap(platform, keyEnv = 'ZERNIO_CLIP_API_KEY', day
 }
 
 // account: id akun Zernio tertentu (mis. TikTok Zaa Story), kosong = akun TikTok default (zataa.topup)
-// opts {keyEnv, prefix}: paksa login Zernio tertentu (About Esports → ZERNIO_API_KEY/ZERNIO); tanpa opts ikut brand Shorts proses ini
+// opts {keyEnv, prefix}: paksa login Zernio tertentu (About Esports → ZERNIO_ESPORTS_API_KEY/ZERNIO_ESPORTS); tanpa opts ikut brand Shorts proses ini
 export async function tiktokPost(file, caption, key, account = null, opts = {}) {
   const r = await post('tiktok', file, caption.slice(0, 2200), {
     accountId: account ?? undefined, keyEnv: opts.keyEnv ?? tiktokEnv(), prefix: opts.prefix ?? B.tiktokAcct ?? B.zernioAcct,

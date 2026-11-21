@@ -3,7 +3,7 @@
 //   Zaa History: bot @zataashortbot, DB channel 'youtube', tim Bagas dkk · Zaa Story: bot @zataastorybot, DB channel 'story', tim Raditya dkk (+ TikTok).
 // Bot History jalan di dalam watcher, bot Story = proses anak watcher (shorts-bot.mjs bot --brand=story); cuma nerima pesan & tombol dari SHORTS_OWNER_ID.
 // Alur: new (sesi harian) → antre render laptop (_laptop 1, scripts/shorts-laptop.mjs, OmniVoice) → submit (Kirana kirim video + ✅/✏️/❌)
-//       → ✅ → tunggu jam tayang (_jam) → upload YouTube Publik lewat Zernio (scripts/zernio.mjs) → 'posted'. Tanpa ZERNIO_API_KEY: scripts/youtube.mjs Private → 'uploaded' + pengingat → Owner tekan
+//       → ✅ → tunggu jam tayang (_jam) → upload YouTube Publik lewat Zernio (scripts/zernio.mjs) → 'posted'. Tanpa key Zernio brand: scripts/youtube.mjs Private → 'uploaded' + pengingat → Owner tekan
 //       "Sudah Publik" → 'posted'. Shorts belum dianggap tayang sebelum Owner konfirmasi.
 //   node scripts/shorts-bot.mjs new <file.json>       {topic_id (bank topik, approved), title, caption, hashtags, sources?, day?, jam? (HH:MM WIB), test?, synthetic?, tags?, spec:{voice, mood, scenes[]}}  (adegan = {img, vo, sub} ATAU gaya klip {vo, hl?, clips:[{find, note, n?} | {src, ss, x?}]}, lihat shorts-clip.mjs)
 //   node scripts/shorts-bot.mjs get <id> | set <id> <json|file> (+ jam) | list [tgl_senin]
@@ -17,7 +17,7 @@
 //   Semua perintah: tambah --brand=story untuk Zaa Story.
 //   node scripts/shorts-bot.mjs report [--dry]        laporan harian sekarang (otomatis tiap 19:00 WITA; --dry = cetak saja, tidak dikirim)
 //   node scripts/shorts-bot.mjs weekly [--dry]        laporan mingguan sekarang (otomatis Minggu 19:30 WITA)
-//   .env: SHORTS_OWNER_ID + per brand: History SHORTS_BOT_TOKEN / ZERNIO_API_KEY / YT_REFRESH_TOKEN · Story STORY_BOT_TOKEN / ZERNIO_STORY_API_KEY / STORY_YT_REFRESH_TOKEN
+//   .env: SHORTS_OWNER_ID + per brand: History SHORTS_BOT_TOKEN / ZERNIO_HISTORY_API_KEY / YT_REFRESH_TOKEN · Story STORY_BOT_TOKEN / ZERNIO_STORY_API_KEY / STORY_YT_REFRESH_TOKEN
 process.removeAllListeners('warning');
 import { join, dirname, basename } from 'node:path';
 import { fileURLToPath } from 'node:url';
