@@ -86,7 +86,7 @@ async function tiktok(keyEnv = 'ZERNIO_ESPORTS_API_KEY', fallback = 'zataa.topup
 // ---------- YouTube Shorts (youtube.mjs stats, token pemilik channel)
 const ytStats = (brand = 'history') => new Promise((ok, no) => execFile(process.execPath, [join(ROOT, 'scripts', 'youtube.mjs'), 'stats', `--brand=${brand}`], { cwd: ROOT, timeout: 120_000, maxBuffer: 1 << 23 },
   (e, so, se) => { if (e) { const l = String(se || e.message).trim().split('\n'); return no(new Error((l.find((x) => /Error:/.test(x)) ?? l.pop()).replace(/^.*?Error: /, ''))); } try { ok(JSON.parse(String(so).trim().split('\n').pop())); } catch (x) { no(x); } }));
-// cadangan kalau OAuth Google gagal (mis. token menunjuk akun tanpa channel): statistik YouTube lewat Zernio /analytics akun brand itu
+// statistik YouTube lewat Zernio /analytics login divisi itu (sumber utama)
 const YT_ZERNIO_KEY = { esports: 'ZERNIO_ESPORTS_API_KEY', history: 'ZERNIO_HISTORY_API_KEY', story: 'ZERNIO_STORY_API_KEY', marvel: 'ZERNIO_MARVEL_API_KEY' };
 async function ytStatsZernio(brand) {
   const keyEnv = YT_ZERNIO_KEY[brand];
@@ -109,8 +109,8 @@ async function ytStatsZernio(brand) {
   return { title: account.displayName, handle: account.username ? `@${account.username}` : null, subscribers: account.followersCount ?? null, views: sum(list, 'views'), list };
 }
 async function youtube(brand = 'history') {
-  // About Esports: tidak punya OAuth YouTube sendiri, langsung statistik Zernio (ZERNIO_ESPORTS_API_KEY)
-  const s = brand === 'esports' ? await ytStatsZernio(brand) : await ytStats(brand).catch(async (e) => { try { return await ytStatsZernio(brand); } catch { throw e; } });
+  // Zernio dulu (1 login per divisi, pasti channel yang benar); OAuth Google (youtube.mjs) cuma cadangan — 21 Nov 2026 token History ternyata nunjuk channel About Esports
+  const s = await ytStatsZernio(brand).catch(async (e) => { if (brand === 'esports') throw e; try { return await ytStats(brand); } catch { throw e; } });
   const list = (s.list ?? []).filter((v) => v.privacy === 'public').map((v) => ({
     pid: v.id, type: 'video', title: short(v.title), url: `https://youtube.com/shorts/${v.id}`, thumb: `https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`, at: v.published,
     views: v.views, likes: v.likes, comments: v.comments,
