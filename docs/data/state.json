@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-21T01:14:43.159Z",
+ "generated_at": "2026-11-21T01:24:43.157Z",
  "today": "2026-11-21",
  "week_start": "2026-11-16",
  "campaign": {
@@ -62,8 +62,8 @@
    "name": "Fikri",
    "title": "Social Media Publisher",
    "status": "done",
-   "current_task": null,
-   "updated_at": "2026-11-21 01:01:03"
+   "current_task": "undefined",
+   "updated_at": "2026-11-21 01:15:43"
   },
   {
    "id": "ads",
@@ -733,7 +733,7 @@
    "game": "valorant",
    "pillar": "engagement",
    "title": "Kuis cepat: tebak pemain yang pindah tim 2027",
-   "status": "pending_approval",
+   "status": "approved",
    "asset_url": "{\"video\":\"https://luc1ferr12.github.io/zataa-office/media/2026-11-21/190-kuis-cepat-tebak-pemain-yang-pindah-tim--ov.mp4\",\"cover\":\"https://luc1ferr12.github.io/zataa-office/media/2026-11-21/190-kuis-cepat-tebak-pemain-yang-pindah-tim--ov-cover.jpg\"}",
    "scheduled_at": null,
    "posted_at": null,
@@ -1012,6 +1012,16 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-21 01:15:43",
+   "agent_id": "owner",
+   "message": "Approve konten #190 ✅"
+  },
+  {
+   "ts": "2026-11-21 01:14:50",
+   "agent_id": "owner",
+   "message": "Keputusan dari web: ✅ #190 di-approve. Masuk antrian tayang."
+  },
+  {
    "ts": "2026-11-21 01:13:52",
    "agent_id": "video",
    "message": "video #190 dirender di laptop (suara OmniVoice) & dikirim ke Owner"
@@ -1125,16 +1135,6 @@
    "ts": "2026-11-20 22:01:22",
    "agent_id": "analyst",
    "message": "Update data 36 post IG 📈"
-  },
-  {
-   "ts": "2026-11-20 21:40:43",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: bearish → sideways"
-  },
-  {
-   "ts": "2026-11-20 21:30:44",
-   "agent_id": "trisk",
-   "message": "NO TRADE · jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
   }
  ],
  "chats": [
@@ -1424,8 +1424,8 @@
    "week": "2026-11-16",
    "total": 33,
    "posted": 20,
-   "pending": 1,
-   "scheduled": 1,
+   "pending": 0,
+   "scheduled": 2,
    "yt_total": 15,
    "yt_posted": 7,
    "yt_pending": 0,
