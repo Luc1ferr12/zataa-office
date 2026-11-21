@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-21T22:56:20.048Z",
+ "generated_at": "2026-11-21T23:06:20.106Z",
  "today": "2026-11-22",
  "week_start": "2026-11-16",
  "campaign": {
@@ -22,16 +22,16 @@
    "name": "Andre",
    "title": "Marketing Director",
    "status": "done",
-   "current_task": "Briefing: 3 ide dikirim ke Owner",
-   "updated_at": "2026-11-20 23:02:34"
+   "current_task": "Ide sesi pagi dikirim ke Owner (PRX video)",
+   "updated_at": "2026-11-21 23:01:37"
   },
   {
    "id": "researcher",
    "name": "Salsa",
    "title": "Researcher",
    "status": "done",
-   "current_task": "Riset preview BTR FFWS Phase 2 Day 3",
-   "updated_at": "2026-11-20 23:39:35"
+   "current_task": "Riset pagi: roster final PRX 2027",
+   "updated_at": "2026-11-21 23:01:37"
   },
   {
    "id": "copywriter",
@@ -166,8 +166,8 @@
    "name": "Bagas",
    "title": "Manajer YouTube",
    "status": "done",
-   "current_task": "Shorts History #209 Mohenjo-daro antre render",
-   "updated_at": "2026-11-20 23:06:16"
+   "current_task": "Shorts 22 Nov: Tahun 536",
+   "updated_at": "2026-11-21 23:06:05"
   },
   {
    "id": "yresearch",
@@ -214,8 +214,8 @@
    "name": "Raditya",
    "title": "Manajer Zataa Story",
    "status": "done",
-   "current_task": "Sesi pagi 20 Nov",
-   "updated_at": "2026-11-19 23:05:28"
+   "current_task": "Shorts 22 Nov: Trunyan",
+   "updated_at": "2026-11-21 23:06:05"
   },
   {
    "id": "sresearch",
@@ -262,8 +262,8 @@
    "name": "Reza",
    "title": "Manajer Marvel Talk",
    "status": "done",
-   "current_task": "Sesi pagi 20 Nov",
-   "updated_at": "2026-11-19 23:05:28"
+   "current_task": "Shorts 22 Nov: perisai Cap",
+   "updated_at": "2026-11-21 23:06:05"
   },
   {
    "id": "vresearch",
@@ -808,6 +808,48 @@
    "scheduled_at": null,
    "posted_at": null,
    "channel": null
+  },
+  {
+   "id": 213,
+   "day": "2026-11-22",
+   "slot": "shorts",
+   "format": "shorts",
+   "game": "sejarah",
+   "pillar": "strange_events",
+   "title": "Tahun 536: Matahari Redup 18 Bulan, Tahun Terburuk untuk Hidup",
+   "status": "draft",
+   "asset_url": null,
+   "scheduled_at": null,
+   "posted_at": null,
+   "channel": "youtube"
+  },
+  {
+   "id": 214,
+   "day": "2026-11-22",
+   "slot": "shorts",
+   "format": "shorts",
+   "game": "sejarah",
+   "pillar": "ritual_mistis",
+   "title": "Jenazah di Desa Bali Ini Nggak Dikubur, Konon Nggak Bau",
+   "status": "draft",
+   "asset_url": null,
+   "scheduled_at": null,
+   "posted_at": null,
+   "channel": "story"
+  },
+  {
+   "id": 215,
+   "day": "2026-11-22",
+   "slot": "shorts",
+   "format": "shorts",
+   "game": "sejarah",
+   "pillar": "fakta_marvel",
+   "title": "Perisai Captain America Dulu Bukan Bulat, Ini Sebabnya",
+   "status": "draft",
+   "asset_url": null,
+   "scheduled_at": null,
+   "posted_at": null,
+   "channel": "marvel"
   }
  ],
  "clip_jobs": [
@@ -1012,6 +1054,56 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-21 23:06:01",
+   "agent_id": "vdir",
+   "message": "Shorts #215 perisai Cap masuk antrean laptop (eksperimen jam 12:00)"
+  },
+  {
+   "ts": "2026-11-21 23:06:01",
+   "agent_id": "sdir",
+   "message": "Shorts #214 Trunyan masuk antrean laptop"
+  },
+  {
+   "ts": "2026-11-21 23:06:01",
+   "agent_id": "ydir",
+   "message": "Shorts #213 Tahun 536 masuk antrean laptop; 4 Shorts minggu ini (#193,#196,#200,#205) masih upload_failed"
+  },
+  {
+   "ts": "2026-11-21 23:05:38",
+   "agent_id": "vvideo",
+   "message": "Shorts #215 \"Perisai Captain America Dulu Bukan Bulat, Ini Sebabnya\" masuk antrean render laptop (OmniVoice)"
+  },
+  {
+   "ts": "2026-11-21 23:04:32",
+   "agent_id": "svideo",
+   "message": "Shorts #214 \"Jenazah di Desa Bali Ini Nggak Dikubur, Konon Nggak Bau\" masuk antrean render laptop (OmniVoice)"
+  },
+  {
+   "ts": "2026-11-21 23:03:34",
+   "agent_id": "yvideo",
+   "message": "Shorts #213 \"Tahun 536: Matahari Redup 18 Bulan, Tahun Terburuk untuk Hidup\" masuk antrean render laptop (OmniVoice)"
+  },
+  {
+   "ts": "2026-11-21 23:01:37",
+   "agent_id": "researcher",
+   "message": "Sesi pagi: PRX roster final terverifikasi 3 sumber; hasil FFWS Phase 2 belum cocok antar sumber"
+  },
+  {
+   "ts": "2026-11-21 23:01:32",
+   "agent_id": "dir",
+   "message": "Kirim 1 ide briefing ke Owner"
+  },
+  {
+   "ts": "2026-11-21 23:01:31",
+   "agent_id": "dir",
+   "message": "Pilih 1 berita hangat dari sesi riset pagi"
+  },
+  {
+   "ts": "2026-11-21 23:01:28",
+   "agent_id": "researcher",
+   "message": "Nemu 3 topik baru"
+  },
+  {
    "ts": "2026-11-21 22:00:50",
    "agent_id": "analyst",
    "message": "Update data 36 post IG 📈"
@@ -1085,59 +1177,51 @@
    "ts": "2026-11-21 07:01:24",
    "agent_id": "analyst",
    "message": "Update data 36 post IG 📈"
-  },
-  {
-   "ts": "2026-11-21 05:43:47",
-   "agent_id": "dir",
-   "message": "Kode kantor diperbarui, restart otomatis: scripts/golink.mjs, scripts/trading/run.mjs"
-  },
-  {
-   "ts": "2026-11-21 05:36:50",
-   "agent_id": "dir",
-   "message": "Kode kantor diperbarui, restart otomatis: scripts/golink.mjs, scripts/trading/run.mjs"
-  },
-  {
-   "ts": "2026-11-21 05:30:40",
-   "agent_id": "dir",
-   "message": "Kode kantor diperbarui, restart otomatis: scripts/watch.mjs, scripts/golink.mjs, scripts/trading/run.mjs"
-  },
-  {
-   "ts": "2026-11-21 05:29:39",
-   "agent_id": "dir",
-   "message": "Kode kantor diperbarui, restart otomatis: scripts/golink.mjs, scripts/trading/run.mjs"
-  },
-  {
-   "ts": "2026-11-21 05:15:39",
-   "agent_id": "dir",
-   "message": "Kode kantor diperbarui, restart otomatis: scripts/golink.mjs, scripts/trading/run.mjs"
-  },
-  {
-   "ts": "2026-11-21 05:03:42",
-   "agent_id": "publisher",
-   "message": "Posting #189 ke IG ✅"
-  },
-  {
-   "ts": "2026-11-21 04:01:16",
-   "agent_id": "analyst",
-   "message": "Update data 36 post IG 📈"
-  },
-  {
-   "ts": "2026-11-21 03:26:43",
-   "agent_id": "owner",
-   "message": "Approve konten #212 ✅"
-  },
-  {
-   "ts": "2026-11-21 03:26:04",
-   "agent_id": "owner",
-   "message": "Approve Shorts #209 ✅"
-  },
-  {
-   "ts": "2026-11-21 03:26:04",
-   "agent_id": "owner",
-   "message": "Approve Shorts #210 ✅"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-11-21 23:06:05",
+   "agent_id": "vdir",
+   "to_id": "vresearch",
+   "kind": "oper",
+   "message": "Brief \"Shorts 22 Nov: perisai Cap\" beres. Citra, gas riset!"
+  },
+  {
+   "ts": "2026-11-21 23:06:05",
+   "agent_id": "sdir",
+   "to_id": "sresearch",
+   "kind": "oper",
+   "message": "Sekar, topik Zaa Story hari ini: \"Shorts 22 Nov: Trunyan\". Cari sisi sejarahnya ya, jangan cuma seremnya 👻"
+  },
+  {
+   "ts": "2026-11-21 23:06:05",
+   "agent_id": "ydir",
+   "to_id": "yresearch",
+   "kind": "oper",
+   "message": "Brief Shorts \"Shorts 22 Nov: Tahun 536\" udah jadi. Nadhira, gas riset!"
+  },
+  {
+   "ts": "2026-11-21 23:06:01",
+   "agent_id": "dir",
+   "to_id": null,
+   "kind": "santai",
+   "message": "Minggu pagi, PRX udah lengkap rosternya. Abis ini gue mau ngopi dulu di bawah."
+  },
+  {
+   "ts": "2026-11-21 23:01:37",
+   "agent_id": "dir",
+   "to_id": "researcher",
+   "kind": "oper",
+   "message": "Brief \"Ide sesi pagi dikirim ke Owner (PRX video)\" udah jadi. Salsa, gas riset ya!"
+  },
+  {
+   "ts": "2026-11-21 23:01:37",
+   "agent_id": "researcher",
+   "to_id": "copywriter",
+   "kind": "oper",
+   "message": "Tiara, bahan buat \"Riset pagi: roster final PRX 2027\" udah aku rangkum + sumbernya. Tinggal kamu racik captionnya ✍️"
+  },
   {
    "ts": "2026-11-21 12:01:59",
    "agent_id": "publisher",
@@ -1375,58 +1459,16 @@
    "to_id": "all",
    "kind": "oper",
    "message": "Clip \"BEAR BRAND X JEROME POLIN X DION WIYOKO\" udah tayang di TikTok & IG. Tinggal nunggu 1rb views 💸"
-  },
-  {
-   "ts": "2026-11-20 01:06:20",
-   "agent_id": "video",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "- [Sportskeeda – Knockout Week 2 overall standings](https://www.sportskeeda.com/free-fire/news-ffws-2026-global-finals-knockout-week-2-overall-standings-summary)"
-  },
-  {
-   "ts": "2026-11-20 01:06:20",
-   "agent_id": "video",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "- [Ligagame – FFWS Global Finals 2026 Week 2](https://www.ligagame.tv/free-fire/ffws-global-finals-2026-week-2-rrq-kazu-dan-onic-tembus-12-besar-bigetron-terpeleset)"
-  },
-  {
-   "ts": "2026-11-20 01:06:20",
-   "agent_id": "video",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "- [Medcom – FFWS Global Finals 2026 Week 2](https://www.medcom.id/teknologi/esports/dN6y7dRK-ffws-global-finals-2026-week-2-rrq-kazu-dan-onic-masuk-12-besar-btr-turun)"
-  },
-  {
-   "ts": "2026-11-20 01:06:20",
-   "agent_id": "video",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Sources:"
-  },
-  {
-   "ts": "2026-11-20 01:06:20",
-   "agent_id": "video",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Video breaking-nya (konten 208) lagi antre render di laptop, nanti otomatis nyampe ke Bos buat di-✅ ya!"
-  },
-  {
-   "ts": "2026-11-20 01:06:20",
-   "agent_id": "researcher",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Bos, angka FFWS pekan 2 udah cocok di Medcom + Ligagame (+ Sportskeeda): RRQ Kazu #8 527 poin, ONIC #10 488 poin, Bigetron #15."
   }
  ],
  "stats": {
   "this_week": {
    "week": "2026-11-16",
-   "total": 33,
+   "total": 36,
    "posted": 25,
    "pending": 0,
    "scheduled": 0,
-   "yt_total": 15,
+   "yt_total": 18,
    "yt_posted": 9,
    "yt_pending": 0,
    "yt_scheduled": 0,
