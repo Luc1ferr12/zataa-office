@@ -56,7 +56,10 @@ try {
   const slug = String(c.title).toLowerCase().normalize('NFD').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 40);
   const files = { video: `${c.id}-${slug}.mp4`, cover: `${c.id}-${slug}-cover.jpg` };
   const r = spawnSync(process.execPath, [join(ROOT, 'scripts', isClip ? 'shorts-clip.mjs' : 'shorts.mjs'), join(tmp, 'spec.json'), join(tmp, files.video), ...(_test ? ['--test'] : [])], { stdio: ['ignore', 'pipe', 'pipe'], encoding: 'utf8' });
-  if (r.status !== 0) fail(`render gagal: ${(r.stderr || r.stdout).trim().split('\n').filter((l) => !l.startsWith('\r')).pop()?.slice(-300) ?? ''}`);
+  if (r.status !== 0) {   // baris terakhir stderr cuma "Node.js vXX" → ambil baris "Error: …" yang sebenarnya
+    const lines = (r.stderr || r.stdout).trim().split('\n').map((l) => l.trim()).filter((l) => l && !l.startsWith('\r') && !/^Node\.js v/.test(l));
+    fail(`render gagal: ${(lines.findLast((l) => /^\w*Error:/.test(l)) ?? lines.pop() ?? '').slice(-300)}`);
+  }
   const res = JSON.parse(r.stdout.trim().split('\n').pop());
 
   onVps(`import { mkdirSync } from 'node:fs'; mkdirSync('out/shorts', { recursive: true });`);
