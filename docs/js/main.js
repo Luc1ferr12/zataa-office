@@ -136,6 +136,43 @@ function renderSocials() {
   }).join('');
 }
 
+// ---------- KPI audiens (socials.json): total semua akun YouTube & TikTok + donut per divisi (IG dijeda, tidak dihitung)
+// warna = identitas divisi, urutan tetap (palet kategorikal tervalidasi utk latar gelap kartu)
+const KPI_DIV = [['esports', 'About Esports', '#3987e5'], ['history', 'Zaa History', '#d95926'], ['story', 'Zaa Story', '#199e70'], ['marvel', 'Marvel Talk', '#c98500'], ['clip', 'Zaa Clips', '#d55181']];
+const divOf = (k) => ({ tiktok: 'esports', youtube: 'history' })[k] ?? k.split('_')[0];
+function donut(slices, label) {
+  const total = slices.reduce((a, x) => a + x.v, 0);
+  const R = 16, C = 2 * Math.PI * R, GAP = slices.length > 1 ? 1.2 : 0; // celah 2px warna latar antar irisan
+  let at = 0;
+  const arcs = slices.map((x) => {
+    const len = (x.v / total) * C, pct = Math.round((x.v / total) * 1000) / 10;
+    const seg = `<circle class="sl" cx="21" cy="21" r="${R}" fill="none" stroke="${x.c}" stroke-width="8" stroke-dasharray="${Math.max(len - GAP, 0.01)} ${C}" stroke-dashoffset="${-at}"><title>${esc(x.n)}: ${num(x.v)} (${pct.toLocaleString('id-ID')}%)</title></circle>`;
+    at += len;
+    return seg;
+  }).join('');
+  return `<svg viewBox="0 0 42 42" aria-label="${esc(label)}"><g transform="rotate(-90 21 21)">${arcs || `<circle cx="21" cy="21" r="${R}" fill="none" stroke="var(--line)" stroke-width="8"/>`}</g></svg>`;
+}
+function renderAudienceKpis() {
+  const ok = Object.entries(socials ?? {}).filter(([k, p]) => k !== 'generated_at' && p && !p.error && k !== 'instagram' && !k.endsWith('instagram'));
+  const YT = /youtube$/, TT = /^(.+_)?tiktok$/;
+  const byDiv = (re, f) => KPI_DIV.map(([d, n, c]) => ({ n, c, v: ok.filter(([k]) => re.test(k) && divOf(k) === d).reduce((a, [, p]) => a + (+p[f] || 0), 0) })).filter((x) => x.v > 0);
+  const set = (id, slices, label, any) => {
+    const total = slices.reduce((a, x) => a + x.v, 0);
+    $(id).textContent = any ? num(total) : '—';
+    $(`${id}-pie`).innerHTML = donut(slices, label);
+    $(`${id}-pie`).setAttribute('aria-label', `${label}: ${slices.map((x) => `${x.n} ${num(x.v)}`).join(', ') || 'belum ada data'}`);
+    $(`${id}-leg`).innerHTML = slices.length ? slices.map((x) => `<li><i style="background:${x.c}"></i><span>${esc(x.n)}</span><b>${compact(x.v)}</b></li>`).join('') : '<li>belum ada data</li>';
+  };
+  const hasYT = ok.some(([k]) => YT.test(k)), hasTT = ok.some(([k]) => TT.test(k));
+  const ytV = byDiv(YT, 'views'), ttV = byDiv(TT, 'views');
+  set('k-tt-views', ttV, 'Views TikTok per divisi', hasTT);
+  set('k-yt-views', ytV, 'Views YouTube per divisi', hasYT);
+  set('k-yt-subs', byDiv(YT, 'subscribers'), 'Subscribers YouTube per divisi', hasYT);
+  set('k-tt-fol', byDiv(TT, 'followers'), 'Followers TikTok per divisi', hasTT);
+  const sum = (xs) => xs.reduce((a, x) => a + x.v, 0);
+  set('k-views', [{ n: 'YouTube', c: '#e66767', v: sum(ytV) }, { n: 'TikTok', c: '#9085e9', v: sum(ttV) }].filter((x) => x.v > 0), 'Total views per platform', hasYT || hasTT);
+}
+
 function renderDashboard() {
   const s = state;
   const st = s?.stats?.this_week ?? {};
@@ -148,18 +185,7 @@ function renderDashboard() {
   $('k-pending-sub').textContent = `${split(st.pending, st.yt_pending)} · cek Telegram`;
   $('k-posted').textContent = st.posted ?? 0;
   $('k-sched').textContent = `${split(st.posted, st.yt_posted)} · ${st.scheduled ?? 0} terjadwal`;
-  // KPI audiens: dijumlah dari semua akun YouTube & TikTok di socials.json (IG dijeda, tidak dihitung)
-  const sumOf = (re, f) => Object.entries(socials ?? {}).filter(([k, p]) => re.test(k) && p && !p.error).reduce((a, [, p]) => a + (+p[f] || 0), 0);
-  const have = (re) => Object.entries(socials ?? {}).some(([k, p]) => re.test(k) && p && !p.error);
-  const YT = /youtube$/, TT = /^(.+_)?tiktok$/;
-  const kpi = (id, re, f, sub) => { $(id).textContent = have(re) ? sumOf(re, f).toLocaleString('id-ID') : '—'; if (sub) $(`${id}-sub`).textContent = sub; };
-  kpi('k-yt-views', YT, 'views', 'semua channel YouTube');
-  kpi('k-tt-views', TT, 'views', 'semua akun TikTok');
-  kpi('k-yt-subs', YT, 'subscribers', 'semua channel YouTube');
-  kpi('k-tt-fol', TT, 'followers', 'semua akun TikTok');
-  const allViews = sumOf(YT, 'views') + sumOf(TT, 'views');
-  $('k-views').textContent = have(YT) || have(TT) ? allViews.toLocaleString('id-ID') : '—';
-  $('k-views-sub').textContent = `YouTube ${sumOf(YT, 'views').toLocaleString('id-ID')} · TikTok ${sumOf(TT, 'views').toLocaleString('id-ID')}`;
+  renderAudienceKpis();
   // klik link pelacak (golink.mjs) → toko (scripts/golink.mjs); nama sumber sama dengan SOURCES di sana
   const SRC = { ig: 'IG bio', igs: 'IG Story', tt: 'TikTok', tg: 'Telegram', yt: 'YouTube', wa: 'WA', '(direct)': 'langsung', google: 'Google' };
   const g = st.ga4;

@@ -63,7 +63,8 @@ h2 { font-size: 15px; font-weight: 600; }
 
 main { padding: 20px 24px 40px; max-width: 1440px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1fr); gap: 18px; }
 
-.kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 14px; }
+.kpis { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; } /* 4 atas (ringkasan + total views) · 4 bawah (rincian audiens) */
+@media (max-width: 1100px) { .kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .kpi[hidden] { display: none; }
 .kpi {
   --acc: var(--c-mkt);
@@ -77,6 +78,23 @@ main { padding: 20px 24px 40px; max-width: 1440px; margin: 0 auto; display: grid
 .kpi span { color: var(--muted); font-size: 12.5px; }
 .kpi strong { font-family: Sora, sans-serif; font-size: 28px; font-variant-numeric: tabular-nums; }
 .kpi small { color: var(--muted); font-size: 12px; }
+/* kartu audiens + donut per divisi (warna ikut divisi, sama di semua kartu) */
+.kpi.pie { grid-template-columns: minmax(0, 1fr) 72px; column-gap: 12px; align-content: start; }
+.kpi.pie > span, .kpi.pie > strong, .kpi.pie > .kpi-leg { grid-column: 1; }
+.kpi-pie { grid-column: 2; grid-row: 1 / span 3; align-self: center; width: 72px; height: 72px; position: relative; z-index: 1; }
+.kpi-pie svg { width: 100%; height: 100%; display: block; overflow: visible; }
+.kpi-pie circle.sl { transition: opacity .15s; cursor: default; }
+.kpi-pie svg:hover circle.sl { opacity: .35; } .kpi-pie svg circle.sl:hover { opacity: 1; }
+.kpi-leg { list-style: none; margin: 4px 0 0; padding: 0; display: grid; gap: 2px; font-size: 11.5px; position: relative; z-index: 1; }
+.kpi-leg li { display: flex; align-items: center; gap: 6px; color: var(--muted); min-width: 0; }
+.kpi-leg li i { width: 8px; height: 8px; border-radius: 2px; flex: none; }
+.kpi-leg li span { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: inherit; }
+.kpi-leg li b { color: var(--text, #e8e6f5); font-weight: 600; font-variant-numeric: tabular-nums; }
+@media (max-width: 640px) {
+  .kpi.pie { grid-template-columns: minmax(0, 1fr) 42px; column-gap: 8px; }
+  .kpi-pie { width: 42px; height: 42px; grid-row: 1 / span 2; }
+  .kpi.pie > .kpi-leg { grid-column: 1 / -1; font-size: 11px; }
+}
 
 /* tab navigasi: satu panel tampil sekaligus (pilihan diingat di localStorage + #hash) */
 .tabs {
