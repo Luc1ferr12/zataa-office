@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-22T02:40:36.047Z",
+ "generated_at": "2026-11-22T02:41:57.470Z",
  "today": "2026-11-22",
  "week_start": "2026-11-16",
  "campaign": {
@@ -62,8 +62,8 @@
    "name": "Fikri",
    "title": "Social Media Publisher",
    "status": "done",
-   "current_task": "undefined",
-   "updated_at": "2026-11-22 02:40:35"
+   "current_task": null,
+   "updated_at": "2026-11-22 02:41:57"
   },
   {
    "id": "ads",
@@ -859,7 +859,7 @@
    "game": "sejarah",
    "pillar": "fakta_marvel",
    "title": "Perisai Captain America Dulu Bukan Bulat, Ini Sebabnya",
-   "status": "pending_approval",
+   "status": "approved",
    "asset_url": null,
    "scheduled_at": null,
    "posted_at": null,
@@ -1068,6 +1068,21 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-22 02:41:57",
+   "agent_id": "publisher",
+   "message": "Gagal posting #160: Command failed: git push\nTo github.com:Luc1ferr12/zataa-office.git\n ! [rejected]          main -> main (fetch first)\nerr"
+  },
+  {
+   "ts": "2026-11-22 02:41:57",
+   "agent_id": "publisher",
+   "message": "Posting #160 ke TikTok ✅"
+  },
+  {
+   "ts": "2026-11-22 02:41:06",
+   "agent_id": "owner",
+   "message": "Approve Shorts #215 ✅"
+  },
+  {
    "ts": "2026-11-22 02:40:35",
    "agent_id": "owner",
    "message": "Approve konten #160 ✅"
@@ -1176,24 +1191,16 @@
    "ts": "2026-11-21 23:05:38",
    "agent_id": "vvideo",
    "message": "Shorts #215 \"Perisai Captain America Dulu Bukan Bulat, Ini Sebabnya\" masuk antrean render laptop (OmniVoice)"
-  },
-  {
-   "ts": "2026-11-21 23:04:32",
-   "agent_id": "svideo",
-   "message": "Shorts #214 \"Jenazah di Desa Bali Ini Nggak Dikubur, Konon Nggak Bau\" masuk antrean render laptop (OmniVoice)"
-  },
-  {
-   "ts": "2026-11-21 23:03:34",
-   "agent_id": "yvideo",
-   "message": "Shorts #213 \"Tahun 536: Matahari Redup 18 Bulan, Tahun Terburuk untuk Hidup\" masuk antrean render laptop (OmniVoice)"
-  },
-  {
-   "ts": "2026-11-21 23:01:37",
-   "agent_id": "researcher",
-   "message": "Sesi pagi: PRX roster final terverifikasi 3 sumber; hasil FFWS Phase 2 belum cocok antar sumber"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-11-22 02:41:57",
+   "agent_id": "publisher",
+   "to_id": null,
+   "kind": "oper",
+   "message": "\"RESMI: Sentinels rekrut OXY & brawk jelang VCT 202\" udah tayang di TikTok 🚀 Makasih semua!"
+  },
   {
    "ts": "2026-11-22 01:59:11",
    "agent_id": "publisher",
@@ -1466,13 +1473,6 @@
    "to_id": "researcher",
    "kind": "oper",
    "message": "Salsa, plan minggu ini udah aku taruh ya. Fokus \"Briefing: 3 ide dikirim ke Owner\". Tolong cariin bahan beritanya 🙏"
-  },
-  {
-   "ts": "2026-11-20 23:02:29",
-   "agent_id": "analyst",
-   "to_id": "dir",
-   "kind": "oper",
-   "message": "Andre, data \"Cek data kemarin\" udah aku rangkum. Angkanya menarik nih 📈"
   }
  ],
  "stats": {
@@ -1480,12 +1480,12 @@
    "week": "2026-11-16",
    "total": 37,
    "posted": 25,
-   "pending": 1,
-   "scheduled": 1,
+   "pending": 0,
+   "scheduled": 2,
    "yt_total": 18,
    "yt_posted": 9,
-   "yt_pending": 1,
-   "yt_scheduled": 1,
+   "yt_pending": 0,
+   "yt_scheduled": 2,
    "views": 12847,
    "likes": 227,
    "comments": 4,
