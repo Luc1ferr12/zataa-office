@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-22T02:45:38.412Z",
+ "generated_at": "2026-11-22T02:47:35.961Z",
  "today": "2026-11-22",
  "week_start": "2026-11-16",
  "campaign": {
@@ -63,7 +63,7 @@
    "title": "Social Media Publisher",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-11-22 02:45:38"
+   "updated_at": "2026-11-22 02:46:38"
   },
   {
    "id": "ads",
@@ -803,7 +803,7 @@
    "game": "valorant",
    "pillar": "news",
    "title": "PRX final roster 2027: PatMen balik, Primmie masuk",
-   "status": "approved",
+   "status": "publish_failed",
    "asset_url": "{\"video\":\"https://luc1ferr12.github.io/zataa-office/media/2026-11-22/216-prx-final-roster-2027-patmen-balik-primm-ov.mp4\",\"cover\":\"https://luc1ferr12.github.io/zataa-office/media/2026-11-22/216-prx-final-roster-2027-patmen-balik-primm-ov-cover.jpg\"}",
    "scheduled_at": null,
    "posted_at": null,
@@ -1068,6 +1068,11 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-22 02:46:38",
+   "agent_id": "publisher",
+   "message": "Gagal posting #216: Command failed: git push\nTo github.com:Luc1ferr12/zataa-office.git\n ! [rejected]          main -> main (fetch first)\nerr"
+  },
+  {
    "ts": "2026-11-22 02:45:38",
    "agent_id": "publisher",
    "message": "Gagal posting #216: Command failed: git push\nTo github.com:Luc1ferr12/zataa-office.git\n ! [rejected]          main -> main (fetch first)\nerr"
@@ -1186,11 +1191,6 @@
    "ts": "2026-11-22 00:24:00",
    "agent_id": "yvideo",
    "message": "Shorts #214 dirender di laptop (suara OmniVoice) & dikirim ke Owner"
-  },
-  {
-   "ts": "2026-11-22 00:23:58",
-   "agent_id": "spublish",
-   "message": "Kirim Shorts #214 ke Owner buat approval"
   }
  ],
  "chats": [
@@ -1481,7 +1481,7 @@
    "total": 37,
    "posted": 25,
    "pending": 0,
-   "scheduled": 3,
+   "scheduled": 2,
    "yt_total": 18,
    "yt_posted": 9,
    "yt_pending": 0,
@@ -1525,7 +1525,7 @@
   },
   "last_week": {
    "week": "2026-11-09",
-   "total": 31,
+   "total": 29,
    "posted": 27,
    "pending": 0,
    "scheduled": 0,
