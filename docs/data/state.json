@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-22T02:43:38.875Z",
+ "generated_at": "2026-11-22T02:44:58.016Z",
  "today": "2026-11-22",
  "week_start": "2026-11-16",
  "campaign": {
@@ -63,7 +63,7 @@
    "title": "Social Media Publisher",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-11-22 02:43:38"
+   "updated_at": "2026-11-22 02:44:57"
   },
   {
    "id": "ads",
@@ -803,8 +803,8 @@
    "game": "valorant",
    "pillar": "news",
    "title": "PRX final roster 2027: PatMen balik, Primmie masuk",
-   "status": "draft",
-   "asset_url": null,
+   "status": "approved",
+   "asset_url": "{\"video\":\"https://luc1ferr12.github.io/zataa-office/media/2026-11-22/216-prx-final-roster-2027-patmen-balik-primm-ov.mp4\",\"cover\":\"https://luc1ferr12.github.io/zataa-office/media/2026-11-22/216-prx-final-roster-2027-patmen-balik-primm-ov-cover.jpg\"}",
    "scheduled_at": null,
    "posted_at": null,
    "channel": null
@@ -1068,6 +1068,26 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-22 02:44:57",
+   "agent_id": "publisher",
+   "message": "Gagal posting #216: Command failed: git push\nTo github.com:Luc1ferr12/zataa-office.git\n ! [rejected]          main -> main (fetch first)\nerr"
+  },
+  {
+   "ts": "2026-11-22 02:44:57",
+   "agent_id": "publisher",
+   "message": "Posting #216 ke TikTok ✅"
+  },
+  {
+   "ts": "2026-11-22 02:44:27",
+   "agent_id": "video",
+   "message": "video #216 dirender di laptop (suara OmniVoice) & dikirim ke Owner"
+  },
+  {
+   "ts": "2026-11-22 02:44:26",
+   "agent_id": "publisher",
+   "message": "#216 lolos QA & langsung dijadwalkan tayang (riset di-ACC Owner)"
+  },
+  {
    "ts": "2026-11-22 02:43:38",
    "agent_id": "publisher",
    "message": "Gagal posting #160: Command failed: git push\nTo github.com:Luc1ferr12/zataa-office.git\n ! [rejected]          main -> main (fetch first)\nerr"
@@ -1171,29 +1191,16 @@
    "ts": "2026-11-21 23:27:53",
    "agent_id": "yvideo",
    "message": "Render laptop Shorts #215 gagal, cek logs/laptop-worker.log di laptop"
-  },
-  {
-   "ts": "2026-11-21 23:11:50",
-   "agent_id": "yvideo",
-   "message": "Render laptop Shorts #215 gagal, cek logs/laptop-worker.log di laptop"
-  },
-  {
-   "ts": "2026-11-21 23:11:49",
-   "agent_id": "yvideo",
-   "message": "Render laptop Shorts #214 gagal, cek logs/laptop-worker.log di laptop"
-  },
-  {
-   "ts": "2026-11-21 23:06:01",
-   "agent_id": "vdir",
-   "message": "Shorts #215 perisai Cap masuk antrean laptop (eksperimen jam 12:00)"
-  },
-  {
-   "ts": "2026-11-21 23:06:01",
-   "agent_id": "sdir",
-   "message": "Shorts #214 Trunyan masuk antrean laptop"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-11-22 02:44:57",
+   "agent_id": "publisher",
+   "to_id": null,
+   "kind": "oper",
+   "message": "\"PRX final roster 2027: PatMen balik, Primmie masuk\" udah tayang di TikTok 🚀 Makasih semua!"
+  },
   {
    "ts": "2026-11-22 02:41:57",
    "agent_id": "publisher",
@@ -1466,13 +1473,6 @@
    "to_id": "designer",
    "kind": "oper",
    "message": "Vania, copy \"Isi konten #189 carousel & #190 video\" udah masuk. Headline-nya jangan dikecilin ya 😆"
-  },
-  {
-   "ts": "2026-11-20 23:02:34",
-   "agent_id": "dir",
-   "to_id": "researcher",
-   "kind": "oper",
-   "message": "Salsa, plan minggu ini udah aku taruh ya. Fokus \"Briefing: 3 ide dikirim ke Owner\". Tolong cariin bahan beritanya 🙏"
   }
  ],
  "stats": {
@@ -1481,7 +1481,7 @@
    "total": 37,
    "posted": 25,
    "pending": 0,
-   "scheduled": 2,
+   "scheduled": 3,
    "yt_total": 18,
    "yt_posted": 9,
    "yt_pending": 0,
