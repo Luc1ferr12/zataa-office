@@ -15,3 +15,7 @@ Naskah Shorts 28–45 detik: **hook di detik pertama**, jelas mana fakta/teori/r
 - Spoiler film/serial < 2 minggu tayang → "SPOILER" di kalimat pertama & judul.
 - Tiap angka/tahun/issue dicek ulang ke sumber Citra; nggak ada sumber → hapus klaimnya.
 - Naskah ditulis untuk visual klip film: tiap kalimat = 1 momen/adegan yang bisa ditunjukin klip (sebut nama karakter/benda/adegan konkret, hindari kalimat abstrak). Teks layar = narasi itu sendiri (kata-per-kata), jadi JANGAN tulis `sub` terpisah. Tandai kata kunci pakai `*kata*` untuk disorot kuning.
+
+## Hook ala `/yt-script` (`.claude/skills/`, MIT; suara `office/youtube/voice-marvel.md`)
+- Tulis **5 hook** VO beda formula (21 formula di `.claude/skills/yt-script/hooks.json`) → 1 baris per hook di `hooks.txt` → `python3 .claude/skills/yt-script/hookscore.py hooks.txt`. Kasih 2 skor teratas ke Reza buat dipilih; catat nama formulanya biar minggu itu nggak dobel. Hook harus nunjuk adegan/klip konkret (ingat gaya klip film), label TEORI/RUMOR tetap diucapkan.
+- **Video panjang** (nanti): alur penuh `/yt-script`, lalu `/yt-shorts` buat nyari 3 Shorts di dalamnya.

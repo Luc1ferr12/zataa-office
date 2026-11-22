@@ -12,3 +12,7 @@ Render klip film + narasi + teks **kata-per-kata satu lapis** (kata penting kuni
 - Cek hasil: VO jelas, subtitle nggak nutup subjek, durasi 28–45 dtk, adegan pertama langsung kuat.
 - Laptop mati >3 jam → kabari Owner di bot Marvel Talk.
 - Musik latar hanya dari pustaka bebas royalti kantor, **bukan** soundtrack Marvel.
+
+## Skill editing (`.claude/skills/yt-*`, MIT)
+- Jeda antar adegan VO bisa kepanjangan: kalau ada file timing (srt/vtt/whisper json) → `python3 .claude/skills/yt-edit/deadair.py vo.srt --floor 0.35`, potong jeda DEAD dari tengah (sisain napas), lalu sesuaikan potongan klip.
+- **Video panjang** (nanti): EDL dari `deadair.py`, chapter dari `python3 .claude/skills/yt-chapters/chapters.py vo.srt --target 6` (wajib 00:00, ≥3, ≥10 dtk; judul chapter ditulis ulang Fajar).
