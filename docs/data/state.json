@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-22T23:23:30.305Z",
+ "generated_at": "2026-11-22T23:33:30.393Z",
  "today": "2026-11-23",
  "week_start": "2026-11-23",
  "campaign": null,
@@ -98,7 +98,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-22 23:15:46"
+   "updated_at": "2026-11-22 23:30:46"
   },
   {
    "id": "tresearch",
@@ -106,15 +106,15 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Pencarian 24 jam tak ketemu, data terbaru Okt 2026: Fed tahan 3,75-4% (29 Okt) hawkish, USD kuat. Bias lemah tipis, cek ulang harga live.",
-   "updated_at": "2026-11-22 23:15:46"
+   "updated_at": "2026-11-22 23:30:46"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-22 23:15:46"
+   "current_task": "Setup SELL di band (RSI+MACD)",
+   "updated_at": "2026-11-22 23:30:46"
   },
   {
    "id": "trisk",
@@ -122,7 +122,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
-   "updated_at": "2026-11-22 23:15:46"
+   "updated_at": "2026-11-22 23:30:46"
   },
   {
    "id": "texec",
@@ -378,7 +378,7 @@
    "game": "sejarah",
    "pillar": "lore_teori",
    "title": "Cap Ternyata Udah Bisa Angkat Mjolnir Sejak Age of Ultron",
-   "status": "draft",
+   "status": "pending_approval",
    "asset_url": null,
    "scheduled_at": null,
    "posted_at": null,
@@ -388,6 +388,21 @@
  "clip_jobs": [],
  "today_tasks": [],
  "activity": [
+  {
+   "ts": "2026-11-22 23:30:46",
+   "agent_id": "ttech",
+   "message": "M30 berubah arah: sideways → bullish"
+  },
+  {
+   "ts": "2026-11-22 23:30:45",
+   "agent_id": "yvideo",
+   "message": "Shorts #219 dirender di laptop (suara OmniVoice) & dikirim ke Owner"
+  },
+  {
+   "ts": "2026-11-22 23:30:44",
+   "agent_id": "vpublish",
+   "message": "Kirim Shorts #219 ke Owner buat approval"
+  },
   {
    "ts": "2026-11-22 23:15:46",
    "agent_id": "ttech",
@@ -497,21 +512,6 @@
    "ts": "2026-11-22 10:01:03",
    "agent_id": "analyst",
    "message": "Update data 34 post IG 📈"
-  },
-  {
-   "ts": "2026-11-22 07:01:02",
-   "agent_id": "analyst",
-   "message": "Update data 35 post IG 📈"
-  },
-  {
-   "ts": "2026-11-22 05:00:59",
-   "agent_id": "vpublish",
-   "message": "Cross-post Shorts #215 ke TikTok Marvel Talk"
-  },
-  {
-   "ts": "2026-11-22 05:00:40",
-   "agent_id": "vpublish",
-   "message": "Upload Shorts #215 ke Marvel Talk (Publik via Zernio)"
   }
  ],
  "chats": [
@@ -801,11 +801,11 @@
    "week": "2026-11-23",
    "total": 3,
    "posted": 0,
-   "pending": 0,
+   "pending": 1,
    "scheduled": 2,
    "yt_total": 3,
    "yt_posted": 0,
-   "yt_pending": 0,
+   "yt_pending": 1,
    "yt_scheduled": 2,
    "views": 0,
    "likes": 0,
@@ -878,9 +878,14 @@
   "paused": false,
   "balance": 1757.48,
   "today_pnl": 0,
-  "price": 3581.600098,
+  "price": 3605.120117,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-22 23:30:46",
+    "decision": "NO TRADE",
+    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
+   },
    {
     "ts": "2026-11-22 23:15:46",
     "decision": "NO TRADE",
@@ -903,11 +908,6 @@
    },
    {
     "ts": "2026-11-20 21:15:43",
-    "decision": "NO TRADE",
-    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
-   },
-   {
-    "ts": "2026-11-20 21:00:44",
     "decision": "NO TRADE",
     "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
    }
@@ -987,7 +987,7 @@
    1757.48
   ],
   "last": {
-   "ts": "2026-11-22 23:15:46",
+   "ts": "2026-11-22 23:30:46",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1005,10 +1005,13 @@
    },
    "tech": {
     "bias": "sideways",
-    "score": 0,
-    "trigger": null,
-    "confirm": [],
-    "note": "M15 3599.00 di atas band atas (3504.1–3586.4) · RSI 93 · Stoch 78 · MACD +6.19 · H1 sideways"
+    "score": 2,
+    "trigger": "sell",
+    "confirm": [
+     "RSI",
+     "MACD"
+    ],
+    "note": "M15 3570.30 di atas tengah band (3500.8–3594.1) · RSI 60 · Stoch 77 · MACD +5.76 · H1 sideways · setup SELL (RSI+MACD)"
    }
   },
   "fund": {
@@ -1077,35 +1080,35 @@
    "M10": {
     "bias": "bullish",
     "score": 2,
-    "price": 3607.65,
-    "ema20": 3548.84,
-    "ema50": 3543.14,
+    "price": 3611.52,
+    "ema20": 3554.81,
+    "ema50": 3545.82,
     "rsi": 100,
     "n": 299,
-    "slot": 2992316,
-    "at": 1795389646452
+    "slot": 2992317,
+    "at": 1795390246205
    },
    "M15": {
     "bias": "bullish",
     "score": 2,
-    "price": 3603.57,
-    "ema20": 3545.15,
-    "ema50": 3541.53,
+    "price": 3611.52,
+    "ema20": 3551.47,
+    "ema50": 3544.28,
     "rsi": 100,
     "n": 299,
-    "slot": 1994877,
-    "at": 1795389346489
+    "slot": 1994878,
+    "at": 1795390246212
    },
    "M30": {
-    "bias": "sideways",
-    "score": 1,
-    "price": 3539,
-    "ema20": 3539,
-    "ema50": 3539.67,
-    "rsi": 47.5,
+    "bias": "bullish",
+    "score": 3,
+    "price": 3611.52,
+    "ema20": 3545.91,
+    "ema50": 3542.49,
+    "rsi": 99.9,
     "n": 299,
-    "slot": 997438,
-    "at": 1795388446259
+    "slot": 997439,
+    "at": 1795390246215
    },
    "H1": {
     "bias": "bearish",
