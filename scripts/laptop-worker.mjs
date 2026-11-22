@@ -85,6 +85,13 @@ try {
     q = vps('node --no-warnings --input-type=module -', QUERY);
     if (q.status === 0) break;
   }
+  // render gagal gara-gara jaringan (ssh/scp putus, gambar gagal diambil) → antre ulang otomatis, maks 3× per konten (_retry);
+  // dulu status 3 nunggu sesi Claude berikutnya, jadi Owner lihat "gagal" padahal laptop nyala & tinggal coba lagi
+  if (q.status === 0) {
+    const rq = vps('node --no-warnings --input-type=module -', `${DB_SNIPPET}
+      console.log(db.prepare("UPDATE contents SET data_json = json_set(data_json, '$._laptop', 1, '$._retry', COALESCE(json_extract(data_json, '$._retry'), 0) + 1, '$._warned', 0), updated_at = datetime('now') WHERE status IN ('draft', 'revision') AND json_extract(data_json, '$._laptop') = 3 AND COALESCE(json_extract(data_json, '$._retry'), 0) < 3 AND (json_extract(data_json, '$._err') LIKE '%VPS%' OR json_extract(data_json, '$._err') LIKE '%upload%' OR json_extract(data_json, '$._err') LIKE '%gagal diambil%' OR json_extract(data_json, '$._err') LIKE '%maupun VPS%' OR json_extract(data_json, '$._err') LIKE '%Connection%')").run().changes);`);
+    if (rq.status === 0 && +rq.stdout.trim() > 0) { log(`${rq.stdout.trim()} konten gagal-jaringan diantre ulang`); q = vps('node --no-warnings --input-type=module -', QUERY); }
+  }
   const down = readDown();
   if (q.status !== 0) {
     const err = (q.stderr || '').trim().slice(-150);

@@ -10,14 +10,14 @@ import { join, dirname, basename } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { DB_SNIPPET } from './db.mjs';
 import { resolveClips } from './clip-scout.mjs';
+import { ssh, scpFrom, scpTo } from './vps-link.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const VPS = process.env.ZATAA_VPS ?? 'zataa-vps';
 const [id, flag] = process.argv.slice(2);
 if (!id) { console.log('pakai: shorts-laptop.mjs <content_id> [--submit]'); process.exit(0); }
 
 function onVps(js) {
-  const r = spawnSync('ssh', [VPS, 'cd ~/zataa-office && node --no-warnings --input-type=module -'], { input: js, encoding: 'utf8' });
+  const r = ssh('node --no-warnings --input-type=module -', js); // coba ulang + gantian port 22/443 (vps-link.mjs)
   if (r.status !== 0) throw new Error(`VPS: ${(r.stderr || r.error?.message || '').trim().slice(-300)}`);
   return r.stdout.trim();
 }
@@ -41,8 +41,8 @@ try {
     const dst = join(ROOT, img);
     if (existsSync(dst)) continue;
     const t = join(tmp, basename(img));
-    const r = spawnSync('scp', ['-q', `${VPS}:zataa-office/${img}`, t], { stdio: 'inherit' });
-    if (r.status !== 0) fail(`${isClip ? 'klip' : 'gambar'} ${img} tidak ada di laptop maupun VPS`);
+    const r = scpFrom(img, t);
+    if (r.status !== 0) fail(`${isClip ? 'klip' : 'gambar'} ${img} gagal diambil dari VPS: ${(r.stderr || '').trim().slice(-120)}`);
     mkdirSync(dirname(dst), { recursive: true });
     copyFileSync(t, dst);
   }
@@ -60,15 +60,15 @@ try {
   const res = JSON.parse(r.stdout.trim().split('\n').pop());
 
   onVps(`import { mkdirSync } from 'node:fs'; mkdirSync('out/shorts', { recursive: true });`);
-  const up = spawnSync('scp', ['-q', join(tmp, files.video), join(tmp, files.cover), `${VPS}:zataa-office/out/shorts/`], { stdio: 'inherit' });
-  if (up.status !== 0) fail('upload hasil render ke VPS gagal');
+  const up = scpTo([join(tmp, files.video), join(tmp, files.cover)], 'out/shorts');
+  if (up.status !== 0) fail(`upload hasil render ke VPS gagal: ${(up.stderr || '').trim().slice(-120)}`);
   const paths = { video: `out/shorts/${files.video}`, cover: `out/shorts/${files.cover}` };
   if (onVps(`${DB} db.prepare("UPDATE contents SET asset_path = ?, data_json = json_set(json_remove(data_json, '$._laptop', '$._err'), '$.duration', ?, '$.seed', ?), updated_at = datetime('now') WHERE id = ?${queued ? " AND json_extract(data_json, '$._laptop') = 2" : ''}").run(${JSON.stringify(JSON.stringify(paths))}, ${res.duration}, ${res.seed}, ${c.id}).changes || console.log('TAKEN');`) === 'TAKEN') {
     throw new Error('antrean sudah berubah (revisi baru?), hasil render ini tidak dipakai');
   }
   const out = { ok: true, id: c.id, ...paths, duration: res.duration, mood: res.mood };
   if (flag === '--submit') {
-    const r2 = spawnSync('ssh', [VPS, `cd ~/zataa-office && node scripts/shorts-bot.mjs submit ${c.id} --brand=${{ story: 'story', marvel: 'marvel' }[c.channel] ?? 'history'}`], { encoding: 'utf8' });
+    const r2 = ssh(`node scripts/shorts-bot.mjs submit ${c.id} --brand=${{ story: 'story', marvel: 'marvel' }[c.channel] ?? 'history'}`);
     out.submit = r2.status === 0 ? r2.stdout.trim() : `gagal: ${(r2.stderr || r2.stdout || '').trim().slice(-200)}`;
   }
   console.log(JSON.stringify(out));

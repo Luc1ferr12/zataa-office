@@ -8,15 +8,15 @@ import { tmpdir } from 'node:os';
 import { join, dirname, basename } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { DB_SNIPPET } from './db.mjs';
+import { ssh, scpFrom, scpTo } from './vps-link.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const VPS = process.env.ZATAA_VPS ?? 'zataa-vps';
 const [id, flag] = process.argv.slice(2);
 if (!id) { console.log('pakai: render-laptop.mjs <content_id> [--submit]'); process.exit(0); }
 
 // jalankan JS (ESM) di folder kantor VPS lewat stdin, hasil = stdout
 function onVps(js) {
-  const r = spawnSync('ssh', [VPS, 'cd ~/zataa-office && node --no-warnings --input-type=module -'], { input: js, encoding: 'utf8' });
+  const r = ssh('node --no-warnings --input-type=module -', js); // coba ulang + gantian port 22/443 (vps-link.mjs)
   if (r.status !== 0) throw new Error(`VPS: ${(r.stderr || r.error?.message || '').trim().slice(-300)}`);
   return r.stdout.trim();
 }
@@ -45,8 +45,8 @@ try {
     const dst = join(ROOT, img);
     if (existsSync(dst)) continue;
     const t = join(tmp, basename(img));
-    const r = spawnSync('scp', ['-q', `${VPS}:zataa-office/${img}`, t], { stdio: 'inherit' });
-    if (r.status !== 0) throw new Error(`gambar ${img} tidak ada di laptop maupun VPS`);
+    const r = scpFrom(img, t);
+    if (r.status !== 0) throw new Error(`gambar ${img} gagal diambil dari VPS: ${(r.stderr || '').trim().slice(-120)}`);
     mkdirSync(dirname(dst), { recursive: true });
     copyFileSync(t, dst);
   }
@@ -64,8 +64,8 @@ try {
 
   const rel = `docs/media/${c.day}`;
   onVps(`import { mkdirSync } from 'node:fs'; mkdirSync('${rel}', { recursive: true });`);
-  const up = spawnSync('scp', ['-q', join(tmp, files.video), join(tmp, files.cover), `${VPS}:zataa-office/${rel}/`], { stdio: 'inherit' });
-  if (up.status !== 0) throw new Error('upload ke VPS gagal');
+  const up = scpTo([join(tmp, files.video), join(tmp, files.cover)], rel);
+  if (up.status !== 0) throw new Error(`upload ke VPS gagal: ${(up.stderr || '').trim().slice(-120)}`);
 
   const paths = { video: `${rel}/${files.video}`, cover: `${rel}/${files.cover}` };
   if (onVps(`${DB} import { readFileSync, existsSync } from 'node:fs';
@@ -79,7 +79,7 @@ try {
 
   const out = { ok: true, id: c.id, ...paths, duration: res.duration, music: res.music, bg: res.bg, vo: res.vo };
   if (flag === '--submit') {
-    const r2 = spawnSync('ssh', [VPS, `cd ~/zataa-office && node scripts/approval.mjs submit ${c.id}`], { encoding: 'utf8' });
+    const r2 = ssh(`node scripts/approval.mjs submit ${c.id}`);
     out.submit = r2.status === 0 ? r2.stdout.trim() : `gagal: ${(r2.stderr || '').trim().slice(-200)}`;
   }
   console.log(JSON.stringify(out));
