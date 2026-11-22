@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-22T22:53:30.252Z",
+ "generated_at": "2026-11-22T23:03:30.263Z",
  "today": "2026-11-23",
  "week_start": "2026-11-23",
  "campaign": null,
@@ -17,16 +17,16 @@
    "name": "Andre",
    "title": "Marketing Director",
    "status": "done",
-   "current_task": "Ide sesi pagi dikirim ke Owner (PRX video)",
-   "updated_at": "2026-11-21 23:01:37"
+   "current_task": "Kirim 2 ide video sesi pagi ke Owner",
+   "updated_at": "2026-11-22 23:03:01"
   },
   {
    "id": "researcher",
    "name": "Salsa",
    "title": "Researcher",
    "status": "done",
-   "current_task": "Cek sumber roster final PRX 2027",
-   "updated_at": "2026-11-22 01:58:23"
+   "current_task": "Riset pagi: Jemkin/something residen Pacific, meta FFWS, update tiket GF",
+   "updated_at": "2026-11-22 23:03:00"
   },
   {
    "id": "copywriter",
@@ -98,15 +98,15 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-20 21:45:44"
+   "updated_at": "2026-11-22 23:01:03"
   },
   {
    "id": "tresearch",
    "name": "Davina",
    "title": "Research & Fundamental",
    "status": "done",
-   "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
-   "updated_at": "2026-11-20 21:45:44"
+   "current_task": "Fundamental: Pencarian 24 jam tak ketemu, data terbaru Okt 2026: Fed tahan 3,75-4% (29 Okt) hawkish, USD kuat. Bias lemah tipis, cek ulang harga live.",
+   "updated_at": "2026-11-22 23:01:02"
   },
   {
    "id": "ttech",
@@ -114,7 +114,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-11-20 21:45:44"
+   "updated_at": "2026-11-22 23:01:02"
   },
   {
    "id": "trisk",
@@ -122,7 +122,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
-   "updated_at": "2026-11-20 21:45:44"
+   "updated_at": "2026-11-22 23:01:03"
   },
   {
    "id": "texec",
@@ -375,6 +375,51 @@
  "today_tasks": [],
  "activity": [
   {
+   "ts": "2026-11-22 23:03:01",
+   "agent_id": "dir",
+   "message": "Pagi: pilih 2 video (Jemkin residen Pacific + meta FFWS AFM), update tiket GF FFWS ditahan sampai terverifikasi"
+  },
+  {
+   "ts": "2026-11-22 23:03:01",
+   "agent_id": "dir",
+   "message": "Kirim 2 ide briefing ke Owner"
+  },
+  {
+   "ts": "2026-11-22 23:03:00",
+   "agent_id": "dir",
+   "message": "Pilih 2 berita hangat dari sesi riset pagi"
+  },
+  {
+   "ts": "2026-11-22 23:03:00",
+   "agent_id": "researcher",
+   "message": "Pagi: hasil FFWS Phase 2 Day 3-4 belum ada di media ID, dicek lagi sesi siang"
+  },
+  {
+   "ts": "2026-11-22 23:02:51",
+   "agent_id": "researcher",
+   "message": "Nemu 3 topik baru"
+  },
+  {
+   "ts": "2026-11-22 23:01:03",
+   "agent_id": "trisk",
+   "message": "NO TRADE · jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
+  },
+  {
+   "ts": "2026-11-22 23:00:46",
+   "agent_id": "ttech",
+   "message": "M30 berubah arah: bearish → sideways"
+  },
+  {
+   "ts": "2026-11-22 23:00:46",
+   "agent_id": "ttech",
+   "message": "M15 berubah arah: bearish → sideways"
+  },
+  {
+   "ts": "2026-11-22 23:00:46",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: sideways → bullish"
+  },
+  {
    "ts": "2026-11-22 22:01:03",
    "agent_id": "analyst",
    "message": "Update data 33 post IG 📈"
@@ -453,54 +498,23 @@
    "ts": "2026-11-22 04:01:12",
    "agent_id": "analyst",
    "message": "Update data 36 post IG 📈"
-  },
-  {
-   "ts": "2026-11-22 03:43:29",
-   "agent_id": "dir",
-   "message": "Kode kantor diperbarui, restart otomatis: scripts/golink.mjs, scripts/trading/run.mjs"
-  },
-  {
-   "ts": "2026-11-22 03:35:50",
-   "agent_id": "ypublish",
-   "message": "Shorts #193 udah Publik di Zaa History 🎉"
-  },
-  {
-   "ts": "2026-11-22 03:35:46",
-   "agent_id": "ypublish",
-   "message": "Shorts #205 udah Publik di Zaa History 🎉"
-  },
-  {
-   "ts": "2026-11-22 03:35:42",
-   "agent_id": "ypublish",
-   "message": "Upload Shorts #205 ke Zaa History (Publik via Zernio)"
-  },
-  {
-   "ts": "2026-11-22 03:35:38",
-   "agent_id": "ypublish",
-   "message": "Shorts #196 udah Publik di Zaa History 🎉"
-  },
-  {
-   "ts": "2026-11-22 03:35:37",
-   "agent_id": "ypublish",
-   "message": "Shorts #200 udah Publik di Zaa History 🎉"
-  },
-  {
-   "ts": "2026-11-22 03:35:28",
-   "agent_id": "ypublish",
-   "message": "Upload Shorts #200 ke Zaa History (Publik via Zernio)"
-  },
-  {
-   "ts": "2026-11-22 03:35:17",
-   "agent_id": "ypublish",
-   "message": "Upload Shorts #196 ke Zaa History (Publik via Zernio)"
-  },
-  {
-   "ts": "2026-11-22 03:35:02",
-   "agent_id": "ypublish",
-   "message": "Upload Shorts #193 ke Zaa History (Publik via Zernio)"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-11-22 23:03:01",
+   "agent_id": "dir",
+   "to_id": "researcher",
+   "kind": "oper",
+   "message": "Brief \"Kirim 2 ide video sesi pagi ke Owner\" udah jadi. Salsa, gas riset ya!"
+  },
+  {
+   "ts": "2026-11-22 23:03:00",
+   "agent_id": "researcher",
+   "to_id": "copywriter",
+   "kind": "oper",
+   "message": "Tiara, bahan buat \"Riset pagi: Jemkin/something residen Pacific, meta FFWS, upd\" udah aku rangkum + sumbernya. Tinggal kamu racik captionnya ✍️"
+  },
   {
    "ts": "2026-11-22 11:30:32",
    "agent_id": "analyst",
@@ -766,20 +780,6 @@
    "to_id": "video",
    "kind": "santai",
    "message": "Mas Dimas, video kuis transfer nunggu laptop nyala ya, aku standby QA."
-  },
-  {
-   "ts": "2026-11-20 23:06:16",
-   "agent_id": "ydir",
-   "to_id": "yresearch",
-   "kind": "oper",
-   "message": "Nadhira, topik Shorts hari ini: \"Shorts History #209 Mohenjo-daro antre render\". Gali sumbernya ya, minimal 2 🏺"
-  },
-  {
-   "ts": "2026-11-20 23:04:39",
-   "agent_id": "video",
-   "to_id": "publisher",
-   "kind": "oper",
-   "message": "Fikri, video \"Video #190 masuk antrean render laptop\" udah render 9:16. Musiknya aman kok"
   }
  ],
  "stats": {
@@ -864,9 +864,14 @@
   "paused": false,
   "balance": 1757.48,
   "today_pnl": 0,
-  "price": 3539,
+  "price": 3554.800049,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-22 23:01:03",
+    "decision": "NO TRADE",
+    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
+   },
    {
     "ts": "2026-11-20 21:45:44",
     "decision": "NO TRADE",
@@ -889,11 +894,6 @@
    },
    {
     "ts": "2026-11-20 20:45:43",
-    "decision": "NO TRADE",
-    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
-   },
-   {
-    "ts": "2026-11-20 20:30:44",
     "decision": "NO TRADE",
     "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
    }
@@ -973,7 +973,7 @@
    1757.48
   ],
   "last": {
-   "ts": "2026-11-20 21:45:44",
+   "ts": "2026-11-22 23:01:03",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -984,8 +984,8 @@
    "risk_usd": null,
    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
    "fund": {
-    "bias": 0,
-    "note": "netral (belum ada ringkasan hari ini)",
+    "bias": -0.15,
+    "note": "Pencarian 24 jam tak ketemu, data terbaru Okt 2026: Fed tahan 3,75-4% (29 Okt) hawkish, USD kuat. Bias lemah tipis, cek ulang harga live.",
     "danger": null,
     "blackout": null
    },
@@ -994,11 +994,51 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3527.15 di atas tengah band (3505.6–3538.1) · RSI 48 · Stoch 55 · MACD +2.54 · H1 bearish"
+    "note": "M15 3539.00 di bawah tengah band (3539.0–3539.0) · RSI 54 · Stoch 50 · MACD -0.00 · H1 bearish"
    }
   },
-  "fund": null,
-  "calendar": [],
+  "fund": {
+   "bias": -0.15,
+   "note": "Pencarian 24 jam tak ketemu, data terbaru Okt 2026: Fed tahan 3,75-4% (29 Okt) hawkish, USD kuat. Bias lemah tipis, cek ulang harga live."
+  },
+  "calendar": [
+   {
+    "title": "Core PCE Price Index m/m",
+    "impact": "High",
+    "at": 1795613400000,
+    "forecast": "0.3%",
+    "previous": "0.3%",
+    "wb": 60,
+    "wa": 45
+   },
+   {
+    "title": "Prelim GDP q/q",
+    "impact": "High",
+    "at": 1795613400000,
+    "forecast": "3.5%",
+    "previous": "3.4%",
+    "wb": 60,
+    "wa": 45
+   },
+   {
+    "title": "Prelim GDP Price Index q/q",
+    "impact": "Medium",
+    "at": 1795613400000,
+    "forecast": "2.3%",
+    "previous": "2.3%",
+    "wb": 20,
+    "wa": 20
+   },
+   {
+    "title": "Unemployment Claims",
+    "impact": "Medium",
+    "at": 1795613400000,
+    "forecast": "201K",
+    "previous": "203K",
+    "wb": 20,
+    "wa": 20
+   }
+  ],
   "ea": {
    "connected": false,
    "demo": null
@@ -1021,48 +1061,48 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "sideways",
-    "score": -1,
-    "price": 3527.02,
-    "ema20": 3522.71,
-    "ema50": 3534.69,
-    "rsi": 51.2,
+    "bias": "bullish",
+    "score": 2,
+    "price": 3539,
+    "ema20": 3539,
+    "ema50": 3539,
+    "rsi": 87,
     "n": 299,
-    "slot": 2992019,
-    "at": 1795211443936
+    "slot": 2992314,
+    "at": 1795388446245
    },
    "M15": {
-    "bias": "bearish",
-    "score": -3,
-    "price": 3526.25,
-    "ema20": 3526.55,
-    "ema50": 3544.4,
-    "rsi": 47.3,
+    "bias": "sideways",
+    "score": 0,
+    "price": 3539,
+    "ema20": 3539,
+    "ema50": 3539,
+    "rsi": 54.1,
     "n": 299,
-    "slot": 1994679,
-    "at": 1795211143889
+    "slot": 1994876,
+    "at": 1795388446254
    },
    "M30": {
-    "bias": "bearish",
-    "score": -3,
-    "price": 3517.67,
-    "ema20": 3537.99,
-    "ema50": 3574.32,
-    "rsi": 37.9,
+    "bias": "sideways",
+    "score": 1,
+    "price": 3539,
+    "ema20": 3539,
+    "ema50": 3539.67,
+    "rsi": 47.5,
     "n": 299,
-    "slot": 997339,
-    "at": 1795210243872
+    "slot": 997438,
+    "at": 1795388446259
    },
    "H1": {
     "bias": "bearish",
     "score": -3,
-    "price": 3524,
-    "ema20": 3565.65,
-    "ema50": 3632.21,
-    "rsi": 30.2,
+    "price": 3539,
+    "ema20": 3539.18,
+    "ema50": 3551.58,
+    "rsi": 36.7,
     "n": 299,
-    "slot": 498669,
-    "at": 1795208443844
+    "slot": 498719,
+    "at": 1795388446265
    }
   },
   "currency": "USC",
