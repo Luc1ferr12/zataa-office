@@ -206,11 +206,13 @@ export async function upload(id) {
   } else r = { ok: false, out: '', err: `${B.zernioEnv} kosong di .env (YouTube cuma lewat Zernio)` };
   try { unlinkSync(metaPath); } catch { /* abaikan */ }
   if (!r.ok || !res?.id) {
-    d.prepare("UPDATE contents SET status = 'upload_failed', updated_at = datetime('now') WHERE id = ?").run(id);
-    act(d, T.publish, `Upload Shorts #${id} gagal`);
-    throw new Error((r.err || r.out).split('\n').pop().slice(0, 300));
+    // alasan gagal disimpan di data_json._err → kelihatan di "status" bot, laporan harian, dan `shorts-bot get`
+    const err = (r.err || r.out || 'Zernio tidak mengembalikan id video').split('\n').pop().slice(0, 300);
+    d.prepare("UPDATE contents SET status = 'upload_failed', data_json = json_set(data_json, '$._err', ?), updated_at = datetime('now') WHERE id = ?").run(err, id);
+    act(d, T.publish, `Upload Shorts #${id} gagal: ${err.slice(0, 120)}`);
+    throw new Error(err);
   }
-  d.prepare("UPDATE contents SET status = 'uploaded', youtube_id = ?, asset_url = ?, updated_at = datetime('now') WHERE id = ?").run(res.id, res.url, id);
+  d.prepare("UPDATE contents SET status = 'uploaded', youtube_id = ?, asset_url = ?, data_json = json_remove(data_json, '$._err'), updated_at = datetime('now') WHERE id = ?").run(res.id, res.url, id);
   act(d, T.publish, res.privacy === 'public' ? `Upload Shorts #${id} ke ${B.name} (Publik via Zernio)` : `Upload Shorts #${id} ke ${B.name} (Private), nunggu Owner ubah ke Publik`);
   return { ok: true, id, youtube_id: res.id, url: res.url, privacy: res.privacy };
 }
@@ -401,13 +403,16 @@ Akhiri dengan SATU kalimat ringkas (santai): topik penggantinya apa.`, 30);
   log(`pengganti shorts #${old.id} beres`);
 }
 
+// alasan gagal (upload Zernio / render laptop) di belakang status, dipendekkan biar rekap tetap ringkas
+const errNote = (c) => (c.err && (c.status === 'upload_failed' || c.lap === 3) ? `: <i>${esc(String(c.err).slice(0, 140))}</i>` : '');
+
 async function statusText() {
   const d = await db();
-  const rows = d.prepare(`SELECT id, day, title, status, youtube_id, json_extract(data_json, '$._laptop') lap FROM contents WHERE channel = '${CH}' AND day >= date('now', '-7 days') ORDER BY day, id`).all();
+  const rows = d.prepare(`SELECT id, day, title, status, youtube_id, json_extract(data_json, '$._laptop') lap, json_extract(data_json, '$._err') err FROM contents WHERE channel = '${CH}' AND day >= date('now', '-7 days') ORDER BY day, id`).all();
   const ST = { draft: 'draft', revision: 'revisi', pending_approval: 'nunggu ✅ Bos', approved: '✅, nunggu jam tayang', uploading: 'lagi upload', uploaded: 'Private, nunggu Bos ubah Publik', upload_failed: 'upload gagal', posted: 'tayang', rejected: 'ditolak' };
   const lap = { 1: '⏳ antre render laptop', 2: '🎙️ lagi dirender di laptop', 3: '⚠️ render gagal' };
   if (!rows.length) return `<b>${NAMA[T.dir]}</b>: Belum ada Shorts ${B.name} minggu ini, Bos. Kuota ${B.week} Shorts/minggu, maks 1 per hari.`;
-  return `<b>${NAMA[T.dir]}</b>: Rekap Shorts ${B.name} 7 hari terakhir:\n${rows.map((r) => `• #${r.id} ${r.day.slice(8)}/${r.day.slice(5, 7)} ${esc(r.title)} — ${lap[r.lap] ?? ST[r.status] ?? r.status}`).join('\n')}`;
+  return `<b>${NAMA[T.dir]}</b>: Rekap Shorts ${B.name} 7 hari terakhir:\n${rows.map((r) => `• #${r.id} ${r.day.slice(8)}/${r.day.slice(5, 7)} ${esc(r.title)} — ${lap[r.lap] ?? ST[r.status] ?? r.status}${errNote(r)}`).join('\n')}`;
 }
 
 // ---------- laporan Kirana di bot ini (0 token): harian 19:00 WITA, mingguan Minggu 19:30 WITA
@@ -419,7 +424,7 @@ const dm = (date) => `${date.slice(8)}/${date.slice(5, 7)}`;
 const addDays = (date, n) => new Date(Date.parse(`${date}T00:00:00Z`) + n * 86400_000).toISOString().slice(0, 10);
 const PROD = { draft: '📝 naskah/visual', revision: '✏️ revisi', pending_approval: '⏳ nunggu ✅ Bos', approved: '✅ nunggu jam tayang', uploading: '⏫ lagi upload', uploaded: '🔒 Private, nunggu Publik', upload_failed: '⚠️ upload gagal', posted: '📢 tayang' };
 const LAP = { 1: '⏳ antre render laptop', 2: '🎙️ dirender di laptop', 3: '⚠️ render gagal' };
-const prodLine = (c) => `#${c.id} ${esc(c.title.slice(0, 45))} — ${LAP[c.lap] ?? PROD[c.status] ?? esc(c.status)}`;
+const prodLine = (c) => `#${c.id} ${esc(c.title.slice(0, 45))} — ${LAP[c.lap] ?? PROD[c.status] ?? esc(c.status)}${errNote(c)}`;
 async function ytStats() {
   return ytStatsRaw().catch((e) => ({ st: { list: [], subscribers: null, likes: null, err: e.message }, views: null }));
 }
@@ -524,7 +529,7 @@ export async function dailyReport({ dry = false } = {}) {
   const rows = st.list.filter((v) => v.privacy !== 'private' || v.views > 0)
     .map((v) => ({ ...v, dv: vPrev[v.id] ? v.views - vPrev[v.id].v : null }))
     .sort((a, b) => (b.dv ?? b.views) - (a.dv ?? a.views));
-  const prodOf = (day) => d.prepare(`SELECT id, title, status, json_extract(data_json, '$._laptop') lap FROM contents
+  const prodOf = (day) => d.prepare(`SELECT id, title, status, json_extract(data_json, '$._laptop') lap, json_extract(data_json, '$._err') err FROM contents
     WHERE channel = '${CH}' AND day = ? AND status != 'rejected' AND COALESCE(json_extract(data_json, '$._test'), 0) = 0 ORDER BY id`).all(day);
   const today = prodOf(t.date), tomorrow = prodOf(addDays(t.date, 1));
   const wk = weekStats(d, t.date);
