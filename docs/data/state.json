@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-22T23:13:30.358Z",
+ "generated_at": "2026-11-22T23:23:30.305Z",
  "today": "2026-11-23",
  "week_start": "2026-11-23",
  "campaign": null,
@@ -98,7 +98,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-22 23:01:03"
+   "updated_at": "2026-11-22 23:15:46"
   },
   {
    "id": "tresearch",
@@ -106,15 +106,15 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Pencarian 24 jam tak ketemu, data terbaru Okt 2026: Fed tahan 3,75-4% (29 Okt) hawkish, USD kuat. Bias lemah tipis, cek ulang harga live.",
-   "updated_at": "2026-11-22 23:01:02"
+   "updated_at": "2026-11-22 23:15:46"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-11-22 23:01:02"
+   "current_task": "Belum ada pantulan band · H1 sideways",
+   "updated_at": "2026-11-22 23:15:46"
   },
   {
    "id": "trisk",
@@ -122,7 +122,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
-   "updated_at": "2026-11-22 23:01:03"
+   "updated_at": "2026-11-22 23:15:46"
   },
   {
    "id": "texec",
@@ -389,6 +389,11 @@
  "today_tasks": [],
  "activity": [
   {
+   "ts": "2026-11-22 23:15:46",
+   "agent_id": "ttech",
+   "message": "M15 berubah arah: sideways → bullish"
+  },
+  {
    "ts": "2026-11-22 23:06:08",
    "agent_id": "cedit",
    "message": "Clips libur (Owner 20 Nov), tidak dikerjakan"
@@ -507,11 +512,6 @@
    "ts": "2026-11-22 05:00:40",
    "agent_id": "vpublish",
    "message": "Upload Shorts #215 ke Marvel Talk (Publik via Zernio)"
-  },
-  {
-   "ts": "2026-11-22 04:28:43",
-   "agent_id": "owner",
-   "message": "Approve Shorts #218 ✅"
   }
  ],
  "chats": [
@@ -878,9 +878,14 @@
   "paused": false,
   "balance": 1757.48,
   "today_pnl": 0,
-  "price": 3602.320068,
+  "price": 3581.600098,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-22 23:15:46",
+    "decision": "NO TRADE",
+    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
+   },
    {
     "ts": "2026-11-22 23:01:03",
     "decision": "NO TRADE",
@@ -903,11 +908,6 @@
    },
    {
     "ts": "2026-11-20 21:00:44",
-    "decision": "NO TRADE",
-    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
-   },
-   {
-    "ts": "2026-11-20 20:45:43",
     "decision": "NO TRADE",
     "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
    }
@@ -987,7 +987,7 @@
    1757.48
   ],
   "last": {
-   "ts": "2026-11-22 23:01:03",
+   "ts": "2026-11-22 23:15:46",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1004,11 +1004,11 @@
     "blackout": null
    },
    "tech": {
-    "bias": "bearish",
+    "bias": "sideways",
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3539.00 di bawah tengah band (3539.0–3539.0) · RSI 54 · Stoch 50 · MACD -0.00 · H1 bearish"
+    "note": "M15 3599.00 di atas band atas (3504.1–3586.4) · RSI 93 · Stoch 78 · MACD +6.19 · H1 sideways"
    }
   },
   "fund": {
@@ -1077,24 +1077,24 @@
    "M10": {
     "bias": "bullish",
     "score": 2,
-    "price": 3577.3,
-    "ema20": 3542.65,
-    "ema50": 3540.5,
+    "price": 3607.65,
+    "ema20": 3548.84,
+    "ema50": 3543.14,
     "rsi": 100,
     "n": 299,
-    "slot": 2992315,
-    "at": 1795389046307
+    "slot": 2992316,
+    "at": 1795389646452
    },
    "M15": {
-    "bias": "sideways",
-    "score": 0,
-    "price": 3539,
-    "ema20": 3539,
-    "ema50": 3539,
-    "rsi": 54.1,
+    "bias": "bullish",
+    "score": 2,
+    "price": 3603.57,
+    "ema20": 3545.15,
+    "ema50": 3541.53,
+    "rsi": 100,
     "n": 299,
-    "slot": 1994876,
-    "at": 1795388446254
+    "slot": 1994877,
+    "at": 1795389346489
    },
    "M30": {
     "bias": "sideways",
