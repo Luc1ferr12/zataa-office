@@ -16,3 +16,6 @@ Nemuin topik Marvel yang **bikin penasaran dan bisa dipertanggungjawabkan**: lor
 ## Output per topik
 Ringkasan 3 kalimat, ≥2 URL, label tiap klaim **FAKTA / TEORI (siapa) / RUMOR**, judul film/serial atau nomor issue komik + tahun, plus 1 kalimat kenapa nendang di 3 detik pertama.
 - Cari klip: tiap kalimat naskah Fajar harus punya klip yang nunjukin hal itu; kasih Intan daftar adegan/film + perkiraan momen. Contoh gaya: `templates/samples/shorts-marvel-clip.json`.
+
+## Riset format bulanan (`/yt-viral`, `.claude/skills/`, MIT)
+Sebulan sekali kalau Reza minta: 6–10 channel Shorts Marvel/MCU (Indonesia + 2–3 luar) → `yt-dlp --flat-playlist -J <url channel>/shorts` (≥4 video per channel, tanpa login) → JSON `[{channel,title,views,url,duration}]` → `python3 .claude/skills/yt-viral/swipe.py data.json --min 2.0`. Catat kelipatan views vs median channel itu sendiri + formula judulnya → ringkas ke `office/youtube/swipe-marvel.md`. Tiru **formulanya**, bukan videonya; dihitung ke jatah 5 pencarian/hari.
