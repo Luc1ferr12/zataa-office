@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-22T00:16:20.093Z",
+ "generated_at": "2026-11-22T00:26:20.097Z",
  "today": "2026-11-22",
  "week_start": "2026-11-16",
  "campaign": {
@@ -831,7 +831,7 @@
    "game": "sejarah",
    "pillar": "ritual_mistis",
    "title": "Jenazah di Desa Bali Ini Nggak Dikubur, Konon Nggak Bau",
-   "status": "draft",
+   "status": "pending_approval",
    "asset_url": null,
    "scheduled_at": null,
    "posted_at": null,
@@ -1054,6 +1054,16 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-22 00:24:00",
+   "agent_id": "yvideo",
+   "message": "Shorts #214 dirender di laptop (suara OmniVoice) & dikirim ke Owner"
+  },
+  {
+   "ts": "2026-11-22 00:23:58",
+   "agent_id": "spublish",
+   "message": "Kirim Shorts #214 ke Owner buat approval"
+  },
+  {
    "ts": "2026-11-21 23:27:53",
    "agent_id": "yvideo",
    "message": "Render laptop Shorts #215 gagal, cek logs/laptop-worker.log di laptop"
@@ -1167,16 +1177,6 @@
    "ts": "2026-11-21 12:01:08",
    "agent_id": "spublish",
    "message": "Upload Shorts #210 ke Zaa Story (Publik via Zernio)"
-  },
-  {
-   "ts": "2026-11-21 11:01:40",
-   "agent_id": "ypublish",
-   "message": "Cross-post Shorts #209 ke TikTok Zaa History"
-  },
-  {
-   "ts": "2026-11-21 11:01:14",
-   "agent_id": "ypublish",
-   "message": "Upload Shorts #209 ke Zaa History (Publik via Zernio)"
   }
  ],
  "chats": [
@@ -1466,11 +1466,11 @@
    "week": "2026-11-16",
    "total": 36,
    "posted": 25,
-   "pending": 0,
+   "pending": 1,
    "scheduled": 0,
    "yt_total": 18,
    "yt_posted": 9,
-   "yt_pending": 0,
+   "yt_pending": 1,
    "yt_scheduled": 0,
    "views": 12835,
    "likes": 227,
