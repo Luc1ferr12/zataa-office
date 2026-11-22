@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-22T23:03:30.263Z",
+ "generated_at": "2026-11-22T23:13:30.358Z",
  "today": "2026-11-23",
  "week_start": "2026-11-23",
  "campaign": null,
@@ -169,8 +169,8 @@
    "name": "Nadhira",
    "title": "Riset Sejarah & Tren",
    "status": "done",
-   "current_task": null,
-   "updated_at": "2026-11-13 23:08:00"
+   "current_task": "Tambah 2 topik Hidden History",
+   "updated_at": "2026-11-22 23:06:08"
   },
   {
    "id": "yscript",
@@ -217,8 +217,8 @@
    "name": "Sekar",
    "title": "Riset Misteri Nusantara",
    "status": "done",
-   "current_task": null,
-   "updated_at": "2026-11-13 23:08:00"
+   "current_task": "Approve 2 topik Horor Bersejarah",
+   "updated_at": "2026-11-22 23:06:08"
   },
   {
    "id": "sscript",
@@ -257,24 +257,24 @@
    "name": "Reza",
    "title": "Manajer Marvel Talk",
    "status": "done",
-   "current_task": "Shorts 22 Nov: perisai Cap",
-   "updated_at": "2026-11-21 23:06:05"
+   "current_task": "Approve LT-006, Shorts #219 masuk antrean render",
+   "updated_at": "2026-11-22 23:06:08"
   },
   {
    "id": "vresearch",
    "name": "Citra",
    "title": "Riset Marvel & Berita MCU",
-   "status": "idle",
-   "current_task": null,
-   "updated_at": "2026-11-14 20:40:10"
+   "status": "done",
+   "current_task": "Riset topik Cap & Mjolnir",
+   "updated_at": "2026-11-22 23:06:08"
   },
   {
    "id": "vscript",
    "name": "Fajar",
    "title": "Scriptwriter & Fact Checker",
-   "status": "idle",
-   "current_task": null,
-   "updated_at": "2026-11-14 20:40:10"
+   "status": "done",
+   "current_task": "Naskah Shorts #219 Cap & Mjolnir",
+   "updated_at": "2026-11-22 23:06:08"
   },
   {
    "id": "vvisual",
@@ -369,11 +369,40 @@
    "scheduled_at": null,
    "posted_at": null,
    "channel": "story"
+  },
+  {
+   "id": 219,
+   "day": "2026-11-23",
+   "slot": "shorts",
+   "format": "shorts",
+   "game": "sejarah",
+   "pillar": "lore_teori",
+   "title": "Cap Ternyata Udah Bisa Angkat Mjolnir Sejak Age of Ultron",
+   "status": "draft",
+   "asset_url": null,
+   "scheduled_at": null,
+   "posted_at": null,
+   "channel": "marvel"
   }
  ],
  "clip_jobs": [],
  "today_tasks": [],
  "activity": [
+  {
+   "ts": "2026-11-22 23:06:08",
+   "agent_id": "cedit",
+   "message": "Clips libur (Owner 20 Nov), tidak dikerjakan"
+  },
+  {
+   "ts": "2026-11-22 23:06:08",
+   "agent_id": "vdir",
+   "message": "Bank Marvel kosong, LT-006 Cap & Mjolnir ditambah+approved, Shorts #219 jam 19:00"
+  },
+  {
+   "ts": "2026-11-22 23:04:52",
+   "agent_id": "vvideo",
+   "message": "Shorts #219 \"Cap Ternyata Udah Bisa Angkat Mjolnir Sejak Age of Ultron\" masuk antrean render laptop (OmniVoice)"
+  },
   {
    "ts": "2026-11-22 23:03:01",
    "agent_id": "dir",
@@ -483,24 +512,23 @@
    "ts": "2026-11-22 04:28:43",
    "agent_id": "owner",
    "message": "Approve Shorts #218 ✅"
-  },
-  {
-   "ts": "2026-11-22 04:28:30",
-   "agent_id": "spublish",
-   "message": "Shorts #218 Ourang Medan (gaya wayang, Lemo-Opuscar) diajukan ke Owner, tayang Sen 23/11 12:00 WIB setelah ✅"
-  },
-  {
-   "ts": "2026-11-22 04:28:30",
-   "agent_id": "spublish",
-   "message": "Kirim Shorts #218 ke Owner buat approval"
-  },
-  {
-   "ts": "2026-11-22 04:01:12",
-   "agent_id": "analyst",
-   "message": "Update data 36 post IG 📈"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-11-22 23:06:08",
+   "agent_id": "vscript",
+   "to_id": "vvisual",
+   "kind": "santai",
+   "message": "Intan, klip Thor teriak I knew it jangan kelewat ya, itu momen paling dikenang"
+  },
+  {
+   "ts": "2026-11-22 23:06:08",
+   "agent_id": "vdir",
+   "to_id": "vresearch",
+   "kind": "oper",
+   "message": "Brief \"Approve LT-006, Shorts #219 masuk antrean render\" beres. Citra, gas riset!"
+  },
   {
    "ts": "2026-11-22 23:03:01",
    "agent_id": "dir",
@@ -766,30 +794,16 @@
    "to_id": null,
    "kind": "oper",
    "message": "Bos ACC 1 ide tambahan! \"BTR turun hari ini di FFWS Phase 2: wajib top 2 buat langsung ke Grand Finals\" 🎉"
-  },
-  {
-   "ts": "2026-11-20 23:09:20",
-   "agent_id": "publisher",
-   "to_id": "owner",
-   "kind": "oper",
-   "message": "\"QA & submit #189\" udah lolos QA, tinggal nunggu ✅ dari Bos"
-  },
-  {
-   "ts": "2026-11-20 23:09:18",
-   "agent_id": "publisher",
-   "to_id": "video",
-   "kind": "santai",
-   "message": "Mas Dimas, video kuis transfer nunggu laptop nyala ya, aku standby QA."
   }
  ],
  "stats": {
   "this_week": {
    "week": "2026-11-23",
-   "total": 2,
+   "total": 3,
    "posted": 0,
    "pending": 0,
    "scheduled": 2,
-   "yt_total": 2,
+   "yt_total": 3,
    "yt_posted": 0,
    "yt_pending": 0,
    "yt_scheduled": 2,
@@ -821,12 +835,12 @@
    "yt_posted": 16,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 19556,
+   "views": 19572,
    "likes": 292,
    "comments": 5,
    "shares": 0,
    "saves": 2,
-   "yt_views": 15127,
+   "yt_views": 15143,
    "top": [
     {
      "title": "Gua di Biak Ini Konon Jadi Kuburan Ribuan Tentara Jepang",
@@ -864,7 +878,7 @@
   "paused": false,
   "balance": 1757.48,
   "today_pnl": 0,
-  "price": 3554.800049,
+  "price": 3602.320068,
   "open": [],
   "signals": [
    {
@@ -1063,13 +1077,13 @@
    "M10": {
     "bias": "bullish",
     "score": 2,
-    "price": 3539,
-    "ema20": 3539,
-    "ema50": 3539,
-    "rsi": 87,
+    "price": 3577.3,
+    "ema20": 3542.65,
+    "ema50": 3540.5,
+    "rsi": 100,
     "n": 299,
-    "slot": 2992314,
-    "at": 1795388446245
+    "slot": 2992315,
+    "at": 1795389046307
    },
    "M15": {
     "bias": "sideways",
