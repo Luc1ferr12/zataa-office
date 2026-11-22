@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-22T02:37:35.965Z",
+ "generated_at": "2026-11-22T02:40:36.047Z",
  "today": "2026-11-22",
  "week_start": "2026-11-16",
  "campaign": {
@@ -62,8 +62,8 @@
    "name": "Fikri",
    "title": "Social Media Publisher",
    "status": "done",
-   "current_task": "QA video PRX roster 2027, nunggu render laptop",
-   "updated_at": "2026-11-22 01:58:59"
+   "current_task": "undefined",
+   "updated_at": "2026-11-22 02:40:35"
   },
   {
    "id": "ads",
@@ -859,7 +859,7 @@
    "game": "sejarah",
    "pillar": "fakta_marvel",
    "title": "Perisai Captain America Dulu Bukan Bulat, Ini Sebabnya",
-   "status": "draft",
+   "status": "pending_approval",
    "asset_url": null,
    "scheduled_at": null,
    "posted_at": null,
@@ -1068,6 +1068,21 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-22 02:40:35",
+   "agent_id": "owner",
+   "message": "Approve konten #160 ✅"
+  },
+  {
+   "ts": "2026-11-22 02:37:52",
+   "agent_id": "yvideo",
+   "message": "Shorts #215 dirender di laptop (suara OmniVoice) & dikirim ke Owner"
+  },
+  {
+   "ts": "2026-11-22 02:37:51",
+   "agent_id": "vpublish",
+   "message": "Kirim Shorts #215 ke Owner buat approval"
+  },
+  {
    "ts": "2026-11-22 02:36:40",
    "agent_id": "yvideo",
    "message": "Render laptop Shorts #213 gagal, cek logs/laptop-worker.log di laptop"
@@ -1176,21 +1191,6 @@
    "ts": "2026-11-21 23:01:37",
    "agent_id": "researcher",
    "message": "Sesi pagi: PRX roster final terverifikasi 3 sumber; hasil FFWS Phase 2 belum cocok antar sumber"
-  },
-  {
-   "ts": "2026-11-21 23:01:32",
-   "agent_id": "dir",
-   "message": "Kirim 1 ide briefing ke Owner"
-  },
-  {
-   "ts": "2026-11-21 23:01:31",
-   "agent_id": "dir",
-   "message": "Pilih 1 berita hangat dari sesi riset pagi"
-  },
-  {
-   "ts": "2026-11-21 23:01:28",
-   "agent_id": "researcher",
-   "message": "Nemu 3 topik baru"
   }
  ],
  "chats": [
@@ -1480,11 +1480,11 @@
    "week": "2026-11-16",
    "total": 37,
    "posted": 25,
-   "pending": 0,
+   "pending": 1,
    "scheduled": 1,
    "yt_total": 18,
    "yt_posted": 9,
-   "yt_pending": 0,
+   "yt_pending": 1,
    "yt_scheduled": 1,
    "views": 12847,
    "likes": 227,
@@ -1527,8 +1527,8 @@
    "week": "2026-11-09",
    "total": 31,
    "posted": 27,
-   "pending": 1,
-   "scheduled": 0,
+   "pending": 0,
+   "scheduled": 1,
    "yt_total": 10,
    "yt_posted": 10,
    "yt_pending": 0,
