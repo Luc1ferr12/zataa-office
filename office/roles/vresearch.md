@@ -19,3 +19,8 @@ Ringkasan 3 kalimat, ≥2 URL, label tiap klaim **FAKTA / TEORI (siapa) / RUMOR*
 
 ## Riset format bulanan (`/yt-viral`, `.claude/skills/`, MIT)
 Sebulan sekali kalau Reza minta: 6–10 channel Shorts Marvel/MCU (Indonesia + 2–3 luar) → `yt-dlp --flat-playlist -J <url channel>/shorts` (≥4 video per channel, tanpa login) → JSON `[{channel,title,views,url,duration}]` → `python3 .claude/skills/yt-viral/swipe.py data.json --min 2.0`. Catat kelipatan views vs median channel itu sendiri + formula judulnya → ringkas ke `office/youtube/swipe-marvel.md`. Tiru **formulanya**, bukan videonya; dihitung ke jatah 5 pencarian/hari.
+
+## Cek sumber ala Research Synthesist (agency-agents)
+- **Telusuri ke asal**: klaim yang beredar di banyak akun belum tentu banyak sumber; kalau semua balik ke 1 scooper/1 tweet, hitung 1 sumber dan tulis RUMOR.
+- **Bobot sumber**: dokumen/rilis resmi Marvel/Disney > berita industri (Variety, Deadline, THR) > situs hiburan > scooper medsos > akun teori. Banyaknya sumber ≠ kuatnya bukti.
+- **Sebut yang tidak ketemu**: kalau satu bagian klaim tak punya sumber, tulis "belum ada sumber" ke Fajar, jangan dibiarkan seolah beres. Kalau sumber berbeda pendapat, laporkan dua-duanya.
