@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-22T01:56:20.141Z",
+ "generated_at": "2026-11-22T02:06:20.146Z",
  "today": "2026-11-22",
  "week_start": "2026-11-16",
  "campaign": {
@@ -30,16 +30,16 @@
    "name": "Salsa",
    "title": "Researcher",
    "status": "done",
-   "current_task": "Riset pagi: roster final PRX 2027",
-   "updated_at": "2026-11-21 23:01:37"
+   "current_task": "Cek sumber roster final PRX 2027",
+   "updated_at": "2026-11-22 01:58:23"
   },
   {
    "id": "copywriter",
    "name": "Tiara",
    "title": "Copywriter",
    "status": "done",
-   "current_task": "Naskah video preview BTR FFWS",
-   "updated_at": "2026-11-20 23:40:01"
+   "current_task": "Naskah video PRX roster 2027",
+   "updated_at": "2026-11-22 01:58:50"
   },
   {
    "id": "designer",
@@ -54,16 +54,16 @@
    "name": "Dimas",
    "title": "Video Production",
    "status": "done",
-   "current_task": "Render video preview BTR FFWS",
-   "updated_at": "2026-11-20 23:40:05"
+   "current_task": "Render video PRX roster 2027 (antre laptop)",
+   "updated_at": "2026-11-22 01:58:55"
   },
   {
    "id": "publisher",
    "name": "Fikri",
    "title": "Social Media Publisher",
    "status": "done",
-   "current_task": null,
-   "updated_at": "2026-11-22 01:00:40"
+   "current_task": "QA video PRX roster 2027, nunggu render laptop",
+   "updated_at": "2026-11-22 01:58:59"
   },
   {
    "id": "ads",
@@ -796,6 +796,20 @@
    "channel": null
   },
   {
+   "id": 216,
+   "day": "2026-11-22",
+   "slot": "kilat",
+   "format": "video",
+   "game": "valorant",
+   "pillar": "news",
+   "title": "PRX final roster 2027: PatMen balik, Primmie masuk",
+   "status": "draft",
+   "asset_url": null,
+   "scheduled_at": null,
+   "posted_at": null,
+   "channel": null
+  },
+  {
    "id": 192,
    "day": "2026-11-22",
    "slot": "malam",
@@ -831,7 +845,7 @@
    "game": "sejarah",
    "pillar": "ritual_mistis",
    "title": "Jenazah di Desa Bali Ini Nggak Dikubur, Konon Nggak Bau",
-   "status": "pending_approval",
+   "status": "approved",
    "asset_url": null,
    "scheduled_at": null,
    "posted_at": null,
@@ -1054,6 +1068,21 @@
  ],
  "activity": [
   {
+   "ts": "2026-11-22 01:58:23",
+   "agent_id": "researcher",
+   "message": "PRX 2027 dicek: insider-gaming + sheepesports + thespike. Roster f0rsakeN, something, invy, PatMen, Primmie (eks FULL SENSE). Jinggg lepas 31 Okt (rumor ke All Gamers), d4v41 keluar."
+  },
+  {
+   "ts": "2026-11-22 01:57:20",
+   "agent_id": "owner",
+   "message": "Approve 1 ide konten tambahan 💡"
+  },
+  {
+   "ts": "2026-11-22 01:56:51",
+   "agent_id": "owner",
+   "message": "Approve Shorts #214 ✅"
+  },
+  {
    "ts": "2026-11-22 01:00:56",
    "agent_id": "analyst",
    "message": "Update data 36 post IG 📈"
@@ -1162,24 +1191,72 @@
    "ts": "2026-11-21 17:12:54",
    "agent_id": "yvideo",
    "message": "Shorts #211 dirender di laptop (suara OmniVoice) & dikirim ke Owner"
-  },
-  {
-   "ts": "2026-11-21 16:01:24",
-   "agent_id": "analyst",
-   "message": "Update data 36 post IG 📈"
-  },
-  {
-   "ts": "2026-11-21 13:01:35",
-   "agent_id": "analyst",
-   "message": "Update data 36 post IG 📈"
-  },
-  {
-   "ts": "2026-11-21 12:01:59",
-   "agent_id": "publisher",
-   "message": "Posting #190 ke IG + TikTok ✅"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-11-22 01:59:11",
+   "agent_id": "publisher",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Hashtag udah aku rapihin. Kalau lolos QA, video langsung tayang otomatis, nanti Bos dikabarin 👍"
+  },
+  {
+   "ts": "2026-11-22 01:59:11",
+   "agent_id": "video",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Videonya udah antre render di laptop. Begitu laptop nyala, suara masuk dan langsung jalan."
+  },
+  {
+   "ts": "2026-11-22 01:59:11",
+   "agent_id": "researcher",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Bos, roster final PRX 2027 udah kecek ke 3 sumber. Soal Jinggg ke All Gamers masih rumor, di video juga ditulis rumor."
+  },
+  {
+   "ts": "2026-11-22 01:58:59",
+   "agent_id": "video",
+   "to_id": "publisher",
+   "kind": "santai",
+   "message": "Fik, PRX udah di antrean laptop ya. Semoga laptop Bos nyala, VO-nya enak kok"
+  },
+  {
+   "ts": "2026-11-22 01:58:59",
+   "agent_id": "publisher",
+   "to_id": "owner",
+   "kind": "oper",
+   "message": "\"QA video PRX roster 2027, nunggu render laptop\" udah lolos QA, tinggal nunggu ✅ dari Bos"
+  },
+  {
+   "ts": "2026-11-22 01:58:55",
+   "agent_id": "video",
+   "to_id": "publisher",
+   "kind": "oper",
+   "message": "Render \"Render video PRX roster 2027 (antre laptop)\" selesai, Fikri. Cek cover-nya ya"
+  },
+  {
+   "ts": "2026-11-22 01:58:50",
+   "agent_id": "copywriter",
+   "to_id": "designer",
+   "kind": "oper",
+   "message": "Vania, copy \"Naskah video PRX roster 2027\" udah masuk. Headline-nya jangan dikecilin ya 😆"
+  },
+  {
+   "ts": "2026-11-22 01:58:23",
+   "agent_id": "researcher",
+   "to_id": "copywriter",
+   "kind": "oper",
+   "message": "Tiara, bahan buat \"Cek sumber roster final PRX 2027\" udah aku rangkum + sumbernya. Tinggal kamu racik captionnya ✍️"
+  },
+  {
+   "ts": "2026-11-22 01:57:20",
+   "agent_id": "dir",
+   "to_id": null,
+   "kind": "oper",
+   "message": "Bos ACC 1 ide tambahan! \"PRX final roster 2027: PatMen balik, Primmie masuk\" 🎉"
+  },
   {
    "ts": "2026-11-21 23:06:05",
    "agent_id": "vdir",
@@ -1396,82 +1473,19 @@
    "to_id": "dir",
    "kind": "oper",
    "message": "Andre, data \"Cek data kemarin\" udah aku rangkum. Angkanya menarik nih 📈"
-  },
-  {
-   "ts": "2026-11-20 23:02:01",
-   "agent_id": "researcher",
-   "to_id": "copywriter",
-   "kind": "oper",
-   "message": "Tiara, bahan buat \"Riset pagi: FFWS Phase 2 BTR, transfer VCT, M8\" udah aku rangkum + sumbernya. Tinggal kamu racik captionnya ✍️"
-  },
-  {
-   "ts": "2026-11-20 23:00:14",
-   "agent_id": "treport",
-   "to_id": "tdir",
-   "kind": "oper",
-   "message": "Paper belum lolos syarat live, udah kulaporin ke Bos"
-  },
-  {
-   "ts": "2026-11-20 12:01:44",
-   "agent_id": "publisher",
-   "to_id": null,
-   "kind": "oper",
-   "message": "\"Bigetron di FFWS Global Finals: turun Sabtu 21 Nov\" udah tayang di IG + TikTok 🚀 Makasih semua!"
-  },
-  {
-   "ts": "2026-11-20 11:00:45",
-   "agent_id": "analyst",
-   "to_id": "dir",
-   "kind": "oper",
-   "message": "Laporan harian marketing udah aku kirim ke Bos, 2 konten tayang hari ini 📊"
-  },
-  {
-   "ts": "2026-11-20 09:01:40",
-   "agent_id": "publisher",
-   "to_id": null,
-   "kind": "oper",
-   "message": "\"FFWS Global Finals 2026: RRQ Kazu #8, ONIC #10 usa\" udah tayang di IG + TikTok 🚀 Makasih semua!"
-  },
-  {
-   "ts": "2026-11-20 05:02:39",
-   "agent_id": "publisher",
-   "to_id": null,
-   "kind": "oper",
-   "message": "\"Fase penentuan FFWS Global Finals: 8 tiket, 3 waki\" udah tayang di IG 🚀 Makasih semua!"
-  },
-  {
-   "ts": "2026-11-20 03:27:28",
-   "agent_id": "sec",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "⚠️ Bos, limit sesi (5 jam) Claude udah 99%. Reset Jumat, 20 Nov, 11.30 WITA.\nKalau penuh, kerjaan AI ketunda sebentar sampai reset."
-  },
-  {
-   "ts": "2026-11-20 03:17:28",
-   "agent_id": "sec",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "⚠️ Bos, limit sesi (5 jam) Claude udah 96%. Reset Jumat, 20 Nov, 11.30 WITA.\nKalau penuh, kerjaan AI ketunda sebentar sampai reset."
-  },
-  {
-   "ts": "2026-11-20 01:53:29",
-   "agent_id": "cpublish",
-   "to_id": "all",
-   "kind": "oper",
-   "message": "Clip \"BEAR BRAND X JEROME POLIN X DION WIYOKO\" udah tayang di TikTok & IG. Tinggal nunggu 1rb views 💸"
   }
  ],
  "stats": {
   "this_week": {
    "week": "2026-11-16",
-   "total": 36,
+   "total": 37,
    "posted": 25,
-   "pending": 1,
-   "scheduled": 0,
+   "pending": 0,
+   "scheduled": 1,
    "yt_total": 18,
    "yt_posted": 9,
-   "yt_pending": 1,
-   "yt_scheduled": 0,
+   "yt_pending": 0,
+   "yt_scheduled": 1,
    "views": 12847,
    "likes": 227,
    "comments": 4,
