@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-23T01:03:30.395Z",
+ "generated_at": "2026-11-23T01:13:30.392Z",
  "today": "2026-11-23",
  "week_start": "2026-11-23",
  "campaign": null,
@@ -25,16 +25,16 @@
    "name": "Salsa",
    "title": "Researcher",
    "status": "done",
-   "current_task": "Riset pagi: Jemkin/something residen Pacific, meta FFWS, update tiket GF",
-   "updated_at": "2026-11-22 23:03:00"
+   "current_task": "Cek ulang 2 berita: residen Pacific & meta FFWS",
+   "updated_at": "2026-11-23 01:10:35"
   },
   {
    "id": "copywriter",
    "name": "Tiara",
    "title": "Copywriter",
    "status": "done",
-   "current_task": "Naskah video PRX roster 2027",
-   "updated_at": "2026-11-22 01:58:50"
+   "current_task": "Naskah video #220 & #221",
+   "updated_at": "2026-11-23 01:11:18"
   },
   {
    "id": "designer",
@@ -49,16 +49,16 @@
    "name": "Dimas",
    "title": "Video Production",
    "status": "done",
-   "current_task": "Render video PRX roster 2027 (antre laptop)",
-   "updated_at": "2026-11-22 01:58:55"
+   "current_task": "Video #220 & #221 masuk antrean render laptop",
+   "updated_at": "2026-11-23 01:11:40"
   },
   {
    "id": "publisher",
    "name": "Fikri",
    "title": "Social Media Publisher",
    "status": "done",
-   "current_task": null,
-   "updated_at": "2026-11-23 01:00:52"
+   "current_task": "#220 & #221 nunggu render laptop (submit + QA otomatis)",
+   "updated_at": "2026-11-23 01:11:40"
   },
   {
    "id": "ads",
@@ -343,6 +343,34 @@
  ],
  "week_contents": [
   {
+   "id": 220,
+   "day": "2026-11-23",
+   "slot": "kilat",
+   "format": "video",
+   "game": "valorant",
+   "pillar": "news",
+   "title": "Jemkin & something resmi bukan pemain impor lagi di VCT 2027",
+   "status": "draft",
+   "asset_url": null,
+   "scheduled_at": null,
+   "posted_at": null,
+   "channel": null
+  },
+  {
+   "id": 221,
+   "day": "2026-11-23",
+   "slot": "kilat",
+   "format": "video",
+   "game": "freefire",
+   "pillar": "news",
+   "title": "Meta FFWS GF 2026: SKORP vs double sniper kata Coach AFM",
+   "status": "draft",
+   "asset_url": null,
+   "scheduled_at": null,
+   "posted_at": null,
+   "channel": null
+  },
+  {
    "id": 217,
    "day": "2026-11-23",
    "slot": "shorts",
@@ -378,7 +406,7 @@
    "game": "sejarah",
    "pillar": "lore_teori",
    "title": "Cap Ternyata Udah Bisa Angkat Mjolnir Sejak Age of Ultron",
-   "status": "pending_approval",
+   "status": "approved",
    "asset_url": null,
    "scheduled_at": null,
    "posted_at": null,
@@ -388,6 +416,31 @@
  "clip_jobs": [],
  "today_tasks": [],
  "activity": [
+  {
+   "ts": "2026-11-23 01:11:40",
+   "agent_id": "publisher",
+   "message": "#220 (residen Pacific) & #221 (meta FFWS): antrean render laptop, auto=1 tayang setelah QA lolos"
+  },
+  {
+   "ts": "2026-11-23 01:09:36",
+   "agent_id": "owner",
+   "message": "Approve Shorts #219 ✅"
+  },
+  {
+   "ts": "2026-11-23 01:09:33",
+   "agent_id": "owner",
+   "message": "Keputusan dari web: Diteruskan ke bot Marvel Talk (±5 dtk)"
+  },
+  {
+   "ts": "2026-11-23 01:09:30",
+   "agent_id": "owner",
+   "message": "Approve 2 ide konten tambahan 💡"
+  },
+  {
+   "ts": "2026-11-23 01:08:36",
+   "agent_id": "owner",
+   "message": "Keputusan dari web: 💡 2 ide di-approve, gas!"
+  },
   {
    "ts": "2026-11-23 01:01:01",
    "agent_id": "analyst",
@@ -487,34 +540,72 @@
    "ts": "2026-11-22 23:00:46",
    "agent_id": "ttech",
    "message": "M10 berubah arah: sideways → bullish"
-  },
-  {
-   "ts": "2026-11-22 22:01:03",
-   "agent_id": "analyst",
-   "message": "Update data 33 post IG 📈"
-  },
-  {
-   "ts": "2026-11-22 19:01:07",
-   "agent_id": "analyst",
-   "message": "Update data 33 post IG 📈"
-  },
-  {
-   "ts": "2026-11-22 16:01:04",
-   "agent_id": "analyst",
-   "message": "Update data 33 post IG 📈"
-  },
-  {
-   "ts": "2026-11-22 13:01:06",
-   "agent_id": "analyst",
-   "message": "Update data 33 post IG 📈"
-  },
-  {
-   "ts": "2026-11-22 12:01:05",
-   "agent_id": "spublish",
-   "message": "Cross-post Shorts #214 ke TikTok Zaa Story"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-11-23 01:11:54",
+   "agent_id": "publisher",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Habis render, QA jalan otomatis. Lolos langsung tayang, nanti Bos dikabarin."
+  },
+  {
+   "ts": "2026-11-23 01:11:54",
+   "agent_id": "video",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Dua video udah antre render di laptop, jadi tunggu laptop nyala ya Bos."
+  },
+  {
+   "ts": "2026-11-23 01:11:54",
+   "agent_id": "copywriter",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Siap Bos! Naskah Jemkin & something (#220) sama meta FFWS Coach AFM (#221) udah beres, nol promo."
+  },
+  {
+   "ts": "2026-11-23 01:11:40",
+   "agent_id": "publisher",
+   "to_id": "owner",
+   "kind": "oper",
+   "message": "Bos, \"#220 & #221 nunggu render laptop (submit + QA otomatis)\" udah aku kirim ke Telegram. Ditunggu approve-nya 🙏"
+  },
+  {
+   "ts": "2026-11-23 01:11:40",
+   "agent_id": "video",
+   "to_id": "copywriter",
+   "kind": "santai",
+   "message": "Tiara, nama 'something' di VO semoga nggak dibaca kayak kata biasa ya wkwk"
+  },
+  {
+   "ts": "2026-11-23 01:11:40",
+   "agent_id": "video",
+   "to_id": "publisher",
+   "kind": "oper",
+   "message": "Fikri, video \"Video #220 & #221 masuk antrean render laptop\" udah render 9:16. Musiknya aman kok"
+  },
+  {
+   "ts": "2026-11-23 01:11:18",
+   "agent_id": "copywriter",
+   "to_id": "designer",
+   "kind": "oper",
+   "message": "Teks buat \"Naskah video #220 & #221\" ready. Vania, giliranmu bikin cakep!"
+  },
+  {
+   "ts": "2026-11-23 01:10:35",
+   "agent_id": "researcher",
+   "to_id": "copywriter",
+   "kind": "oper",
+   "message": "Riset \"Cek ulang 2 berita: residen Pacific & meta FFWS\" beres, udah dicek 2 sumber. Tiara, lanjut ya~"
+  },
+  {
+   "ts": "2026-11-23 01:09:30",
+   "agent_id": "dir",
+   "to_id": null,
+   "kind": "oper",
+   "message": "Bos ACC 2 ide tambahan! \"Jemkin & something resmi bukan pemain impor lagi di VCT 2027\" & \"Meta FFWS GF 2026: SKORP vs double sniper kata Coach AFM\" 🎉"
+  },
   {
    "ts": "2026-11-22 23:06:08",
    "agent_id": "vscript",
@@ -731,82 +822,19 @@
    "to_id": "publisher",
    "kind": "bos",
    "message": "IG ini kayaknya kurang banget ya, apa pindah youtube aja. Jadi tiktok sama yotube untuk about esports ini. Gimana?"
-  },
-  {
-   "ts": "2026-11-20 23:41:00",
-   "agent_id": "publisher",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Teks udah lolos QA Bos. Begitu render beres langsung masuk Telegram, tinggal ✅ buat tayang jam 16:00 WIB."
-  },
-  {
-   "ts": "2026-11-20 23:41:00",
-   "agent_id": "video",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Video preview BTR lagi antre render di laptop. Foto roster FF BTR nggak ada di database, jadi aku pakai logo BTR, Vitality, RRQ, sama ONIC."
-  },
-  {
-   "ts": "2026-11-20 23:41:00",
-   "agent_id": "researcher",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Angka BTR (#15, 368 poin, kurang 51 dari 12 besar) udah dicek ke 3 media Bos. Hasil Day 2 sama jam tandingnya belum pasti, jadi nggak aku masukin."
-  },
-  {
-   "ts": "2026-11-20 23:40:46",
-   "agent_id": "researcher",
-   "to_id": "copywriter",
-   "kind": "santai",
-   "message": "Tiara, Liquipedia nolak aku lagi 😭 untung media lokal kompak angkanya"
-  },
-  {
-   "ts": "2026-11-20 23:40:46",
-   "agent_id": "publisher",
-   "to_id": "owner",
-   "kind": "oper",
-   "message": "\"QA video preview BTR FFWS (render+kirim otomatis laptop)\" udah lolos QA, tinggal nunggu ✅ dari Bos"
-  },
-  {
-   "ts": "2026-11-20 23:40:05",
-   "agent_id": "video",
-   "to_id": "publisher",
-   "kind": "oper",
-   "message": "Fikri, video \"Render video preview BTR FFWS\" udah render 9:16. Musiknya aman kok"
-  },
-  {
-   "ts": "2026-11-20 23:40:01",
-   "agent_id": "copywriter",
-   "to_id": "designer",
-   "kind": "oper",
-   "message": "Teks buat \"Naskah video preview BTR FFWS\" ready. Vania, giliranmu bikin cakep!"
-  },
-  {
-   "ts": "2026-11-20 23:39:35",
-   "agent_id": "researcher",
-   "to_id": "copywriter",
-   "kind": "oper",
-   "message": "Riset \"Riset preview BTR FFWS Phase 2 Day 3\" beres, udah dicek 2 sumber. Tiara, lanjut ya~"
-  },
-  {
-   "ts": "2026-11-20 23:37:43",
-   "agent_id": "dir",
-   "to_id": null,
-   "kind": "oper",
-   "message": "Bos ACC 1 ide tambahan! \"BTR turun hari ini di FFWS Phase 2: wajib top 2 buat langsung ke Grand Finals\" 🎉"
   }
  ],
  "stats": {
   "this_week": {
    "week": "2026-11-23",
-   "total": 3,
+   "total": 5,
    "posted": 0,
-   "pending": 1,
-   "scheduled": 2,
+   "pending": 0,
+   "scheduled": 3,
    "yt_total": 3,
    "yt_posted": 0,
-   "yt_pending": 1,
-   "yt_scheduled": 2,
+   "yt_pending": 0,
+   "yt_scheduled": 3,
    "views": 0,
    "likes": 0,
    "comments": 0,
@@ -878,7 +906,7 @@
   "paused": false,
   "balance": 1757.48,
   "today_pnl": 0,
-  "price": 3578.100098,
+  "price": 3591.699951,
   "open": [],
   "signals": [
    {
@@ -1077,13 +1105,13 @@
    "M10": {
     "bias": "bullish",
     "score": 2,
-    "price": 3576.9,
-    "ema20": 3569.14,
-    "ema50": 3556.05,
-    "rsi": 56.7,
+    "price": 3577.1,
+    "ema20": 3569.9,
+    "ema50": 3556.88,
+    "rsi": 56.8,
     "n": 299,
-    "slot": 2992326,
-    "at": 1795395646266
+    "slot": 2992327,
+    "at": 1795396246283
    },
    "M15": {
     "bias": "bullish",
