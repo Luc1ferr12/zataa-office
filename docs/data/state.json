@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-23T11:23:27.841Z",
+ "generated_at": "2026-11-23T11:33:27.846Z",
  "today": "2026-11-23",
  "week_start": "2026-11-23",
  "campaign": null,
@@ -98,7 +98,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-23 11:15:58"
+   "updated_at": "2026-11-23 11:30:58"
   },
   {
    "id": "tresearch",
@@ -106,7 +106,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: CPI Okt +0,4% m/m (prakiraan 0,3%) bikin emas turun 2-3% & taruhan kenaikan Fed naik. Belum ada berita 24 jam yang terverifikasi.",
-   "updated_at": "2026-11-23 11:15:58"
+   "updated_at": "2026-11-23 11:30:58"
   },
   {
    "id": "ttech",
@@ -114,7 +114,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-23 11:15:58"
+   "updated_at": "2026-11-23 11:30:58"
   },
   {
    "id": "trisk",
@@ -122,7 +122,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-11-23 11:15:58"
+   "updated_at": "2026-11-23 11:30:58"
   },
   {
    "id": "texec",
@@ -479,6 +479,16 @@
  "today_tasks": [],
  "activity": [
   {
+   "ts": "2026-11-23 11:30:58",
+   "agent_id": "trisk",
+   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+  },
+  {
+   "ts": "2026-11-23 11:30:57",
+   "agent_id": "ttech",
+   "message": "M15 berubah arah: sideways → bullish"
+  },
+  {
    "ts": "2026-11-23 11:20:57",
    "agent_id": "ttech",
    "message": "M10 berubah arah: sideways → bullish"
@@ -590,16 +600,6 @@
   },
   {
    "ts": "2026-11-23 07:53:33",
-   "agent_id": "dir",
-   "message": "Kode kantor diperbarui, restart otomatis: scripts/golink.mjs, scripts/trading/run.mjs"
-  },
-  {
-   "ts": "2026-11-23 07:51:46",
-   "agent_id": "dir",
-   "message": "Kode kantor diperbarui, restart otomatis: scripts/golink.mjs, scripts/trading/run.mjs"
-  },
-  {
-   "ts": "2026-11-23 07:38:51",
    "agent_id": "dir",
    "message": "Kode kantor diperbarui, restart otomatis: scripts/golink.mjs, scripts/trading/run.mjs"
   }
@@ -897,12 +897,12 @@
    "yt_posted": 2,
    "yt_pending": 0,
    "yt_scheduled": 2,
-   "views": 2581,
-   "likes": 51,
-   "comments": 0,
+   "views": 2972,
+   "likes": 60,
+   "comments": 1,
    "shares": 0,
    "saves": 1,
-   "yt_views": 936,
+   "yt_views": 1327,
    "top": [
     {
      "title": "Jemkin & something resmi bukan pemain impor lagi di VCT 2027",
@@ -911,16 +911,16 @@
      "views": 1061
     },
     {
+     "title": "Komputer 2.000 Tahun dari Dasar Laut Yunani",
+     "format": "shorts",
+     "pillar": "ancient_secrets",
+     "views": 671
+    },
+    {
      "title": "Pesan Terakhir Kapal Ini Cuma 2 Kata: \"Saya Mati\"",
      "format": "shorts",
      "pillar": "peristiwa_aneh",
      "views": 656
-    },
-    {
-     "title": "Meta FFWS GF 2026: SKORP vs double sniper kata Coach AFM",
-     "format": "video",
-     "pillar": "news",
-     "views": 584
     }
    ],
    "clicks": 0,
@@ -944,30 +944,30 @@
    "yt_posted": 16,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 20638,
-   "likes": 311,
+   "views": 20657,
+   "likes": 312,
    "comments": 5,
    "shares": 0,
    "saves": 2,
-   "yt_views": 16189,
+   "yt_views": 16208,
    "top": [
     {
      "title": "Gua di Biak Ini Konon Jadi Kuburan Ribuan Tentara Jepang",
      "format": "shorts",
      "pillar": "horor_sejarah",
-     "views": 2175
+     "views": 2176
     },
     {
      "title": "Kuburan Belanda di Jakarta Ini Sekarang Jadi Museum, Konon Angker",
      "format": "shorts",
      "pillar": "horor_sejarah",
-     "views": 2022
+     "views": 2023
     },
     {
      "title": "Legenda Danau Toba Konon Menyimpan Jejak Letusan Terbesar",
      "format": "shorts",
      "pillar": "legenda_mitos",
-     "views": 1894
+     "views": 1899
     }
    ],
    "clicks": 0,
@@ -987,9 +987,14 @@
   "paused": false,
   "balance": 1757.48,
   "today_pnl": 0,
-  "price": 3619.75,
+  "price": 3619.399902,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-23 11:30:58",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
    {
     "ts": "2026-11-23 11:15:58",
     "decision": "NO TRADE",
@@ -1012,11 +1017,6 @@
    },
    {
     "ts": "2026-11-23 10:15:57",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-11-23 10:00:46",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1096,7 +1096,7 @@
    1757.48
   ],
   "last": {
-   "ts": "2026-11-23 11:15:58",
+   "ts": "2026-11-23 11:30:58",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1117,7 +1117,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3620.85 di atas tengah band (3604.8–3634.0) · RSI 55 · Stoch 76 · MACD -0.75 · H1 sideways"
+    "note": "M15 3620.75 di atas tengah band (3604.7–3633.5) · RSI 55 · Stoch 76 · MACD -0.84 · H1 sideways"
    }
   },
   "fund": {
@@ -1186,35 +1186,35 @@
    "M10": {
     "bias": "bullish",
     "score": 2,
-    "price": 3619.75,
-    "ema20": 3618.19,
-    "ema50": 3610.8,
-    "rsi": 52.7,
+    "price": 3618.75,
+    "ema20": 3618.24,
+    "ema50": 3611.12,
+    "rsi": 51.7,
     "n": 299,
-    "slot": 2992388,
-    "at": 1795432857806
+    "slot": 2992389,
+    "at": 1795433457820
    },
    "M15": {
-    "bias": "sideways",
-    "score": 1,
-    "price": 3621.75,
-    "ema20": 3617.09,
-    "ema50": 3603,
-    "rsi": 55.9,
+    "bias": "bullish",
+    "score": 2,
+    "price": 3618.75,
+    "ema20": 3617.25,
+    "ema50": 3603.62,
+    "rsi": 53.3,
     "n": 299,
-    "slot": 1994925,
-    "at": 1795432557805
+    "slot": 1994926,
+    "at": 1795433457825
    },
    "M30": {
     "bias": "bullish",
     "score": 2,
-    "price": 3624.35,
-    "ema20": 3608.09,
-    "ema50": 3584.03,
-    "rsi": 60.8,
+    "price": 3618.75,
+    "ema20": 3609.1,
+    "ema50": 3585.39,
+    "rsi": 57.8,
     "n": 299,
-    "slot": 997462,
-    "at": 1795431657803
+    "slot": 997463,
+    "at": 1795433457828
    },
    "H1": {
     "bias": "bullish",
