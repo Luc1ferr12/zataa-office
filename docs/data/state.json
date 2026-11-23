@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-23T03:13:37.313Z",
+ "generated_at": "2026-11-23T03:23:37.317Z",
  "today": "2026-11-23",
  "week_start": "2026-11-23",
  "campaign": null,
@@ -98,7 +98,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-23 03:00:46"
+   "updated_at": "2026-11-23 03:15:46"
   },
   {
    "id": "tresearch",
@@ -106,7 +106,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Pencarian 24 jam tak ketemu, data terbaru Okt 2026: Fed tahan 3,75-4% (29 Okt) hawkish, USD kuat. Bias lemah tipis, cek ulang harga live.",
-   "updated_at": "2026-11-23 03:00:46"
+   "updated_at": "2026-11-23 03:15:46"
   },
   {
    "id": "ttech",
@@ -114,7 +114,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-23 03:00:46"
+   "updated_at": "2026-11-23 03:15:46"
   },
   {
    "id": "trisk",
@@ -122,7 +122,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
-   "updated_at": "2026-11-23 03:00:46"
+   "updated_at": "2026-11-23 03:15:46"
   },
   {
    "id": "texec",
@@ -417,6 +417,11 @@
  "today_tasks": [],
  "activity": [
   {
+   "ts": "2026-11-23 03:15:46",
+   "agent_id": "trisk",
+   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (sesi Asia)"
+  },
+  {
    "ts": "2026-11-23 03:01:01",
    "agent_id": "ypublish",
    "message": "Cross-post Shorts #60 ke TikTok Zaa History"
@@ -535,11 +540,6 @@
    "ts": "2026-11-22 23:30:45",
    "agent_id": "yvideo",
    "message": "Shorts #219 dirender di laptop (suara OmniVoice) & dikirim ke Owner"
-  },
-  {
-   "ts": "2026-11-22 23:30:44",
-   "agent_id": "vpublish",
-   "message": "Kirim Shorts #219 ke Owner buat approval"
   }
  ],
  "chats": [
@@ -863,12 +863,12 @@
    "yt_posted": 16,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 19759,
+   "views": 19778,
    "likes": 296,
    "comments": 5,
    "shares": 0,
    "saves": 2,
-   "yt_views": 15323,
+   "yt_views": 15342,
    "top": [
     {
      "title": "Gua di Biak Ini Konon Jadi Kuburan Ribuan Tentara Jepang",
@@ -906,9 +906,14 @@
   "paused": false,
   "balance": 1757.48,
   "today_pnl": 0,
-  "price": 3598.5,
+  "price": 3608.600098,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-23 03:15:46",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
+   },
    {
     "ts": "2026-11-23 03:00:46",
     "decision": "NO TRADE",
@@ -931,11 +936,6 @@
    },
    {
     "ts": "2026-11-23 02:00:46",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-   },
-   {
-    "ts": "2026-11-23 01:45:46",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
    }
@@ -1015,7 +1015,7 @@
    1757.48
   ],
   "last": {
-   "ts": "2026-11-23 03:00:46",
+   "ts": "2026-11-23 03:15:46",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1036,7 +1036,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3591.10 di atas tengah band (3532.8–3636.5) · RSI 57 · Stoch 31 · MACD -1.68 · H1 sideways"
+    "note": "M15 3604.65 di atas tengah band (3540.8–3636.6) · RSI 62 · Stoch 55 · MACD -0.43 · H1 sideways"
    }
   },
   "fund": {
@@ -1104,25 +1104,25 @@
   "tf": {
    "M10": {
     "bias": "bullish",
-    "score": 2,
-    "price": 3592.4,
-    "ema20": 3586.79,
-    "ema50": 3571.83,
-    "rsi": 54.6,
+    "score": 3,
+    "price": 3602.15,
+    "ema20": 3588.25,
+    "ema50": 3573.02,
+    "rsi": 58.5,
     "n": 299,
-    "slot": 2992339,
-    "at": 1795403446360
+    "slot": 2992340,
+    "at": 1795404046370
    },
    "M15": {
     "bias": "bullish",
     "score": 3,
-    "price": 3593.85,
-    "ema20": 3581.4,
-    "ema50": 3564.31,
-    "rsi": 58,
+    "price": 3605.1,
+    "ema20": 3583.66,
+    "ema50": 3565.91,
+    "rsi": 61.9,
     "n": 299,
-    "slot": 1994892,
-    "at": 1795402846355
+    "slot": 1994893,
+    "at": 1795403746353
    },
    "M30": {
     "bias": "bullish",
