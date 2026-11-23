@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-23T08:51:48.973Z",
+ "generated_at": "2026-11-23T09:31:05.133Z",
  "today": "2026-11-23",
  "week_start": "2026-11-23",
  "campaign": null,
@@ -98,15 +98,15 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-23 08:45:49"
+   "updated_at": "2026-11-23 09:16:05"
   },
   {
    "id": "tresearch",
    "name": "Davina",
    "title": "Research & Fundamental",
    "status": "done",
-   "current_task": "Fundamental: Pencarian 24 jam tak ketemu, data terbaru Okt 2026: Fed tahan 3,75-4% (29 Okt) hawkish, USD kuat. Bias lemah tipis, cek ulang harga live.",
-   "updated_at": "2026-11-23 08:45:49"
+   "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
+   "updated_at": "2026-11-23 09:16:05"
   },
   {
    "id": "ttech",
@@ -114,7 +114,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-23 08:45:49"
+   "updated_at": "2026-11-23 09:16:05"
   },
   {
    "id": "trisk",
@@ -122,7 +122,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-11-23 08:45:49"
+   "updated_at": "2026-11-23 09:16:05"
   },
   {
    "id": "texec",
@@ -459,11 +459,60 @@
    "scheduled_at": null,
    "posted_at": null,
    "channel": "marvel"
+  },
+  {
+   "id": 222,
+   "day": "2026-11-24",
+   "slot": "shorts",
+   "format": "shorts",
+   "game": "sejarah",
+   "pillar": "lore_teori",
+   "title": "Vibranium Ternyata Bukan Keras, Tapi Nyerap Getaran",
+   "status": "approved",
+   "asset_url": null,
+   "scheduled_at": null,
+   "posted_at": null,
+   "channel": "marvel"
   }
  ],
  "clip_jobs": [],
  "today_tasks": [],
  "activity": [
+  {
+   "ts": "2026-11-23 09:22:21",
+   "agent_id": "owner",
+   "message": "Approve Shorts #222 ✅"
+  },
+  {
+   "ts": "2026-11-23 09:21:04",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: sideways → bullish"
+  },
+  {
+   "ts": "2026-11-23 09:16:05",
+   "agent_id": "trisk",
+   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+  },
+  {
+   "ts": "2026-11-23 09:04:36",
+   "agent_id": "vpublish",
+   "message": "Kirim Shorts #222 ke Owner buat approval"
+  },
+  {
+   "ts": "2026-11-23 09:03:54",
+   "agent_id": "vvideo",
+   "message": "Shorts #222 \"Vibranium Ternyata Bukan Keras, Tapi Nyerap Getaran\" masuk antrean render laptop (film lemo-opuscar films/marvel-vibranium-pop)"
+  },
+  {
+   "ts": "2026-11-23 09:01:05",
+   "agent_id": "ttech",
+   "message": "M15 berubah arah: sideways → bullish"
+  },
+  {
+   "ts": "2026-11-23 09:00:49",
+   "agent_id": "dir",
+   "message": "Kode kantor diperbarui, restart otomatis: scripts/golink.mjs, scripts/trading/run.mjs, scripts/watch.mjs"
+  },
   {
    "ts": "2026-11-23 08:51:33",
    "agent_id": "dir",
@@ -553,41 +602,6 @@
    "ts": "2026-11-23 04:00:46",
    "agent_id": "ttech",
    "message": "M60 berubah arah: sideways → bullish"
-  },
-  {
-   "ts": "2026-11-23 03:44:30",
-   "agent_id": "dir",
-   "message": "Kode kantor diperbarui, restart otomatis: scripts/watch.mjs, scripts/golink.mjs, scripts/trading/run.mjs"
-  },
-  {
-   "ts": "2026-11-23 03:15:46",
-   "agent_id": "trisk",
-   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-  },
-  {
-   "ts": "2026-11-23 03:01:01",
-   "agent_id": "ypublish",
-   "message": "Cross-post Shorts #60 ke TikTok Zaa History"
-  },
-  {
-   "ts": "2026-11-23 03:00:46",
-   "agent_id": "ttech",
-   "message": "M15 berubah arah: sideways → bullish"
-  },
-  {
-   "ts": "2026-11-23 03:00:46",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: sideways → bullish"
-  },
-  {
-   "ts": "2026-11-23 02:45:46",
-   "agent_id": "ttech",
-   "message": "M15 berubah arah: bullish → sideways"
-  },
-  {
-   "ts": "2026-11-23 02:30:46",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: bullish → sideways"
   }
  ],
  "chats": [
@@ -875,14 +889,14 @@
  "stats": {
   "this_week": {
    "week": "2026-11-23",
-   "total": 5,
+   "total": 6,
    "posted": 4,
    "pending": 0,
-   "scheduled": 1,
-   "yt_total": 3,
+   "scheduled": 2,
+   "yt_total": 4,
    "yt_posted": 2,
    "yt_pending": 0,
-   "yt_scheduled": 1,
+   "yt_scheduled": 2,
    "views": 2021,
    "likes": 46,
    "comments": 0,
@@ -973,9 +987,19 @@
   "paused": false,
   "balance": 1757.48,
   "today_pnl": 0,
-  "price": 3612.199951,
+  "price": 3620.199951,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-23 09:16:05",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
+   {
+    "ts": "2026-11-23 09:01:05",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
    {
     "ts": "2026-11-23 08:45:49",
     "decision": "NO TRADE",
@@ -995,16 +1019,6 @@
     "ts": "2026-11-23 08:00:49",
     "decision": "NO TRADE",
     "reason": "setup SELL di band, konfirmasi baru 1/3 (divergensi) · London–NY (mode aman)"
-   },
-   {
-    "ts": "2026-11-23 07:46:07",
-    "decision": "NO TRADE",
-    "reason": "setup SELL di band, konfirmasi baru 2/3 (MACD+divergensi) · London–NY (mode aman)"
-   },
-   {
-    "ts": "2026-11-23 07:30:46",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
   ],
   "trades": [
@@ -1082,7 +1096,7 @@
    1757.48
   ],
   "last": {
-   "ts": "2026-11-23 08:45:49",
+   "ts": "2026-11-23 09:16:05",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1093,8 +1107,8 @@
    "risk_usd": null,
    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
    "fund": {
-    "bias": -0.15,
-    "note": "Pencarian 24 jam tak ketemu, data terbaru Okt 2026: Fed tahan 3,75-4% (29 Okt) hawkish, USD kuat. Bias lemah tipis, cek ulang harga live.",
+    "bias": 0,
+    "note": "netral (belum ada ringkasan hari ini)",
     "danger": null,
     "blackout": null
    },
@@ -1103,13 +1117,10 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3605.75 di bawah tengah band (3597.0–3634.1) · RSI 48 · Stoch 18 · MACD -3.49 · H1 sideways"
+    "note": "M15 3614.20 di bawah tengah band (3600.4–3633.1) · RSI 54 · Stoch 37 · MACD -2.64 · H1 sideways"
    }
   },
-  "fund": {
-   "bias": -0.15,
-   "note": "Pencarian 24 jam tak ketemu, data terbaru Okt 2026: Fed tahan 3,75-4% (29 Okt) hawkish, USD kuat. Bias lemah tipis, cek ulang harga live."
-  },
+  "fund": null,
   "calendar": [
    {
     "title": "Core PCE Price Index m/m",
@@ -1170,48 +1181,48 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "sideways",
-    "score": 0,
-    "price": 3606.95,
-    "ema20": 3614.45,
-    "ema50": 3604.22,
-    "rsi": 45.2,
+    "bias": "bullish",
+    "score": 2,
+    "price": 3625.95,
+    "ema20": 3615.69,
+    "ema50": 3606.24,
+    "rsi": 58.6,
     "n": 299,
-    "slot": 2992373,
-    "at": 1795423848928
+    "slot": 2992377,
+    "at": 1795426265007
    },
    "M15": {
-    "bias": "sideways",
-    "score": 1,
-    "price": 3612.05,
-    "ema20": 3612.7,
-    "ema50": 3594.99,
-    "rsi": 52.3,
+    "bias": "bullish",
+    "score": 2,
+    "price": 3625.95,
+    "ema20": 3614.08,
+    "ema50": 3597.57,
+    "rsi": 60.5,
     "n": 299,
-    "slot": 1994915,
-    "at": 1795423548926
+    "slot": 1994918,
+    "at": 1795426265021
    },
    "M30": {
     "bias": "bullish",
     "score": 3,
-    "price": 3603.55,
-    "ema20": 3600.43,
-    "ema50": 3576.13,
-    "rsi": 55,
+    "price": 3625.95,
+    "ema20": 3604.04,
+    "ema50": 3579.51,
+    "rsi": 62.9,
     "n": 299,
-    "slot": 997457,
-    "at": 1795422648922
+    "slot": 997459,
+    "at": 1795426265024
    },
    "H1": {
     "bias": "bullish",
     "score": 2,
-    "price": 3622.65,
-    "ema20": 3580.37,
-    "ema50": 3568.16,
-    "rsi": 82.7,
+    "price": 3614.05,
+    "ema20": 3583.58,
+    "ema50": 3569.96,
+    "rsi": 74.3,
     "n": 299,
-    "slot": 498728,
-    "at": 1795420848908
+    "slot": 498729,
+    "at": 1795424465087
    }
   },
   "currency": "USC",
