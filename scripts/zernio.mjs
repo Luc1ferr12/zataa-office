@@ -76,8 +76,9 @@ async function post(platform, file, content, extra, key) {
   return { postId: p._id, status: pl.status ?? p.status, url: pl.platformPostUrl ?? null, platformPostId: pl.platformPostId ?? null };
 }
 
-export async function youtubeUpload(file, meta, key) {
+export async function youtubeUpload(file, meta, key, opts = {}) {
   const r = await post('youtube', file, meta.description ?? '', {
+    ...(opts.keyEnv ? { keyEnv: opts.keyEnv, prefix: opts.prefix } : {}), // About Esports: ZERNIO_ESPORTS_API_KEY
     root: { tags: meta.tags ?? [] },
     platformSpecificData: { title: String(meta.title ?? '').slice(0, 100), visibility: 'public', madeForKids: false, containsSyntheticMedia: !!meta.synthetic, categoryId: '27' }, // 27 = Education
   }, key);

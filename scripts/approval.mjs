@@ -126,8 +126,9 @@ const tiktokOn = () => !!loadEnv().TIKTOK_REFRESH_TOKEN;
 // ZERNIO_ESPORTS_API_KEY ada → TikTok otomatis Publik lewat Zernio (scripts/zernio.mjs), mengalahkan mode manual/private
 const ttZernio = () => !!loadEnv().ZERNIO_ESPORTS_API_KEY;
 const tiktokAuto = () => ttZernio() || (tiktokOn() && loadEnv().TIKTOK_MODE === 'auto');
-export const targets = (c) => (c.format === 'video' && tiktokAuto() ? ['ig', 'tiktok'] : ['ig']);
-export const targetLabel = (c) => (c.format === 'video' ? (ttZernio() ? 'IG Reels + TikTok (publik)' : tiktokAuto() ? 'IG Reels + TikTok (private)' : tiktokOn() ? 'IG Reels (+ TikTok upload manual)' : 'IG Reels') : c.format === 'carousel' ? 'IG Feed (carousel)' : 'IG Feed');
+// About Esports: video juga naik ke YouTube (Shorts) lewat login Zernio yang sama dengan TikTok-nya
+export const targets = (c) => (c.format === 'video' && tiktokAuto() ? ['ig', 'tiktok', ...(ttZernio() ? ['youtube'] : [])] : ['ig']);
+export const targetLabel = (c) => (c.format === 'video' ? (ttZernio() ? 'IG Reels + TikTok + YouTube (publik)' : tiktokAuto() ? 'IG Reels + TikTok (private)' : tiktokOn() ? 'IG Reels (+ TikTok upload manual)' : 'IG Reels') : c.format === 'carousel' ? 'IG Feed (carousel)' : 'IG Feed');
 const DAYS = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
 
 export async function submit(id, { note = '', strict = false } = {}) {

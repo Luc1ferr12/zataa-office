@@ -20,7 +20,7 @@ import { openDb } from './db.mjs';
 import { execFileSync } from 'node:child_process';
 import { loadEnv, setEnv, sayAs, SLOT, targets, tg } from './approval.mjs';
 import { chat } from './chatter.mjs';
-import { zernioOn, tiktokPost } from './zernio.mjs';
+import { zernioOn, tiktokPost, youtubeUpload } from './zernio.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 // jangan pernah bocorkan token ke log/Telegram (pesan error Meta kadang memuatnya)
@@ -221,7 +221,7 @@ export async function publishOne(id) {
   if (!c.asset_path) throw new Error(`konten ${id} belum dirender`);
   const A = JSON.parse(c.asset_path);
   const caption = [c.caption, c.hashtags].filter(Boolean).join('\n\n');
-  const want = targets(c).filter((t) => (t === 'ig' ? !c.ig_media_id : !c.tiktok_id)); // yang sudah berhasil tidak diulang
+  const want = targets(c).filter((t) => (t === 'ig' ? !c.ig_media_id : t === 'youtube' ? !c.youtube_id : !c.tiktok_id)); // yang sudah berhasil tidak diulang
   const done = [], errs = [];
   setAgent(d, 'working', `Upload #${c.id} ke ${want.join(' + ').toUpperCase()}`);
   if (want.includes('ig')) {
@@ -246,6 +246,16 @@ export async function publishOne(id) {
         done.push('TikTok (private)');
       }
     } catch (e) { errs.push(e.message); }
+  }
+  if (want.includes('youtube')) { // YouTube About Esports (Shorts, Publik via Zernio). Gagal TIDAK menggagalkan konten: IG/TikTok sudah tayang, cukup kabari Owner
+    try {
+      const r = await youtubeUpload(join(ROOT, A.video), { title: c.title, description: caption, tags: [] }, `yt-${c.id}`, { keyEnv: 'ZERNIO_ESPORTS_API_KEY', prefix: 'ZERNIO_ESPORTS' });
+      d.prepare('UPDATE contents SET youtube_id = ? WHERE id = ?').run(String(r.id), c.id);
+      done.push('YouTube');
+    } catch (e) {
+      activity(d, 'publisher', `YouTube #${c.id} gagal: ${e.message.slice(0, 120)}`);
+      await sayAs('publisher', `⚠️ #${c.id} gagal naik ke YouTube About Esports: ${e.message.slice(0, 200)}`).catch(() => {});
+    }
   }
   setAgent(d, 'done');
   if (done.length) { activity(d, 'publisher', `Posting #${c.id} ke ${done.join(' + ')} ✅`); chat(d, 'publisher', null, `"${c.title.slice(0, 50)}" udah tayang di ${done.join(' + ')} 🚀 Makasih semua!`, 'oper'); }
