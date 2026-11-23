@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-23T08:03:33.494Z",
+ "generated_at": "2026-11-23T08:13:33.507Z",
  "today": "2026-11-23",
  "week_start": "2026-11-23",
  "campaign": null,
@@ -465,6 +465,11 @@
  "today_tasks": [],
  "activity": [
   {
+   "ts": "2026-11-23 08:10:49",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: bullish → sideways"
+  },
+  {
    "ts": "2026-11-23 07:53:33",
    "agent_id": "dir",
    "message": "Kode kantor diperbarui, restart otomatis: scripts/golink.mjs, scripts/trading/run.mjs"
@@ -583,11 +588,6 @@
    "ts": "2026-11-23 01:23:09",
    "agent_id": "video",
    "message": "video #221 dirender di laptop (suara OmniVoice) & dikirim ke Owner"
-  },
-  {
-   "ts": "2026-11-23 01:23:08",
-   "agent_id": "publisher",
-   "message": "#221 lolos QA & langsung dijadwalkan tayang (riset di-ACC Owner)"
   }
  ],
  "chats": [
@@ -973,7 +973,7 @@
   "paused": false,
   "balance": 1757.48,
   "today_pnl": 0,
-  "price": 3618.850098,
+  "price": 3604.300049,
   "open": [],
   "signals": [
    {
@@ -1172,15 +1172,15 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "bullish",
-    "score": 3,
-    "price": 3622.65,
-    "ema20": 3619.63,
-    "ema50": 3603.74,
-    "rsi": 56.5,
+    "bias": "sideways",
+    "score": 1,
+    "price": 3609.85,
+    "ema20": 3618.7,
+    "ema50": 3603.98,
+    "rsi": 45.3,
     "n": 299,
-    "slot": 2992368,
-    "at": 1795420848897
+    "slot": 2992369,
+    "at": 1795421449105
    },
    "M15": {
     "bias": "bullish",
