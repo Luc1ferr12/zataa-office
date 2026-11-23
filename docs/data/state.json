@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-23T01:13:30.392Z",
+ "generated_at": "2026-11-23T01:18:30.086Z",
  "today": "2026-11-23",
  "week_start": "2026-11-23",
  "campaign": null,
@@ -98,7 +98,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-23 01:00:46"
+   "updated_at": "2026-11-23 01:15:46"
   },
   {
    "id": "tresearch",
@@ -106,7 +106,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Pencarian 24 jam tak ketemu, data terbaru Okt 2026: Fed tahan 3,75-4% (29 Okt) hawkish, USD kuat. Bias lemah tipis, cek ulang harga live.",
-   "updated_at": "2026-11-23 01:00:46"
+   "updated_at": "2026-11-23 01:15:46"
   },
   {
    "id": "ttech",
@@ -114,15 +114,15 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-23 01:00:46"
+   "updated_at": "2026-11-23 01:15:46"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
-   "updated_at": "2026-11-23 01:00:46"
+   "current_task": "NO TRADE: ada candle spike di M15 (kemungkinan berita dadakan), tunggu tenang",
+   "updated_at": "2026-11-23 01:15:46"
   },
   {
    "id": "texec",
@@ -417,6 +417,11 @@
  "today_tasks": [],
  "activity": [
   {
+   "ts": "2026-11-23 01:15:46",
+   "agent_id": "trisk",
+   "message": "NO TRADE · ada candle spike di M15 (kemungkinan berita dadakan), tunggu tenang"
+  },
+  {
    "ts": "2026-11-23 01:11:40",
    "agent_id": "publisher",
    "message": "#220 (residen Pacific) & #221 (meta FFWS): antrean render laptop, auto=1 tayang setelah QA lolos"
@@ -535,11 +540,6 @@
    "ts": "2026-11-22 23:00:46",
    "agent_id": "ttech",
    "message": "M15 berubah arah: bearish → sideways"
-  },
-  {
-   "ts": "2026-11-22 23:00:46",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: sideways → bullish"
   }
  ],
  "chats": [
@@ -863,12 +863,12 @@
    "yt_posted": 16,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 19609,
-   "likes": 293,
+   "views": 19678,
+   "likes": 294,
    "comments": 5,
    "shares": 0,
    "saves": 2,
-   "yt_views": 15178,
+   "yt_views": 15247,
    "top": [
     {
      "title": "Gua di Biak Ini Konon Jadi Kuburan Ribuan Tentara Jepang",
@@ -886,7 +886,7 @@
      "title": "Legenda Danau Toba Konon Menyimpan Jejak Letusan Terbesar",
      "format": "shorts",
      "pillar": "legenda_mitos",
-     "views": 1877
+     "views": 1883
     }
    ],
    "clicks": 0,
@@ -906,9 +906,14 @@
   "paused": false,
   "balance": 1757.48,
   "today_pnl": 0,
-  "price": 3591.699951,
+  "price": 3600.600098,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-23 01:15:46",
+    "decision": "NO TRADE",
+    "reason": "ada candle spike di M15 (kemungkinan berita dadakan), tunggu tenang"
+   },
    {
     "ts": "2026-11-23 01:00:46",
     "decision": "NO TRADE",
@@ -933,11 +938,6 @@
     "ts": "2026-11-23 00:00:46",
     "decision": "NO TRADE",
     "reason": "ada candle spike di M15 (kemungkinan berita dadakan), tunggu tenang"
-   },
-   {
-    "ts": "2026-11-22 23:45:46",
-    "decision": "NO TRADE",
-    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
    }
   ],
   "trades": [
@@ -1015,7 +1015,7 @@
    1757.48
   ],
   "last": {
-   "ts": "2026-11-23 01:00:46",
+   "ts": "2026-11-23 01:15:46",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1024,7 +1024,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)",
+   "reason": "ada candle spike di M15 (kemungkinan berita dadakan), tunggu tenang",
    "fund": {
     "bias": -0.15,
     "note": "Pencarian 24 jam tak ketemu, data terbaru Okt 2026: Fed tahan 3,75-4% (29 Okt) hawkish, USD kuat. Bias lemah tipis, cek ulang harga live.",
@@ -1036,7 +1036,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3575.45 di atas tengah band (3503.6–3617.2) · RSI 60 · Stoch 46 · MACD +0.73 · H1 sideways"
+    "note": "M15 3607.90 di atas tengah band (3502.3–3628.6) · RSI 72 · Stoch 76 · MACD +3.36 · H1 sideways"
    }
   },
   "fund": {
@@ -1115,14 +1115,14 @@
    },
    "M15": {
     "bias": "bullish",
-    "score": 2,
-    "price": 3576.9,
-    "ema20": 3564.34,
-    "ema50": 3552.09,
-    "rsi": 60.9,
+    "score": 3,
+    "price": 3606.1,
+    "ema20": 3568.32,
+    "ema50": 3554.21,
+    "rsi": 71.5,
     "n": 299,
-    "slot": 1994884,
-    "at": 1795395646272
+    "slot": 1994885,
+    "at": 1795396546280
    },
    "M30": {
     "bias": "bullish",
