@@ -112,8 +112,10 @@ function voice(D, brand) {
   }
   if (engine === 'eleven') {
     // satu take seluruh naskah → dipotong per baris (whisper + titik sunyi)
-    run(process.execPath, [join(ROOT, 'scripts', 'eleven.mjs'), 'take', join(D, 'lines.json'), join(vo, 'take.wav'), `--brand=${brand}`], { stdio: ['ignore', 'pipe', 'inherit'] });
-    run(LIBPY, [join(ROOT, 'scripts/film/split.py'), join(vo, 'take.wav'), join(D, 'lines.json'), vo], { env: { ...process.env, PYTHONIOENCODING: 'utf-8' } });
+    const tk = JSON.parse(run(process.execPath, [join(ROOT, 'scripts', 'eleven.mjs'), 'take', join(D, 'lines.json'), join(vo, 'take.wav'), `--brand=${brand}`], { stdio: ['ignore', 'pipe', 'inherit'] }).trim().split('\n').pop());
+    // take sama & sudah pernah dipotong → jangan potong ulang (baris yang diperbaiki manual, mis. `eleven.mjs say … L8`, tetap dipakai)
+    if (!(tk.cached && existsSync(join(vo, 'dur.json')) && existsSync(join(vo, 'l1.wav'))))
+      run(LIBPY, [join(ROOT, 'scripts/film/split.py'), join(vo, 'take.wav'), join(D, 'lines.json'), vo], { env: { ...process.env, PYTHONIOENCODING: 'utf-8' } });
   } else {
     const items = readJson(join(D, 'lines.json'), { items: [] }).items;
     const memoP = join(vo, 'vox.json'), memo = readJson(memoP, {});

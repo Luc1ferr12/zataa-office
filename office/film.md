@@ -29,5 +29,8 @@ Ganti gaya hanya kalau Owner minta. Satu channel satu gaya → ciri khas konsist
 - Naskah >1.400 karakter ditolak `film.mjs check` (warning). Film >70 dtk = kepanjangan.
 - Token: satu film ±1 sesi produksi. Pakai film contoh, ubah adegan seperlunya; jangan tulis ulang engine/helper yang sudah ada di contoh.
 
+## Satu kata salah ucap (ElevenLabs)
+Jangan bikin ulang seluruh take (±1.000 karakter). Bikin ulang baris itu saja: tulis `tmp/<x>/lines.json` berisi baris itu (`el` boleh dieja, mis. `me-le-dak`, + `seed`), `node scripts/eleven.mjs say tmp/<x>/lines.json tmp/<x> --brand=… L8`, cek whisper, salin `l8.wav` ke `films/<slug>/out/vo/`, perbarui `dur.json` + `python scripts/film/words.py`, lalu build ulang (take yang sama tidak dipotong ulang, jadi baris perbaikan tetap dipakai).
+
 ## Revisi ✏️ Owner
 Bot brand menjalankan Claude untuk mengubah `films/<slug>/` (naskah `lines.json` / adegan `film.js`) lalu antre render ulang otomatis kalau isi folder berubah (`film.mjs` sidik jari). Judul/caption saja → kirim ulang tanpa render.
