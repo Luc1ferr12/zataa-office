@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-23T03:54:46.232Z",
+ "generated_at": "2026-11-23T04:04:46.235Z",
  "today": "2026-11-23",
  "week_start": "2026-11-23",
  "campaign": null,
@@ -74,7 +74,7 @@
    "title": "Data Analyst",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-11-23 01:01:01"
+   "updated_at": "2026-11-23 04:01:38"
   },
   {
    "id": "price",
@@ -98,7 +98,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-23 03:45:46"
+   "updated_at": "2026-11-23 04:00:46"
   },
   {
    "id": "tresearch",
@@ -106,7 +106,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Pencarian 24 jam tak ketemu, data terbaru Okt 2026: Fed tahan 3,75-4% (29 Okt) hawkish, USD kuat. Bias lemah tipis, cek ulang harga live.",
-   "updated_at": "2026-11-23 03:45:46"
+   "updated_at": "2026-11-23 04:00:46"
   },
   {
    "id": "ttech",
@@ -114,7 +114,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-23 03:45:46"
+   "updated_at": "2026-11-23 04:00:46"
   },
   {
    "id": "trisk",
@@ -122,7 +122,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
-   "updated_at": "2026-11-23 03:45:46"
+   "updated_at": "2026-11-23 04:00:46"
   },
   {
    "id": "texec",
@@ -417,6 +417,16 @@
  "today_tasks": [],
  "activity": [
   {
+   "ts": "2026-11-23 04:01:38",
+   "agent_id": "analyst",
+   "message": "Update data 35 post IG 📈"
+  },
+  {
+   "ts": "2026-11-23 04:00:46",
+   "agent_id": "ttech",
+   "message": "M60 berubah arah: sideways → bullish"
+  },
+  {
    "ts": "2026-11-23 03:44:30",
    "agent_id": "dir",
    "message": "Kode kantor diperbarui, restart otomatis: scripts/watch.mjs, scripts/golink.mjs, scripts/trading/run.mjs"
@@ -530,16 +540,6 @@
    "ts": "2026-11-23 00:15:46",
    "agent_id": "trisk",
    "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-  },
-  {
-   "ts": "2026-11-23 00:00:46",
-   "agent_id": "ttech",
-   "message": "M60 berubah arah: bearish → sideways"
-  },
-  {
-   "ts": "2026-11-22 23:30:46",
-   "agent_id": "ttech",
-   "message": "M30 berubah arah: sideways → bullish"
   }
  ],
  "chats": [
@@ -835,13 +835,26 @@
    "yt_posted": 0,
    "yt_pending": 0,
    "yt_scheduled": 3,
-   "views": 0,
-   "likes": 0,
+   "views": 394,
+   "likes": 6,
    "comments": 0,
    "shares": 0,
    "saves": 0,
    "yt_views": 0,
-   "top": [],
+   "top": [
+    {
+     "title": "Jemkin & something resmi bukan pemain impor lagi di VCT 2027",
+     "format": "video",
+     "pillar": "news",
+     "views": 269
+    },
+    {
+     "title": "Meta FFWS GF 2026: SKORP vs double sniper kata Coach AFM",
+     "format": "video",
+     "pillar": "news",
+     "views": 125
+    }
+   ],
    "clicks": 0,
    "click_visitors": 0,
    "click_src": [],
@@ -906,9 +919,14 @@
   "paused": false,
   "balance": 1757.48,
   "today_pnl": 0,
-  "price": 3604.350098,
+  "price": 3607.75,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-23 04:00:46",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
+   },
    {
     "ts": "2026-11-23 03:45:46",
     "decision": "NO TRADE",
@@ -931,11 +949,6 @@
    },
    {
     "ts": "2026-11-23 02:45:46",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-   },
-   {
-    "ts": "2026-11-23 02:30:46",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
    }
@@ -1015,7 +1028,7 @@
    1757.48
   ],
   "last": {
-   "ts": "2026-11-23 03:45:46",
+   "ts": "2026-11-23 04:00:46",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1036,7 +1049,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3606.00 di atas tengah band (3563.3–3627.3) · RSI 62 · Stoch 62 · MACD -0.20 · H1 sideways"
+    "note": "M15 3605.15 di atas tengah band (3563.3–3627.7) · RSI 61 · Stoch 63 · MACD -0.27 · H1 sideways"
    }
   },
   "fund": {
@@ -1105,46 +1118,46 @@
    "M10": {
     "bias": "bullish",
     "score": 2,
-    "price": 3606.1,
-    "ema20": 3592.76,
-    "ema50": 3576.7,
-    "rsi": 59.9,
+    "price": 3607.5,
+    "ema20": 3594.17,
+    "ema50": 3577.91,
+    "rsi": 60.6,
     "n": 299,
-    "slot": 2992343,
-    "at": 1795405846221
+    "slot": 2992344,
+    "at": 1795406446216
    },
    "M15": {
     "bias": "bullish",
-    "score": 3,
-    "price": 3605.8,
-    "ema20": 3587.54,
-    "ema50": 3568.92,
-    "rsi": 62,
+    "score": 2,
+    "price": 3607.5,
+    "ema20": 3589.44,
+    "ema50": 3570.43,
+    "rsi": 62.6,
     "n": 299,
-    "slot": 1994895,
-    "at": 1795405546377
+    "slot": 1994896,
+    "at": 1795406446222
    },
    "M30": {
     "bias": "bullish",
     "score": 3,
-    "price": 3604.25,
-    "ema20": 3572.31,
-    "ema50": 3556.33,
-    "rsi": 64.9,
+    "price": 3607.5,
+    "ema20": 3575.66,
+    "ema50": 3558.33,
+    "rsi": 65.8,
     "n": 299,
-    "slot": 997447,
-    "at": 1795404646383
+    "slot": 997448,
+    "at": 1795406446224
    },
    "H1": {
-    "bias": "sideways",
-    "score": -1,
-    "price": 3593.85,
-    "ema20": 3556.21,
-    "ema50": 3557.33,
-    "rsi": 76.1,
+    "bias": "bullish",
+    "score": 2,
+    "price": 3607.5,
+    "ema20": 3561.1,
+    "ema50": 3559.3,
+    "rsi": 79.7,
     "n": 299,
-    "slot": 498723,
-    "at": 1795402846364
+    "slot": 498724,
+    "at": 1795406446229
    }
   },
   "currency": "USC",
