@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-23T04:54:46.261Z",
+ "generated_at": "2026-11-23T05:04:46.258Z",
  "today": "2026-11-23",
  "week_start": "2026-11-23",
  "campaign": null,
@@ -98,7 +98,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-23 04:45:46"
+   "updated_at": "2026-11-23 05:00:46"
   },
   {
    "id": "tresearch",
@@ -106,7 +106,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Pencarian 24 jam tak ketemu, data terbaru Okt 2026: Fed tahan 3,75-4% (29 Okt) hawkish, USD kuat. Bias lemah tipis, cek ulang harga live.",
-   "updated_at": "2026-11-23 04:45:46"
+   "updated_at": "2026-11-23 05:00:46"
   },
   {
    "id": "ttech",
@@ -114,7 +114,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-23 04:45:46"
+   "updated_at": "2026-11-23 05:00:46"
   },
   {
    "id": "trisk",
@@ -122,7 +122,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
-   "updated_at": "2026-11-23 04:45:46"
+   "updated_at": "2026-11-23 05:00:46"
   },
   {
    "id": "texec",
@@ -378,10 +378,10 @@
    "game": "sejarah",
    "pillar": "ancient_secrets",
    "title": "Komputer 2.000 Tahun dari Dasar Laut Yunani",
-   "status": "approved",
-   "asset_url": null,
+   "status": "posted",
+   "asset_url": "https://www.youtube.com/watch?v=ITsFYNjEzU4",
    "scheduled_at": null,
-   "posted_at": null,
+   "posted_at": "2026-11-23 05:01:29",
    "channel": "youtube"
   },
   {
@@ -392,10 +392,10 @@
    "game": "sejarah",
    "pillar": "peristiwa_aneh",
    "title": "Pesan Terakhir Kapal Ini Cuma 2 Kata: \"Saya Mati\"",
-   "status": "approved",
-   "asset_url": null,
+   "status": "posted",
+   "asset_url": "https://www.youtube.com/watch?v=lc8vYUuvujg",
    "scheduled_at": null,
-   "posted_at": null,
+   "posted_at": "2026-11-23 05:01:06",
    "channel": "story"
   },
   {
@@ -416,6 +416,26 @@
  "clip_jobs": [],
  "today_tasks": [],
  "activity": [
+  {
+   "ts": "2026-11-23 05:01:54",
+   "agent_id": "ypublish",
+   "message": "Cross-post Shorts #217 ke TikTok Zaa History"
+  },
+  {
+   "ts": "2026-11-23 05:01:36",
+   "agent_id": "spublish",
+   "message": "Cross-post Shorts #218 ke TikTok Zaa Story"
+  },
+  {
+   "ts": "2026-11-23 05:01:29",
+   "agent_id": "ypublish",
+   "message": "Upload Shorts #217 ke Zaa History (Publik via Zernio)"
+  },
+  {
+   "ts": "2026-11-23 05:01:06",
+   "agent_id": "spublish",
+   "message": "Upload Shorts #218 ke Zaa Story (Publik via Zernio)"
+  },
   {
    "ts": "2026-11-23 04:15:46",
    "agent_id": "trisk",
@@ -520,26 +540,6 @@
    "ts": "2026-11-23 01:09:33",
    "agent_id": "owner",
    "message": "Keputusan dari web: Diteruskan ke bot Marvel Talk (±5 dtk)"
-  },
-  {
-   "ts": "2026-11-23 01:09:30",
-   "agent_id": "owner",
-   "message": "Approve 2 ide konten tambahan 💡"
-  },
-  {
-   "ts": "2026-11-23 01:08:36",
-   "agent_id": "owner",
-   "message": "Keputusan dari web: 💡 2 ide di-approve, gas!"
-  },
-  {
-   "ts": "2026-11-23 01:01:01",
-   "agent_id": "analyst",
-   "message": "Update data 33 post IG 📈"
-  },
-  {
-   "ts": "2026-11-23 01:00:52",
-   "agent_id": "publisher",
-   "message": "Kirim draf IG Story ke Bos 📱"
   }
  ],
  "chats": [
@@ -828,13 +828,13 @@
   "this_week": {
    "week": "2026-11-23",
    "total": 5,
-   "posted": 2,
+   "posted": 4,
    "pending": 0,
-   "scheduled": 3,
+   "scheduled": 1,
    "yt_total": 3,
-   "yt_posted": 0,
+   "yt_posted": 2,
    "yt_pending": 0,
-   "yt_scheduled": 3,
+   "yt_scheduled": 1,
    "views": 926,
    "likes": 26,
    "comments": 0,
@@ -919,9 +919,14 @@
   "paused": false,
   "balance": 1757.48,
   "today_pnl": 0,
-  "price": 3610.899902,
+  "price": 3607.699951,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-23 05:00:46",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
+   },
    {
     "ts": "2026-11-23 04:45:46",
     "decision": "NO TRADE",
@@ -944,11 +949,6 @@
    },
    {
     "ts": "2026-11-23 03:45:46",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-   },
-   {
-    "ts": "2026-11-23 03:30:46",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
    }
@@ -1028,7 +1028,7 @@
    1757.48
   ],
   "last": {
-   "ts": "2026-11-23 04:45:46",
+   "ts": "2026-11-23 05:00:46",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1049,7 +1049,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3610.70 di atas tengah band (3564.1–3628.9) · RSI 63 · Stoch 69 · MACD -0.40 · H1 sideways"
+    "note": "M15 3607.80 di atas tengah band (3567.2–3628.9) · RSI 61 · Stoch 74 · MACD -0.71 · H1 sideways"
    }
   },
   "fund": {
@@ -1118,46 +1118,46 @@
    "M10": {
     "bias": "bullish",
     "score": 3,
-    "price": 3611.9,
-    "ema20": 3599.57,
-    "ema50": 3583.32,
-    "rsi": 61.3,
+    "price": 3609,
+    "ema20": 3600.47,
+    "ema50": 3584.33,
+    "rsi": 58.9,
     "n": 299,
-    "slot": 2992349,
-    "at": 1795409446257
+    "slot": 2992350,
+    "at": 1795410046254
    },
    "M15": {
     "bias": "bullish",
     "score": 3,
-    "price": 3607.7,
-    "ema20": 3593.89,
-    "ema50": 3574.51,
-    "rsi": 61.6,
+    "price": 3609,
+    "ema20": 3595.33,
+    "ema50": 3575.86,
+    "rsi": 62.1,
     "n": 299,
-    "slot": 1994899,
-    "at": 1795409146250
+    "slot": 1994900,
+    "at": 1795410046260
    },
    "M30": {
     "bias": "bullish",
     "score": 3,
-    "price": 3608.45,
-    "ema20": 3578.79,
-    "ema50": 3560.3,
-    "rsi": 66.1,
+    "price": 3609,
+    "ema20": 3581.66,
+    "ema50": 3562.21,
+    "rsi": 66.2,
     "n": 299,
-    "slot": 997449,
-    "at": 1795408246246
+    "slot": 997450,
+    "at": 1795410046261
    },
    "H1": {
     "bias": "bullish",
     "score": 2,
-    "price": 3607.5,
-    "ema20": 3561.1,
-    "ema50": 3559.3,
-    "rsi": 79.7,
+    "price": 3609,
+    "ema20": 3565.66,
+    "ema50": 3561.25,
+    "rsi": 80.1,
     "n": 299,
-    "slot": 498724,
-    "at": 1795406446229
+    "slot": 498725,
+    "at": 1795410046266
    }
   },
   "currency": "USC",
