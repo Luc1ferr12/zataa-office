@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-23T16:23:27.974Z",
+ "generated_at": "2026-11-23T16:33:27.980Z",
  "today": "2026-11-24",
  "week_start": "2026-11-23",
  "campaign": null,
@@ -98,7 +98,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-23 16:15:58"
+   "updated_at": "2026-11-23 16:30:58"
   },
   {
    "id": "tresearch",
@@ -106,7 +106,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: CPI Okt +0,4% m/m (prakiraan 0,3%) bikin emas turun 2-3% & taruhan kenaikan Fed naik. Belum ada berita 24 jam yang terverifikasi.",
-   "updated_at": "2026-11-23 16:15:58"
+   "updated_at": "2026-11-23 16:30:58"
   },
   {
    "id": "ttech",
@@ -114,7 +114,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-23 16:15:58"
+   "updated_at": "2026-11-23 16:30:58"
   },
   {
    "id": "trisk",
@@ -122,7 +122,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-11-23 16:15:58"
+   "updated_at": "2026-11-23 16:30:58"
   },
   {
    "id": "texec",
@@ -479,6 +479,11 @@
  "today_tasks": [],
  "activity": [
   {
+   "ts": "2026-11-23 16:30:58",
+   "agent_id": "trisk",
+   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+  },
+  {
    "ts": "2026-11-23 16:01:10",
    "agent_id": "analyst",
    "message": "Update data 35 post IG 📈"
@@ -597,11 +602,6 @@
    "ts": "2026-11-23 10:30:58",
    "agent_id": "trisk",
    "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-  },
-  {
-   "ts": "2026-11-23 10:23:12",
-   "agent_id": "dir",
-   "message": "Kode kantor diperbarui, restart otomatis: scripts/watch.mjs, scripts/golink.mjs, scripts/trading/run.mjs"
   }
  ],
  "chats": [
@@ -897,30 +897,30 @@
    "yt_posted": 3,
    "yt_pending": 0,
    "yt_scheduled": 1,
-   "views": 4679,
+   "views": 4694,
    "likes": 72,
    "comments": 1,
    "shares": 0,
    "saves": 1,
-   "yt_views": 2414,
+   "yt_views": 2419,
    "top": [
     {
      "title": "Komputer 2.000 Tahun dari Dasar Laut Yunani",
      "format": "shorts",
      "pillar": "ancient_secrets",
-     "views": 1706
+     "views": 1711
     },
     {
      "title": "Jemkin & something resmi bukan pemain impor lagi di VCT 2027",
      "format": "video",
      "pillar": "news",
-     "views": 1361
+     "views": 1368
     },
     {
      "title": "Meta FFWS GF 2026: SKORP vs double sniper kata Coach AFM",
      "format": "video",
      "pillar": "news",
-     "views": 904
+     "views": 907
     }
    ],
    "clicks": 0,
@@ -944,12 +944,12 @@
    "yt_posted": 16,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 20845,
+   "views": 20859,
    "likes": 312,
    "comments": 5,
    "shares": 0,
    "saves": 2,
-   "yt_views": 16389,
+   "yt_views": 16401,
    "top": [
     {
      "title": "Gua di Biak Ini Konon Jadi Kuburan Ribuan Tentara Jepang",
@@ -967,7 +967,7 @@
      "title": "Legenda Danau Toba Konon Menyimpan Jejak Letusan Terbesar",
      "format": "shorts",
      "pillar": "legenda_mitos",
-     "views": 1906
+     "views": 1910
     }
    ],
    "clicks": 0,
@@ -987,9 +987,14 @@
   "paused": false,
   "balance": 1757.48,
   "today_pnl": 0,
-  "price": 3674.550049,
+  "price": 3674,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-23 16:30:58",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
    {
     "ts": "2026-11-23 16:15:58",
     "decision": "NO TRADE",
@@ -1014,11 +1019,6 @@
     "ts": "2026-11-23 15:15:58",
     "decision": "NO TRADE",
     "reason": "Bollinger Band melebar kencang (breakout), pantulan berisiko"
-   },
-   {
-    "ts": "2026-11-23 15:00:58",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
   ],
   "trades": [
@@ -1096,7 +1096,7 @@
    1757.48
   ],
   "last": {
-   "ts": "2026-11-23 16:15:58",
+   "ts": "2026-11-23 16:30:58",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1117,7 +1117,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3668.25 di atas tengah band (3591.3–3703.7) · RSI 62 · Stoch 73 · MACD +1.29 · H1 sideways"
+    "note": "M15 3672.60 di atas tengah band (3594.0–3706.4) · RSI 64 · Stoch 76 · MACD +0.91 · H1 sideways"
    }
   },
   "fund": {
@@ -1186,35 +1186,35 @@
    "M10": {
     "bias": "bullish",
     "score": 3,
-    "price": 3671.55,
-    "ema20": 3658.55,
-    "ema50": 3639.41,
-    "rsi": 62.5,
+    "price": 3671.5,
+    "ema20": 3659.78,
+    "ema50": 3640.66,
+    "rsi": 62.4,
     "n": 299,
-    "slot": 2992418,
-    "at": 1795450858317
+    "slot": 2992419,
+    "at": 1795451458338
    },
    "M15": {
     "bias": "bullish",
     "score": 3,
-    "price": 3671.8,
-    "ema20": 3651.81,
-    "ema50": 3629.01,
-    "rsi": 63.9,
+    "price": 3671.5,
+    "ema20": 3653.68,
+    "ema50": 3630.68,
+    "rsi": 63.7,
     "n": 299,
-    "slot": 1994945,
-    "at": 1795450558321
+    "slot": 1994946,
+    "at": 1795451458343
    },
    "M30": {
     "bias": "bullish",
     "score": 3,
-    "price": 3668.2,
-    "ema20": 3635.73,
-    "ema50": 3605.07,
-    "rsi": 63.8,
+    "price": 3671.5,
+    "ema20": 3639.14,
+    "ema50": 3607.67,
+    "rsi": 64.6,
     "n": 299,
-    "slot": 997472,
-    "at": 1795449658298
+    "slot": 997473,
+    "at": 1795451458345
    },
    "H1": {
     "bias": "bullish",
