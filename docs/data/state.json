@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-23T10:53:27.833Z",
+ "generated_at": "2026-11-23T11:03:27.834Z",
  "today": "2026-11-23",
  "week_start": "2026-11-23",
  "campaign": null,
@@ -98,15 +98,15 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-23 10:45:57"
+   "updated_at": "2026-11-23 11:01:24"
   },
   {
    "id": "tresearch",
    "name": "Davina",
    "title": "Research & Fundamental",
    "status": "done",
-   "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
-   "updated_at": "2026-11-23 10:45:57"
+   "current_task": "Fundamental: CPI Okt +0,4% m/m (prakiraan 0,3%) bikin emas turun 2-3% & taruhan kenaikan Fed naik. Belum ada berita 24 jam yang terverifikasi.",
+   "updated_at": "2026-11-23 11:01:24"
   },
   {
    "id": "ttech",
@@ -114,7 +114,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-23 10:45:57"
+   "updated_at": "2026-11-23 11:01:24"
   },
   {
    "id": "trisk",
@@ -122,7 +122,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-11-23 10:45:57"
+   "updated_at": "2026-11-23 11:01:24"
   },
   {
    "id": "texec",
@@ -606,6 +606,13 @@
  ],
  "chats": [
   {
+   "ts": "2026-11-23 11:00:31",
+   "agent_id": "analyst",
+   "to_id": "dir",
+   "kind": "oper",
+   "message": "Laporan harian marketing udah aku kirim ke Bos, 2 konten tayang hari ini 📊"
+  },
+  {
    "ts": "2026-11-23 10:13:09",
    "agent_id": "publisher",
    "to_id": null,
@@ -877,13 +884,6 @@
    "to_id": null,
    "kind": "oper",
    "message": "\"BTR turun hari ini di FFWS Phase 2: wajib top 2 bu\" udah tayang di IG + TikTok 🚀 Makasih semua!"
-  },
-  {
-   "ts": "2026-11-21 05:03:42",
-   "agent_id": "publisher",
-   "to_id": null,
-   "kind": "oper",
-   "message": "\"5 pelajaran grand final MPL ID S18 untuk ranked\" udah tayang di IG 🚀 Makasih semua!"
   }
  ],
  "stats": {
@@ -987,9 +987,14 @@
   "paused": false,
   "balance": 1757.48,
   "today_pnl": 0,
-  "price": 3626.350098,
+  "price": 3622.899902,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-23 11:01:24",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
    {
     "ts": "2026-11-23 10:45:57",
     "decision": "NO TRADE",
@@ -1012,11 +1017,6 @@
    },
    {
     "ts": "2026-11-23 09:45:46",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-11-23 09:31:05",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1096,7 +1096,7 @@
    1757.48
   ],
   "last": {
-   "ts": "2026-11-23 10:45:57",
+   "ts": "2026-11-23 11:01:24",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1107,8 +1107,8 @@
    "risk_usd": null,
    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
    "fund": {
-    "bias": 0,
-    "note": "netral (belum ada ringkasan hari ini)",
+    "bias": -0.5,
+    "note": "CPI Okt +0,4% m/m (prakiraan 0,3%) bikin emas turun 2-3% & taruhan kenaikan Fed naik. Belum ada berita 24 jam yang terverifikasi.",
     "danger": null,
     "blackout": null
    },
@@ -1117,10 +1117,13 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3618.45 di bawah tengah band (3604.3–3633.0) · RSI 54 · Stoch 51 · MACD -1.21 · H1 sideways"
+    "note": "M15 3625.60 di atas tengah band (3604.5–3634.3) · RSI 59 · Stoch 73 · MACD -0.50 · H1 sideways"
    }
   },
-  "fund": null,
+  "fund": {
+   "bias": -0.5,
+   "note": "CPI Okt +0,4% m/m (prakiraan 0,3%) bikin emas turun 2-3% & taruhan kenaikan Fed naik. Belum ada berita 24 jam yang terverifikasi."
+  },
   "calendar": [
    {
     "title": "Core PCE Price Index m/m",
@@ -1183,46 +1186,46 @@
    "M10": {
     "bias": "sideways",
     "score": 1,
-    "price": 3619.05,
-    "ema20": 3616.84,
-    "ema50": 3609.36,
-    "rsi": 53.2,
+    "price": 3624.35,
+    "ema20": 3617.56,
+    "ema50": 3609.95,
+    "rsi": 57.6,
     "n": 299,
-    "slot": 2992385,
-    "at": 1795431057777
+    "slot": 2992386,
+    "at": 1795431657795
    },
    "M15": {
     "bias": "sideways",
     "score": 1,
-    "price": 3619.55,
-    "ema20": 3615.79,
-    "ema50": 3601.33,
-    "rsi": 55,
+    "price": 3624.35,
+    "ema20": 3616.6,
+    "ema50": 3602.24,
+    "rsi": 58.1,
     "n": 299,
-    "slot": 1994923,
-    "at": 1795430757789
+    "slot": 1994924,
+    "at": 1795431657801
    },
    "M30": {
     "bias": "bullish",
     "score": 2,
-    "price": 3617.75,
-    "ema20": 3606.38,
-    "ema50": 3582.39,
-    "rsi": 58.5,
+    "price": 3624.35,
+    "ema20": 3608.09,
+    "ema50": 3584.03,
+    "rsi": 60.8,
     "n": 299,
-    "slot": 997461,
-    "at": 1795429857765
+    "slot": 997462,
+    "at": 1795431657803
    },
    "H1": {
     "bias": "bullish",
-    "score": 2,
-    "price": 3616.05,
-    "ema20": 3586.67,
-    "ema50": 3571.77,
-    "rsi": 74.9,
+    "score": 3,
+    "price": 3624.35,
+    "ema20": 3590.26,
+    "ema50": 3573.83,
+    "rsi": 77.4,
     "n": 299,
-    "slot": 498730,
-    "at": 1795428046408
+    "slot": 498731,
+    "at": 1795431657809
    }
   },
   "currency": "USC",
