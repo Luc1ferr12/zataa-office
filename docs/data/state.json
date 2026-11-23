@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-23T09:59:16.014Z",
+ "generated_at": "2026-11-23T10:01:11.934Z",
  "today": "2026-11-23",
  "week_start": "2026-11-23",
  "campaign": null,
@@ -74,7 +74,7 @@
    "title": "Data Analyst",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-11-23 07:01:18"
+   "updated_at": "2026-11-23 10:00:55"
   },
   {
    "id": "price",
@@ -98,7 +98,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-23 09:45:46"
+   "updated_at": "2026-11-23 10:00:46"
   },
   {
    "id": "tresearch",
@@ -106,7 +106,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
-   "updated_at": "2026-11-23 09:45:46"
+   "updated_at": "2026-11-23 10:00:46"
   },
   {
    "id": "ttech",
@@ -114,7 +114,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-23 09:45:46"
+   "updated_at": "2026-11-23 10:00:46"
   },
   {
    "id": "trisk",
@@ -122,7 +122,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-11-23 09:45:46"
+   "updated_at": "2026-11-23 10:00:46"
   },
   {
    "id": "texec",
@@ -479,6 +479,21 @@
  "today_tasks": [],
  "activity": [
   {
+   "ts": "2026-11-23 10:01:11",
+   "agent_id": "dir",
+   "message": "Kode kantor diperbarui, restart otomatis: scripts/golink.mjs, scripts/trading/run.mjs"
+  },
+  {
+   "ts": "2026-11-23 10:00:55",
+   "agent_id": "analyst",
+   "message": "Update data 35 post IG 📈"
+  },
+  {
+   "ts": "2026-11-23 10:00:46",
+   "agent_id": "ttech",
+   "message": "M15 berubah arah: bullish → sideways"
+  },
+  {
    "ts": "2026-11-23 09:59:00",
    "agent_id": "dir",
    "message": "Kode kantor diperbarui, restart otomatis: scripts/watch.mjs, scripts/golink.mjs, scripts/trading/run.mjs"
@@ -587,21 +602,6 @@
    "ts": "2026-11-23 05:01:54",
    "agent_id": "ypublish",
    "message": "Cross-post Shorts #217 ke TikTok Zaa History"
-  },
-  {
-   "ts": "2026-11-23 05:01:36",
-   "agent_id": "spublish",
-   "message": "Cross-post Shorts #218 ke TikTok Zaa Story"
-  },
-  {
-   "ts": "2026-11-23 05:01:29",
-   "agent_id": "ypublish",
-   "message": "Upload Shorts #217 ke Zaa History (Publik via Zernio)"
-  },
-  {
-   "ts": "2026-11-23 05:01:06",
-   "agent_id": "spublish",
-   "message": "Upload Shorts #218 ke Zaa Story (Publik via Zernio)"
   }
  ],
  "chats": [
@@ -897,30 +897,30 @@
    "yt_posted": 2,
    "yt_pending": 0,
    "yt_scheduled": 2,
-   "views": 2021,
-   "likes": 46,
+   "views": 2217,
+   "likes": 49,
    "comments": 0,
    "shares": 0,
-   "saves": 0,
+   "saves": 1,
    "yt_views": 645,
    "top": [
     {
      "title": "Jemkin & something resmi bukan pemain impor lagi di VCT 2027",
      "format": "video",
      "pillar": "news",
-     "views": 900
+     "views": 1051
+    },
+    {
+     "title": "Meta FFWS GF 2026: SKORP vs double sniper kata Coach AFM",
+     "format": "video",
+     "pillar": "news",
+     "views": 521
     },
     {
      "title": "Pesan Terakhir Kapal Ini Cuma 2 Kata: \"Saya Mati\"",
      "format": "shorts",
      "pillar": "peristiwa_aneh",
      "views": 493
-    },
-    {
-     "title": "Meta FFWS GF 2026: SKORP vs double sniper kata Coach AFM",
-     "format": "video",
-     "pillar": "news",
-     "views": 476
     }
    ],
    "clicks": 0,
@@ -944,7 +944,7 @@
    "yt_posted": 16,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 20511,
+   "views": 20512,
    "likes": 311,
    "comments": 5,
    "shares": 0,
@@ -987,9 +987,14 @@
   "paused": false,
   "balance": 1757.48,
   "today_pnl": 0,
-  "price": 3614.850098,
+  "price": 3614.5,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-23 10:00:46",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
    {
     "ts": "2026-11-23 09:45:46",
     "decision": "NO TRADE",
@@ -1012,11 +1017,6 @@
    },
    {
     "ts": "2026-11-23 08:45:49",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-11-23 08:30:49",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1096,7 +1096,7 @@
    1757.48
   ],
   "last": {
-   "ts": "2026-11-23 09:45:46",
+   "ts": "2026-11-23 10:00:46",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1117,7 +1117,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3618.70 di atas tengah band (3602.7–3633.8) · RSI 55 · Stoch 57 · MACD -1.63 · H1 sideways"
+    "note": "M15 3614.50 di bawah tengah band (3603.9–3633.1) · RSI 52 · Stoch 43 · MACD -1.86 · H1 sideways"
    }
   },
   "fund": null,
@@ -1182,47 +1182,47 @@
   "tf": {
    "M10": {
     "bias": "sideways",
-    "score": -1,
-    "price": 3614.95,
-    "ema20": 3615.62,
-    "ema50": 3606.94,
-    "rsi": 50.4,
+    "score": 1,
+    "price": 3616.05,
+    "ema20": 3615.66,
+    "ema50": 3607.3,
+    "rsi": 51.2,
     "n": 299,
-    "slot": 2992379,
-    "at": 1795427446157
+    "slot": 2992380,
+    "at": 1795428046393
    },
    "M15": {
-    "bias": "bullish",
-    "score": 2,
-    "price": 3617.35,
-    "ema20": 3614.39,
-    "ema50": 3598.34,
-    "rsi": 54.2,
+    "bias": "sideways",
+    "score": 1,
+    "price": 3616.05,
+    "ema20": 3614.55,
+    "ema50": 3599.04,
+    "rsi": 53.3,
     "n": 299,
-    "slot": 1994919,
-    "at": 1795427146156
+    "slot": 1994920,
+    "at": 1795428046399
    },
    "M30": {
     "bias": "bullish",
     "score": 3,
-    "price": 3625.95,
-    "ema20": 3604.04,
-    "ema50": 3579.51,
-    "rsi": 62.9,
+    "price": 3616.05,
+    "ema20": 3605.18,
+    "ema50": 3580.94,
+    "rsi": 57.9,
     "n": 299,
-    "slot": 997459,
-    "at": 1795426265024
+    "slot": 997460,
+    "at": 1795428046403
    },
    "H1": {
     "bias": "bullish",
     "score": 2,
-    "price": 3614.05,
-    "ema20": 3583.58,
-    "ema50": 3569.96,
-    "rsi": 74.3,
+    "price": 3616.05,
+    "ema20": 3586.67,
+    "ema50": 3571.77,
+    "rsi": 74.9,
     "n": 299,
-    "slot": 498729,
-    "at": 1795424465087
+    "slot": 498730,
+    "at": 1795428046408
    }
   },
   "currency": "USC",
