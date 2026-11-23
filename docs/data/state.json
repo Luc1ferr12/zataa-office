@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-23T15:03:27.915Z",
+ "generated_at": "2026-11-23T15:13:27.931Z",
  "today": "2026-11-23",
  "week_start": "2026-11-23",
  "campaign": null,
@@ -479,6 +479,11 @@
  "today_tasks": [],
  "activity": [
   {
+   "ts": "2026-11-23 15:10:58",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: sideways → bullish"
+  },
+  {
    "ts": "2026-11-23 14:30:58",
    "agent_id": "trisk",
    "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
@@ -597,11 +602,6 @@
    "ts": "2026-11-23 10:12:59",
    "agent_id": "publisher",
    "message": "Posting #220 ke YouTube ✅"
-  },
-  {
-   "ts": "2026-11-23 10:01:11",
-   "agent_id": "dir",
-   "message": "Kode kantor diperbarui, restart otomatis: scripts/golink.mjs, scripts/trading/run.mjs"
   }
  ],
  "chats": [
@@ -987,7 +987,7 @@
   "paused": false,
   "balance": 1757.48,
   "today_pnl": 0,
-  "price": 3670.300049,
+  "price": 3667.100098,
   "open": [],
   "signals": [
    {
@@ -1184,15 +1184,15 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "sideways",
-    "score": 1,
-    "price": 3665.4,
-    "ema20": 3643.9,
-    "ema50": 3627.67,
-    "rsi": 64.7,
+    "bias": "bullish",
+    "score": 2,
+    "price": 3665.65,
+    "ema20": 3645.97,
+    "ema50": 3629.16,
+    "rsi": 64.8,
     "n": 299,
-    "slot": 2992410,
-    "at": 1795446058157
+    "slot": 2992411,
+    "at": 1795446658175
    },
    "M15": {
     "bias": "bullish",
