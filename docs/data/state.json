@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-23T23:03:28.081Z",
+ "generated_at": "2026-11-23T23:13:28.082Z",
  "today": "2026-11-24",
  "week_start": "2026-11-23",
  "campaign": null,
@@ -24,17 +24,17 @@
    "id": "researcher",
    "name": "Salsa",
    "title": "Researcher",
-   "status": "working",
+   "status": "done",
    "current_task": "Cek ulang sumber rostermania VCT 2027",
-   "updated_at": "2026-11-23 23:02:42"
+   "updated_at": "2026-11-23 23:03:35"
   },
   {
    "id": "copywriter",
    "name": "Tiara",
    "title": "Copywriter",
    "status": "done",
-   "current_task": "Naskah video #220 & #221",
-   "updated_at": "2026-11-23 01:11:18"
+   "current_task": "Naskah film rostermania VCT 2027",
+   "updated_at": "2026-11-23 23:07:57"
   },
   {
    "id": "designer",
@@ -49,16 +49,16 @@
    "name": "Dimas",
    "title": "Video Production",
    "status": "done",
-   "current_task": "Video #220 & #221 masuk antrean render laptop",
-   "updated_at": "2026-11-23 01:11:40"
+   "current_task": "Film caption-news rostermania VCT 2027",
+   "updated_at": "2026-11-23 23:08:21"
   },
   {
    "id": "publisher",
    "name": "Fikri",
    "title": "Social Media Publisher",
    "status": "done",
-   "current_task": null,
-   "updated_at": "2026-11-23 10:13:09"
+   "current_task": "Konten 224 masuk antrean QA otomatis",
+   "updated_at": "2026-11-23 23:08:22"
   },
   {
    "id": "ads",
@@ -461,6 +461,20 @@
    "channel": "marvel"
   },
   {
+   "id": 224,
+   "day": "2026-11-24",
+   "slot": "kilat",
+   "format": "video",
+   "game": "valorant",
+   "pillar": "news",
+   "title": "Rostermania VCT 2027: Sentinels, T1 & Heretics",
+   "status": "draft",
+   "asset_url": null,
+   "scheduled_at": null,
+   "posted_at": null,
+   "channel": null
+  },
+  {
    "id": 222,
    "day": "2026-11-24",
    "slot": "shorts",
@@ -473,11 +487,59 @@
    "scheduled_at": null,
    "posted_at": null,
    "channel": "marvel"
+  },
+  {
+   "id": 223,
+   "day": "2026-11-24",
+   "slot": "shorts",
+   "format": "shorts",
+   "game": "sejarah",
+   "pillar": "kenapa_gitu",
+   "title": "Kenapa Tembok Bata Dipasang Selang-seling?",
+   "status": "draft",
+   "asset_url": null,
+   "scheduled_at": null,
+   "posted_at": null,
+   "channel": "cowo"
+  },
+  {
+   "id": 225,
+   "day": "2026-11-24",
+   "slot": "shorts",
+   "format": "shorts",
+   "game": "sejarah",
+   "pillar": "misteri_kuno",
+   "title": "Bukit di Cianjur Ini Pernah Diklaim Lebih Tua dari Piramida",
+   "status": "draft",
+   "asset_url": null,
+   "scheduled_at": null,
+   "posted_at": null,
+   "channel": "story"
   }
  ],
  "clip_jobs": [],
  "today_tasks": [],
  "activity": [
+  {
+   "ts": "2026-11-23 23:12:36",
+   "agent_id": "svideo",
+   "message": "Shorts #225 \"Bukit di Cianjur Ini Pernah Diklaim Lebih Tua dari Piramida\" masuk antrean render laptop (film lemo-opuscar films/story-gunung-padang)"
+  },
+  {
+   "ts": "2026-11-23 23:08:21",
+   "agent_id": "publisher",
+   "message": "Konten 224 (rostermania VCT 2027) antre render laptop ≥09:45 WITA, auto tayang kalau QA lolos"
+  },
+  {
+   "ts": "2026-11-23 23:08:02",
+   "agent_id": "bvisual",
+   "message": "Film brick-toy cowo-bata-selang lolos check, Shorts #223 antre render laptop (jam 12:00 eksperimen)"
+  },
+  {
+   "ts": "2026-11-23 23:07:56",
+   "agent_id": "bvideo",
+   "message": "Shorts #223 \"Kenapa Tembok Bata Dipasang Selang-seling?\" masuk antrean render laptop (film lemo-opuscar films/cowo-bata-selang)"
+  },
   {
    "ts": "2026-11-23 23:03:09",
    "agent_id": "bresearch",
@@ -582,29 +644,65 @@
    "ts": "2026-11-23 17:00:58",
    "agent_id": "ttech",
    "message": "M10 berubah arah: sideways → bullish"
-  },
-  {
-   "ts": "2026-11-23 16:50:58",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: bullish → sideways"
-  },
-  {
-   "ts": "2026-11-23 16:30:58",
-   "agent_id": "trisk",
-   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-  },
-  {
-   "ts": "2026-11-23 16:01:10",
-   "agent_id": "analyst",
-   "message": "Update data 35 post IG 📈"
-  },
-  {
-   "ts": "2026-11-23 15:30:58",
-   "agent_id": "trisk",
-   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-11-23 23:08:58",
+   "agent_id": "publisher",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Kalau QA lolos langsung tayang TikTok + YouTube tanpa approval lagi, nanti dikabarin pas udah naik ya Bos!"
+  },
+  {
+   "ts": "2026-11-23 23:08:58",
+   "agent_id": "video",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Film caption-news-nya (±50 dtk, logo Sentinels/T1/Heretics) udah antre render laptop jam 09:45 WITA, tampilannya baru keliatan pas render."
+  },
+  {
+   "ts": "2026-11-23 23:08:58",
+   "agent_id": "researcher",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Udah aku cek ulang Bos: OXY & Sacy resmi, brawk ada pengumuman Dot Esports tapi belum 100% aku pastiin, chloric & hiro ke Heretics aku tulis RUMOR."
+  },
+  {
+   "ts": "2026-11-23 23:08:22",
+   "agent_id": "publisher",
+   "to_id": "owner",
+   "kind": "oper",
+   "message": "Bos, \"Konten 224 masuk antrean QA otomatis\" udah aku kirim ke Telegram. Ditunggu approve-nya 🙏"
+  },
+  {
+   "ts": "2026-11-23 23:08:22",
+   "agent_id": "researcher",
+   "to_id": "video",
+   "kind": "santai",
+   "message": "Dim, thespike sama sheep nolak akses lagi, untung strafe sama dotesports masih buka 😮‍💨"
+  },
+  {
+   "ts": "2026-11-23 23:08:21",
+   "agent_id": "video",
+   "to_id": "publisher",
+   "kind": "oper",
+   "message": "Fikri, video \"Film caption-news rostermania VCT 2027\" udah render 9:16. Musiknya aman kok"
+  },
+  {
+   "ts": "2026-11-23 23:07:57",
+   "agent_id": "copywriter",
+   "to_id": "designer",
+   "kind": "oper",
+   "message": "Teks buat \"Naskah film rostermania VCT 2027\" ready. Vania, giliranmu bikin cakep!"
+  },
+  {
+   "ts": "2026-11-23 23:03:35",
+   "agent_id": "researcher",
+   "to_id": "copywriter",
+   "kind": "oper",
+   "message": "Tiara, bahan buat \"Cek ulang sumber rostermania VCT 2027\" udah aku rangkum + sumbernya. Tinggal kamu racik captionnya ✍️"
+  },
   {
    "ts": "2026-11-23 23:03:09",
    "agent_id": "bresearch",
@@ -828,72 +926,16 @@
    "to_id": "publisher",
    "kind": "santai",
    "message": "Fik, PRX udah di antrean laptop ya. Semoga laptop Bos nyala, VO-nya enak kok"
-  },
-  {
-   "ts": "2026-11-22 01:58:59",
-   "agent_id": "publisher",
-   "to_id": "owner",
-   "kind": "oper",
-   "message": "\"QA video PRX roster 2027, nunggu render laptop\" udah lolos QA, tinggal nunggu ✅ dari Bos"
-  },
-  {
-   "ts": "2026-11-22 01:58:55",
-   "agent_id": "video",
-   "to_id": "publisher",
-   "kind": "oper",
-   "message": "Render \"Render video PRX roster 2027 (antre laptop)\" selesai, Fikri. Cek cover-nya ya"
-  },
-  {
-   "ts": "2026-11-22 01:58:50",
-   "agent_id": "copywriter",
-   "to_id": "designer",
-   "kind": "oper",
-   "message": "Vania, copy \"Naskah video PRX roster 2027\" udah masuk. Headline-nya jangan dikecilin ya 😆"
-  },
-  {
-   "ts": "2026-11-22 01:58:23",
-   "agent_id": "researcher",
-   "to_id": "copywriter",
-   "kind": "oper",
-   "message": "Tiara, bahan buat \"Cek sumber roster final PRX 2027\" udah aku rangkum + sumbernya. Tinggal kamu racik captionnya ✍️"
-  },
-  {
-   "ts": "2026-11-22 01:57:20",
-   "agent_id": "dir",
-   "to_id": null,
-   "kind": "oper",
-   "message": "Bos ACC 1 ide tambahan! \"PRX final roster 2027: PatMen balik, Primmie masuk\" 🎉"
-  },
-  {
-   "ts": "2026-11-21 23:06:05",
-   "agent_id": "vdir",
-   "to_id": "vresearch",
-   "kind": "oper",
-   "message": "Brief \"Shorts 22 Nov: perisai Cap\" beres. Citra, gas riset!"
-  },
-  {
-   "ts": "2026-11-21 23:06:05",
-   "agent_id": "sdir",
-   "to_id": "sresearch",
-   "kind": "oper",
-   "message": "Sekar, topik Zaa Story hari ini: \"Shorts 22 Nov: Trunyan\". Cari sisi sejarahnya ya, jangan cuma seremnya 👻"
-  },
-  {
-   "ts": "2026-11-21 23:06:05",
-   "agent_id": "ydir",
-   "to_id": "yresearch",
-   "kind": "oper",
-   "message": "Brief Shorts \"Shorts 22 Nov: Tahun 536\" udah jadi. Nadhira, gas riset!"
   }
  ],
  "stats": {
   "this_week": {
    "week": "2026-11-23",
-   "total": 6,
+   "total": 9,
    "posted": 5,
    "pending": 0,
    "scheduled": 1,
-   "yt_total": 4,
+   "yt_total": 6,
    "yt_posted": 3,
    "yt_pending": 0,
    "yt_scheduled": 1,
@@ -1182,8 +1224,8 @@
     "ema50": 3641.96,
     "rsi": 37.4,
     "n": 300,
-    "slot": 2992458,
-    "at": 1795474858879
+    "slot": 2992459,
+    "at": 1795475458704
    },
    "M15": {
     "bias": "sideways",
