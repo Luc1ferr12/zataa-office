@@ -111,7 +111,12 @@ try {
     if (VPS !== HOSTS[0]) log(`pakai ${VPS} (port 22 diblok?)`);
     process.env.ZATAA_VPS = VPS; // render-laptop.mjs / shorts-laptop.mjs ikut host yang tembus
   }
-  for (const { id, format } of q.status === 0 ? JSON.parse(q.stdout.trim() || '[]') : []) {
+  // jendela render (Owner 23 Nov 2026): semua video mulai dirender ≥09:45 WITA (jam Owner di kantor, laptop pasti nyala); sebelum itu antrean ditahan. Ubah: .env RENDER_FROM=HH:MM (WITA)
+  const [rh, rm] = (process.env.RENDER_FROM || '09:45').split(':').map(Number);
+  const nowW = new Date(Date.now() + 8 * 3600e3), minW = nowW.getUTCHours() * 60 + nowW.getUTCMinutes();
+  const held = minW < rh * 60 + (rm || 0);
+  if (held && q.status === 0 && q.stdout.trim() !== '[]') log(`antrean render ditahan sampai ${String(rh).padStart(2, '0')}:${String(rm || 0).padStart(2, '0')} WITA`);
+  for (const { id, format } of q.status === 0 && !held ? JSON.parse(q.stdout.trim() || '[]') : []) {
     const shorts = format === 'shorts';
     log(`render ${shorts ? 'shorts ' : ''}#${id}`);
     const r = spawnSync(process.execPath, [join(ROOT, 'scripts', shorts ? 'shorts-laptop.mjs' : 'render-laptop.mjs'), String(id), '--submit'], { encoding: 'utf8' });
