@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-23T08:13:33.507Z",
+ "generated_at": "2026-11-23T08:23:33.509Z",
  "today": "2026-11-23",
  "week_start": "2026-11-23",
  "campaign": null,
@@ -98,7 +98,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-23 08:00:49"
+   "updated_at": "2026-11-23 08:15:48"
   },
   {
    "id": "tresearch",
@@ -106,23 +106,23 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Pencarian 24 jam tak ketemu, data terbaru Okt 2026: Fed tahan 3,75-4% (29 Okt) hawkish, USD kuat. Bias lemah tipis, cek ulang harga live.",
-   "updated_at": "2026-11-23 08:00:49"
+   "updated_at": "2026-11-23 08:15:48"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Setup SELL di band (divergensi)",
-   "updated_at": "2026-11-23 08:00:49"
+   "current_task": "Belum ada pantulan band · H1 sideways",
+   "updated_at": "2026-11-23 08:15:48"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: setup SELL di band, konfirmasi baru 1/3 (divergensi) · London–NY (mode aman)",
-   "updated_at": "2026-11-23 08:00:49"
+   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
+   "updated_at": "2026-11-23 08:15:48"
   },
   {
    "id": "texec",
@@ -465,6 +465,16 @@
  "today_tasks": [],
  "activity": [
   {
+   "ts": "2026-11-23 08:15:48",
+   "agent_id": "trisk",
+   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+  },
+  {
+   "ts": "2026-11-23 08:15:48",
+   "agent_id": "ttech",
+   "message": "M15 berubah arah: bullish → sideways"
+  },
+  {
    "ts": "2026-11-23 08:10:49",
    "agent_id": "ttech",
    "message": "M10 berubah arah: bullish → sideways"
@@ -578,16 +588,6 @@
    "ts": "2026-11-23 02:15:46",
    "agent_id": "trisk",
    "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-  },
-  {
-   "ts": "2026-11-23 01:26:53",
-   "agent_id": "publisher",
-   "message": "Posting #221 ke IG + TikTok ✅"
-  },
-  {
-   "ts": "2026-11-23 01:23:09",
-   "agent_id": "video",
-   "message": "video #221 dirender di laptop (suara OmniVoice) & dikirim ke Owner"
   }
  ],
  "chats": [
@@ -883,30 +883,30 @@
    "yt_posted": 2,
    "yt_pending": 0,
    "yt_scheduled": 1,
-   "views": 1299,
-   "likes": 34,
+   "views": 2021,
+   "likes": 46,
    "comments": 0,
    "shares": 0,
    "saves": 0,
-   "yt_views": 50,
+   "yt_views": 645,
    "top": [
     {
      "title": "Jemkin & something resmi bukan pemain impor lagi di VCT 2027",
      "format": "video",
      "pillar": "news",
-     "views": 881
+     "views": 900
+    },
+    {
+     "title": "Pesan Terakhir Kapal Ini Cuma 2 Kata: \"Saya Mati\"",
+     "format": "shorts",
+     "pillar": "peristiwa_aneh",
+     "views": 493
     },
     {
      "title": "Meta FFWS GF 2026: SKORP vs double sniper kata Coach AFM",
      "format": "video",
      "pillar": "news",
-     "views": 368
-    },
-    {
-     "title": "Komputer 2.000 Tahun dari Dasar Laut Yunani",
-     "format": "shorts",
-     "pillar": "ancient_secrets",
-     "views": 50
+     "views": 476
     }
    ],
    "clicks": 0,
@@ -930,12 +930,12 @@
    "yt_posted": 16,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 20283,
-   "likes": 307,
+   "views": 20511,
+   "likes": 311,
    "comments": 5,
    "shares": 0,
    "saves": 2,
-   "yt_views": 15843,
+   "yt_views": 16068,
    "top": [
     {
      "title": "Gua di Biak Ini Konon Jadi Kuburan Ribuan Tentara Jepang",
@@ -947,13 +947,13 @@
      "title": "Kuburan Belanda di Jakarta Ini Sekarang Jadi Museum, Konon Angker",
      "format": "shorts",
      "pillar": "horor_sejarah",
-     "views": 2020
+     "views": 2021
     },
     {
      "title": "Legenda Danau Toba Konon Menyimpan Jejak Letusan Terbesar",
      "format": "shorts",
      "pillar": "legenda_mitos",
-     "views": 1891
+     "views": 1893
     }
    ],
    "clicks": 0,
@@ -973,9 +973,14 @@
   "paused": false,
   "balance": 1757.48,
   "today_pnl": 0,
-  "price": 3604.300049,
+  "price": 3603.550049,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-23 08:15:48",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
    {
     "ts": "2026-11-23 08:00:49",
     "decision": "NO TRADE",
@@ -1000,11 +1005,6 @@
     "ts": "2026-11-23 07:00:46",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-11-23 06:45:46",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
    }
   ],
   "trades": [
@@ -1082,7 +1082,7 @@
    1757.48
   ],
   "last": {
-   "ts": "2026-11-23 08:00:49",
+   "ts": "2026-11-23 08:15:48",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1091,7 +1091,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "setup SELL di band, konfirmasi baru 1/3 (divergensi) · London–NY (mode aman)",
+   "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
    "fund": {
     "bias": -0.15,
     "note": "Pencarian 24 jam tak ketemu, data terbaru Okt 2026: Fed tahan 3,75-4% (29 Okt) hawkish, USD kuat. Bias lemah tipis, cek ulang harga live.",
@@ -1100,12 +1100,10 @@
    },
    "tech": {
     "bias": "sideways",
-    "score": 1,
-    "trigger": "sell",
-    "confirm": [
-     "divergensi"
-    ],
-    "note": "M15 3618.50 di atas tengah band (3597.4–3634.3) · RSI 57 · Stoch 57 · MACD -1.26 · H1 sideways · setup SELL (divergensi)"
+    "score": 0,
+    "trigger": null,
+    "confirm": [],
+    "note": "M15 3602.35 di bawah tengah band (3596.2–3634.3) · RSI 46 · Stoch 26 · MACD -3.11 · H1 sideways"
    }
   },
   "fund": {
@@ -1174,24 +1172,24 @@
    "M10": {
     "bias": "sideways",
     "score": 1,
-    "price": 3609.85,
-    "ema20": 3618.7,
-    "ema50": 3603.98,
-    "rsi": 45.3,
+    "price": 3600.85,
+    "ema20": 3617,
+    "ema50": 3603.86,
+    "rsi": 39.4,
     "n": 299,
-    "slot": 2992369,
-    "at": 1795421449105
+    "slot": 2992370,
+    "at": 1795422048912
    },
    "M15": {
-    "bias": "bullish",
-    "score": 3,
-    "price": 3622.65,
-    "ema20": 3614.34,
-    "ema50": 3593.34,
-    "rsi": 61.1,
+    "bias": "sideways",
+    "score": 1,
+    "price": 3608.05,
+    "ema20": 3613.74,
+    "ema50": 3593.91,
+    "rsi": 49.5,
     "n": 299,
-    "slot": 1994912,
-    "at": 1795420848903
+    "slot": 1994913,
+    "at": 1795421748920
    },
    "M30": {
     "bias": "bullish",
