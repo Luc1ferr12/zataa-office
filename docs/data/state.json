@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-23T22:53:28.078Z",
+ "generated_at": "2026-11-23T23:03:28.081Z",
  "today": "2026-11-24",
  "week_start": "2026-11-23",
  "campaign": null,
@@ -17,16 +17,16 @@
    "name": "Andre",
    "title": "Marketing Director",
    "status": "done",
-   "current_task": "Ide sesi malam dikirim ke Owner",
-   "updated_at": "2026-11-23 12:01:08"
+   "current_task": "Pilih ide sesi pagi",
+   "updated_at": "2026-11-23 23:01:32"
   },
   {
    "id": "researcher",
    "name": "Salsa",
    "title": "Researcher",
-   "status": "done",
-   "current_task": "Riset sesi malam: FFWS LCQ wakil ID",
-   "updated_at": "2026-11-23 12:01:07"
+   "status": "working",
+   "current_task": "Cek ulang sumber rostermania VCT 2027",
+   "updated_at": "2026-11-23 23:02:42"
   },
   {
    "id": "copywriter",
@@ -98,15 +98,15 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-23 21:45:58"
+   "updated_at": "2026-11-23 23:01:18"
   },
   {
    "id": "tresearch",
    "name": "Davina",
    "title": "Research & Fundamental",
    "status": "done",
-   "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
-   "updated_at": "2026-11-23 21:45:58"
+   "current_task": "Fundamental: Fed hike bets naik (Okt–Nov 2026), DXY menguat ~102,2 (6 Nov), emas ~$4.100 tertekan. Berita 24 jam tidak terverifikasi.",
+   "updated_at": "2026-11-23 23:01:18"
   },
   {
    "id": "ttech",
@@ -114,7 +114,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-23 21:45:58"
+   "updated_at": "2026-11-23 23:01:18"
   },
   {
    "id": "trisk",
@@ -122,7 +122,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
-   "updated_at": "2026-11-23 21:45:58"
+   "updated_at": "2026-11-23 23:01:18"
   },
   {
    "id": "texec",
@@ -352,9 +352,9 @@
    "id": "bresearch",
    "name": "Keisha",
    "title": "Riset Fakta Unik",
-   "status": "idle",
-   "current_task": null,
-   "updated_at": "2026-11-23 07:38:50"
+   "status": "done",
+   "current_task": "Isi bank topik Cowo Bingung",
+   "updated_at": "2026-11-23 23:03:09"
   },
   {
    "id": "bscript",
@@ -479,6 +479,41 @@
  "today_tasks": [],
  "activity": [
   {
+   "ts": "2026-11-23 23:03:09",
+   "agent_id": "bresearch",
+   "message": "Bank Cowo isi 3 topik; KG-001 running bond (3 sumber cek), KG-002 & CB-001 backlog: sumber belum diverifikasi"
+  },
+  {
+   "ts": "2026-11-23 23:02:28",
+   "agent_id": "owner",
+   "message": "Approve 1 ide konten tambahan 💡"
+  },
+  {
+   "ts": "2026-11-23 23:01:32",
+   "agent_id": "dir",
+   "message": "Sesi pagi: pilih #270 rekap transfer VCT 2027 (video news Valorant, ok 17/0), kirim ke Owner"
+  },
+  {
+   "ts": "2026-11-23 23:01:32",
+   "agent_id": "dir",
+   "message": "Kirim 1 ide briefing ke Owner"
+  },
+  {
+   "ts": "2026-11-23 23:01:31",
+   "agent_id": "dir",
+   "message": "Pilih 1 berita hangat dari sesi riset pagi"
+  },
+  {
+   "ts": "2026-11-23 23:01:18",
+   "agent_id": "trisk",
+   "message": "NO TRADE · jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
+  },
+  {
+   "ts": "2026-11-23 23:01:17",
+   "agent_id": "researcher",
+   "message": "Nemu 4 topik baru"
+  },
+  {
    "ts": "2026-11-23 22:01:10",
    "agent_id": "analyst",
    "message": "Update data 35 post IG 📈"
@@ -567,44 +602,37 @@
    "ts": "2026-11-23 15:30:58",
    "agent_id": "trisk",
    "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-  },
-  {
-   "ts": "2026-11-23 15:10:58",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: sideways → bullish"
-  },
-  {
-   "ts": "2026-11-23 14:30:58",
-   "agent_id": "trisk",
-   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-  },
-  {
-   "ts": "2026-11-23 14:20:58",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: bullish → sideways"
-  },
-  {
-   "ts": "2026-11-23 13:30:58",
-   "agent_id": "trisk",
-   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-  },
-  {
-   "ts": "2026-11-23 13:30:57",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: sideways → bullish"
-  },
-  {
-   "ts": "2026-11-23 13:01:23",
-   "agent_id": "analyst",
-   "message": "Update data 35 post IG 📈"
-  },
-  {
-   "ts": "2026-11-23 12:50:57",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: bullish → sideways"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-11-23 23:03:09",
+   "agent_id": "bresearch",
+   "to_id": "bscript",
+   "kind": "oper",
+   "message": "Riset \"Isi bank topik Cowo Bingung\" kelar, Naura. Ini lucu banget sumpah 😂"
+  },
+  {
+   "ts": "2026-11-23 23:02:28",
+   "agent_id": "dir",
+   "to_id": null,
+   "kind": "oper",
+   "message": "Bos ACC 1 ide tambahan! \"Rostermania VCT 2027: Sentinels ambil brawk & OXY, Sacy latih T1\" 🎉"
+  },
+  {
+   "ts": "2026-11-23 23:01:32",
+   "agent_id": "dir",
+   "to_id": "researcher",
+   "kind": "oper",
+   "message": "Salsa, plan minggu ini udah aku taruh ya. Fokus \"Pilih ide sesi pagi\". Tolong cariin bahan beritanya 🙏"
+  },
+  {
+   "ts": "2026-11-23 23:01:31",
+   "agent_id": "researcher",
+   "to_id": "copywriter",
+   "kind": "oper",
+   "message": "Riset \"Riset berita hangat sesi pagi\" beres, udah dicek 2 sumber. Tiara, lanjut ya~"
+  },
   {
    "ts": "2026-11-23 12:01:08",
    "agent_id": "dir",
@@ -856,34 +884,6 @@
    "to_id": "yresearch",
    "kind": "oper",
    "message": "Brief Shorts \"Shorts 22 Nov: Tahun 536\" udah jadi. Nadhira, gas riset!"
-  },
-  {
-   "ts": "2026-11-21 23:06:01",
-   "agent_id": "dir",
-   "to_id": null,
-   "kind": "santai",
-   "message": "Minggu pagi, PRX udah lengkap rosternya. Abis ini gue mau ngopi dulu di bawah."
-  },
-  {
-   "ts": "2026-11-21 23:01:37",
-   "agent_id": "dir",
-   "to_id": "researcher",
-   "kind": "oper",
-   "message": "Brief \"Ide sesi pagi dikirim ke Owner (PRX video)\" udah jadi. Salsa, gas riset ya!"
-  },
-  {
-   "ts": "2026-11-21 23:01:37",
-   "agent_id": "researcher",
-   "to_id": "copywriter",
-   "kind": "oper",
-   "message": "Tiara, bahan buat \"Riset pagi: roster final PRX 2027\" udah aku rangkum + sumbernya. Tinggal kamu racik captionnya ✍️"
-  },
-  {
-   "ts": "2026-11-21 12:01:59",
-   "agent_id": "publisher",
-   "to_id": null,
-   "kind": "oper",
-   "message": "\"Kuis cepat: tebak pemain yang pindah tim 2027\" udah tayang di IG + TikTok 🚀 Makasih semua!"
   }
  ],
  "stats": {
@@ -991,6 +991,11 @@
   "open": [],
   "signals": [
    {
+    "ts": "2026-11-23 23:01:18",
+    "decision": "NO TRADE",
+    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
+   },
+   {
     "ts": "2026-11-23 21:45:58",
     "decision": "NO TRADE",
     "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
@@ -1012,11 +1017,6 @@
    },
    {
     "ts": "2026-11-23 20:45:58",
-    "decision": "NO TRADE",
-    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
-   },
-   {
-    "ts": "2026-11-23 20:30:58",
     "decision": "NO TRADE",
     "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
    }
@@ -1096,7 +1096,7 @@
    1757.48
   ],
   "last": {
-   "ts": "2026-11-23 21:45:58",
+   "ts": "2026-11-23 23:01:18",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1107,8 +1107,8 @@
    "risk_usd": null,
    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
    "fund": {
-    "bias": 0,
-    "note": "netral (belum ada ringkasan hari ini)",
+    "bias": -0.4,
+    "note": "Fed hike bets naik (Okt–Nov 2026), DXY menguat ~102,2 (6 Nov), emas ~$4.100 tertekan. Berita 24 jam tidak terverifikasi.",
     "danger": null,
     "blackout": null
    },
@@ -1117,10 +1117,13 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3632.85 di bawah tengah band (3624.9–3669.1) · RSI 38 · Stoch 10 · MACD -2.52 · H1 sideways"
+    "note": "M15 3633.85 di bawah tengah band (3623.6–3659.8) · RSI 40 · Stoch 13 · MACD -1.09 · H1 sideways"
    }
   },
-  "fund": null,
+  "fund": {
+   "bias": -0.4,
+   "note": "Fed hike bets naik (Okt–Nov 2026), DXY menguat ~102,2 (6 Nov), emas ~$4.100 tertekan. Berita 24 jam tidak terverifikasi."
+  },
   "calendar": [
    {
     "title": "Core PCE Price Index m/m",
@@ -1146,15 +1149,6 @@
     "at": 1795613400000,
     "forecast": "2.3%",
     "previous": "2.3%",
-    "wb": 20,
-    "wa": 20
-   },
-   {
-    "title": "Unemployment Claims",
-    "impact": "Medium",
-    "at": 1795613400000,
-    "forecast": "201K",
-    "previous": "203K",
     "wb": 20,
     "wa": 20
    }
@@ -1183,46 +1177,46 @@
    "M10": {
     "bias": "bearish",
     "score": -3,
-    "price": 3631.95,
-    "ema20": 3641.74,
-    "ema50": 3644.16,
-    "rsi": 33.2,
-    "n": 299,
-    "slot": 2992451,
-    "at": 1795470658659
+    "price": 3633.85,
+    "ema20": 3638.21,
+    "ema50": 3641.96,
+    "rsi": 37.4,
+    "n": 300,
+    "slot": 2992458,
+    "at": 1795474858879
    },
    "M15": {
     "bias": "sideways",
     "score": -1,
-    "price": 3633.45,
-    "ema20": 3644.86,
-    "ema50": 3639.89,
-    "rsi": 38.9,
-    "n": 299,
-    "slot": 1994967,
-    "at": 1795470358659
+    "price": 3633.85,
+    "ema20": 3640.51,
+    "ema50": 3638.78,
+    "rsi": 40.3,
+    "n": 300,
+    "slot": 1994972,
+    "at": 1795474858885
    },
    "M30": {
     "bias": "sideways",
     "score": 0,
-    "price": 3636.5,
-    "ema20": 3643.78,
-    "ema50": 3621.02,
-    "rsi": 48.8,
-    "n": 299,
-    "slot": 997483,
-    "at": 1795469458668
+    "price": 3633.85,
+    "ema20": 3641.07,
+    "ema50": 3622.41,
+    "rsi": 47.7,
+    "n": 300,
+    "slot": 997486,
+    "at": 1795474858887
    },
    "H1": {
     "bias": "bullish",
     "score": 3,
-    "price": 3634.15,
-    "ema20": 3626.63,
-    "ema50": 3598.15,
-    "rsi": 59.3,
-    "n": 299,
-    "slot": 498741,
-    "at": 1795467658641
+    "price": 3633.85,
+    "ema20": 3627.74,
+    "ema50": 3600.81,
+    "rsi": 58.7,
+    "n": 300,
+    "slot": 498743,
+    "at": 1795474858892
    }
   },
   "currency": "USC",
