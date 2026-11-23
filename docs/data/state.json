@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-23T21:13:28.040Z",
+ "generated_at": "2026-11-23T21:23:28.051Z",
  "today": "2026-11-24",
  "week_start": "2026-11-23",
  "campaign": null,
@@ -98,15 +98,15 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-23 21:00:58"
+   "updated_at": "2026-11-23 21:15:58"
   },
   {
    "id": "tresearch",
    "name": "Davina",
    "title": "Research & Fundamental",
    "status": "done",
-   "current_task": "Fundamental: CPI Okt +0,4% m/m (prakiraan 0,3%) bikin emas turun 2-3% & taruhan kenaikan Fed naik. Belum ada berita 24 jam yang terverifikasi.",
-   "updated_at": "2026-11-23 21:00:58"
+   "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
+   "updated_at": "2026-11-23 21:15:58"
   },
   {
    "id": "ttech",
@@ -114,7 +114,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-23 21:00:58"
+   "updated_at": "2026-11-23 21:15:58"
   },
   {
    "id": "trisk",
@@ -122,7 +122,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
-   "updated_at": "2026-11-23 21:00:58"
+   "updated_at": "2026-11-23 21:15:58"
   },
   {
    "id": "texec",
@@ -987,9 +987,14 @@
   "paused": false,
   "balance": 1757.48,
   "today_pnl": 0,
-  "price": 3634.899902,
+  "price": 3636.050049,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-23 21:15:58",
+    "decision": "NO TRADE",
+    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
+   },
    {
     "ts": "2026-11-23 21:00:58",
     "decision": "NO TRADE",
@@ -1014,11 +1019,6 @@
     "ts": "2026-11-23 20:00:58",
     "decision": "NO TRADE",
     "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
-   },
-   {
-    "ts": "2026-11-23 19:45:58",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
   ],
   "trades": [
@@ -1096,7 +1096,7 @@
    1757.48
   ],
   "last": {
-   "ts": "2026-11-23 21:00:58",
+   "ts": "2026-11-23 21:15:58",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1107,8 +1107,8 @@
    "risk_usd": null,
    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
    "fund": {
-    "bias": -0.5,
-    "note": "CPI Okt +0,4% m/m (prakiraan 0,3%) bikin emas turun 2-3% & taruhan kenaikan Fed naik. Belum ada berita 24 jam yang terverifikasi.",
+    "bias": 0,
+    "note": "netral (belum ada ringkasan hari ini)",
     "danger": null,
     "blackout": null
    },
@@ -1117,7 +1117,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3635.40 di bawah tengah band (3628.4–3675.2) · RSI 40 · Stoch 8 · MACD -3.32 · H1 sideways"
+    "note": "M15 3635.60 di bawah tengah band (3627.7–3672.4) · RSI 40 · Stoch 11 · MACD -3.00 · H1 sideways"
    }
   },
   "fund": null,
@@ -1183,24 +1183,24 @@
    "M10": {
     "bias": "bearish",
     "score": -3,
-    "price": 3634.95,
-    "ema20": 3645.37,
-    "ema50": 3645.84,
-    "rsi": 35,
+    "price": 3635.55,
+    "ema20": 3644.44,
+    "ema50": 3645.43,
+    "rsi": 35.9,
     "n": 299,
-    "slot": 2992447,
-    "at": 1795468258632
+    "slot": 2992448,
+    "at": 1795468858646
    },
    "M15": {
     "bias": "sideways",
     "score": -1,
-    "price": 3634.15,
-    "ema20": 3648.28,
-    "ema50": 3640.5,
-    "rsi": 38.8,
+    "price": 3635.6,
+    "ema20": 3647.07,
+    "ema50": 3640.31,
+    "rsi": 40.2,
     "n": 299,
-    "slot": 1994964,
-    "at": 1795467658631
+    "slot": 1994965,
+    "at": 1795468558648
    },
    "M30": {
     "bias": "sideways",
