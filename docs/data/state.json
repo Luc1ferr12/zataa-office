@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-23T11:53:27.852Z",
+ "generated_at": "2026-11-23T12:01:08.886Z",
  "today": "2026-11-23",
  "week_start": "2026-11-23",
  "campaign": null,
@@ -17,16 +17,16 @@
    "name": "Andre",
    "title": "Marketing Director",
    "status": "done",
-   "current_task": "Kirim 2 ide video sesi pagi ke Owner",
-   "updated_at": "2026-11-22 23:03:01"
+   "current_task": "Ide sesi malam dikirim ke Owner",
+   "updated_at": "2026-11-23 12:01:08"
   },
   {
    "id": "researcher",
    "name": "Salsa",
    "title": "Researcher",
    "status": "done",
-   "current_task": "Cek ulang 2 berita: residen Pacific & meta FFWS",
-   "updated_at": "2026-11-23 01:10:35"
+   "current_task": "Riset sesi malam: FFWS LCQ wakil ID",
+   "updated_at": "2026-11-23 12:01:07"
   },
   {
    "id": "copywriter",
@@ -98,7 +98,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-23 11:45:58"
+   "updated_at": "2026-11-23 12:00:58"
   },
   {
    "id": "tresearch",
@@ -106,7 +106,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: CPI Okt +0,4% m/m (prakiraan 0,3%) bikin emas turun 2-3% & taruhan kenaikan Fed naik. Belum ada berita 24 jam yang terverifikasi.",
-   "updated_at": "2026-11-23 11:45:58"
+   "updated_at": "2026-11-23 12:00:58"
   },
   {
    "id": "ttech",
@@ -114,7 +114,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-23 11:45:58"
+   "updated_at": "2026-11-23 12:00:58"
   },
   {
    "id": "trisk",
@@ -122,7 +122,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-11-23 11:45:58"
+   "updated_at": "2026-11-23 12:00:58"
   },
   {
    "id": "texec",
@@ -454,10 +454,10 @@
    "game": "sejarah",
    "pillar": "lore_teori",
    "title": "Cap Ternyata Udah Bisa Angkat Mjolnir Sejak Age of Ultron",
-   "status": "approved",
-   "asset_url": null,
+   "status": "posted",
+   "asset_url": "https://www.youtube.com/watch?v=TKr7DcI2efs",
    "scheduled_at": null,
-   "posted_at": null,
+   "posted_at": "2026-11-23 12:00:49",
    "channel": "marvel"
   },
   {
@@ -478,6 +478,31 @@
  "clip_jobs": [],
  "today_tasks": [],
  "activity": [
+  {
+   "ts": "2026-11-23 12:01:08",
+   "agent_id": "dir",
+   "message": "Sesi malam: pilih berita LCQ FFWS (RRQ Kazu/ONIC/BTR), tunggu ✅ Owner"
+  },
+  {
+   "ts": "2026-11-23 12:01:08",
+   "agent_id": "dir",
+   "message": "Kirim 1 ide briefing ke Owner"
+  },
+  {
+   "ts": "2026-11-23 12:01:07",
+   "agent_id": "dir",
+   "message": "Pilih 1 berita hangat dari sesi riset malam"
+  },
+  {
+   "ts": "2026-11-23 12:01:01",
+   "agent_id": "researcher",
+   "message": "Nemu 2 topik baru"
+  },
+  {
+   "ts": "2026-11-23 12:00:49",
+   "agent_id": "vpublish",
+   "message": "Upload Shorts #219 ke Marvel Talk (Publik via Zernio)"
+  },
   {
    "ts": "2026-11-23 11:30:58",
    "agent_id": "trisk",
@@ -577,34 +602,23 @@
    "ts": "2026-11-23 09:00:49",
    "agent_id": "dir",
    "message": "Kode kantor diperbarui, restart otomatis: scripts/golink.mjs, scripts/trading/run.mjs, scripts/watch.mjs"
-  },
-  {
-   "ts": "2026-11-23 08:51:33",
-   "agent_id": "dir",
-   "message": "Kode kantor diperbarui, restart otomatis: scripts/watch.mjs, scripts/golink.mjs, scripts/trading/run.mjs"
-  },
-  {
-   "ts": "2026-11-23 08:15:48",
-   "agent_id": "trisk",
-   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-  },
-  {
-   "ts": "2026-11-23 08:15:48",
-   "agent_id": "ttech",
-   "message": "M15 berubah arah: bullish → sideways"
-  },
-  {
-   "ts": "2026-11-23 08:10:49",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: bullish → sideways"
-  },
-  {
-   "ts": "2026-11-23 07:53:33",
-   "agent_id": "dir",
-   "message": "Kode kantor diperbarui, restart otomatis: scripts/golink.mjs, scripts/trading/run.mjs"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-11-23 12:01:08",
+   "agent_id": "dir",
+   "to_id": "researcher",
+   "kind": "oper",
+   "message": "Salsa, plan minggu ini udah aku taruh ya. Fokus \"Ide sesi malam dikirim ke Owner\". Tolong cariin bahan beritanya 🙏"
+  },
+  {
+   "ts": "2026-11-23 12:01:07",
+   "agent_id": "researcher",
+   "to_id": "copywriter",
+   "kind": "oper",
+   "message": "Riset \"Riset sesi malam: FFWS LCQ wakil ID\" beres, udah dicek 2 sumber. Tiara, lanjut ya~"
+  },
   {
    "ts": "2026-11-23 11:00:31",
    "agent_id": "analyst",
@@ -870,33 +884,19 @@
    "to_id": null,
    "kind": "oper",
    "message": "\"Kuis cepat: tebak pemain yang pindah tim 2027\" udah tayang di IG + TikTok 🚀 Makasih semua!"
-  },
-  {
-   "ts": "2026-11-21 11:00:50",
-   "agent_id": "analyst",
-   "to_id": "dir",
-   "kind": "oper",
-   "message": "Laporan harian marketing udah aku kirim ke Bos, 2 konten tayang hari ini 📊"
-  },
-  {
-   "ts": "2026-11-21 09:01:52",
-   "agent_id": "publisher",
-   "to_id": null,
-   "kind": "oper",
-   "message": "\"BTR turun hari ini di FFWS Phase 2: wajib top 2 bu\" udah tayang di IG + TikTok 🚀 Makasih semua!"
   }
  ],
  "stats": {
   "this_week": {
    "week": "2026-11-23",
    "total": 6,
-   "posted": 4,
+   "posted": 5,
    "pending": 0,
-   "scheduled": 2,
+   "scheduled": 1,
    "yt_total": 4,
-   "yt_posted": 2,
+   "yt_posted": 3,
    "yt_pending": 0,
-   "yt_scheduled": 2,
+   "yt_scheduled": 1,
    "views": 2972,
    "likes": 60,
    "comments": 1,
@@ -987,9 +987,14 @@
   "paused": false,
   "balance": 1757.48,
   "today_pnl": 0,
-  "price": 3620.899902,
+  "price": 3620.949951,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-23 12:00:58",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
    {
     "ts": "2026-11-23 11:45:58",
     "decision": "NO TRADE",
@@ -1012,11 +1017,6 @@
    },
    {
     "ts": "2026-11-23 10:45:57",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-11-23 10:30:58",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1096,7 +1096,7 @@
    1757.48
   ],
   "last": {
-   "ts": "2026-11-23 11:45:58",
+   "ts": "2026-11-23 12:00:58",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1117,7 +1117,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3622.30 di atas tengah band (3604.8–3633.6) · RSI 56 · Stoch 78 · MACD -0.66 · H1 sideways"
+    "note": "M15 3620.95 di atas tengah band (3605.0–3632.6) · RSI 55 · Stoch 75 · MACD -0.79 · H1 sideways"
    }
   },
   "fund": {
@@ -1185,47 +1185,47 @@
   "tf": {
    "M10": {
     "bias": "bullish",
-    "score": 3,
-    "price": 3621.55,
-    "ema20": 3618.81,
-    "ema50": 3611.9,
-    "rsi": 54.5,
+    "score": 2,
+    "price": 3619.95,
+    "ema20": 3618.91,
+    "ema50": 3612.22,
+    "rsi": 52.5,
     "n": 299,
-    "slot": 2992391,
-    "at": 1795434657828
+    "slot": 2992392,
+    "at": 1795435257843
    },
    "M15": {
     "bias": "bullish",
     "score": 2,
-    "price": 3622.3,
-    "ema20": 3617.73,
-    "ema50": 3604.35,
-    "rsi": 55.9,
+    "price": 3619.95,
+    "ema20": 3617.94,
+    "ema50": 3604.96,
+    "rsi": 53.8,
     "n": 299,
-    "slot": 1994927,
-    "at": 1795434357831
+    "slot": 1994928,
+    "at": 1795435257849
    },
    "M30": {
     "bias": "bullish",
-    "score": 2,
-    "price": 3618.75,
-    "ema20": 3609.1,
-    "ema50": 3585.39,
-    "rsi": 57.8,
+    "score": 3,
+    "price": 3619.95,
+    "ema20": 3610.14,
+    "ema50": 3586.75,
+    "rsi": 58.3,
     "n": 299,
-    "slot": 997463,
-    "at": 1795433457828
+    "slot": 997464,
+    "at": 1795435257851
    },
    "H1": {
     "bias": "bullish",
     "score": 3,
-    "price": 3624.35,
-    "ema20": 3590.26,
-    "ema50": 3573.83,
-    "rsi": 77.4,
+    "price": 3619.95,
+    "ema20": 3593.09,
+    "ema50": 3575.64,
+    "rsi": 73.2,
     "n": 299,
-    "slot": 498731,
-    "at": 1795431657809
+    "slot": 498732,
+    "at": 1795435257855
    }
   },
   "currency": "USC",
