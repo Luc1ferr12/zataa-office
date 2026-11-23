@@ -106,6 +106,8 @@ export async function newShort(p) {
     const lines = JSON.parse(readFileSync(join(ROOT, p.spec.film, 'lines.json'), 'utf8')).items;
     p.spec = { ...p.spec, scenes: lines.map((it) => ({ vo: it.text })) };
   }
+  // pagar (Owner 23 Nov 2026): semua divisi wajib film lemo-opuscar; format lama hanya lewat "legacy":true (antrean/revisi lama)
+  if (!p.spec?.film && !p.legacy) throw new Error('video wajib film lemo-opuscar: pakai "spec":{"film":"films/<slug>"} (node scripts/film.mjs new <slug> --brand=... --pillar=..., SOP office/film.md). Format lama hanya untuk antrean lama dengan "legacy":true');
   if (!p.title || !p.spec?.scenes?.length) throw new Error('butuh title + spec.scenes (atau spec.film)');
   if (p.jam && !JAM.test(p.jam)) throw new Error('jam harus HH:MM (WIB)');
   // dua gaya adegan: gambar (img + vo + sub) atau klip film (clips[{src, ss, x?}] + vo, gaya Marvel Talk → shorts-clip.mjs); tidak boleh campur
