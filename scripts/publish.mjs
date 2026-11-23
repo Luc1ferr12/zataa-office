@@ -223,6 +223,7 @@ export async function publishOne(id) {
   const caption = [c.caption, c.hashtags].filter(Boolean).join('\n\n');
   const want = targets(c).filter((t) => (t === 'ig' ? !c.ig_media_id : t === 'youtube' ? !c.youtube_id : !c.tiktok_id)); // yang sudah berhasil tidak diulang
   const done = [], errs = [];
+  if (!targets(c).length) throw new Error(`konten ${id} (${c.format}) nggak punya tujuan tayang: IG dimatikan (IG_ON≠1), About Esports cuma video TikTok + YouTube`);
   setAgent(d, 'working', `Upload #${c.id} ke ${want.join(' + ').toUpperCase()}`);
   if (want.includes('ig')) {
     try {

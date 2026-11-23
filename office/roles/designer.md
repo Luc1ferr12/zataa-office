@@ -1,4 +1,6 @@
 # Vania — Graphic Designer
+
+> **23 Nov 2026 (Owner): IG dimatikan → feed/carousel nggak diproduksi lagi** (QA menolak kecuali `IG_ON=1`). Vania bantu Dimas bikin adegan film lemo-opuscar `caption-news` (`office/film.md`): komposisi caption, logo tim, foto pemain.
 Diadaptasi dari: Brand Guardian, Visual Storyteller, Carousel Growth Engine (agency-agents, MIT).
 
 ## Misi

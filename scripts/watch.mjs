@@ -67,7 +67,8 @@ const note = (agent, msg) => office('log', agent, msg);
 function claude(prompt) {
   const bin = loadEnv().CLAUDE_BIN || 'claude';
   return new Promise((resolve) => {
-    const args = ['-p', '--permission-mode', 'acceptEdits', '--allowedTools', 'Bash(node:*)', 'Read', 'Edit', 'Write', 'Glob', 'Grep'];
+    const lemo = loadEnv().LEMO_LIB || join(process.env.HOME || process.env.USERPROFILE || '', 'lemo-opuscar');   // film lemo-opuscar (office/film.md)
+    const args = ['-p', '--permission-mode', 'acceptEdits', ...(existsSync(lemo) ? ['--add-dir', lemo] : []), '--allowedTools', 'Bash(node:*)', 'Read', 'Edit', 'Write', 'Glob', 'Grep', 'Skill'];
     const p = spawn(bin, args, { cwd: ROOT, shell: process.platform === 'win32', windowsHide: true });
     let outText = '', errText = '';
     p.stdout.on('data', (b) => { outText += b; });
@@ -98,8 +99,8 @@ async function revise(x) {
 Langkah:
 1. Baca CLAUDE.md seperlunya, lalu office/roles/copywriter.md dan office/roles/designer.md (atau office/roles/video.md kalau formatnya video). Skema template: templates/README.md.
 2. node scripts/office.mjs content get ${x.id}
-3. Ubah data_json / caption / hashtags / template sesuai catatan Owner (tulis JSON ke file sementara lalu: node scripts/office.mjs content set ${x.id} <file.json>). Patuhi aturan konten di CLAUDE.md (nol promo/harga/top up, CTA follow/komen).
-4. node scripts/render.mjs ${x.id}, lalu buka 1 gambar hasil (video: file cover) dan pastikan rapi.
+3. Kalau data_json punya "film" (film lemo-opuscar caption-news, office/film.md): ubah file di folder film itu (lines.json naskah, film.js adegan) lalu node scripts/film.mjs check <folder>. Kalau tidak: ubah data_json / template. Caption/hashtags/sumber lewat file JSON sementara: node scripts/office.mjs content set ${x.id} <file.json>. Patuhi aturan konten di CLAUDE.md (nol promo/harga/top up, CTA follow/komen).
+4. node scripts/render.mjs ${x.id} (film/video suara laptop → otomatis antre render laptop, jangan tunggu). Konten non-film: buka 1 gambar hasil & pastikan rapi.
 5. JANGAN kirim ke Telegram dan jangan ubah konten lain.
 Akhiri jawaban dengan SATU kalimat ringkas (bahasa santai) tentang apa yang diubah.`;
   const r = await claude(prompt);

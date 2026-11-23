@@ -3,12 +3,12 @@
 // 1) ambil data konten dari DB VPS (+ logo/foto asset.mjs yang cuma ada di VPS → scp)  2) render.mjs try (lokal, OmniVoice)  3) scp ke docs/media/<tgl>/ di VPS
 // 4) isi asset_path/asset_url di DB VPS  5) --submit → approval.mjs submit <id> (kirim ke Telegram Owner)
 import { spawnSync } from 'node:child_process';
-import { mkdtempSync, writeFileSync, renameSync, rmSync, existsSync, mkdirSync, copyFileSync } from 'node:fs';
+import { mkdtempSync, writeFileSync, renameSync, rmSync, existsSync, mkdirSync, copyFileSync, cpSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join, dirname, basename } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { DB_SNIPPET } from './db.mjs';
-import { ssh, scpFrom, scpTo } from './vps-link.mjs';
+import { ssh, scpFrom, scpTo, scpDirFrom } from './vps-link.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const [id, flag] = process.argv.slice(2);
@@ -50,10 +50,28 @@ try {
     mkdirSync(dirname(dst), { recursive: true });
     copyFileSync(t, dst);
   }
-  writeFileSync(join(tmp, 'data.json'), c.data_json);
-  const r = spawnSync(process.execPath, [join(ROOT, 'scripts', 'render.mjs'), 'try', 'video', join(tmp, 'data.json'), tmp], { stdio: ['ignore', 'pipe', 'pipe'], encoding: 'utf8' });
-  if (r.status !== 0) throw new Error(`render gagal: ${errLine(r.stderr || r.stdout)}`);
-  const res = JSON.parse(r.stdout.trim().split('\n').pop());
+  const film = JSON.parse(c.data_json).film;
+  let res;
+  if (film) {   // 23 Nov 2026: film lemo-opuscar gaya caption-news (office/film.md) — folder films/<slug> dari VPS → scripts/film.mjs build --brand=esports
+    const slug = basename(film), local = join(ROOT, 'films', slug);
+    const keep = existsSync(join(local, 'out', 'vo')) ? join(tmp, 'vo-cache') : null;   // suara lama dipakai lagi kalau naskahnya sama
+    if (keep) cpSync(join(local, 'out', 'vo'), keep, { recursive: true });
+    rmSync(local, { recursive: true, force: true });
+    mkdirSync(join(ROOT, 'films'), { recursive: true });
+    const g = scpDirFrom(film, join(ROOT, 'films'));
+    if (g.status !== 0) throw new Error(`proyek film ${film} gagal diambil dari VPS: ${(g.stderr || '').trim().slice(-120)}`);
+    if (keep) { mkdirSync(join(local, 'out'), { recursive: true }); cpSync(keep, join(local, 'out', 'vo'), { recursive: true }); }
+    const r = spawnSync(process.execPath, [join(ROOT, 'scripts', 'film.mjs'), 'build', `films/${slug}`, '--brand=esports'], { stdio: ['ignore', 'pipe', 'pipe'], encoding: 'utf8', maxBuffer: 64 << 20 });
+    if (r.status !== 0) throw new Error(`render film gagal: ${errLine(r.stderr || r.stdout)}`);
+    const f = JSON.parse(r.stdout.trim().split('\n').pop());
+    copyFileSync(f.video, join(tmp, 'film.mp4')); copyFileSync(f.cover, join(tmp, 'film-cover.jpg'));
+    res = { video: 'film.mp4', cover: 'film-cover.jpg', duration: f.duration, vo: f.voice, music: 'film', bg: f.style };
+  } else {
+    writeFileSync(join(tmp, 'data.json'), c.data_json);
+    const r = spawnSync(process.execPath, [join(ROOT, 'scripts', 'render.mjs'), 'try', 'video', join(tmp, 'data.json'), tmp], { stdio: ['ignore', 'pipe', 'pipe'], encoding: 'utf8' });
+    if (r.status !== 0) throw new Error(`render gagal: ${errLine(r.stderr || r.stdout)}`);
+    res = JSON.parse(r.stdout.trim().split('\n').pop());
+  }
 
   // nama file = render.mjs <id> + '-ov' (tidak menimpa render VPS lama)
   const slug = String(c.title).toLowerCase().normalize('NFD').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 40);

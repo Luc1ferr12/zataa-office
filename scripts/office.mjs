@@ -216,7 +216,8 @@ const commands = {
     if (sub === 'new') {
       const p = existsSync(id) ? JSON.parse(readFileSync(id, 'utf8')) : JSON.parse(id);
       const r = run('INSERT INTO contents (day, slot, format, game, pillar, title, auto) VALUES (?, ?, ?, ?, ?, ?, ?)',
-        p.day ?? today(), p.slot ?? 'kilat', p.format ?? 'feed', p.game ?? null, p.pillar ?? null, p.title, p.auto ? 1 : 0);
+        p.day ?? today(), p.slot ?? 'kilat', p.format ?? 'video',   // 23 Nov 2026: IG mati → default video (film lemo-opuscar)
+        p.game ?? null, p.pillar ?? null, p.title, p.auto ? 1 : 0);
       return out({ ok: true, id: Number(r.lastInsertRowid) });
     }
     if (sub === 'set') {

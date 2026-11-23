@@ -279,8 +279,9 @@ if (a1 === 'try') {
   if (!c) { out(`konten ${a1} tidak ada`); process.exit(1); }
   if (!c.data_json) { out(`konten ${a1} belum punya data_json (tugas Copywriter)`); process.exit(1); }
   const template = c.format === 'video' ? 'video' : c.template ?? (c.format === 'carousel' ? 'carousel' : null);
-  const voice = template === 'video' ? voiceOf(JSON.parse(c.data_json)) : null;
-  if (voice && voice !== 'gadis' && !omniPython()) { // suara OmniVoice hanya di laptop Owner (VPS tanpa GPU)
+  const isFilm = !!JSON.parse(c.data_json).film;   // 23 Nov 2026: video About Esports = film lemo-opuscar (films/<slug>) → selalu dirender laptop (film.mjs build)
+  const voice = template === 'video' ? (isFilm ? 'film' : voiceOf(JSON.parse(c.data_json))) : null;
+  if (voice && voice !== 'gadis' && (isFilm || !omniPython())) { // suara OmniVoice hanya di laptop Owner (VPS tanpa GPU)
     // tandai antre: scripts/laptop-worker.mjs di laptop ambil, render, upload, lalu submit ke Owner
     db.prepare("UPDATE contents SET data_json = json_remove(json_set(data_json, '$._laptop', 1), '$._err', '$._warned'), asset_path = NULL, updated_at = datetime('now') WHERE id = ?").run(c.id);
     out(`konten ${c.id} pakai suara "${voice}" → masuk antrean render laptop (otomatis render + kirim ke Owner saat laptop nyala). Jangan submit manual.`);

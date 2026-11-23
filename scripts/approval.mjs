@@ -128,8 +128,16 @@ const tiktokOn = () => !!loadEnv().TIKTOK_REFRESH_TOKEN;
 const ttZernio = () => !!loadEnv().ZERNIO_ESPORTS_API_KEY;
 const tiktokAuto = () => ttZernio() || (tiktokOn() && loadEnv().TIKTOK_MODE === 'auto');
 // About Esports: video juga naik ke YouTube (Shorts) lewat login Zernio yang sama dengan TikTok-nya
-export const targets = (c) => (c.format === 'video' && tiktokAuto() ? ['ig', 'tiktok', ...(ttZernio() ? ['youtube'] : [])] : ['ig']);
-export const targetLabel = (c) => (c.format === 'video' ? (ttZernio() ? 'IG Reels + TikTok + YouTube (publik)' : tiktokAuto() ? 'IG Reels + TikTok (private)' : tiktokOn() ? 'IG Reels (+ TikTok upload manual)' : 'IG Reels') : c.format === 'carousel' ? 'IG Feed (carousel)' : 'IG Feed');
+// 23 Nov 2026 (Owner): IG About Esports nggak dipakai lagi → fokus TikTok + YouTube. Nyalain lagi: .env IG_ON=1
+export const igOn = () => loadEnv().IG_ON === '1';
+export const targets = (c) => (c.format === 'video'
+  ? [...(igOn() ? ['ig'] : []), ...(tiktokAuto() ? ['tiktok'] : []), ...(ttZernio() ? ['youtube'] : [])]
+  : igOn() ? ['ig'] : []);
+export const targetLabel = (c) => {
+  const t = targets(c);
+  if (!t.length) return c.format === 'video' ? 'belum ada tujuan (isi ZERNIO_ESPORTS_API_KEY)' : 'TIDAK tayang (IG dimatikan, About Esports cuma video)';
+  return t.map((x) => ({ ig: c.format === 'video' ? 'IG Reels' : 'IG Feed', tiktok: ttZernio() ? 'TikTok' : 'TikTok (private)', youtube: 'YouTube' }[x])).join(' + ') + (ttZernio() ? ' (publik)' : '');
+};
 const DAYS = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
 
 export async function submit(id, { note = '', strict = false } = {}) {

@@ -20,7 +20,7 @@ Kantor virtual **Zaa Office** (dulu Zataa, ganti nama 15 Nov 2026): divisi **Abo
 | copywriter | Tiara | Headline, isi template, caption, hashtag, CTA |
 | designer | Vania | Render feed/carousel dari template → JPG 1080×1080 IG feed (+9:16) |
 | video | Dimas | Render video 9:16 dari template |
-| publisher | Fikri | QA akhir, kirim ke Telegram Owner untuk approval (`scripts/approval.mjs submit <id>`); video yang di-✅ tayang IG Reels + TikTok Publik (via Zernio); draf IG Story harian + balasan komen ke Owner buat posting manual (`scripts/engage.mjs`, otomatis di watcher) |
+| publisher | Fikri | QA akhir, kirim ke Telegram Owner untuk approval (`scripts/approval.mjs submit <id>`); video yang di-✅ tayang TikTok + YouTube Publik (via Zernio, IG dimatikan 23 Nov 2026); draf IG Story harian + balasan komen ke Owner buat posting manual (`scripts/engage.mjs`, otomatis di watcher) |
 | ads | Fahriah | **LIBUR sejak 20 Okt 2026** (iklan Meta belum bisa; default libur kecuali `ADS_PAUSE=0`, nyalain lagi `boost.mjs resume` kalau Owner minta). Boost post IG terbaik (usul via Telegram, budget bulanan dikunci; otomatis lewat watcher, `scripts/boost.mjs`). Owner minta ubah budget → `boost.mjs budget <bulanan> [per_boost] [hari]` (min Meta ±Rp18rb/hari). Jeda/lanjut: `boost.mjs pause|resume` |
 | analyst | Raka | Data IG tiap 3 jam + laporan About Esports harian 19:00 & mingguan Minggu 19:30 WITA di bot kantor (otomatis, `scripts/analyst.mjs`); riset pagi dari data |
 | price | Budi | **LIBUR sejak 15 Nov 2026** (web top up mati, `STORE_ON` ≠ 1). Pantau harga zataa.my.id tiap 2 jam, perubahan → usul konten promo (otomatis, `scripts/price.mjs`) |
@@ -112,6 +112,7 @@ Kalau sesi ini jalan di laptop (Windows): jangan nyalain watcher lokal; ubah kod
 
 ## Ritme kerja
 - Kantor jalan **24 jam** (VPS), nggak ada yang pulang/tidur: di luar jam kerja tiap pegawai aktivitas acak (`docs/js/schedule.js`); tugas dadakan Owner → langsung ke meja. Divisi yang nunggu ✅ Owner → manajernya duduk nunggu di depan ruang Bos sampai di-approve. Sesi kerja Claude otomatis 07:00 WITA, SOP lengkap: `office/daily.md`.
+- **About Esports (23 Nov 2026): IG dimatikan → cuma VIDEO film lemo-opuscar `caption-news`, tayang TikTok + YouTube** (Zernio ESPORTS). Feed/carousel ditolak QA kecuali `.env` `IG_ON=1`; maks 1 film per sesi riset (render laptop lama). Alur: `film.mjs new <slug> --brand=esports` → konten `format:video` + `data_json {"film":"films/<slug>"}` → `render.mjs <id>` (antre laptop) → submit/QA otomatis.
 - **About Esports = 4 sesi riset/hari** (pagi 07:00 · siang 12:00 · sore 16:00 · malam 20:00 WITA, `office/daily.md` §1): Salsa riset berita hangat → Andre pilih 1–3 → `approval.mjs ideas` (Telegram + web) → Owner ✅ → konten dibuat slot `kilat` dengan `auto:1` → QA Fikri lolos = langsung tayang (QA gagal = minta ✅ Owner). ❌ semua = tunggu sesi berikut. Tidak ada plan mingguan & briefing ide pagi lagi.
 - Slot WIB lama (`pagi` 10:00, `siang` 12:00, `sore` 16:00, `malam` 19:00, `petang` 21:00) hanya untuk konten lama; konten sesi riset pakai `kilat`.
 - Mix konten mingguan About Esports: ~60% berita/esport (hasil, jadwal, turnamen, transfer, patch), ~40% tips/engagement (kuis, polling, prediksi, meme aman), game lain di luar ML/Valorant/FF maksimal 1×/minggu. Pilar `promo`, template `promo` & gaya video `flash` nggak dipakai selama toko mati.

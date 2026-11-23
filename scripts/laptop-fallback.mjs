@@ -11,8 +11,8 @@ const MIN = 60_000;
 const queuedAt = (c) => new Date(`${c.updated_at.replace(' ', 'T')}Z`).getTime();
 function deadline(c) {
   if (c.st === 3) return 0;
-  if (c.st === 2) return queuedAt(c) + 30 * MIN;
-  if (c.slot === 'kilat' || !SLOT[c.slot]) return queuedAt(c) + 30 * MIN;
+  if (c.st === 2) return queuedAt(c) + (c.film ? 80 : 30) * MIN;   // film lemo-opuscar ±20–40 menit render → jangan dianggap macet
+  if (c.slot === 'kilat' || !SLOT[c.slot]) return queuedAt(c) + (c.film ? 60 : 30) * MIN;
   const air = new Date(`${c.day}T${SLOT[c.slot]}:00+07:00`).getTime();
   return Math.max(air - 120 * MIN, queuedAt(c) + 20 * MIN);
 }
@@ -24,12 +24,12 @@ export async function laptopFallback(log) {
   running = true;
   const db = openDb();
   try {
-    const rows = db.prepare("SELECT id, day, slot, updated_at, json_extract(data_json, '$._laptop') st, json_extract(data_json, '$._warned') warned, json_extract(data_json, '$._err') err, title FROM contents WHERE format = 'video' AND status IN ('draft', 'revision') AND json_extract(data_json, '$._laptop') IN (1, 2, 3)").all();
+    const rows = db.prepare("SELECT id, day, slot, updated_at, json_extract(data_json, '$._laptop') st, json_extract(data_json, '$._warned') warned, json_extract(data_json, '$._err') err, json_extract(data_json, '$.film') film, title FROM contents WHERE format = 'video' AND status IN ('draft', 'revision') AND json_extract(data_json, '$._laptop') IN (1, 2, 3)").all();
     for (const c of rows.filter((r) => Date.now() >= deadline(r))) {
       if (c.st === 2) {
         // laptop mati di tengah render → balikin ke antrean (atomik, supaya hasil laptop yang telat tetap diterima)
         if (!db.prepare("UPDATE contents SET data_json = json_set(data_json, '$._laptop', 1), updated_at = datetime('now') WHERE id = ? AND json_extract(data_json, '$._laptop') = 2").run(c.id).changes) continue;
-        log(`#${c.id}: render laptop macet >30 menit → antre ulang`);
+        log(`#${c.id}: render laptop macet (lewat batas) → antre ulang`);
         beat('laptop', false, `#${c.id}: render macet, antre ulang`);
         continue;
       }
@@ -40,7 +40,7 @@ export async function laptopFallback(log) {
       beat('laptop', false, `#${c.id}: ${why}`);
       await sayAs('video', c.st === 3
         ? `❌ Video #${c.id} "${esc(c.title)}" gagal dirender di laptop.\nSebab: ${esc(c.err ?? '?')}\nTim beresin di sesi berikutnya. Kalau mau cepat, suruh Dimas antre ulang #${c.id} di sini.`
-        : `⏳ Video #${c.id} "${esc(c.title)}" masih nunggu laptop nyala (suara OmniVoice cuma bisa di laptop). Begitu laptop nyala langsung kurender & kirim, jadi tayangnya bisa telat ya Bos.`).catch(() => {});
+        : `⏳ Video #${c.id} "${esc(c.title)}" masih nunggu laptop nyala (render video cuma bisa di laptop). Begitu laptop nyala langsung kurender & kirim, jadi tayangnya bisa telat ya Bos.`).catch(() => {});
     }
   } finally {
     db.close();
