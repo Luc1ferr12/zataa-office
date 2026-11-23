@@ -6,8 +6,8 @@
 | Divisi | Gaya | Suara | Film contoh |
 |---|---|---|---|
 | Zaa History | `woodcut` | VoxCPM2 (laptop, CPU) | `films/_contoh/history-woodcut/` |
-| Zaa Story | `shadow-puppet` | ElevenLabs **Indah** | `films/_contoh/story-shadow-puppet/` |
-| Marvel Talk | `pop-art` | ElevenLabs (suara belum dipilih Owner → sementara VoxCPM) | belum ada, film pertama jadi contoh |
+| Zaa Story | `shadow-puppet` | ElevenLabs **Naya** | `films/_contoh/story-shadow-puppet/` |
+| Marvel Talk | `pop-art` | ElevenLabs **Indah** | belum ada, film pertama jadi contoh |
 | Cowo Bingung | `brick-toy` | ElevenLabs **Depa** | `films/_contoh/cowo-brick-toy/` (**kontrak paling lengkap**) |
 | About Esports | `caption-news` | VoxCPM2 | belum ada (alur esports masih dipindah, lihat `office/daily.md`) |
 Ganti gaya hanya kalau Owner minta. Satu channel satu gaya → ciri khas konsisten.

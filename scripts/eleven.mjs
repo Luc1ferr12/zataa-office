@@ -7,7 +7,7 @@
 //   node scripts/eleven.mjs quota                                          → sisa karakter bulan ini
 //   node scripts/eleven.mjs voices                                         → suara di akun (id, nama, bahasa)
 // lines.json = {"items":[{"id":"L1","text":"kalimat bersih (buat caption)","el":"[curious] kalimat dengan tag ekspresi"}]}
-// Suara per brand: ELEVEN_VOICE_<BRAND> di .env menimpa default di bawah. Marvel belum dipilih Owner → kosong = film.mjs pakai VoxCPM.
+// Suara per brand: ELEVEN_VOICE_<BRAND> di .env menimpa default di bawah (Cowo Depa, Story Naya, Marvel Indah).
 import { readFileSync, writeFileSync, mkdirSync, existsSync, rmSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
 import { join, dirname } from 'node:path';
@@ -24,10 +24,10 @@ const env = { ...fileEnv(), ...process.env };
 const API = 'https://api.elevenlabs.io';
 export const MODEL = env.ELEVEN_MODEL || 'eleven_v4';   // v4 (Nov 2026): lebih cepat & natural dari v3, tag ekspresi tetap jalan, harga sama
 // voice id dari Voice Library (sudah ditambahkan ke "My Voices" akun Owner)
-const DEFAULT_VOICE = {
-  cowo: 'hpPL1KjDqf2Aab49mbHk',   // Depa - Smooth, Clear & Expressive (id) — pilihan Owner 23 Nov 2026
-  story: 'm6elNOMAsoqePTs244dg',  // Indah - Expressive, Clean, Deep, Relaxed (id)
-  marvel: '',                     // belum dipilih Owner
+const DEFAULT_VOICE = {   // pilihan Owner 23 Nov 2026
+  cowo: 'hpPL1KjDqf2Aab49mbHk',   // Depa - Smooth, Clear & Expressive (id)
+  story: 'zd0hd2egR1Q6EzSLTzCp',  // Naya - Soothing, Calm and Empathetic (id)
+  marvel: 'm6elNOMAsoqePTs244dg', // Indah - Expressive, Clean, Deep, Relaxed (id)
 };
 export const voiceFor = (brand) => env[`ELEVEN_VOICE_${String(brand).toUpperCase()}`] ?? DEFAULT_VOICE[brand] ?? '';
 export const elevenReady = (brand) => !!(env.ELEVENLABS_API_KEY && voiceFor(brand));
