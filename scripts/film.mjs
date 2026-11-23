@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 // Film Shorts gaya lemo-opuscar (23 Nov 2026, keputusan Owner: SEMUA divisi video pakai skill lemo-opuscar).
 // Sesi harian (VPS, skill lemo-opuscar terpasang) menulis proyek film → shorts-bot new {film:"films/<slug>"} → laptop merender (VPS 2 core/3 GB nggak kuat).
-//   node scripts/film.mjs new <slug> --brand=cowo      bikin kerangka films/<slug>/ (film.json, lines.json, README) dari gaya tetap brand
+//   node scripts/film.mjs new <slug> --brand=cowo [--pillar=fakta_aneh | --style=colored-pencil]   kerangka films/<slug>/; gaya = 1 dari 3 gaya divisi sesuai tema
+//   node scripts/film.mjs styles                      3 gaya tiap divisi + peta pilar → gaya + film contoh
 //   node scripts/film.mjs check <films/slug>           cek kontrak proyek sebelum shorts-bot new (0 token)
 //   node scripts/film.mjs build <films/slug> --brand=cowo [--test]   (LAPTOP) suara → caption per kata → render → mux → out/final.mp4 + out/cover.jpg
 //
@@ -35,9 +36,23 @@ const VOXPY = env.VOXCPM_PY || 'C:/Users/arkan/AppData/Local/uv/cache/environmen
 const VOX_REF = { history: 'assets/voices/misteri-cewe.wav', story: 'assets/voices/misteri-cewe.wav', marvel: 'assets/voices/kalem-2.wav', cowo: 'assets/voices/ceria-vox-dry.wav', esports: 'assets/voices/cewe-ceria.wav' };
 const VOX_BASE = 'perempuan Indonesia dewasa muda, aksen Indonesia natural, seperti bercerita langsung ke teman bukan membaca naskah, intonasi hidup naik turun alami, jeda di koma dan titik, tekan kata penting, tidak berlebihan, tidak formal, suara kering tanpa gema, ';
 // gaya tetap per brand (brand.mjs `film`); About Esports bukan brand Shorts → di sini
-const STYLE = { ...Object.fromEntries(Object.values(BRANDS).map((b) => [b.key, b.film])), esports: 'caption-news' };
+// 3 gaya per divisi (Owner 23 Nov 2026), dipilih per video sesuai tema: pilar → gaya (brand.mjs filmBy), default gaya pertama.
+// About Esports bukan brand Shorts → di sini (pilar konten esports: news/esport/tips/kuis/…)
+const ESPORTS = { key: 'esports', name: 'About Esports', films: ['caption-news', 'telestrator', 'game-show'],
+  filmBy: { news: 'caption-news', esport: 'caption-news', berita: 'caption-news', jadwal: 'caption-news', transfer: 'caption-news', tips: 'telestrator', analisis: 'telestrator', draft: 'telestrator', meta: 'telestrator', kuis: 'game-show', polling: 'game-show', prediksi: 'game-show', ranking: 'game-show', engagement: 'game-show', meme: 'game-show' } };
+const BR = (k) => (k === 'esports' ? ESPORTS : BRANDS[k]);
+export const STYLES = Object.fromEntries([...Object.values(BRANDS), ESPORTS].map((b) => [b.key, b.films]));
+const STYLE = Object.fromEntries(Object.entries(STYLES).map(([k, v]) => [k, v[0]]));
+// gaya untuk video ini: --style (harus salah satu dari 3) > pilar > gaya pertama
+export function pickStyle(brand, { style, pillar } = {}) {
+  const b = BR(brand); if (!b) throw new Error(`brand tidak dikenal: ${brand}`);
+  if (style) { if (!b.films.includes(style)) throw new Error(`gaya ${style} bukan gaya ${b.name} (pilih: ${b.films.join(', ')})`); return style; }
+  return b.filmBy?.[pillar] ?? b.films[0];
+}
 // film contoh per brand (pilot yang sudah di-✅/dibikin): titik awal, JANGAN desain ulang dari nol
-export const EXAMPLE = { history: 'films/_contoh/history-woodcut', story: 'films/_contoh/story-shadow-puppet', cowo: 'films/_contoh/cowo-brick-toy' };
+// film contoh per GAYA (yang sudah pernah dibuat): titik awal, jangan desain ulang dari nol. Gaya tanpa contoh → film pertamanya jadi contoh.
+export const EXAMPLE = { woodcut: 'films/_contoh/history-woodcut', 'shadow-puppet': 'films/_contoh/story-shadow-puppet', 'brick-toy': 'films/_contoh/cowo-brick-toy', 'pop-art': 'films/marvel-vibranium-pop' };
+const CONTRACT = 'films/_contoh/cowo-brick-toy';   // pola kontrak lengkap (dur.json + karaoke() words.json)
 
 const run = (cmd, args, opt = {}) => {
   const r = spawnSync(cmd, args, { encoding: 'utf8', maxBuffer: 64 << 20, ...opt });
@@ -81,22 +96,22 @@ export function check(dir) {
   if (js && !/dur\.json/.test(js)) err.push('film.js harus baca out/vo/dur.json (timeline ikut durasi suara)');
   if (js && !/words\.json/.test(js)) warn.push('film.js belum baca out/vo/words.json (caption per kata wajib, contoh: films/_contoh/cowo-brick-toy/film.js karaoke())');
   const meta = readJson(join(D, 'film.json'), null);
-  if (!meta) err.push('film.json tidak ada'); else if (meta.style && meta.brand && STYLE[meta.brand] && meta.style !== STYLE[meta.brand]) warn.push(`gaya ${meta.style} ≠ gaya tetap brand ${STYLE[meta.brand]} (boleh kalau Owner minta)`);
+  if (!meta) err.push('film.json tidak ada'); else if (meta.style && meta.brand && STYLES[meta.brand] && !STYLES[meta.brand].includes(meta.style)) warn.push(`gaya ${meta.style} di luar 3 gaya ${meta.brand} (${STYLES[meta.brand].join(', ')}); boleh kalau Owner minta`);
   return { ok: !err.length, dir, lines: lines.length, chars, errors: err, warnings: warn };
 }
 
 // ---------- new: kerangka proyek
-function scaffold(slug, brand) {
+function scaffold(slug, brand, opt = {}) {
   if (!/^[a-z0-9-]{3,60}$/.test(slug)) throw new Error('slug huruf kecil/angka/strip, 3–60 karakter');
   const D = join(ROOT, 'films', slug);
   if (existsSync(D)) throw new Error(`films/${slug} sudah ada`);
   mkdirSync(D, { recursive: true });
-  const style = STYLE[brand];
+  const style = pickStyle(brand, opt);
   writeFileSync(join(D, 'film.json'), JSON.stringify({ brand, style, title: '', poster_t: null, grain: 1, crf: 22 }, null, 1));
   writeFileSync(join(D, 'lines.json'), JSON.stringify({ items: [{ id: 'L1', text: '', el: '' }] }, null, 1));
-  const ex = EXAMPLE[brand];
-  writeFileSync(join(D, 'README.md'), `# ${slug} (${BRANDS[brand]?.name ?? brand})\n\nGaya: \`${style}\` → baca \`${LIB}/styles/${style}/STYLE.md\` (skill lemo-opuscar).\n${ex ? `Mulai dari film contoh \`${ex}/\` (salin index.html, main.js, film.js, mix.py lalu ganti adegan & cerita).` : 'Belum ada film contoh brand ini: ikuti DIRECTOR.md + STYLE.md, simpan juga sebagai contoh setelah di-✅ Owner.'}\nKontrak: lines.json (L1…Ln), timeline dari out/vo/dur.json, caption per kata dari out/vo/words.json. Cek: \`node scripts/film.mjs check films/${slug}\`.\n`);
-  return { ok: true, dir: `films/${slug}`, brand, style, example: ex ?? null, voice: voiceEngine(brand) };
+  const ex = EXAMPLE[style];
+  writeFileSync(join(D, 'README.md'), `# ${slug} (${BR(brand)?.name ?? brand})\n\nGaya: \`${style}\` (pilihan divisi: ${STYLES[brand].join(', ')}) → baca \`${LIB}/styles/${style}/STYLE.md\` (skill lemo-opuscar).\n${ex ? `Mulai dari film contoh \`${ex}/\` (salin file-nya lalu ganti adegan & cerita).` : `Gaya ini belum punya film contoh: ikuti DIRECTOR.md + STYLE.md (teknik boleh diambil dari demo: setup.sh demo ${style}); pola timeline dur.json + caption karaoke() ambil dari \`${CONTRACT}/film.js\`. Setelah di-✅ Owner, daftarkan di EXAMPLE (scripts/film.mjs).`}\nKontrak: lines.json (L1…Ln), timeline dari out/vo/dur.json, caption per kata dari out/vo/words.json. Cek: \`node scripts/film.mjs check films/${slug}\`.\n`);
+  return { ok: true, dir: `films/${slug}`, brand, style, pilihan: STYLES[brand], example: ex ?? null, contract: CONTRACT, voice: voiceEngine(brand) };
 }
 
 // ---------- build (laptop)
@@ -164,10 +179,10 @@ if (isMain) {
   const brandArg = process.argv.find((a) => a.startsWith('--brand='))?.slice(8);
   const [cmd, a] = process.argv.slice(2).filter((x) => !x.startsWith('--'));
   try {
-    if (cmd === 'new') console.log(JSON.stringify(scaffold(a, brandArg ?? 'history')));
+    if (cmd === 'new') console.log(JSON.stringify(scaffold(a, brandArg ?? 'history', { style: process.argv.find((x) => x.startsWith('--style='))?.slice(8), pillar: process.argv.find((x) => x.startsWith('--pillar='))?.slice(9) })));
     else if (cmd === 'check') { const r = check(a); console.log(JSON.stringify(r)); if (!r.ok) process.exit(1); }
     else if (cmd === 'build') console.log(JSON.stringify(build(a, brandArg, { test: process.argv.includes('--test') })));
-    else if (cmd === 'styles') console.log(JSON.stringify({ ...STYLE, contoh: EXAMPLE, voice: Object.fromEntries(Object.keys(STYLE).map((k) => [k, BRANDS[k] ? voiceEngine(k) : 'voxcpm'])) }));
+    else if (cmd === 'styles') console.log(JSON.stringify({ gaya: STYLES, per_pilar: Object.fromEntries(Object.keys(STYLES).map((k) => [k, BR(k).filmBy])), contoh: EXAMPLE, voice: Object.fromEntries(Object.keys(STYLES).map((k) => [k, BRANDS[k] ? voiceEngine(k) : 'voxcpm'])) }));
     else console.log('pakai: film.mjs new <slug> --brand=<history|story|marvel|cowo> | check <films/slug> | build <films/slug> [--brand=] [--test] | styles');
   } catch (e) { console.error(e.message); process.exit(1); }
 }

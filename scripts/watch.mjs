@@ -99,7 +99,7 @@ async function revise(x) {
 Langkah:
 1. Baca CLAUDE.md seperlunya, lalu office/roles/copywriter.md dan office/roles/designer.md (atau office/roles/video.md kalau formatnya video). Skema template: templates/README.md.
 2. node scripts/office.mjs content get ${x.id}
-3. Kalau data_json punya "film" (film lemo-opuscar caption-news, office/film.md): ubah file di folder film itu (lines.json naskah, film.js adegan) lalu node scripts/film.mjs check <folder>. Kalau tidak: ubah data_json / template. Caption/hashtags/sumber lewat file JSON sementara: node scripts/office.mjs content set ${x.id} <file.json>. Patuhi aturan konten di CLAUDE.md (nol promo/harga/top up, CTA follow/komen).
+3. Kalau data_json punya "film" (film lemo-opuscar, office/film.md): ubah file di folder film itu (lines.json naskah, film.js adegan) lalu node scripts/film.mjs check <folder>. Kalau tidak: ubah data_json / template. Caption/hashtags/sumber lewat file JSON sementara: node scripts/office.mjs content set ${x.id} <file.json>. Patuhi aturan konten di CLAUDE.md (nol promo/harga/top up, CTA follow/komen).
 4. node scripts/render.mjs ${x.id} (film/video suara laptop → otomatis antre render laptop, jangan tunggu). Konten non-film: buka 1 gambar hasil & pastikan rapi.
 5. JANGAN kirim ke Telegram dan jangan ubah konten lain.
 Akhiri jawaban dengan SATU kalimat ringkas (bahasa santai) tentang apa yang diubah.`;

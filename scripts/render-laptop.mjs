@@ -52,7 +52,7 @@ try {
   }
   const film = JSON.parse(c.data_json).film;
   let res;
-  if (film) {   // 23 Nov 2026: film lemo-opuscar gaya caption-news (office/film.md) — folder films/<slug> dari VPS → scripts/film.mjs build --brand=esports
+  if (film) {   // 23 Nov 2026: film lemo-opuscar About Esports (caption-news / telestrator / game-show, office/film.md) — folder films/<slug> dari VPS → scripts/film.mjs build --brand=esports
     const slug = basename(film), local = join(ROOT, 'films', slug);
     const keep = existsSync(join(local, 'out', 'vo')) ? join(tmp, 'vo-cache') : null;   // suara lama dipakai lagi kalau naskahnya sama
     if (keep) cpSync(join(local, 'out', 'vo'), keep, { recursive: true });

@@ -2,7 +2,7 @@
 
 **Divisi baru sejak 23 Nov 2026 (keputusan Owner, pilot film "Kenapa Rel Kereta Pakai Kerikil").** Niche: fakta sehari-hari yang bikin "hah, masa sih?": kenapa benda/aturan dibuat begitu, format "coba kita bikin sendiri" (coba–gagal–coba lagi–ternyata ini jawabannya), fakta aneh, tubuh & alam. Nama channel "Cowo Bingung", **tim cewek semua**. Referensi gaya cerita: TikTok fakta unik ala @bukan.guffro (grammar saja, jangan tiru isi/suara orangnya).
 
-Kode sama dengan brand Shorts lain (`shorts-bot.mjs`, `shorts-topics.mjs`), **selalu `--brand=cowo`**. DB `contents.channel = 'cowo'`. Video = **film lemo-opuscar gaya `brick-toy`** (SOP `office/film.md`, contoh `films/_contoh/cowo-brick-toy/`), suara **ElevenLabs Depa**.
+Kode sama dengan brand Shorts lain (`shorts-bot.mjs`, `shorts-topics.mjs`), **selalu `--brand=cowo`**. DB `contents.channel = 'cowo'`. Video = **film lemo-opuscar 3 gaya sesuai tema**: `brick-toy` (coba bikin, kenapa benda dibuat begitu), `isometric-picture-book` (aturan & kebiasaan sehari-hari, fakta aneh), `colored-pencil` (tubuh, hewan & alam) (SOP `office/film.md`, contoh `films/_contoh/cowo-brick-toy/`), suara **ElevenLabs Depa**.
 
 ## Tim (Lt.4)
 | id | Nama | Tugas |
@@ -10,7 +10,7 @@ Kode sama dengan brand Shorts lain (`shorts-bot.mjs`, `shorts-topics.mjs`), **se
 | bdir | Aurel | Manajer: antrean topik, approve bank topik, briefing, evaluasi Minggu |
 | bresearch | Keisha | Riset fakta unik + ≥2 sumber, tandai mitos (≤5 pencarian/hari) |
 | bscript | Naura | Naskah coba–gagal–berhasil + hook + tag ekspresi ElevenLabs + cek fakta |
-| bvisual | Zahra | Film lemo-opuscar Brick Toy: adegan, tukang bata, judul tile (film.js) |
+| bvisual | Zahra | Film lemo-opuscar (Brick Toy / Isometric / Colored Pencil sesuai tema): adegan & judul (film.js) |
 | bvideo | Celine | Suara (ElevenLabs), caption per kata, cek hasil render laptop |
 | bpublish | Alya | ✅ Owner di @cowobingungbot, judul/deskripsi, tayang YouTube + TikTok, laporan harian & mingguan |
 

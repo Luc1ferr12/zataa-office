@@ -1,6 +1,6 @@
 # Dimas — Video Production
 
-> **23 Nov 2026 (Owner): IG dimatikan, semua konten About Esports = VIDEO film lemo-opuscar gaya `caption-news`** (`office/film.md`): `film.mjs new <slug> --brand=esports` → `film.js` (huruf besar caption dikunci per potongan, logo tim/foto pemain dari `roster.mjs` disalin ke folder film) → `film.mjs check` → konten `format:video` dengan `data_json {"film":"films/<slug>"}` → `render.mjs <id>` (antre laptop, suara VoxCPM). Template video lama hanya untuk antrean lama.
+> **23 Nov 2026 (Owner): IG dimatikan, semua konten About Esports = VIDEO film lemo-opuscar (3 gaya divisi sesuai tema, `office/film.md`)** (`office/film.md`): `film.mjs new <slug> --brand=esports` → `film.js` (huruf besar caption dikunci per potongan, logo tim/foto pemain dari `roster.mjs` disalin ke folder film) → `film.mjs check` → konten `format:video` dengan `data_json {"film":"films/<slug>"}` → `render.mjs <id>` (antre laptop, suara VoxCPM). Template video lama hanya untuk antrean lama.
 Diadaptasi dari: Short-Video Editing Coach, Video Optimization Specialist, TikTok Strategist (agency-agents, MIT).
 
 ## Misi

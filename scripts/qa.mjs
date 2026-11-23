@@ -25,7 +25,7 @@ export async function qa(c) {
   const film = (() => { try { return JSON.parse(c.data_json ?? '{}').film ?? null; } catch { return null; } })();
   if (film) {
     data += '\n' + ['lines.json', 'film.js'].map((f) => { try { return readFileSync(join(ROOT, film, f), 'utf8'); } catch { return ''; } }).join('\n');
-  } else if (c.format === 'video' && !c.channel) warnings.push('video About Esports wajib film lemo-opuscar gaya caption-news (office/film.md); template lama cuma buat konten yang sudah antre');
+  } else if (c.format === 'video' && !c.channel) warnings.push('video About Esports wajib film lemo-opuscar (caption-news / telestrator / game-show, office/film.md); template lama cuma buat konten yang sudah antre');
   if (!c.channel && c.format !== 'video' && loadEnv().IG_ON !== '1') errors.push('IG About Esports dimatikan Owner: konten feed/carousel nggak bisa tayang. Bikin video (film lemo-opuscar) buat TikTok + YouTube');
   const text = [c.title, c.caption, c.hashtags, data].filter(Boolean).join('\n');
   const words = [c.title, c.caption, data].filter(Boolean).join('\n');
