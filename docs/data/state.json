@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-23T07:34:46.323Z",
+ "generated_at": "2026-11-23T07:48:51.704Z",
  "today": "2026-11-23",
  "week_start": "2026-11-23",
  "campaign": null,
@@ -98,7 +98,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-23 07:30:46"
+   "updated_at": "2026-11-23 07:46:07"
   },
   {
    "id": "tresearch",
@@ -106,23 +106,23 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Pencarian 24 jam tak ketemu, data terbaru Okt 2026: Fed tahan 3,75-4% (29 Okt) hawkish, USD kuat. Bias lemah tipis, cek ulang harga live.",
-   "updated_at": "2026-11-23 07:30:46"
+   "updated_at": "2026-11-23 07:46:07"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-23 07:30:46"
+   "current_task": "Setup SELL di band (MACD+divergensi)",
+   "updated_at": "2026-11-23 07:46:07"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-11-23 07:30:46"
+   "current_task": "NO TRADE: setup SELL di band, konfirmasi baru 2/3 (MACD+divergensi) · London–NY (mode aman)",
+   "updated_at": "2026-11-23 07:46:07"
   },
   {
    "id": "texec",
@@ -339,6 +339,54 @@
    "status": "done",
    "current_task": "Clip #18 tayang",
    "updated_at": "2026-11-20 01:53:29"
+  },
+  {
+   "id": "bdir",
+   "name": "Aurel",
+   "title": "Manajer Cowo Bingung",
+   "status": "idle",
+   "current_task": null,
+   "updated_at": "2026-11-23 07:38:50"
+  },
+  {
+   "id": "bresearch",
+   "name": "Keisha",
+   "title": "Riset Fakta Unik",
+   "status": "idle",
+   "current_task": null,
+   "updated_at": "2026-11-23 07:38:50"
+  },
+  {
+   "id": "bscript",
+   "name": "Naura",
+   "title": "Scriptwriter & Fact Checker",
+   "status": "idle",
+   "current_task": null,
+   "updated_at": "2026-11-23 07:38:50"
+  },
+  {
+   "id": "bvisual",
+   "name": "Zahra",
+   "title": "Visual & Film Lemo-Opuscar",
+   "status": "idle",
+   "current_task": null,
+   "updated_at": "2026-11-23 07:38:50"
+  },
+  {
+   "id": "bvideo",
+   "name": "Celine",
+   "title": "Video Producer & Suara",
+   "status": "idle",
+   "current_task": null,
+   "updated_at": "2026-11-23 07:38:50"
+  },
+  {
+   "id": "bpublish",
+   "name": "Alya",
+   "title": "Publisher YouTube & TikTok",
+   "status": "idle",
+   "current_task": null,
+   "updated_at": "2026-11-23 07:38:50"
   }
  ],
  "week_contents": [
@@ -416,6 +464,11 @@
  "clip_jobs": [],
  "today_tasks": [],
  "activity": [
+  {
+   "ts": "2026-11-23 07:38:51",
+   "agent_id": "dir",
+   "message": "Kode kantor diperbarui, restart otomatis: scripts/golink.mjs, scripts/trading/run.mjs"
+  },
   {
    "ts": "2026-11-23 07:15:46",
    "agent_id": "trisk",
@@ -535,11 +588,6 @@
    "ts": "2026-11-23 01:18:46",
    "agent_id": "video",
    "message": "video #220 dirender di laptop (suara OmniVoice) & dikirim ke Owner"
-  },
-  {
-   "ts": "2026-11-23 01:18:45",
-   "agent_id": "publisher",
-   "message": "#220 lolos QA & langsung dijadwalkan tayang (riset di-ACC Owner)"
   }
  ],
  "chats": [
@@ -925,9 +973,14 @@
   "paused": false,
   "balance": 1757.48,
   "today_pnl": 0,
-  "price": 3630.25,
+  "price": 3624.800049,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-23 07:46:07",
+    "decision": "NO TRADE",
+    "reason": "setup SELL di band, konfirmasi baru 2/3 (MACD+divergensi) · London–NY (mode aman)"
+   },
    {
     "ts": "2026-11-23 07:30:46",
     "decision": "NO TRADE",
@@ -950,11 +1003,6 @@
    },
    {
     "ts": "2026-11-23 06:30:46",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-   },
-   {
-    "ts": "2026-11-23 06:15:46",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
    }
@@ -1034,7 +1082,7 @@
    1757.48
   ],
   "last": {
-   "ts": "2026-11-23 07:30:46",
+   "ts": "2026-11-23 07:46:07",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1043,7 +1091,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
+   "reason": "setup SELL di band, konfirmasi baru 2/3 (MACD+divergensi) · London–NY (mode aman)",
    "fund": {
     "bias": -0.15,
     "note": "Pencarian 24 jam tak ketemu, data terbaru Okt 2026: Fed tahan 3,75-4% (29 Okt) hawkish, USD kuat. Bias lemah tipis, cek ulang harga live.",
@@ -1052,10 +1100,13 @@
    },
    "tech": {
     "bias": "sideways",
-    "score": 0,
-    "trigger": null,
-    "confirm": [],
-    "note": "M15 3631.55 di atas tengah band (3591.8–3636.3) · RSI 70 · Stoch 85 · MACD +0.24 · H1 sideways"
+    "score": 2,
+    "trigger": "sell",
+    "confirm": [
+     "MACD",
+     "divergensi"
+    ],
+    "note": "M15 3625.90 di atas tengah band (3595.9–3634.8) · RSI 64 · Stoch 74 · MACD -0.42 · H1 sideways · setup SELL (MACD+divergensi)"
    }
   },
   "fund": {
@@ -1124,24 +1175,24 @@
    "M10": {
     "bias": "bullish",
     "score": 3,
-    "price": 3631.15,
-    "ema20": 3617.96,
-    "ema50": 3601.1,
-    "rsi": 65.6,
+    "price": 3626.05,
+    "ema20": 3618.73,
+    "ema50": 3602.07,
+    "rsi": 60.1,
     "n": 299,
-    "slot": 2992365,
-    "at": 1795419046373
+    "slot": 2992366,
+    "at": 1795419667154
    },
    "M15": {
     "bias": "bullish",
     "score": 3,
-    "price": 3631.15,
-    "ema20": 3612.2,
-    "ema50": 3590.78,
-    "rsi": 69.4,
+    "price": 3625.45,
+    "ema20": 3613.47,
+    "ema50": 3592.14,
+    "rsi": 63.7,
     "n": 299,
-    "slot": 1994910,
-    "at": 1795419046380
+    "slot": 1994911,
+    "at": 1795419967336
    },
    "M30": {
     "bias": "bullish",
