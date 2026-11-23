@@ -18,8 +18,8 @@ import { webDecision } from './office-bot.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const env = () => ({ ...loadEnv(), ...process.env });
-const SHORTS = { youtube: 'history', story: 'story', marvel: 'marvel' };   // channel DB → brand bot
-const BRAND = { '': 'About Esports', youtube: 'Zaa History', story: 'Zaa Story', marvel: 'Marvel Talk' };
+const SHORTS = { youtube: 'history', story: 'story', marvel: 'marvel', cowo: 'cowo' };   // channel DB → brand bot
+const BRAND = { '': 'About Esports', youtube: 'Zaa History', story: 'Zaa Story', marvel: 'Marvel Talk', cowo: 'Cowo Bingung' };
 const API_JSON = join(ROOT, 'docs', 'data', 'api.json');
 const TUNNEL_METRICS = 'http://127.0.0.1:20241/quicktunnel';
 

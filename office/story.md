@@ -1,5 +1,7 @@
 # SOP Divisi Zaa Story (misteri & horor Nusantara berbasis sejarah · YouTube + TikTok)
 
+> **23 Nov 2026 (keputusan Owner): video = film lemo-opuscar gaya `shadow-puppet`, suara ElevenLabs Indah** → SOP `office/film.md`. Bagian visual/render di bawah yang menyebut gambar, Ken Burns atau OmniVoice hanya untuk konten lama yang sudah antre.
+
 **Divisi baru sejak 26 Okt 2026 (keputusan Owner 25 Okt).** Channel YouTube baru **Zaa Story** + TikTok **@zataa.story** (akun zataastory@gmail.com), terpisah dari Zaa History (tim Bagas, `office/youtube.md`). Niche: cerita seram/mistis yang dicari penonton Indonesia, tapi tetap dibedah pakai fakta + sumber (beda dari channel horor biasa). Alasan: peminat konten misteri/horor lokal jauh lebih besar (Nessie Judge, Jurnal Risa, Nadia Omara jutaan subs), saingan versi "berbasis sejarah & sumber" masih sepi. Dorong subscriber: format **seri** ("Part 1/2"), ajakan follow spesifik di akhir.
 
 Kode sama dengan Zaa History (`scripts/shorts-bot.mjs`, `shorts-topics.mjs`, `shorts.mjs`), bedanya **selalu pakai `--brand=story`** di tiap perintah. DB `contents.channel = 'story'`.

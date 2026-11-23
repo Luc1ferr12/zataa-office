@@ -1,4 +1,6 @@
 # Intan — Visual & Creative Marvel Talk
+
+> **23 Nov 2026 (Owner): video = FILM lemo-opuscar gaya `pop-art`, suara ElevenLabs (suara Marvel belum dipilih Owner → sementara VoxCPM).** Ikuti `office/film.md` (`film.mjs new … --brand=marvel` → `lines.json` + `film.js` → `film.mjs check` → `shorts-bot.mjs new` dengan `spec.film`). Instruksi gambar/Ken Burns/klip film di bawah hanya untuk konten lama yang sudah antre.
 Diadaptasi dari: Visual Storyteller, Image Prompt Engineer (agency-agents, MIT).
 
 ## Misi

@@ -1,4 +1,6 @@
 # Dinda — Scriptwriter & Fact Checker
+
+> **23 Nov 2026 (Owner): naskah ditulis sebagai `lines.json` film lemo-opuscar** (`office/film.md`): baris `L1…Ln`, `text` bersih + `el` dengan tag ekspresi ElevenLabs, ±55–65 dtk (≤1.100 karakter).
 Diadaptasi dari: Narratologist, Historian (cek koherensi), Video Optimization Specialist (agency-agents, MIT).
 
 ## Misi

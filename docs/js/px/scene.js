@@ -17,7 +17,7 @@ export const SPAN = [[-32, 32], [-32, 32], [-32, 32], [-32, 32]];
 export const CORR_SPAN = [[-32, 32], [-32, 32], [-32, 32], [-32, 32]];
 // ruang per tingkat: [id, x0, x1, nama]
 // Lt.1 publik (indoor) · Lt.2 kerja (tangga ke Lt.3 di pojok kiri, 4 ruang manajer, 4 bilik divisi) · Lt.3 hiburan, meeting & Bos (+ tangga ke Lt.4)
-// · Lt.4 divisi kreator: Zaa Clips & Marvel Talk (ruang manajer, bilik, Meeting Kreator, Studio Podcast)
+// · Lt.4 divisi kreator: Zaa Clips, Marvel Talk & Cowo Bingung (ruang manajer, bilik, Meeting Kreator)
 export const ROOMDEF = {
   1: [['mushola', -32, -20, 'Mushola'], ['wudhu', -20, -17, 'Tempat Wudhu'], ['gudang', -17, -14, 'Gudang Mbak Sari'], ['tangga1', -14, -10, 'Tangga'],
     ['cafe', -10, 13, 'Cafe & Resto'], ['santai', 13, 32, 'Ruang Santai']],
@@ -28,7 +28,7 @@ export const ROOMDEF = {
   3: [['meetM', -32, -24, 'Meeting About Esports'], ['meetT', -24, -18, 'Meeting Trading'], ['meetY', -18, -14, 'Meeting YouTube'],
     ['billiard', -14, -1.5, 'Billiard'], ['tangga3', -1.5, 2, 'Tangga'], ['boss', 2, 16, 'Ruang Boss'], ['bioskop', 16, 32, 'Bioskop Mini']],
   4: [['cdirRoom', -32, -27, 'R. Manajer Zaa Clips'], ['vdirRoom', -27, -22, 'R. Manajer Marvel'], ['clip', -22, -6, 'Bilik Zaa Clips'],
-    ['mv', -6, 10, 'Bilik Marvel Talk'], ['meetK', 10, 18, 'Meeting Kreator'], ['studio', 18, 32, 'Studio Podcast']],
+    ['mv', -6, 10, 'Bilik Marvel Talk'], ['meetK', 10, 18, 'Meeting Kreator'], ['bdirRoom', 18, 22.5, 'R. Manajer Cowo Bingung'], ['cb', 22.5, 32, 'Bilik Cowo Bingung']],   // 23 Nov 2026: Studio Podcast → Cowo Bingung
 };
 export const ROOM = {};
 for (const [L, list] of Object.entries(ROOMDEF)) for (const [id, x0, x1, name] of list) ROOM[id] = { id, L: +L, x0, x1, name, door: x1 - 1.2 };
@@ -201,12 +201,13 @@ export const TEAM_DESK = {
   st: { xs: [0.8, 3.4, 6.0], w: 2.6, side: 7.85, panel: 'stPanel' },
   clip: { xs: [-20.2, -17.6, -15.0, -12.4], w: 2.6, side: -6.75, panel: 'navy', L: 4 },
   mv: { xs: [-4.2, -1.6, 1.0, 3.6], w: 2.6, side: 9.25, panel: 'ytRed', L: 4 },
+  cb: { xs: [23.75, 26.05, 28.35], w: 2.3, side: 31.25, panel: 'stPanel', L: 4 },   // Cowo Bingung (23 Nov 2026), meja 42–47
 };
 export const AISLE = { A: -4.8, B: -1.2 };   // lorong baris (lz)
 const ROW_DESK = { A: -7.25, B: -3.6 };   // lz tengah meja
 export const DESK_LIST = [];
-// urutan = nomor meja di schedule.js: 0–7 Marketing, 8–13 Trading, 14–19 YouTube, 20–25 Story, 26–33 Zaa Clips, 34–41 Marvel (Lt.4)
-for (const team of ['mkt', 'trd', 'yt', 'st', 'clip', 'mv']) for (const row of ['A', 'B']) for (const x of TEAM_DESK[team].xs) DESK_LIST.push({ x, lz: ROW_DESK[row], row, team, w: TEAM_DESK[team].w, L: TEAM_DESK[team].L ?? 2 });
+// urutan = nomor meja di schedule.js: 0–7 Marketing, 8–13 Trading, 14–19 YouTube, 20–25 Story, 26–33 Zaa Clips, 34–41 Marvel, 42–47 Cowo Bingung (Lt.4)
+for (const team of ['mkt', 'trd', 'yt', 'st', 'clip', 'mv', 'cb']) for (const row of ['A', 'B']) for (const x of TEAM_DESK[team].xs) DESK_LIST.push({ x, lz: ROW_DESK[row], row, team, w: TEAM_DESK[team].w, L: TEAM_DESK[team].L ?? 2 });
 export const DESKS = DESK_LIST.length;
 // kapasitas tiap tempat (dipakai schedule.js supaya nggak ada yang duduk numpuk)
 export const CAP = { cafe: 28, counter: 8, lounge: 10, garden: 10, lounger: 6, meeting: 10, meetingT: 8, meetingY: 6, meetingK: 10, cinema: 32, billiard: 8, arcade: 5, waitBoss: 6 };
@@ -214,7 +215,7 @@ export const CAP = { cafe: 28, counter: 8, lounge: 10, garden: 10, lounger: 6, m
 const dynM = (name, color) => mk(name, color, { emissive: true, dyn: name });
 dynM('water', '#2fb3d6');
 for (let i = 0; i < DESKS; i++) dynM(`scr${i}`, '#0b0a14');
-for (const n of ['tvLounge', 'tvMeet', 'tvMeetT', 'tvMeetY', 'tvBoss', 'racks', 'ticker', 'cinema', 'tvDir', 'tvTdir', 'tvYdir', 'tvSdir', 'tvCdir', 'tvVdir', 'tvMeetK']) dynM(n, '#120a26');
+for (const n of ['tvLounge', 'tvMeet', 'tvMeetT', 'tvMeetY', 'tvBoss', 'racks', 'ticker', 'cinema', 'tvDir', 'tvTdir', 'tvYdir', 'tvSdir', 'tvCdir', 'tvVdir', 'tvBdir', 'tvMeetK']) dynM(n, '#120a26');
 export { M as MAT };
 
 // ---------------------------------------------------------------- papan nama: teks 1:1 piksel di bidang yang menghadap kamera
@@ -510,7 +511,7 @@ const WAIT_X = [12.6, 11.8, 11.0, 10.2, 9.4, 8.6];
 // meja sekretaris (Nabila) di ruang Bos, kiri depan; kursi di belakang meja menghadap kamera
 export const SEC_DESK = { x: 4.6, lz: -3.2 };
 // ruang manajer Lt.2 (id pegawai → ruang); meja di tengah ruang
-export const MGR_ROOM = { ydir: 'ydirRoom', sdir: 'sdirRoom', dir: 'dirRoom', tdir: 'tdirRoom', cdir: 'cdirRoom', vdir: 'vdirRoom' };
+export const MGR_ROOM = { ydir: 'ydirRoom', sdir: 'sdirRoom', dir: 'dirRoom', tdir: 'tdirRoom', cdir: 'cdirRoom', vdir: 'vdirRoom', bdir: 'bdirRoom' };
 export const mgrX = (id) => (ROOM[MGR_ROOM[id]].x0 + ROOM[MGR_ROOM[id]].x1) / 2;
 // ruang meeting Lt.3: kursi sisi (xs), kursi ujung, lz tengah meja, lorong belakang (east)
 export const MEET = {

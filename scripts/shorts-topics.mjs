@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Bank topik Shorts (DB tabel shorts_topics), satu bank untuk dua channel: tiap pilar milik satu brand (scripts/brand.mjs).
+// Bank topik Shorts (DB tabel shorts_topics), satu bank untuk semua channel Shorts: tiap pilar milik satu brand (scripts/brand.mjs).
 // Tiap ide video punya data lengkap sebelum diproduksi (aturan Owner 18 Okt). Tanpa AI → 0 token.
 // Kuota mingguan (Senin–Minggu, mulai 26 Okt): Zaa History 7 Shorts, ≥2 Hidden History · Zaa Story 7 Shorts, ≥3 Horor Bersejarah.
 //   node scripts/shorts-topics.mjs pillars [--brand=story]              daftar pilar brand itu + kode
@@ -38,6 +38,11 @@ export const PILLARS = {
   berita_mcu: { brand: 'marvel', code: 'BM', label: 'Berita & Rumor MCU', desc: 'casting, jadwal rilis, trailer, box office (≥2 sumber; rumor ditulis "rumor")' },
   karakter: { brand: 'marvel', code: 'KR', label: 'Profil Karakter', desc: 'kekuatan, kelemahan, versi terkuat, perbandingan karakter' },
   ranking: { brand: 'marvel', code: 'RK', label: 'Ranking & Versus', desc: 'top 5, siapa menang, kostum/film terbaik (ajak debat di komen)' },
+  // Cowo Bingung (23 Nov 2026): fakta unik/nyeleneh/lucu sehari-hari — film lemo-opuscar Brick Toy, suara ElevenLabs Depa
+  kenapa_gitu: { brand: 'cowo', code: 'KG', label: 'Kenapa Gitu?', desc: 'kenapa benda/aturan sehari-hari dibuat begitu (rel pakai kerikil, kenapa lubang di tutup pulpen) (WAJIB ≥3/minggu)' },
+  coba_bikin: { brand: 'cowo', code: 'CB', label: 'Coba Bikin Sendiri', desc: 'format "coba kita bikin sendiri": percobaan gagal 2–3x lalu solusi asli terungkap' },
+  fakta_aneh: { brand: 'cowo', code: 'FA', label: 'Fakta Aneh', desc: 'fakta nyeleneh/lucu yang bikin "hah, masa sih?" (wajib ≥2 sumber, mitos ditulis mitos)' },
+  tubuh_alam: { brand: 'cowo', code: 'TA', label: 'Tubuh & Alam', desc: 'kenapa tubuh, hewan & alam bekerja begitu (kenapa kita menguap, kenapa langit biru)' },
 };
 export const STATUSES = ['backlog', 'research', 'approved', 'production', 'published'];
 // kuota brand aktif (B dari --brand / SHORTS_BRAND)
@@ -60,7 +65,7 @@ export const getTopic = (d, id) => d.prepare('SELECT * FROM shorts_topics WHERE 
 
 function clean(p, partial = false) {
   const o = {};
-  if (p.pillar !== undefined) { if (!PILLARS[p.pillar]) throw new Error(`pillar tidak dikenal: ${p.pillar} (History: ${mine('history').join(', ')} · Story: ${mine('story').join(', ')} · Marvel: ${mine('marvel').join(', ')})`); o.pillar = p.pillar; }
+  if (p.pillar !== undefined) { if (!PILLARS[p.pillar]) throw new Error(`pillar tidak dikenal: ${p.pillar} (History: ${mine('history').join(', ')} · Story: ${mine('story').join(', ')} · Marvel: ${mine('marvel').join(', ')} · Cowo Bingung: ${mine('cowo').join(', ')})`); o.pillar = p.pillar; }
   for (const k of ['subject', 'core_question', 'angle', 'hook', 'published_url', 'notes']) if (p[k] !== undefined) o[k] = p[k] == null ? null : String(p[k]);
   if (p.sources !== undefined) o.sources = JSON.stringify((Array.isArray(p.sources) ? p.sources : String(p.sources).split(/\s+/)).filter(Boolean));
   if (p.evergreen_score !== undefined) { const n = Number(p.evergreen_score); if (!(n >= 1 && n <= 5)) throw new Error('evergreen_score harus 1–5'); o.evergreen_score = Math.round(n); }

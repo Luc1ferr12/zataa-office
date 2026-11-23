@@ -52,6 +52,13 @@ export const LOOK = {
   vvisual:    { g: 'f', skin: '#f2c9a5', hair: '#5a3424', style: 'bob',  kerja: { top: '#ca8a04', bot: '#1f1f26', skirt: 'short', shoe: '#111014', sleeve: 'short', collar: true } },
   vvideo:     { g: 'm', skin: '#bf8f6a', hair: '#0d0b0b', style: 'short2', kerja: { top: '#1e293b', bot: '#141216', shoe: '#efecf4', sleeve: 'long', acc: '#dc2626' } },
   vpublish:   { g: 'f', skin: '#ecc19c', hair: '#211515', style: 'pony', kerja: { top: '#dc2626', bot: '#17151d', skirt: 'short', shoe: '#111014', sleeve: 'long', inner: '#fde68a' } },
+  // tim Cowo Bingung (pink-kuning, cewek semua), Lt.4 sejak 23 Nov 2026
+  bdir:       { g: 'f', skin: '#ecc19c', hair: '#2a1a14', style: 'long', kerja: { top: '#db2777', bot: '#1c1c22', skirt: 'long', shoe: '#111014', sleeve: 'long', inner: '#fde68a' } },
+  bresearch:  { g: 'f', skin: '#f0c8a6', hair: '#3a2418', style: 'bob',  kerja: { top: '#f472b6', bot: '#1f2430', skirt: 'short', shoe: '#efecf4', sleeve: 'short', collar: true } },
+  bscript:    { g: 'f', skin: '#e9bb95', hair: '#1a1212', style: 'pony', kerja: { top: '#be185d', bot: '#e6e0d4', skirt: 'long', shoe: '#3a2f2a', sleeve: 'long', inner: '#fbcfe8' } },
+  bvisual:    { g: 'f', skin: '#d6a27c', hair: '#4a2e20', style: 'long', kerja: { top: '#f59e0b', bot: '#1f1f26', skirt: 'short', shoe: '#111014', sleeve: 'short', inner: '#fff7ed' } },
+  bvideo:     { g: 'f', skin: '#eec29e', hair: '#120f0f', style: 'bob',  kerja: { top: '#a21caf', bot: '#17151d', skirt: 'long', shoe: '#efecf4', sleeve: 'long', collar: true } },
+  bpublish:   { g: 'f', skin: '#f2c9a5', hair: '#5a3424', style: 'pony', kerja: { top: '#fb7185', bot: '#1c1c22', skirt: 'short', shoe: '#111014', sleeve: 'long', inner: '#fde68a' } },
 };
 // Senin: jas (cowok), kemeja sekretaris + rok pensil (cewek)
 const FORMAL_M = { top: '#1f2433', bot: '#1f2433', shoe: '#111014', sleeve: 'long', inner: '#f4f2ee', tie: '#7c3aed' };

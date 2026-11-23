@@ -21,10 +21,11 @@ const save = (s) => { mkdirSync(dirname(FILE), { recursive: true }); writeFileSy
 
 // bot → { token, chat, prefix callback, nama pengirim, filter channel }
 const bots = (env) => [
-  { key: 'mkt', token: env.TELEGRAM_BOT_TOKEN, chat: env.TELEGRAM_CHAT_ID, pre: '', who: 'Andre', label: 'About Esports', sql: "(channel IS NULL OR channel NOT IN ('youtube','story','marvel','clip'))" },
+  { key: 'mkt', token: env.TELEGRAM_BOT_TOKEN, chat: env.TELEGRAM_CHAT_ID, pre: '', who: 'Andre', label: 'About Esports', sql: "(channel IS NULL OR channel NOT IN ('youtube','story','marvel','cowo','clip'))" },
   { key: 'youtube', token: env.SHORTS_BOT_TOKEN, chat: env.SHORTS_OWNER_ID, pre: 'y', who: 'Bagas', label: 'Zaa History', sql: "channel = 'youtube'" },
   { key: 'story', token: env.STORY_BOT_TOKEN, chat: env.SHORTS_OWNER_ID, pre: 'y', who: 'Raditya', label: 'Zaa Story', sql: "channel = 'story'" },
   { key: 'marvel', token: env.MARVEL_BOT_TOKEN, chat: env.SHORTS_OWNER_ID, pre: 'y', who: 'Reza', label: 'Marvel Talk', sql: "channel = 'marvel'" },
+  { key: 'cowo', token: env.COWO_BOT_TOKEN, chat: env.SHORTS_OWNER_ID, pre: 'y', who: 'Aurel', label: 'Cowo Bingung', sql: "channel = 'cowo'" },
 ];
 
 async function tgSend(token, params) {

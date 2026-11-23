@@ -1,5 +1,7 @@
 # SOP Divisi Marvel Talk (lore, teori, fakta & berita MCU · YouTube + TikTok)
 
+> **23 Nov 2026 (keputusan Owner): video = film lemo-opuscar gaya `pop-art`, suara ElevenLabs (suara belum dipilih)** → SOP `office/film.md`. Bagian visual/render di bawah yang menyebut gambar, Ken Burns, klip film asli (gaya klip DIPENSIUNKAN) atau OmniVoice hanya untuk konten lama yang sudah antre.
+
 **Divisi baru sejak 16 Nov 2026 (keputusan Owner 15 Nov).** Channel YouTube baru **Marvel Talk** + TikTok Marvel Talk (akun baru Owner). Niche: ngobrolin Marvel (MCU, komik, serial) dalam bahasa Indonesia santai: asal-usul & lore, teori fans, fakta/easter egg, profil karakter, ranking/versus, plus berita & rumor MCU. Target: ±500 subscriber → mulai video panjang 5–10 menit; Shorts tetap jalan.
 
 Kode sama dengan Zaa History/Story (`scripts/shorts-bot.mjs`, `shorts-topics.mjs`, `shorts.mjs`), bedanya **selalu pakai `--brand=marvel`**. DB `contents.channel = 'marvel'`.

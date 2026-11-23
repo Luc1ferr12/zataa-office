@@ -33,6 +33,7 @@ import { B, cliArgs } from './brand.mjs';
 import { claude, formatReply, ESCALATE, isStatusQuestion } from './ask.mjs';
 import { haiku, OFFICE, ANSWER_ANY } from './haiku.mjs';
 import { annotate } from './learn-core.mjs';
+import { check as filmCheck, filmHash } from './film.mjs';
 import { addressedAgent, redirectText } from './bots.mjs';
 import { digest } from './media.mjs';
 import { wita } from '../docs/js/schedule.js';
@@ -98,16 +99,23 @@ const head = (c) => {
 const description = (c) => [c.caption, c.hashtags].filter(Boolean).join('\n\n');
 
 export async function newShort(p) {
-  if (!p.title || !p.spec?.scenes?.length) throw new Error('butuh title + spec.scenes');
+  // 23 Nov 2026: video = film lemo-opuscar → spec { film: "films/<slug>" } (proyek dicek film.mjs check; adegan untuk loop belajar diambil dari lines.json)
+  if (p.spec?.film) {
+    const c = filmCheck(p.spec.film);
+    if (!c.ok) throw new Error(`film belum lengkap: ${c.errors.join('; ')}`);
+    const lines = JSON.parse(readFileSync(join(ROOT, p.spec.film, 'lines.json'), 'utf8')).items;
+    p.spec = { ...p.spec, scenes: lines.map((it) => ({ vo: it.text })) };
+  }
+  if (!p.title || !p.spec?.scenes?.length) throw new Error('butuh title + spec.scenes (atau spec.film)');
   if (p.jam && !JAM.test(p.jam)) throw new Error('jam harus HH:MM (WIB)');
   // dua gaya adegan: gambar (img + vo + sub) atau klip film (clips[{src, ss, x?}] + vo, gaya Marvel Talk → shorts-clip.mjs); tidak boleh campur
   const isClip = (s) => Array.isArray(s.clips);
   if (new Set(p.spec.scenes.map(isClip)).size > 1) throw new Error('adegan gambar dan adegan klip tidak boleh dicampur dalam satu video');
-  for (const s of p.spec.scenes) {
+  for (const s of p.spec.film ? [] : p.spec.scenes) {
     if (!s.vo) throw new Error('tiap adegan butuh vo');
     if (isClip(s) ? !s.clips.length || s.clips.some((c) => !((c.src && typeof c.ss === 'number') || c.find || c.yt)) : !s.img || !s.sub) throw new Error(isClip(s) ? 'tiap klip butuh find (kata cari) + note, atau yt (id video), atau src + ss' : 'tiap adegan butuh img, vo, sub');
   }
-  const missing = p.spec.scenes.flatMap((s) => (isClip(s) ? s.clips.map((c) => c.src).filter(Boolean) : [s.img])).filter((f) => !existsSync(join(ROOT, f)));
+  const missing = p.spec.film ? [] : p.spec.scenes.flatMap((s) => (isClip(s) ? s.clips.map((c) => c.src).filter(Boolean) : [s.img])).filter((f) => !existsSync(join(ROOT, f)));
   if (missing.length) throw new Error(`file tidak ada (path relatif dari root repo): ${missing.join(', ')}`);
   const d = await db();
   const today = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Makassar' }).format(new Date());
@@ -128,7 +136,7 @@ export async function newShort(p) {
     .run(CH, day, topic?.pillar ?? 'misteri', String(p.title).slice(0, 100), JSON.stringify(data), p.caption ?? '', p.hashtags ?? B.hashtags, p.sources ?? null);
   const id = Number(r.lastInsertRowid);
   if (topic) syncTopic(d, topic.topic_id, 'production', { contentId: id });
-  act(d, T.video, `Shorts #${id} "${p.title}" masuk antrean render laptop (OmniVoice)`);
+  act(d, T.video, `Shorts #${id} "${p.title}" masuk antrean render laptop (${p.spec.film ? `film lemo-opuscar ${p.spec.film}` : 'OmniVoice'})`);
   return { ok: true, id, topic_id: topic?.topic_id ?? null, queued: 'laptop', ...(ann.meta._exp ? { eksperimen: ann.meta._exp } : {}), ...(ann.notes.length ? { catatan: ann.notes } : {}) };
 }
 
@@ -330,7 +338,8 @@ async function revise(id, note, log, extra = '', resume = false) {
     lesson(d, [T.script, T.visual, T.publish], `✏️ revisi Shorts "${String(c.title).slice(0, 60)}": ${note}`);
     await sayAs(T.script, `🛠️ Siap Bos, revisi Shorts #${id} lagi dikerjain…`).catch(() => {});
   }
-  const specOf = () => { try { const j = JSON.parse(getShort(d, id).data_json); return JSON.stringify([j.scenes, j.voice, j.speed]); } catch { return ''; } };
+  const specOf = () => { try { const j = JSON.parse(getShort(d, id).data_json); return JSON.stringify(j.film ? [j.film, filmHash(j.film)] : [j.scenes, j.voice, j.speed]); } catch { return ''; } };
+  const film = (() => { try { return JSON.parse(c.data_json).film ?? null; } catch { return null; } })();
   const before = specOf();
   const r = await claude(`Kamu tim Shorts ${B.name} (${B.niche}, pilar di ${B.sop}) di folder ini. Owner minta REVISI Shorts #${id}:
 BRAND: tambahkan ${BR} di SETIAP perintah scripts/shorts-bot.mjs & scripts/shorts-topics.mjs.
@@ -339,12 +348,13 @@ BRAND: tambahkan ${BR} di SETIAP perintah scripts/shorts-bot.mjs & scripts/short
 Langkah:
 1. Baca ${B.sop}, lalu playbook yang kepakai: office/roles/${T.script}.md (naskah), office/roles/${T.visual}.md (gambar), office/roles/${T.publish}.md (judul/deskripsi).
 2. node scripts/shorts-bot.mjs get ${id}
-3. Ubah seperlunya (tulis JSON ke file sementara di tmp/ lalu: node scripts/shorts-bot.mjs set ${id} <file.json>; kunci: title, caption, hashtags, sources, data_json = spec render lengkap { voice, speed, tag, mood, scenes[{img, vo, sub, place?, credit?, move?}] }).
-   Path img relatif dari root repo (mis. assets/shorts/<topik>/s1.jpg). Durasi 30–40 dtk (5–6 adegan, 55–70 kata narasi, spec.hook wajib). Aturan fakta/teori/mitos & kredit visual tetap berlaku.${B.key === 'marvel' ? `
+${film ? `3. Video ini FILM lemo-opuscar di folder ${film}/ (skill lemo-opuscar, gaya ${B.film}). Naskah = ${film}/lines.json (text bersih + el dengan tag ekspresi ElevenLabs), adegan = ${film}/film.js. Ubah file di folder itu sesuai catatan Owner (gaya & kontrak tetap: timeline dari out/vo/dur.json, caption per kata dari out/vo/words.json), lalu: node scripts/film.mjs check ${film}. Judul/caption/hashtag/sumber: node scripts/shorts-bot.mjs set ${id} <file.json> (JANGAN ubah data_json).
+` : `3. Ubah seperlunya (tulis JSON ke file sementara di tmp/ lalu: node scripts/shorts-bot.mjs set ${id} <file.json>; kunci: title, caption, hashtags, sources, data_json = spec render lengkap { voice, speed, tag, mood, scenes[{img, vo, sub, place?, credit?, move?}] }).
+`}   Path img relatif dari root repo (mis. assets/shorts/<topik>/s1.jpg). Durasi 30–40 dtk (5–6 adegan, 55–70 kata narasi, spec.hook wajib). Aturan fakta/teori/mitos & kredit visual tetap berlaku.${B.key === 'marvel' && !film ? `
    KHUSUS MARVEL: adegan BUKAN pakai img, tapi { vo, hl:[kata], clips:[{find:"query klip film yang PERSIS menampilkan hal yang diomongin", note:"apa yang harus terlihat", n?}] }. Kalau Owner komplain isi/visual, ubah vo DAN find tiap adegan supaya klipnya relevan (bukan klip generik Avengers/Thanos); naskah & klip yang berubah WAJIB dirender ulang.` : ''}
-4. JANGAN render (render OmniVoice jalan otomatis di laptop), jangan kirim Telegram, jangan ubah konten lain.
+4. JANGAN render (render jalan otomatis di laptop), jangan kirim Telegram, jangan ubah konten lain.
 Kalau yang diubah cuma judul/deskripsi/hashtag (naskah & gambar tetap), tulis persis ${NO_RENDER} di baris terakhir sebelum ringkasan.
-Akhiri dengan SATU kalimat ringkas (santai) tentang apa yang diubah.`, 20);
+Akhiri dengan SATU kalimat ringkas (santai) tentang apa yang diubah.`, film ? 45 : 20);
   if (!r.ok) {
     log(`revisi shorts #${id} gagal: ${r.text.slice(0, 200)}`);
     return sayAs(T.script, `⚠️ Revisi Shorts #${id} belum bisa dikerjain otomatis (${esc(r.text.slice(0, 150))}). Dilanjut di sesi harian.`).catch(() => {});
@@ -356,7 +366,7 @@ Akhiri dengan SATU kalimat ringkas (santai) tentang apa yang diubah.`, 20);
     await submit(id, { note: `Hasil revisi: ${summary}` }).catch((e) => sayAs(T.publish, `⚠️ Gagal kirim ulang #${id}: ${esc(e.message)}`));
   } else {
     await queue(id);
-    await sayAs(T.video, `🎙️ Revisi #${id} kelar (${esc(summary.slice(0, 200))}). Videonya dirender ulang di laptop (suara OmniVoice), nanti ${NAMA[T.publish]} kirim lagi ke sini.`).catch(() => {});
+    await sayAs(T.video, `🎙️ Revisi #${id} kelar (${esc(summary.slice(0, 200))}). Videonya dirender ulang di laptop, nanti ${NAMA[T.publish]} kirim lagi ke sini.`).catch(() => {});
   }
   log(`revisi shorts #${id} beres`);
 }
@@ -388,11 +398,10 @@ Owner MENOLAK Shorts #${old.id} "${old.title}". Bikin Shorts PENGGANTI dengan to
 Langkah:
 1. Baca ${B.sop} lalu playbook office/roles/${Object.values(T).join('.md, office/roles/')}.md.
 2. node scripts/shorts-bot.mjs list lalu node scripts/shorts-topics.mjs next ${day} → pilih topik approved dari bank (patuhi pilar wajib yang dicetak), JANGAN sama/mirip "${old.title}" atau Shorts 14 hari terakhir. Bank kosong untuk pilar itu → tambah topik lengkap (shorts-topics.mjs add) lalu set status approved.
-3. Riset (≤5 pencarian web), naskah 5–6 adegan 55–70 kata narasi + spec.hook (teks layar 3–6 kata) + pertanyaan komentar di akhir (label fakta/teori/mitos, ≥2 sumber), gambar berlisensi bebas (Wikimedia Commons dll.).
-   Unduh gambar pakai node (fetch dengan header User-Agent) ke assets/shorts/<topik>/s1.jpg dst + credits.txt. Cek tiap gambar sesuai isinya.
-4. Tulis JSON ke tmp/ lalu: node scripts/shorts-bot.mjs new <file.json> dengan "topic_id", "day": "${day}" dan "jam": "${jamOf(old)}".
+3. Riset (≤5 pencarian web, ≥2 sumber, label fakta/teori/mitos). Video = FILM lemo-opuscar gaya ${B.film} (pakai skill lemo-opuscar): node scripts/film.mjs new <slug> ${BR}, salin film contoh yang dicetak, ganti cerita/adegan & lines.json (±8–11 baris, ≤1.100 karakter, kalimat terakhir ajak komen), lalu node scripts/film.mjs check films/<slug>.
+4. Tulis JSON ke tmp/ lalu: node scripts/shorts-bot.mjs new <file.json> dengan "topic_id", "day": "${day}", "jam": "${jamOf(old)}" dan "spec": {"film": "films/<slug>"}.
 5. JANGAN render (otomatis di laptop), jangan kirim Telegram, jangan ubah konten lain.
-Akhiri dengan SATU kalimat ringkas (santai): topik penggantinya apa.`, 30);
+Akhiri dengan SATU kalimat ringkas (santai): topik penggantinya apa.`, 60);
   if (!r.ok) {
     log(`pengganti shorts #${old.id} gagal: ${r.text.slice(0, 200)}`);
     return sayAs(T.dir, `⚠️ Konten pengganti #${old.id} belum bisa dibikin otomatis (${esc(r.text.slice(0, 150))}). Dilanjut di sesi harian.`).catch(() => {});

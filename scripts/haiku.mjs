@@ -16,20 +16,21 @@ function envVal(key) {
 
 // alat baca-saja: data kantor dari CLI masing-masing divisi + 2 pencarian web buat pertanyaan umum
 export const LOOKUPS = ['Read', 'Glob', 'Grep', 'WebSearch', 'WebFetch',
-  'Bash(node scripts/trading/cli.mjs status)', 'Bash(node scripts/shorts-bot.mjs list)', 'Bash(node scripts/shorts-bot.mjs list --brand=story)', 'Bash(node scripts/shorts-bot.mjs list --brand=marvel)', 'Bash(node scripts/clipper.mjs jobs)', 'Bash(node scripts/clipper.mjs list)', 'Bash(node scripts/office.mjs brief:*)', 'Bash(node scripts/price.mjs latest:*)'];
+  'Bash(node scripts/trading/cli.mjs status)', 'Bash(node scripts/shorts-bot.mjs list)', 'Bash(node scripts/shorts-bot.mjs list --brand=story)', 'Bash(node scripts/shorts-bot.mjs list --brand=marvel)', 'Bash(node scripts/shorts-bot.mjs list --brand=cowo)', 'Bash(node scripts/clipper.mjs jobs)', 'Bash(node scripts/clipper.mjs list)', 'Bash(node scripts/office.mjs brief:*)', 'Bash(node scripts/price.mjs latest:*)'];
 
-export const OFFICE = `Zaa Office (kantor virtual; web top up zataa.my.id lagi DIMATIKAN Owner sejak 15 Nov 2026, jadi nggak ada jualan/promo), 7 divisi:
+export const OFFICE = `Zaa Office (kantor virtual; web top up zataa.my.id lagi DIMATIKAN Owner sejak 15 Nov 2026, jadi nggak ada jualan/promo), 8 divisi:
 - About Esports (eks Marketing, media esports IG/TikTok, bot kantor About Esports): Andre (dir, Director About Esports), Salsa (researcher), Tiara (copywriter), Vania (designer), Dimas (video), Fikri (publisher), Fahriah (ads, lagi libur — iklan Meta belum bisa), Raka (analyst), Budi (price, lagi libur — web top up mati).
 - YouTube Shorts "Zaa History" (sejarah misteri kuno dunia, 7 Shorts/minggu (1/hari), bot @zataashortbot): Bagas (ydir), Nadhira (yresearch), Laras (yscript), Galih (yvisual), Yoga (yvideo), Kirana (ypublish).
 - Zaa Story (misteri & horor Nusantara, YouTube + TikTok tiap hari, bot @zataastorybot): Raditya (sdir), Sekar (sresearch), Dinda (sscript), Arga (svisual), Bima (svideo), Nayla (spublish).
 - Marvel Talk (lore, teori, fakta & berita MCU, YouTube + TikTok tiap hari, bot Marvel Talk, Lt.4): Reza (vdir), Citra (vresearch), Fajar (vscript), Intan (vvisual), Kevin (vvideo), Putri (vpublish).
+- Cowo Bingung (fakta unik, nyeleneh & lucu sehari-hari, YouTube + TikTok tiap hari, bot @cowobingungbot, Lt.4, tim cewek semua): Aurel (bdir), Keisha (bresearch), Naura (bscript), Zahra (bvisual), Celine (bvideo), Alya (bpublish).
 - Zaa Clips (campaign Clippo app.clippo.id → clip TikTok + IG 3/hari, campaign wajib ✅ Owner, bot Zaa Clips, Lt.4): Hendra (cdir), Maya (cbrief), Rizky (cedit), Wulan (ccopy), Tasya (cpublish).
 - Trading XAUUSD (bot Zaa Office Trading): Mahendra (tdir), Davina (tresearch), Keira (ttech), Aryaputra (trisk), Wiratama (texec), Jihan (teval), Selena (treport).
 - Nabila (sec): sekretaris pribadi Bos, catat keuangan pribadi di @zataaaccountingbot.
 Owner = Bos Zamiir.`;
 
 export const ANSWER_ANY = `Pertanyaan APA PUN (pengetahuan umum, saran, divisi lain, kondisi kantor) → JAWAB langsung, jangan suruh pindah bot.
-Data kantor ambil baca-saja kalau perlu: trading "node scripts/trading/cli.mjs status", Shorts "node scripts/shorts-bot.mjs list" (Zaa Story/Marvel Talk: tambah --brand=story / --brand=marvel), Zaa Clips "node scripts/clipper.mjs jobs", marketing "node scripts/office.mjs brief <id>", harga zataa "node scripts/price.mjs latest [kata]". Jangan ngarang angka; datanya nggak ada → bilang jujur. Fakta terkini boleh cari web maks 2×.`;
+Data kantor ambil baca-saja kalau perlu: trading "node scripts/trading/cli.mjs status", Shorts "node scripts/shorts-bot.mjs list" (Zaa Story/Marvel Talk/Cowo Bingung: tambah --brand=story / --brand=marvel / --brand=cowo), Zaa Clips "node scripts/clipper.mjs jobs", marketing "node scripts/office.mjs brief <id>", harga zataa "node scripts/price.mjs latest [kata]". Jangan ngarang angka; datanya nggak ada → bilang jujur. Fakta terkini boleh cari web maks 2×.`;
 
 export function haiku(prompt, { minutes = 3, tools = LOOKUPS } = {}) {
   const bin = envVal('CLAUDE_BIN') || 'claude';

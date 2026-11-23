@@ -90,6 +90,8 @@ const PLATFORMS = [
   { key: 'story_tiktok', name: 'TikTok', icon: '🎵', audience: 'followers', audLabel: 'Followers', group: 'story', acc: '#22d3ee' },
   { key: 'marvel_youtube', name: 'YouTube', icon: '▶️', audience: 'subscribers', audLabel: 'Subscribers', group: 'marvel', acc: '#f43f5e' },
   { key: 'marvel_tiktok', name: 'TikTok', icon: '🎵', audience: 'followers', audLabel: 'Followers', group: 'marvel', acc: '#22d3ee' },
+  { key: 'cowo_youtube', name: 'YouTube', icon: '▶️', audience: 'subscribers', audLabel: 'Subscribers', group: 'cowo', acc: '#f43f5e' },
+  { key: 'cowo_tiktok', name: 'TikTok', icon: '🎵', audience: 'followers', audLabel: 'Followers', group: 'cowo', acc: '#22d3ee' },
   { key: 'clip_tiktok', name: 'TikTok', icon: '🎵', audience: 'followers', audLabel: 'Followers', group: 'clip', acc: '#22d3ee' },
   { key: 'clip_instagram', name: 'Instagram', icon: '📸', audience: 'followers', audLabel: 'Followers', group: 'clip', acc: '#ec4899' },
 ];
@@ -98,6 +100,7 @@ const GROUPS = {
   history: { logo: 'zaa-history-logo.png', name: 'Zaa History', sub: 'sejarah misteri kuno dunia · tim Bagas' },
   story: { logo: 'zataa-story-logo.png', name: 'Zaa Story', sub: 'misteri & horor Nusantara · tim Raditya' },
   marvel: { logo: 'marvel-talk-logo.png', name: 'Marvel Talk', sub: 'lore, teori & berita MCU · tim Reza' },
+  cowo: { logo: 'cowo-bingung-logo.png', name: 'Cowo Bingung', sub: 'fakta unik & nyeleneh · tim Aurel' },
   clip: { logo: 'zaa-clips-logo.png', name: 'Zaa Clips', sub: 'campaign Clippo · tim Hendra' },
 };
 const num = (n) => (n == null ? '—' : Number(n).toLocaleString('id-ID'));
@@ -138,7 +141,7 @@ function renderSocials() {
 
 // ---------- KPI audiens (socials.json): total semua akun YouTube & TikTok + donut per divisi (IG dijeda, tidak dihitung)
 // warna = identitas divisi, urutan tetap (palet kategorikal tervalidasi utk latar gelap kartu)
-const KPI_DIV = [['esports', 'About Esports', '#3987e5'], ['history', 'Zaa History', '#d95926'], ['story', 'Zaa Story', '#199e70'], ['marvel', 'Marvel Talk', '#c98500'], ['clip', 'Zaa Clips', '#d55181']];
+const KPI_DIV = [['esports', 'About Esports', '#3987e5'], ['history', 'Zaa History', '#d95926'], ['story', 'Zaa Story', '#199e70'], ['marvel', 'Marvel Talk', '#c98500'], ['cowo', 'Cowo Bingung', '#8a63d2'], ['clip', 'Zaa Clips', '#d55181']];
 const divOf = (k) => ({ tiktok: 'esports', youtube: 'history' })[k] ?? k.split('_')[0];
 function donut(slices, label) {
   const total = slices.reduce((a, x) => a + x.v, 0);
@@ -204,7 +207,7 @@ function renderDashboard() {
   const week = s?.week_start ?? null;
   const days = ['Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab', 'Min'];
   const isYT = (c) => c.channel === 'youtube';
-  const isShort = (c) => ['youtube', 'story', 'marvel'].includes(c.channel);
+  const isShort = (c) => ['youtube', 'story', 'marvel', 'cowo'].includes(c.channel);
   $('week-grid').innerHTML = days.map((d, i) => {
     const date = week ? addDays(week, i) : null;
     const items = (s?.week_contents ?? []).filter((c) => c.day === date && !isShort(c));
@@ -224,8 +227,8 @@ function renderDashboard() {
         : date && date >= SHORTS_4WEEK_FROM && date < SHORTS_4WEEK_TO ? '<p class="empty">—</p>' : '<div class="chip slot"><b>18:00 · 🎬 shorts + TikTok</b>Belum ada konten</div>';
     return `<div class="day ${off ? 'off' : ''} ${date === s?.today ? 'today' : ''}"><h3>${d}<small>${date ? date.slice(8) : ''}</small></h3>${chips}</div>`;
   }).join('');
-  // Zaa Story & Marvel Talk: 1 Shorts tiap hari (YouTube + TikTok)
-  for (const [el, channel, icon] of [['week-grid-story', 'story', '👻'], ['week-grid-marvel', 'marvel', '🦸']]) {
+  // Zaa Story, Marvel Talk & Cowo Bingung: 1 Shorts tiap hari (YouTube + TikTok)
+  for (const [el, channel, icon] of [['week-grid-story', 'story', '👻'], ['week-grid-marvel', 'marvel', '🦸'], ['week-grid-cowo', 'cowo', '🤔']]) {
     $(el).innerHTML = days.map((d, i) => {
       const date = week ? addDays(week, i) : null;
       const items = (s?.week_contents ?? []).filter((c) => c.day === date && c.channel === channel);
@@ -310,6 +313,7 @@ const DIVISIONS = [
   { name: 'YouTube · Zaa History', color: 'yt', flow: 'riset → naskah & cek fakta → visual → video → upload · tiap hari', ids: ['ydir', 'yresearch', 'yscript', 'yvisual', 'yvideo', 'ypublish'] },
   { name: 'Zaa Story', color: 'story', flow: 'riset → naskah → visual → video → YouTube + TikTok · tiap hari', ids: ['sdir', 'sresearch', 'sscript', 'svisual', 'svideo', 'spublish'] },
   { name: 'Marvel Talk', color: 'mv', flow: 'riset → naskah & cek fakta → visual → video → YouTube + TikTok · tiap hari', ids: ['vdir', 'vresearch', 'vscript', 'vvisual', 'vvideo', 'vpublish'] },
+  { name: 'Cowo Bingung', color: 'cb', flow: 'riset fakta → naskah coba-gagal-berhasil → film Brick Toy → suara Depa → YouTube + TikTok · tiap hari', ids: ['bdir', 'bresearch', 'bscript', 'bvisual', 'bvideo', 'bpublish'] },
   { name: 'Zaa Clips', color: 'clip', flow: 'campaign Clippo → ✅ Bos → clip 9:16 → TikTok + IG → ajukan', ids: ['cdir', 'cbrief', 'cedit', 'ccopy', 'cpublish'] },
   { name: 'Trading XAUUSD', color: 'trd', flow: 'siklus tiap candle M15', ids: ['tdir', 'tresearch', 'ttech', 'trisk', 'texec', 'teval', 'treport'] },
 ];

@@ -33,13 +33,16 @@ export const NEXT = {
   // tim Marvel Talk & Zaa Clips (16 Nov 2026)
   vdir: ['vresearch'], vresearch: ['vscript'], vscript: ['vvisual'], vvisual: ['vvideo'], vvideo: ['vpublish'], vpublish: ['owner'],
   cdir: ['cbrief'], cbrief: ['cedit'], cedit: ['ccopy'], ccopy: ['cpublish'], cpublish: ['owner'],
+  // tim Cowo Bingung (23 Nov 2026, cewek semua)
+  bdir: ['bresearch'], bresearch: ['bscript'], bscript: ['bvisual'], bvisual: ['bvideo'], bvideo: ['bpublish'], bpublish: ['owner'],
 };
 export const NAMES = { dir: 'Andre', sec: 'Nabila', researcher: 'Salsa', copywriter: 'Tiara', designer: 'Vania', video: 'Dimas', publisher: 'Fikri', ads: 'Fahriah', analyst: 'Raka', price: 'Budi', ob: 'Mbak Sari', owner: 'Bos Zamiir',
   tdir: 'Mahendra', tresearch: 'Davina', ttech: 'Keira', trisk: 'Aryaputra', texec: 'Wiratama', teval: 'Jihan', treport: 'Selena',
   ydir: 'Bagas', yresearch: 'Nadhira', yscript: 'Laras', yvisual: 'Galih', yvideo: 'Yoga', ypublish: 'Kirana',
   sdir: 'Raditya', sresearch: 'Sekar', sscript: 'Dinda', svisual: 'Arga', svideo: 'Bima', spublish: 'Nayla',
   vdir: 'Reza', vresearch: 'Citra', vscript: 'Fajar', vvisual: 'Intan', vvideo: 'Kevin', vpublish: 'Putri',
-  cdir: 'Hendra', cbrief: 'Maya', cedit: 'Rizky', ccopy: 'Wulan', cpublish: 'Tasya' };
+  cdir: 'Hendra', cbrief: 'Maya', cedit: 'Rizky', ccopy: 'Wulan', cpublish: 'Tasya',
+  bdir: 'Aurel', bresearch: 'Keisha', bscript: 'Naura', bvisual: 'Zahra', bvideo: 'Celine', bpublish: 'Alya' };
 
 const pick = (arr, seed) => arr[Math.abs(seed) % arr.length];
 const seedOf = (s) => [...String(s)].reduce((a, c) => (a * 31 + c.charCodeAt(0)) | 0, 7);
@@ -71,6 +74,12 @@ const HANDOFF = {
   vvisual: ['{to}, visual "{task}" lengkap, aman lisensi, tanpa footage film asli 🖼️', 'Aset "{task}" kelar, {to}. Siap dirakit'],
   vvideo: ['{to}, Shorts "{task}" udah render 9:16 + VO. Siap ke YouTube & TikTok 🎬', 'Video "{task}" kelar, {to}. Cek judul ya'],
   vpublish: ['Bos, Shorts "{task}" udah aku kirim ke bot Marvel Talk. Ditunggu ✅-nya 🙏', 'Bos, "{task}" nunggu approval di bot Marvel Talk ya'],
+  bdir: ['{to}, topik Cowo Bingung hari ini: "{task}". Cari 2 sumber ya, yang bikin orang mikir "hah, masa sih?" 🤔', 'Brief "{task}" beres. {to}, gas riset!'],
+  bresearch: ['{to}, fakta "{task}" udah aku cek ke 2 sumber. Mitosnya udah aku tandain 📚', 'Riset "{task}" kelar, {to}. Ini lucu banget sumpah 😂'],
+  bscript: ['{to}, naskah "{task}" jadi, format coba-gagal-berhasil. Tag ekspresinya udah aku pasang 🎙️', 'Script "{task}" ready, {to}, tinggal bikin filmnya'],
+  bvisual: ['{to}, film "{task}" gaya Brick Toy udah aku rakit di kode. Tinggal suara + render 🧱', 'Adegan "{task}" kelar, {to}. Lucu nggak tuh tukangnya 😆'],
+  bvideo: ['{to}, "{task}" udah render 9:16 + suara Depa + caption per kata 🎬', 'Video "{task}" kelar, {to}. Cek judul & caption TikTok ya'],
+  bpublish: ['Bos, Shorts "{task}" udah aku kirim ke @cowobingungbot. Ditunggu ✅-nya 🙏', 'Bos, "{task}" nunggu approval di @cowobingungbot ya'],
   cdir: ['{to}, campaign "{task}" udah di-✅ Bos. Baca brief-nya teliti ya, jangan sampe ada larangan kelewat 📋', 'Campaign "{task}" jalan! {to}, cari momen terbaiknya'],
   cbrief: ['{to}, momen buat "{task}" udah aku tandain + alasan sesuai brief ✂️', 'Timestamp "{task}" siap, {to}. Hook-nya di detik awal'],
   cedit: ['{to}, clip "{task}" udah kepotong 9:16 + subtitle. Tinggal caption 🎞️', 'Edit "{task}" kelar, {to}. Durasi masuk brief'],

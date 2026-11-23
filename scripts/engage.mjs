@@ -18,7 +18,7 @@ const flag = (d, key, value) => {
   d.prepare('INSERT INTO flags (key, value) VALUES (?, ?) ON CONFLICT(key) DO UPDATE SET value = excluded.value').run(key, String(value));
 };
 const setFikri = (d, status, task = null) => d.prepare("UPDATE agents SET status = ?, current_task = ?, updated_at = datetime('now') WHERE id = 'publisher'").run(status, task);
-const MK = "COALESCE(channel, '') NOT IN ('youtube', 'story', 'marvel') AND COALESCE(json_extract(data_json, '$._test'), 0) = 0";
+const MK = "COALESCE(channel, '') NOT IN ('youtube', 'story', 'marvel', 'cowo') AND COALESCE(json_extract(data_json, '$._test'), 0) = 0";
 
 async function graph(path, params) {
   const e = env();

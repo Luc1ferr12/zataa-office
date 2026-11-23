@@ -12,7 +12,8 @@
   --c-yt: #f43f5e;
   --c-story: #c084fc;
   --c-clip: #2dd4bf;    /* Clipper (Lt.4) */
-  --c-mv: #ef4444;      /* Marvel Talk (Lt.4) */   /* Zataa Story: ungu logo */
+  --c-mv: #ef4444;      /* Marvel Talk (Lt.4) */
+  --c-cb: #f472b6;      /* Cowo Bingung (Lt.4, 23 Nov 2026) */   /* Zataa Story: ungu logo */
   --c-trd: #10b981;
   --c-boss: #f5b942;
   --c-gen: #94a3b8;
@@ -382,7 +383,7 @@ main { padding: 20px 24px 40px; max-width: 1440px; margin: 0 auto; display: grid
 .ap-item header { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; font-size: 12.5px; }
 .ap-item h3 { margin: 0; font: 600 15px/1.35 Sora, sans-serif; overflow-wrap: anywhere; }
 .ap-chip { font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 99px; --cc: var(--c-mkt); color: var(--cc); background: color-mix(in srgb, var(--cc) 16%, transparent); }
-.ap-chip.ch-youtube { --cc: var(--c-yt); } .ap-chip.ch-story { --cc: var(--c-story); } .ap-chip.ch-marvel { --cc: var(--c-mv); }
+.ap-chip.ch-youtube { --cc: var(--c-yt); } .ap-chip.ch-story { --cc: var(--c-story); } .ap-chip.ch-marvel { --cc: var(--c-mv); } .ap-chip.ch-cowo { --cc: var(--c-cb); }
 .ap-gallery { display: flex; gap: 6px; overflow-x: auto; scroll-snap-type: x mandatory; }
 .ap-media { flex: none; width: 100%; max-height: 420px; object-fit: contain; border-radius: 9px; background: #000; scroll-snap-align: start; }
 .ap-gallery:has(> :nth-child(2)) .ap-media { width: 82%; }

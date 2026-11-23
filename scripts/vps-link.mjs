@@ -30,3 +30,6 @@ export const scpFrom = (remoteRel, local) => retry((h) => spawnSync('scp', ['-q'
 
 // salin file lokal ke folder `remoteDirRel` di VPS
 export const scpTo = (files, remoteDirRel) => retry((h) => spawnSync('scp', ['-q', ...OPT, ...files, `${h}:zataa-office/${remoteDirRel}/`], { encoding: 'utf8' }));
+
+// salin folder dari VPS (path relatif ~/zataa-office) ke dalam folder lokal `localParent` (dipakai film lemo-opuscar: films/<slug>)
+export const scpDirFrom = (remoteRel, localParent) => retry((h) => spawnSync('scp', ['-q', '-r', ...OPT, `${h}:zataa-office/${remoteRel}`, localParent], { encoding: 'utf8' }));

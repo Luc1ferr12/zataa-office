@@ -21,6 +21,7 @@ const POOL = {
   history: { voice: ['misteri-cewe', 'misteri-cowo'], mood: ['misteri', 'epik'] },
   story: { voice: ['misteri-cewe', 'cewe-kalem'], mood: ['misteri', 'tragis'] },
   marvel: { voice: ['kalem-2', 'kalem-3'], mood: ['epik', 'misteri'] },
+  cowo: { voice: ['ceria-vox'], mood: ['ceria'] },
 };
 export const VARIABLES = {
   hook: { label: 'Tipe hook (kalimat VO adegan 1)', variants: () => ['pertanyaan', 'klaim'], enforce: false,
@@ -28,13 +29,14 @@ export const VARIABLES = {
   jam: { label: 'Jam tayang (WIB)', variants: () => ['12:00', '19:00'], enforce: true, how: 'jam tayang dipasang otomatis oleh shorts-bot new.' },
   voice: { label: 'Suara narator', variants: (b) => POOL[b].voice, enforce: true, how: 'spec.voice dipasang otomatis.' },
   length: { label: 'Panjang naskah', variants: () => ['pendek', 'panjang'], enforce: false,
-    how: 'pendek = ≤62 kata total VO (±30–33 dtk), panjang = ≥63 kata (±36–42 dtk). Tetap 28–45 dtk.' },
+    how: 'pendek = ≤110 kata total narasi (±45–50 dtk), panjang = ≥111 kata (±55–65 dtk). Film lemo-opuscar maks ±70 dtk.' },
   speed: { label: 'Kecepatan narasi', variants: () => ['0.9', '1'], enforce: true, how: 'spec.speed dipasang otomatis.' },
   mood: { label: 'Mood musik', variants: (b) => POOL[b].mood, enforce: true, how: 'spec.mood dipasang otomatis.' },
 };
-const ORDER = ['hook', 'jam', 'voice', 'length', 'speed', 'mood'];
-const OFFSET = { history: 0, story: 2, marvel: 4 }; // tiap brand beda variabel di minggu yang sama
-const LEN_SPLIT = 62;
+// 23 Nov 2026: semua video = film lemo-opuscar (suara ElevenLabs/VoxCPM per brand, musik dari mix.py film) → voice/speed/mood bukan variabel lagi
+const ORDER = ['hook', 'jam', 'length'];
+const OFFSET = { history: 0, story: 1, marvel: 2, cowo: 0 }; // tiap brand beda variabel di minggu yang sama
+const LEN_SPLIT = 110;
 
 // ---------- tanggal (string YYYY-MM-DD, WITA)
 export const mondayOf = (day) => { const dt = new Date(`${day}T00:00:00Z`); dt.setUTCDate(dt.getUTCDate() - ((dt.getUTCDay() + 6) % 7)); return dt.toISOString().slice(0, 10); };
@@ -111,7 +113,7 @@ export function annotate(d, brandKey, p, day) {
     else if (locks[v]) put(v, locks[v], false);
   }
   // Fase 4: variasi visual — gerak kamera tiap adegan diacak (tanpa ulang berurutan) biar video antar hari nggak terlihat template sama
-  if (!spec.scenes.some((s) => Array.isArray(s.clips))) {
+  if (!spec.film && !spec.scenes.some((s) => Array.isArray(s.clips))) {
     const MOVES = ['in', 'left', 'out', 'right', 'up'];
     let prev = null;
     for (const s of spec.scenes) {

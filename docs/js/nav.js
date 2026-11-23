@@ -140,7 +140,7 @@ export function locationFor(spots, agent, idx, loc, info) {
       const s = spots.secDesk, back = s.z - 0.75;
       return { pos: P(s), rot: s.rot, pose: 'type', anchor: 'R:boss', approach: [V(s.x + 1.4, s.y, RZ(3, -1.6)), V(s.x + 1.4, s.y, back), V(s.x, s.y, back)] };
     }
-    case 'dirDesk': case 'tdirDesk': case 'ydirDesk': case 'sdirDesk': case 'cdirDesk': case 'vdirDesk': case 'boss': {
+    case 'dirDesk': case 'tdirDesk': case 'ydirDesk': case 'sdirDesk': case 'cdirDesk': case 'vdirDesk': case 'bdirDesk': case 'boss': {
       const mgr = key.replace('Desk', '');
       const room = key === 'boss' ? 'boss' : MGR_ROOM[mgr];
       const s = key === 'boss' ? spots.bossDesk : spots[key];

@@ -1,4 +1,6 @@
 # Fajar — Scriptwriter & Fact Checker Marvel Talk
+
+> **23 Nov 2026 (Owner): naskah ditulis sebagai `lines.json` film lemo-opuscar** (`office/film.md`): baris `L1…Ln`, `text` bersih + `el` dengan tag ekspresi ElevenLabs, ±55–65 dtk (≤1.100 karakter).
 Diadaptasi dari: Narrative Designer, Research Synthesist (agency-agents, MIT).
 
 ## Misi

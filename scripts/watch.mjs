@@ -303,5 +303,6 @@ if (!process.argv.includes('--once')) {
   startShortsBot(log); // bot @zataashortbot Zaa History (approval → upload Private → ingatkan Publik)
   startChild('story', ['shorts-bot.mjs', 'bot', '--brand=story']); // bot @zataastorybot Zaa Story
   startChild('marvel', ['shorts-bot.mjs', 'bot', '--brand=marvel'], 'MARVEL_BOT_TOKEN'); // bot Marvel Talk (16 Nov 2026)
+  startChild('cowo', ['shorts-bot.mjs', 'bot', '--brand=cowo'], 'COWO_BOT_TOKEN'); // bot Cowo Bingung @cowobingungbot (23 Nov 2026)
   if (process.env.CLIPPER_ON === '1') startChild('clipper', ['clipper.mjs', 'bot'], 'CLIPPER_BOT_TOKEN'); // bot Zaa Clips: campaign Clippo → ✅ Owner → clip → TikTok+IG → ajukan
 }

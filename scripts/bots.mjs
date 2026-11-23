@@ -20,6 +20,7 @@ export const BOTS = {
   history: { label: 'bot Zaa History (@zataashortbot)', token: 'SHORTS_BOT_TOKEN', chat: ['SHORTS_OWNER_ID'], speaker: 'ydir' },
   story: { label: 'bot Zaa Story (@zataastorybot)', token: 'STORY_BOT_TOKEN', chat: ['SHORTS_OWNER_ID'], speaker: 'sdir' },
   marvel: { label: 'bot Marvel Talk', token: 'MARVEL_BOT_TOKEN', chat: ['SHORTS_OWNER_ID'], speaker: 'vdir' },
+  cowo: { label: 'bot Cowo Bingung (@cowobingungbot)', token: 'COWO_BOT_TOKEN', chat: ['SHORTS_OWNER_ID'], speaker: 'bdir' },
   clips: { label: 'bot Zaa Clips', token: 'CLIPPER_BOT_TOKEN', chat: ['CLIPPER_OWNER_ID', 'SHORTS_OWNER_ID'], speaker: 'cdir' },
   trading: { label: 'bot Zaa Office Trading', token: 'TRD_TG_TOKEN', chat: ['TRD_TG_CHAT'], speaker: 'tdir' },
 };
@@ -30,6 +31,7 @@ const TEAM = {
   history: ['ydir', 'yresearch', 'yscript', 'yvisual', 'yvideo', 'ypublish'],
   story: ['sdir', 'sresearch', 'sscript', 'svisual', 'svideo', 'spublish'],
   marvel: ['vdir', 'vresearch', 'vscript', 'vvisual', 'vvideo', 'vpublish'],
+  cowo: ['bdir', 'bresearch', 'bscript', 'bvisual', 'bvideo', 'bpublish'],
   clips: ['cdir', 'cbrief', 'cedit', 'ccopy', 'cpublish'],
   trading: ['tdir', 'tresearch', 'ttech', 'trisk', 'texec', 'teval', 'treport'],
 };
@@ -42,7 +44,8 @@ export const WHO = { andre: 'dir', nabila: 'sec', salsa: 'researcher', tiara: 'c
   bagas: 'ydir', nadhira: 'yresearch', laras: 'yscript', galih: 'yvisual', yoga: 'yvideo', kirana: 'ypublish',
   raditya: 'sdir', sekar: 'sresearch', dinda: 'sscript', arga: 'svisual', bima: 'svideo', nayla: 'spublish',
   reza: 'vdir', citra: 'vresearch', fajar: 'vscript', intan: 'vvisual', kevin: 'vvideo', putri: 'vpublish',
-  hendra: 'cdir', maya: 'cbrief', rizky: 'cedit', wulan: 'ccopy', tasya: 'cpublish' };
+  hendra: 'cdir', maya: 'cbrief', rizky: 'cedit', wulan: 'ccopy', tasya: 'cpublish',
+  aurel: 'bdir', keisha: 'bresearch', naura: 'bscript', zahra: 'bvisual', celine: 'bvideo', alya: 'bpublish' };
 
 const chatOf = (key, e = env()) => BOTS[key].chat.map((k) => e[k]).find(Boolean) ?? '';
 export const botReady = (key) => { const e = env(); return !!(e[BOTS[key]?.token] && chatOf(key, e)); };

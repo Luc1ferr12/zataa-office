@@ -8,6 +8,7 @@
 process.removeAllListeners('warning');
 import { ESCALATE, haiku, OFFICE, ANSWER_ANY } from './haiku.mjs';
 import { spawn } from 'node:child_process';
+import { existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { loadEnv, say, sayAs, NAMA, db, downloadPhotos, photoNote, SLOT } from './approval.mjs';
@@ -104,10 +105,12 @@ export async function smallTalk(msg) {
 
 // ---------- Claude Code CLI
 // model kosong = model default CLI (kerja berat: konten, riset, harga); obrolan ringan pakai CHAT_MODEL (default haiku)
-const FULL_TOOLS = ['Bash(node:*)', 'Read', 'Edit', 'Write', 'Glob', 'Grep', 'WebSearch', 'WebFetch'];
+const FULL_TOOLS = ['Bash(node:*)', 'Read', 'Edit', 'Write', 'Glob', 'Grep', 'WebSearch', 'WebFetch', 'Skill'];
+// 23 Nov 2026: film lemo-opuscar (office/film.md) — library di luar repo boleh dibaca Claude (revisi/pengganti Shorts)
+const LEMO_DIR = loadEnv().LEMO_LIB || join(process.env.HOME || process.env.USERPROFILE || '', 'lemo-opuscar');
 export function claude(prompt, minutes = 20, { model, tools = FULL_TOOLS } = {}) {
   const bin = loadEnv().CLAUDE_BIN || 'claude';
-  const args = ['-p', '--permission-mode', 'acceptEdits', ...(model ? ['--model', model] : []), '--allowedTools', ...tools];
+  const args = ['-p', '--permission-mode', 'acceptEdits', ...(model ? ['--model', model] : []), ...(tools === FULL_TOOLS && existsSync(LEMO_DIR) ? ['--add-dir', LEMO_DIR] : []), '--allowedTools', ...tools];
   return new Promise((resolve) => {
     const p = spawn(bin, args, { cwd: ROOT, shell: process.platform === 'win32', windowsHide: true });
     let o = '', e = '';

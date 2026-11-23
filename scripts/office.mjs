@@ -42,6 +42,9 @@ try {
     ('vscript', 'Fajar', 'Scriptwriter & Fact Checker'), ('vvisual', 'Intan', 'Visual & Creative'), ('vvideo', 'Kevin', 'Video Producer'), ('vpublish', 'Putri', 'Publisher YouTube & TikTok'),
     ('cdir', 'Hendra', 'Manajer Zaa Clips'), ('cbrief', 'Maya', 'Analis Brief & Pilih Momen'), ('cedit', 'Rizky', 'Video Editor'), ('ccopy', 'Wulan', 'Hook, Subtitle & Caption'),
     ('cpublish', 'Tasya', 'Publisher TikTok/IG & Submit Clippo')`);
+  // 23 Nov 2026: divisi Cowo Bingung (fakta unik/nyeleneh, channel DB 'cowo', YouTube + TikTok), tim cewek semua
+  db.exec(`INSERT OR IGNORE INTO agents (id, name, title) VALUES ('bdir', 'Aurel', 'Manajer Cowo Bingung'), ('bresearch', 'Keisha', 'Riset Fakta Unik'),
+    ('bscript', 'Naura', 'Scriptwriter & Fact Checker'), ('bvisual', 'Zahra', 'Visual & Film Lemo-Opuscar'), ('bvideo', 'Celine', 'Video Producer & Suara'), ('bpublish', 'Alya', 'Publisher YouTube & TikTok')`);
 } catch { /* db belum init */ }
 // YouTube Shorts disimpan di contents juga: channel 'youtube' (kosong = Marketing IG/TikTok), youtube_id = id video (scripts/shorts-bot.mjs)
 for (const col of ['channel TEXT', 'youtube_id TEXT', 'auto INTEGER DEFAULT 0']) { try { db.exec(`ALTER TABLE contents ADD COLUMN ${col}`); } catch { /* sudah ada / db belum init */ } }
@@ -92,7 +95,7 @@ const commands = {
     // masukan ❌/✏️ Owner 30 hari terakhir (approval.mjs lesson) — wajib dihindari terulang
     const owner = all("SELECT note FROM memories WHERE agent_id = ? AND note LIKE '[Owner]%' AND created_at >= datetime('now', '-30 days') ORDER BY id DESC LIMIT 6", agent).map((r) => r.note.slice(8));
     const tasks = all("SELECT id, type, title, status, content_id FROM tasks WHERE agent_id = ? AND day = ? AND status != 'done'", agent, t);
-    const revisions = all("SELECT id, title, owner_note FROM contents WHERE status = 'revision' AND COALESCE(channel, '') NOT IN ('youtube', 'story', 'marvel') ORDER BY id");
+    const revisions = all("SELECT id, title, owner_note FROM contents WHERE status = 'revision' AND COALESCE(channel, '') NOT IN ('youtube', 'story', 'marvel', 'cowo') ORDER BY id");
     const brief = { today: t, campaign: camp ?? null, memory: mem, ...(owner.length ? { owner_feedback: owner } : {}), tasks };
     if (revisions.length) brief.revisions = revisions;
     // tim Shorts: pola views per video (terbaik/terburuk, kelompok hook/suara/jam) + eksperimen mingguan (scripts/learn-core.mjs)
@@ -208,7 +211,7 @@ const commands = {
   content(sub, id, payload) {
     if (sub === 'get') return out(get('SELECT * FROM contents WHERE id = ?', id));
     // Shorts (channel youtube) tidak ikut: pakai scripts/shorts-bot.mjs list
-    if (sub === 'list') return out(all("SELECT id, slot, format, game, pillar, title, status FROM contents WHERE day = ? AND COALESCE(channel, '') NOT IN ('youtube', 'story', 'marvel') ORDER BY id", id ?? today()));
+    if (sub === 'list') return out(all("SELECT id, slot, format, game, pillar, title, status FROM contents WHERE day = ? AND COALESCE(channel, '') NOT IN ('youtube', 'story', 'marvel', 'cowo') ORDER BY id", id ?? today()));
     // content new '{"format":"feed","game":"mlbb","pillar":"promo","title":"..."}' → konten dadakan (permintaan Owner), slot "kilat" = tayang begitu di-approve
     if (sub === 'new') {
       const p = existsSync(id) ? JSON.parse(readFileSync(id, 'utf8')) : JSON.parse(id);
@@ -338,14 +341,14 @@ function weekStats(week) {
       SUM(status = 'posted') posted,
       SUM(status = 'pending_approval') pending,
       SUM(status IN ('approved','scheduled','uploading','uploaded')) scheduled,
-      SUM(channel IN ('youtube', 'story', 'marvel')) yt_total, SUM(channel IN ('youtube', 'story', 'marvel') AND status = 'posted') yt_posted,
-      SUM(channel IN ('youtube', 'story', 'marvel') AND status = 'pending_approval') yt_pending,
-      SUM(channel IN ('youtube', 'story', 'marvel') AND status IN ('approved','uploading','uploaded')) yt_scheduled
+      SUM(channel IN ('youtube', 'story', 'marvel', 'cowo')) yt_total, SUM(channel IN ('youtube', 'story', 'marvel', 'cowo') AND status = 'posted') yt_posted,
+      SUM(channel IN ('youtube', 'story', 'marvel', 'cowo') AND status = 'pending_approval') yt_pending,
+      SUM(channel IN ('youtube', 'story', 'marvel', 'cowo') AND status IN ('approved','uploading','uploaded')) yt_scheduled
     FROM contents WHERE day BETWEEN ? AND ? AND COALESCE(json_extract(data_json, '$._test'), 0) = 0 AND status != 'rejected'`, week, end);
   // metrics = snapshot tiap tarikan (Raka tiap 3 jam, socials.mjs) → ambil yang terbaru per konten per platform, jangan dijumlah semua
   const LATEST = 'm.id IN (SELECT MAX(id) FROM metrics GROUP BY content_id, platform)';
   const m = get(`SELECT COALESCE(SUM(m.views),0) views, COALESCE(SUM(m.likes),0) likes, COALESCE(SUM(m.comments),0) comments,
-      COALESCE(SUM(m.shares),0) shares, COALESCE(SUM(m.saves),0) saves, COALESCE(SUM(CASE WHEN c.channel IN ('youtube', 'story', 'marvel') THEN m.views END),0) yt_views
+      COALESCE(SUM(m.shares),0) shares, COALESCE(SUM(m.saves),0) saves, COALESCE(SUM(CASE WHEN c.channel IN ('youtube', 'story', 'marvel', 'cowo') THEN m.views END),0) yt_views
     FROM metrics m JOIN contents c ON c.id = m.content_id WHERE ${LATEST} AND c.day BETWEEN ? AND ?`, week, end);
   const top = all(`SELECT c.title, c.format, c.pillar, SUM(m.views) views FROM metrics m JOIN contents c ON c.id = m.content_id
     WHERE ${LATEST} AND c.day BETWEEN ? AND ? GROUP BY c.id ORDER BY views DESC LIMIT 3`, week, end);

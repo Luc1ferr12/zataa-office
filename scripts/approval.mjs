@@ -109,7 +109,8 @@ export const NAMA = { dir: 'Andre', sec: 'Nabila', researcher: 'Salsa', copywrit
   ydir: 'Bagas', yresearch: 'Nadhira', yscript: 'Laras', yvisual: 'Galih', yvideo: 'Yoga', ypublish: 'Kirana',
   sdir: 'Raditya', sresearch: 'Sekar', sscript: 'Dinda', svisual: 'Arga', svideo: 'Bima', spublish: 'Nayla',
   vdir: 'Reza', vresearch: 'Citra', vscript: 'Fajar', vvisual: 'Intan', vvideo: 'Kevin', vpublish: 'Putri',
-  cdir: 'Hendra', cbrief: 'Maya', cedit: 'Rizky', ccopy: 'Wulan', cpublish: 'Tasya' };
+  cdir: 'Hendra', cbrief: 'Maya', cedit: 'Rizky', ccopy: 'Wulan', cpublish: 'Tasya',
+  bdir: 'Aurel', bresearch: 'Keisha', bscript: 'Naura', bvisual: 'Zahra', bvideo: 'Celine', bpublish: 'Alya' };
 // tiap pegawai ngomong di bot kamarnya sendiri (scripts/bots.mjs): Nabila → bot keuangan, Bagas → bot Zaa History, dst. Bot kamarnya belum diisi di .env → jatuh ke bot kantor.
 export const sayAs = async (agent, text) => {
   const html = `<b>${NAMA[agent] ?? agent}</b>: ${text}`;
@@ -137,7 +138,7 @@ export async function submit(id, { note = '', strict = false } = {}) {
   if (!c.asset_path) throw new Error(`konten ${id} belum dirender (node scripts/render.mjs ${id})`);
   // QA otomatis Fikri (scripts/qa.mjs): dari CLI sesi kerja = wajib lolos (kecuali --force); kiriman otomatis watcher tetap jalan, temuannya ditampilkan ke Owner
   const { qa } = await import('./qa.mjs');
-  const check = ['youtube', 'story', 'marvel'].includes(c.channel) ? { errors: [], warnings: [] } : await qa(c);
+  const check = ['youtube', 'story', 'marvel', 'cowo'].includes(c.channel) ? { errors: [], warnings: [] } : await qa(c);
   if (strict && check.errors.length) throw new Error(`QA Fikri belum lolos #${id}: ${check.errors.join(' · ')} (benerin dulu, atau --force kalau Owner yang minta)`);
   const qaNote = [...check.errors, ...check.warnings];
   // konten dari sesi riset yang sudah di-ACC Owner (contents.auto): QA bersih → langsung 'approved' (tayang otomatis), Owner cuma dikabari. QA bermasalah → tetap minta ✅ Owner.

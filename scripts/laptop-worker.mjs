@@ -77,7 +77,7 @@ try { fd = openSync(LOCK, 'wx'); } catch {
 writeFileSync(fd, String(process.pid));
 try {
   const QUERY = `${DB_SNIPPET}
-    let yt = ''; try { db.prepare('SELECT channel FROM contents LIMIT 1').get(); yt = "OR channel IN ('youtube', 'story', 'marvel')"; } catch {}
+    let yt = ''; try { db.prepare('SELECT channel FROM contents LIMIT 1').get(); yt = "OR channel IN ('youtube', 'story', 'marvel', 'cowo')"; } catch {}
     console.log(JSON.stringify(db.prepare("SELECT id, format FROM contents WHERE (format = 'video' " + yt + ") AND status IN ('draft', 'revision') AND json_extract(data_json, '$._laptop') = 1 ORDER BY day, id").all()));`;
   let q;
   for (const h of HOSTS) {
@@ -121,7 +121,7 @@ try {
     const why = full.split('\n').map((l) => l.trim()).filter((l) => /^Error:|error|gagal|ENOENT|403|timeout/i.test(l)).slice(-2).join(' | ') || full.slice(-300);
     log(ok ? `selesai #${id}: ${r.stdout.trim().slice(-300)}` : `gagal #${id}: ${why.slice(0, 400)} (lengkap: logs/render-${id}.log)`);
     const what = shorts ? 'Shorts' : 'video';
-    const msg = ok ? `${what} #${id} dirender di laptop (suara OmniVoice) & dikirim ke Owner` : `Render laptop ${what} #${id} gagal, cek logs/laptop-worker.log di laptop`;
+    const msg = ok ? `${what} #${id} dirender di laptop & dikirim ke Owner` : `Render laptop ${what} #${id} gagal, cek logs/laptop-worker.log di laptop`;
     vps(`node scripts/office.mjs log ${shorts ? 'yvideo' : 'video'} ${JSON.stringify(msg)}`);
   }
   if (q.status === 0 && process.env.CLIPPER_ON === '1') await clipperWork(); // Zaa Clips LIBUR sejak 20 Nov 2026 (nyalain: .env CLIPPER_ON=1)

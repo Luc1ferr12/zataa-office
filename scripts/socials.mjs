@@ -83,7 +83,7 @@ async function tiktok(keyEnv = 'ZERNIO_ESPORTS_API_KEY', fallback = 'zataa.topup
 
 // ---------- YouTube Shorts (Zernio)
 // statistik YouTube lewat Zernio /analytics login divisi itu (sumber utama)
-const YT_ZERNIO_KEY = { esports: 'ZERNIO_ESPORTS_API_KEY', history: 'ZERNIO_HISTORY_API_KEY', story: 'ZERNIO_STORY_API_KEY', marvel: 'ZERNIO_MARVEL_API_KEY' };
+const YT_ZERNIO_KEY = { esports: 'ZERNIO_ESPORTS_API_KEY', history: 'ZERNIO_HISTORY_API_KEY', story: 'ZERNIO_STORY_API_KEY', marvel: 'ZERNIO_MARVEL_API_KEY', cowo: 'ZERNIO_COWO_API_KEY' };
 async function ytStatsZernio(brand) {
   const keyEnv = YT_ZERNIO_KEY[brand];
   if (!keyEnv || !env()[keyEnv]) throw new Error(`${keyEnv ?? 'kunci Zernio'} belum ada`);
@@ -141,7 +141,7 @@ export async function collect() {
   const out = { generated_at: new Date().toISOString() };
   const all = {};
   const KEYS = [['instagram', instagram], ['tiktok', () => tiktok('ZERNIO_ESPORTS_API_KEY', 'zataa.topup')], ['esports_youtube', () => youtube('esports')], ['youtube', () => youtube()], ['story_youtube', () => youtube('story')], ['story_tiktok', () => tiktok('ZERNIO_STORY_API_KEY', 'zataa.story')],
-    ['marvel_youtube', () => youtube('marvel')], ['marvel_tiktok', () => tiktok('ZERNIO_MARVEL_API_KEY', '')], ['clip_tiktok', () => tiktok('ZERNIO_CLIP_API_KEY', '')], ['history_tiktok', () => tiktok('ZERNIO_HISTORY_API_KEY', '')], ['clip_instagram', () => tiktok('ZERNIO_CLIP_API_KEY', '', 'instagram')]];
+    ['marvel_youtube', () => youtube('marvel')], ['marvel_tiktok', () => tiktok('ZERNIO_MARVEL_API_KEY', '')], ['cowo_youtube', () => youtube('cowo')], ['cowo_tiktok', () => tiktok('ZERNIO_COWO_API_KEY', '')], ['clip_tiktok', () => tiktok('ZERNIO_CLIP_API_KEY', '')], ['history_tiktok', () => tiktok('ZERNIO_HISTORY_API_KEY', '')], ['clip_instagram', () => tiktok('ZERNIO_CLIP_API_KEY', '', 'instagram')]];
   for (const [k, fn] of KEYS) {
     if ((k === 'instagram' && !env().IG_ACCESS_TOKEN) || (k === 'esports_youtube' && !env().ZERNIO_ESPORTS_API_KEY)) continue; // IG About Esports dijeda (susah views); YouTube baru ada kalau key Zernio About Esports diisi
     try { out[k] = await fn(); all[k] = out[k].list; delete out[k].list; } catch (e) { out[k] = { error: e.message.slice(0, 160) }; }
