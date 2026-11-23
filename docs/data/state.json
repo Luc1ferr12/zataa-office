@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-23T19:23:28.004Z",
+ "generated_at": "2026-11-23T19:33:28.004Z",
  "today": "2026-11-24",
  "week_start": "2026-11-23",
  "campaign": null,
@@ -98,7 +98,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-23 19:15:58"
+   "updated_at": "2026-11-23 19:30:58"
   },
   {
    "id": "tresearch",
@@ -106,7 +106,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: CPI Okt +0,4% m/m (prakiraan 0,3%) bikin emas turun 2-3% & taruhan kenaikan Fed naik. Belum ada berita 24 jam yang terverifikasi.",
-   "updated_at": "2026-11-23 19:15:58"
+   "updated_at": "2026-11-23 19:30:58"
   },
   {
    "id": "ttech",
@@ -114,7 +114,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-23 19:15:58"
+   "updated_at": "2026-11-23 19:30:58"
   },
   {
    "id": "trisk",
@@ -122,7 +122,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-11-23 19:15:58"
+   "updated_at": "2026-11-23 19:30:58"
   },
   {
    "id": "texec",
@@ -479,6 +479,16 @@
  "today_tasks": [],
  "activity": [
   {
+   "ts": "2026-11-23 19:30:58",
+   "agent_id": "trisk",
+   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+  },
+  {
+   "ts": "2026-11-23 19:30:58",
+   "agent_id": "ttech",
+   "message": "M15 berubah arah: bullish → sideways"
+  },
+  {
    "ts": "2026-11-23 19:15:58",
    "agent_id": "ttech",
    "message": "M15 berubah arah: sideways → bullish"
@@ -592,16 +602,6 @@
    "ts": "2026-11-23 12:15:57",
    "agent_id": "ttech",
    "message": "M15 berubah arah: bullish → sideways"
-  },
-  {
-   "ts": "2026-11-23 12:01:37",
-   "agent_id": "vpublish",
-   "message": "Cross-post Shorts #219 ke TikTok Marvel Talk"
-  },
-  {
-   "ts": "2026-11-23 12:01:08",
-   "agent_id": "dir",
-   "message": "Sesi malam: pilih berita LCQ FFWS (RRQ Kazu/ONIC/BTR), tunggu ✅ Owner"
   }
  ],
  "chats": [
@@ -897,7 +897,7 @@
    "yt_posted": 3,
    "yt_pending": 0,
    "yt_scheduled": 1,
-   "views": 4871,
+   "views": 4941,
    "likes": 75,
    "comments": 1,
    "shares": 0,
@@ -914,13 +914,13 @@
      "title": "Jemkin & something resmi bukan pemain impor lagi di VCT 2027",
      "format": "video",
      "pillar": "news",
-     "views": 1454
+     "views": 1466
     },
     {
      "title": "Meta FFWS GF 2026: SKORP vs double sniper kata Coach AFM",
      "format": "video",
      "pillar": "news",
-     "views": 994
+     "views": 1052
     }
    ],
    "clicks": 0,
@@ -944,12 +944,12 @@
    "yt_posted": 16,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 20886,
+   "views": 20887,
    "likes": 312,
    "comments": 5,
    "shares": 0,
    "saves": 2,
-   "yt_views": 16427,
+   "yt_views": 16428,
    "top": [
     {
      "title": "Gua di Biak Ini Konon Jadi Kuburan Ribuan Tentara Jepang",
@@ -987,9 +987,14 @@
   "paused": false,
   "balance": 1757.48,
   "today_pnl": 0,
-  "price": 3655.5,
+  "price": 3650.449951,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-23 19:30:58",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
    {
     "ts": "2026-11-23 19:15:58",
     "decision": "NO TRADE",
@@ -1012,11 +1017,6 @@
    },
    {
     "ts": "2026-11-23 18:15:58",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-11-23 18:00:58",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1096,7 +1096,7 @@
    1757.48
   ],
   "last": {
-   "ts": "2026-11-23 19:15:58",
+   "ts": "2026-11-23 19:30:58",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1117,7 +1117,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3654.35 di bawah tengah band (3644.0–3681.3) · RSI 51 · Stoch 22 · MACD -3.06 · H1 sideways"
+    "note": "M15 3651.25 di bawah tengah band (3642.3–3681.3) · RSI 49 · Stoch 21 · MACD -3.04 · H1 sideways"
    }
   },
   "fund": {
@@ -1186,35 +1186,35 @@
    "M10": {
     "bias": "sideways",
     "score": -1,
-    "price": 3655.4,
-    "ema20": 3656.34,
-    "ema50": 3648.68,
-    "rsi": 49.8,
+    "price": 3652.4,
+    "ema20": 3655.97,
+    "ema50": 3648.83,
+    "rsi": 47.1,
     "n": 299,
-    "slot": 2992436,
-    "at": 1795461658699
+    "slot": 2992437,
+    "at": 1795462258541
    },
    "M15": {
-    "bias": "bullish",
-    "score": 2,
-    "price": 3656.95,
-    "ema20": 3655.41,
-    "ema50": 3640.07,
-    "rsi": 53,
+    "bias": "sideways",
+    "score": 0,
+    "price": 3652.4,
+    "ema20": 3655.12,
+    "ema50": 3640.56,
+    "rsi": 50,
     "n": 299,
-    "slot": 1994957,
-    "at": 1795461358528
+    "slot": 1994958,
+    "at": 1795462258546
    },
    "M30": {
     "bias": "bullish",
     "score": 3,
-    "price": 3650.05,
-    "ema20": 3646.03,
-    "ema50": 3616.64,
-    "rsi": 55,
+    "price": 3652.4,
+    "ema20": 3646.64,
+    "ema50": 3618.05,
+    "rsi": 55.8,
     "n": 299,
-    "slot": 997478,
-    "at": 1795460458512
+    "slot": 997479,
+    "at": 1795462258550
    },
    "H1": {
     "bias": "bullish",
