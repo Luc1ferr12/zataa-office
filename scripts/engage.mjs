@@ -136,6 +136,7 @@ BALASAN:
 
 // dipanggil watcher tiap menit (lewat staff): story 09:00 WITA, cek komen tiap 2 jam 08:00–23:00 WITA
 export async function engageTick() {
+  if (loadEnv().IG_ON !== '1') return null;   // 23 Nov 2026: IG About Esports dimatikan Owner → nggak ada draf Story/balasan IG
   const d = await db();
   const w = wita();
   const day = w.toISOString().slice(0, 10);
