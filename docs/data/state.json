@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-23T06:54:46.314Z",
+ "generated_at": "2026-11-23T07:04:46.322Z",
  "today": "2026-11-23",
  "week_start": "2026-11-23",
  "campaign": null,
@@ -74,7 +74,7 @@
    "title": "Data Analyst",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-11-23 04:01:38"
+   "updated_at": "2026-11-23 07:01:18"
   },
   {
    "id": "price",
@@ -98,7 +98,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-23 06:45:46"
+   "updated_at": "2026-11-23 07:00:46"
   },
   {
    "id": "tresearch",
@@ -106,7 +106,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Pencarian 24 jam tak ketemu, data terbaru Okt 2026: Fed tahan 3,75-4% (29 Okt) hawkish, USD kuat. Bias lemah tipis, cek ulang harga live.",
-   "updated_at": "2026-11-23 06:45:46"
+   "updated_at": "2026-11-23 07:00:46"
   },
   {
    "id": "ttech",
@@ -114,15 +114,15 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-23 06:45:46"
+   "updated_at": "2026-11-23 07:00:46"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
-   "updated_at": "2026-11-23 06:45:46"
+   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
+   "updated_at": "2026-11-23 07:00:46"
   },
   {
    "id": "texec",
@@ -417,6 +417,11 @@
  "today_tasks": [],
  "activity": [
   {
+   "ts": "2026-11-23 07:01:18",
+   "agent_id": "analyst",
+   "message": "Update data 35 post IG 📈"
+  },
+  {
    "ts": "2026-11-23 06:15:46",
    "agent_id": "trisk",
    "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (sesi Asia)"
@@ -535,11 +540,6 @@
    "ts": "2026-11-23 01:15:46",
    "agent_id": "trisk",
    "message": "NO TRADE · ada candle spike di M15 (kemungkinan berita dadakan), tunggu tenang"
-  },
-  {
-   "ts": "2026-11-23 01:11:40",
-   "agent_id": "publisher",
-   "message": "#220 (residen Pacific) & #221 (meta FFWS): antrean render laptop, auto=1 tayang setelah QA lolos"
   }
  ],
  "chats": [
@@ -835,8 +835,8 @@
    "yt_posted": 2,
    "yt_pending": 0,
    "yt_scheduled": 1,
-   "views": 1034,
-   "likes": 29,
+   "views": 1249,
+   "likes": 32,
    "comments": 0,
    "shares": 0,
    "saves": 0,
@@ -846,13 +846,13 @@
      "title": "Jemkin & something resmi bukan pemain impor lagi di VCT 2027",
      "format": "video",
      "pillar": "news",
-     "views": 689
+     "views": 881
     },
     {
      "title": "Meta FFWS GF 2026: SKORP vs double sniper kata Coach AFM",
      "format": "video",
      "pillar": "news",
-     "views": 345
+     "views": 368
     },
     {
      "title": "Pesan Terakhir Kapal Ini Cuma 2 Kata: \"Saya Mati\"",
@@ -882,7 +882,7 @@
    "yt_posted": 16,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 19940,
+   "views": 19943,
    "likes": 300,
    "comments": 5,
    "shares": 0,
@@ -925,9 +925,14 @@
   "paused": false,
   "balance": 1757.48,
   "today_pnl": 0,
-  "price": 3625,
+  "price": 3625.899902,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-23 07:00:46",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
    {
     "ts": "2026-11-23 06:45:46",
     "decision": "NO TRADE",
@@ -950,11 +955,6 @@
    },
    {
     "ts": "2026-11-23 05:45:46",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-   },
-   {
-    "ts": "2026-11-23 05:30:46",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
    }
@@ -1034,7 +1034,7 @@
    1757.48
   ],
   "last": {
-   "ts": "2026-11-23 06:45:46",
+   "ts": "2026-11-23 07:00:46",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1043,7 +1043,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)",
+   "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
    "fund": {
     "bias": -0.15,
     "note": "Pencarian 24 jam tak ketemu, data terbaru Okt 2026: Fed tahan 3,75-4% (29 Okt) hawkish, USD kuat. Bias lemah tipis, cek ulang harga live.",
@@ -1055,7 +1055,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3624.50 di atas tengah band (3578.7–3635.5) · RSI 66 · Stoch 92 · MACD -0.11 · H1 sideways"
+    "note": "M15 3623.15 di atas tengah band (3581.4–3636.2) · RSI 66 · Stoch 91 · MACD -0.32 · H1 sideways"
    }
   },
   "fund": {
@@ -1124,46 +1124,46 @@
    "M10": {
     "bias": "bullish",
     "score": 3,
-    "price": 3623.8,
-    "ema20": 3612.45,
-    "ema50": 3596.27,
-    "rsi": 64.2,
+    "price": 3623,
+    "ema20": 3613.45,
+    "ema50": 3597.32,
+    "rsi": 63.2,
     "n": 299,
-    "slot": 2992361,
-    "at": 1795416646344
+    "slot": 2992362,
+    "at": 1795417246347
    },
    "M15": {
     "bias": "bullish",
     "score": 3,
-    "price": 3623.7,
-    "ema20": 3606.9,
-    "ema50": 3586.14,
-    "rsi": 66.1,
+    "price": 3623,
+    "ema20": 3608.44,
+    "ema50": 3587.59,
+    "rsi": 65.4,
     "n": 299,
-    "slot": 1994907,
-    "at": 1795416346341
+    "slot": 1994908,
+    "at": 1795417246354
    },
    "M30": {
     "bias": "bullish",
     "score": 3,
-    "price": 3616.9,
-    "ema20": 3591.18,
-    "ema50": 3568.56,
-    "rsi": 66.9,
+    "price": 3623,
+    "ema20": 3594.21,
+    "ema50": 3570.69,
+    "rsi": 68.8,
     "n": 299,
-    "slot": 997453,
-    "at": 1795415446327
+    "slot": 997454,
+    "at": 1795417246356
    },
    "H1": {
     "bias": "bullish",
     "score": 2,
-    "price": 3621.4,
-    "ema20": 3570.97,
-    "ema50": 3563.61,
-    "rsi": 82.7,
+    "price": 3623,
+    "ema20": 3575.92,
+    "ema50": 3565.94,
+    "rsi": 83,
     "n": 299,
-    "slot": 498726,
-    "at": 1795413646303
+    "slot": 498727,
+    "at": 1795417246361
    }
   },
   "currency": "USC",
