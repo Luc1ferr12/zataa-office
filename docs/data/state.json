@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-24T10:53:28.483Z",
+ "generated_at": "2026-11-24T11:03:28.541Z",
  "today": "2026-11-24",
  "week_start": "2026-11-23",
  "campaign": null,
@@ -98,15 +98,15 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-24 10:45:59"
+   "updated_at": "2026-11-24 11:01:21"
   },
   {
    "id": "tresearch",
    "name": "Davina",
    "title": "Research & Fundamental",
    "status": "done",
-   "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
-   "updated_at": "2026-11-24 10:45:59"
+   "current_task": "Fundamental: Berita terbaru tipis, tak ada harga emas hari ini. USD menguat & sinyal Fed hawkish (NFP Okt kuat) → tekan emas. Core PCE 25 Nov.",
+   "updated_at": "2026-11-24 11:01:21"
   },
   {
    "id": "ttech",
@@ -114,7 +114,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-24 10:45:59"
+   "updated_at": "2026-11-24 11:01:21"
   },
   {
    "id": "trisk",
@@ -122,7 +122,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-11-24 10:45:59"
+   "updated_at": "2026-11-24 11:01:21"
   },
   {
    "id": "texec",
@@ -676,6 +676,13 @@
  ],
  "chats": [
   {
+   "ts": "2026-11-24 11:00:35",
+   "agent_id": "analyst",
+   "to_id": "dir",
+   "kind": "oper",
+   "message": "Laporan harian marketing udah aku kirim ke Bos, 2 konten tayang hari ini 📊"
+  },
+  {
    "ts": "2026-11-24 08:01:38",
    "agent_id": "dir",
    "to_id": "researcher",
@@ -947,13 +954,6 @@
    "to_id": "copywriter",
    "kind": "santai",
    "message": "Tiara, nama 'something' di VO semoga nggak dibaca kayak kata biasa ya wkwk"
-  },
-  {
-   "ts": "2026-11-23 01:11:40",
-   "agent_id": "video",
-   "to_id": "publisher",
-   "kind": "oper",
-   "message": "Fikri, video \"Video #220 & #221 masuk antrean render laptop\" udah render 9:16. Musiknya aman kok"
   }
  ],
  "stats": {
@@ -1061,6 +1061,11 @@
   "open": [],
   "signals": [
    {
+    "ts": "2026-11-24 11:01:21",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
+   {
     "ts": "2026-11-24 10:45:59",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
@@ -1082,11 +1087,6 @@
    },
    {
     "ts": "2026-11-24 09:45:59",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-11-24 09:30:59",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1166,7 +1166,7 @@
    1757.48
   ],
   "last": {
-   "ts": "2026-11-24 10:45:59",
+   "ts": "2026-11-24 11:01:21",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1177,8 +1177,8 @@
    "risk_usd": null,
    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
    "fund": {
-    "bias": 0,
-    "note": "netral (belum ada ringkasan hari ini)",
+    "bias": -0.2,
+    "note": "Berita terbaru tipis, tak ada harga emas hari ini. USD menguat & sinyal Fed hawkish (NFP Okt kuat) → tekan emas. Core PCE 25 Nov.",
     "danger": null,
     "blackout": null
    },
@@ -1190,7 +1190,10 @@
     "note": "M15 3633.85 di bawah tengah band (3623.6–3659.8) · RSI 40 · Stoch 13 · MACD -1.09 · H1 sideways"
    }
   },
-  "fund": null,
+  "fund": {
+   "bias": -0.2,
+   "note": "Berita terbaru tipis, tak ada harga emas hari ini. USD menguat & sinyal Fed hawkish (NFP Okt kuat) → tekan emas. Core PCE 25 Nov."
+  },
   "calendar": [
    {
     "title": "Core PCE Price Index m/m",
@@ -1249,8 +1252,8 @@
     "ema50": 3641.96,
     "rsi": 37.4,
     "n": 300,
-    "slot": 2992529,
-    "at": 1795517459471
+    "slot": 2992530,
+    "at": 1795518059470
    },
    "M15": {
     "bias": "sideways",
@@ -1260,8 +1263,8 @@
     "ema50": 3638.78,
     "rsi": 40.3,
     "n": 300,
-    "slot": 1995019,
-    "at": 1795517159278
+    "slot": 1995020,
+    "at": 1795518059476
    },
    "M30": {
     "bias": "sideways",
@@ -1271,8 +1274,8 @@
     "ema50": 3622.41,
     "rsi": 47.7,
     "n": 300,
-    "slot": 997509,
-    "at": 1795516259275
+    "slot": 997510,
+    "at": 1795518059478
    },
    "H1": {
     "bias": "bullish",
@@ -1282,8 +1285,8 @@
     "ema50": 3600.81,
     "rsi": 58.7,
     "n": 300,
-    "slot": 498754,
-    "at": 1795514459247
+    "slot": 498755,
+    "at": 1795518059483
    }
   },
   "currency": "USC",
