@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-24T22:53:28.779Z",
+ "generated_at": "2026-11-24T23:03:28.749Z",
  "today": "2026-11-25",
  "week_start": "2026-11-23",
  "campaign": null,
@@ -17,16 +17,16 @@
    "name": "Andre",
    "title": "Marketing Director",
    "status": "done",
-   "current_task": "pilih ide sesi malam",
-   "updated_at": "2026-11-24 12:01:30"
+   "current_task": "Ajukan ide #277 VCT 2027 ke Owner",
+   "updated_at": "2026-11-24 23:01:55"
   },
   {
    "id": "researcher",
    "name": "Salsa",
    "title": "Researcher",
    "status": "done",
-   "current_task": "riset berita esport sesi malam",
-   "updated_at": "2026-11-24 12:01:24"
+   "current_task": "Riset sesi pagi: VCT 2027 8 tim/region",
+   "updated_at": "2026-11-24 23:01:49"
   },
   {
    "id": "copywriter",
@@ -98,15 +98,15 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-24 21:46:00"
+   "updated_at": "2026-11-24 23:01:20"
   },
   {
    "id": "tresearch",
    "name": "Davina",
    "title": "Research & Fundamental",
    "status": "done",
-   "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
-   "updated_at": "2026-11-24 21:46:00"
+   "current_task": "Fundamental: Fed hold 3,75–4% Okt, pasar pasang hike Des; NFP Okt kuat, DXY ~102. Bias turun. PCE & GDP 25 Nov bisa hawkish. Harga live belum dicek.",
+   "updated_at": "2026-11-24 23:01:20"
   },
   {
    "id": "ttech",
@@ -114,7 +114,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-24 21:46:00"
+   "updated_at": "2026-11-24 23:01:20"
   },
   {
    "id": "trisk",
@@ -122,7 +122,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
-   "updated_at": "2026-11-24 21:46:00"
+   "updated_at": "2026-11-24 23:01:20"
   },
   {
    "id": "texec",
@@ -344,9 +344,9 @@
    "id": "bdir",
    "name": "Aurel",
    "title": "Manajer Cowo Bingung",
-   "status": "done",
-   "current_task": "Briefing Cowo: KG-001 bata selang-seling",
-   "updated_at": "2026-11-23 23:16:59"
+   "status": "working",
+   "current_task": "Pilih topik Cowo Bingung 25 Nov",
+   "updated_at": "2026-11-24 23:03:24"
   },
   {
    "id": "bresearch",
@@ -549,6 +549,31 @@
  "today_tasks": [],
  "activity": [
   {
+   "ts": "2026-11-24 23:01:55",
+   "agent_id": "dir",
+   "message": "Sesi pagi: pilih #277 (Valorant news video), tunggu ✅ Owner"
+  },
+  {
+   "ts": "2026-11-24 23:01:55",
+   "agent_id": "dir",
+   "message": "Kirim 1 ide briefing ke Owner"
+  },
+  {
+   "ts": "2026-11-24 23:01:54",
+   "agent_id": "dir",
+   "message": "Pilih 1 berita hangat dari sesi riset pagi"
+  },
+  {
+   "ts": "2026-11-24 23:01:49",
+   "agent_id": "researcher",
+   "message": "Nemu 3 topik baru"
+  },
+  {
+   "ts": "2026-11-24 23:01:20",
+   "agent_id": "trisk",
+   "message": "NO TRADE · jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
+  },
+  {
    "ts": "2026-11-24 22:01:02",
    "agent_id": "analyst",
    "message": "Update data 33 post IG 📈"
@@ -647,34 +672,23 @@
    "ts": "2026-11-24 12:01:29",
    "agent_id": "spublish",
    "message": "Cross-post Shorts #225 ke TikTok Zaa Story"
-  },
-  {
-   "ts": "2026-11-24 12:01:24",
-   "agent_id": "researcher",
-   "message": "Malam: 8 tim lolos GF FFWS jadi bahan; ML/Valorant sepi"
-  },
-  {
-   "ts": "2026-11-24 12:01:24",
-   "agent_id": "researcher",
-   "message": "Nemu 2 topik baru"
-  },
-  {
-   "ts": "2026-11-24 12:01:10",
-   "agent_id": "vpublish",
-   "message": "Upload Shorts #222 ke Marvel Talk (Publik via Zernio)"
-  },
-  {
-   "ts": "2026-11-24 12:01:00",
-   "agent_id": "spublish",
-   "message": "Upload Shorts #225 ke Zaa Story (Publik via Zernio)"
-  },
-  {
-   "ts": "2026-11-24 11:15:59",
-   "agent_id": "trisk",
-   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-11-24 23:01:55",
+   "agent_id": "dir",
+   "to_id": "researcher",
+   "kind": "oper",
+   "message": "Salsa, plan minggu ini udah aku taruh ya. Fokus \"Ajukan ide #277 VCT 2027 ke Owner\". Tolong cariin bahan beritanya 🙏"
+  },
+  {
+   "ts": "2026-11-24 23:01:49",
+   "agent_id": "researcher",
+   "to_id": "copywriter",
+   "kind": "oper",
+   "message": "Tiara, bahan buat \"Riset sesi pagi: VCT 2027 8 tim/region\" udah aku rangkum + sumbernya. Tinggal kamu racik captionnya ✍️"
+  },
   {
    "ts": "2026-11-24 12:01:30",
    "agent_id": "dir",
@@ -940,20 +954,6 @@
    "to_id": "owner",
    "kind": "santai",
    "message": "Habis render, QA jalan otomatis. Lolos langsung tayang, nanti Bos dikabarin."
-  },
-  {
-   "ts": "2026-11-23 01:11:54",
-   "agent_id": "video",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Dua video udah antre render di laptop, jadi tunggu laptop nyala ya Bos."
-  },
-  {
-   "ts": "2026-11-23 01:11:54",
-   "agent_id": "copywriter",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Siap Bos! Naskah Jemkin & something (#220) sama meta FFWS Coach AFM (#221) udah beres, nol promo."
   }
  ],
  "stats": {
@@ -967,18 +967,18 @@
    "yt_posted": 7,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 7911,
-   "likes": 120,
+   "views": 7960,
+   "likes": 121,
    "comments": 2,
    "shares": 0,
    "saves": 1,
-   "yt_views": 3866,
+   "yt_views": 3902,
    "top": [
     {
      "title": "Jemkin & something resmi bukan pemain impor lagi di VCT 2027",
      "format": "video",
      "pillar": "news",
-     "views": 1730
+     "views": 1732
     },
     {
      "title": "Komputer 2.000 Tahun dari Dasar Laut Yunani",
@@ -990,7 +990,7 @@
      "title": "Meta FFWS GF 2026: SKORP vs double sniper kata Coach AFM",
      "format": "video",
      "pillar": "news",
-     "views": 1298
+     "views": 1303
     }
    ],
    "clicks": 0,
@@ -1014,12 +1014,12 @@
    "yt_posted": 16,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 21020,
+   "views": 21024,
    "likes": 314,
    "comments": 5,
    "shares": 0,
    "saves": 2,
-   "yt_views": 16537,
+   "yt_views": 16541,
    "top": [
     {
      "title": "Gua di Biak Ini Konon Jadi Kuburan Ribuan Tentara Jepang",
@@ -1037,7 +1037,7 @@
      "title": "Legenda Danau Toba Konon Menyimpan Jejak Letusan Terbesar",
      "format": "shorts",
      "pillar": "legenda_mitos",
-     "views": 1934
+     "views": 1935
     }
    ],
    "clicks": 0,
@@ -1061,6 +1061,11 @@
   "open": [],
   "signals": [
    {
+    "ts": "2026-11-24 23:01:20",
+    "decision": "NO TRADE",
+    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
+   },
+   {
     "ts": "2026-11-24 21:46:00",
     "decision": "NO TRADE",
     "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
@@ -1082,11 +1087,6 @@
    },
    {
     "ts": "2026-11-24 20:46:00",
-    "decision": "NO TRADE",
-    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
-   },
-   {
-    "ts": "2026-11-24 20:31:00",
     "decision": "NO TRADE",
     "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
    }
@@ -1166,7 +1166,7 @@
    1757.48
   ],
   "last": {
-   "ts": "2026-11-24 21:46:00",
+   "ts": "2026-11-24 23:01:20",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1177,8 +1177,8 @@
    "risk_usd": null,
    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
    "fund": {
-    "bias": 0,
-    "note": "netral (belum ada ringkasan hari ini)",
+    "bias": -0.4,
+    "note": "Fed hold 3,75–4% Okt, pasar pasang hike Des; NFP Okt kuat, DXY ~102. Bias turun. PCE & GDP 25 Nov bisa hawkish. Harga live belum dicek.",
     "danger": null,
     "blackout": null
    },
@@ -1190,7 +1190,10 @@
     "note": "M15 3633.85 di bawah tengah band (3623.6–3659.8) · RSI 40 · Stoch 13 · MACD -1.09 · H1 sideways"
    }
   },
-  "fund": null,
+  "fund": {
+   "bias": -0.4,
+   "note": "Fed hold 3,75–4% Okt, pasar pasang hike Des; NFP Okt kuat, DXY ~102. Bias turun. PCE & GDP 25 Nov bisa hawkish. Harga live belum dicek."
+  },
   "calendar": [
    {
     "title": "Core PCE Price Index m/m",
@@ -1249,8 +1252,8 @@
     "ema50": 3641.96,
     "rsi": 37.4,
     "n": 300,
-    "slot": 2992595,
-    "at": 1795557059979
+    "slot": 2992602,
+    "at": 1795561260031
    },
    "M15": {
     "bias": "sideways",
@@ -1260,8 +1263,8 @@
     "ema50": 3638.78,
     "rsi": 40.3,
     "n": 300,
-    "slot": 1995063,
-    "at": 1795556759986
+    "slot": 1995068,
+    "at": 1795561260037
    },
    "M30": {
     "bias": "sideways",
@@ -1271,8 +1274,8 @@
     "ema50": 3622.41,
     "rsi": 47.7,
     "n": 300,
-    "slot": 997531,
-    "at": 1795555859976
+    "slot": 997534,
+    "at": 1795561260040
    },
    "H1": {
     "bias": "bullish",
@@ -1282,8 +1285,8 @@
     "ema50": 3600.81,
     "rsi": 58.7,
     "n": 300,
-    "slot": 498765,
-    "at": 1795554059954
+    "slot": 498767,
+    "at": 1795561260044
    }
   },
   "currency": "USC",
