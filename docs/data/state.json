@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-24T03:53:28.232Z",
+ "generated_at": "2026-11-24T04:03:28.248Z",
  "today": "2026-11-24",
  "week_start": "2026-11-23",
  "campaign": null,
@@ -17,16 +17,16 @@
    "name": "Andre",
    "title": "Marketing Director",
    "status": "done",
-   "current_task": "Pilih ide sesi pagi",
-   "updated_at": "2026-11-23 23:01:32"
+   "current_task": "Pilih ide sesi siang: prediksi LCQ FFWS",
+   "updated_at": "2026-11-24 04:01:59"
   },
   {
    "id": "researcher",
    "name": "Salsa",
    "title": "Researcher",
    "status": "done",
-   "current_task": "Cek ulang sumber rostermania VCT 2027",
-   "updated_at": "2026-11-23 23:03:35"
+   "current_task": "Riset sesi siang",
+   "updated_at": "2026-11-24 04:01:59"
   },
   {
    "id": "copywriter",
@@ -74,7 +74,7 @@
    "title": "Data Analyst",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-11-24 01:01:05"
+   "updated_at": "2026-11-24 04:01:06"
   },
   {
    "id": "price",
@@ -98,7 +98,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-24 03:45:59"
+   "updated_at": "2026-11-24 04:00:59"
   },
   {
    "id": "tresearch",
@@ -106,7 +106,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Fed hike bets naik (Okt–Nov 2026), DXY menguat ~102,2 (6 Nov), emas ~$4.100 tertekan. Berita 24 jam tidak terverifikasi.",
-   "updated_at": "2026-11-24 03:45:59"
+   "updated_at": "2026-11-24 04:00:59"
   },
   {
    "id": "ttech",
@@ -114,7 +114,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-24 03:45:59"
+   "updated_at": "2026-11-24 04:00:59"
   },
   {
    "id": "trisk",
@@ -122,7 +122,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
-   "updated_at": "2026-11-24 03:45:59"
+   "updated_at": "2026-11-24 04:00:59"
   },
   {
    "id": "texec",
@@ -535,6 +535,46 @@
  "today_tasks": [],
  "activity": [
   {
+   "ts": "2026-11-24 04:03:03",
+   "agent_id": "yvideo",
+   "message": "Render laptop Shorts #225 gagal, cek logs/laptop-worker.log di laptop"
+  },
+  {
+   "ts": "2026-11-24 04:02:35",
+   "agent_id": "video",
+   "message": "Render laptop video #224 gagal, cek logs/laptop-worker.log di laptop"
+  },
+  {
+   "ts": "2026-11-24 04:02:03",
+   "agent_id": "yvideo",
+   "message": "Render laptop Shorts #223 gagal, cek logs/laptop-worker.log di laptop"
+  },
+  {
+   "ts": "2026-11-24 04:01:53",
+   "agent_id": "dir",
+   "message": "Kirim 1 ide briefing ke Owner"
+  },
+  {
+   "ts": "2026-11-24 04:01:52",
+   "agent_id": "dir",
+   "message": "Pilih 1 berita hangat dari sesi riset siang"
+  },
+  {
+   "ts": "2026-11-24 04:01:49",
+   "agent_id": "researcher",
+   "message": "Nemu 2 topik baru"
+  },
+  {
+   "ts": "2026-11-24 04:01:06",
+   "agent_id": "analyst",
+   "message": "Update data 35 post IG 📈"
+  },
+  {
+   "ts": "2026-11-24 03:53:34",
+   "agent_id": "yvideo",
+   "message": "Render laptop Shorts #226 gagal, cek logs/laptop-worker.log di laptop"
+  },
+  {
    "ts": "2026-11-24 03:53:07",
    "agent_id": "yvideo",
    "message": "Render laptop Shorts #225 gagal, cek logs/laptop-worker.log di laptop"
@@ -618,49 +658,16 @@
    "ts": "2026-11-23 23:12:36",
    "agent_id": "svideo",
    "message": "Shorts #225 \"Bukit di Cianjur Ini Pernah Diklaim Lebih Tua dari Piramida\" masuk antrean render laptop (film lemo-opuscar films/story-gunung-padang)"
-  },
-  {
-   "ts": "2026-11-23 23:08:21",
-   "agent_id": "publisher",
-   "message": "Konten 224 (rostermania VCT 2027) antre render laptop ≥09:45 WITA, auto tayang kalau QA lolos"
-  },
-  {
-   "ts": "2026-11-23 23:08:02",
-   "agent_id": "bvisual",
-   "message": "Film brick-toy cowo-bata-selang lolos check, Shorts #223 antre render laptop (jam 12:00 eksperimen)"
-  },
-  {
-   "ts": "2026-11-23 23:07:56",
-   "agent_id": "bvideo",
-   "message": "Shorts #223 \"Kenapa Tembok Bata Dipasang Selang-seling?\" masuk antrean render laptop (film lemo-opuscar films/cowo-bata-selang)"
-  },
-  {
-   "ts": "2026-11-23 23:03:09",
-   "agent_id": "bresearch",
-   "message": "Bank Cowo isi 3 topik; KG-001 running bond (3 sumber cek), KG-002 & CB-001 backlog: sumber belum diverifikasi"
-  },
-  {
-   "ts": "2026-11-23 23:02:28",
-   "agent_id": "owner",
-   "message": "Approve 1 ide konten tambahan 💡"
-  },
-  {
-   "ts": "2026-11-23 23:01:32",
-   "agent_id": "dir",
-   "message": "Sesi pagi: pilih #270 rekap transfer VCT 2027 (video news Valorant, ok 17/0), kirim ke Owner"
-  },
-  {
-   "ts": "2026-11-23 23:01:32",
-   "agent_id": "dir",
-   "message": "Kirim 1 ide briefing ke Owner"
-  },
-  {
-   "ts": "2026-11-23 23:01:31",
-   "agent_id": "dir",
-   "message": "Pilih 1 berita hangat dari sesi riset pagi"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-11-24 04:01:59",
+   "agent_id": "researcher",
+   "to_id": "copywriter",
+   "kind": "oper",
+   "message": "Tiara, bahan buat \"Riset sesi siang\" udah aku rangkum + sumbernya. Tinggal kamu racik captionnya ✍️"
+  },
   {
    "ts": "2026-11-23 23:16:59",
    "agent_id": "bvisual",
@@ -933,13 +940,6 @@
    "to_id": "owner",
    "kind": "santai",
    "message": "Videonya udah antre render di laptop. Begitu laptop nyala, suara masuk dan langsung jalan."
-  },
-  {
-   "ts": "2026-11-22 01:59:11",
-   "agent_id": "researcher",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Bos, roster final PRX 2027 udah kecek ke 3 sumber. Soal Jinggg ke All Gamers masih rumor, di video juga ditulis rumor."
   }
  ],
  "stats": {
@@ -953,7 +953,7 @@
    "yt_posted": 3,
    "yt_pending": 0,
    "yt_scheduled": 1,
-   "views": 5146,
+   "views": 5166,
    "likes": 77,
    "comments": 1,
    "shares": 0,
@@ -970,13 +970,13 @@
      "title": "Jemkin & something resmi bukan pemain impor lagi di VCT 2027",
      "format": "video",
      "pillar": "news",
-     "views": 1591
+     "views": 1606
     },
     {
      "title": "Meta FFWS GF 2026: SKORP vs double sniper kata Coach AFM",
      "format": "video",
      "pillar": "news",
-     "views": 1132
+     "views": 1137
     }
    ],
    "clicks": 0,
@@ -1047,6 +1047,11 @@
   "open": [],
   "signals": [
    {
+    "ts": "2026-11-24 04:00:59",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
+   },
+   {
     "ts": "2026-11-24 03:45:59",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
@@ -1068,11 +1073,6 @@
    },
    {
     "ts": "2026-11-24 02:45:59",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-   },
-   {
-    "ts": "2026-11-24 02:30:59",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
    }
@@ -1152,7 +1152,7 @@
    1757.48
   ],
   "last": {
-   "ts": "2026-11-24 03:45:59",
+   "ts": "2026-11-24 04:00:59",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1238,8 +1238,8 @@
     "ema50": 3641.96,
     "rsi": 37.4,
     "n": 300,
-    "slot": 2992487,
-    "at": 1795492258951
+    "slot": 2992488,
+    "at": 1795492858955
    },
    "M15": {
     "bias": "sideways",
@@ -1249,8 +1249,8 @@
     "ema50": 3638.78,
     "rsi": 40.3,
     "n": 300,
-    "slot": 1994991,
-    "at": 1795491958941
+    "slot": 1994992,
+    "at": 1795492858960
    },
    "M30": {
     "bias": "sideways",
@@ -1260,8 +1260,8 @@
     "ema50": 3622.41,
     "rsi": 47.7,
     "n": 300,
-    "slot": 997495,
-    "at": 1795491058945
+    "slot": 997496,
+    "at": 1795492858962
    },
    "H1": {
     "bias": "bullish",
@@ -1271,8 +1271,8 @@
     "ema50": 3600.81,
     "rsi": 58.7,
     "n": 300,
-    "slot": 498747,
-    "at": 1795489258916
+    "slot": 498748,
+    "at": 1795492858966
    }
   },
   "currency": "USC",
