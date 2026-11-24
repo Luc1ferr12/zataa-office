@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-24T05:13:28.278Z",
+ "generated_at": "2026-11-24T05:23:28.279Z",
  "today": "2026-11-24",
  "week_start": "2026-11-23",
  "campaign": null,
@@ -98,7 +98,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-24 05:00:59"
+   "updated_at": "2026-11-24 05:15:59"
   },
   {
    "id": "tresearch",
@@ -106,7 +106,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Fed hike bets naik (Okt–Nov 2026), DXY menguat ~102,2 (6 Nov), emas ~$4.100 tertekan. Berita 24 jam tidak terverifikasi.",
-   "updated_at": "2026-11-24 05:00:59"
+   "updated_at": "2026-11-24 05:15:59"
   },
   {
    "id": "ttech",
@@ -114,7 +114,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-24 05:00:59"
+   "updated_at": "2026-11-24 05:15:59"
   },
   {
    "id": "trisk",
@@ -122,7 +122,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
-   "updated_at": "2026-11-24 05:00:59"
+   "updated_at": "2026-11-24 05:15:59"
   },
   {
    "id": "texec",
@@ -510,10 +510,10 @@
    "game": "sejarah",
    "pillar": "kenapa_gitu",
    "title": "Kenapa Tembok Bata Dipasang Selang-seling?",
-   "status": "pending_approval",
-   "asset_url": null,
+   "status": "posted",
+   "asset_url": "https://www.youtube.com/watch?v=YyYsZ3-kSzw",
    "scheduled_at": null,
-   "posted_at": null,
+   "posted_at": "2026-11-24 05:17:35",
    "channel": "cowo"
   },
   {
@@ -524,7 +524,7 @@
    "game": "sejarah",
    "pillar": "misteri_kuno",
    "title": "Bukit di Cianjur Ini Pernah Diklaim Lebih Tua dari Piramida",
-   "status": "pending_approval",
+   "status": "approved",
    "asset_url": null,
    "scheduled_at": null,
    "posted_at": null,
@@ -538,7 +538,7 @@
    "game": "sejarah",
    "pillar": "hidden_history",
    "title": "Tulang 20.000 Tahun Ini Mungkin Kalkulator Tertua di Dunia",
-   "status": "pending_approval",
+   "status": "revision",
    "asset_url": null,
    "scheduled_at": null,
    "posted_at": null,
@@ -548,6 +548,41 @@
  "clip_jobs": [],
  "today_tasks": [],
  "activity": [
+  {
+   "ts": "2026-11-24 05:21:09",
+   "agent_id": "yscript",
+   "message": "Revisi Shorts #226 kelar: Intinya subtitle dobel sudah dibenerin dan tahunnya sekarang diucapin \"sembilan belas lima puluh\", tinggal tunggu render"
+  },
+  {
+   "ts": "2026-11-24 05:20:05",
+   "agent_id": "owner",
+   "message": "Minta revisi Shorts #226: kok subtitle nya ke-double, terus pas nyebutin tahun 1950 tu kok pake bahasa gajelas"
+  },
+  {
+   "ts": "2026-11-24 05:17:56",
+   "agent_id": "bpublish",
+   "message": "Cross-post Shorts #223 ke TikTok Cowo Bingung"
+  },
+  {
+   "ts": "2026-11-24 05:17:35",
+   "agent_id": "bpublish",
+   "message": "Upload Shorts #223 ke Cowo Bingung (Publik via Zernio)"
+  },
+  {
+   "ts": "2026-11-24 05:17:30",
+   "agent_id": "owner",
+   "message": "Approve Shorts #225 ✅"
+  },
+  {
+   "ts": "2026-11-24 05:17:23",
+   "agent_id": "owner",
+   "message": "Approve Shorts #223 ✅"
+  },
+  {
+   "ts": "2026-11-24 05:15:59",
+   "agent_id": "trisk",
+   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (sesi Asia)"
+  },
   {
    "ts": "2026-11-24 04:51:43",
    "agent_id": "ypublish",
@@ -637,41 +672,6 @@
    "ts": "2026-11-24 04:12:05",
    "agent_id": "yvideo",
    "message": "Render laptop Shorts #223 gagal, cek logs/laptop-worker.log di laptop"
-  },
-  {
-   "ts": "2026-11-24 04:03:29",
-   "agent_id": "yvideo",
-   "message": "Render laptop Shorts #226 gagal, cek logs/laptop-worker.log di laptop"
-  },
-  {
-   "ts": "2026-11-24 04:03:03",
-   "agent_id": "yvideo",
-   "message": "Render laptop Shorts #225 gagal, cek logs/laptop-worker.log di laptop"
-  },
-  {
-   "ts": "2026-11-24 04:02:35",
-   "agent_id": "video",
-   "message": "Render laptop video #224 gagal, cek logs/laptop-worker.log di laptop"
-  },
-  {
-   "ts": "2026-11-24 04:02:03",
-   "agent_id": "yvideo",
-   "message": "Render laptop Shorts #223 gagal, cek logs/laptop-worker.log di laptop"
-  },
-  {
-   "ts": "2026-11-24 04:01:53",
-   "agent_id": "dir",
-   "message": "Kirim 1 ide briefing ke Owner"
-  },
-  {
-   "ts": "2026-11-24 04:01:52",
-   "agent_id": "dir",
-   "message": "Pilih 1 berita hangat dari sesi riset siang"
-  },
-  {
-   "ts": "2026-11-24 04:01:49",
-   "agent_id": "researcher",
-   "message": "Nemu 2 topik baru"
   }
  ],
  "chats": [
@@ -960,13 +960,13 @@
   "this_week": {
    "week": "2026-11-23",
    "total": 11,
-   "posted": 6,
-   "pending": 3,
-   "scheduled": 1,
+   "posted": 7,
+   "pending": 0,
+   "scheduled": 2,
    "yt_total": 7,
-   "yt_posted": 3,
-   "yt_pending": 3,
-   "yt_scheduled": 1,
+   "yt_posted": 4,
+   "yt_pending": 0,
+   "yt_scheduled": 2,
    "views": 5167,
    "likes": 77,
    "comments": 1,
@@ -1061,6 +1061,11 @@
   "open": [],
   "signals": [
    {
+    "ts": "2026-11-24 05:15:59",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
+   },
+   {
     "ts": "2026-11-24 05:00:59",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
@@ -1082,11 +1087,6 @@
    },
    {
     "ts": "2026-11-24 04:00:59",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-   },
-   {
-    "ts": "2026-11-24 03:45:59",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
    }
@@ -1166,7 +1166,7 @@
    1757.48
   ],
   "last": {
-   "ts": "2026-11-24 05:00:59",
+   "ts": "2026-11-24 05:15:59",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1252,8 +1252,8 @@
     "ema50": 3641.96,
     "rsi": 37.4,
     "n": 300,
-    "slot": 2992495,
-    "at": 1795497059025
+    "slot": 2992496,
+    "at": 1795497659038
    },
    "M15": {
     "bias": "sideways",
@@ -1263,8 +1263,8 @@
     "ema50": 3638.78,
     "rsi": 40.3,
     "n": 300,
-    "slot": 1994996,
-    "at": 1795496459218
+    "slot": 1994997,
+    "at": 1795497359032
    },
    "M30": {
     "bias": "sideways",
