@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-24T16:13:28.665Z",
+ "generated_at": "2026-11-24T16:23:28.664Z",
  "today": "2026-11-25",
  "week_start": "2026-11-23",
  "campaign": null,
@@ -98,7 +98,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-24 16:01:00"
+   "updated_at": "2026-11-24 16:16:00"
   },
   {
    "id": "tresearch",
@@ -106,7 +106,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Berita terbaru tipis, tak ada harga emas hari ini. USD menguat & sinyal Fed hawkish (NFP Okt kuat) → tekan emas. Core PCE 25 Nov.",
-   "updated_at": "2026-11-24 16:01:00"
+   "updated_at": "2026-11-24 16:16:00"
   },
   {
    "id": "ttech",
@@ -114,7 +114,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-24 16:01:00"
+   "updated_at": "2026-11-24 16:16:00"
   },
   {
    "id": "trisk",
@@ -122,7 +122,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-11-24 16:01:00"
+   "updated_at": "2026-11-24 16:16:00"
   },
   {
    "id": "texec",
@@ -549,6 +549,11 @@
  "today_tasks": [],
  "activity": [
   {
+   "ts": "2026-11-24 16:16:00",
+   "agent_id": "trisk",
+   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+  },
+  {
    "ts": "2026-11-24 16:01:30",
    "agent_id": "analyst",
    "message": "Update data 33 post IG 📈"
@@ -667,11 +672,6 @@
    "ts": "2026-11-24 07:15:59",
    "agent_id": "trisk",
    "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-  },
-  {
-   "ts": "2026-11-24 07:01:07",
-   "agent_id": "analyst",
-   "message": "Update data 34 post IG 📈"
   }
  ],
  "chats": [
@@ -1061,6 +1061,11 @@
   "open": [],
   "signals": [
    {
+    "ts": "2026-11-24 16:16:00",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
+   {
     "ts": "2026-11-24 16:01:00",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
@@ -1082,11 +1087,6 @@
    },
    {
     "ts": "2026-11-24 15:00:59",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-11-24 14:45:59",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1166,7 +1166,7 @@
    1757.48
   ],
   "last": {
-   "ts": "2026-11-24 16:01:00",
+   "ts": "2026-11-24 16:16:00",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1252,8 +1252,8 @@
     "ema50": 3641.96,
     "rsi": 37.4,
     "n": 300,
-    "slot": 2992561,
-    "at": 1795536659697
+    "slot": 2992562,
+    "at": 1795537259715
    },
    "M15": {
     "bias": "sideways",
@@ -1263,8 +1263,8 @@
     "ema50": 3638.78,
     "rsi": 40.3,
     "n": 300,
-    "slot": 1995040,
-    "at": 1795536059876
+    "slot": 1995041,
+    "at": 1795536959712
    },
    "M30": {
     "bias": "sideways",
