@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-24T06:53:28.286Z",
+ "generated_at": "2026-11-24T07:03:28.284Z",
  "today": "2026-11-24",
  "week_start": "2026-11-23",
  "campaign": null,
@@ -74,7 +74,7 @@
    "title": "Data Analyst",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-11-24 04:01:06"
+   "updated_at": "2026-11-24 07:01:07"
   },
   {
    "id": "price",
@@ -98,7 +98,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-24 06:45:59"
+   "updated_at": "2026-11-24 07:00:59"
   },
   {
    "id": "tresearch",
@@ -106,7 +106,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Fed hike bets naik (Okt–Nov 2026), DXY menguat ~102,2 (6 Nov), emas ~$4.100 tertekan. Berita 24 jam tidak terverifikasi.",
-   "updated_at": "2026-11-24 06:45:59"
+   "updated_at": "2026-11-24 07:00:59"
   },
   {
    "id": "ttech",
@@ -114,15 +114,15 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-24 06:45:59"
+   "updated_at": "2026-11-24 07:00:59"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
-   "updated_at": "2026-11-24 06:45:59"
+   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
+   "updated_at": "2026-11-24 07:00:59"
   },
   {
    "id": "texec",
@@ -549,6 +549,11 @@
  "today_tasks": [],
  "activity": [
   {
+   "ts": "2026-11-24 07:01:07",
+   "agent_id": "analyst",
+   "message": "Update data 34 post IG 📈"
+  },
+  {
    "ts": "2026-11-24 06:15:59",
    "agent_id": "trisk",
    "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (sesi Asia)"
@@ -667,11 +672,6 @@
    "ts": "2026-11-24 04:41:11",
    "agent_id": "bpublish",
    "message": "Kirim Shorts #223 ke Owner buat approval"
-  },
-  {
-   "ts": "2026-11-24 04:23:00",
-   "agent_id": "yvideo",
-   "message": "Render laptop Shorts #225 gagal, cek logs/laptop-worker.log di laptop"
   }
  ],
  "chats": [
@@ -967,7 +967,7 @@
    "yt_posted": 5,
    "yt_pending": 0,
    "yt_scheduled": 2,
-   "views": 5187,
+   "views": 5189,
    "likes": 79,
    "comments": 1,
    "shares": 0,
@@ -990,7 +990,7 @@
      "title": "Meta FFWS GF 2026: SKORP vs double sniper kata Coach AFM",
      "format": "video",
      "pillar": "news",
-     "views": 1151
+     "views": 1153
     }
    ],
    "clicks": 0,
@@ -1061,6 +1061,11 @@
   "open": [],
   "signals": [
    {
+    "ts": "2026-11-24 07:00:59",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
+   {
     "ts": "2026-11-24 06:45:59",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
@@ -1082,11 +1087,6 @@
    },
    {
     "ts": "2026-11-24 05:45:59",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-   },
-   {
-    "ts": "2026-11-24 05:30:59",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
    }
@@ -1166,7 +1166,7 @@
    1757.48
   ],
   "last": {
-   "ts": "2026-11-24 06:45:59",
+   "ts": "2026-11-24 07:00:59",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1175,7 +1175,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)",
+   "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
    "fund": {
     "bias": -0.4,
     "note": "Fed hike bets naik (Okt–Nov 2026), DXY menguat ~102,2 (6 Nov), emas ~$4.100 tertekan. Berita 24 jam tidak terverifikasi.",
@@ -1252,8 +1252,8 @@
     "ema50": 3641.96,
     "rsi": 37.4,
     "n": 300,
-    "slot": 2992505,
-    "at": 1795503059110
+    "slot": 2992506,
+    "at": 1795503659111
    },
    "M15": {
     "bias": "sideways",
@@ -1263,8 +1263,8 @@
     "ema50": 3638.78,
     "rsi": 40.3,
     "n": 300,
-    "slot": 1995003,
-    "at": 1795502759105
+    "slot": 1995004,
+    "at": 1795503659116
    },
    "M30": {
     "bias": "sideways",
@@ -1274,8 +1274,8 @@
     "ema50": 3622.41,
     "rsi": 47.7,
     "n": 300,
-    "slot": 997501,
-    "at": 1795501859100
+    "slot": 997502,
+    "at": 1795503659119
    },
    "H1": {
     "bias": "bullish",
@@ -1285,8 +1285,8 @@
     "ema50": 3600.81,
     "rsi": 58.7,
     "n": 300,
-    "slot": 498750,
-    "at": 1795500059063
+    "slot": 498751,
+    "at": 1795503659123
    }
   },
   "currency": "USC",
