@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-24T11:53:28.494Z",
+ "generated_at": "2026-11-24T12:01:31.199Z",
  "today": "2026-11-24",
  "week_start": "2026-11-23",
  "campaign": null,
@@ -17,16 +17,16 @@
    "name": "Andre",
    "title": "Marketing Director",
    "status": "done",
-   "current_task": "Sesi sore: 0 ide, catatan ke Owner",
-   "updated_at": "2026-11-24 08:01:38"
+   "current_task": "pilih ide sesi malam",
+   "updated_at": "2026-11-24 12:01:30"
   },
   {
    "id": "researcher",
    "name": "Salsa",
    "title": "Researcher",
    "status": "done",
-   "current_task": "Riset sore: nihil berita baru ≥2 sumber",
-   "updated_at": "2026-11-24 08:01:37"
+   "current_task": "riset berita esport sesi malam",
+   "updated_at": "2026-11-24 12:01:24"
   },
   {
    "id": "copywriter",
@@ -98,7 +98,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-24 11:45:59"
+   "updated_at": "2026-11-24 12:00:59"
   },
   {
    "id": "tresearch",
@@ -106,7 +106,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Berita terbaru tipis, tak ada harga emas hari ini. USD menguat & sinyal Fed hawkish (NFP Okt kuat) → tekan emas. Core PCE 25 Nov.",
-   "updated_at": "2026-11-24 11:45:59"
+   "updated_at": "2026-11-24 12:00:59"
   },
   {
    "id": "ttech",
@@ -114,7 +114,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-24 11:45:59"
+   "updated_at": "2026-11-24 12:00:59"
   },
   {
    "id": "trisk",
@@ -122,7 +122,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-11-24 11:45:59"
+   "updated_at": "2026-11-24 12:00:59"
   },
   {
    "id": "texec",
@@ -496,10 +496,10 @@
    "game": "sejarah",
    "pillar": "lore_teori",
    "title": "Vibranium Ternyata Bukan Keras, Tapi Nyerap Getaran",
-   "status": "approved",
-   "asset_url": null,
+   "status": "posted",
+   "asset_url": "https://www.youtube.com/watch?v=PFKyB-3cCTk",
    "scheduled_at": null,
-   "posted_at": null,
+   "posted_at": "2026-11-24 12:01:10",
    "channel": "marvel"
   },
   {
@@ -524,10 +524,10 @@
    "game": "sejarah",
    "pillar": "misteri_kuno",
    "title": "Bukit di Cianjur Ini Pernah Diklaim Lebih Tua dari Piramida",
-   "status": "approved",
-   "asset_url": null,
+   "status": "posted",
+   "asset_url": "https://www.youtube.com/watch?v=kCOG7wE3Iik",
    "scheduled_at": null,
-   "posted_at": null,
+   "posted_at": "2026-11-24 12:01:00",
    "channel": "story"
   },
   {
@@ -548,6 +548,46 @@
  "clip_jobs": [],
  "today_tasks": [],
  "activity": [
+  {
+   "ts": "2026-11-24 12:01:31",
+   "agent_id": "dir",
+   "message": "Malam: ajukan 1 video (#275 8 tim GF FFWS) ke Owner"
+  },
+  {
+   "ts": "2026-11-24 12:01:30",
+   "agent_id": "dir",
+   "message": "Kirim 1 ide briefing ke Owner"
+  },
+  {
+   "ts": "2026-11-24 12:01:29",
+   "agent_id": "dir",
+   "message": "Pilih 1 berita hangat dari sesi riset malam"
+  },
+  {
+   "ts": "2026-11-24 12:01:29",
+   "agent_id": "spublish",
+   "message": "Cross-post Shorts #225 ke TikTok Zaa Story"
+  },
+  {
+   "ts": "2026-11-24 12:01:24",
+   "agent_id": "researcher",
+   "message": "Malam: 8 tim lolos GF FFWS jadi bahan; ML/Valorant sepi"
+  },
+  {
+   "ts": "2026-11-24 12:01:24",
+   "agent_id": "researcher",
+   "message": "Nemu 2 topik baru"
+  },
+  {
+   "ts": "2026-11-24 12:01:10",
+   "agent_id": "vpublish",
+   "message": "Upload Shorts #222 ke Marvel Talk (Publik via Zernio)"
+  },
+  {
+   "ts": "2026-11-24 12:01:00",
+   "agent_id": "spublish",
+   "message": "Upload Shorts #225 ke Zaa Story (Publik via Zernio)"
+  },
   {
    "ts": "2026-11-24 11:15:59",
    "agent_id": "trisk",
@@ -632,49 +672,23 @@
    "ts": "2026-11-24 05:29:38",
    "agent_id": "video",
    "message": "video #227 dirender di laptop & dikirim ke Owner"
-  },
-  {
-   "ts": "2026-11-24 05:29:37",
-   "agent_id": "publisher",
-   "message": "#227 lolos QA & langsung dijadwalkan tayang (riset di-ACC Owner)"
-  },
-  {
-   "ts": "2026-11-24 05:21:09",
-   "agent_id": "yscript",
-   "message": "Revisi Shorts #226 kelar: Intinya subtitle dobel sudah dibenerin dan tahunnya sekarang diucapin \"sembilan belas lima puluh\", tinggal tunggu render"
-  },
-  {
-   "ts": "2026-11-24 05:20:05",
-   "agent_id": "owner",
-   "message": "Minta revisi Shorts #226: kok subtitle nya ke-double, terus pas nyebutin tahun 1950 tu kok pake bahasa gajelas"
-  },
-  {
-   "ts": "2026-11-24 05:17:56",
-   "agent_id": "bpublish",
-   "message": "Cross-post Shorts #223 ke TikTok Cowo Bingung"
-  },
-  {
-   "ts": "2026-11-24 05:17:35",
-   "agent_id": "bpublish",
-   "message": "Upload Shorts #223 ke Cowo Bingung (Publik via Zernio)"
-  },
-  {
-   "ts": "2026-11-24 05:17:30",
-   "agent_id": "owner",
-   "message": "Approve Shorts #225 ✅"
-  },
-  {
-   "ts": "2026-11-24 05:17:23",
-   "agent_id": "owner",
-   "message": "Approve Shorts #223 ✅"
-  },
-  {
-   "ts": "2026-11-24 05:15:59",
-   "agent_id": "trisk",
-   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (sesi Asia)"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-11-24 12:01:30",
+   "agent_id": "dir",
+   "to_id": "researcher",
+   "kind": "oper",
+   "message": "Brief \"pilih ide sesi malam\" udah jadi. Salsa, gas riset ya!"
+  },
+  {
+   "ts": "2026-11-24 12:01:24",
+   "agent_id": "researcher",
+   "to_id": "copywriter",
+   "kind": "oper",
+   "message": "Riset \"riset berita esport sesi malam\" beres, udah dicek 2 sumber. Tiara, lanjut ya~"
+  },
   {
    "ts": "2026-11-24 11:00:35",
    "agent_id": "analyst",
@@ -940,33 +954,19 @@
    "to_id": "owner",
    "kind": "santai",
    "message": "Siap Bos! Naskah Jemkin & something (#220) sama meta FFWS Coach AFM (#221) udah beres, nol promo."
-  },
-  {
-   "ts": "2026-11-23 01:11:40",
-   "agent_id": "publisher",
-   "to_id": "owner",
-   "kind": "oper",
-   "message": "Bos, \"#220 & #221 nunggu render laptop (submit + QA otomatis)\" udah aku kirim ke Telegram. Ditunggu approve-nya 🙏"
-  },
-  {
-   "ts": "2026-11-23 01:11:40",
-   "agent_id": "video",
-   "to_id": "copywriter",
-   "kind": "santai",
-   "message": "Tiara, nama 'something' di VO semoga nggak dibaca kayak kata biasa ya wkwk"
   }
  ],
  "stats": {
   "this_week": {
    "week": "2026-11-23",
    "total": 11,
-   "posted": 9,
+   "posted": 11,
    "pending": 0,
-   "scheduled": 2,
+   "scheduled": 0,
    "yt_total": 7,
-   "yt_posted": 5,
+   "yt_posted": 7,
    "yt_pending": 0,
-   "yt_scheduled": 2,
+   "yt_scheduled": 0,
    "views": 7032,
    "likes": 101,
    "comments": 2,
@@ -1061,6 +1061,11 @@
   "open": [],
   "signals": [
    {
+    "ts": "2026-11-24 12:00:59",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
+   {
     "ts": "2026-11-24 11:45:59",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
@@ -1082,11 +1087,6 @@
    },
    {
     "ts": "2026-11-24 10:45:59",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-11-24 10:30:59",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1166,7 +1166,7 @@
    1757.48
   ],
   "last": {
-   "ts": "2026-11-24 11:45:59",
+   "ts": "2026-11-24 12:00:59",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1252,8 +1252,8 @@
     "ema50": 3641.96,
     "rsi": 37.4,
     "n": 300,
-    "slot": 2992535,
-    "at": 1795521059317
+    "slot": 2992536,
+    "at": 1795521659321
    },
    "M15": {
     "bias": "sideways",
@@ -1263,8 +1263,8 @@
     "ema50": 3638.78,
     "rsi": 40.3,
     "n": 300,
-    "slot": 1995023,
-    "at": 1795520759320
+    "slot": 1995024,
+    "at": 1795521659327
    },
    "M30": {
     "bias": "sideways",
@@ -1274,8 +1274,8 @@
     "ema50": 3622.41,
     "rsi": 47.7,
     "n": 300,
-    "slot": 997511,
-    "at": 1795519859303
+    "slot": 997512,
+    "at": 1795521659329
    },
    "H1": {
     "bias": "bullish",
@@ -1285,8 +1285,8 @@
     "ema50": 3600.81,
     "rsi": 58.7,
     "n": 300,
-    "slot": 498755,
-    "at": 1795518059483
+    "slot": 498756,
+    "at": 1795521659333
    }
   },
   "currency": "USC",
