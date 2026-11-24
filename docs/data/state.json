@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-24T20:53:28.761Z",
+ "generated_at": "2026-11-24T21:03:28.760Z",
  "today": "2026-11-25",
  "week_start": "2026-11-23",
  "campaign": null,
@@ -98,7 +98,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-24 20:46:00"
+   "updated_at": "2026-11-24 21:01:00"
   },
   {
    "id": "tresearch",
@@ -106,7 +106,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Berita terbaru tipis, tak ada harga emas hari ini. USD menguat & sinyal Fed hawkish (NFP Okt kuat) → tekan emas. Core PCE 25 Nov.",
-   "updated_at": "2026-11-24 20:45:59"
+   "updated_at": "2026-11-24 21:01:00"
   },
   {
    "id": "ttech",
@@ -114,7 +114,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-24 20:46:00"
+   "updated_at": "2026-11-24 21:01:00"
   },
   {
    "id": "trisk",
@@ -122,7 +122,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
-   "updated_at": "2026-11-24 20:46:00"
+   "updated_at": "2026-11-24 21:01:00"
   },
   {
    "id": "texec",
@@ -1061,6 +1061,11 @@
   "open": [],
   "signals": [
    {
+    "ts": "2026-11-24 21:01:00",
+    "decision": "NO TRADE",
+    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
+   },
+   {
     "ts": "2026-11-24 20:46:00",
     "decision": "NO TRADE",
     "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
@@ -1082,11 +1087,6 @@
    },
    {
     "ts": "2026-11-24 19:45:59",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-11-24 19:31:00",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1166,7 +1166,7 @@
    1757.48
   ],
   "last": {
-   "ts": "2026-11-24 20:46:00",
+   "ts": "2026-11-24 21:01:00",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1190,10 +1190,7 @@
     "note": "M15 3633.85 di bawah tengah band (3623.6–3659.8) · RSI 40 · Stoch 13 · MACD -1.09 · H1 sideways"
    }
   },
-  "fund": {
-   "bias": -0.2,
-   "note": "Berita terbaru tipis, tak ada harga emas hari ini. USD menguat & sinyal Fed hawkish (NFP Okt kuat) → tekan emas. Core PCE 25 Nov."
-  },
+  "fund": null,
   "calendar": [
    {
     "title": "Core PCE Price Index m/m",
@@ -1252,8 +1249,8 @@
     "ema50": 3641.96,
     "rsi": 37.4,
     "n": 300,
-    "slot": 2992589,
-    "at": 1795553459933
+    "slot": 2992590,
+    "at": 1795554059943
    },
    "M15": {
     "bias": "sideways",
@@ -1263,8 +1260,8 @@
     "ema50": 3638.78,
     "rsi": 40.3,
     "n": 300,
-    "slot": 1995059,
-    "at": 1795553159938
+    "slot": 1995060,
+    "at": 1795554059948
    },
    "M30": {
     "bias": "sideways",
@@ -1274,8 +1271,8 @@
     "ema50": 3622.41,
     "rsi": 47.7,
     "n": 300,
-    "slot": 997529,
-    "at": 1795552259923
+    "slot": 997530,
+    "at": 1795554059950
    },
    "H1": {
     "bias": "bullish",
@@ -1285,8 +1282,8 @@
     "ema50": 3600.81,
     "rsi": 58.7,
     "n": 300,
-    "slot": 498764,
-    "at": 1795550459896
+    "slot": 498765,
+    "at": 1795554059954
    }
   },
   "currency": "USC",
