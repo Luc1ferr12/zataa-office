@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-24T09:53:28.483Z",
+ "generated_at": "2026-11-24T10:03:28.454Z",
  "today": "2026-11-24",
  "week_start": "2026-11-23",
  "campaign": null,
@@ -74,7 +74,7 @@
    "title": "Data Analyst",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-11-24 07:01:07"
+   "updated_at": "2026-11-24 10:01:08"
   },
   {
    "id": "price",
@@ -98,7 +98,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-24 09:45:59"
+   "updated_at": "2026-11-24 10:00:59"
   },
   {
    "id": "tresearch",
@@ -106,7 +106,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
-   "updated_at": "2026-11-24 09:45:59"
+   "updated_at": "2026-11-24 10:00:59"
   },
   {
    "id": "ttech",
@@ -114,7 +114,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-24 09:45:59"
+   "updated_at": "2026-11-24 10:00:59"
   },
   {
    "id": "trisk",
@@ -122,7 +122,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-11-24 09:45:59"
+   "updated_at": "2026-11-24 10:00:59"
   },
   {
    "id": "texec",
@@ -549,6 +549,11 @@
  "today_tasks": [],
  "activity": [
   {
+   "ts": "2026-11-24 10:01:08",
+   "agent_id": "analyst",
+   "message": "Update data 33 post IG 📈"
+  },
+  {
    "ts": "2026-11-24 09:15:59",
    "agent_id": "trisk",
    "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
@@ -667,11 +672,6 @@
    "ts": "2026-11-24 04:47:45",
    "agent_id": "yvideo",
    "message": "Shorts #225 dirender di laptop & dikirim ke Owner"
-  },
-  {
-   "ts": "2026-11-24 04:47:44",
-   "agent_id": "spublish",
-   "message": "Kirim Shorts #225 ke Owner buat approval"
   }
  ],
  "chats": [
@@ -967,7 +967,7 @@
    "yt_posted": 5,
    "yt_pending": 0,
    "yt_scheduled": 2,
-   "views": 6151,
+   "views": 6152,
    "likes": 91,
    "comments": 2,
    "shares": 0,
@@ -990,7 +990,7 @@
      "title": "Meta FFWS GF 2026: SKORP vs double sniper kata Coach AFM",
      "format": "video",
      "pillar": "news",
-     "views": 1205
+     "views": 1206
     }
    ],
    "clicks": 0,
@@ -1061,6 +1061,11 @@
   "open": [],
   "signals": [
    {
+    "ts": "2026-11-24 10:00:59",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
+   {
     "ts": "2026-11-24 09:45:59",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
@@ -1082,11 +1087,6 @@
    },
    {
     "ts": "2026-11-24 08:45:59",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-11-24 08:30:59",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1166,7 +1166,7 @@
    1757.48
   ],
   "last": {
-   "ts": "2026-11-24 09:45:59",
+   "ts": "2026-11-24 10:00:59",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1249,8 +1249,8 @@
     "ema50": 3641.96,
     "rsi": 37.4,
     "n": 300,
-    "slot": 2992523,
-    "at": 1795513859235
+    "slot": 2992524,
+    "at": 1795514459234
    },
    "M15": {
     "bias": "sideways",
@@ -1260,8 +1260,8 @@
     "ema50": 3638.78,
     "rsi": 40.3,
     "n": 300,
-    "slot": 1995015,
-    "at": 1795513559228
+    "slot": 1995016,
+    "at": 1795514459240
    },
    "M30": {
     "bias": "sideways",
@@ -1271,8 +1271,8 @@
     "ema50": 3622.41,
     "rsi": 47.7,
     "n": 300,
-    "slot": 997507,
-    "at": 1795512659222
+    "slot": 997508,
+    "at": 1795514459242
    },
    "H1": {
     "bias": "bullish",
@@ -1282,8 +1282,8 @@
     "ema50": 3600.81,
     "rsi": 58.7,
     "n": 300,
-    "slot": 498753,
-    "at": 1795510859201
+    "slot": 498754,
+    "at": 1795514459247
    }
   },
   "currency": "USC",
