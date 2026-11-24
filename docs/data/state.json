@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-24T23:03:28.749Z",
+ "generated_at": "2026-11-24T23:13:28.745Z",
  "today": "2026-11-25",
  "week_start": "2026-11-23",
  "campaign": null,
@@ -209,8 +209,8 @@
    "name": "Raditya",
    "title": "Manajer Zataa Story",
    "status": "done",
-   "current_task": "Pilih MK-001 Gunung Padang (ide Owner)",
-   "updated_at": "2026-11-23 23:16:59"
+   "current_task": "Topik HH-008 Madagaskar, film #229 antre",
+   "updated_at": "2026-11-24 23:12:07"
   },
   {
    "id": "sresearch",
@@ -369,8 +369,8 @@
    "name": "Zahra",
    "title": "Visual & Film Lemo-Opuscar",
    "status": "done",
-   "current_task": "Film brick-toy cowo-bata-selang",
-   "updated_at": "2026-11-23 23:16:59"
+   "current_task": "Film tutup pulpen #228 antre render",
+   "updated_at": "2026-11-24 23:07:20"
   },
   {
    "id": "bvideo",
@@ -543,11 +543,49 @@
    "scheduled_at": null,
    "posted_at": "2026-11-24 05:47:48",
    "channel": "youtube"
+  },
+  {
+   "id": 228,
+   "day": "2026-11-25",
+   "slot": "shorts",
+   "format": "shorts",
+   "game": "sejarah",
+   "pillar": "kenapa_gitu",
+   "title": "Kenapa Tutup Pulpen Ada Lubangnya?",
+   "status": "draft",
+   "asset_url": null,
+   "scheduled_at": null,
+   "posted_at": null,
+   "channel": "cowo"
+  },
+  {
+   "id": 229,
+   "day": "2026-11-25",
+   "slot": "shorts",
+   "format": "shorts",
+   "game": "sejarah",
+   "pillar": "misteri_kuno",
+   "title": "Pulau di Afrika Ini Bahasanya Mirip Bahasa Kalimantan",
+   "status": "draft",
+   "asset_url": null,
+   "scheduled_at": null,
+   "posted_at": null,
+   "channel": "story"
   }
  ],
  "clip_jobs": [],
  "today_tasks": [],
  "activity": [
+  {
+   "ts": "2026-11-24 23:12:01",
+   "agent_id": "svideo",
+   "message": "Shorts #229 \"Pulau di Afrika Ini Bahasanya Mirip Bahasa Kalimantan\" masuk antrean render laptop (film lemo-opuscar films/story-madagaskar-maanyan)"
+  },
+  {
+   "ts": "2026-11-24 23:07:14",
+   "agent_id": "bvideo",
+   "message": "Shorts #228 \"Kenapa Tutup Pulpen Ada Lubangnya?\" masuk antrean render laptop (film lemo-opuscar films/cowo-tutup-pulpen)"
+  },
   {
    "ts": "2026-11-24 23:01:55",
    "agent_id": "dir",
@@ -662,19 +700,16 @@
    "ts": "2026-11-24 12:01:30",
    "agent_id": "dir",
    "message": "Kirim 1 ide briefing ke Owner"
-  },
-  {
-   "ts": "2026-11-24 12:01:29",
-   "agent_id": "dir",
-   "message": "Pilih 1 berita hangat dari sesi riset malam"
-  },
-  {
-   "ts": "2026-11-24 12:01:29",
-   "agent_id": "spublish",
-   "message": "Cross-post Shorts #225 ke TikTok Zaa Story"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-11-24 23:12:07",
+   "agent_id": "sdir",
+   "to_id": "sresearch",
+   "kind": "oper",
+   "message": "Sekar, topik Zaa Story hari ini: \"Topik HH-008 Madagaskar, film #229 antre\". Cari sisi sejarahnya ya, jangan cuma seremnya 👻"
+  },
   {
    "ts": "2026-11-24 23:01:55",
    "agent_id": "dir",
@@ -947,23 +982,16 @@
    "to_id": null,
    "kind": "oper",
    "message": "\"Jemkin & something resmi bukan pemain impor lagi d\" udah tayang di IG + TikTok 🚀 Makasih semua!"
-  },
-  {
-   "ts": "2026-11-23 01:11:54",
-   "agent_id": "publisher",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Habis render, QA jalan otomatis. Lolos langsung tayang, nanti Bos dikabarin."
   }
  ],
  "stats": {
   "this_week": {
    "week": "2026-11-23",
-   "total": 11,
+   "total": 13,
    "posted": 11,
    "pending": 0,
    "scheduled": 0,
-   "yt_total": 7,
+   "yt_total": 9,
    "yt_posted": 7,
    "yt_pending": 0,
    "yt_scheduled": 0,
@@ -1252,8 +1280,8 @@
     "ema50": 3641.96,
     "rsi": 37.4,
     "n": 300,
-    "slot": 2992602,
-    "at": 1795561260031
+    "slot": 2992603,
+    "at": 1795561860041
    },
    "M15": {
     "bias": "sideways",
