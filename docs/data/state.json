@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-24T10:43:28.525Z",
+ "generated_at": "2026-11-24T10:53:28.483Z",
  "today": "2026-11-24",
  "week_start": "2026-11-23",
  "campaign": null,
@@ -98,7 +98,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-24 10:30:59"
+   "updated_at": "2026-11-24 10:45:59"
   },
   {
    "id": "tresearch",
@@ -106,7 +106,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
-   "updated_at": "2026-11-24 10:30:59"
+   "updated_at": "2026-11-24 10:45:59"
   },
   {
    "id": "ttech",
@@ -114,7 +114,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-24 10:30:59"
+   "updated_at": "2026-11-24 10:45:59"
   },
   {
    "id": "trisk",
@@ -122,7 +122,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-11-24 10:30:59"
+   "updated_at": "2026-11-24 10:45:59"
   },
   {
    "id": "texec",
@@ -1061,6 +1061,11 @@
   "open": [],
   "signals": [
    {
+    "ts": "2026-11-24 10:45:59",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
+   {
     "ts": "2026-11-24 10:30:59",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
@@ -1082,11 +1087,6 @@
    },
    {
     "ts": "2026-11-24 09:30:59",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-11-24 09:15:59",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1166,7 +1166,7 @@
    1757.48
   ],
   "last": {
-   "ts": "2026-11-24 10:30:59",
+   "ts": "2026-11-24 10:45:59",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1249,8 +1249,8 @@
     "ema50": 3641.96,
     "rsi": 37.4,
     "n": 300,
-    "slot": 2992528,
-    "at": 1795516859265
+    "slot": 2992529,
+    "at": 1795517459471
    },
    "M15": {
     "bias": "sideways",
@@ -1260,8 +1260,8 @@
     "ema50": 3638.78,
     "rsi": 40.3,
     "n": 300,
-    "slot": 1995018,
-    "at": 1795516259273
+    "slot": 1995019,
+    "at": 1795517159278
    },
    "M30": {
     "bias": "sideways",
