@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-24T04:23:28.241Z",
+ "generated_at": "2026-11-24T04:33:28.245Z",
  "today": "2026-11-24",
  "week_start": "2026-11-23",
  "campaign": null,
@@ -48,17 +48,17 @@
    "id": "video",
    "name": "Dimas",
    "title": "Video Production",
-   "status": "working",
+   "status": "done",
    "current_task": "Film game-show LCQ FFWS",
-   "updated_at": "2026-11-24 04:20:40"
+   "updated_at": "2026-11-24 04:25:54"
   },
   {
    "id": "publisher",
    "name": "Fikri",
    "title": "Social Media Publisher",
    "status": "done",
-   "current_task": "Konten 224 masuk antrean QA otomatis",
-   "updated_at": "2026-11-23 23:08:22"
+   "current_task": "Daftar konten + antre render LCQ FFWS",
+   "updated_at": "2026-11-24 04:26:23"
   },
   {
    "id": "ads",
@@ -98,7 +98,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-24 04:15:59"
+   "updated_at": "2026-11-24 04:30:59"
   },
   {
    "id": "tresearch",
@@ -106,7 +106,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Fed hike bets naik (Okt–Nov 2026), DXY menguat ~102,2 (6 Nov), emas ~$4.100 tertekan. Berita 24 jam tidak terverifikasi.",
-   "updated_at": "2026-11-24 04:15:59"
+   "updated_at": "2026-11-24 04:30:59"
   },
   {
    "id": "ttech",
@@ -114,7 +114,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-24 04:15:59"
+   "updated_at": "2026-11-24 04:30:59"
   },
   {
    "id": "trisk",
@@ -122,7 +122,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
-   "updated_at": "2026-11-24 04:15:59"
+   "updated_at": "2026-11-24 04:30:59"
   },
   {
    "id": "texec",
@@ -475,6 +475,20 @@
    "channel": null
   },
   {
+   "id": 227,
+   "day": "2026-11-24",
+   "slot": "kilat",
+   "format": "video",
+   "game": "freefire",
+   "pillar": "news",
+   "title": "Prediksi LCQ FFWS: RRQ Kazu, ONIC, atau BTR yang tembus Grand Final?",
+   "status": "draft",
+   "asset_url": null,
+   "scheduled_at": null,
+   "posted_at": null,
+   "channel": null
+  },
+  {
    "id": 222,
    "day": "2026-11-24",
    "slot": "shorts",
@@ -661,6 +675,48 @@
   }
  ],
  "chats": [
+  {
+   "ts": "2026-11-24 04:26:44",
+   "agent_id": "publisher",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Abis render, QA otomatis. Lolos langsung tayang TikTok + YouTube, nanti Bos dikabari ya!"
+  },
+  {
+   "ts": "2026-11-24 04:26:44",
+   "agent_id": "video",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Film game-show prediksinya udah jadi, ada 3 maskot kontestan pakai logo tim + podium \"SIAPA TEMBUS?\" (konten 227). Lagi antre render di laptop."
+  },
+  {
+   "ts": "2026-11-24 04:26:44",
+   "agent_id": "researcher",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Udah dicek Bos, RRQ Kazu, ONIC, sama BTR resmi main Last Chance 27 Nov di Bangkok (12 tim, GF 28 Nov). Angka poin sengaja nggak ditulis."
+  },
+  {
+   "ts": "2026-11-24 04:26:23",
+   "agent_id": "video",
+   "to_id": "copywriter",
+   "kind": "santai",
+   "message": "Tiara, mahkota si RRQ di film lucu juga ya, semoga beneran tembus GF wkwk"
+  },
+  {
+   "ts": "2026-11-24 04:26:23",
+   "agent_id": "publisher",
+   "to_id": "owner",
+   "kind": "oper",
+   "message": "\"Daftar konten + antre render LCQ FFWS\" udah lolos QA, tinggal nunggu ✅ dari Bos"
+  },
+  {
+   "ts": "2026-11-24 04:25:54",
+   "agent_id": "video",
+   "to_id": "publisher",
+   "kind": "oper",
+   "message": "Render \"Film game-show LCQ FFWS\" selesai, Fikri. Cek cover-nya ya"
+  },
   {
    "ts": "2026-11-24 04:20:40",
    "agent_id": "copywriter",
@@ -898,54 +954,12 @@
    "to_id": "vvisual",
    "kind": "santai",
    "message": "Intan, klip Thor teriak I knew it jangan kelewat ya, itu momen paling dikenang"
-  },
-  {
-   "ts": "2026-11-22 23:06:08",
-   "agent_id": "vdir",
-   "to_id": "vresearch",
-   "kind": "oper",
-   "message": "Brief \"Approve LT-006, Shorts #219 masuk antrean render\" beres. Citra, gas riset!"
-  },
-  {
-   "ts": "2026-11-22 23:03:01",
-   "agent_id": "dir",
-   "to_id": "researcher",
-   "kind": "oper",
-   "message": "Brief \"Kirim 2 ide video sesi pagi ke Owner\" udah jadi. Salsa, gas riset ya!"
-  },
-  {
-   "ts": "2026-11-22 23:03:00",
-   "agent_id": "researcher",
-   "to_id": "copywriter",
-   "kind": "oper",
-   "message": "Tiara, bahan buat \"Riset pagi: Jemkin/something residen Pacific, meta FFWS, upd\" udah aku rangkum + sumbernya. Tinggal kamu racik captionnya ✍️"
-  },
-  {
-   "ts": "2026-11-22 11:30:32",
-   "agent_id": "analyst",
-   "to_id": "dir",
-   "kind": "oper",
-   "message": "Kak, laporan minggu ini udah aku kirim ke Bos. Jam tayang IG & TikTok udah aku pisah ya 📈"
-  },
-  {
-   "ts": "2026-11-22 11:00:32",
-   "agent_id": "analyst",
-   "to_id": "dir",
-   "kind": "oper",
-   "message": "Laporan harian marketing udah aku kirim ke Bos, 0 konten tayang hari ini 📊"
-  },
-  {
-   "ts": "2026-11-22 02:44:57",
-   "agent_id": "publisher",
-   "to_id": null,
-   "kind": "oper",
-   "message": "\"PRX final roster 2027: PatMen balik, Primmie masuk\" udah tayang di TikTok 🚀 Makasih semua!"
   }
  ],
  "stats": {
   "this_week": {
    "week": "2026-11-23",
-   "total": 10,
+   "total": 11,
    "posted": 5,
    "pending": 0,
    "scheduled": 1,
@@ -1047,6 +1061,11 @@
   "open": [],
   "signals": [
    {
+    "ts": "2026-11-24 04:30:59",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
+   },
+   {
     "ts": "2026-11-24 04:15:59",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
@@ -1068,11 +1087,6 @@
    },
    {
     "ts": "2026-11-24 03:15:59",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-   },
-   {
-    "ts": "2026-11-24 03:00:59",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
    }
@@ -1152,7 +1166,7 @@
    1757.48
   ],
   "last": {
-   "ts": "2026-11-24 04:15:59",
+   "ts": "2026-11-24 04:30:59",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1238,8 +1252,8 @@
     "ema50": 3641.96,
     "rsi": 37.4,
     "n": 300,
-    "slot": 2992490,
-    "at": 1795494058967
+    "slot": 2992491,
+    "at": 1795494658980
    },
    "M15": {
     "bias": "sideways",
@@ -1249,8 +1263,8 @@
     "ema50": 3638.78,
     "rsi": 40.3,
     "n": 300,
-    "slot": 1994993,
-    "at": 1795493758975
+    "slot": 1994994,
+    "at": 1795494658986
    },
    "M30": {
     "bias": "sideways",
@@ -1260,8 +1274,8 @@
     "ema50": 3622.41,
     "rsi": 47.7,
     "n": 300,
-    "slot": 997496,
-    "at": 1795492858962
+    "slot": 997497,
+    "at": 1795494658987
    },
    "H1": {
     "bias": "bullish",
