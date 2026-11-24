@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-24T13:53:28.495Z",
+ "generated_at": "2026-11-24T14:03:28.498Z",
  "today": "2026-11-24",
  "week_start": "2026-11-23",
  "campaign": null,
@@ -98,7 +98,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-24 13:45:59"
+   "updated_at": "2026-11-24 14:00:59"
   },
   {
    "id": "tresearch",
@@ -106,7 +106,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Berita terbaru tipis, tak ada harga emas hari ini. USD menguat & sinyal Fed hawkish (NFP Okt kuat) → tekan emas. Core PCE 25 Nov.",
-   "updated_at": "2026-11-24 13:45:59"
+   "updated_at": "2026-11-24 14:00:59"
   },
   {
    "id": "ttech",
@@ -114,7 +114,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-24 13:45:59"
+   "updated_at": "2026-11-24 14:00:59"
   },
   {
    "id": "trisk",
@@ -122,7 +122,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-11-24 13:45:59"
+   "updated_at": "2026-11-24 14:00:59"
   },
   {
    "id": "texec",
@@ -1061,6 +1061,11 @@
   "open": [],
   "signals": [
    {
+    "ts": "2026-11-24 14:00:59",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
+   {
     "ts": "2026-11-24 13:45:59",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
@@ -1082,11 +1087,6 @@
    },
    {
     "ts": "2026-11-24 12:45:59",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-11-24 12:30:59",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1166,7 +1166,7 @@
    1757.48
   ],
   "last": {
-   "ts": "2026-11-24 13:45:59",
+   "ts": "2026-11-24 14:00:59",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1252,8 +1252,8 @@
     "ema50": 3641.96,
     "rsi": 37.4,
     "n": 300,
-    "slot": 2992547,
-    "at": 1795528259463
+    "slot": 2992548,
+    "at": 1795528859488
    },
    "M15": {
     "bias": "sideways",
@@ -1263,8 +1263,8 @@
     "ema50": 3638.78,
     "rsi": 40.3,
     "n": 300,
-    "slot": 1995031,
-    "at": 1795527959463
+    "slot": 1995032,
+    "at": 1795528859494
    },
    "M30": {
     "bias": "sideways",
@@ -1274,8 +1274,8 @@
     "ema50": 3622.41,
     "rsi": 47.7,
     "n": 300,
-    "slot": 997515,
-    "at": 1795527059437
+    "slot": 997516,
+    "at": 1795528859495
    },
    "H1": {
     "bias": "bullish",
@@ -1285,8 +1285,8 @@
     "ema50": 3600.81,
     "rsi": 58.7,
     "n": 300,
-    "slot": 498757,
-    "at": 1795525259416
+    "slot": 498758,
+    "at": 1795528859499
    }
   },
   "currency": "USC",
