@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-24T04:33:28.245Z",
+ "generated_at": "2026-11-24T04:43:28.276Z",
  "today": "2026-11-24",
  "week_start": "2026-11-23",
  "campaign": null,
@@ -510,7 +510,7 @@
    "game": "sejarah",
    "pillar": "kenapa_gitu",
    "title": "Kenapa Tembok Bata Dipasang Selang-seling?",
-   "status": "draft",
+   "status": "pending_approval",
    "asset_url": null,
    "scheduled_at": null,
    "posted_at": null,
@@ -548,6 +548,16 @@
  "clip_jobs": [],
  "today_tasks": [],
  "activity": [
+  {
+   "ts": "2026-11-24 04:41:12",
+   "agent_id": "yvideo",
+   "message": "Shorts #223 dirender di laptop & dikirim ke Owner"
+  },
+  {
+   "ts": "2026-11-24 04:41:11",
+   "agent_id": "bpublish",
+   "message": "Kirim Shorts #223 ke Owner buat approval"
+  },
   {
    "ts": "2026-11-24 04:23:00",
    "agent_id": "yvideo",
@@ -662,16 +672,6 @@
    "ts": "2026-11-24 03:15:59",
    "agent_id": "trisk",
    "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-  },
-  {
-   "ts": "2026-11-24 03:01:14",
-   "agent_id": "ypublish",
-   "message": "Cross-post Shorts #65 ke TikTok Zaa History"
-  },
-  {
-   "ts": "2026-11-24 02:42:47",
-   "agent_id": "yvideo",
-   "message": "Render laptop Shorts #226 gagal, cek logs/laptop-worker.log di laptop"
   }
  ],
  "chats": [
@@ -961,13 +961,13 @@
    "week": "2026-11-23",
    "total": 11,
    "posted": 5,
-   "pending": 0,
+   "pending": 1,
    "scheduled": 1,
    "yt_total": 7,
    "yt_posted": 3,
-   "yt_pending": 0,
+   "yt_pending": 1,
    "yt_scheduled": 1,
-   "views": 5166,
+   "views": 5167,
    "likes": 77,
    "comments": 1,
    "shares": 0,
@@ -984,7 +984,7 @@
      "title": "Jemkin & something resmi bukan pemain impor lagi di VCT 2027",
      "format": "video",
      "pillar": "news",
-     "views": 1606
+     "views": 1607
     },
     {
      "title": "Meta FFWS GF 2026: SKORP vs double sniper kata Coach AFM",
@@ -1014,12 +1014,12 @@
    "yt_posted": 16,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 20914,
+   "views": 20921,
    "likes": 313,
    "comments": 5,
    "shares": 0,
    "saves": 2,
-   "yt_views": 16451,
+   "yt_views": 16452,
    "top": [
     {
      "title": "Gua di Biak Ini Konon Jadi Kuburan Ribuan Tentara Jepang",
@@ -1031,7 +1031,7 @@
      "title": "Kuburan Belanda di Jakarta Ini Sekarang Jadi Museum, Konon Angker",
      "format": "shorts",
      "pillar": "horor_sejarah",
-     "views": 2025
+     "views": 2026
     },
     {
      "title": "Legenda Danau Toba Konon Menyimpan Jejak Letusan Terbesar",
@@ -1252,8 +1252,8 @@
     "ema50": 3641.96,
     "rsi": 37.4,
     "n": 300,
-    "slot": 2992491,
-    "at": 1795494658980
+    "slot": 2992492,
+    "at": 1795495258987
    },
    "M15": {
     "bias": "sideways",
