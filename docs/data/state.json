@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-25T06:37:34.515Z",
+ "generated_at": "2026-11-25T06:47:34.760Z",
  "today": "2026-11-25",
  "week_start": "2026-11-23",
  "campaign": null,
@@ -98,7 +98,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-25 06:30:48"
+   "updated_at": "2026-11-25 06:46:05"
   },
   {
    "id": "tresearch",
@@ -106,23 +106,23 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Fed hold 3,75–4% Okt, pasar pasang hike Des; NFP Okt kuat, DXY ~102. Bias turun. PCE & GDP 25 Nov bisa hawkish. Harga live belum dicek.",
-   "updated_at": "2026-11-25 06:30:48"
+   "updated_at": "2026-11-25 06:46:04"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Setup BUY di band (RSI+Stokastik+MACD)",
-   "updated_at": "2026-11-25 06:30:48"
+   "current_task": "Belum ada pantulan band · H1 bearish",
+   "updated_at": "2026-11-25 06:46:05"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: fundamental berlawanan (Fed hold 3,75–4% Okt, pasar pasang hike Des; NFP Okt kuat, DXY ~102. Bias turun. PCE & GDP 25 Nov bisa hawkish. Harga live belum dicek.)",
-   "updated_at": "2026-11-25 06:30:48"
+   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
+   "updated_at": "2026-11-25 06:46:05"
   },
   {
    "id": "texec",
@@ -233,8 +233,8 @@
    "name": "Arga",
    "title": "Visual & Creative",
    "status": "done",
-   "current_task": "Film shadow-puppet story-gunung-padang",
-   "updated_at": "2026-11-23 23:16:59"
+   "current_task": "Film backrooms pertama: Rumah Cimanggis (#233)",
+   "updated_at": "2026-11-25 06:46:23"
   },
   {
    "id": "svideo",
@@ -613,11 +613,40 @@
    "scheduled_at": null,
    "posted_at": null,
    "channel": "youtube"
+  },
+  {
+   "id": 233,
+   "day": "2026-11-25",
+   "slot": "shorts",
+   "format": "shorts",
+   "game": "sejarah",
+   "pillar": "horor_sejarah",
+   "title": "Rumah VOC Ini Dipesan Gubernur Jenderal yang Mati Duluan",
+   "status": "draft",
+   "asset_url": null,
+   "scheduled_at": null,
+   "posted_at": null,
+   "channel": "story"
   }
  ],
  "clip_jobs": [],
  "today_tasks": [],
  "activity": [
+  {
+   "ts": "2026-11-25 06:46:27",
+   "agent_id": "sdir",
+   "message": "Pengganti Shorts #229: Penggantinya #233 \"Rumah VOC Ini Dipesan Gubernur Jenderal yang Mati Duluan\" (Rumah Cimanggis di Depok, Horor Bersejarah"
+  },
+  {
+   "ts": "2026-11-25 06:46:23",
+   "agent_id": "sdir",
+   "message": "Pengganti #229 → #233 Rumah Cimanggis (HS-008, backrooms, varian panjang), antre render laptop"
+  },
+  {
+   "ts": "2026-11-25 06:46:19",
+   "agent_id": "svideo",
+   "message": "Shorts #233 \"Rumah VOC Ini Dipesan Gubernur Jenderal yang Mati Duluan\" masuk antrean render laptop (film lemo-opuscar films/rumah-cimanggis)"
+  },
   {
    "ts": "2026-11-25 06:37:18",
    "agent_id": "dir",
@@ -727,21 +756,6 @@
    "ts": "2026-11-25 02:20:07",
    "agent_id": "owner",
    "message": "Tolak Shorts #229"
-  },
-  {
-   "ts": "2026-11-25 02:20:06",
-   "agent_id": "owner",
-   "message": "Keputusan dari web: Diteruskan ke bot Zaa Story (±5 dtk)"
-  },
-  {
-   "ts": "2026-11-25 02:18:34",
-   "agent_id": "yvideo",
-   "message": "Shorts #230 dirender di laptop & dikirim ke Owner"
-  },
-  {
-   "ts": "2026-11-25 02:18:33",
-   "agent_id": "vpublish",
-   "message": "Kirim Shorts #230 ke Owner buat approval"
   }
  ],
  "chats": [
@@ -1029,11 +1043,11 @@
  "stats": {
   "this_week": {
    "week": "2026-11-23",
-   "total": 15,
+   "total": 16,
    "posted": 12,
    "pending": 0,
    "scheduled": 3,
-   "yt_total": 10,
+   "yt_total": 11,
    "yt_posted": 7,
    "yt_pending": 0,
    "yt_scheduled": 3,
@@ -1127,9 +1141,14 @@
   "paused": false,
   "balance": 1757.48,
   "today_pnl": 0,
-  "price": 3520.699951,
+  "price": 3522.350098,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-25 06:46:05",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
+   },
    {
     "ts": "2026-11-25 06:30:48",
     "decision": "NO TRADE",
@@ -1152,11 +1171,6 @@
    },
    {
     "ts": "2026-11-25 05:30:48",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-   },
-   {
-    "ts": "2026-11-25 05:15:48",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
    }
@@ -1236,7 +1250,7 @@
    1757.48
   ],
   "last": {
-   "ts": "2026-11-25 06:30:48",
+   "ts": "2026-11-25 06:46:05",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1245,7 +1259,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "fundamental berlawanan (Fed hold 3,75–4% Okt, pasar pasang hike Des; NFP Okt kuat, DXY ~102. Bias turun. PCE & GDP 25 Nov bisa hawkish. Harga live belum dicek.)",
+   "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)",
    "fund": {
     "bias": -0.4,
     "note": "Fed hold 3,75–4% Okt, pasar pasang hike Des; NFP Okt kuat, DXY ~102. Bias turun. PCE & GDP 25 Nov bisa hawkish. Harga live belum dicek.",
@@ -1254,14 +1268,10 @@
    },
    "tech": {
     "bias": "bearish",
-    "score": 3,
-    "trigger": "buy",
-    "confirm": [
-     "RSI",
-     "Stokastik",
-     "MACD"
-    ],
-    "note": "M15 3525.60 di bawah tengah band (3517.1–3571.6) · RSI 27 · Stoch 11 · MACD +0.26 · H1 bearish · setup BUY (RSI+Stokastik+MACD)"
+    "score": 0,
+    "trigger": null,
+    "confirm": [],
+    "note": "M15 3519.00 di bawah tengah band (3511.1–3573.6) · RSI 24 · Stoch 6 · MACD +0.04 · H1 bearish"
    }
   },
   "fund": {
@@ -1321,24 +1331,24 @@
    "M10": {
     "bias": "bearish",
     "score": -3,
-    "price": 3521.5,
-    "ema20": 3542.39,
-    "ema50": 3572.29,
-    "rsi": 27.7,
+    "price": 3526.3,
+    "ema20": 3540.85,
+    "ema50": 3570.49,
+    "rsi": 32.7,
     "n": 299,
-    "slot": 2992647,
-    "at": 1795588248487
+    "slot": 2992648,
+    "at": 1795588864721
    },
    "M15": {
     "bias": "bearish",
     "score": -3,
-    "price": 3521.5,
-    "ema20": 3553.28,
-    "ema50": 3586.2,
-    "rsi": 22.7,
+    "price": 3516.45,
+    "ema20": 3549.77,
+    "ema50": 3583.47,
+    "rsi": 21.3,
     "n": 299,
-    "slot": 1995098,
-    "at": 1795588248497
+    "slot": 1995099,
+    "at": 1795589164722
    },
    "M30": {
     "bias": "bearish",
