@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-25T10:27:34.844Z",
+ "generated_at": "2026-11-25T10:37:34.846Z",
  "today": "2026-11-25",
  "week_start": "2026-11-23",
  "campaign": null,
@@ -98,7 +98,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-25 10:16:04"
+   "updated_at": "2026-11-25 10:31:05"
   },
   {
    "id": "tresearch",
@@ -106,7 +106,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
-   "updated_at": "2026-11-25 10:16:04"
+   "updated_at": "2026-11-25 10:31:05"
   },
   {
    "id": "ttech",
@@ -114,7 +114,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-11-25 10:16:04"
+   "updated_at": "2026-11-25 10:31:05"
   },
   {
    "id": "trisk",
@@ -122,7 +122,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-11-25 10:16:04"
+   "updated_at": "2026-11-25 10:31:05"
   },
   {
    "id": "texec",
@@ -647,6 +647,16 @@
  "today_tasks": [],
  "activity": [
   {
+   "ts": "2026-11-25 10:31:05",
+   "agent_id": "trisk",
+   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+  },
+  {
+   "ts": "2026-11-25 10:31:04",
+   "agent_id": "ttech",
+   "message": "M15 berubah arah: sideways → bearish"
+  },
+  {
    "ts": "2026-11-25 10:16:04",
    "agent_id": "ttech",
    "message": "M15 berubah arah: bearish → sideways"
@@ -760,16 +770,6 @@
    "ts": "2026-11-25 07:00:03",
    "agent_id": "spublish",
    "message": "Kirim Shorts #233 ke Owner buat approval"
-  },
-  {
-   "ts": "2026-11-25 06:46:27",
-   "agent_id": "sdir",
-   "message": "Pengganti Shorts #229: Penggantinya #233 \"Rumah VOC Ini Dipesan Gubernur Jenderal yang Mati Duluan\" (Rumah Cimanggis di Depok, Horor Bersejarah"
-  },
-  {
-   "ts": "2026-11-25 06:46:23",
-   "agent_id": "sdir",
-   "message": "Pengganti #229 → #233 Rumah Cimanggis (HS-008, backrooms, varian panjang), antre render laptop"
   }
  ],
  "chats": [
@@ -1155,9 +1155,14 @@
   "paused": false,
   "balance": 1757.48,
   "today_pnl": 0,
-  "price": 3529.5,
+  "price": 3528,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-25 10:31:05",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
    {
     "ts": "2026-11-25 10:16:04",
     "decision": "NO TRADE",
@@ -1180,11 +1185,6 @@
    },
    {
     "ts": "2026-11-25 09:16:05",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-11-25 09:01:05",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1264,7 +1264,7 @@
    1757.48
   ],
   "last": {
-   "ts": "2026-11-25 10:16:04",
+   "ts": "2026-11-25 10:31:05",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1285,7 +1285,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3530.50 di atas tengah band (3511.2–3538.6) · RSI 44 · Stoch 70 · MACD +3.89 · H1 bearish"
+    "note": "M15 3528.80 di atas tengah band (3511.6–3537.4) · RSI 43 · Stoch 70 · MACD +3.57 · H1 bearish"
    }
   },
   "fund": null,
@@ -1342,35 +1342,35 @@
    "M10": {
     "bias": "sideways",
     "score": 1,
-    "price": 3531.35,
-    "ema20": 3528.9,
-    "ema50": 3544.48,
-    "rsi": 50.2,
+    "price": 3529.2,
+    "ema20": 3528.93,
+    "ema50": 3543.88,
+    "rsi": 48.2,
     "n": 299,
-    "slot": 2992670,
-    "at": 1795602064879
+    "slot": 2992671,
+    "at": 1795602664891
    },
    "M15": {
-    "bias": "sideways",
-    "score": 0,
-    "price": 3533,
-    "ema20": 3532.33,
-    "ema50": 3558.71,
-    "rsi": 45.8,
+    "bias": "bearish",
+    "score": -2,
+    "price": 3529.2,
+    "ema20": 3532.03,
+    "ema50": 3557.56,
+    "rsi": 43.2,
     "n": 299,
-    "slot": 1995113,
-    "at": 1795601764884
+    "slot": 1995114,
+    "at": 1795602664897
    },
    "M30": {
     "bias": "bearish",
     "score": -3,
-    "price": 3526.7,
-    "ema20": 3551.65,
-    "ema50": 3578.98,
-    "rsi": 31.1,
+    "price": 3529.2,
+    "ema20": 3549.51,
+    "ema50": 3577.03,
+    "rsi": 32.8,
     "n": 299,
-    "slot": 997556,
-    "at": 1795600864867
+    "slot": 997557,
+    "at": 1795602664900
    },
    "H1": {
     "bias": "bearish",
