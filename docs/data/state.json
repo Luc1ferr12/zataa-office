@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-25T08:07:34.786Z",
+ "generated_at": "2026-11-25T08:17:34.797Z",
  "today": "2026-11-25",
  "week_start": "2026-11-23",
  "campaign": null,
@@ -98,7 +98,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-25 08:01:05"
+   "updated_at": "2026-11-25 08:16:05"
   },
   {
    "id": "tresearch",
@@ -106,7 +106,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Fed hold 3,75–4% Okt, pasar pasang hike Des; NFP Okt kuat, DXY ~102. Bias turun. PCE & GDP 25 Nov bisa hawkish. Harga live belum dicek.",
-   "updated_at": "2026-11-25 08:01:05"
+   "updated_at": "2026-11-25 08:16:05"
   },
   {
    "id": "ttech",
@@ -114,7 +114,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-11-25 08:01:05"
+   "updated_at": "2026-11-25 08:16:05"
   },
   {
    "id": "trisk",
@@ -122,7 +122,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-11-25 08:01:05"
+   "updated_at": "2026-11-25 08:16:05"
   },
   {
    "id": "texec",
@@ -774,6 +774,27 @@
  ],
  "chats": [
   {
+   "ts": "2026-11-25 08:07:42",
+   "agent_id": "publisher",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Konten #234 udah antre, QA lolos langsung tayang di TikTok + YouTube, Bos dikabarin pas udah naik."
+  },
+  {
+   "ts": "2026-11-25 08:07:42",
+   "agent_id": "video",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Filmnya udah jadi gaya caption-news pakai logo ONIC, tinggal render di laptop mulai 09:45 WITA besok."
+  },
+  {
+   "ts": "2026-11-25 08:07:42",
+   "agent_id": "researcher",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Fakta ONIC di Delta Force Invitational udah aku cek ke 2 sumber Bos (RevivalTV + Esports.ID), hadiah US$500 ribu, mulai Jumat 27 Nov."
+  },
+  {
    "ts": "2026-11-25 08:07:14",
    "agent_id": "researcher",
    "to_id": "video",
@@ -1031,27 +1052,6 @@
    "to_id": "publisher",
    "kind": "oper",
    "message": "Render \"Film game-show LCQ FFWS\" selesai, Fikri. Cek cover-nya ya"
-  },
-  {
-   "ts": "2026-11-24 04:20:40",
-   "agent_id": "copywriter",
-   "to_id": "designer",
-   "kind": "oper",
-   "message": "Vania, copy \"Naskah prediksi LCQ FFWS\" udah masuk. Headline-nya jangan dikecilin ya 😆"
-  },
-  {
-   "ts": "2026-11-24 04:19:31",
-   "agent_id": "researcher",
-   "to_id": "copywriter",
-   "kind": "oper",
-   "message": "Riset \"Cek fakta LCQ FFWS 2026\" beres, udah dicek 2 sumber. Tiara, lanjut ya~"
-  },
-  {
-   "ts": "2026-11-24 04:18:28",
-   "agent_id": "dir",
-   "to_id": null,
-   "kind": "oper",
-   "message": "Bos ACC 1 ide tambahan! \"Prediksi LCQ FFWS: RRQ Kazu, ONIC, atau BTR yang tembus Grand Final?\" 🎉"
   }
  ],
  "stats": {
@@ -1155,9 +1155,14 @@
   "paused": false,
   "balance": 1757.48,
   "today_pnl": 0,
-  "price": 3516.5,
+  "price": 3522.800049,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-25 08:16:05",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
    {
     "ts": "2026-11-25 08:01:05",
     "decision": "NO TRADE",
@@ -1182,11 +1187,6 @@
     "ts": "2026-11-25 07:01:04",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-11-25 06:46:05",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
    }
   ],
   "trades": [
@@ -1264,7 +1264,7 @@
    1757.48
   ],
   "last": {
-   "ts": "2026-11-25 08:01:05",
+   "ts": "2026-11-25 08:16:05",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1285,7 +1285,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3524.20 di bawah tengah band (3503.7–3563.0) · RSI 32 · Stoch 27 · MACD +2.63 · H1 bearish"
+    "note": "M15 3519.40 di bawah tengah band (3501.4–3561.4) · RSI 31 · Stoch 18 · MACD +2.41 · H1 bearish"
    }
   },
   "fund": {
@@ -1345,24 +1345,24 @@
    "M10": {
     "bias": "bearish",
     "score": -3,
-    "price": 3522.1,
-    "ema20": 3529.64,
-    "ema50": 3556.74,
-    "rsi": 37,
+    "price": 3514.5,
+    "ema20": 3528.2,
+    "ema50": 3555.08,
+    "rsi": 32.4,
     "n": 299,
-    "slot": 2992656,
-    "at": 1795593664771
+    "slot": 2992657,
+    "at": 1795594264767
    },
    "M15": {
     "bias": "bearish",
     "score": -3,
-    "price": 3522.1,
-    "ema20": 3538.08,
-    "ema50": 3571.96,
-    "rsi": 29.3,
+    "price": 3515.2,
+    "ema20": 3535.9,
+    "ema50": 3569.73,
+    "rsi": 26.4,
     "n": 299,
-    "slot": 1995104,
-    "at": 1795593664777
+    "slot": 1995105,
+    "at": 1795594564777
    },
    "M30": {
     "bias": "bearish",
