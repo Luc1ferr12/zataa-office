@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-25T06:57:34.762Z",
+ "generated_at": "2026-11-25T07:07:34.762Z",
  "today": "2026-11-25",
  "week_start": "2026-11-23",
  "campaign": null,
@@ -74,7 +74,7 @@
    "title": "Data Analyst",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-11-25 04:01:30"
+   "updated_at": "2026-11-25 07:01:18"
   },
   {
    "id": "price",
@@ -98,7 +98,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-25 06:46:05"
+   "updated_at": "2026-11-25 07:01:05"
   },
   {
    "id": "tresearch",
@@ -106,7 +106,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Fed hold 3,75–4% Okt, pasar pasang hike Des; NFP Okt kuat, DXY ~102. Bias turun. PCE & GDP 25 Nov bisa hawkish. Harga live belum dicek.",
-   "updated_at": "2026-11-25 06:46:04"
+   "updated_at": "2026-11-25 07:01:04"
   },
   {
    "id": "ttech",
@@ -114,15 +114,15 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-11-25 06:46:05"
+   "updated_at": "2026-11-25 07:01:04"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
-   "updated_at": "2026-11-25 06:46:05"
+   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
+   "updated_at": "2026-11-25 07:01:04"
   },
   {
    "id": "texec",
@@ -622,7 +622,7 @@
    "game": "sejarah",
    "pillar": "horor_sejarah",
    "title": "Rumah VOC Ini Dipesan Gubernur Jenderal yang Mati Duluan",
-   "status": "draft",
+   "status": "pending_approval",
    "asset_url": null,
    "scheduled_at": null,
    "posted_at": null,
@@ -632,6 +632,26 @@
  "clip_jobs": [],
  "today_tasks": [],
  "activity": [
+  {
+   "ts": "2026-11-25 07:01:18",
+   "agent_id": "analyst",
+   "message": "Update data 32 post IG 📈"
+  },
+  {
+   "ts": "2026-11-25 07:01:04",
+   "agent_id": "ttech",
+   "message": "M60 berubah arah: sideways → bearish"
+  },
+  {
+   "ts": "2026-11-25 07:00:04",
+   "agent_id": "yvideo",
+   "message": "Shorts #233 dirender di laptop & dikirim ke Owner"
+  },
+  {
+   "ts": "2026-11-25 07:00:03",
+   "agent_id": "spublish",
+   "message": "Kirim Shorts #233 ke Owner buat approval"
+  },
   {
    "ts": "2026-11-25 06:46:27",
    "agent_id": "sdir",
@@ -736,26 +756,6 @@
    "ts": "2026-11-25 02:47:46",
    "agent_id": "ypublish",
    "message": "Kirim Shorts #231 ke Owner buat approval"
-  },
-  {
-   "ts": "2026-11-25 02:30:48",
-   "agent_id": "trisk",
-   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-  },
-  {
-   "ts": "2026-11-25 02:23:32",
-   "agent_id": "dir",
-   "message": "Kode kantor diperbarui, restart otomatis: scripts/watch.mjs, scripts/golink.mjs, scripts/trading/run.mjs"
-  },
-  {
-   "ts": "2026-11-25 02:22:10",
-   "agent_id": "owner",
-   "message": "Approve Shorts #230 ✅"
-  },
-  {
-   "ts": "2026-11-25 02:20:07",
-   "agent_id": "owner",
-   "message": "Tolak Shorts #229"
   }
  ],
  "chats": [
@@ -1045,24 +1045,24 @@
    "week": "2026-11-23",
    "total": 16,
    "posted": 12,
-   "pending": 0,
+   "pending": 1,
    "scheduled": 3,
    "yt_total": 11,
    "yt_posted": 7,
-   "yt_pending": 0,
+   "yt_pending": 1,
    "yt_scheduled": 3,
-   "views": 8311,
-   "likes": 126,
+   "views": 8506,
+   "likes": 128,
    "comments": 2,
    "shares": 0,
    "saves": 1,
-   "yt_views": 4136,
+   "yt_views": 4201,
    "top": [
     {
      "title": "Jemkin & something resmi bukan pemain impor lagi di VCT 2027",
      "format": "video",
      "pillar": "news",
-     "views": 1739
+     "views": 1744
     },
     {
      "title": "Komputer 2.000 Tahun dari Dasar Laut Yunani",
@@ -1074,7 +1074,7 @@
      "title": "Meta FFWS GF 2026: SKORP vs double sniper kata Coach AFM",
      "format": "video",
      "pillar": "news",
-     "views": 1312
+     "views": 1319
     }
    ],
    "clicks": 0,
@@ -1098,12 +1098,12 @@
    "yt_posted": 16,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 21035,
+   "views": 21049,
    "likes": 314,
    "comments": 5,
    "shares": 0,
    "saves": 2,
-   "yt_views": 16550,
+   "yt_views": 16564,
    "top": [
     {
      "title": "Gua di Biak Ini Konon Jadi Kuburan Ribuan Tentara Jepang",
@@ -1115,13 +1115,13 @@
      "title": "Kuburan Belanda di Jakarta Ini Sekarang Jadi Museum, Konon Angker",
      "format": "shorts",
      "pillar": "horor_sejarah",
-     "views": 2034
+     "views": 2038
     },
     {
      "title": "Legenda Danau Toba Konon Menyimpan Jejak Letusan Terbesar",
      "format": "shorts",
      "pillar": "legenda_mitos",
-     "views": 1937
+     "views": 1939
     }
    ],
    "clicks": 0,
@@ -1141,9 +1141,14 @@
   "paused": false,
   "balance": 1757.48,
   "today_pnl": 0,
-  "price": 3516,
+  "price": 3518.100098,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-25 07:01:04",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
    {
     "ts": "2026-11-25 06:46:05",
     "decision": "NO TRADE",
@@ -1166,11 +1171,6 @@
    },
    {
     "ts": "2026-11-25 05:45:48",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-   },
-   {
-    "ts": "2026-11-25 05:30:48",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
    }
@@ -1250,7 +1250,7 @@
    1757.48
   ],
   "last": {
-   "ts": "2026-11-25 06:46:05",
+   "ts": "2026-11-25 07:01:04",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1259,7 +1259,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)",
+   "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
    "fund": {
     "bias": -0.4,
     "note": "Fed hold 3,75–4% Okt, pasar pasang hike Des; NFP Okt kuat, DXY ~102. Bias turun. PCE & GDP 25 Nov bisa hawkish. Harga live belum dicek.",
@@ -1271,7 +1271,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3519.00 di bawah tengah band (3511.1–3573.6) · RSI 24 · Stoch 6 · MACD +0.04 · H1 bearish"
+    "note": "M15 3519.80 di bawah tengah band (3508.4–3572.6) · RSI 25 · Stoch 10 · MACD +0.54 · H1 bearish"
    }
   },
   "fund": {
@@ -1331,46 +1331,46 @@
    "M10": {
     "bias": "bearish",
     "score": -3,
-    "price": 3519.85,
-    "ema20": 3538.85,
-    "ema50": 3568.5,
-    "rsi": 29.7,
+    "price": 3519.35,
+    "ema20": 3537,
+    "ema50": 3566.57,
+    "rsi": 29.5,
     "n": 299,
-    "slot": 2992649,
-    "at": 1795589464709
+    "slot": 2992650,
+    "at": 1795590064717
    },
    "M15": {
     "bias": "bearish",
     "score": -3,
-    "price": 3516.45,
-    "ema20": 3549.77,
-    "ema50": 3583.47,
-    "rsi": 21.3,
+    "price": 3519.35,
+    "ema20": 3546.87,
+    "ema50": 3580.95,
+    "rsi": 24.2,
     "n": 299,
-    "slot": 1995099,
-    "at": 1795589164722
+    "slot": 1995100,
+    "at": 1795590064725
    },
    "M30": {
     "bias": "bearish",
     "score": -3,
-    "price": 3521.5,
-    "ema20": 3578.43,
-    "ema50": 3596.49,
-    "rsi": 23.5,
+    "price": 3519.35,
+    "ema20": 3572.8,
+    "ema50": 3593.46,
+    "rsi": 23.1,
     "n": 299,
-    "slot": 997549,
-    "at": 1795588248498
+    "slot": 997550,
+    "at": 1795590064727
    },
    "H1": {
-    "bias": "sideways",
-    "score": 0,
-    "price": 3525.4,
-    "ema20": 3594.6,
-    "ema50": 3590.54,
-    "rsi": 26.1,
+    "bias": "bearish",
+    "score": -2,
+    "price": 3519.35,
+    "ema20": 3587.44,
+    "ema50": 3587.75,
+    "rsi": 25.1,
     "n": 299,
-    "slot": 498774,
-    "at": 1795586448301
+    "slot": 498775,
+    "at": 1795590064731
    }
   },
   "currency": "USC",
