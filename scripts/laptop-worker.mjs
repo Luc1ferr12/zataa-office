@@ -77,6 +77,8 @@ try { fd = openSync(LOCK, 'wx'); } catch {
 }
 writeFileSync(fd, String(process.pid));
 let reporter = null;
+// laporan progres cuma pelengkap: gagal apa pun nggak boleh menghentikan render
+const ping = async () => { try { await send(report()); } catch (e) { log(`lapor progres gagal: ${e.message.slice(0, 150)}`); } };
 try {
   const QUERY = `${DB_SNIPPET}
     let yt = ''; try { db.prepare('SELECT channel FROM contents LIMIT 1').get(); yt = "OR channel IN ('youtube', 'story', 'marvel', 'cowo')"; } catch {}
@@ -120,7 +122,7 @@ try {
   if (held && q.status === 0 && q.stdout.trim() !== '[]') log(`antrean render ditahan sampai ${String(rh).padStart(2, '0')}:${String(rm || 0).padStart(2, '0')} WITA`);
   const jobs = q.status === 0 && !held ? JSON.parse(q.stdout.trim() || '[]') : [];
   // tab 📶 Progress di web: laptop lapor "nyala" + lama render per gaya; selama render, render-progress.mjs (proses terpisah) lapor tiap 20 dtk
-  if (q.status === 0) await send(report()).catch(() => {});
+  if (q.status === 0) await ping();
   reporter = jobs.length ? spawn(process.execPath, [join(ROOT, 'scripts', 'render-progress.mjs'), `--parent=${process.pid}`], { stdio: 'ignore', windowsHide: true }) : null;
   reporter?.on('error', () => {});
   const frameEnv = { ...process.env, ZAA_FRAME_LOG: FRAME_LOG, NODE_OPTIONS: `${process.env.NODE_OPTIONS ?? ''} --import=${pathToFileURL(join(ROOT, 'scripts', 'frame-log.mjs')).href}`.trim() };
@@ -138,7 +140,7 @@ try {
     const msg = ok ? `${what} #${id} dirender di laptop & dikirim ke Owner` : `Render laptop ${what} #${id} gagal, cek logs/laptop-worker.log di laptop`;
     vps(`node scripts/office.mjs log ${shorts ? 'yvideo' : 'video'} ${JSON.stringify(msg)}`);
   }
-  if (reporter) { reporter.kill(); reporter = null; await send(report()).catch(() => {}); }
+  if (reporter) { reporter.kill(); reporter = null; await ping(); }
   if (q.status === 0 && process.env.CLIPPER_ON === '1') await clipperWork(); // Zaa Clips LIBUR sejak 20 Nov 2026 (nyalain: .env CLIPPER_ON=1)
 } finally {
   reporter?.kill();
