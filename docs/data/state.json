@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-25T00:33:28.746Z",
+ "generated_at": "2026-11-25T00:43:28.749Z",
  "today": "2026-11-25",
  "week_start": "2026-11-23",
  "campaign": null,
@@ -32,9 +32,9 @@
    "id": "copywriter",
    "name": "Tiara",
    "title": "Copywriter",
-   "status": "working",
+   "status": "done",
    "current_task": "Naskah film VCT 2027 8 tim",
-   "updated_at": "2026-11-25 00:32:56"
+   "updated_at": "2026-11-25 00:35:01"
   },
   {
    "id": "designer",
@@ -49,16 +49,16 @@
    "name": "Dimas",
    "title": "Video Production",
    "status": "done",
-   "current_task": "Film game-show LCQ FFWS",
-   "updated_at": "2026-11-24 04:25:54"
+   "current_task": "Film caption-news VCT 2027 8 tim",
+   "updated_at": "2026-11-25 00:35:15"
   },
   {
    "id": "publisher",
    "name": "Fikri",
    "title": "Social Media Publisher",
-   "status": "done",
-   "current_task": null,
-   "updated_at": "2026-11-24 05:30:54"
+   "status": "working",
+   "current_task": "Tunggu render laptop konten 232",
+   "updated_at": "2026-11-25 00:35:15"
   },
   {
    "id": "ads",
@@ -545,6 +545,20 @@
    "channel": "youtube"
   },
   {
+   "id": 232,
+   "day": "2026-11-25",
+   "slot": "kilat",
+   "format": "video",
+   "game": "valorant",
+   "pillar": "news",
+   "title": "VCT 2027 cuma 8 tim per region: roster siapa paling ngeri?",
+   "status": "draft",
+   "asset_url": null,
+   "scheduled_at": null,
+   "posted_at": null,
+   "channel": null
+  },
+  {
    "id": 228,
    "day": "2026-11-25",
    "slot": "shorts",
@@ -604,6 +618,11 @@
  "clip_jobs": [],
  "today_tasks": [],
  "activity": [
+  {
+   "ts": "2026-11-25 00:35:16",
+   "agent_id": "publisher",
+   "message": "Konten 232 (VCT 2027 8 tim) antre render laptop, auto QA → tayang"
+  },
   {
    "ts": "2026-11-25 00:31:28",
    "agent_id": "owner",
@@ -723,14 +742,51 @@
    "ts": "2026-11-24 14:34:01",
    "agent_id": "owner",
    "message": "Keputusan dari web: 🔄 Semua ide ditolak. Tim cari ide baru, nanti Andre kirim lagi."
-  },
-  {
-   "ts": "2026-11-24 14:15:59",
-   "agent_id": "trisk",
-   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-11-25 00:35:42",
+   "agent_id": "video",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Filmnya (konten 232) udah antre render laptop, mulai 09:45. Lolos QA langsung tayang TikTok + YouTube, nanti Bos dikabari!"
+  },
+  {
+   "ts": "2026-11-25 00:35:42",
+   "agent_id": "copywriter",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Valyn ke Fnatic sama roster baru G2 kutulis \"per laporan media\" ya Bos, belum semua diumumkan tim."
+  },
+  {
+   "ts": "2026-11-25 00:35:42",
+   "agent_id": "researcher",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Udah dicek Bos, Riot resmi cuma kasih 8 slot partner per region. Vitality nggak ada di daftar Red Bull Home Ground, jadi nggak kita tulis."
+  },
+  {
+   "ts": "2026-11-25 00:35:16",
+   "agent_id": "video",
+   "to_id": "copywriter",
+   "kind": "santai",
+   "message": "Tiara, nama HYUNMIN itu bikin whisper bingung nggak ya wkwk, semoga captionnya pas"
+  },
+  {
+   "ts": "2026-11-25 00:35:15",
+   "agent_id": "video",
+   "to_id": "publisher",
+   "kind": "oper",
+   "message": "Fikri, video \"Film caption-news VCT 2027 8 tim\" udah render 9:16. Musiknya aman kok"
+  },
+  {
+   "ts": "2026-11-25 00:35:01",
+   "agent_id": "copywriter",
+   "to_id": "designer",
+   "kind": "oper",
+   "message": "Vania, copy \"Naskah film VCT 2027 8 tim\" udah masuk. Headline-nya jangan dikecilin ya 😆"
+  },
   {
    "ts": "2026-11-25 00:32:55",
    "agent_id": "researcher",
@@ -968,54 +1024,12 @@
    "to_id": "copywriter",
    "kind": "oper",
    "message": "Tiara, bahan buat \"Cek ulang sumber rostermania VCT 2027\" udah aku rangkum + sumbernya. Tinggal kamu racik captionnya ✍️"
-  },
-  {
-   "ts": "2026-11-23 23:03:09",
-   "agent_id": "bresearch",
-   "to_id": "bscript",
-   "kind": "oper",
-   "message": "Riset \"Isi bank topik Cowo Bingung\" kelar, Naura. Ini lucu banget sumpah 😂"
-  },
-  {
-   "ts": "2026-11-23 23:02:28",
-   "agent_id": "dir",
-   "to_id": null,
-   "kind": "oper",
-   "message": "Bos ACC 1 ide tambahan! \"Rostermania VCT 2027: Sentinels ambil brawk & OXY, Sacy latih T1\" 🎉"
-  },
-  {
-   "ts": "2026-11-23 23:01:32",
-   "agent_id": "dir",
-   "to_id": "researcher",
-   "kind": "oper",
-   "message": "Salsa, plan minggu ini udah aku taruh ya. Fokus \"Pilih ide sesi pagi\". Tolong cariin bahan beritanya 🙏"
-  },
-  {
-   "ts": "2026-11-23 23:01:31",
-   "agent_id": "researcher",
-   "to_id": "copywriter",
-   "kind": "oper",
-   "message": "Riset \"Riset berita hangat sesi pagi\" beres, udah dicek 2 sumber. Tiara, lanjut ya~"
-  },
-  {
-   "ts": "2026-11-23 12:01:08",
-   "agent_id": "dir",
-   "to_id": "researcher",
-   "kind": "oper",
-   "message": "Salsa, plan minggu ini udah aku taruh ya. Fokus \"Ide sesi malam dikirim ke Owner\". Tolong cariin bahan beritanya 🙏"
-  },
-  {
-   "ts": "2026-11-23 12:01:07",
-   "agent_id": "researcher",
-   "to_id": "copywriter",
-   "kind": "oper",
-   "message": "Riset \"Riset sesi malam: FFWS LCQ wakil ID\" beres, udah dicek 2 sumber. Tiara, lanjut ya~"
   }
  ],
  "stats": {
   "this_week": {
    "week": "2026-11-23",
-   "total": 15,
+   "total": 16,
    "posted": 11,
    "pending": 0,
    "scheduled": 0,
@@ -1308,8 +1322,8 @@
     "ema50": 3641.96,
     "rsi": 37.4,
     "n": 300,
-    "slot": 2992611,
-    "at": 1795566660294
+    "slot": 2992612,
+    "at": 1795567260121
    },
    "M15": {
     "bias": "sideways",
