@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-25T10:07:34.832Z",
+ "generated_at": "2026-11-25T10:17:34.835Z",
  "today": "2026-11-25",
  "week_start": "2026-11-23",
  "campaign": null,
@@ -98,7 +98,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-25 10:01:05"
+   "updated_at": "2026-11-25 10:16:04"
   },
   {
    "id": "tresearch",
@@ -106,7 +106,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
-   "updated_at": "2026-11-25 10:01:05"
+   "updated_at": "2026-11-25 10:16:04"
   },
   {
    "id": "ttech",
@@ -114,7 +114,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-11-25 10:01:05"
+   "updated_at": "2026-11-25 10:16:04"
   },
   {
    "id": "trisk",
@@ -122,7 +122,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-11-25 10:01:05"
+   "updated_at": "2026-11-25 10:16:04"
   },
   {
    "id": "texec",
@@ -647,6 +647,11 @@
  "today_tasks": [],
  "activity": [
   {
+   "ts": "2026-11-25 10:16:04",
+   "agent_id": "ttech",
+   "message": "M15 berubah arah: bearish → sideways"
+  },
+  {
    "ts": "2026-11-25 10:01:07",
    "agent_id": "analyst",
    "message": "Update data 31 post IG 📈"
@@ -765,11 +770,6 @@
    "ts": "2026-11-25 06:46:23",
    "agent_id": "sdir",
    "message": "Pengganti #229 → #233 Rumah Cimanggis (HS-008, backrooms, varian panjang), antre render laptop"
-  },
-  {
-   "ts": "2026-11-25 06:46:19",
-   "agent_id": "svideo",
-   "message": "Shorts #233 \"Rumah VOC Ini Dipesan Gubernur Jenderal yang Mati Duluan\" masuk antrean render laptop (film lemo-opuscar films/rumah-cimanggis)"
   }
  ],
  "chats": [
@@ -1155,9 +1155,14 @@
   "paused": false,
   "balance": 1757.48,
   "today_pnl": 0,
-  "price": 3531.449951,
+  "price": 3533.149902,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-25 10:16:04",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
    {
     "ts": "2026-11-25 10:01:05",
     "decision": "NO TRADE",
@@ -1180,11 +1185,6 @@
    },
    {
     "ts": "2026-11-25 09:01:05",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-11-25 08:46:05",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1264,7 +1264,7 @@
    1757.48
   ],
   "last": {
-   "ts": "2026-11-25 10:01:05",
+   "ts": "2026-11-25 10:16:04",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1285,7 +1285,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3525.60 di atas tengah band (3510.0–3540.0) · RSI 40 · Stoch 52 · MACD +3.53 · H1 bearish"
+    "note": "M15 3530.50 di atas tengah band (3511.2–3538.6) · RSI 44 · Stoch 70 · MACD +3.89 · H1 bearish"
    }
   },
   "fund": null,
@@ -1341,25 +1341,25 @@
   "tf": {
    "M10": {
     "bias": "sideways",
-    "score": -1,
-    "price": 3526.7,
-    "ema20": 3527.91,
-    "ema50": 3545.4,
-    "rsi": 45.7,
+    "score": 1,
+    "price": 3535.6,
+    "ema20": 3528.64,
+    "ema50": 3545.02,
+    "rsi": 54.3,
     "n": 299,
-    "slot": 2992668,
-    "at": 1795600864860
+    "slot": 2992669,
+    "at": 1795601465057
    },
    "M15": {
-    "bias": "bearish",
-    "score": -2,
-    "price": 3526.7,
-    "ema20": 3532.26,
-    "ema50": 3559.76,
-    "rsi": 40.4,
+    "bias": "sideways",
+    "score": 0,
+    "price": 3533,
+    "ema20": 3532.33,
+    "ema50": 3558.71,
+    "rsi": 45.8,
     "n": 299,
-    "slot": 1995112,
-    "at": 1795600864865
+    "slot": 1995113,
+    "at": 1795601764884
    },
    "M30": {
     "bias": "bearish",
