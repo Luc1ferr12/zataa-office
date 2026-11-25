@@ -14,6 +14,7 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { CHAT_SQL, chat as chatTo, handoff } from './chatter.mjs';
 import { reloadStale } from './reload.mjs';
+import { writeProgress } from './progress.mjs';
 import { clickStats } from './golink.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -273,6 +274,7 @@ const commands = {
     };
     mkdirSync(dirname(STATE_PATH), { recursive: true });
     writeFileSync(STATE_PATH, JSON.stringify(state, null, 1));
+    try { writeProgress(); } catch (e) { console.error(`progress.json gagal: ${e.message}`); } // tab 📶 Progress (cadangan kalau tunnel mati)
     // kode baru udah ke-pull tapi service masih pakai kode lama → restart otomatis (scripts/reload.mjs)
     const reloaded = reloadStale();
     if (reloaded.length) run('INSERT INTO activity (agent_id, message) VALUES (?, ?)', 'dir', `Kode kantor diperbarui, restart otomatis: ${reloaded.join(', ')}`);

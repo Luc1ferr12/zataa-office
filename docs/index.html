@@ -88,6 +88,7 @@
     <nav class="tabs" role="tablist" aria-label="Bagian dashboard">
       <button role="tab" data-tab="ringkasan" style="--acc:var(--c-teal)">⚡ Ringkasan</button>
       <button role="tab" data-tab="jadwal" style="--acc:var(--c-mkt)">🗓️ Jadwal</button>
+      <button role="tab" data-tab="progress" style="--acc:var(--c-clip)">📶 Progress</button>
       <button role="tab" data-tab="analytics" style="--acc:var(--c-pink)">📊 Analytics</button>
       <button role="tab" data-tab="tim" style="--acc:var(--c-boss)">👥 Tim</button>
       <button role="tab" data-tab="trading" style="--acc:var(--c-trd)">📈 Trading</button>
@@ -146,6 +147,12 @@
         <div class="week-grid short" id="week-grid-clip"></div>
       </div>
     </section>
+    <section class="panel progress" data-panel="progress" id="pg-panel" hidden>
+      <div class="pg-head"><h2>Progress produksi hari ini</h2><span class="pg-status" id="pg-status" role="status">Memuat…</span></div>
+      <div class="pg-tiles" id="pg-tiles"></div>
+      <div class="pg-top" id="pg-top"></div>
+      <div class="pg-divs" id="pg-divs"></div>
+    </section>
     <section class="panel" data-panel="analytics">
       <div class="card social">
         <div class="card-head"><h2>Analytics sosmed</h2><span class="muted" id="social-updated"></span></div>
@@ -178,5 +185,6 @@
 
   <script type="module" src="js/main.js"></script>
   <script type="module" src="js/approve.js"></script>
+  <script type="module" src="js/progress.js"></script>
 </body>
 </html>

@@ -4,6 +4,7 @@
 //   Zaa Clips (campaign usulan Hendra + clip jadi) → file tmp/web-inbox/clips/*.json → diambil bot clipper.mjs (webInbox)
 //   Shorts History/Story/Marvel → file tmp/web-inbox/<brand>/*.json → diambil bot brand itu (shorts-bot.mjs webInbox)
 // Aman: wajib header Authorization: Bearer <WEB_APPROVAL_TOKEN> (.env VPS, acak ≥32 karakter), salah 8× per IP / 10 menit = diblok.
+// Satu-satunya yang tanpa kunci: GET /api/ping & GET /api/progress (tab Progress, cuma baca, scripts/progress.mjs).
 // HTTPS lewat Cloudflare quick tunnel (scripts/vps/zataa-tunnel.service, gratis tanpa domain); alamatnya berubah tiap tunnel restart,
 // jadi watcher cek /quicktunnel tiap menit & tulis docs/data/api.json (ikut push GitHub Pages). Punya domain sendiri → isi WEB_API_URL.
 //   .env: WEB_APPROVAL_TOKEN=<rahasia>  [WEB_API_PORT=8790] [WEB_API_URL=https://…] [WEB_ORIGIN=https://luc1ferr12.github.io]
@@ -15,6 +16,7 @@ import { fileURLToPath } from 'node:url';
 import { timingSafeEqual, createHash } from 'node:crypto';
 import { db, loadEnv } from './approval.mjs';
 import { webDecision } from './office-bot.mjs';
+import { buildProgress } from './progress.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const env = () => ({ ...loadEnv(), ...process.env });
@@ -22,6 +24,13 @@ const SHORTS = { youtube: 'history', story: 'story', marvel: 'marvel', cowo: 'co
 const BRAND = { '': 'About Esports', youtube: 'Zaa History', story: 'Zaa Story', marvel: 'Marvel Talk', cowo: 'Cowo Bingung' };
 const API_JSON = join(ROOT, 'docs', 'data', 'api.json');
 const TUNNEL_METRICS = 'http://127.0.0.1:20241/quicktunnel';
+
+// tab 📶 Progress: publik & cuma baca (isinya sama dengan yang sudah tampil di state.json), di-cache 5 dtk
+let prog = { at: 0, data: null };
+const progress = () => {
+  if (Date.now() - prog.at > 5000) prog = { at: Date.now(), data: buildProgress() };
+  return prog.data;
+};
 
 // ---------- keamanan
 const hash = (s) => createHash('sha256').update(String(s)).digest();
@@ -157,6 +166,7 @@ async function route(req, res) {
   if (req.method === 'OPTIONS') { res.writeHead(204); return res.end(); }
   const url = new URL(req.url, 'http://x');
   if (url.pathname === '/api/ping') return json(res, 200, { ok: true });
+  if (req.method === 'GET' && url.pathname === '/api/progress') return json(res, 200, progress());
   const ip = ipOf(req);
   if (blocked(ip)) return json(res, 429, { error: 'kebanyakan salah token, coba lagi 10 menit' });
   if (!authed(req)) { fail(ip); return json(res, 401, { error: 'token salah' }); }

@@ -5,12 +5,13 @@
 // Antrean = konten draft/revision bertanda data_json._laptop = 1 (video: render.mjs VPS, Shorts: shorts-bot.mjs new/queue).
 // VPS nggak kejangkau ≥20 menit → kabari Owner langsung lewat Telegram bot kantor (.env laptop), maks 1×/3 jam; pulih → kabari lagi.
 // SSH dicoba port 22 dulu (zataa-vps), lalu 443 (zataa-vps-443 di ~/.ssh/config) — beberapa wifi blok port 22.
-import { spawnSync } from 'node:child_process';
+import { spawn, spawnSync } from 'node:child_process';
 import { openSync, closeSync, unlinkSync, readFileSync, writeFileSync, existsSync, appendFileSync, mkdirSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import { DB_SNIPPET } from './db.mjs';
+import { FRAME_LOG, report, send } from './render-progress.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const HOSTS = [...new Set([process.env.ZATAA_VPS ?? 'zataa-vps', 'zataa-vps-443'])];
@@ -75,6 +76,7 @@ try { fd = openSync(LOCK, 'wx'); } catch {
   try { fd = openSync(LOCK, 'wx'); } catch { process.exit(0); }
 }
 writeFileSync(fd, String(process.pid));
+let reporter = null;
 try {
   const QUERY = `${DB_SNIPPET}
     let yt = ''; try { db.prepare('SELECT channel FROM contents LIMIT 1').get(); yt = "OR channel IN ('youtube', 'story', 'marvel', 'cowo')"; } catch {}
@@ -116,10 +118,17 @@ try {
   const nowW = new Date(Date.now() + 8 * 3600e3), minW = nowW.getUTCHours() * 60 + nowW.getUTCMinutes();
   const held = minW < rh * 60 + (rm || 0);
   if (held && q.status === 0 && q.stdout.trim() !== '[]') log(`antrean render ditahan sampai ${String(rh).padStart(2, '0')}:${String(rm || 0).padStart(2, '0')} WITA`);
-  for (const { id, format } of q.status === 0 && !held ? JSON.parse(q.stdout.trim() || '[]') : []) {
+  const jobs = q.status === 0 && !held ? JSON.parse(q.stdout.trim() || '[]') : [];
+  // tab 📶 Progress di web: laptop lapor "nyala" + lama render per gaya; selama render, render-progress.mjs (proses terpisah) lapor tiap 20 dtk
+  if (q.status === 0) await send(report()).catch(() => {});
+  reporter = jobs.length ? spawn(process.execPath, [join(ROOT, 'scripts', 'render-progress.mjs'), `--parent=${process.pid}`], { stdio: 'ignore', windowsHide: true }) : null;
+  reporter?.on('error', () => {});
+  const frameEnv = { ...process.env, ZAA_FRAME_LOG: FRAME_LOG, NODE_OPTIONS: `${process.env.NODE_OPTIONS ?? ''} --import=${pathToFileURL(join(ROOT, 'scripts', 'frame-log.mjs')).href}`.trim() };
+  for (const { id, format } of jobs) {
     const shorts = format === 'shorts';
     log(`render ${shorts ? 'shorts ' : ''}#${id}`);
-    const r = spawnSync(process.execPath, [join(ROOT, 'scripts', shorts ? 'shorts-laptop.mjs' : 'render-laptop.mjs'), String(id), '--submit'], { encoding: 'utf8' });
+    try { writeFileSync(FRAME_LOG, ''); } catch { /* progres cuma pelengkap */ }
+    const r = spawnSync(process.execPath, [join(ROOT, 'scripts', shorts ? 'shorts-laptop.mjs' : 'render-laptop.mjs'), String(id), '--submit'], { encoding: 'utf8', env: frameEnv });
     const ok = r.status === 0;
     const full = `${r.stdout ?? ''}\n${r.stderr ?? ''}`.trim();
     if (!ok) appendFileSync(join(ROOT, 'logs', `render-${id}.log`), `===== ${new Date().toISOString()}\n${full}\n`); // log lengkap, nggak kepotong
@@ -129,8 +138,10 @@ try {
     const msg = ok ? `${what} #${id} dirender di laptop & dikirim ke Owner` : `Render laptop ${what} #${id} gagal, cek logs/laptop-worker.log di laptop`;
     vps(`node scripts/office.mjs log ${shorts ? 'yvideo' : 'video'} ${JSON.stringify(msg)}`);
   }
+  if (reporter) { reporter.kill(); reporter = null; await send(report()).catch(() => {}); }
   if (q.status === 0 && process.env.CLIPPER_ON === '1') await clipperWork(); // Zaa Clips LIBUR sejak 20 Nov 2026 (nyalain: .env CLIPPER_ON=1)
 } finally {
+  reporter?.kill();
   closeSync(fd);
   try { unlinkSync(LOCK); } catch {}
 }
