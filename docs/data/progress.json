@@ -1,11 +1,48 @@
 {
- "at": "2026-11-25T23:07:35.269Z",
+ "at": "2026-11-25T23:17:35.268Z",
  "today": "2026-11-26",
  "laptop": {
   "at": "2026-11-25T11:11:38.449Z",
   "renderFrom": "09:45"
  },
- "queue": [],
+ "queue": [
+  {
+   "id": 235,
+   "channel": "cowo",
+   "title": "Kenapa Jendela Pesawat Ada Lubang Kecilnya?",
+   "style": "brick-toy",
+   "estMin": 16,
+   "pos": 1,
+   "state": "antre",
+   "startAt": "2026-11-26T01:45:00.000Z",
+   "etaAt": "2026-11-26T02:01:00.000Z",
+   "waitingWindow": true
+  },
+  {
+   "id": 236,
+   "channel": "story",
+   "title": "Penjara 200 Tahun di Surabaya Ini Pernah Menahan Soekarno",
+   "style": "backrooms",
+   "estMin": 8,
+   "pos": 2,
+   "state": "antre",
+   "startAt": "2026-11-26T02:01:00.000Z",
+   "etaAt": "2026-11-26T02:09:00.000Z",
+   "waitingWindow": true
+  },
+  {
+   "id": 237,
+   "channel": "marvel",
+   "title": "Thor Kehilangan Mata Persis Kayak Odin, Kebetulan?",
+   "style": "pop-art",
+   "estMin": 6,
+   "pos": 3,
+   "state": "antre",
+   "startAt": "2026-11-26T02:09:00.000Z",
+   "etaAt": "2026-11-26T02:15:00.000Z",
+   "waitingWindow": true
+  }
+ ],
  "divisions": [
   {
    "key": "esports",
@@ -25,21 +62,87 @@
    "key": "story",
    "name": "Zaa Story",
    "working": null,
-   "items": [],
+   "items": [
+    {
+     "id": 236,
+     "day": "2026-11-26",
+     "title": "Penjara 200 Tahun di Surabaya Ini Pernah Menahan Soekarno",
+     "revisions": 0,
+     "airAt": "2026-11-26T12:00:00.000Z",
+     "stage": "antre",
+     "render": {
+      "id": 236,
+      "channel": "story",
+      "title": "Penjara 200 Tahun di Surabaya Ini Pernah Menahan Soekarno",
+      "style": "backrooms",
+      "estMin": 8,
+      "pos": 2,
+      "state": "antre",
+      "startAt": "2026-11-26T02:01:00.000Z",
+      "etaAt": "2026-11-26T02:09:00.000Z",
+      "waitingWindow": true
+     },
+     "note": ""
+    }
+   ],
    "nextSession": "besok 07:00"
   },
   {
    "key": "marvel",
    "name": "Marvel Talk",
    "working": null,
-   "items": [],
+   "items": [
+    {
+     "id": 237,
+     "day": "2026-11-26",
+     "title": "Thor Kehilangan Mata Persis Kayak Odin, Kebetulan?",
+     "revisions": 0,
+     "airAt": "2026-11-26T12:00:00.000Z",
+     "stage": "antre",
+     "render": {
+      "id": 237,
+      "channel": "marvel",
+      "title": "Thor Kehilangan Mata Persis Kayak Odin, Kebetulan?",
+      "style": "pop-art",
+      "estMin": 6,
+      "pos": 3,
+      "state": "antre",
+      "startAt": "2026-11-26T02:09:00.000Z",
+      "etaAt": "2026-11-26T02:15:00.000Z",
+      "waitingWindow": true
+     },
+     "note": ""
+    }
+   ],
    "nextSession": "besok 07:00"
   },
   {
    "key": "cowo",
    "name": "Cowo Bingung",
    "working": null,
-   "items": [],
+   "items": [
+    {
+     "id": 235,
+     "day": "2026-11-26",
+     "title": "Kenapa Jendela Pesawat Ada Lubang Kecilnya?",
+     "revisions": 0,
+     "airAt": "2026-11-26T05:00:00.000Z",
+     "stage": "antre",
+     "render": {
+      "id": 235,
+      "channel": "cowo",
+      "title": "Kenapa Jendela Pesawat Ada Lubang Kecilnya?",
+      "style": "brick-toy",
+      "estMin": 16,
+      "pos": 1,
+      "state": "antre",
+      "startAt": "2026-11-26T01:45:00.000Z",
+      "etaAt": "2026-11-26T02:01:00.000Z",
+      "waitingWindow": true
+     },
+     "note": ""
+    }
+   ],
    "nextSession": "besok 07:00"
   }
  ]
