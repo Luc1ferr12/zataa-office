@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-25T12:27:34.904Z",
+ "generated_at": "2026-11-25T12:37:34.898Z",
  "today": "2026-11-25",
  "week_start": "2026-11-23",
  "campaign": null,
@@ -98,31 +98,31 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-25 12:16:05"
+   "updated_at": "2026-11-25 12:31:05"
   },
   {
    "id": "tresearch",
    "name": "Davina",
    "title": "Research & Fundamental",
    "status": "done",
-   "current_task": "Fundamental: Bias bearish ringan: Fed condong naik bunga Des, DXY ~102 & NFP Okt kuat, PCE/GDP hari ini sedikit hawkish. Harga emas belum terkonfirmasi.",
-   "updated_at": "2026-11-25 12:16:05"
+   "current_task": "Waspada rilis Core PCE Price Index m/m (21.30 WITA)",
+   "updated_at": "2026-11-25 12:31:05"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Setup BUY di band (RSI+Stokastik+MACD+divergensi)",
-   "updated_at": "2026-11-25 12:16:05"
+   "current_task": "Setup BUY di band (RSI+Stokastik+MACD)",
+   "updated_at": "2026-11-25 12:31:05"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: BUY lawan tren H1 (bearish), di luar jam Asia cari aman",
-   "updated_at": "2026-11-25 12:16:05"
+   "current_task": "NO TRADE: berita berdampak tinggi: Core PCE Price Index m/m (21.30 WITA)",
+   "updated_at": "2026-11-25 12:31:05"
   },
   {
    "id": "texec",
@@ -647,6 +647,11 @@
  "today_tasks": [],
  "activity": [
   {
+   "ts": "2026-11-25 12:31:05",
+   "agent_id": "trisk",
+   "message": "NO TRADE · berita berdampak tinggi: Core PCE Price Index m/m (21.30 WITA)"
+  },
+  {
    "ts": "2026-11-25 12:02:13",
    "agent_id": "ypublish",
    "message": "Cross-post Shorts #231 ke TikTok Zaa History"
@@ -765,11 +770,6 @@
    "ts": "2026-11-25 08:03:34",
    "agent_id": "owner",
    "message": "Approve 1 ide konten tambahan 💡"
-  },
-  {
-   "ts": "2026-11-25 08:01:47",
-   "agent_id": "dir",
-   "message": "Sore: pilih ONIC Delta Force Invitational (caption-news), kirim ke Owner"
   }
  ],
  "chats": [
@@ -1155,9 +1155,14 @@
   "paused": false,
   "balance": 1757.48,
   "today_pnl": 0,
-  "price": 3516.899902,
+  "price": 3525.399902,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-25 12:31:05",
+    "decision": "NO TRADE",
+    "reason": "berita berdampak tinggi: Core PCE Price Index m/m (21.30 WITA)"
+   },
    {
     "ts": "2026-11-25 12:16:05",
     "decision": "NO TRADE",
@@ -1180,11 +1185,6 @@
    },
    {
     "ts": "2026-11-25 11:16:05",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-11-25 11:01:25",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1264,7 +1264,7 @@
    1757.48
   ],
   "last": {
-   "ts": "2026-11-25 12:16:05",
+   "ts": "2026-11-25 12:31:05",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1273,24 +1273,23 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "BUY lawan tren H1 (bearish), di luar jam Asia cari aman",
+   "reason": "berita berdampak tinggi: Core PCE Price Index m/m (21.30 WITA)",
    "fund": {
     "bias": -0.3,
     "note": "Bias bearish ringan: Fed condong naik bunga Des, DXY ~102 & NFP Okt kuat, PCE/GDP hari ini sedikit hawkish. Harga emas belum terkonfirmasi.",
     "danger": null,
-    "blackout": null
+    "blackout": "Core PCE Price Index m/m (21.30 WITA)"
    },
    "tech": {
     "bias": "bearish",
-    "score": 4,
+    "score": 3,
     "trigger": "buy",
     "confirm": [
      "RSI",
      "Stokastik",
-     "MACD",
-     "divergensi"
+     "MACD"
     ],
-    "note": "M15 3508.85 di bawah tengah band (3502.0–3544.0) · RSI 38 · Stoch 27 · MACD -0.59 · H1 bearish · setup BUY (RSI+Stokastik+MACD+divergensi)"
+    "note": "M15 3521.70 di bawah tengah band (3503.5–3543.4) · RSI 46 · Stoch 51 · MACD +0.72 · H1 bearish · setup BUY (RSI+Stokastik+MACD)"
    }
   },
   "fund": {
@@ -1349,36 +1348,36 @@
   "tf": {
    "M10": {
     "bias": "bearish",
-    "score": -2,
-    "price": 3499,
-    "ema20": 3519.29,
-    "ema50": 3534.17,
-    "rsi": 27.9,
+    "score": -3,
+    "price": 3518.1,
+    "ema20": 3519.18,
+    "ema50": 3533.54,
+    "rsi": 47.1,
     "n": 299,
-    "slot": 2992682,
-    "at": 1795609265011
+    "slot": 2992683,
+    "at": 1795609865017
    },
    "M15": {
     "bias": "bearish",
     "score": -2,
-    "price": 3497.3,
-    "ema20": 3523.95,
-    "ema50": 3547.71,
-    "rsi": 27.9,
+    "price": 3518.1,
+    "ema20": 3523.39,
+    "ema50": 3546.55,
+    "rsi": 44,
     "n": 299,
-    "slot": 1995121,
-    "at": 1795608965011
+    "slot": 1995122,
+    "at": 1795609865024
    },
    "M30": {
     "bias": "bearish",
     "score": -3,
-    "price": 3512.6,
-    "ema20": 3542.16,
-    "ema50": 3570.75,
-    "rsi": 27.3,
+    "price": 3518.1,
+    "ema20": 3539.87,
+    "ema50": 3568.68,
+    "rsi": 31.6,
     "n": 299,
-    "slot": 997560,
-    "at": 1795608065249
+    "slot": 997561,
+    "at": 1795609865025
    },
    "H1": {
     "bias": "bearish",
