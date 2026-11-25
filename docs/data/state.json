@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-25T02:43:48.497Z",
+ "generated_at": "2026-11-25T02:53:48.495Z",
  "today": "2026-11-25",
  "week_start": "2026-11-23",
  "campaign": null,
@@ -98,7 +98,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-25 02:30:48"
+   "updated_at": "2026-11-25 02:45:48"
   },
   {
    "id": "tresearch",
@@ -106,7 +106,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Fed hold 3,75–4% Okt, pasar pasang hike Des; NFP Okt kuat, DXY ~102. Bias turun. PCE & GDP 25 Nov bisa hawkish. Harga live belum dicek.",
-   "updated_at": "2026-11-25 02:30:48"
+   "updated_at": "2026-11-25 02:45:48"
   },
   {
    "id": "ttech",
@@ -114,7 +114,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-25 02:30:48"
+   "updated_at": "2026-11-25 02:45:48"
   },
   {
    "id": "trisk",
@@ -122,7 +122,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
-   "updated_at": "2026-11-25 02:30:48"
+   "updated_at": "2026-11-25 02:45:48"
   },
   {
    "id": "texec",
@@ -608,7 +608,7 @@
    "game": "sejarah",
    "pillar": "hidden_history",
    "title": "Pedang 400 Tahun Ini Ternyata Mengandung Teknologi Nano",
-   "status": "draft",
+   "status": "pending_approval",
    "asset_url": null,
    "scheduled_at": null,
    "posted_at": null,
@@ -618,6 +618,16 @@
  "clip_jobs": [],
  "today_tasks": [],
  "activity": [
+  {
+   "ts": "2026-11-25 02:47:47",
+   "agent_id": "yvideo",
+   "message": "Shorts #231 dirender di laptop & dikirim ke Owner"
+  },
+  {
+   "ts": "2026-11-25 02:47:46",
+   "agent_id": "ypublish",
+   "message": "Kirim Shorts #231 ke Owner buat approval"
+  },
   {
    "ts": "2026-11-25 02:30:48",
    "agent_id": "trisk",
@@ -732,16 +742,6 @@
    "ts": "2026-11-24 23:19:11",
    "agent_id": "yvideo",
    "message": "Shorts #231 \"Pedang 400 Tahun Ini Ternyata Mengandung Teknologi Nano\" masuk antrean render laptop (film lemo-opuscar films/history-pedang-damaskus)"
-  },
-  {
-   "ts": "2026-11-24 23:15:51",
-   "agent_id": "vvideo",
-   "message": "Shorts #230 \"Hulk Ternyata Awalnya Abu-abu, Bukan Hijau\" masuk antrean render laptop (film lemo-opuscar films/marvel-hulk-abu-abu)"
-  },
-  {
-   "ts": "2026-11-24 23:12:01",
-   "agent_id": "svideo",
-   "message": "Shorts #229 \"Pulau di Afrika Ini Bahasanya Mirip Bahasa Kalimantan\" masuk antrean render laptop (film lemo-opuscar films/story-madagaskar-maanyan)"
   }
  ],
  "chats": [
@@ -1031,11 +1031,11 @@
    "week": "2026-11-23",
    "total": 15,
    "posted": 11,
-   "pending": 0,
+   "pending": 1,
    "scheduled": 2,
    "yt_total": 10,
    "yt_posted": 7,
-   "yt_pending": 0,
+   "yt_pending": 1,
    "yt_scheduled": 2,
    "views": 8029,
    "likes": 122,
@@ -1127,9 +1127,14 @@
   "paused": false,
   "balance": 1757.48,
   "today_pnl": 0,
-  "price": 3557.75,
+  "price": 3559.899902,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-25 02:45:48",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
+   },
    {
     "ts": "2026-11-25 02:30:48",
     "decision": "NO TRADE",
@@ -1152,11 +1157,6 @@
    },
    {
     "ts": "2026-11-25 01:31:00",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-   },
-   {
-    "ts": "2026-11-25 01:16:00",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
    }
@@ -1236,7 +1236,7 @@
    1757.48
   ],
   "last": {
-   "ts": "2026-11-25 02:30:48",
+   "ts": "2026-11-25 02:45:48",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1257,7 +1257,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3563.65 di bawah tengah band (3539.3–3696.0) · RSI 24 · Stoch 23 · MACD -8.38 · H1 sideways"
+    "note": "M15 3557.10 di bawah tengah band (3530.2–3694.9) · RSI 21 · Stoch 22 · MACD -7.86 · H1 sideways"
    }
   },
   "fund": {
@@ -1317,24 +1317,24 @@
    "M10": {
     "bias": "bearish",
     "score": -3,
-    "price": 3567.75,
-    "ema20": 3596.06,
-    "ema50": 3620.39,
-    "rsi": 30.9,
+    "price": 3557.4,
+    "ema20": 3592.38,
+    "ema50": 3617.92,
+    "rsi": 27.9,
     "n": 299,
-    "slot": 2992624,
-    "at": 1795574448168
+    "slot": 2992625,
+    "at": 1795575048169
    },
    "M15": {
     "bias": "bearish",
     "score": -3,
-    "price": 3561.6,
-    "ema20": 3612.44,
-    "ema50": 3626.42,
-    "rsi": 22.3,
+    "price": 3557,
+    "ema20": 3607.16,
+    "ema50": 3623.69,
+    "rsi": 21.4,
     "n": 299,
-    "slot": 1995082,
-    "at": 1795573848171
+    "slot": 1995083,
+    "at": 1795574748170
    },
    "M30": {
     "bias": "sideways",

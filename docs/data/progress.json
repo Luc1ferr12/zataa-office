@@ -1,37 +1,25 @@
 {
- "at": "2026-11-25T02:43:48.634Z",
+ "at": "2026-11-25T02:53:48.624Z",
  "today": "2026-11-25",
  "laptop": {
-  "at": "2026-11-25T02:43:36.395Z",
+  "at": "2026-11-25T02:53:35.679Z",
   "renderFrom": "09:45"
  },
  "queue": [
-  {
-   "id": 231,
-   "channel": "youtube",
-   "title": "Pedang 400 Tahun Ini Ternyata Mengandung Teknologi Nano",
-   "style": "woodcut",
-   "estMin": 5,
-   "pos": 1,
-   "state": "render",
-   "startAt": "2026-11-25T02:18:38.689Z",
-   "etaAt": "2026-11-25T02:43:36.395Z",
-   "live": true,
-   "step": "suara",
-   "stepPct": 88,
-   "late": true
-  },
   {
    "id": 232,
    "channel": "",
    "title": "VCT 2027 cuma 8 tim per region: roster siapa paling ngeri?",
    "style": "caption-news",
    "estMin": 3,
-   "pos": 2,
-   "state": "antre",
-   "startAt": "2026-11-25T02:44:48.634Z",
-   "etaAt": "2026-11-25T02:47:48.634Z",
-   "waitingWindow": false
+   "pos": 1,
+   "state": "render",
+   "startAt": "2026-11-25T02:47:50.846Z",
+   "etaAt": "2026-11-25T02:53:35.679Z",
+   "live": true,
+   "step": "suara",
+   "stepPct": 10,
+   "late": true
   }
  ],
  "divisions": [
@@ -46,18 +34,21 @@
      "title": "VCT 2027 cuma 8 tim per region: roster siapa paling ngeri?",
      "revisions": 0,
      "airAt": null,
-     "stage": "antre",
+     "stage": "render",
      "render": {
       "id": 232,
       "channel": "",
       "title": "VCT 2027 cuma 8 tim per region: roster siapa paling ngeri?",
       "style": "caption-news",
       "estMin": 3,
-      "pos": 2,
-      "state": "antre",
-      "startAt": "2026-11-25T02:44:48.634Z",
-      "etaAt": "2026-11-25T02:47:48.634Z",
-      "waitingWindow": false
+      "pos": 1,
+      "state": "render",
+      "startAt": "2026-11-25T02:47:50.846Z",
+      "etaAt": "2026-11-25T02:53:35.679Z",
+      "live": true,
+      "step": "suara",
+      "stepPct": 10,
+      "late": true
      },
      "note": ""
     }
@@ -75,23 +66,8 @@
      "title": "Pedang 400 Tahun Ini Ternyata Mengandung Teknologi Nano",
      "revisions": 0,
      "airAt": "2026-11-25T12:00:00.000Z",
-     "stage": "render",
-     "render": {
-      "id": 231,
-      "channel": "youtube",
-      "title": "Pedang 400 Tahun Ini Ternyata Mengandung Teknologi Nano",
-      "style": "woodcut",
-      "estMin": 5,
-      "pos": 1,
-      "state": "render",
-      "startAt": "2026-11-25T02:18:38.689Z",
-      "etaAt": "2026-11-25T02:43:36.395Z",
-      "live": true,
-      "step": "suara",
-      "stepPct": 88,
-      "late": true
-     },
-     "note": ""
+     "stage": "approval",
+     "note": "Nunggu ✅ Bos"
     }
    ],
    "nextSession": "besok 07:00"
