@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-25T00:43:28.749Z",
+ "generated_at": "2026-11-25T00:53:28.746Z",
  "today": "2026-11-25",
  "week_start": "2026-11-23",
  "campaign": null,
@@ -98,7 +98,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-25 00:31:00"
+   "updated_at": "2026-11-25 00:46:00"
   },
   {
    "id": "tresearch",
@@ -106,7 +106,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Fed hold 3,75–4% Okt, pasar pasang hike Des; NFP Okt kuat, DXY ~102. Bias turun. PCE & GDP 25 Nov bisa hawkish. Harga live belum dicek.",
-   "updated_at": "2026-11-25 00:31:00"
+   "updated_at": "2026-11-25 00:46:00"
   },
   {
    "id": "ttech",
@@ -114,7 +114,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-25 00:31:00"
+   "updated_at": "2026-11-25 00:46:00"
   },
   {
    "id": "trisk",
@@ -122,7 +122,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
-   "updated_at": "2026-11-25 00:31:00"
+   "updated_at": "2026-11-25 00:46:00"
   },
   {
    "id": "texec",
@@ -1131,6 +1131,11 @@
   "open": [],
   "signals": [
    {
+    "ts": "2026-11-25 00:46:00",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
+   },
+   {
     "ts": "2026-11-25 00:31:00",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
@@ -1152,11 +1157,6 @@
    },
    {
     "ts": "2026-11-24 23:31:00",
-    "decision": "NO TRADE",
-    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
-   },
-   {
-    "ts": "2026-11-24 23:16:00",
     "decision": "NO TRADE",
     "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
    }
@@ -1236,7 +1236,7 @@
    1757.48
   ],
   "last": {
-   "ts": "2026-11-25 00:31:00",
+   "ts": "2026-11-25 00:46:00",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1322,8 +1322,8 @@
     "ema50": 3641.96,
     "rsi": 37.4,
     "n": 300,
-    "slot": 2992612,
-    "at": 1795567260121
+    "slot": 2992613,
+    "at": 1795567860113
    },
    "M15": {
     "bias": "sideways",
@@ -1333,8 +1333,8 @@
     "ema50": 3638.78,
     "rsi": 40.3,
     "n": 300,
-    "slot": 1995074,
-    "at": 1795566660300
+    "slot": 1995075,
+    "at": 1795567560137
    },
    "M30": {
     "bias": "sideways",
