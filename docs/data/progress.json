@@ -1,45 +1,36 @@
 {
- "at": "2026-11-25T02:12:32.252Z",
+ "at": "2026-11-25T02:22:32.479Z",
  "today": "2026-11-25",
  "laptop": {
-  "at": null,
+  "at": "2026-11-25T02:22:25.968Z",
   "renderFrom": "09:45"
  },
  "queue": [
-  {
-   "id": 230,
-   "channel": "marvel",
-   "title": "Hulk Ternyata Awalnya Abu-abu, Bukan Hijau",
-   "style": "pop-art",
-   "estMin": 12,
-   "pos": 1,
-   "state": "antre",
-   "startAt": "2026-11-25T02:12:32.252Z",
-   "etaAt": "2026-11-25T02:24:32.252Z",
-   "waitingWindow": false
-  },
   {
    "id": 231,
    "channel": "youtube",
    "title": "Pedang 400 Tahun Ini Ternyata Mengandung Teknologi Nano",
    "style": "woodcut",
-   "estMin": 12,
-   "pos": 2,
-   "state": "antre",
-   "startAt": "2026-11-25T02:24:32.252Z",
-   "etaAt": "2026-11-25T02:36:32.252Z",
-   "waitingWindow": false
+   "estMin": 5,
+   "pos": 1,
+   "state": "render",
+   "startAt": "2026-11-25T02:18:38.689Z",
+   "etaAt": "2026-11-25T02:23:38.689Z",
+   "live": true,
+   "step": "suara",
+   "stepPct": 13,
+   "late": false
   },
   {
    "id": 232,
    "channel": "",
    "title": "VCT 2027 cuma 8 tim per region: roster siapa paling ngeri?",
    "style": "caption-news",
-   "estMin": 8,
-   "pos": 3,
+   "estMin": 3,
+   "pos": 2,
    "state": "antre",
-   "startAt": "2026-11-25T02:36:32.252Z",
-   "etaAt": "2026-11-25T02:44:32.252Z",
+   "startAt": "2026-11-25T02:23:38.689Z",
+   "etaAt": "2026-11-25T02:26:38.689Z",
    "waitingWindow": false
   }
  ],
@@ -61,11 +52,11 @@
       "channel": "",
       "title": "VCT 2027 cuma 8 tim per region: roster siapa paling ngeri?",
       "style": "caption-news",
-      "estMin": 8,
-      "pos": 3,
+      "estMin": 3,
+      "pos": 2,
       "state": "antre",
-      "startAt": "2026-11-25T02:36:32.252Z",
-      "etaAt": "2026-11-25T02:44:32.252Z",
+      "startAt": "2026-11-25T02:23:38.689Z",
+      "etaAt": "2026-11-25T02:26:38.689Z",
       "waitingWindow": false
      },
      "note": ""
@@ -84,18 +75,21 @@
      "title": "Pedang 400 Tahun Ini Ternyata Mengandung Teknologi Nano",
      "revisions": 0,
      "airAt": "2026-11-25T12:00:00.000Z",
-     "stage": "antre",
+     "stage": "render",
      "render": {
       "id": 231,
       "channel": "youtube",
       "title": "Pedang 400 Tahun Ini Ternyata Mengandung Teknologi Nano",
       "style": "woodcut",
-      "estMin": 12,
-      "pos": 2,
-      "state": "antre",
-      "startAt": "2026-11-25T02:24:32.252Z",
-      "etaAt": "2026-11-25T02:36:32.252Z",
-      "waitingWindow": false
+      "estMin": 5,
+      "pos": 1,
+      "state": "render",
+      "startAt": "2026-11-25T02:18:38.689Z",
+      "etaAt": "2026-11-25T02:23:38.689Z",
+      "live": true,
+      "step": "suara",
+      "stepPct": 13,
+      "late": false
      },
      "note": ""
     }
@@ -113,9 +107,10 @@
      "title": "Pulau di Afrika Ini Bahasanya Mirip Bahasa Kalimantan",
      "revisions": 0,
      "airAt": "2026-11-25T12:00:00.000Z",
-     "stage": "editing",
-     "note": "",
-     "revisi": false
+     "stage": "approval",
+     "bad": true,
+     "rejected": true,
+     "note": "Ditolak Bos"
     }
    ],
    "nextSession": "besok 07:00"
@@ -131,20 +126,8 @@
      "title": "Hulk Ternyata Awalnya Abu-abu, Bukan Hijau",
      "revisions": 0,
      "airAt": "2026-11-25T12:00:00.000Z",
-     "stage": "antre",
-     "render": {
-      "id": 230,
-      "channel": "marvel",
-      "title": "Hulk Ternyata Awalnya Abu-abu, Bukan Hijau",
-      "style": "pop-art",
-      "estMin": 12,
-      "pos": 1,
-      "state": "antre",
-      "startAt": "2026-11-25T02:12:32.252Z",
-      "etaAt": "2026-11-25T02:24:32.252Z",
-      "waitingWindow": false
-     },
-     "note": ""
+     "stage": "tunggu",
+     "note": "Sudah di-✅, nunggu jam upload"
     }
    ],
    "nextSession": "besok 07:00"
@@ -160,8 +143,8 @@
      "title": "Kenapa Tutup Pulpen Ada Lubangnya?",
      "revisions": 0,
      "airAt": "2026-11-25T12:00:00.000Z",
-     "stage": "approval",
-     "note": "Nunggu ✅ Bos"
+     "stage": "tunggu",
+     "note": "Sudah di-✅, nunggu jam upload"
     }
    ],
    "nextSession": "besok 07:00"
