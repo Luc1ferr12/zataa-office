@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-25T22:57:35.143Z",
+ "generated_at": "2026-11-25T23:07:35.138Z",
  "today": "2026-11-26",
  "week_start": "2026-11-23",
  "campaign": null,
@@ -17,16 +17,16 @@
    "name": "Andre",
    "title": "Marketing Director",
    "status": "done",
-   "current_task": "Ide sesi malam dikirim ke Owner: Timnas WEC 2026",
-   "updated_at": "2026-11-25 12:01:24"
+   "current_task": "Sesi riset pagi: 0 ide, tunggu hasil LCQ 27 Nov",
+   "updated_at": "2026-11-25 23:01:34"
   },
   {
    "id": "researcher",
    "name": "Salsa",
    "title": "Researcher",
    "status": "done",
-   "current_task": "Riset sesi malam: Timnas WEC 2026",
-   "updated_at": "2026-11-25 12:01:17"
+   "current_task": "Riset sesi pagi: berita tipis, LCQ FFWS besok",
+   "updated_at": "2026-11-25 23:01:33"
   },
   {
    "id": "copywriter",
@@ -98,15 +98,15 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-25 21:46:05"
+   "updated_at": "2026-11-25 23:01:24"
   },
   {
    "id": "tresearch",
    "name": "Davina",
    "title": "Research & Fundamental",
    "status": "done",
-   "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
-   "updated_at": "2026-11-25 21:46:05"
+   "current_task": "Fundamental: Tak ada berita 24 jam terverifikasi (pencarian cuma sampai Sep 2026). Terakhir Fed naik 25bp & PCE panas → bias sedikit bearish.",
+   "updated_at": "2026-11-25 23:01:24"
   },
   {
    "id": "ttech",
@@ -114,7 +114,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-25 21:46:05"
+   "updated_at": "2026-11-25 23:01:24"
   },
   {
    "id": "trisk",
@@ -122,7 +122,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
-   "updated_at": "2026-11-25 21:46:05"
+   "updated_at": "2026-11-25 23:01:24"
   },
   {
    "id": "texec",
@@ -647,6 +647,21 @@
  "today_tasks": [],
  "activity": [
   {
+   "ts": "2026-11-25 23:01:33",
+   "agent_id": "dir",
+   "message": "Sesi pagi 26 Nov: pilih 0 ide (nihil berita baru, LCQ sudah #227, #281 Timnas WEC masih nunggu Owner)"
+  },
+  {
+   "ts": "2026-11-25 23:01:33",
+   "agent_id": "researcher",
+   "message": "Nemu 3 topik baru"
+  },
+  {
+   "ts": "2026-11-25 23:01:24",
+   "agent_id": "trisk",
+   "message": "NO TRADE · jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
+  },
+  {
    "ts": "2026-11-25 22:01:04",
    "agent_id": "analyst",
    "message": "Update data 31 post IG 📈"
@@ -755,21 +770,6 @@
    "ts": "2026-11-25 12:31:05",
    "agent_id": "trisk",
    "message": "NO TRADE · berita berdampak tinggi: Core PCE Price Index m/m (21.30 WITA)"
-  },
-  {
-   "ts": "2026-11-25 12:02:13",
-   "agent_id": "ypublish",
-   "message": "Cross-post Shorts #231 ke TikTok Zaa History"
-  },
-  {
-   "ts": "2026-11-25 12:01:36",
-   "agent_id": "spublish",
-   "message": "Upload Shorts #233 ke Zaa Story (Publik via Zernio)"
-  },
-  {
-   "ts": "2026-11-25 12:01:33",
-   "agent_id": "vpublish",
-   "message": "Upload Shorts #230 ke Marvel Talk (Publik via Zernio)"
   }
  ],
  "chats": [
@@ -1155,9 +1155,14 @@
   "paused": false,
   "balance": 1757.48,
   "today_pnl": 0,
-  "price": 3588.399902,
+  "price": 3570,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-25 23:01:24",
+    "decision": "NO TRADE",
+    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
+   },
    {
     "ts": "2026-11-25 21:46:05",
     "decision": "NO TRADE",
@@ -1180,11 +1185,6 @@
    },
    {
     "ts": "2026-11-25 20:46:06",
-    "decision": "NO TRADE",
-    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
-   },
-   {
-    "ts": "2026-11-25 20:31:06",
     "decision": "NO TRADE",
     "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
    }
@@ -1264,7 +1264,7 @@
    1757.48
   ],
   "last": {
-   "ts": "2026-11-25 21:46:05",
+   "ts": "2026-11-25 23:01:24",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1275,8 +1275,8 @@
    "risk_usd": null,
    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
    "fund": {
-    "bias": 0,
-    "note": "netral (belum ada ringkasan hari ini)",
+    "bias": -0.2,
+    "note": "Tak ada berita 24 jam terverifikasi (pencarian cuma sampai Sep 2026). Terakhir Fed naik 25bp & PCE panas → bias sedikit bearish.",
     "danger": null,
     "blackout": null
    },
@@ -1285,10 +1285,13 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3573.30 di atas tengah band (3484.2–3609.3) · RSI 65 · Stoch 85 · MACD +2.55 · H1 sideways"
+    "note": "M15 3558.20 di bawah tengah band (3524.2–3608.5) · RSI 52 · Stoch 81 · MACD -1.88 · H1 sideways"
    }
   },
-  "fund": null,
+  "fund": {
+   "bias": -0.2,
+   "note": "Tak ada berita 24 jam terverifikasi (pencarian cuma sampai Sep 2026). Terakhir Fed naik 25bp & PCE panas → bias sedikit bearish."
+  },
   "calendar": [],
   "ea": {
    "connected": false,
@@ -1314,46 +1317,46 @@
    "M10": {
     "bias": "bullish",
     "score": 3,
-    "price": 3578,
-    "ema20": 3557.06,
-    "ema50": 3532.43,
-    "rsi": 66.5,
+    "price": 3588.4,
+    "ema20": 3572.77,
+    "ema50": 3546.05,
+    "rsi": 69.9,
     "n": 299,
-    "slot": 2992739,
-    "at": 1795643465969
+    "slot": 2992746,
+    "at": 1795647666023
    },
    "M15": {
     "bias": "bullish",
     "score": 3,
-    "price": 3575.25,
-    "ema20": 3546.14,
-    "ema50": 3530.31,
-    "rsi": 66.3,
+    "price": 3588.4,
+    "ema20": 3562.68,
+    "ema50": 3540.79,
+    "rsi": 69.7,
     "n": 299,
-    "slot": 1995159,
-    "at": 1795643165949
+    "slot": 1995164,
+    "at": 1795647666029
    },
    "M30": {
     "bias": "sideways",
     "score": -1,
-    "price": 3587.65,
-    "ema20": 3530.3,
-    "ema50": 3541.91,
+    "price": 3588.4,
+    "ema20": 3545.24,
+    "ema50": 3547.1,
     "rsi": 68.6,
     "n": 299,
-    "slot": 997579,
-    "at": 1795642265953
+    "slot": 997582,
+    "at": 1795647666031
    },
    "H1": {
     "bias": "sideways",
     "score": -1,
-    "price": 3572.85,
-    "ema20": 3533.16,
-    "ema50": 3555.66,
-    "rsi": 57.5,
+    "price": 3588.4,
+    "ema20": 3543.03,
+    "ema50": 3558.11,
+    "rsi": 60.5,
     "n": 299,
-    "slot": 498789,
-    "at": 1795640465937
+    "slot": 498791,
+    "at": 1795647666035
    }
   },
   "currency": "USC",
