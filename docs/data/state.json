@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-25T08:01:50.045Z",
+ "generated_at": "2026-11-25T08:07:34.786Z",
  "today": "2026-11-25",
  "week_start": "2026-11-23",
  "campaign": null,
@@ -25,16 +25,16 @@
    "name": "Salsa",
    "title": "Researcher",
    "status": "done",
-   "current_task": "Riset sore About Esports",
-   "updated_at": "2026-11-25 08:01:43"
+   "current_task": "Fakta ONIC DFI 2026 dicek 2 sumber",
+   "updated_at": "2026-11-25 08:04:15"
   },
   {
    "id": "copywriter",
    "name": "Tiara",
    "title": "Copywriter",
    "status": "done",
-   "current_task": "Naskah film VCT 2027 8 tim",
-   "updated_at": "2026-11-25 00:35:01"
+   "current_task": "Naskah film ONIC Delta Force",
+   "updated_at": "2026-11-25 08:05:13"
   },
   {
    "id": "designer",
@@ -49,16 +49,16 @@
    "name": "Dimas",
    "title": "Video Production",
    "status": "done",
-   "current_task": "Film caption-news VCT 2027 8 tim",
-   "updated_at": "2026-11-25 00:35:15"
+   "current_task": "Film caption-news ONIC Delta Force",
+   "updated_at": "2026-11-25 08:06:46"
   },
   {
    "id": "publisher",
    "name": "Fikri",
    "title": "Social Media Publisher",
    "status": "done",
-   "current_task": null,
-   "updated_at": "2026-11-25 03:23:13"
+   "current_task": "Film ONIC Delta Force antre render laptop",
+   "updated_at": "2026-11-25 08:07:14"
   },
   {
    "id": "ads",
@@ -559,6 +559,20 @@
    "channel": null
   },
   {
+   "id": 234,
+   "day": "2026-11-25",
+   "slot": "kilat",
+   "format": "video",
+   "game": "other",
+   "pillar": "news",
+   "title": "ONIC wakil tunggal Indonesia di Delta Force Invitational 2026",
+   "status": "draft",
+   "asset_url": null,
+   "scheduled_at": null,
+   "posted_at": null,
+   "channel": null
+  },
+  {
    "id": 228,
    "day": "2026-11-25",
    "slot": "shorts",
@@ -632,6 +646,16 @@
  "clip_jobs": [],
  "today_tasks": [],
  "activity": [
+  {
+   "ts": "2026-11-25 08:07:14",
+   "agent_id": "publisher",
+   "message": "Konten 234 (ONIC DFI 2026, caption-news) antre render, auto tayang setelah QA"
+  },
+  {
+   "ts": "2026-11-25 08:03:34",
+   "agent_id": "owner",
+   "message": "Approve 1 ide konten tambahan 💡"
+  },
   {
    "ts": "2026-11-25 08:01:47",
    "agent_id": "dir",
@@ -746,19 +770,51 @@
    "ts": "2026-11-25 03:30:48",
    "agent_id": "trisk",
    "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-  },
-  {
-   "ts": "2026-11-25 03:30:48",
-   "agent_id": "ttech",
-   "message": "M30 berubah arah: sideways → bearish"
-  },
-  {
-   "ts": "2026-11-25 03:23:13",
-   "agent_id": "publisher",
-   "message": "Posting #232 ke TikTok + YouTube ✅"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-11-25 08:07:14",
+   "agent_id": "researcher",
+   "to_id": "video",
+   "kind": "santai",
+   "message": "Dimas, Delta Force mainnya di PC lho, bukan HP. Kamu pernah coba?"
+  },
+  {
+   "ts": "2026-11-25 08:07:14",
+   "agent_id": "publisher",
+   "to_id": "owner",
+   "kind": "oper",
+   "message": "Bos, \"Film ONIC Delta Force antre render laptop\" udah aku kirim ke Telegram. Ditunggu approve-nya 🙏"
+  },
+  {
+   "ts": "2026-11-25 08:06:46",
+   "agent_id": "video",
+   "to_id": "publisher",
+   "kind": "oper",
+   "message": "Render \"Film caption-news ONIC Delta Force\" selesai, Fikri. Cek cover-nya ya"
+  },
+  {
+   "ts": "2026-11-25 08:05:13",
+   "agent_id": "copywriter",
+   "to_id": "designer",
+   "kind": "oper",
+   "message": "Teks buat \"Naskah film ONIC Delta Force\" ready. Vania, giliranmu bikin cakep!"
+  },
+  {
+   "ts": "2026-11-25 08:04:15",
+   "agent_id": "researcher",
+   "to_id": "copywriter",
+   "kind": "oper",
+   "message": "Riset \"Fakta ONIC DFI 2026 dicek 2 sumber\" beres, udah dicek 2 sumber. Tiara, lanjut ya~"
+  },
+  {
+   "ts": "2026-11-25 08:03:34",
+   "agent_id": "dir",
+   "to_id": null,
+   "kind": "oper",
+   "message": "Bos ACC 1 ide tambahan! \"ONIC jadi satu-satunya wakil Indonesia di Delta Force Invitational 2026\" 🎉"
+  },
   {
    "ts": "2026-11-25 08:01:47",
    "agent_id": "dir",
@@ -996,54 +1052,12 @@
    "to_id": null,
    "kind": "oper",
    "message": "Bos ACC 1 ide tambahan! \"Prediksi LCQ FFWS: RRQ Kazu, ONIC, atau BTR yang tembus Grand Final?\" 🎉"
-  },
-  {
-   "ts": "2026-11-24 04:01:59",
-   "agent_id": "researcher",
-   "to_id": "copywriter",
-   "kind": "oper",
-   "message": "Tiara, bahan buat \"Riset sesi siang\" udah aku rangkum + sumbernya. Tinggal kamu racik captionnya ✍️"
-  },
-  {
-   "ts": "2026-11-23 23:16:59",
-   "agent_id": "bvisual",
-   "to_id": null,
-   "kind": "santai",
-   "message": "Tembok bata di film hari ini roboh tiga kali sebelum berdiri, persis kayak mood aku tiap Senin 😅"
-  },
-  {
-   "ts": "2026-11-23 23:08:58",
-   "agent_id": "publisher",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Kalau QA lolos langsung tayang TikTok + YouTube tanpa approval lagi, nanti dikabarin pas udah naik ya Bos!"
-  },
-  {
-   "ts": "2026-11-23 23:08:58",
-   "agent_id": "video",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Film caption-news-nya (±50 dtk, logo Sentinels/T1/Heretics) udah antre render laptop jam 09:45 WITA, tampilannya baru keliatan pas render."
-  },
-  {
-   "ts": "2026-11-23 23:08:58",
-   "agent_id": "researcher",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Udah aku cek ulang Bos: OXY & Sacy resmi, brawk ada pengumuman Dot Esports tapi belum 100% aku pastiin, chloric & hiro ke Heretics aku tulis RUMOR."
-  },
-  {
-   "ts": "2026-11-23 23:08:22",
-   "agent_id": "publisher",
-   "to_id": "owner",
-   "kind": "oper",
-   "message": "Bos, \"Konten 224 masuk antrean QA otomatis\" udah aku kirim ke Telegram. Ditunggu approve-nya 🙏"
   }
  ],
  "stats": {
   "this_week": {
    "week": "2026-11-23",
-   "total": 16,
+   "total": 17,
    "posted": 12,
    "pending": 0,
    "scheduled": 4,
@@ -1141,7 +1155,7 @@
   "paused": false,
   "balance": 1757.48,
   "today_pnl": 0,
-  "price": 3522.5,
+  "price": 3516.5,
   "open": [],
   "signals": [
    {
