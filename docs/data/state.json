@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-25T12:57:34.909Z",
+ "generated_at": "2026-11-25T13:07:34.912Z",
  "today": "2026-11-25",
  "week_start": "2026-11-23",
  "campaign": null,
@@ -74,7 +74,7 @@
    "title": "Data Analyst",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-11-25 10:01:07"
+   "updated_at": "2026-11-25 13:01:18"
   },
   {
    "id": "price",
@@ -98,7 +98,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-25 12:46:05"
+   "updated_at": "2026-11-25 13:01:05"
   },
   {
    "id": "tresearch",
@@ -106,7 +106,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Waspada rilis Core PCE Price Index m/m (21.30 WITA)",
-   "updated_at": "2026-11-25 12:46:05"
+   "updated_at": "2026-11-25 13:01:05"
   },
   {
    "id": "ttech",
@@ -114,7 +114,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-11-25 12:46:05"
+   "updated_at": "2026-11-25 13:01:05"
   },
   {
    "id": "trisk",
@@ -122,7 +122,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: berita berdampak tinggi: Core PCE Price Index m/m (21.30 WITA)",
-   "updated_at": "2026-11-25 12:46:05"
+   "updated_at": "2026-11-25 13:01:05"
   },
   {
    "id": "texec",
@@ -647,6 +647,16 @@
  "today_tasks": [],
  "activity": [
   {
+   "ts": "2026-11-25 13:01:18",
+   "agent_id": "analyst",
+   "message": "Update data 31 post IG 📈"
+  },
+  {
+   "ts": "2026-11-25 13:01:05",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: sideways → bearish"
+  },
+  {
    "ts": "2026-11-25 12:41:05",
    "agent_id": "ttech",
    "message": "M10 berubah arah: bearish → sideways"
@@ -760,16 +770,6 @@
    "ts": "2026-11-25 08:41:04",
    "agent_id": "ttech",
    "message": "M10 berubah arah: bearish → sideways"
-  },
-  {
-   "ts": "2026-11-25 08:31:05",
-   "agent_id": "trisk",
-   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-  },
-  {
-   "ts": "2026-11-25 08:07:14",
-   "agent_id": "publisher",
-   "message": "Konten 234 (ONIC DFI 2026, caption-news) antre render, auto tayang setelah QA"
   }
  ],
  "chats": [
@@ -1155,9 +1155,14 @@
   "paused": false,
   "balance": 1757.48,
   "today_pnl": 0,
-  "price": 3515.600098,
+  "price": 3512.25,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-25 13:01:05",
+    "decision": "NO TRADE",
+    "reason": "berita berdampak tinggi: Core PCE Price Index m/m (21.30 WITA)"
+   },
    {
     "ts": "2026-11-25 12:46:05",
     "decision": "NO TRADE",
@@ -1180,11 +1185,6 @@
    },
    {
     "ts": "2026-11-25 11:46:04",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-11-25 11:31:05",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1264,7 +1264,7 @@
    1757.48
   ],
   "last": {
-   "ts": "2026-11-25 12:46:05",
+   "ts": "2026-11-25 13:01:05",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1285,7 +1285,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3519.20 di bawah tengah band (3503.1–3543.3) · RSI 45 · Stoch 65 · MACD +0.97 · H1 bearish"
+    "note": "M15 3516.40 di bawah tengah band (3503.3–3543.3) · RSI 43 · Stoch 64 · MACD +1.06 · H1 bearish"
    }
   },
   "fund": {
@@ -1343,48 +1343,48 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "sideways",
-    "score": -1,
-    "price": 3520.7,
-    "ema20": 3519.86,
-    "ema50": 3532.73,
-    "rsi": 48.9,
+    "bias": "bearish",
+    "score": -3,
+    "price": 3519.2,
+    "ema20": 3519.8,
+    "ema50": 3532.2,
+    "rsi": 47.9,
     "n": 299,
-    "slot": 2992685,
-    "at": 1795611065048
+    "slot": 2992686,
+    "at": 1795611665058
    },
    "M15": {
     "bias": "bearish",
     "score": -3,
-    "price": 3519.5,
-    "ema20": 3523.02,
-    "ema50": 3545.49,
-    "rsi": 44.9,
+    "price": 3519.2,
+    "ema20": 3522.66,
+    "ema50": 3544.46,
+    "rsi": 44.8,
     "n": 299,
-    "slot": 1995123,
-    "at": 1795610765039
+    "slot": 1995124,
+    "at": 1795611665065
    },
    "M30": {
     "bias": "bearish",
     "score": -3,
-    "price": 3518.1,
-    "ema20": 3539.87,
-    "ema50": 3568.68,
-    "rsi": 31.6,
+    "price": 3519.2,
+    "ema20": 3537.9,
+    "ema50": 3566.74,
+    "rsi": 32.5,
     "n": 299,
-    "slot": 997561,
-    "at": 1795609865025
+    "slot": 997562,
+    "at": 1795611665067
    },
    "H1": {
     "bias": "bearish",
     "score": -3,
-    "price": 3512.6,
-    "ema20": 3562.53,
-    "ema50": 3576.28,
-    "rsi": 28.1,
+    "price": 3519.2,
+    "ema20": 3558.41,
+    "ema50": 3574.04,
+    "rsi": 31.6,
     "n": 299,
-    "slot": 498780,
-    "at": 1795608065259
+    "slot": 498781,
+    "at": 1795611665073
    }
   },
   "currency": "USC",
