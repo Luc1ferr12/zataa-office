@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-25T03:13:48.504Z",
+ "generated_at": "2026-11-25T03:23:48.505Z",
  "today": "2026-11-25",
  "week_start": "2026-11-23",
  "campaign": null,
@@ -56,9 +56,9 @@
    "id": "publisher",
    "name": "Fikri",
    "title": "Social Media Publisher",
-   "status": "working",
-   "current_task": "Tunggu render laptop konten 232",
-   "updated_at": "2026-11-25 00:35:15"
+   "status": "done",
+   "current_task": null,
+   "updated_at": "2026-11-25 03:23:13"
   },
   {
    "id": "ads",
@@ -98,7 +98,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-25 03:00:48"
+   "updated_at": "2026-11-25 03:15:48"
   },
   {
    "id": "tresearch",
@@ -106,7 +106,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Fed hold 3,75–4% Okt, pasar pasang hike Des; NFP Okt kuat, DXY ~102. Bias turun. PCE & GDP 25 Nov bisa hawkish. Harga live belum dicek.",
-   "updated_at": "2026-11-25 03:00:48"
+   "updated_at": "2026-11-25 03:15:48"
   },
   {
    "id": "ttech",
@@ -114,7 +114,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-25 03:00:48"
+   "updated_at": "2026-11-25 03:15:48"
   },
   {
    "id": "trisk",
@@ -122,7 +122,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
-   "updated_at": "2026-11-25 03:00:48"
+   "updated_at": "2026-11-25 03:15:48"
   },
   {
    "id": "texec",
@@ -552,10 +552,10 @@
    "game": "valorant",
    "pillar": "news",
    "title": "VCT 2027 cuma 8 tim per region: roster siapa paling ngeri?",
-   "status": "draft",
-   "asset_url": null,
+   "status": "posted",
+   "asset_url": "{\"video\":\"https://luc1ferr12.github.io/zataa-office/media/2026-11-25/232-vct-2027-cuma-8-tim-per-region-roster-si-ov.mp4\",\"cover\":\"https://luc1ferr12.github.io/zataa-office/media/2026-11-25/232-vct-2027-cuma-8-tim-per-region-roster-si-ov-cover.jpg\"}",
    "scheduled_at": null,
-   "posted_at": null,
+   "posted_at": "2026-11-25 03:23:13",
    "channel": null
   },
   {
@@ -618,6 +618,21 @@
  "clip_jobs": [],
  "today_tasks": [],
  "activity": [
+  {
+   "ts": "2026-11-25 03:23:13",
+   "agent_id": "publisher",
+   "message": "Posting #232 ke TikTok + YouTube ✅"
+  },
+  {
+   "ts": "2026-11-25 03:22:03",
+   "agent_id": "video",
+   "message": "video #232 dirender di laptop & dikirim ke Owner"
+  },
+  {
+   "ts": "2026-11-25 03:22:02",
+   "agent_id": "publisher",
+   "message": "#232 lolos QA & langsung dijadwalkan tayang (riset di-ACC Owner)"
+  },
   {
    "ts": "2026-11-25 03:01:16",
    "agent_id": "ypublish",
@@ -727,24 +742,16 @@
    "ts": "2026-11-25 01:16:00",
    "agent_id": "trisk",
    "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-  },
-  {
-   "ts": "2026-11-25 01:01:25",
-   "agent_id": "analyst",
-   "message": "Update data 33 post IG 📈"
-  },
-  {
-   "ts": "2026-11-25 00:35:16",
-   "agent_id": "publisher",
-   "message": "Konten 232 (VCT 2027 8 tim) antre render laptop, auto QA → tayang"
-  },
-  {
-   "ts": "2026-11-25 00:31:28",
-   "agent_id": "owner",
-   "message": "Approve 1 ide konten tambahan 💡"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-11-25 03:23:13",
+   "agent_id": "publisher",
+   "to_id": null,
+   "kind": "oper",
+   "message": "\"VCT 2027 cuma 8 tim per region: roster siapa palin\" udah tayang di TikTok + YouTube 🚀 Makasih semua!"
+  },
   {
    "ts": "2026-11-25 00:35:42",
    "agent_id": "video",
@@ -1017,20 +1024,13 @@
    "to_id": "designer",
    "kind": "oper",
    "message": "Teks buat \"Naskah film rostermania VCT 2027\" ready. Vania, giliranmu bikin cakep!"
-  },
-  {
-   "ts": "2026-11-23 23:03:35",
-   "agent_id": "researcher",
-   "to_id": "copywriter",
-   "kind": "oper",
-   "message": "Tiara, bahan buat \"Cek ulang sumber rostermania VCT 2027\" udah aku rangkum + sumbernya. Tinggal kamu racik captionnya ✍️"
   }
  ],
  "stats": {
   "this_week": {
    "week": "2026-11-23",
    "total": 15,
-   "posted": 11,
+   "posted": 12,
    "pending": 0,
    "scheduled": 3,
    "yt_total": 10,
@@ -1127,9 +1127,14 @@
   "paused": false,
   "balance": 1757.48,
   "today_pnl": 0,
-  "price": 3556.899902,
+  "price": 3555.050049,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-25 03:15:48",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
+   },
    {
     "ts": "2026-11-25 03:00:48",
     "decision": "NO TRADE",
@@ -1152,11 +1157,6 @@
    },
    {
     "ts": "2026-11-25 02:01:00",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-   },
-   {
-    "ts": "2026-11-25 01:46:00",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
    }
@@ -1236,7 +1236,7 @@
    1757.48
   ],
   "last": {
-   "ts": "2026-11-25 03:00:48",
+   "ts": "2026-11-25 03:15:48",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1257,7 +1257,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3550.70 di bawah tengah band (3520.9–3694.1) · RSI 20 · Stoch 17 · MACD -7.35 · H1 sideways"
+    "note": "M15 3555.55 di bawah tengah band (3516.3–3690.9) · RSI 25 · Stoch 19 · MACD -5.65 · H1 sideways"
    }
   },
   "fund": {
@@ -1317,24 +1317,24 @@
    "M10": {
     "bias": "bearish",
     "score": -3,
-    "price": 3556.9,
-    "ema20": 3585.42,
-    "ema50": 3613,
-    "rsi": 30.5,
+    "price": 3548.2,
+    "ema20": 3581.87,
+    "ema50": 3610.46,
+    "rsi": 28,
     "n": 299,
-    "slot": 2992627,
-    "at": 1795576248189
+    "slot": 2992628,
+    "at": 1795576848184
    },
    "M15": {
     "bias": "bearish",
     "score": -3,
-    "price": 3550.8,
-    "ema20": 3601.8,
-    "ema50": 3620.84,
-    "rsi": 20.1,
+    "price": 3558.05,
+    "ema20": 3597.63,
+    "ema50": 3618.37,
+    "rsi": 25.5,
     "n": 299,
-    "slot": 1995084,
-    "at": 1795575648195
+    "slot": 1995085,
+    "at": 1795576548180
    },
    "M30": {
     "bias": "sideways",
