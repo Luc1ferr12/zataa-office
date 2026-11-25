@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-11-25T15:57:34.976Z",
- "today": "2026-11-25",
+ "generated_at": "2026-11-25T16:07:34.979Z",
+ "today": "2026-11-26",
  "week_start": "2026-11-23",
  "campaign": null,
  "agents": [
@@ -74,7 +74,7 @@
    "title": "Data Analyst",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-11-25 13:01:18"
+   "updated_at": "2026-11-25 16:01:16"
   },
   {
    "id": "price",
@@ -98,7 +98,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-25 15:46:05"
+   "updated_at": "2026-11-25 16:01:06"
   },
   {
    "id": "tresearch",
@@ -106,23 +106,23 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Bias bearish ringan: Fed condong naik bunga Des, DXY ~102 & NFP Okt kuat, PCE/GDP hari ini sedikit hawkish. Harga emas belum terkonfirmasi.",
-   "updated_at": "2026-11-25 15:46:05"
+   "updated_at": "2026-11-25 16:01:05"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Setup BUY di band (MACD)",
-   "updated_at": "2026-11-25 15:46:05"
+   "current_task": "Belum ada pantulan band · H1 bearish",
+   "updated_at": "2026-11-25 16:01:06"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: setup BUY di band, konfirmasi baru 1/3 (MACD) · London–NY (mode aman)",
-   "updated_at": "2026-11-25 15:46:05"
+   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
+   "updated_at": "2026-11-25 16:01:06"
   },
   {
    "id": "texec",
@@ -647,6 +647,11 @@
  "today_tasks": [],
  "activity": [
   {
+   "ts": "2026-11-25 16:01:16",
+   "agent_id": "analyst",
+   "message": "Update data 31 post IG 📈"
+  },
+  {
    "ts": "2026-11-25 15:31:05",
    "agent_id": "trisk",
    "message": "NO TRADE · BUY lawan tren H1 (bearish), di luar jam Asia cari aman"
@@ -765,11 +770,6 @@
    "ts": "2026-11-25 08:48:56",
    "agent_id": "publisher",
    "message": "Posting #234 ke TikTok + YouTube ✅"
-  },
-  {
-   "ts": "2026-11-25 08:48:33",
-   "agent_id": "video",
-   "message": "video #234 dirender di laptop & dikirim ke Owner"
   }
  ],
  "chats": [
@@ -1155,9 +1155,14 @@
   "paused": false,
   "balance": 1757.48,
   "today_pnl": 0,
-  "price": 3439.949951,
+  "price": 3446.699951,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-25 16:01:06",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
    {
     "ts": "2026-11-25 15:46:05",
     "decision": "NO TRADE",
@@ -1182,11 +1187,6 @@
     "ts": "2026-11-25 14:46:05",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-11-25 14:31:05",
-    "decision": "NO TRADE",
-    "reason": "BUY lawan tren H1 (bearish), di luar jam Asia cari aman"
    }
   ],
   "trades": [
@@ -1264,7 +1264,7 @@
    1757.48
   ],
   "last": {
-   "ts": "2026-11-25 15:46:05",
+   "ts": "2026-11-25 16:01:06",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1273,7 +1273,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "setup BUY di band, konfirmasi baru 1/3 (MACD) · London–NY (mode aman)",
+   "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
    "fund": {
     "bias": -0.3,
     "note": "Bias bearish ringan: Fed condong naik bunga Des, DXY ~102 & NFP Okt kuat, PCE/GDP hari ini sedikit hawkish. Harga emas belum terkonfirmasi.",
@@ -1282,12 +1282,10 @@
    },
    "tech": {
     "bias": "bearish",
-    "score": 1,
-    "trigger": "buy",
-    "confirm": [
-     "MACD"
-    ],
-    "note": "M15 3446.05 di bawah tengah band (3426.4–3550.3) · RSI 31 · Stoch 18 · MACD -3.89 · H1 bearish · setup BUY (MACD)"
+    "score": 0,
+    "trigger": null,
+    "confirm": [],
+    "note": "M15 3443.70 di bawah tengah band (3422.1–3546.5) · RSI 31 · Stoch 21 · MACD -3.37 · H1 bearish"
    }
   },
   "fund": {
@@ -1347,46 +1345,46 @@
    "M10": {
     "bias": "bearish",
     "score": -3,
-    "price": 3440.55,
-    "ema20": 3472.3,
-    "ema50": 3500.18,
-    "rsi": 33.6,
+    "price": 3447,
+    "ema20": 3469.89,
+    "ema50": 3498.1,
+    "rsi": 37,
     "n": 299,
-    "slot": 2992703,
-    "at": 1795621865520
+    "slot": 2992704,
+    "at": 1795622465723
    },
    "M15": {
     "bias": "bearish",
     "score": -3,
-    "price": 3449.55,
-    "ema20": 3485.35,
-    "ema50": 3517.98,
-    "rsi": 32.2,
+    "price": 3447,
+    "ema20": 3481.7,
+    "ema50": 3515.2,
+    "rsi": 31.6,
     "n": 299,
-    "slot": 1995135,
-    "at": 1795621565499
+    "slot": 1995136,
+    "at": 1795622465731
    },
    "M30": {
     "bias": "bearish",
     "score": -3,
-    "price": 3437.7,
-    "ema20": 3510.27,
-    "ema50": 3549.08,
-    "rsi": 17.5,
+    "price": 3447,
+    "ema20": 3504.24,
+    "ema50": 3545.08,
+    "rsi": 22.9,
     "n": 299,
-    "slot": 997567,
-    "at": 1795620665464
+    "slot": 997568,
+    "at": 1795622465734
    },
    "H1": {
     "bias": "bearish",
     "score": -3,
-    "price": 3465.25,
-    "ema20": 3541.92,
-    "ema50": 3565.86,
-    "rsi": 22.1,
+    "price": 3447,
+    "ema20": 3532.88,
+    "ema50": 3561.2,
+    "rsi": 19.8,
     "n": 299,
-    "slot": 498783,
-    "at": 1795618865384
+    "slot": 498784,
+    "at": 1795622465742
    }
   },
   "currency": "USC",
