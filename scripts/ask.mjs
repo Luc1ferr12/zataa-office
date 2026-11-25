@@ -18,6 +18,8 @@ import { chat } from './chatter.mjs';
 import { AGENTS, wita, activityAt, describe, approvalWaits, pairBilliard } from '../docs/js/schedule.js';
 import { isTradingCommand, handleTrading } from './trading/telegram.mjs';
 import { tradingBotOn } from './trading/tgbot.mjs';
+import { holdReload } from './reload.mjs';
+import { REDO_ENV, claimRedo, getRedo, redoResult, doneRedo, failRedo } from './redo.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const esc = (s) => String(s ?? '').replace(/[&<>]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' })[c]);
@@ -108,11 +110,13 @@ export async function smallTalk(msg) {
 const FULL_TOOLS = ['Bash(node:*)', 'Read', 'Edit', 'Write', 'Glob', 'Grep', 'WebSearch', 'WebFetch', 'Skill'];
 // 23 Nov 2026: film lemo-opuscar (office/film.md) — library di luar repo boleh dibaca Claude (revisi/pengganti Shorts)
 const LEMO_DIR = loadEnv().LEMO_LIB || join(process.env.HOME || process.env.USERPROFILE || '', 'lemo-opuscar');
-export function claude(prompt, minutes = 20, { model, tools = FULL_TOOLS } = {}) {
+export function claude(prompt, minutes = 20, { model, tools = FULL_TOOLS, env } = {}) {
   const bin = loadEnv().CLAUDE_BIN || 'claude';
   const args = ['-p', '--permission-mode', 'acceptEdits', ...(model ? ['--model', model] : []), ...(tools === FULL_TOOLS && existsSync(LEMO_DIR) ? ['--add-dir', LEMO_DIR] : []), '--allowedTools', ...tools];
-  return new Promise((resolve) => {
-    const p = spawn(bin, args, { cwd: ROOT, shell: process.platform === 'win32', windowsHide: true });
+  const release = holdReload(minutes);
+  return new Promise((done) => {
+    const resolve = (r) => { release(); done(r); };
+    const p = spawn(bin, args, { cwd: ROOT, shell: process.platform === 'win32', windowsHide: true, env: env ? { ...process.env, ...env } : process.env });
     let o = '', e = '';
     const timer = setTimeout(() => { p.kill(); e += `\n(dihentikan: lewat ${minutes} menit)`; }, minutes * 60_000);
     p.stdout.on('data', (b) => { o += b; });
@@ -294,11 +298,11 @@ export async function syncMonitor() {
 }
 
 // ---------- keputusan Owner dari tombol Telegram yang butuh kerja tim (plan, ide briefing, promo harga)
-async function team(intro, task, log, lead = 'dir') {
-  const r = await claude(`Kamu tim About Esports (eks Marketing, media esports; web top up zataa.my.id lagi mati → nol promo) di Zaa Office, folder ini. ${intro}\n\n${task}\n\n${RULES}`);
+async function team(intro, task, log, lead = 'dir', { env, minutes, quiet = false } = {}) {
+  const r = await claude(`Kamu tim About Esports (eks Marketing, media esports; web top up zataa.my.id lagi mati → nol promo) di Zaa Office, folder ini. ${intro}\n\n${task}\n\n${RULES}`, minutes, { env });
   if (!r.ok) {
     log(`tugas tim gagal: ${r.text.slice(0, 300)}`);
-    await sayAs(lead, `⚠️ Tim belum bisa ngerjain otomatis (${esc(r.text.slice(0, 150))}). Dilanjut di sesi harian.`).catch(() => {});
+    if (!quiet) await sayAs(lead, `⚠️ Tim belum bisa ngerjain otomatis (${esc(r.text.slice(0, 150))}). Dilanjut di sesi harian.`).catch(() => {});
     return false;
   }
   const reply = formatReply(r.text, lead);
@@ -337,9 +341,11 @@ export async function handleDecision(x, log = console.log) {
     const day = d.prepare('SELECT day FROM ideas WHERE id = ?').get(x.id)?.day;
     if (!day) return false;
     const sesiRow = d.prepare('SELECT sesi FROM ideas WHERE id = ?').get(x.id);
-    if (sesiRow?.sesi) { // sesi riset ditolak semua → tidak ada ronde ulang, tunggu sesi riset berikutnya (4×/hari) dengan berita lebih baru
+    if (sesiRow?.sesi) { // sesi riset ditolak semua → cari berita lain sekarang (antre di tabel redo, dikerjakan runRedo)
       d.prepare("UPDATE ideas SET status = 'skipped' WHERE day = ? AND sesi = ? AND status IN ('pitched', 'proposed')").run(day, sesiRow.sesi);
-      await sayAs('dir', `Siap Bos, riset sesi ${sesiRow.sesi} ditolak semua. Aku catat biar nggak diulang, sesi riset berikutnya cari berita yang lebih hangat 🙏`).catch(() => {});
+      await sayAs('dir', getRedo(d, 'ideas', x.id)
+        ? `Siap Bos, riset sesi ${sesiRow.sesi} ditolak semua. Tim langsung cari berita lain, nanti aku kirim lagi ke sini 🔄`
+        : `Siap Bos, riset sesi ${sesiRow.sesi} ditolak semua. Pencarian penggantinya udah mentok, lanjut di sesi riset berikutnya 🙏`).catch(() => {});
       return true;
     }
     const old =d.prepare("SELECT title, format FROM ideas WHERE day = ? ORDER BY id").all(day);
@@ -361,6 +367,47 @@ export async function handleDecision(x, log = console.log) {
       'Cek ulang harga langsung di zataa.my.id (WebFetch), lalu bikin 1 konten feed promo slot "kilat" (content new), Tiara isi teks, Vania render, Fikri QA lalu node scripts/approval.mjs submit <id>. Angka harga WAJIB sesuai web hari ini.', log, 'price');
   }
   return false;
+}
+
+// ---------- ❌ Owner di bot kantor → cari konten / berita pengganti (antrean tabel redo, tahan restart; dipanggil watcher tiap menit)
+export async function runRedo(log = console.log) {
+  const d = await db();
+  const job = claimRedo(d, 'esports');
+  if (!job) return null;
+  if (job.result) { doneRedo(d, job.id); return { id: job.id, ok: true }; } // keburu dibuat sebelum prosesnya mati
+  const resume = job.tries ? '\nPercobaan sebelumnya gagal: kalau sudah ada film setengah jadi di films/ buat pengganti ini, lanjutkan itu.' : '';
+  const env = { [REDO_ENV[job.kind]]: String(job.ref) };
+  let ok = false, empty = false;
+  try {
+    if (job.kind === 'content') {
+      const c = d.prepare('SELECT * FROM contents WHERE id = ?').get(job.ref);
+      if (c?.status !== 'rejected') { doneRedo(d, job.id); return { id: job.id, ok: true }; }
+      log(`cari pengganti konten #${c.id}`);
+      await team(`Owner MENOLAK konten #${c.id} "${c.title}". Bikin konten PENGGANTI dengan berita / topik LAIN (jangan angle yang sama).${resume}`,
+        `Salsa cari berita hangat lain (node scripts/feeds.mjs dulu, lalu maks 3 pencarian web, >=2 sumber; cek office.mjs brief researcher biar nggak dobel). Andre pilih 1. Bikin VIDEO film lemo-opuscar (office/film.md): node scripts/film.mjs new <slug> --brand=esports --pillar=<pilar> → lines.json + film.js → node scripts/film.mjs check films/<slug> → node scripts/office.mjs content new '{"format":"video","slot":"kilat","game":"...","pillar":"...","title":"..."}' (TANPA auto: pengganti tetap nunggu ✅ Owner) → content set <id> dengan data_json {"film":"films/<slug>"} + caption + sources → node scripts/render.mjs <id> (laptop render lalu kirim ke Owner).`,
+        log, 'dir', { env, minutes: 60, quiet: true });
+      ok = !!redoResult(d, job.id);
+    } else {
+      const first = d.prepare('SELECT day, sesi FROM ideas WHERE id = ?').get(job.ref);
+      const today = wita(new Date()).date;
+      if (!first || first.day !== today) { doneRedo(d, job.id); return { id: job.id, ok: true }; } // berita kemarin sudah basi
+      const old = d.prepare('SELECT title FROM ideas WHERE day = ?').all(today).map((r) => `- ${r.title}`).join('\n');
+      log(`cari berita pengganti sesi ${first.sesi}`);
+      ok = await team(`Owner MENOLAK SEMUA berita sesi riset ${first.sesi}. Cari berita LAIN sekarang. Yang sudah diajukan hari ini (JANGAN diulang / dimirip-miripkan):\n${old}${resume}`,
+        `Ikuti office/daily.md §1 langkah 1–3 untuk sesi "${first.sesi}": Salsa riset (node scripts/feeds.mjs dulu, maks 3 pencarian web, >=2 sumber) → node scripts/office.mjs idea add ideas.json (sesi:"${first.sesi}" + sources) → Andre pilih 1 (idea pick) → node scripts/approval.mjs ideas. JANGAN produksi sebelum Owner ✅. Kalau memang nggak ada berita lain yang layak: jangan kirim apa-apa, bilang jujur di BALASAN.`,
+        log, 'dir', { env, minutes: 30, quiet: true });
+      empty = ok && !redoResult(d, job.id); // sudah dicari tapi nggak ada berita layak → selesai, jangan buang token
+    }
+  } catch (e) { log(`pengganti gagal: ${e.message}`); }
+  if (ok) {
+    doneRedo(d, job.id);
+    log(`pengganti ${job.kind} #${job.ref} beres${empty ? ' (nggak ada berita baru)' : ''}`);
+  } else {
+    const f = failRedo(d, job.id);
+    log(`pengganti ${job.kind} #${job.ref} gagal (percobaan ${f.tries})`);
+    await sayAs('dir', f.wait ? `⚠️ Pengganti buat yang Bos tolak belum jadi, aku coba lagi ${f.wait} menit lagi.` : `⚠️ Pengganti buat yang Bos tolak gagal ${f.tries}×. Perlu dicek manual, Bos.`).catch(() => {});
+  }
+  return { id: job.id, ok };
 }
 
 // ---------- tugas pantau yang dijadwalkan Claude (office.mjs followup)

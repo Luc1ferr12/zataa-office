@@ -10,7 +10,8 @@
 //   node scripts/shorts-bot.mjs queue <id>            antre render ulang di laptop
 //   node scripts/shorts-bot.mjs submit <id>           kirim ke Owner (dipanggil laptop setelah render)
 //   node scripts/shorts-bot.mjs upload <id>           upload manual sekarang (Owner sudah ✅; normalnya otomatis di jam tayang)
-//   ❌ Tolak → Claude CLI bikin Shorts pengganti (topik lain, hari & jam sama)
+//   ❌ Tolak → Claude CLI bikin Shorts pengganti (topik lain, hari & jam sama); antrean di tabel redo, tahan restart
+//   node scripts/shorts-bot.mjs ganti <id>            minta (ulang) pengganti untuk Shorts yang ditolak
 //   node scripts/shorts-bot.mjs say <agent> "<teks>"  pesan dari pegawai YouTube
 //   node scripts/shorts-bot.mjs tiktok <id>           cross-post ke TikTok brand ini sekarang (Story: otomatis setelah tayang YouTube)
 //   node scripts/shorts-bot.mjs bot                   jalankan bot Telegram brand ini (dipakai watcher untuk --brand=story)
@@ -37,6 +38,7 @@ import { check as filmCheck, filmHash } from './film.mjs';
 import { addressedAgent, redirectText } from './bots.mjs';
 import { digest } from './media.mjs';
 import { wita } from '../docs/js/schedule.js';
+import { REDO_ENV, addRedo, getRedo, dueRedo, claimRedo, markRedo, redoResult, doneRedo, failRedo } from './redo.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const STATE = join(ROOT, B.state);
@@ -138,6 +140,7 @@ export async function newShort(p) {
     .run(CH, day, topic?.pillar ?? 'misteri', String(p.title).slice(0, 100), JSON.stringify(data), p.caption ?? '', p.hashtags ?? B.hashtags, p.sources ?? null);
   const id = Number(r.lastInsertRowid);
   if (topic) syncTopic(d, topic.topic_id, 'production', { contentId: id });
+  markRedo(d, 'content', id);
   act(d, T.video, `Shorts #${id} "${p.title}" masuk antrean render laptop (${p.spec.film ? `film lemo-opuscar ${p.spec.film}` : 'OmniVoice'})`);
   return { ok: true, id, topic_id: topic?.topic_id ?? null, queued: 'laptop', ...(ann.meta._exp ? { eksperimen: ann.meta._exp } : {}), ...(ann.notes.length ? { catatan: ann.notes } : {}) };
 }
@@ -385,14 +388,29 @@ async function reject(id, log) {
   d.prepare(`UPDATE contents SET status = 'rejected', updated_at = datetime('now') WHERE id = ? AND channel = '${CH}'`).run(id);
   syncTopic(d, dataOf(c)._topic, 'backlog', { note: `[ditolak Owner di Shorts #${id}]` });
   act(d, 'owner', `Tolak Shorts #${id}`);
+  addRedo(d, 'content', id, CH); // dicatat dulu: pengganti tetap dikerjakan walau proses ini direstart
   lesson(d, [T.dir, T.research], `❌ ditolak Shorts "${String(c.title).slice(0, 60)}" — hindari angle/topik serupa`);
   await sayAs(T.dir, `Oke Bos, Shorts #${id} "${esc(c.title)}" nggak dipakai. Tim langsung bikin konten pengganti dengan topik lain 🔄`).catch(() => {});
-  later(() => replace(c, log), log);
+  kickRedo(log);
 }
 
-async function replace(old, log) {
+// antrean pengganti (tabel redo, scripts/redo.mjs): tahan restart watcher, gagal → dicoba lagi otomatis
+let redoQueued = false;
+const kickRedo = (log) => {
+  if (redoQueued) return;
+  redoQueued = true;
+  later(() => replaceNext(log).finally(() => { redoQueued = false; }), log);
+};
+
+export async function replaceNext(log = console.log) {
+  const d = await db();
+  const job = claimRedo(d, CH);
+  if (!job) return null;
+  const old = getShort(d, job.ref);
+  if (job.result || old?.status !== 'rejected') { doneRedo(d, job.id); return { id: job.id, ok: true }; }
   const today = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Makassar' }).format(new Date());
   const day = old.day > today ? old.day : today;
+  log(`cari pengganti shorts #${old.id} (percobaan ${job.tries + 1})`);
   const r = await claude(`Kamu tim Shorts ${B.name} (${B.niche}, pilar di ${B.sop}) di folder ini.
 BRAND: tambahkan ${BR} di SETIAP perintah scripts/shorts-bot.mjs & scripts/shorts-topics.mjs.
 Owner MENOLAK Shorts #${old.id} "${old.title}". Bikin Shorts PENGGANTI dengan topik lain.
@@ -403,15 +421,32 @@ Langkah:
 3. Riset (≤5 pencarian web, ≥2 sumber, label fakta/teori/mitos). Video = FILM lemo-opuscar (pakai skill lemo-opuscar), gaya = 1 dari ${B.films.join(' / ')} yang paling cocok dengan tema (otomatis dari pilar): node scripts/film.mjs new <slug> ${BR} --pillar=<pilar topik>, salin film contoh yang dicetak, ganti cerita/adegan & lines.json (±8–11 baris, ≤1.100 karakter, kalimat terakhir ajak komen), lalu node scripts/film.mjs check films/<slug>.
 4. Tulis JSON ke tmp/ lalu: node scripts/shorts-bot.mjs new <file.json> dengan "topic_id", "day": "${day}", "jam": "${jamOf(old)}" dan "spec": {"film": "films/<slug>"}.
 5. JANGAN render (otomatis di laptop), jangan kirim Telegram, jangan ubah konten lain.
-Akhiri dengan SATU kalimat ringkas (santai): topik penggantinya apa.`, 60);
-  if (!r.ok) {
-    log(`pengganti shorts #${old.id} gagal: ${r.text.slice(0, 200)}`);
-    return sayAs(T.dir, `⚠️ Konten pengganti #${old.id} belum bisa dibikin otomatis (${esc(r.text.slice(0, 150))}). Dilanjut di sesi harian.`).catch(() => {});
+${job.tries ? 'Percobaan sebelumnya gagal: kalau sudah ada film setengah jadi di films/ buat pengganti ini, lanjutkan itu. ' : ''}Akhiri dengan SATU kalimat ringkas (santai): topik penggantinya apa.`, 60, { env: { [REDO_ENV.content]: String(old.id) } });
+  const made = redoResult(d, job.id); // diisi newShort; konten sudah ada = beres walau Claude-nya sempat error
+  if (!made) {
+    const f = failRedo(d, job.id);
+    log(`pengganti shorts #${old.id} gagal (percobaan ${f.tries}): ${r.text.slice(0, 200)}`);
+    await sayAs(T.dir, `⚠️ Konten pengganti #${old.id} belum jadi (${esc(r.text.slice(0, 150))}). ${f.wait ? `Aku coba lagi ${f.wait} menit lagi.` : `Udah gagal ${f.tries}×, perlu dicek manual: <code>shorts-bot.mjs ganti ${old.id} ${BR}</code>`}`).catch(() => {});
+    return { id: job.id, ok: false };
   }
-  const summary = r.text.split('\n').filter((l) => l.trim()).pop() ?? '';
-  act(await db(), T.dir, `Pengganti Shorts #${old.id}: ${summary.slice(0, 120)}`);
+  doneRedo(d, job.id);
+  const summary = r.ok ? r.text.split('\n').filter((l) => l.trim()).pop() ?? '' : `Shorts #${made}`;
+  act(d, T.dir, `Pengganti Shorts #${old.id}: ${summary.slice(0, 120)}`);
   await sayAs(T.dir, `🎬 Pengganti #${old.id} siap: ${esc(summary.slice(0, 200))}\nLagi dirender di laptop, nanti ${NAMA[T.publish]} kirim ke sini buat di-✅.`).catch(() => {});
-  log(`pengganti shorts #${old.id} beres`);
+  log(`pengganti shorts #${old.id} beres (#${made})`);
+  return { id: job.id, ok: true, content: made };
+}
+
+// minta pengganti secara manual (atau ulang yang sudah menyerah) buat Shorts yang ditolak
+export async function askReplacement(id) {
+  const d = await db();
+  const c = getShort(d, id);
+  if (c?.status !== 'rejected') throw new Error(`Shorts #${id} ${c ? `statusnya ${c.status}, bukan rejected` : 'tidak ada'}`);
+  if (!addRedo(d, 'content', id, CH)) {
+    if (getRedo(d, 'content', id).status !== 'failed') return { ok: true, id, already: getRedo(d, 'content', id).status };
+    d.prepare("UPDATE redo SET status = 'open', tries = 0, next_at = datetime('now') WHERE kind = 'content' AND ref = ?").run(id);
+  }
+  return { ok: true, id, queued: 'pengganti' };
 }
 
 // alasan gagal (upload Zernio / render laptop) di belakang status, dipendekkan biar rekap tetap ringkas
@@ -667,6 +702,7 @@ Perbaiki spec: ganti query find yang gagal dengan query lebih umum & pasti ada d
       await sayAs(T.video, `💻 Shorts #${c.id} "${esc(c.title)}" udah 3 jam nunggu laptop nyala buat render suara OmniVoice, Bos. Begitu laptop on, otomatis aku render & kirim ke sini.`).catch(() => {});
     }
   }
+  if (dueRedo(d, CH)) kickRedo(log); // pengganti yang belum jadi (kepotong restart / gagal)
   // sudah di-✅ Owner → upload begitu masuk jam tayang
   for (const c of d.prepare(`SELECT * FROM contents WHERE channel = '${CH}' AND status = 'approved' AND youtube_id IS NULL`).all()) {
     if (Date.now() >= slotAt(c) && !uploading.has(c.id)) { uploading.add(c.id); later(() => { uploading.delete(c.id); return doUpload(c.id, log); }, log); }
@@ -847,6 +883,7 @@ if (isMain) {
       out(r);
     } else if (cmd === 'say') { await sayAs(a, esc(b)); out('ok'); }
     else if (cmd === 'tiktok') out(await crossTikTok(+a));
+    else if (cmd === 'ganti') out(await askReplacement(+a));
     else if (cmd === 'bot') await startShortsBot();
     else if (cmd === 'report') out(await dailyReport({ dry: a === '--dry' }));
     else if (cmd === 'weekly') out(await weeklyReport({ dry: a === '--dry' }));

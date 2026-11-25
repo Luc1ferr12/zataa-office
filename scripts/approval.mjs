@@ -11,6 +11,7 @@ import { readFile } from 'node:fs/promises';
 import { join, dirname, basename } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { openDb } from './db.mjs';
+import { addRedo, countRedo, markRedo } from './redo.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const ENV_PATH = join(ROOT, '.env');
@@ -244,6 +245,7 @@ export async function submitIdeas() {
   kb.push([...(ids.length > 1 ? [{ text: '✅ Semua', callback_data: `ideas:${ids.join('-')}` }] : []), { text: '❌ Tolak semua', callback_data: `ideaskip:${ids[0]}` }]);
   await tg('sendMessage', { chat_id: env.TELEGRAM_CHAT_ID, text, parse_mode: 'HTML', reply_markup: { inline_keyboard: kb } });
   ideas.forEach((x, i) => d.prepare("UPDATE ideas SET status = 'proposed', slot = ? WHERE id = ?").run(slots[i], x.id));
+  markRedo(d, 'ideas', ids[0]);
   d.prepare('INSERT INTO activity (agent_id, message) VALUES (?, ?)').run('dir', `Kirim ${ideas.length} ide briefing ke Owner${round > 1 ? ` (ronde ${round})` : ''}`);
   return { ok: true, ideas: ids, round };
 }
@@ -270,6 +272,8 @@ async function pollN8n(ack) {
   const { decisions = [] } = await r.json();
   return decisions.filter((x) => x.seq > ack);
 }
+const MAX_IDEA_REDO = 2; // per sesi riset: berita pertama + 2 ronde pengganti
+const witaDay = () => new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Makassar' }).format(new Date());
 async function applyDecisions(fresh, setAck) {
   const d = await db();
   const log = (m) => d.prepare('INSERT INTO activity (agent_id, message) VALUES (?, ?)').run('owner', m);
@@ -288,6 +292,9 @@ async function applyDecisions(fresh, setAck) {
       const no = d.prepare("SELECT title FROM ideas WHERE status = 'proposed' AND day = (SELECT day FROM ideas WHERE id = ?) AND COALESCE(sesi, '') = COALESCE((SELECT sesi FROM ideas WHERE id = ?), '')").all(x.id, x.id).map((r) => r.title);
       d.prepare("UPDATE ideas SET status = 'skipped' WHERE status = 'proposed' AND day = (SELECT day FROM ideas WHERE id = ?) AND COALESCE(sesi, '') = COALESCE((SELECT sesi FROM ideas WHERE id = ?), '')").run(x.id, x.id);
       if (no.length) lesson(d, ['dir'], `❌ semua ide ditolak: ${no.join(' | ')}`);
+      const s = d.prepare('SELECT day, sesi FROM ideas WHERE id = ?').get(x.id);
+      // sesi riset HARI INI ditolak → cari berita lain, maks MAX_IDEA_REDO kali per sesi
+      if (s?.sesi && s.day === witaDay() && countRedo(d, 'ideas', `${s.day}:${s.sesi}`) < MAX_IDEA_REDO) addRedo(d, 'ideas', x.id, 'esports', `${s.day}:${s.sesi}`);
       log('Skip ide tambahan hari ini'); continue;
     }
     if (x.action === 'price_promo') { log('Minta konten promo dari perubahan harga 💰'); continue; }
@@ -298,7 +305,12 @@ async function applyDecisions(fresh, setAck) {
       continue;
     }
     if (x.action === 'approve') { d.prepare("UPDATE contents SET status = 'approved', updated_at = datetime('now') WHERE id = ?").run(x.id); log(`Approve konten #${x.id} ✅`); }
-    else if (x.action === 'reject') { d.prepare("UPDATE contents SET status = 'rejected', updated_at = datetime('now') WHERE id = ?").run(x.id); log(`Tolak konten #${x.id}`); contentLesson(d, x.id, 'reject'); }
+    else if (x.action === 'reject') {
+      const was = d.prepare('SELECT status FROM contents WHERE id = ?').get(x.id)?.status;
+      d.prepare("UPDATE contents SET status = 'rejected', updated_at = datetime('now') WHERE id = ?").run(x.id); log(`Tolak konten #${x.id}`); contentLesson(d, x.id, 'reject');
+      // tombol ❌ di pesan lama (sudah ditolak / tayang) nggak boleh memicu pengganti
+      if (['draft', 'revision', 'pending_approval', 'approved', 'scheduled', 'publish_failed'].includes(was)) addRedo(d, 'content', x.id, 'esports');
+    }
     else if (x.action === 'revision') {
       d.prepare("UPDATE contents SET status = 'revision', owner_note = ?, revisions = revisions + 1, updated_at = datetime('now') WHERE id = ?").run(x.note, x.id);
       log(`Minta revisi #${x.id}: ${x.note}`);

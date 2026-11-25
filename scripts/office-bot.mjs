@@ -52,7 +52,7 @@ export function handleUpdate(u, owner = String(env().TELEGRAM_CHAT_ID)) {
     else {
       const [act, id] = String(q.data || '').split(':');
       if (act === 'ok') { push(id, 'approve'); s.waiting = null; out.text = `✅ #${id} di-approve. Masuk antrian tayang.`; }
-      else if (act === 'no') { push(id, 'reject'); s.waiting = null; out.text = `❌ #${id} ditolak.`; }
+      else if (act === 'no') { push(id, 'reject'); s.waiting = null; out.text = `❌ #${id} ditolak. Tim cari konten pengganti 🔄`; }
       else if (act === 'rev') { s.waiting = id; out.text = `✏️ Ketik catatan revisi buat #${id} (boleh kirim foto/video contoh juga):`; }
       else if (act === 'boost') { push(id, 'boost'); out.text = `🚀 Boost B${id} disetujui. Fahriah lagi pasang iklannya.`; }
       else if (act === 'skip') { push(id, 'boost_skip'); out.text = `👌 Boost B${id} dilewati.`; }
@@ -107,7 +107,7 @@ export function handleUpdate(u, owner = String(env().TELEGRAM_CHAT_ID)) {
 // keputusan dari panel approval web (scripts/web-api.mjs) → antrean yang sama dengan tombol Telegram + kabari Owner di chat bot
 const WEB_TEXT = {
   approve: (id) => `✅ #${id} di-approve. Masuk antrian tayang.`,
-  reject: (id) => `❌ #${id} ditolak.`,
+  reject: (id) => `❌ #${id} ditolak. Tim cari konten pengganti 🔄`,
   revision: (id, note) => `📝 Revisi #${id} dicatat:\n«${note}»\nTim lagi ngerjain, nanti dikirim ulang ke sini.`,
   plan_approve: () => '✅ Plan minggu ini di-approve. Tim mulai produksi!',
   plan_revision: () => '📝 Revisi plan dicatat. Andre lagi benerin, nanti dikirim ulang.',

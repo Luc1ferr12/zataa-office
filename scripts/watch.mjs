@@ -14,7 +14,7 @@ import { poll, submit, sayAs, loadEnv, downloadPhotos, photoNote } from './appro
 import { publishDue, tiktokExport, isTiktokCommand, tiktokCommand } from './publish.mjs';
 import { revisionText } from './chatter.mjs';
 import { adsReady, propose, runApproved } from './boost.mjs';
-import { handleOwnerMessage, handleDecision, runFollowups, syncMonitor } from './ask.mjs';
+import { handleOwnerMessage, handleDecision, runFollowups, runRedo, syncMonitor } from './ask.mjs';
 import { startFinanceBot } from './finance-bot.mjs';
 import { startOfficeBot } from './office-bot.mjs';
 import { startChitchatBot } from './chitchat-bot.mjs';
@@ -42,7 +42,7 @@ import { priceTick, storeOn } from './price.mjs';
 import { limitsTick } from './limits.mjs';
 import { laptopFallback } from './laptop-fallback.mjs';
 import { beat } from './health.mjs';
-import { markCode } from './reload.mjs';
+import { markCode, holdReload } from './reload.mjs';
 
 markCode(); // versi kode proses ini, buat auto-reload (reload.mjs)
 
@@ -66,7 +66,9 @@ const note = (agent, msg) => office('log', agent, msg);
 
 function claude(prompt) {
   const bin = loadEnv().CLAUDE_BIN || 'claude';
-  return new Promise((resolve) => {
+  const release = holdReload(45);
+  return new Promise((done) => {
+    const resolve = (r) => { release(); done(r); };
     const lemo = loadEnv().LEMO_LIB || join(process.env.HOME || process.env.USERPROFILE || '', 'lemo-opuscar');   // film lemo-opuscar (office/film.md)
     const args = ['-p', '--permission-mode', 'acceptEdits', ...(existsSync(lemo) ? ['--add-dir', lemo] : []), '--allowedTools', 'Bash(node:*)', 'Read', 'Edit', 'Write', 'Glob', 'Grep', 'Skill'];
     const p = spawn(bin, args, { cwd: ROOT, shell: process.platform === 'win32', windowsHide: true });
@@ -180,6 +182,8 @@ async function talk() {
       log(`pesan owner beres (${r.kind}${r.ok === false ? ', gagal' : ''})`);
       exportState();
     }
+    const g = await runRedo(log);
+    if (g) exportState();
     const f = await runFollowups(log);
     await syncMonitor();
     if (f) exportState();

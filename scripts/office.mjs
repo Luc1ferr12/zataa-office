@@ -14,6 +14,7 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { CHAT_SQL, chat as chatTo, handoff } from './chatter.mjs';
 import { reloadStale } from './reload.mjs';
+import { markRedo } from './redo.mjs';
 import { writeProgress } from './progress.mjs';
 import { clickStats } from './golink.mjs';
 
@@ -219,6 +220,7 @@ const commands = {
       const r = run('INSERT INTO contents (day, slot, format, game, pillar, title, auto) VALUES (?, ?, ?, ?, ?, ?, ?)',
         p.day ?? today(), p.slot ?? 'kilat', p.format ?? 'video',   // 23 Nov 2026: IG mati → default video (film lemo-opuscar)
         p.game ?? null, p.pillar ?? null, p.title, p.auto ? 1 : 0);
+      markRedo(db, 'content', Number(r.lastInsertRowid));
       return out({ ok: true, id: Number(r.lastInsertRowid) });
     }
     if (sub === 'set') {

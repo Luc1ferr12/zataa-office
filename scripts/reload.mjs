@@ -12,6 +12,26 @@ import { fileURLToPath } from 'node:url';
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const SERVICES = ['scripts/watch.mjs', 'scripts/trading/run.mjs', 'scripts/golink.mjs'];
 const MARKS = join(tmpdir(), 'zataa-code');
+const BUSY = join(ROOT, 'tmp', 'busy'); // kerja Claude yang lagi jalan di watcher / bot anaknya
+
+// dipanggil sebelum menjalankan Claude CLI → balikannya fungsi lepas. Selama ada tanda hidup, deploy otomatis nunggu
+// (25 Nov 2026: restart di tengah kerja mematikan pembuatan Shorts pengganti). Tanda mati sendiri kalau prosesnya hilang / macet.
+export function holdReload(minutes = 90) {
+  const f = join(BUSY, `${process.pid}-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`);
+  try { mkdirSync(BUSY, { recursive: true }); writeFileSync(f, String(Date.now() + (minutes + 5) * 60_000)); } catch { /* abaikan */ }
+  return () => { try { rmSync(f, { force: true }); } catch { /* abaikan */ } };
+}
+export function working(now = Date.now()) {
+  let busy = false;
+  try {
+    for (const f of readdirSync(BUSY)) {
+      let live = false;
+      try { process.kill(+f.split('-')[0], 0); live = +readFileSync(join(BUSY, f), 'utf8') > now; } catch (e) { live = e.code === 'EPERM'; }
+      if (live) busy = true; else rmSync(join(BUSY, f), { force: true });
+    }
+  } catch { /* belum ada */ }
+  return busy;
+}
 
 function codeId() {
   try {
@@ -45,6 +65,7 @@ export function reloadStale() {
       const cmd = readFileSync(`/proc/${pid}/cmdline`, 'utf8').split('\0');
       const svc = SERVICES.find((s) => cmd[0]?.endsWith('node') && cmd.includes(s));
       if (!svc) continue;
+      if (svc === 'scripts/watch.mjs' && working()) continue; // dicoba lagi di export berikutnya
       let mark = null;
       try { mark = readFileSync(join(MARKS, pid), 'utf8').trim(); } catch { /* service versi lama, belum nyatet */ }
       if (mark === 'unknown' || mark === code) continue;
