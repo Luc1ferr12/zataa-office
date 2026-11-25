@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-25T21:27:35.108Z",
+ "generated_at": "2026-11-25T21:37:35.108Z",
  "today": "2026-11-26",
  "week_start": "2026-11-23",
  "campaign": null,
@@ -98,7 +98,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-25 21:16:06"
+   "updated_at": "2026-11-25 21:31:06"
   },
   {
    "id": "tresearch",
@@ -106,7 +106,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
-   "updated_at": "2026-11-25 21:16:06"
+   "updated_at": "2026-11-25 21:31:06"
   },
   {
    "id": "ttech",
@@ -114,7 +114,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-25 21:16:06"
+   "updated_at": "2026-11-25 21:31:06"
   },
   {
    "id": "trisk",
@@ -122,7 +122,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
-   "updated_at": "2026-11-25 21:16:06"
+   "updated_at": "2026-11-25 21:31:06"
   },
   {
    "id": "texec",
@@ -647,6 +647,11 @@
  "today_tasks": [],
  "activity": [
   {
+   "ts": "2026-11-25 21:31:06",
+   "agent_id": "trisk",
+   "message": "NO TRADE · jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
+  },
+  {
    "ts": "2026-11-25 20:31:06",
    "agent_id": "trisk",
    "message": "NO TRADE · jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
@@ -765,11 +770,6 @@
    "ts": "2026-11-25 12:01:31",
    "agent_id": "ypublish",
    "message": "Upload Shorts #231 ke Zaa History (Publik via Zernio)"
-  },
-  {
-   "ts": "2026-11-25 12:01:24",
-   "agent_id": "dir",
-   "message": "Kirim 1 ide briefing ke Owner"
   }
  ],
  "chats": [
@@ -1155,9 +1155,14 @@
   "paused": false,
   "balance": 1757.48,
   "today_pnl": 0,
-  "price": 3579.300049,
+  "price": 3568.5,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-25 21:31:06",
+    "decision": "NO TRADE",
+    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
+   },
    {
     "ts": "2026-11-25 21:16:06",
     "decision": "NO TRADE",
@@ -1180,11 +1185,6 @@
    },
    {
     "ts": "2026-11-25 20:16:06",
-    "decision": "NO TRADE",
-    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
-   },
-   {
-    "ts": "2026-11-25 20:01:06",
     "decision": "NO TRADE",
     "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
    }
@@ -1264,7 +1264,7 @@
    1757.48
   ],
   "last": {
-   "ts": "2026-11-25 21:16:06",
+   "ts": "2026-11-25 21:31:06",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1285,7 +1285,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3567.70 di atas tengah band (3455.1–3613.3) · RSI 66 · Stoch 85 · MACD +3.93 · H1 sideways"
+    "note": "M15 3587.65 di atas tengah band (3467.4–3616.3) · RSI 74 · Stoch 96 · MACD +4.67 · H1 sideways"
    }
   },
   "fund": null,
@@ -1314,35 +1314,35 @@
    "M10": {
     "bias": "bullish",
     "score": 3,
-    "price": 3572.4,
-    "ema20": 3549.1,
-    "ema50": 3526.36,
-    "rsi": 70.1,
+    "price": 3587.65,
+    "ema20": 3552.77,
+    "ema50": 3528.77,
+    "rsi": 74.9,
     "n": 299,
-    "slot": 2992736,
-    "at": 1795641665943
+    "slot": 2992737,
+    "at": 1795642265947
    },
    "M15": {
     "bias": "bullish",
     "score": 3,
-    "price": 3576.2,
-    "ema20": 3538.38,
-    "ema50": 3526.06,
-    "rsi": 70.8,
+    "price": 3587.65,
+    "ema20": 3543.07,
+    "ema50": 3528.48,
+    "rsi": 73.6,
     "n": 299,
-    "slot": 1995157,
-    "at": 1795641365945
+    "slot": 1995158,
+    "at": 1795642265952
    },
    "M30": {
     "bias": "sideways",
     "score": -1,
-    "price": 3572.85,
-    "ema20": 3524.27,
-    "ema50": 3540.04,
-    "rsi": 65.6,
+    "price": 3587.65,
+    "ema20": 3530.3,
+    "ema50": 3541.91,
+    "rsi": 68.6,
     "n": 299,
-    "slot": 997578,
-    "at": 1795640465933
+    "slot": 997579,
+    "at": 1795642265953
    },
    "H1": {
     "bias": "sideways",
