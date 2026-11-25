@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-25T09:07:34.801Z",
+ "generated_at": "2026-11-25T09:17:34.803Z",
  "today": "2026-11-25",
  "week_start": "2026-11-23",
  "campaign": null,
@@ -98,15 +98,15 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-25 09:01:05"
+   "updated_at": "2026-11-25 09:16:05"
   },
   {
    "id": "tresearch",
    "name": "Davina",
    "title": "Research & Fundamental",
    "status": "done",
-   "current_task": "Fundamental: Fed hold 3,75–4% Okt, pasar pasang hike Des; NFP Okt kuat, DXY ~102. Bias turun. PCE & GDP 25 Nov bisa hawkish. Harga live belum dicek.",
-   "updated_at": "2026-11-25 09:01:05"
+   "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
+   "updated_at": "2026-11-25 09:16:05"
   },
   {
    "id": "ttech",
@@ -114,7 +114,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 bearish",
-   "updated_at": "2026-11-25 09:01:05"
+   "updated_at": "2026-11-25 09:16:05"
   },
   {
    "id": "trisk",
@@ -122,7 +122,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-11-25 09:01:05"
+   "updated_at": "2026-11-25 09:16:05"
   },
   {
    "id": "texec",
@@ -1065,18 +1065,18 @@
    "yt_posted": 7,
    "yt_pending": 0,
    "yt_scheduled": 4,
-   "views": 8506,
-   "likes": 128,
+   "views": 8724,
+   "likes": 134,
    "comments": 2,
    "shares": 0,
    "saves": 1,
-   "yt_views": 4201,
+   "yt_views": 4333,
    "top": [
     {
      "title": "Jemkin & something resmi bukan pemain impor lagi di VCT 2027",
      "format": "video",
      "pillar": "news",
-     "views": 1744
+     "views": 1746
     },
     {
      "title": "Komputer 2.000 Tahun dari Dasar Laut Yunani",
@@ -1088,7 +1088,7 @@
      "title": "Meta FFWS GF 2026: SKORP vs double sniper kata Coach AFM",
      "format": "video",
      "pillar": "news",
-     "views": 1319
+     "views": 1321
     }
    ],
    "clicks": 0,
@@ -1112,12 +1112,12 @@
    "yt_posted": 16,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 21049,
+   "views": 21052,
    "likes": 314,
    "comments": 5,
    "shares": 0,
    "saves": 2,
-   "yt_views": 16564,
+   "yt_views": 16566,
    "top": [
     {
      "title": "Gua di Biak Ini Konon Jadi Kuburan Ribuan Tentara Jepang",
@@ -1155,9 +1155,14 @@
   "paused": false,
   "balance": 1757.48,
   "today_pnl": 0,
-  "price": 3534.5,
+  "price": 3530.699951,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-25 09:16:05",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
    {
     "ts": "2026-11-25 09:01:05",
     "decision": "NO TRADE",
@@ -1180,11 +1185,6 @@
    },
    {
     "ts": "2026-11-25 08:01:05",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-11-25 07:46:04",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1264,7 +1264,7 @@
    1757.48
   ],
   "last": {
-   "ts": "2026-11-25 09:01:05",
+   "ts": "2026-11-25 09:16:05",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1275,8 +1275,8 @@
    "risk_usd": null,
    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
    "fund": {
-    "bias": -0.4,
-    "note": "Fed hold 3,75–4% Okt, pasar pasang hike Des; NFP Okt kuat, DXY ~102. Bias turun. PCE & GDP 25 Nov bisa hawkish. Harga live belum dicek.",
+    "bias": 0,
+    "note": "netral (belum ada ringkasan hari ini)",
     "danger": null,
     "blackout": null
    },
@@ -1285,7 +1285,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3534.10 di atas tengah band (3503.9–3555.4) · RSI 44 · Stoch 65 · MACD +4.80 · H1 bearish"
+    "note": "M15 3530.00 di atas tengah band (3505.4–3551.2) · RSI 41 · Stoch 62 · MACD +4.50 · H1 bearish"
    }
   },
   "fund": null,
@@ -1341,25 +1341,25 @@
   "tf": {
    "M10": {
     "bias": "sideways",
-    "score": 0,
-    "price": 3532.3,
-    "ema20": 3528.47,
-    "ema50": 3550.26,
-    "rsi": 49.6,
+    "score": 1,
+    "price": 3532.8,
+    "ema20": 3528.88,
+    "ema50": 3549.58,
+    "rsi": 50.1,
     "n": 299,
-    "slot": 2992662,
-    "at": 1795597264810
+    "slot": 2992663,
+    "at": 1795597864815
    },
    "M15": {
     "bias": "bearish",
     "score": -2,
-    "price": 3532.3,
-    "ema20": 3534.79,
-    "ema50": 3565.41,
-    "rsi": 42.7,
+    "price": 3530,
+    "ema20": 3534.34,
+    "ema50": 3564.02,
+    "rsi": 41.4,
     "n": 299,
-    "slot": 1995108,
-    "at": 1795597264815
+    "slot": 1995109,
+    "at": 1795598164816
    },
    "M30": {
     "bias": "bearish",
