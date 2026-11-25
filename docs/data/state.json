@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-25T03:53:48.516Z",
+ "generated_at": "2026-11-25T04:03:48.520Z",
  "today": "2026-11-25",
  "week_start": "2026-11-23",
  "campaign": null,
@@ -17,16 +17,16 @@
    "name": "Andre",
    "title": "Marketing Director",
    "status": "done",
-   "current_task": "Ajukan ide #277 VCT 2027 ke Owner",
-   "updated_at": "2026-11-24 23:01:55"
+   "current_task": "Sesi siang: nol ide, catatan ke Owner",
+   "updated_at": "2026-11-25 04:01:38"
   },
   {
    "id": "researcher",
    "name": "Salsa",
    "title": "Researcher",
    "status": "done",
-   "current_task": "Cek fakta VCT 2027 8 tim/region",
-   "updated_at": "2026-11-25 00:32:55"
+   "current_task": "Riset sesi siang: nihil berita hangat",
+   "updated_at": "2026-11-25 04:01:20"
   },
   {
    "id": "copywriter",
@@ -74,7 +74,7 @@
    "title": "Data Analyst",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-11-25 01:01:25"
+   "updated_at": "2026-11-25 04:01:30"
   },
   {
    "id": "price",
@@ -98,7 +98,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-25 03:45:48"
+   "updated_at": "2026-11-25 04:00:48"
   },
   {
    "id": "tresearch",
@@ -106,15 +106,15 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Fed hold 3,75–4% Okt, pasar pasang hike Des; NFP Okt kuat, DXY ~102. Bias turun. PCE & GDP 25 Nov bisa hawkish. Harga live belum dicek.",
-   "updated_at": "2026-11-25 03:45:48"
+   "updated_at": "2026-11-25 04:00:48"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-25 03:45:48"
+   "current_task": "Belum ada pantulan band · H1 bearish",
+   "updated_at": "2026-11-25 04:00:48"
   },
   {
    "id": "trisk",
@@ -122,7 +122,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
-   "updated_at": "2026-11-25 03:45:48"
+   "updated_at": "2026-11-25 04:00:48"
   },
   {
    "id": "texec",
@@ -619,6 +619,26 @@
  "today_tasks": [],
  "activity": [
   {
+   "ts": "2026-11-25 04:01:38",
+   "agent_id": "dir",
+   "message": "Sesi siang nol ide: tidak ada berita hangat ≥2 sumber"
+  },
+  {
+   "ts": "2026-11-25 04:01:30",
+   "agent_id": "analyst",
+   "message": "Update data 33 post IG 📈"
+  },
+  {
+   "ts": "2026-11-25 04:01:20",
+   "agent_id": "researcher",
+   "message": "Sesi siang: feed & 3 pencarian nihil berita baru ≥2 sumber"
+  },
+  {
+   "ts": "2026-11-25 04:01:20",
+   "agent_id": "researcher",
+   "message": "Nemu 2 topik baru"
+  },
+  {
    "ts": "2026-11-25 03:30:48",
    "agent_id": "trisk",
    "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (sesi Asia)"
@@ -722,29 +742,16 @@
    "ts": "2026-11-25 02:12:40",
    "agent_id": "spublish",
    "message": "Kirim Shorts #229 ke Owner buat approval"
-  },
-  {
-   "ts": "2026-11-25 02:12:32",
-   "agent_id": "dir",
-   "message": "Kode kantor diperbarui, restart otomatis: scripts/golink.mjs, scripts/trading/run.mjs"
-  },
-  {
-   "ts": "2026-11-25 02:07:27",
-   "agent_id": "yvideo",
-   "message": "Shorts #228 dirender di laptop & dikirim ke Owner"
-  },
-  {
-   "ts": "2026-11-25 02:07:26",
-   "agent_id": "bpublish",
-   "message": "Kirim Shorts #228 ke Owner buat approval"
-  },
-  {
-   "ts": "2026-11-25 02:01:00",
-   "agent_id": "ttech",
-   "message": "M60 berubah arah: bullish → sideways"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-11-25 04:01:20",
+   "agent_id": "researcher",
+   "to_id": "copywriter",
+   "kind": "oper",
+   "message": "Tiara, bahan buat \"Riset sesi siang: nihil berita hangat\" udah aku rangkum + sumbernya. Tinggal kamu racik captionnya ✍️"
+  },
   {
    "ts": "2026-11-25 03:23:13",
    "agent_id": "publisher",
@@ -1017,13 +1024,6 @@
    "to_id": "publisher",
    "kind": "oper",
    "message": "Fikri, video \"Film caption-news rostermania VCT 2027\" udah render 9:16. Musiknya aman kok"
-  },
-  {
-   "ts": "2026-11-23 23:07:57",
-   "agent_id": "copywriter",
-   "to_id": "designer",
-   "kind": "oper",
-   "message": "Teks buat \"Naskah film rostermania VCT 2027\" ready. Vania, giliranmu bikin cakep!"
   }
  ],
  "stats": {
@@ -1037,7 +1037,7 @@
    "yt_posted": 7,
    "yt_pending": 0,
    "yt_scheduled": 3,
-   "views": 8182,
+   "views": 8183,
    "likes": 124,
    "comments": 2,
    "shares": 0,
@@ -1060,7 +1060,7 @@
      "title": "Meta FFWS GF 2026: SKORP vs double sniper kata Coach AFM",
      "format": "video",
      "pillar": "news",
-     "views": 1309
+     "views": 1310
     }
    ],
    "clicks": 0,
@@ -1127,9 +1127,14 @@
   "paused": false,
   "balance": 1757.48,
   "today_pnl": 0,
-  "price": 3549.5,
+  "price": 3547.800049,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-25 04:00:48",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
+   },
    {
     "ts": "2026-11-25 03:45:48",
     "decision": "NO TRADE",
@@ -1152,11 +1157,6 @@
    },
    {
     "ts": "2026-11-25 02:45:48",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-   },
-   {
-    "ts": "2026-11-25 02:30:48",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
    }
@@ -1236,7 +1236,7 @@
    1757.48
   ],
   "last": {
-   "ts": "2026-11-25 03:45:48",
+   "ts": "2026-11-25 04:00:48",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1253,11 +1253,11 @@
     "blackout": null
    },
    "tech": {
-    "bias": "sideways",
+    "bias": "bearish",
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3549.80 di bawah tengah band (3504.5–3683.8) · RSI 24 · Stoch 15 · MACD -3.88 · H1 sideways"
+    "note": "M15 3549.90 di bawah tengah band (3500.4–3678.8) · RSI 25 · Stoch 14 · MACD -2.86 · H1 bearish"
    }
   },
   "fund": {
@@ -1317,46 +1317,46 @@
    "M10": {
     "bias": "bearish",
     "score": -2,
-    "price": 3549.7,
-    "ema20": 3573.61,
-    "ema50": 3603.62,
-    "rsi": 29.2,
+    "price": 3547.6,
+    "ema20": 3571.13,
+    "ema50": 3601.43,
+    "rsi": 28.5,
     "n": 299,
-    "slot": 2992631,
-    "at": 1795578648197
+    "slot": 2992632,
+    "at": 1795579248206
    },
    "M15": {
     "bias": "bearish",
     "score": -2,
-    "price": 3549.7,
-    "ema20": 3588.98,
-    "ema50": 3613.11,
-    "rsi": 23.5,
+    "price": 3547.6,
+    "ema20": 3585.04,
+    "ema50": 3610.54,
+    "rsi": 23,
     "n": 299,
-    "slot": 1995087,
-    "at": 1795578348201
+    "slot": 1995088,
+    "at": 1795579248212
    },
    "M30": {
     "bias": "bearish",
     "score": -3,
-    "price": 3550.2,
-    "ema20": 3611.97,
-    "ema50": 3612.13,
-    "rsi": 27.7,
+    "price": 3547.6,
+    "ema20": 3605.84,
+    "ema50": 3609.6,
+    "rsi": 27.3,
     "n": 299,
-    "slot": 997543,
-    "at": 1795577448201
+    "slot": 997544,
+    "at": 1795579248214
    },
    "H1": {
     "bias": "sideways",
-    "score": 1,
-    "price": 3550.8,
-    "ema20": 3613.65,
-    "ema50": 3596.9,
-    "rsi": 30.4,
+    "score": 0,
+    "price": 3547.6,
+    "ema20": 3607.36,
+    "ema50": 3594.97,
+    "rsi": 29.8,
     "n": 299,
-    "slot": 498771,
-    "at": 1795575648205
+    "slot": 498772,
+    "at": 1795579248220
    }
   },
   "currency": "USC",
