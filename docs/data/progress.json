@@ -1,49 +1,25 @@
 {
- "at": "2026-11-26T02:17:35.356Z",
+ "at": "2026-11-26T02:27:35.350Z",
  "today": "2026-11-26",
  "laptop": {
-  "at": "2026-11-26T02:17:21.070Z",
+  "at": "2026-11-26T02:27:26.973Z",
   "renderFrom": "09:45"
  },
  "queue": [
-  {
-   "id": 236,
-   "channel": "story",
-   "title": "Penjara 200 Tahun di Surabaya Ini Pernah Menahan Soekarno",
-   "style": "backrooms",
-   "estMin": 8,
-   "pos": 1,
-   "state": "render",
-   "startAt": "2026-11-26T02:14:09.411Z",
-   "etaAt": "2026-11-26T02:17:51.070Z",
-   "live": true,
-   "step": "kirim",
-   "stepPct": null,
-   "late": false
-  },
-  {
-   "id": 237,
-   "channel": "marvel",
-   "title": "Thor Kehilangan Mata Persis Kayak Odin, Kebetulan?",
-   "style": "pop-art",
-   "estMin": 6,
-   "pos": 2,
-   "state": "antre",
-   "startAt": "2026-11-26T02:18:35.356Z",
-   "etaAt": "2026-11-26T02:24:35.356Z",
-   "waitingWindow": false
-  },
   {
    "id": 238,
    "channel": "youtube",
    "title": "Tulisan Pulau Paskah Ini Belum Bisa Dibaca Siapa Pun",
    "style": "woodcut",
    "estMin": 7,
-   "pos": 3,
-   "state": "antre",
-   "startAt": "2026-11-26T02:24:35.356Z",
-   "etaAt": "2026-11-26T02:31:35.356Z",
-   "waitingWindow": false
+   "pos": 1,
+   "state": "render",
+   "startAt": "2026-11-26T02:23:47.558Z",
+   "etaAt": "2026-11-26T02:30:47.558Z",
+   "live": true,
+   "step": "suara",
+   "stepPct": 13,
+   "late": false
   }
  ],
  "divisions": [
@@ -65,18 +41,21 @@
      "title": "Tulisan Pulau Paskah Ini Belum Bisa Dibaca Siapa Pun",
      "revisions": 0,
      "airAt": "2026-11-26T05:00:00.000Z",
-     "stage": "antre",
+     "stage": "render",
      "render": {
       "id": 238,
       "channel": "youtube",
       "title": "Tulisan Pulau Paskah Ini Belum Bisa Dibaca Siapa Pun",
       "style": "woodcut",
       "estMin": 7,
-      "pos": 3,
-      "state": "antre",
-      "startAt": "2026-11-26T02:24:35.356Z",
-      "etaAt": "2026-11-26T02:31:35.356Z",
-      "waitingWindow": false
+      "pos": 1,
+      "state": "render",
+      "startAt": "2026-11-26T02:23:47.558Z",
+      "etaAt": "2026-11-26T02:30:47.558Z",
+      "live": true,
+      "step": "suara",
+      "stepPct": 13,
+      "late": false
      },
      "note": ""
     }
@@ -94,23 +73,8 @@
      "title": "Penjara 200 Tahun di Surabaya Ini Pernah Menahan Soekarno",
      "revisions": 0,
      "airAt": "2026-11-26T12:00:00.000Z",
-     "stage": "render",
-     "render": {
-      "id": 236,
-      "channel": "story",
-      "title": "Penjara 200 Tahun di Surabaya Ini Pernah Menahan Soekarno",
-      "style": "backrooms",
-      "estMin": 8,
-      "pos": 1,
-      "state": "render",
-      "startAt": "2026-11-26T02:14:09.411Z",
-      "etaAt": "2026-11-26T02:17:51.070Z",
-      "live": true,
-      "step": "kirim",
-      "stepPct": null,
-      "late": false
-     },
-     "note": ""
+     "stage": "approval",
+     "note": "Nunggu ✅ Bos"
     }
    ],
    "nextSession": "besok 07:00"
@@ -126,20 +90,8 @@
      "title": "Thor Kehilangan Mata Persis Kayak Odin, Kebetulan?",
      "revisions": 0,
      "airAt": "2026-11-26T12:00:00.000Z",
-     "stage": "antre",
-     "render": {
-      "id": 237,
-      "channel": "marvel",
-      "title": "Thor Kehilangan Mata Persis Kayak Odin, Kebetulan?",
-      "style": "pop-art",
-      "estMin": 6,
-      "pos": 2,
-      "state": "antre",
-      "startAt": "2026-11-26T02:18:35.356Z",
-      "etaAt": "2026-11-26T02:24:35.356Z",
-      "waitingWindow": false
-     },
-     "note": ""
+     "stage": "approval",
+     "note": "Nunggu ✅ Bos"
     }
    ],
    "nextSession": "besok 07:00"

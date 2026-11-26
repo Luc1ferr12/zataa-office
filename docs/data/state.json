@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-26T02:17:35.228Z",
+ "generated_at": "2026-11-26T02:27:35.224Z",
  "today": "2026-11-26",
  "week_start": "2026-11-23",
  "campaign": null,
@@ -664,7 +664,7 @@
    "game": "sejarah",
    "pillar": "horor_sejarah",
    "title": "Penjara 200 Tahun di Surabaya Ini Pernah Menahan Soekarno",
-   "status": "draft",
+   "status": "pending_approval",
    "asset_url": null,
    "scheduled_at": null,
    "posted_at": null,
@@ -678,7 +678,7 @@
    "game": "sejarah",
    "pillar": "lore_teori",
    "title": "Thor Kehilangan Mata Persis Kayak Odin, Kebetulan?",
-   "status": "draft",
+   "status": "pending_approval",
    "asset_url": null,
    "scheduled_at": null,
    "posted_at": null,
@@ -702,6 +702,26 @@
  "clip_jobs": [],
  "today_tasks": [],
  "activity": [
+  {
+   "ts": "2026-11-26 02:23:42",
+   "agent_id": "yvideo",
+   "message": "Shorts #237 dirender di laptop & dikirim ke Owner"
+  },
+  {
+   "ts": "2026-11-26 02:23:41",
+   "agent_id": "vpublish",
+   "message": "Kirim Shorts #237 ke Owner buat approval"
+  },
+  {
+   "ts": "2026-11-26 02:18:13",
+   "agent_id": "yvideo",
+   "message": "Shorts #236 dirender di laptop & dikirim ke Owner"
+  },
+  {
+   "ts": "2026-11-26 02:18:12",
+   "agent_id": "spublish",
+   "message": "Kirim Shorts #236 ke Owner buat approval"
+  },
   {
    "ts": "2026-11-26 02:16:06",
    "agent_id": "trisk",
@@ -806,26 +826,6 @@
    "ts": "2026-11-25 23:11:37",
    "agent_id": "sdir",
    "message": "Shorts Story HS-012 Penjara Kalisosok antre render (eksperimen naskah pendek, 103 kata)"
-  },
-  {
-   "ts": "2026-11-25 23:11:37",
-   "agent_id": "svideo",
-   "message": "Shorts #236 \"Penjara 200 Tahun di Surabaya Ini Pernah Menahan Soekarno\" masuk antrean render laptop (film lemo-opuscar films/story-penjara-kalisosok)"
-  },
-  {
-   "ts": "2026-11-25 23:11:06",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: bullish → sideways"
-  },
-  {
-   "ts": "2026-11-25 23:07:50",
-   "agent_id": "bdir",
-   "message": "Shorts #235 Kenapa Jendela Pesawat Ada Lubang Kecilnya? antre render laptop (jam 12:00, eksperimen jam)"
-  },
-  {
-   "ts": "2026-11-25 23:07:39",
-   "agent_id": "bvideo",
-   "message": "Shorts #235 \"Kenapa Jendela Pesawat Ada Lubang Kecilnya?\" masuk antrean render laptop (film lemo-opuscar films/cowo-jendela-pesawat)"
   }
  ],
  "chats": [
@@ -1115,18 +1115,18 @@
    "week": "2026-11-23",
    "total": 21,
    "posted": 17,
-   "pending": 1,
+   "pending": 3,
    "scheduled": 0,
    "yt_total": 15,
    "yt_posted": 11,
-   "yt_pending": 1,
+   "yt_pending": 3,
    "yt_scheduled": 0,
-   "views": 11633,
-   "likes": 189,
-   "comments": 3,
+   "views": 11684,
+   "likes": 194,
+   "comments": 4,
    "shares": 0,
    "saves": 1,
-   "yt_views": 6746,
+   "yt_views": 6754,
    "top": [
     {
      "title": "Jemkin & something resmi bukan pemain impor lagi di VCT 2027",
@@ -1168,12 +1168,12 @@
    "yt_posted": 16,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 21098,
+   "views": 21100,
    "likes": 316,
    "comments": 5,
    "shares": 0,
    "saves": 2,
-   "yt_views": 16604,
+   "yt_views": 16606,
    "top": [
     {
      "title": "Gua di Biak Ini Konon Jadi Kuburan Ribuan Tentara Jepang",
@@ -1211,7 +1211,7 @@
   "paused": false,
   "balance": 1757.48,
   "today_pnl": 0,
-  "price": 3582.25,
+  "price": 3581.550049,
   "open": [],
   "signals": [
    {
@@ -1375,13 +1375,13 @@
    "M10": {
     "bias": "sideways",
     "score": 1,
-    "price": 3573.7,
-    "ema20": 3570.64,
-    "ema50": 3559.41,
-    "rsi": 52.9,
+    "price": 3581.1,
+    "ema20": 3571.64,
+    "ema50": 3560.26,
+    "rsi": 57,
     "n": 299,
-    "slot": 2992765,
-    "at": 1795659066348
+    "slot": 2992766,
+    "at": 1795659666173
    },
    "M15": {
     "bias": "bullish",
