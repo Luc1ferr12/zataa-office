@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-26T20:07:35.664Z",
+ "generated_at": "2026-11-26T20:17:35.664Z",
  "today": "2026-11-27",
  "week_start": "2026-11-23",
  "campaign": null,
@@ -98,7 +98,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-26 20:01:08"
+   "updated_at": "2026-11-26 20:16:08"
   },
   {
    "id": "tresearch",
@@ -106,7 +106,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Tak ada berita 24 jam terakhir (data terbaru Okt 2026). Fed condong naik (Des ~80%), NFP Okt kuat 165k, DXY ~102: emas tertekan. Data basi.",
-   "updated_at": "2026-11-26 20:01:08"
+   "updated_at": "2026-11-26 20:16:08"
   },
   {
    "id": "ttech",
@@ -114,7 +114,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-26 20:01:08"
+   "updated_at": "2026-11-26 20:16:08"
   },
   {
    "id": "trisk",
@@ -122,7 +122,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
-   "updated_at": "2026-11-26 20:01:08"
+   "updated_at": "2026-11-26 20:16:08"
   },
   {
    "id": "texec",
@@ -703,6 +703,11 @@
  "today_tasks": [],
  "activity": [
   {
+   "ts": "2026-11-26 20:16:08",
+   "agent_id": "trisk",
+   "message": "NO TRADE · jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
+  },
+  {
    "ts": "2026-11-26 19:46:08",
    "agent_id": "ttech",
    "message": "M15 berubah arah: sideways → bearish"
@@ -821,11 +826,6 @@
    "ts": "2026-11-26 14:01:07",
    "agent_id": "ttech",
    "message": "M60 berubah arah: bearish → sideways"
-  },
-  {
-   "ts": "2026-11-26 13:46:07",
-   "agent_id": "ttech",
-   "message": "M15 berubah arah: bearish → sideways"
   }
  ],
  "chats": [
@@ -1215,6 +1215,11 @@
   "open": [],
   "signals": [
    {
+    "ts": "2026-11-26 20:16:08",
+    "decision": "NO TRADE",
+    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
+   },
+   {
     "ts": "2026-11-26 20:01:08",
     "decision": "NO TRADE",
     "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
@@ -1236,11 +1241,6 @@
    },
    {
     "ts": "2026-11-26 19:01:08",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-11-26 18:46:08",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1320,7 +1320,7 @@
    1757.48
   ],
   "last": {
-   "ts": "2026-11-26 20:01:08",
+   "ts": "2026-11-26 20:16:08",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1341,7 +1341,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3566.20 di bawah tengah band (3562.4–3574.6) · RSI 46 · Stoch 18 · MACD -0.30 · H1 sideways"
+    "note": "M15 3566.20 di bawah tengah band (3562.2–3574.4) · RSI 46 · Stoch 22 · MACD -0.24 · H1 sideways"
    }
   },
   "fund": {
@@ -1374,23 +1374,23 @@
     "bias": "bearish",
     "score": -3,
     "price": 3566.2,
-    "ema20": 3567.56,
-    "ema50": 3568.64,
+    "ema20": 3567.43,
+    "ema50": 3568.55,
     "rsi": 44,
     "n": 299,
-    "slot": 2992872,
-    "at": 1795723268322
+    "slot": 2992873,
+    "at": 1795723868512
    },
    "M15": {
     "bias": "bearish",
     "score": -2,
     "price": 3566.2,
-    "ema20": 3567.89,
-    "ema50": 3568.09,
+    "ema20": 3567.73,
+    "ema50": 3568.02,
     "rsi": 45.6,
     "n": 299,
-    "slot": 1995248,
-    "at": 1795723268328
+    "slot": 1995249,
+    "at": 1795724168338
    },
    "M30": {
     "bias": "sideways",
