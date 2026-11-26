@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-26T17:27:35.579Z",
+ "generated_at": "2026-11-26T17:37:35.579Z",
  "today": "2026-11-27",
  "week_start": "2026-11-23",
  "campaign": null,
@@ -98,7 +98,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-26 17:16:08"
+   "updated_at": "2026-11-26 17:31:08"
   },
   {
    "id": "tresearch",
@@ -106,7 +106,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Tak ada berita 24 jam terakhir (data terbaru Okt 2026). Fed condong naik (Des ~80%), NFP Okt kuat 165k, DXY ~102: emas tertekan. Data basi.",
-   "updated_at": "2026-11-26 17:16:08"
+   "updated_at": "2026-11-26 17:31:08"
   },
   {
    "id": "ttech",
@@ -114,7 +114,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-26 17:16:08"
+   "updated_at": "2026-11-26 17:31:08"
   },
   {
    "id": "trisk",
@@ -122,7 +122,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-11-26 17:16:08"
+   "updated_at": "2026-11-26 17:31:08"
   },
   {
    "id": "texec",
@@ -703,6 +703,11 @@
  "today_tasks": [],
  "activity": [
   {
+   "ts": "2026-11-26 17:31:07",
+   "agent_id": "ttech",
+   "message": "M30 berubah arah: bullish → sideways"
+  },
+  {
    "ts": "2026-11-26 17:16:08",
    "agent_id": "trisk",
    "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
@@ -821,11 +826,6 @@
    "ts": "2026-11-26 12:16:06",
    "agent_id": "trisk",
    "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-  },
-  {
-   "ts": "2026-11-26 12:16:06",
-   "agent_id": "ttech",
-   "message": "M15 berubah arah: bullish → sideways"
   }
  ],
  "chats": [
@@ -1211,9 +1211,14 @@
   "paused": false,
   "balance": 1757.48,
   "today_pnl": 0,
-  "price": 3569.149902,
+  "price": 3566.899902,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-26 17:31:08",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
    {
     "ts": "2026-11-26 17:16:08",
     "decision": "NO TRADE",
@@ -1236,11 +1241,6 @@
    },
    {
     "ts": "2026-11-26 16:16:08",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-11-26 16:01:07",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1320,7 +1320,7 @@
    1757.48
   ],
   "last": {
-   "ts": "2026-11-26 17:16:08",
+   "ts": "2026-11-26 17:31:08",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1341,7 +1341,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3569.25 di bawah tengah band (3561.9–3578.7) · RSI 49 · Stoch 24 · MACD -0.18 · H1 sideways"
+    "note": "M15 3567.55 di bawah tengah band (3561.8–3578.7) · RSI 47 · Stoch 12 · MACD -0.40 · H1 sideways"
    }
   },
   "fund": {
@@ -1373,35 +1373,35 @@
    "M10": {
     "bias": "sideways",
     "score": -1,
-    "price": 3569.4,
-    "ema20": 3571.31,
-    "ema50": 3570.4,
-    "rsi": 47.4,
+    "price": 3569.15,
+    "ema20": 3571.1,
+    "ema50": 3570.35,
+    "rsi": 47.1,
     "n": 299,
-    "slot": 2992856,
-    "at": 1795713667897
+    "slot": 2992857,
+    "at": 1795714267941
    },
    "M15": {
     "bias": "sideways",
     "score": 0,
-    "price": 3570.3,
-    "ema20": 3570.55,
-    "ema50": 3568.9,
-    "rsi": 50.1,
+    "price": 3569.15,
+    "ema20": 3570.42,
+    "ema50": 3568.91,
+    "rsi": 48.6,
     "n": 299,
-    "slot": 1995237,
-    "at": 1795713367891
+    "slot": 1995238,
+    "at": 1795714267946
    },
    "M30": {
-    "bias": "bullish",
-    "score": 3,
-    "price": 3570.2,
-    "ema20": 3569.76,
-    "ema50": 3565.49,
-    "rsi": 51.1,
+    "bias": "sideways",
+    "score": 1,
+    "price": 3569.15,
+    "ema20": 3569.7,
+    "ema50": 3565.63,
+    "rsi": 50.4,
     "n": 299,
-    "slot": 997618,
-    "at": 1795712467996
+    "slot": 997619,
+    "at": 1795714267948
    },
    "H1": {
     "bias": "bullish",
