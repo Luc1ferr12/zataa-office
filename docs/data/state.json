@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-26T02:47:35.236Z",
+ "generated_at": "2026-11-26T02:57:35.236Z",
  "today": "2026-11-26",
  "week_start": "2026-11-23",
  "campaign": null,
@@ -664,7 +664,7 @@
    "game": "sejarah",
    "pillar": "horor_sejarah",
    "title": "Penjara 200 Tahun di Surabaya Ini Pernah Menahan Soekarno",
-   "status": "pending_approval",
+   "status": "approved",
    "asset_url": null,
    "scheduled_at": null,
    "posted_at": null,
@@ -678,7 +678,7 @@
    "game": "sejarah",
    "pillar": "lore_teori",
    "title": "Thor Kehilangan Mata Persis Kayak Odin, Kebetulan?",
-   "status": "pending_approval",
+   "status": "approved",
    "asset_url": null,
    "scheduled_at": null,
    "posted_at": null,
@@ -692,7 +692,7 @@
    "game": "sejarah",
    "pillar": "historical_mysteries",
    "title": "Tulisan Pulau Paskah Ini Belum Bisa Dibaca Siapa Pun",
-   "status": "draft",
+   "status": "approved",
    "asset_url": null,
    "scheduled_at": null,
    "posted_at": null,
@@ -702,6 +702,46 @@
  "clip_jobs": [],
  "today_tasks": [],
  "activity": [
+  {
+   "ts": "2026-11-26 02:52:07",
+   "agent_id": "owner",
+   "message": "Approve Shorts #238 ✅"
+  },
+  {
+   "ts": "2026-11-26 02:52:02",
+   "agent_id": "owner",
+   "message": "Keputusan dari web: Diteruskan ke bot Zaa History (±5 dtk)"
+  },
+  {
+   "ts": "2026-11-26 02:50:29",
+   "agent_id": "yvideo",
+   "message": "Shorts #238 dirender di laptop & dikirim ke Owner"
+  },
+  {
+   "ts": "2026-11-26 02:50:28",
+   "agent_id": "ypublish",
+   "message": "Kirim Shorts #238 ke Owner buat approval"
+  },
+  {
+   "ts": "2026-11-26 02:49:55",
+   "agent_id": "owner",
+   "message": "Approve Shorts #237 ✅"
+  },
+  {
+   "ts": "2026-11-26 02:49:54",
+   "agent_id": "owner",
+   "message": "Keputusan dari web: Diteruskan ke bot Marvel Talk (±5 dtk)"
+  },
+  {
+   "ts": "2026-11-26 02:48:15",
+   "agent_id": "owner",
+   "message": "Approve Shorts #236 ✅"
+  },
+  {
+   "ts": "2026-11-26 02:48:14",
+   "agent_id": "owner",
+   "message": "Keputusan dari web: Diteruskan ke bot Zaa Story (±5 dtk)"
+  },
   {
    "ts": "2026-11-26 02:47:07",
    "agent_id": "owner",
@@ -786,46 +826,6 @@
    "ts": "2026-11-26 01:01:19",
    "agent_id": "analyst",
    "message": "Update data 31 post IG 📈"
-  },
-  {
-   "ts": "2026-11-26 01:01:06",
-   "agent_id": "ttech",
-   "message": "M15 berubah arah: bullish → sideways"
-  },
-  {
-   "ts": "2026-11-26 00:51:06",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: bullish → sideways"
-  },
-  {
-   "ts": "2026-11-26 00:41:06",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: sideways → bullish"
-  },
-  {
-   "ts": "2026-11-26 00:21:06",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: bullish → sideways"
-  },
-  {
-   "ts": "2026-11-26 00:16:06",
-   "agent_id": "trisk",
-   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-  },
-  {
-   "ts": "2026-11-25 23:31:06",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: sideways → bullish"
-  },
-  {
-   "ts": "2026-11-25 23:18:56",
-   "agent_id": "ydir",
-   "message": "Shorts History HM-004 Rongorongo antre render (woodcut; dark-documentary & stained-glass belum punya film contoh)"
-  },
-  {
-   "ts": "2026-11-25 23:18:56",
-   "agent_id": "yvideo",
-   "message": "Shorts #238 \"Tulisan Pulau Paskah Ini Belum Bisa Dibaca Siapa Pun\" masuk antrean render laptop (film lemo-opuscar films/history-rongorongo)"
   }
  ],
  "chats": [
@@ -1115,12 +1115,12 @@
    "week": "2026-11-23",
    "total": 21,
    "posted": 17,
-   "pending": 2,
-   "scheduled": 1,
+   "pending": 0,
+   "scheduled": 4,
    "yt_total": 15,
    "yt_posted": 11,
-   "yt_pending": 2,
-   "yt_scheduled": 1,
+   "yt_pending": 0,
+   "yt_scheduled": 4,
    "views": 11684,
    "likes": 194,
    "comments": 4,
@@ -1211,7 +1211,7 @@
   "paused": false,
   "balance": 1757.48,
   "today_pnl": 0,
-  "price": 3593.800049,
+  "price": 3580.899902,
   "open": [],
   "signals": [
    {
@@ -1373,13 +1373,13 @@
    "M10": {
     "bias": "sideways",
     "score": 1,
-    "price": 3595.6,
-    "ema20": 3574.85,
-    "ema50": 3562.48,
-    "rsi": 64,
+    "price": 3602.45,
+    "ema20": 3577.47,
+    "ema50": 3564.04,
+    "rsi": 66.8,
     "n": 299,
-    "slot": 2992768,
-    "at": 1795660866185
+    "slot": 2992769,
+    "at": 1795661466185
    },
    "M15": {
     "bias": "bullish",
