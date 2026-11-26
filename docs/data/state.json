@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-26T10:37:35.416Z",
+ "generated_at": "2026-11-26T10:47:35.411Z",
  "today": "2026-11-26",
  "week_start": "2026-11-23",
  "campaign": null,
@@ -98,7 +98,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-26 10:31:06"
+   "updated_at": "2026-11-26 10:46:06"
   },
   {
    "id": "tresearch",
@@ -106,23 +106,23 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
-   "updated_at": "2026-11-26 10:31:06"
+   "updated_at": "2026-11-26 10:46:06"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Setup BUY di band (tanpa konfirmasi)",
-   "updated_at": "2026-11-26 10:31:06"
+   "current_task": "Belum ada pantulan band · H1 bearish",
+   "updated_at": "2026-11-26 10:46:06"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: setup BUY di band, konfirmasi baru 0/3 (-) · London–NY (mode aman)",
-   "updated_at": "2026-11-26 10:31:06"
+   "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
+   "updated_at": "2026-11-26 10:46:06"
   },
   {
    "id": "texec",
@@ -1215,6 +1215,11 @@
   "open": [],
   "signals": [
    {
+    "ts": "2026-11-26 10:46:06",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
+   {
     "ts": "2026-11-26 10:31:06",
     "decision": "NO TRADE",
     "reason": "setup BUY di band, konfirmasi baru 0/3 (-) · London–NY (mode aman)"
@@ -1236,11 +1241,6 @@
    },
    {
     "ts": "2026-11-26 09:31:06",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-11-26 09:16:06",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1320,7 +1320,7 @@
    1757.48
   ],
   "last": {
-   "ts": "2026-11-26 10:31:06",
+   "ts": "2026-11-26 10:46:06",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1329,7 +1329,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "setup BUY di band, konfirmasi baru 0/3 (-) · London–NY (mode aman)",
+   "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
    "fund": {
     "bias": 0,
     "note": "netral (belum ada ringkasan hari ini)",
@@ -1339,9 +1339,9 @@
    "tech": {
     "bias": "bearish",
     "score": 0,
-    "trigger": "buy",
+    "trigger": null,
     "confirm": [],
-    "note": "M15 3562.00 di bawah tengah band (3559.1–3579.3) · RSI 42 · Stoch 25 · MACD -0.92 · H1 bearish · setup BUY (tanpa konfirmasi)"
+    "note": "M15 3552.45 di bawah band bawah (3553.9–3580.9) · RSI 35 · Stoch 6 · MACD -1.94 · H1 bearish"
    }
   },
   "fund": null,
@@ -1370,24 +1370,24 @@
    "M10": {
     "bias": "bearish",
     "score": -2,
-    "price": 3561.3,
-    "ema20": 3569.45,
-    "ema50": 3570.96,
-    "rsi": 40.6,
+    "price": 3561.9,
+    "ema20": 3568.73,
+    "ema50": 3570.61,
+    "rsi": 41.4,
     "n": 299,
-    "slot": 2992815,
-    "at": 1795689066706
+    "slot": 2992816,
+    "at": 1795689666543
    },
    "M15": {
     "bias": "sideways",
     "score": 0,
-    "price": 3561.3,
-    "ema20": 3571.05,
-    "ema50": 3568.24,
-    "rsi": 40.8,
+    "price": 3553,
+    "ema20": 3569.33,
+    "ema50": 3567.64,
+    "rsi": 35.5,
     "n": 299,
-    "slot": 1995210,
-    "at": 1795689066712
+    "slot": 1995211,
+    "at": 1795689966549
    },
    "M30": {
     "bias": "sideways",
