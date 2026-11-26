@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-26T16:47:35.562Z",
+ "generated_at": "2026-11-26T16:57:35.578Z",
  "today": "2026-11-27",
  "week_start": "2026-11-23",
  "campaign": null,
@@ -703,6 +703,11 @@
  "today_tasks": [],
  "activity": [
   {
+   "ts": "2026-11-26 16:51:07",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: sideways → bullish"
+  },
+  {
    "ts": "2026-11-26 16:46:07",
    "agent_id": "ttech",
    "message": "M15 berubah arah: bullish → sideways"
@@ -821,11 +826,6 @@
    "ts": "2026-11-26 12:01:20",
    "agent_id": "vpublish",
    "message": "Upload Shorts #237 ke Marvel Talk (Publik via Zernio)"
-  },
-  {
-   "ts": "2026-11-26 12:01:10",
-   "agent_id": "spublish",
-   "message": "Upload Shorts #236 ke Zaa Story (Publik via Zernio)"
   }
  ],
  "chats": [
@@ -1211,7 +1211,7 @@
   "paused": false,
   "balance": 1757.48,
   "today_pnl": 0,
-  "price": 3569.850098,
+  "price": 3570,
   "open": [],
   "signals": [
    {
@@ -1371,15 +1371,15 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "sideways",
-    "score": 0,
-    "price": 3570.1,
+    "bias": "bullish",
+    "score": 2,
+    "price": 3571.8,
     "ema20": 3571.8,
-    "ema50": 3570.4,
-    "rsi": 48.5,
+    "ema50": 3570.46,
+    "rsi": 50.7,
     "n": 299,
-    "slot": 2992852,
-    "at": 1795711267728
+    "slot": 2992853,
+    "at": 1795711867775
    },
    "M15": {
     "bias": "sideways",
