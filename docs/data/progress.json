@@ -1,37 +1,25 @@
 {
- "at": "2026-11-26T02:07:35.355Z",
+ "at": "2026-11-26T02:17:35.356Z",
  "today": "2026-11-26",
  "laptop": {
-  "at": "2026-11-26T02:07:24.149Z",
+  "at": "2026-11-26T02:17:21.070Z",
   "renderFrom": "09:45"
  },
  "queue": [
-  {
-   "id": 235,
-   "channel": "cowo",
-   "title": "Kenapa Jendela Pesawat Ada Lubang Kecilnya?",
-   "style": "brick-toy",
-   "estMin": 16,
-   "pos": 1,
-   "state": "render",
-   "startAt": "2026-11-26T01:51:46.692Z",
-   "etaAt": "2026-11-26T02:16:25.589Z",
-   "live": true,
-   "step": "gambar",
-   "stepPct": 67,
-   "late": false
-  },
   {
    "id": 236,
    "channel": "story",
    "title": "Penjara 200 Tahun di Surabaya Ini Pernah Menahan Soekarno",
    "style": "backrooms",
    "estMin": 8,
-   "pos": 2,
-   "state": "antre",
-   "startAt": "2026-11-26T02:16:25.589Z",
-   "etaAt": "2026-11-26T02:24:25.589Z",
-   "waitingWindow": false
+   "pos": 1,
+   "state": "render",
+   "startAt": "2026-11-26T02:14:09.411Z",
+   "etaAt": "2026-11-26T02:17:51.070Z",
+   "live": true,
+   "step": "kirim",
+   "stepPct": null,
+   "late": false
   },
   {
    "id": 237,
@@ -39,10 +27,10 @@
    "title": "Thor Kehilangan Mata Persis Kayak Odin, Kebetulan?",
    "style": "pop-art",
    "estMin": 6,
-   "pos": 3,
+   "pos": 2,
    "state": "antre",
-   "startAt": "2026-11-26T02:24:25.589Z",
-   "etaAt": "2026-11-26T02:30:25.589Z",
+   "startAt": "2026-11-26T02:18:35.356Z",
+   "etaAt": "2026-11-26T02:24:35.356Z",
    "waitingWindow": false
   },
   {
@@ -51,10 +39,10 @@
    "title": "Tulisan Pulau Paskah Ini Belum Bisa Dibaca Siapa Pun",
    "style": "woodcut",
    "estMin": 7,
-   "pos": 4,
+   "pos": 3,
    "state": "antre",
-   "startAt": "2026-11-26T02:30:25.589Z",
-   "etaAt": "2026-11-26T02:37:25.589Z",
+   "startAt": "2026-11-26T02:24:35.356Z",
+   "etaAt": "2026-11-26T02:31:35.356Z",
    "waitingWindow": false
   }
  ],
@@ -84,10 +72,10 @@
       "title": "Tulisan Pulau Paskah Ini Belum Bisa Dibaca Siapa Pun",
       "style": "woodcut",
       "estMin": 7,
-      "pos": 4,
+      "pos": 3,
       "state": "antre",
-      "startAt": "2026-11-26T02:30:25.589Z",
-      "etaAt": "2026-11-26T02:37:25.589Z",
+      "startAt": "2026-11-26T02:24:35.356Z",
+      "etaAt": "2026-11-26T02:31:35.356Z",
       "waitingWindow": false
      },
      "note": ""
@@ -106,18 +94,21 @@
      "title": "Penjara 200 Tahun di Surabaya Ini Pernah Menahan Soekarno",
      "revisions": 0,
      "airAt": "2026-11-26T12:00:00.000Z",
-     "stage": "antre",
+     "stage": "render",
      "render": {
       "id": 236,
       "channel": "story",
       "title": "Penjara 200 Tahun di Surabaya Ini Pernah Menahan Soekarno",
       "style": "backrooms",
       "estMin": 8,
-      "pos": 2,
-      "state": "antre",
-      "startAt": "2026-11-26T02:16:25.589Z",
-      "etaAt": "2026-11-26T02:24:25.589Z",
-      "waitingWindow": false
+      "pos": 1,
+      "state": "render",
+      "startAt": "2026-11-26T02:14:09.411Z",
+      "etaAt": "2026-11-26T02:17:51.070Z",
+      "live": true,
+      "step": "kirim",
+      "stepPct": null,
+      "late": false
      },
      "note": ""
     }
@@ -142,10 +133,10 @@
       "title": "Thor Kehilangan Mata Persis Kayak Odin, Kebetulan?",
       "style": "pop-art",
       "estMin": 6,
-      "pos": 3,
+      "pos": 2,
       "state": "antre",
-      "startAt": "2026-11-26T02:24:25.589Z",
-      "etaAt": "2026-11-26T02:30:25.589Z",
+      "startAt": "2026-11-26T02:18:35.356Z",
+      "etaAt": "2026-11-26T02:24:35.356Z",
       "waitingWindow": false
      },
      "note": ""
@@ -164,23 +155,8 @@
      "title": "Kenapa Jendela Pesawat Ada Lubang Kecilnya?",
      "revisions": 0,
      "airAt": "2026-11-26T05:00:00.000Z",
-     "stage": "render",
-     "render": {
-      "id": 235,
-      "channel": "cowo",
-      "title": "Kenapa Jendela Pesawat Ada Lubang Kecilnya?",
-      "style": "brick-toy",
-      "estMin": 16,
-      "pos": 1,
-      "state": "render",
-      "startAt": "2026-11-26T01:51:46.692Z",
-      "etaAt": "2026-11-26T02:16:25.589Z",
-      "live": true,
-      "step": "gambar",
-      "stepPct": 67,
-      "late": false
-     },
-     "note": ""
+     "stage": "approval",
+     "note": "Nunggu ✅ Bos"
     }
    ],
    "nextSession": "besok 07:00"
