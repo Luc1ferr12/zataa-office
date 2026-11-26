@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-26T11:57:35.440Z",
+ "generated_at": "2026-11-26T12:00:51.435Z",
  "today": "2026-11-26",
  "week_start": "2026-11-23",
  "campaign": null,
@@ -17,16 +17,16 @@
    "name": "Andre",
    "title": "Marketing Director",
    "status": "done",
-   "current_task": "Pilih ide sesi sore: LCQ FFWS 3 tim RI",
-   "updated_at": "2026-11-26 08:01:23"
+   "current_task": "Review riset sesi malam (0 ide)",
+   "updated_at": "2026-11-26 12:00:51"
   },
   {
    "id": "researcher",
    "name": "Salsa",
    "title": "Researcher",
    "status": "done",
-   "current_task": "Riset sesi sore: LCQ FFWS besok",
-   "updated_at": "2026-11-26 08:01:18"
+   "current_task": "Riset berita hangat sesi malam",
+   "updated_at": "2026-11-26 12:00:51"
   },
   {
    "id": "copywriter",
@@ -664,7 +664,7 @@
    "game": "sejarah",
    "pillar": "horor_sejarah",
    "title": "Penjara 200 Tahun di Surabaya Ini Pernah Menahan Soekarno",
-   "status": "approved",
+   "status": "uploading",
    "asset_url": null,
    "scheduled_at": null,
    "posted_at": null,
@@ -678,7 +678,7 @@
    "game": "sejarah",
    "pillar": "lore_teori",
    "title": "Thor Kehilangan Mata Persis Kayak Odin, Kebetulan?",
-   "status": "approved",
+   "status": "uploading",
    "asset_url": null,
    "scheduled_at": null,
    "posted_at": null,
@@ -702,6 +702,21 @@
  "clip_jobs": [],
  "today_tasks": [],
  "activity": [
+  {
+   "ts": "2026-11-26 12:00:51",
+   "agent_id": "dir",
+   "message": "Sesi malam: pilih 0 ide, nggak ada berita baru layak; ide LCQ FFWS (#283) masih nunggu Owner"
+  },
+  {
+   "ts": "2026-11-26 12:00:50",
+   "agent_id": "researcher",
+   "message": "Riset malam: nihil berita hangat ≥2 sumber (FF/ML/Valorant)"
+  },
+  {
+   "ts": "2026-11-26 12:00:50",
+   "agent_id": "researcher",
+   "message": "Nemu 1 topik baru"
+  },
   {
    "ts": "2026-11-26 11:16:06",
    "agent_id": "trisk",
@@ -811,24 +826,30 @@
    "ts": "2026-11-26 06:01:06",
    "agent_id": "ttech",
    "message": "M15 berubah arah: bullish → sideways"
-  },
-  {
-   "ts": "2026-11-26 06:01:06",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: bullish → sideways"
-  },
-  {
-   "ts": "2026-11-26 05:16:06",
-   "agent_id": "trisk",
-   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-  },
-  {
-   "ts": "2026-11-26 05:01:34",
-   "agent_id": "ypublish",
-   "message": "Cross-post Shorts #238 ke TikTok Zaa History"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-11-26 12:00:51",
+   "agent_id": "dir",
+   "to_id": "researcher",
+   "kind": "santai",
+   "message": "Sal, malam ini sepi ya. Besok pagi pantau hasil LCQ FFWS, itu pasti rame."
+  },
+  {
+   "ts": "2026-11-26 12:00:51",
+   "agent_id": "dir",
+   "to_id": "researcher",
+   "kind": "oper",
+   "message": "Salsa, plan minggu ini udah aku taruh ya. Fokus \"Review riset sesi malam (0 ide)\". Tolong cariin bahan beritanya 🙏"
+  },
+  {
+   "ts": "2026-11-26 12:00:51",
+   "agent_id": "researcher",
+   "to_id": "copywriter",
+   "kind": "oper",
+   "message": "Tiara, bahan buat \"Riset berita hangat sesi malam\" udah aku rangkum + sumbernya. Tinggal kamu racik captionnya ✍️"
+  },
   {
    "ts": "2026-11-26 11:00:41",
    "agent_id": "analyst",
@@ -1087,27 +1108,6 @@
    "to_id": "copywriter",
    "kind": "oper",
    "message": "Riset \"riset berita esport sesi malam\" beres, udah dicek 2 sumber. Tiara, lanjut ya~"
-  },
-  {
-   "ts": "2026-11-24 11:00:35",
-   "agent_id": "analyst",
-   "to_id": "dir",
-   "kind": "oper",
-   "message": "Laporan harian marketing udah aku kirim ke Bos, 2 konten tayang hari ini 📊"
-  },
-  {
-   "ts": "2026-11-24 08:01:38",
-   "agent_id": "dir",
-   "to_id": "researcher",
-   "kind": "oper",
-   "message": "Salsa, plan minggu ini udah aku taruh ya. Fokus \"Sesi sore: 0 ide, catatan ke Owner\". Tolong cariin bahan beritanya 🙏"
-  },
-  {
-   "ts": "2026-11-24 08:01:37",
-   "agent_id": "researcher",
-   "to_id": "copywriter",
-   "kind": "oper",
-   "message": "Riset \"Riset sore: nihil berita baru ≥2 sumber\" beres, udah dicek 2 sumber. Tiara, lanjut ya~"
   }
  ],
  "stats": {
@@ -1211,7 +1211,7 @@
   "paused": false,
   "balance": 1757.48,
   "today_pnl": 0,
-  "price": 3568,
+  "price": 3565.800049,
   "open": [],
   "signals": [
    {
