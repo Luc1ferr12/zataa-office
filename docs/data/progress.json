@@ -1,8 +1,8 @@
 {
- "at": "2026-11-26T23:07:35.854Z",
+ "at": "2026-11-26T23:17:35.871Z",
  "today": "2026-11-27",
  "laptop": {
-  "at": "2026-11-26T23:01:38.114Z",
+  "at": "2026-11-26T23:11:38.134Z",
   "renderFrom": "09:45"
  },
  "queue": [
@@ -16,6 +16,42 @@
    "state": "antre",
    "startAt": "2026-11-27T01:45:00.000Z",
    "etaAt": "2026-11-27T02:02:00.000Z",
+   "waitingWindow": true
+  },
+  {
+   "id": 240,
+   "channel": "story",
+   "title": "Kerajaan Penguasa Selat Malaka Ini Sempat Dilupakan Ratusan Tahun",
+   "style": "shadow-puppet",
+   "estMin": 5,
+   "pos": 2,
+   "state": "antre",
+   "startAt": "2026-11-27T02:02:00.000Z",
+   "etaAt": "2026-11-27T02:07:00.000Z",
+   "waitingWindow": true
+  },
+  {
+   "id": 241,
+   "channel": "marvel",
+   "title": "Doctor Doom Pernah Jadi Tuhan di Komik Marvel",
+   "style": "pop-art",
+   "estMin": 6,
+   "pos": 3,
+   "state": "antre",
+   "startAt": "2026-11-27T02:07:00.000Z",
+   "etaAt": "2026-11-27T02:13:00.000Z",
+   "waitingWindow": true
+  },
+  {
+   "id": 242,
+   "channel": "youtube",
+   "title": "Tabel Segitiga Ini 1.000 Tahun Lebih Tua dari Pythagoras",
+   "style": "woodcut",
+   "estMin": 17,
+   "pos": 4,
+   "state": "antre",
+   "startAt": "2026-11-27T02:13:00.000Z",
+   "etaAt": "2026-11-27T02:30:00.000Z",
    "waitingWindow": true
   }
  ],
@@ -40,27 +76,87 @@
    "key": "history",
    "name": "Zaa History",
    "working": null,
-   "items": [],
+   "items": [
+    {
+     "id": 242,
+     "day": "2026-11-27",
+     "title": "Tabel Segitiga Ini 1.000 Tahun Lebih Tua dari Pythagoras",
+     "revisions": 0,
+     "airAt": "2026-11-27T12:00:00.000Z",
+     "stage": "antre",
+     "render": {
+      "id": 242,
+      "channel": "youtube",
+      "title": "Tabel Segitiga Ini 1.000 Tahun Lebih Tua dari Pythagoras",
+      "style": "woodcut",
+      "estMin": 17,
+      "pos": 4,
+      "state": "antre",
+      "startAt": "2026-11-27T02:13:00.000Z",
+      "etaAt": "2026-11-27T02:30:00.000Z",
+      "waitingWindow": true
+     },
+     "note": ""
+    }
+   ],
    "nextSession": "besok 07:00"
   },
   {
    "key": "story",
    "name": "Zaa Story",
-   "working": {
-    "id": "svisual",
-    "name": "Arga",
-    "task": "Film shadow-puppet: Sriwijaya kerajaan yang terlupakan",
-    "stage": "editing",
-    "at": "2026-11-26T23:07:10.000Z"
-   },
-   "items": [],
+   "working": null,
+   "items": [
+    {
+     "id": 240,
+     "day": "2026-11-27",
+     "title": "Kerajaan Penguasa Selat Malaka Ini Sempat Dilupakan Ratusan Tahun",
+     "revisions": 0,
+     "airAt": "2026-11-27T11:00:00.000Z",
+     "stage": "antre",
+     "render": {
+      "id": 240,
+      "channel": "story",
+      "title": "Kerajaan Penguasa Selat Malaka Ini Sempat Dilupakan Ratusan Tahun",
+      "style": "shadow-puppet",
+      "estMin": 5,
+      "pos": 2,
+      "state": "antre",
+      "startAt": "2026-11-27T02:02:00.000Z",
+      "etaAt": "2026-11-27T02:07:00.000Z",
+      "waitingWindow": true
+     },
+     "note": ""
+    }
+   ],
    "nextSession": "besok 07:00"
   },
   {
    "key": "marvel",
    "name": "Marvel Talk",
    "working": null,
-   "items": [],
+   "items": [
+    {
+     "id": 241,
+     "day": "2026-11-27",
+     "title": "Doctor Doom Pernah Jadi Tuhan di Komik Marvel",
+     "revisions": 0,
+     "airAt": "2026-11-27T12:00:00.000Z",
+     "stage": "antre",
+     "render": {
+      "id": 241,
+      "channel": "marvel",
+      "title": "Doctor Doom Pernah Jadi Tuhan di Komik Marvel",
+      "style": "pop-art",
+      "estMin": 6,
+      "pos": 3,
+      "state": "antre",
+      "startAt": "2026-11-27T02:07:00.000Z",
+      "etaAt": "2026-11-27T02:13:00.000Z",
+      "waitingWindow": true
+     },
+     "note": ""
+    }
+   ],
    "nextSession": "besok 07:00"
   },
   {
