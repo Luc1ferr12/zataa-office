@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-26T19:37:35.618Z",
+ "generated_at": "2026-11-26T19:47:35.669Z",
  "today": "2026-11-27",
  "week_start": "2026-11-23",
  "campaign": null,
@@ -98,7 +98,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-26 19:31:08"
+   "updated_at": "2026-11-26 19:46:08"
   },
   {
    "id": "tresearch",
@@ -106,7 +106,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Tak ada berita 24 jam terakhir (data terbaru Okt 2026). Fed condong naik (Des ~80%), NFP Okt kuat 165k, DXY ~102: emas tertekan. Data basi.",
-   "updated_at": "2026-11-26 19:31:08"
+   "updated_at": "2026-11-26 19:46:08"
   },
   {
    "id": "ttech",
@@ -114,7 +114,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-26 19:31:08"
+   "updated_at": "2026-11-26 19:46:08"
   },
   {
    "id": "trisk",
@@ -122,7 +122,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-11-26 19:31:08"
+   "updated_at": "2026-11-26 19:46:08"
   },
   {
    "id": "texec",
@@ -703,6 +703,11 @@
  "today_tasks": [],
  "activity": [
   {
+   "ts": "2026-11-26 19:46:08",
+   "agent_id": "ttech",
+   "message": "M15 berubah arah: sideways → bearish"
+  },
+  {
    "ts": "2026-11-26 19:16:08",
    "agent_id": "trisk",
    "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
@@ -821,11 +826,6 @@
    "ts": "2026-11-26 13:46:07",
    "agent_id": "ttech",
    "message": "M15 berubah arah: bearish → sideways"
-  },
-  {
-   "ts": "2026-11-26 13:16:06",
-   "agent_id": "trisk",
-   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
   }
  ],
  "chats": [
@@ -1121,7 +1121,7 @@
    "yt_posted": 15,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 14522,
+   "views": 14537,
    "likes": 225,
    "comments": 4,
    "shares": 0,
@@ -1132,7 +1132,7 @@
      "title": "Jemkin & something resmi bukan pemain impor lagi di VCT 2027",
      "format": "video",
      "pillar": "news",
-     "views": 1753
+     "views": 1755
     },
     {
      "title": "Komputer 2.000 Tahun dari Dasar Laut Yunani",
@@ -1168,7 +1168,7 @@
    "yt_posted": 16,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 21171,
+   "views": 21174,
    "likes": 316,
    "comments": 5,
    "shares": 0,
@@ -1215,6 +1215,11 @@
   "open": [],
   "signals": [
    {
+    "ts": "2026-11-26 19:46:08",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
+   {
     "ts": "2026-11-26 19:31:08",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
@@ -1236,11 +1241,6 @@
    },
    {
     "ts": "2026-11-26 18:31:08",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-11-26 18:16:08",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1320,7 +1320,7 @@
    1757.48
   ],
   "last": {
-   "ts": "2026-11-26 19:31:08",
+   "ts": "2026-11-26 19:46:08",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1341,7 +1341,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3566.20 di bawah tengah band (3561.6–3577.5) · RSI 46 · Stoch 18 · MACD -0.42 · H1 sideways"
+    "note": "M15 3566.20 di bawah tengah band (3562.2–3575.7) · RSI 46 · Stoch 18 · MACD -0.36 · H1 sideways"
    }
   },
   "fund": {
@@ -1374,23 +1374,23 @@
     "bias": "bearish",
     "score": -3,
     "price": 3566.2,
-    "ema20": 3568.03,
-    "ema50": 3568.96,
+    "ema20": 3567.86,
+    "ema50": 3568.85,
     "rsi": 44,
     "n": 299,
-    "slot": 2992869,
-    "at": 1795721468299
+    "slot": 2992870,
+    "at": 1795722068476
    },
    "M15": {
-    "bias": "sideways",
-    "score": 0,
+    "bias": "bearish",
+    "score": -2,
     "price": 3566.2,
-    "ema20": 3568.27,
-    "ema50": 3568.25,
+    "ema20": 3568.07,
+    "ema50": 3568.17,
     "rsi": 45.6,
     "n": 299,
-    "slot": 1995246,
-    "at": 1795721468307
+    "slot": 1995247,
+    "at": 1795722368318
    },
    "M30": {
     "bias": "sideways",
