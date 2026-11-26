@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-26T12:00:51.435Z",
+ "generated_at": "2026-11-26T12:07:35.444Z",
  "today": "2026-11-26",
  "week_start": "2026-11-23",
  "campaign": null,
@@ -98,7 +98,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-26 11:46:06"
+   "updated_at": "2026-11-26 12:01:06"
   },
   {
    "id": "tresearch",
@@ -106,7 +106,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Tak ada berita 24 jam terakhir (data terbaru Okt 2026). Fed condong naik (Des ~80%), NFP Okt kuat 165k, DXY ~102: emas tertekan. Data basi.",
-   "updated_at": "2026-11-26 11:46:06"
+   "updated_at": "2026-11-26 12:01:06"
   },
   {
    "id": "ttech",
@@ -114,7 +114,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-26 11:46:06"
+   "updated_at": "2026-11-26 12:01:06"
   },
   {
    "id": "trisk",
@@ -122,7 +122,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-11-26 11:46:06"
+   "updated_at": "2026-11-26 12:01:06"
   },
   {
    "id": "texec",
@@ -664,10 +664,10 @@
    "game": "sejarah",
    "pillar": "horor_sejarah",
    "title": "Penjara 200 Tahun di Surabaya Ini Pernah Menahan Soekarno",
-   "status": "uploading",
-   "asset_url": null,
+   "status": "posted",
+   "asset_url": "https://www.youtube.com/watch?v=-4NYRE9nY40",
    "scheduled_at": null,
-   "posted_at": null,
+   "posted_at": "2026-11-26 12:01:10",
    "channel": "story"
   },
   {
@@ -678,10 +678,10 @@
    "game": "sejarah",
    "pillar": "lore_teori",
    "title": "Thor Kehilangan Mata Persis Kayak Odin, Kebetulan?",
-   "status": "uploading",
-   "asset_url": null,
+   "status": "posted",
+   "asset_url": "https://www.youtube.com/watch?v=DwidT3hivz4",
    "scheduled_at": null,
-   "posted_at": null,
+   "posted_at": "2026-11-26 12:01:20",
    "channel": "marvel"
   },
   {
@@ -702,6 +702,36 @@
  "clip_jobs": [],
  "today_tasks": [],
  "activity": [
+  {
+   "ts": "2026-11-26 12:02:05",
+   "agent_id": "vpublish",
+   "message": "Cross-post Shorts #237 ke TikTok Marvel Talk"
+  },
+  {
+   "ts": "2026-11-26 12:01:20",
+   "agent_id": "vpublish",
+   "message": "Upload Shorts #237 ke Marvel Talk (Publik via Zernio)"
+  },
+  {
+   "ts": "2026-11-26 12:01:10",
+   "agent_id": "spublish",
+   "message": "Upload Shorts #236 ke Zaa Story (Publik via Zernio)"
+  },
+  {
+   "ts": "2026-11-26 12:01:06",
+   "agent_id": "ttech",
+   "message": "M60 berubah arah: bearish → sideways"
+  },
+  {
+   "ts": "2026-11-26 12:01:06",
+   "agent_id": "ttech",
+   "message": "M15 berubah arah: sideways → bullish"
+  },
+  {
+   "ts": "2026-11-26 12:01:06",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: bearish → sideways"
+  },
   {
    "ts": "2026-11-26 12:00:51",
    "agent_id": "dir",
@@ -796,36 +826,6 @@
    "ts": "2026-11-26 08:01:21",
    "agent_id": "dir",
    "message": "Pilih 1 berita hangat dari sesi riset sore"
-  },
-  {
-   "ts": "2026-11-26 08:01:18",
-   "agent_id": "researcher",
-   "message": "Nemu 2 topik baru"
-  },
-  {
-   "ts": "2026-11-26 07:16:06",
-   "agent_id": "trisk",
-   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-  },
-  {
-   "ts": "2026-11-26 07:01:11",
-   "agent_id": "analyst",
-   "message": "Update data 31 post IG 📈"
-  },
-  {
-   "ts": "2026-11-26 07:01:06",
-   "agent_id": "ttech",
-   "message": "M30 berubah arah: bullish → sideways"
-  },
-  {
-   "ts": "2026-11-26 06:16:06",
-   "agent_id": "trisk",
-   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-  },
-  {
-   "ts": "2026-11-26 06:01:06",
-   "agent_id": "ttech",
-   "message": "M15 berubah arah: bullish → sideways"
   }
  ],
  "chats": [
@@ -1114,13 +1114,13 @@
   "this_week": {
    "week": "2026-11-23",
    "total": 21,
-   "posted": 19,
+   "posted": 21,
    "pending": 0,
-   "scheduled": 2,
+   "scheduled": 0,
    "yt_total": 15,
-   "yt_posted": 13,
+   "yt_posted": 15,
    "yt_pending": 0,
-   "yt_scheduled": 2,
+   "yt_scheduled": 0,
    "views": 13006,
    "likes": 213,
    "comments": 4,
@@ -1211,9 +1211,14 @@
   "paused": false,
   "balance": 1757.48,
   "today_pnl": 0,
-  "price": 3565.800049,
+  "price": 3570.899902,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-26 12:01:06",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
    {
     "ts": "2026-11-26 11:46:06",
     "decision": "NO TRADE",
@@ -1238,11 +1243,6 @@
     "ts": "2026-11-26 10:46:06",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-11-26 10:31:06",
-    "decision": "NO TRADE",
-    "reason": "setup BUY di band, konfirmasi baru 0/3 (-) · London–NY (mode aman)"
    }
   ],
   "trades": [
@@ -1320,7 +1320,7 @@
    1757.48
   ],
   "last": {
-   "ts": "2026-11-26 11:46:06",
+   "ts": "2026-11-26 12:01:06",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1341,7 +1341,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3564.70 di bawah tengah band (3554.0–3578.9) · RSI 47 · Stoch 56 · MACD -0.23 · H1 sideways"
+    "note": "M15 3567.50 di atas tengah band (3554.2–3579.0) · RSI 50 · Stoch 65 · MACD +0.28 · H1 sideways"
    }
   },
   "fund": {
@@ -1371,48 +1371,48 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "bearish",
-    "score": -2,
-    "price": 3564.7,
-    "ema20": 3564.81,
-    "ema50": 3568.13,
-    "rsi": 48.3,
-    "n": 299,
-    "slot": 2992823,
-    "at": 1795693866670
-   },
-   "M15": {
     "bias": "sideways",
     "score": 0,
-    "price": 3564.7,
-    "ema20": 3566.89,
-    "ema50": 3566.77,
-    "rsi": 46.9,
+    "price": 3567.5,
+    "ema20": 3565.06,
+    "ema50": 3568.1,
+    "rsi": 51.4,
     "n": 299,
-    "slot": 1995215,
-    "at": 1795693566655
+    "slot": 2992824,
+    "at": 1795694466687
+   },
+   "M15": {
+    "bias": "bullish",
+    "score": 2,
+    "price": 3567.5,
+    "ema20": 3566.95,
+    "ema50": 3566.79,
+    "rsi": 49.6,
+    "n": 299,
+    "slot": 1995216,
+    "at": 1795694466696
    },
    "M30": {
     "bias": "sideways",
     "score": -1,
-    "price": 3563.4,
-    "ema20": 3567.89,
-    "ema50": 3562.85,
-    "rsi": 48.3,
+    "price": 3567.5,
+    "ema20": 3567.85,
+    "ema50": 3563.04,
+    "rsi": 50.7,
     "n": 299,
-    "slot": 997607,
-    "at": 1795692666621
+    "slot": 997608,
+    "at": 1795694466699
    },
    "H1": {
-    "bias": "bearish",
-    "score": -2,
-    "price": 3555.8,
-    "ema20": 3562.58,
-    "ema50": 3563.3,
-    "rsi": 48.1,
+    "bias": "sideways",
+    "score": 0,
+    "price": 3567.5,
+    "ema20": 3563.05,
+    "ema50": 3563.46,
+    "rsi": 51.8,
     "n": 299,
-    "slot": 498803,
-    "at": 1795690866578
+    "slot": 498804,
+    "at": 1795694466704
    }
   },
   "currency": "USC",
