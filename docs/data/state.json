@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-26T06:27:35.324Z",
+ "generated_at": "2026-11-26T06:37:35.333Z",
  "today": "2026-11-26",
  "week_start": "2026-11-23",
  "campaign": null,
@@ -98,7 +98,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-26 06:16:06"
+   "updated_at": "2026-11-26 06:31:06"
   },
   {
    "id": "tresearch",
@@ -106,7 +106,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Tak ada berita 24 jam terverifikasi (pencarian cuma sampai Sep 2026). Terakhir Fed naik 25bp & PCE panas → bias sedikit bearish.",
-   "updated_at": "2026-11-26 06:16:06"
+   "updated_at": "2026-11-26 06:31:06"
   },
   {
    "id": "ttech",
@@ -114,7 +114,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-26 06:16:06"
+   "updated_at": "2026-11-26 06:31:06"
   },
   {
    "id": "trisk",
@@ -122,7 +122,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
-   "updated_at": "2026-11-26 06:16:06"
+   "updated_at": "2026-11-26 06:31:06"
   },
   {
    "id": "texec",
@@ -1168,12 +1168,12 @@
    "yt_posted": 16,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 21101,
+   "views": 21100,
    "likes": 316,
    "comments": 5,
    "shares": 0,
    "saves": 2,
-   "yt_views": 16607,
+   "yt_views": 16606,
    "top": [
     {
      "title": "Gua di Biak Ini Konon Jadi Kuburan Ribuan Tentara Jepang",
@@ -1211,9 +1211,14 @@
   "paused": false,
   "balance": 1757.48,
   "today_pnl": 0,
-  "price": 3574.800049,
+  "price": 3566.100098,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-26 06:31:06",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
+   },
    {
     "ts": "2026-11-26 06:16:06",
     "decision": "NO TRADE",
@@ -1236,11 +1241,6 @@
    },
    {
     "ts": "2026-11-26 05:16:06",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-   },
-   {
-    "ts": "2026-11-26 05:01:06",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
    }
@@ -1320,7 +1320,7 @@
    1757.48
   ],
   "last": {
-   "ts": "2026-11-26 06:16:06",
+   "ts": "2026-11-26 06:31:06",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1341,7 +1341,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3569.05 di bawah tengah band (3556.7–3604.8) · RSI 45 · Stoch 7 · MACD -2.71 · H1 sideways"
+    "note": "M15 3571.60 di bawah tengah band (3561.4–3602.2) · RSI 47 · Stoch 19 · MACD -2.69 · H1 sideways"
    }
   },
   "fund": {
@@ -1372,36 +1372,36 @@
   "tf": {
    "M10": {
     "bias": "sideways",
-    "score": 0,
-    "price": 3563.8,
-    "ema20": 3583.24,
-    "ema50": 3575.46,
-    "rsi": 37.5,
+    "score": 1,
+    "price": 3575,
+    "ema20": 3582.45,
+    "ema50": 3575.44,
+    "rsi": 45.8,
     "n": 299,
-    "slot": 2992790,
-    "at": 1795674066313
+    "slot": 2992791,
+    "at": 1795674666305
    },
    "M15": {
     "bias": "sideways",
     "score": 1,
-    "price": 3569,
-    "ema20": 3580.56,
-    "ema50": 3567.47,
-    "rsi": 44.9,
+    "price": 3575,
+    "ema20": 3580.03,
+    "ema50": 3567.76,
+    "rsi": 48.5,
     "n": 299,
-    "slot": 1995193,
-    "at": 1795673766482
+    "slot": 1995194,
+    "at": 1795674666311
    },
    "M30": {
     "bias": "bullish",
     "score": 3,
-    "price": 3578.8,
-    "ema20": 3571.7,
-    "ema50": 3560.81,
-    "rsi": 56,
+    "price": 3575,
+    "ema20": 3572.01,
+    "ema50": 3561.36,
+    "rsi": 54,
     "n": 299,
-    "slot": 997596,
-    "at": 1795672866487
+    "slot": 997597,
+    "at": 1795674666314
    },
    "H1": {
     "bias": "sideways",
