@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-26T14:37:35.505Z",
+ "generated_at": "2026-11-26T14:47:35.503Z",
  "today": "2026-11-26",
  "week_start": "2026-11-23",
  "campaign": null,
@@ -98,7 +98,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-26 14:31:07"
+   "updated_at": "2026-11-26 14:46:07"
   },
   {
    "id": "tresearch",
@@ -106,7 +106,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Tak ada berita 24 jam terakhir (data terbaru Okt 2026). Fed condong naik (Des ~80%), NFP Okt kuat 165k, DXY ~102: emas tertekan. Data basi.",
-   "updated_at": "2026-11-26 14:31:07"
+   "updated_at": "2026-11-26 14:46:07"
   },
   {
    "id": "ttech",
@@ -114,7 +114,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-26 14:31:07"
+   "updated_at": "2026-11-26 14:46:07"
   },
   {
    "id": "trisk",
@@ -122,7 +122,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-11-26 14:31:07"
+   "updated_at": "2026-11-26 14:46:07"
   },
   {
    "id": "texec",
@@ -703,6 +703,11 @@
  "today_tasks": [],
  "activity": [
   {
+   "ts": "2026-11-26 14:41:07",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: sideways → bullish"
+  },
+  {
    "ts": "2026-11-26 14:31:07",
    "agent_id": "ttech",
    "message": "M30 berubah arah: sideways → bullish"
@@ -821,11 +826,6 @@
    "ts": "2026-11-26 10:11:06",
    "agent_id": "ttech",
    "message": "M10 berubah arah: sideways → bearish"
-  },
-  {
-   "ts": "2026-11-26 10:01:04",
-   "agent_id": "analyst",
-   "message": "Update data 29 post IG 📈"
   }
  ],
  "chats": [
@@ -1121,12 +1121,12 @@
    "yt_posted": 15,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 13481,
-   "likes": 212,
+   "views": 13513,
+   "likes": 213,
    "comments": 4,
    "shares": 0,
    "saves": 1,
-   "yt_views": 8308,
+   "yt_views": 8339,
    "top": [
     {
      "title": "Jemkin & something resmi bukan pemain impor lagi di VCT 2027",
@@ -1138,13 +1138,13 @@
      "title": "Komputer 2.000 Tahun dari Dasar Laut Yunani",
      "format": "shorts",
      "pillar": "ancient_secrets",
-     "views": 1726
+     "views": 1728
     },
     {
      "title": "Pedang 400 Tahun Ini Ternyata Mengandung Teknologi Nano",
      "format": "shorts",
      "pillar": "hidden_history",
-     "views": 1383
+     "views": 1398
     }
    ],
    "clicks": 0,
@@ -1168,12 +1168,12 @@
    "yt_posted": 16,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 21147,
+   "views": 21149,
    "likes": 316,
    "comments": 5,
    "shares": 0,
    "saves": 2,
-   "yt_views": 16649,
+   "yt_views": 16651,
    "top": [
     {
      "title": "Gua di Biak Ini Konon Jadi Kuburan Ribuan Tentara Jepang",
@@ -1211,9 +1211,14 @@
   "paused": false,
   "balance": 1757.48,
   "today_pnl": 0,
-  "price": 3578,
+  "price": 3578.300049,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-26 14:46:07",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
    {
     "ts": "2026-11-26 14:31:07",
     "decision": "NO TRADE",
@@ -1236,11 +1241,6 @@
    },
    {
     "ts": "2026-11-26 13:31:07",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-11-26 13:16:06",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1320,7 +1320,7 @@
    1757.48
   ],
   "last": {
-   "ts": "2026-11-26 14:31:07",
+   "ts": "2026-11-26 14:46:07",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1341,7 +1341,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3573.30 di atas tengah band (3554.3–3577.4) · RSI 57 · Stoch 90 · MACD +1.38 · H1 sideways"
+    "note": "M15 3578.40 di atas band atas (3553.6–3578.3) · RSI 61 · Stoch 74 · MACD +1.59 · H1 sideways"
    }
   },
   "fund": {
@@ -1371,26 +1371,26 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "sideways",
-    "score": 0,
-    "price": 3574.1,
-    "ema20": 3568.09,
-    "ema50": 3568.23,
-    "rsi": 59.3,
+    "bias": "bullish",
+    "score": 2,
+    "price": 3584.3,
+    "ema20": 3569.64,
+    "ema50": 3568.86,
+    "rsi": 68.9,
     "n": 299,
-    "slot": 2992839,
-    "at": 1795703467368
+    "slot": 2992840,
+    "at": 1795704067216
    },
    "M15": {
     "bias": "bullish",
     "score": 2,
-    "price": 3574.1,
-    "ema20": 3567.75,
-    "ema50": 3567.12,
-    "rsi": 57.7,
+    "price": 3570.6,
+    "ema20": 3568.02,
+    "ema50": 3567.25,
+    "rsi": 53,
     "n": 299,
-    "slot": 1995226,
-    "at": 1795703467374
+    "slot": 1995227,
+    "at": 1795704367230
    },
    "M30": {
     "bias": "bullish",
