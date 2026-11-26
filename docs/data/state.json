@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-26T07:57:35.338Z",
+ "generated_at": "2026-11-26T08:01:25.563Z",
  "today": "2026-11-26",
  "week_start": "2026-11-23",
  "campaign": null,
@@ -17,16 +17,16 @@
    "name": "Andre",
    "title": "Marketing Director",
    "status": "done",
-   "current_task": "Sesi siang: 0 ide, lanjut sesi sore",
-   "updated_at": "2026-11-26 04:01:08"
+   "current_task": "Pilih ide sesi sore: LCQ FFWS 3 tim RI",
+   "updated_at": "2026-11-26 08:01:23"
   },
   {
    "id": "researcher",
    "name": "Salsa",
    "title": "Researcher",
    "status": "done",
-   "current_task": "Riset sesi siang: nihil berita baru ≥2 sumber",
-   "updated_at": "2026-11-26 04:01:08"
+   "current_task": "Riset sesi sore: LCQ FFWS besok",
+   "updated_at": "2026-11-26 08:01:18"
   },
   {
    "id": "copywriter",
@@ -98,7 +98,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-26 07:46:06"
+   "updated_at": "2026-11-26 08:01:06"
   },
   {
    "id": "tresearch",
@@ -106,7 +106,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Tak ada berita 24 jam terverifikasi (pencarian cuma sampai Sep 2026). Terakhir Fed naik 25bp & PCE panas → bias sedikit bearish.",
-   "updated_at": "2026-11-26 07:46:06"
+   "updated_at": "2026-11-26 08:01:06"
   },
   {
    "id": "ttech",
@@ -114,7 +114,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-26 07:46:06"
+   "updated_at": "2026-11-26 08:01:06"
   },
   {
    "id": "trisk",
@@ -122,7 +122,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-11-26 07:46:06"
+   "updated_at": "2026-11-26 08:01:06"
   },
   {
    "id": "texec",
@@ -703,6 +703,26 @@
  "today_tasks": [],
  "activity": [
   {
+   "ts": "2026-11-26 08:01:23",
+   "agent_id": "dir",
+   "message": "Sesi sore: pilih ide #283 (LCQ FFWS, 3 tim RI 3 masalah), #284 1 sumber dilewati"
+  },
+  {
+   "ts": "2026-11-26 08:01:23",
+   "agent_id": "dir",
+   "message": "Kirim 1 ide briefing ke Owner"
+  },
+  {
+   "ts": "2026-11-26 08:01:21",
+   "agent_id": "dir",
+   "message": "Pilih 1 berita hangat dari sesi riset sore"
+  },
+  {
+   "ts": "2026-11-26 08:01:18",
+   "agent_id": "researcher",
+   "message": "Nemu 2 topik baru"
+  },
+  {
    "ts": "2026-11-26 07:16:06",
    "agent_id": "trisk",
    "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
@@ -806,29 +826,23 @@
    "ts": "2026-11-26 03:11:06",
    "agent_id": "ttech",
    "message": "M10 berubah arah: sideways → bullish"
-  },
-  {
-   "ts": "2026-11-26 03:01:09",
-   "agent_id": "ypublish",
-   "message": "Cross-post Shorts #69 ke TikTok Zaa History"
-  },
-  {
-   "ts": "2026-11-26 02:52:07",
-   "agent_id": "owner",
-   "message": "Approve Shorts #238 ✅"
-  },
-  {
-   "ts": "2026-11-26 02:52:02",
-   "agent_id": "owner",
-   "message": "Keputusan dari web: Diteruskan ke bot Zaa History (±5 dtk)"
-  },
-  {
-   "ts": "2026-11-26 02:50:29",
-   "agent_id": "yvideo",
-   "message": "Shorts #238 dirender di laptop & dikirim ke Owner"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-11-26 08:01:23",
+   "agent_id": "dir",
+   "to_id": "researcher",
+   "kind": "oper",
+   "message": "Brief \"Pilih ide sesi sore: LCQ FFWS 3 tim RI\" udah jadi. Salsa, gas riset ya!"
+  },
+  {
+   "ts": "2026-11-26 08:01:18",
+   "agent_id": "researcher",
+   "to_id": "copywriter",
+   "kind": "oper",
+   "message": "Tiara, bahan buat \"Riset sesi sore: LCQ FFWS besok\" udah aku rangkum + sumbernya. Tinggal kamu racik captionnya ✍️"
+  },
   {
    "ts": "2026-11-25 23:19:04",
    "agent_id": "bvisual",
@@ -1094,20 +1108,6 @@
    "to_id": null,
    "kind": "oper",
    "message": "\"Prediksi LCQ FFWS: RRQ Kazu, ONIC, atau BTR yang t\" udah tayang di TikTok + YouTube 🚀 Makasih semua!"
-  },
-  {
-   "ts": "2026-11-24 04:44:53",
-   "agent_id": "publisher",
-   "to_id": null,
-   "kind": "oper",
-   "message": "\"Rostermania VCT 2027: Sentinels, T1 & Heretics\" udah tayang di TikTok + YouTube 🚀 Makasih semua!"
-  },
-  {
-   "ts": "2026-11-24 04:26:44",
-   "agent_id": "publisher",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Abis render, QA otomatis. Lolos langsung tayang TikTok + YouTube, nanti Bos dikabari ya!"
   }
  ],
  "stats": {
@@ -1211,9 +1211,14 @@
   "paused": false,
   "balance": 1757.48,
   "today_pnl": 0,
-  "price": 3564.800049,
+  "price": 3564.199951,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-26 08:01:06",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
    {
     "ts": "2026-11-26 07:46:06",
     "decision": "NO TRADE",
@@ -1236,11 +1241,6 @@
    },
    {
     "ts": "2026-11-26 06:46:06",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-   },
-   {
-    "ts": "2026-11-26 06:31:06",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
    }
@@ -1320,7 +1320,7 @@
    1757.48
   ],
   "last": {
-   "ts": "2026-11-26 07:46:06",
+   "ts": "2026-11-26 08:01:06",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1341,7 +1341,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3572.90 di bawah tengah band (3558.8–3598.6) · RSI 49 · Stoch 25 · MACD -2.10 · H1 sideways"
+    "note": "M15 3564.20 di bawah tengah band (3555.7–3599.3) · RSI 43 · Stoch 14 · MACD -2.56 · H1 sideways"
    }
   },
   "fund": {
@@ -1373,46 +1373,46 @@
    "M10": {
     "bias": "sideways",
     "score": 1,
-    "price": 3562.9,
-    "ema20": 3574.51,
-    "ema50": 3573.42,
-    "rsi": 40.2,
+    "price": 3565.3,
+    "ema20": 3573.63,
+    "ema50": 3573.1,
+    "rsi": 42.3,
     "n": 299,
-    "slot": 2992799,
-    "at": 1795679466559
+    "slot": 2992800,
+    "at": 1795680066378
    },
    "M15": {
     "bias": "sideways",
     "score": 0,
-    "price": 3572.9,
-    "ema20": 3575.73,
-    "ema50": 3567.98,
-    "rsi": 48.6,
+    "price": 3565.3,
+    "ema20": 3574.73,
+    "ema50": 3567.87,
+    "rsi": 43.9,
     "n": 299,
-    "slot": 1995199,
-    "at": 1795679166383
+    "slot": 1995200,
+    "at": 1795680066383
    },
    "M30": {
     "bias": "sideways",
     "score": 0,
-    "price": 3570,
-    "ema20": 3571.31,
-    "ema50": 3561.88,
-    "rsi": 51.5,
+    "price": 3565.3,
+    "ema20": 3570.74,
+    "ema50": 3562.02,
+    "rsi": 49.1,
     "n": 299,
-    "slot": 997599,
-    "at": 1795678266557
+    "slot": 997600,
+    "at": 1795680066385
    },
    "H1": {
     "bias": "sideways",
     "score": 1,
-    "price": 3566.1,
-    "ema20": 3560.83,
-    "ema50": 3562.77,
-    "rsi": 51.8,
+    "price": 3565.3,
+    "ema20": 3561.25,
+    "ema50": 3562.86,
+    "rsi": 51.5,
     "n": 299,
-    "slot": 498799,
-    "at": 1795676466548
+    "slot": 498800,
+    "at": 1795680066389
    }
   },
   "currency": "USC",
