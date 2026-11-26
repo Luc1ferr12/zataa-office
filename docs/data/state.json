@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-26T09:27:35.380Z",
+ "generated_at": "2026-11-26T09:37:35.387Z",
  "today": "2026-11-26",
  "week_start": "2026-11-23",
  "campaign": null,
@@ -98,7 +98,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-26 09:16:06"
+   "updated_at": "2026-11-26 09:31:06"
   },
   {
    "id": "tresearch",
@@ -106,7 +106,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
-   "updated_at": "2026-11-26 09:16:06"
+   "updated_at": "2026-11-26 09:31:06"
   },
   {
    "id": "ttech",
@@ -114,7 +114,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-26 09:16:06"
+   "updated_at": "2026-11-26 09:31:06"
   },
   {
    "id": "trisk",
@@ -122,7 +122,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-11-26 09:16:06"
+   "updated_at": "2026-11-26 09:31:06"
   },
   {
    "id": "texec",
@@ -703,6 +703,11 @@
  "today_tasks": [],
  "activity": [
   {
+   "ts": "2026-11-26 09:31:06",
+   "agent_id": "ttech",
+   "message": "M30 berubah arah: bullish → sideways"
+  },
+  {
    "ts": "2026-11-26 09:16:06",
    "agent_id": "trisk",
    "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
@@ -821,11 +826,6 @@
    "ts": "2026-11-26 04:01:19",
    "agent_id": "analyst",
    "message": "Update data 31 post IG 📈"
-  },
-  {
-   "ts": "2026-11-26 04:01:08",
-   "agent_id": "dir",
-   "message": "Sesi siang 26 Nov: 0 ide dipilih, nggak ada berita hangat ≥2 sumber (Dutz soal RRQ Kazu cuma 1 sumber, LCQ sudah tayang)"
   }
  ],
  "chats": [
@@ -1121,12 +1121,12 @@
    "yt_posted": 13,
    "yt_pending": 0,
    "yt_scheduled": 2,
-   "views": 12461,
+   "views": 12529,
    "likes": 209,
    "comments": 4,
    "shares": 0,
    "saves": 1,
-   "yt_views": 7378,
+   "yt_views": 7431,
    "top": [
     {
      "title": "Jemkin & something resmi bukan pemain impor lagi di VCT 2027",
@@ -1141,10 +1141,10 @@
      "views": 1726
     },
     {
-     "title": "Pedang 400 Tahun Ini Ternyata Mengandung Teknologi Nano",
+     "title": "Bukit di Cianjur Ini Pernah Diklaim Lebih Tua dari Piramida",
      "format": "shorts",
-     "pillar": "hidden_history",
-     "views": 1343
+     "pillar": "misteri_kuno",
+     "views": 1353
     }
    ],
    "clicks": 0,
@@ -1211,9 +1211,14 @@
   "paused": false,
   "balance": 1757.48,
   "today_pnl": 0,
-  "price": 3572.25,
+  "price": 3573.600098,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-26 09:31:06",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
    {
     "ts": "2026-11-26 09:16:06",
     "decision": "NO TRADE",
@@ -1236,11 +1241,6 @@
    },
    {
     "ts": "2026-11-26 08:16:06",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-11-26 08:01:06",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1320,7 +1320,7 @@
    1757.48
   ],
   "last": {
-   "ts": "2026-11-26 09:16:06",
+   "ts": "2026-11-26 09:31:06",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1341,7 +1341,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3571.00 di bawah tengah band (3552.7–3597.7) · RSI 49 · Stoch 25 · MACD -0.50 · H1 sideways"
+    "note": "M15 3572.20 di bawah tengah band (3553.9–3594.4) · RSI 50 · Stoch 39 · MACD -0.19 · H1 sideways"
    }
   },
   "fund": null,
@@ -1370,35 +1370,35 @@
    "M10": {
     "bias": "sideways",
     "score": 0,
-    "price": 3571,
-    "ema20": 3570.69,
-    "ema50": 3571.68,
-    "rsi": 49.2,
+    "price": 3572.2,
+    "ema20": 3570.83,
+    "ema50": 3571.7,
+    "rsi": 50.3,
     "n": 299,
-    "slot": 2992808,
-    "at": 1795684866457
+    "slot": 2992809,
+    "at": 1795685466451
    },
    "M15": {
     "bias": "sideways",
-    "score": 1,
-    "price": 3572.9,
-    "ema20": 3572.48,
-    "ema50": 3568.02,
-    "rsi": 50.3,
+    "score": -1,
+    "price": 3572.2,
+    "ema20": 3572.46,
+    "ema50": 3568.19,
+    "rsi": 49.7,
     "n": 299,
-    "slot": 1995205,
-    "at": 1795684566620
+    "slot": 1995206,
+    "at": 1795685466457
    },
    "M30": {
-    "bias": "bullish",
-    "score": 2,
-    "price": 3572.4,
-    "ema20": 3570.15,
-    "ema50": 3562.43,
-    "rsi": 52.8,
+    "bias": "sideways",
+    "score": 1,
+    "price": 3572.2,
+    "ema20": 3570.35,
+    "ema50": 3562.81,
+    "rsi": 52.7,
     "n": 299,
-    "slot": 997602,
-    "at": 1795683666447
+    "slot": 997603,
+    "at": 1795685466460
    },
    "H1": {
     "bias": "sideways",
