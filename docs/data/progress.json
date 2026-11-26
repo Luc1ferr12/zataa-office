@@ -1,46 +1,96 @@
 {
- "at": "2026-11-26T22:57:35.845Z",
+ "at": "2026-11-26T23:07:35.854Z",
  "today": "2026-11-27",
  "laptop": {
-  "at": "2026-11-26T22:51:38.086Z",
+  "at": "2026-11-26T23:01:38.114Z",
   "renderFrom": "09:45"
  },
- "queue": [],
+ "queue": [
+  {
+   "id": 239,
+   "channel": "cowo",
+   "title": "Kenapa Ban Mobil Selalu Hitam?",
+   "style": "brick-toy",
+   "estMin": 17,
+   "pos": 1,
+   "state": "antre",
+   "startAt": "2026-11-27T01:45:00.000Z",
+   "etaAt": "2026-11-27T02:02:00.000Z",
+   "waitingWindow": true
+  }
+ ],
  "divisions": [
   {
    "key": "esports",
    "name": "About Esports",
    "working": null,
-   "items": [],
-   "nextSession": "hari ini 07:00"
+   "items": [
+    {
+     "idea": 285,
+     "day": "2026-11-27",
+     "title": "Juara FFWS Nggak Ditentukan Poin Terbanyak? Ini Cara Kerja Champion Rush",
+     "stage": "riset",
+     "note": "Hasil riset nunggu ✅ Bos",
+     "waitOwner": true
+    }
+   ],
+   "nextSession": "hari ini 12:00"
   },
   {
    "key": "history",
    "name": "Zaa History",
    "working": null,
    "items": [],
-   "nextSession": "hari ini 07:00"
+   "nextSession": "besok 07:00"
   },
   {
    "key": "story",
    "name": "Zaa Story",
-   "working": null,
+   "working": {
+    "id": "svisual",
+    "name": "Arga",
+    "task": "Film shadow-puppet: Sriwijaya kerajaan yang terlupakan",
+    "stage": "editing",
+    "at": "2026-11-26T23:07:10.000Z"
+   },
    "items": [],
-   "nextSession": "hari ini 07:00"
+   "nextSession": "besok 07:00"
   },
   {
    "key": "marvel",
    "name": "Marvel Talk",
    "working": null,
    "items": [],
-   "nextSession": "hari ini 07:00"
+   "nextSession": "besok 07:00"
   },
   {
    "key": "cowo",
    "name": "Cowo Bingung",
    "working": null,
-   "items": [],
-   "nextSession": "hari ini 07:00"
+   "items": [
+    {
+     "id": 239,
+     "day": "2026-11-27",
+     "title": "Kenapa Ban Mobil Selalu Hitam?",
+     "revisions": 0,
+     "airAt": "2026-11-27T12:00:00.000Z",
+     "stage": "antre",
+     "render": {
+      "id": 239,
+      "channel": "cowo",
+      "title": "Kenapa Ban Mobil Selalu Hitam?",
+      "style": "brick-toy",
+      "estMin": 17,
+      "pos": 1,
+      "state": "antre",
+      "startAt": "2026-11-27T01:45:00.000Z",
+      "etaAt": "2026-11-27T02:02:00.000Z",
+      "waitingWindow": true
+     },
+     "note": ""
+    }
+   ],
+   "nextSession": "besok 07:00"
   }
  ]
 }
