@@ -274,6 +274,10 @@ const commands = {
       activity: all('SELECT ts, agent_id, message FROM activity ORDER BY id DESC LIMIT 25'),
       chats: all('SELECT ts, agent_id, to_id, kind, message FROM chats ORDER BY id DESC LIMIT 40'),
       stats: { this_week: weekStats(week), last_week: weekStats(addDays(week, -7)) },
+      // tab 🎯 KPI: rata-rata persen ditonton Shorts 14 hari terakhir per brand (angka terbaru tiap video, learn.mjs; belum ada = kosong)
+      kpi_retention: (() => { try { return Object.fromEntries(all(`SELECT v.brand, ROUND(AVG(v.apv), 1) apv, COUNT(*) n FROM video_stats v JOIN contents c ON c.id = v.content_id
+        WHERE v.platform = 'youtube' AND v.apv IS NOT NULL AND c.day >= ? AND v.day = (SELECT MAX(w.day) FROM video_stats w WHERE w.content_id = v.content_id AND w.platform = 'youtube' AND w.apv IS NOT NULL)
+        GROUP BY v.brand`, addDays(t, -14)).map((r) => [r.brand, { apv: r.apv, n: r.n }])); } catch { return {}; } })(),
       trading: tradingState(),
     };
     mkdirSync(dirname(STATE_PATH), { recursive: true });

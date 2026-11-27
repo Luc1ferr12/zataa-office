@@ -2,6 +2,7 @@ import { AGENTS, wita, activityAt, describe, officeStatus, approvalWaits, pairBi
 import { chatFeed } from './chatter.js';
 import { BIRTHDAYS, birthdaysOn, relationsOn, STAGE_LABEL, dateOf } from './social.js';
 import { change } from './trend.js';
+import { kpiModel, kpiHtml } from './kpi.js';
 
 const $ = (id) => document.getElementById(id);
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
@@ -19,6 +20,7 @@ const NAMES = Object.fromEntries([['owner', 'Zamiir'], ...AGENTS.map((a) => [a.i
 let state = null;
 let socials = null;
 let trend = null; // docs/data/trend.json
+let kpi = null; // docs/data/kpi.json (target per divisi)
 let health = null; // docs/data/health.json
 let office = null;
 let selected = null;
@@ -45,6 +47,10 @@ async function loadState() {
     const r = await fetch(`data/trend.json?t=${Date.now()}`, { cache: 'no-store' });
     if (r.ok) trend = await r.json();
   } catch { /* belum ada riwayat: dashboard tampil tanpa angka perubahan */ }
+  try {
+    const r = await fetch(`data/kpi.json?t=${Date.now()}`, { cache: 'no-store' });
+    if (r.ok) kpi = await r.json();
+  } catch { /* target belum ada: tab KPI kasih tahu */ }
   try {
     const r = await fetch(`data/health.json?t=${Date.now()}`, { cache: 'no-store' });
     if (r.ok) health = await r.json();
@@ -240,6 +246,7 @@ function renderDashboard() {
   $('k-sched').textContent = `${split(st.posted, st.yt_posted)} · ${st.scheduled ?? 0} terjadwal`;
   renderAudienceKpis();
   renderCompare();
+  $('kpi-panel').innerHTML = kpiHtml(kpiModel(kpi, { socials, trend, state }));
   // klik link pelacak (golink.mjs) → toko (scripts/golink.mjs); nama sumber sama dengan SOURCES di sana
   const SRC = { ig: 'IG bio', igs: 'IG Story', tt: 'TikTok', tg: 'Telegram', yt: 'YouTube', wa: 'WA', '(direct)': 'langsung', google: 'Google' };
   const g = st.ga4;

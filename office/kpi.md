@@ -1,6 +1,6 @@
 # KPI YouTube menuju monetisasi (28 Nov 2026 – 31 Jan 2027)
 
-Status: **DRAF, menunggu ✅ Owner.** Disusun 27 Nov 2026.
+Status: target §3 & §5 **dipantau di web, tab 🎯 KPI** (diminta Owner 27 Nov 2026); angka target yang dibaca web ada di `docs/data/kpi.json` (ubah di dua tempat). Video panjang (§4) masih **menunggu ✅ Owner**. Disusun 27 Nov 2026.
 
 ## 1. Syarat YouTube Partner Program (dicek 27 Nov 2026)
 
