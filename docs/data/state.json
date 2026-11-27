@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-27T03:17:35.844Z",
+ "generated_at": "2026-11-27T03:27:35.845Z",
  "today": "2026-11-27",
  "week_start": "2026-11-23",
  "campaign": null,
@@ -57,8 +57,8 @@
    "name": "Fikri",
    "title": "Social Media Publisher",
    "status": "done",
-   "current_task": "Antre render + QA Champion Rush #243",
-   "updated_at": "2026-11-27 01:58:25"
+   "current_task": null,
+   "updated_at": "2026-11-27 03:26:58"
   },
   {
    "id": "ads",
@@ -706,10 +706,10 @@
    "game": "ff",
    "pillar": "news",
    "title": "Juara FFWS Nggak Ditentukan Poin Terbanyak? Ini Cara Kerja Champion Rush",
-   "status": "draft",
-   "asset_url": null,
+   "status": "posted",
+   "asset_url": "{\"video\":\"https://luc1ferr12.github.io/zataa-office/media/2026-11-27/243-juara-ffws-nggak-ditentukan-poin-terbany-ov.mp4\",\"cover\":\"https://luc1ferr12.github.io/zataa-office/media/2026-11-27/243-juara-ffws-nggak-ditentukan-poin-terbany-ov-cover.jpg\"}",
    "scheduled_at": null,
-   "posted_at": null,
+   "posted_at": "2026-11-27 03:26:58",
    "channel": null
   },
   {
@@ -772,6 +772,21 @@
  "clip_jobs": [],
  "today_tasks": [],
  "activity": [
+  {
+   "ts": "2026-11-27 03:26:58",
+   "agent_id": "publisher",
+   "message": "Posting #243 ke TikTok + YouTube ✅"
+  },
+  {
+   "ts": "2026-11-27 03:26:22",
+   "agent_id": "video",
+   "message": "video #243 dirender di laptop & dikirim ke Owner"
+  },
+  {
+   "ts": "2026-11-27 03:26:21",
+   "agent_id": "publisher",
+   "message": "#243 lolos QA & langsung dijadwalkan tayang (riset di-ACC Owner)"
+  },
   {
    "ts": "2026-11-27 03:16:08",
    "agent_id": "trisk",
@@ -881,24 +896,16 @@
    "ts": "2026-11-27 01:01:08",
    "agent_id": "ttech",
    "message": "M15 berubah arah: sideways → bearish"
-  },
-  {
-   "ts": "2026-11-27 01:01:01",
-   "agent_id": "analyst",
-   "message": "Update data 29 post IG 📈"
-  },
-  {
-   "ts": "2026-11-27 00:51:08",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: sideways → bearish"
-  },
-  {
-   "ts": "2026-11-27 00:31:08",
-   "agent_id": "ttech",
-   "message": "M30 berubah arah: sideways → bullish"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-11-27 03:26:58",
+   "agent_id": "publisher",
+   "to_id": null,
+   "kind": "oper",
+   "message": "\"Juara FFWS Nggak Ditentukan Poin Terbanyak? Ini Ca\" udah tayang di TikTok + YouTube 🚀 Makasih semua!"
+  },
   {
    "ts": "2026-11-27 01:58:43",
    "agent_id": "publisher",
@@ -1171,20 +1178,13 @@
    "to_id": "copywriter",
    "kind": "oper",
    "message": "Riset \"Riset sore About Esports\" beres, udah dicek 2 sumber. Tiara, lanjut ya~"
-  },
-  {
-   "ts": "2026-11-25 04:01:20",
-   "agent_id": "researcher",
-   "to_id": "copywriter",
-   "kind": "oper",
-   "message": "Tiara, bahan buat \"Riset sesi siang: nihil berita hangat\" udah aku rangkum + sumbernya. Tinggal kamu racik captionnya ✍️"
   }
  ],
  "stats": {
   "this_week": {
    "week": "2026-11-23",
    "total": 26,
-   "posted": 21,
+   "posted": 22,
    "pending": 4,
    "scheduled": 0,
    "yt_total": 19,
@@ -1281,7 +1281,7 @@
   "paused": false,
   "balance": 1757.48,
   "today_pnl": 0,
-  "price": 3627,
+  "price": 3624.5,
   "open": [],
   "signals": [
    {
@@ -1443,13 +1443,13 @@
    "M10": {
     "bias": "bullish",
     "score": 2,
-    "price": 3636.2,
-    "ema20": 3597.57,
-    "ema50": 3582.05,
-    "rsi": 76.1,
+    "price": 3624.5,
+    "ema20": 3600.14,
+    "ema50": 3583.72,
+    "rsi": 66.9,
     "n": 299,
-    "slot": 2992915,
-    "at": 1795749068612
+    "slot": 2992916,
+    "at": 1795749668810
    },
    "M15": {
     "bias": "sideways",
