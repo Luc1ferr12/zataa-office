@@ -353,7 +353,11 @@ main { padding: 20px 24px 40px; max-width: 1440px; margin: 0 auto; display: grid
   .topbar { padding: 10px 16px; }
   .brand p { display: none; }
   .brand h1 { font-size: 16px; white-space: nowrap; }
-  .clock { gap: 8px; }
+  /* status di atas jam (sebelahan nggak muat); tinggi tetap ≤40px supaya .tabs top: 60px pas */
+  .clock { flex-direction: column; align-items: flex-end; gap: 0; min-width: 0; }
+  .clock .pill { max-width: 100%; overflow: hidden; text-overflow: ellipsis; padding: 0 8px; font-size: 11px; line-height: 1.6; }
+  .clock-time { white-space: nowrap; font-size: 12px; line-height: 1.15; }
+  .clock-time strong { font-size: 15px; }
   main { padding: 14px 16px 30px; }
   .kpis { grid-template-columns: repeat(2, 1fr); }
   .kpis .kpi:last-child { grid-column: span 2; }
