@@ -1,8 +1,8 @@
 {
- "at": "2026-11-27T23:11:55.591Z",
+ "at": "2026-11-27T23:21:55.577Z",
  "today": "2026-11-28",
  "laptop": {
-  "at": "2026-11-27T23:11:38.580Z",
+  "at": "2026-11-27T23:21:38.613Z",
   "renderFrom": "09:45"
  },
  "queue": [
@@ -29,6 +29,30 @@
    "startAt": "2026-11-28T02:02:00.000Z",
    "etaAt": "2026-11-28T02:08:00.000Z",
    "waitingWindow": true
+  },
+  {
+   "id": 247,
+   "channel": "marvel",
+   "title": "Nick Fury Udah Mirip Samuel L. Jackson 6 Tahun Sebelum Dia Main",
+   "style": "pop-art",
+   "estMin": 5,
+   "pos": 3,
+   "state": "antre",
+   "startAt": "2026-11-28T02:08:00.000Z",
+   "etaAt": "2026-11-28T02:13:00.000Z",
+   "waitingWindow": true
+  },
+  {
+   "id": 248,
+   "channel": "youtube",
+   "title": "1518: Ratusan Orang Menari Berhari-hari dan Nggak Bisa Berhenti",
+   "style": "woodcut",
+   "estMin": 27,
+   "pos": 4,
+   "state": "antre",
+   "startAt": "2026-11-28T02:13:00.000Z",
+   "etaAt": "2026-11-28T02:40:00.000Z",
+   "waitingWindow": true
   }
  ],
  "divisions": [
@@ -43,7 +67,29 @@
    "key": "history",
    "name": "Zaa History",
    "working": null,
-   "items": [],
+   "items": [
+    {
+     "id": 248,
+     "day": "2026-11-28",
+     "title": "1518: Ratusan Orang Menari Berhari-hari dan Nggak Bisa Berhenti",
+     "revisions": 0,
+     "airAt": "2026-11-28T05:00:00.000Z",
+     "stage": "antre",
+     "render": {
+      "id": 248,
+      "channel": "youtube",
+      "title": "1518: Ratusan Orang Menari Berhari-hari dan Nggak Bisa Berhenti",
+      "style": "woodcut",
+      "estMin": 27,
+      "pos": 4,
+      "state": "antre",
+      "startAt": "2026-11-28T02:13:00.000Z",
+      "etaAt": "2026-11-28T02:40:00.000Z",
+      "waitingWindow": true
+     },
+     "note": ""
+    }
+   ],
    "nextSession": "besok 07:00"
   },
   {
@@ -78,14 +124,30 @@
   {
    "key": "marvel",
    "name": "Marvel Talk",
-   "working": {
-    "id": "vdir",
-    "name": "Reza",
-    "task": "Pilih topik Marvel Talk 28 Nov",
-    "stage": "meeting",
-    "at": "2026-11-27T23:10:48.000Z"
-   },
-   "items": [],
+   "working": null,
+   "items": [
+    {
+     "id": 247,
+     "day": "2026-11-28",
+     "title": "Nick Fury Udah Mirip Samuel L. Jackson 6 Tahun Sebelum Dia Main",
+     "revisions": 0,
+     "airAt": "2026-11-28T11:00:00.000Z",
+     "stage": "antre",
+     "render": {
+      "id": 247,
+      "channel": "marvel",
+      "title": "Nick Fury Udah Mirip Samuel L. Jackson 6 Tahun Sebelum Dia Main",
+      "style": "pop-art",
+      "estMin": 5,
+      "pos": 3,
+      "state": "antre",
+      "startAt": "2026-11-28T02:08:00.000Z",
+      "etaAt": "2026-11-28T02:13:00.000Z",
+      "waitingWindow": true
+     },
+     "note": ""
+    }
+   ],
    "nextSession": "besok 07:00"
   },
   {

@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-27T23:11:55.444Z",
+ "generated_at": "2026-11-27T23:21:55.438Z",
  "today": "2026-11-28",
  "week_start": "2026-11-23",
  "campaign": null,
@@ -161,8 +161,8 @@
    "name": "Bagas",
    "title": "Manajer YouTube",
    "status": "done",
-   "current_task": "Sesi pagi 27 Nov selesai",
-   "updated_at": "2026-11-26 23:16:19"
+   "current_task": "Zaa History #248 wabah menari 1518 antre render",
+   "updated_at": "2026-11-27 23:16:27"
   },
   {
    "id": "yresearch",
@@ -256,9 +256,9 @@
    "id": "vdir",
    "name": "Reza",
    "title": "Manajer Marvel Talk",
-   "status": "working",
-   "current_task": "Pilih topik Marvel Talk 28 Nov",
-   "updated_at": "2026-11-27 23:10:48"
+   "status": "done",
+   "current_task": "Marvel Talk #? Nick Fury antre render",
+   "updated_at": "2026-11-27 23:12:59"
   },
   {
    "id": "vresearch",
@@ -809,11 +809,59 @@
    "scheduled_at": null,
    "posted_at": null,
    "channel": "story"
+  },
+  {
+   "id": 247,
+   "day": "2026-11-28",
+   "slot": "shorts",
+   "format": "shorts",
+   "game": "sejarah",
+   "pillar": "fakta_marvel",
+   "title": "Nick Fury Udah Mirip Samuel L. Jackson 6 Tahun Sebelum Dia Main",
+   "status": "draft",
+   "asset_url": null,
+   "scheduled_at": null,
+   "posted_at": null,
+   "channel": "marvel"
+  },
+  {
+   "id": 248,
+   "day": "2026-11-28",
+   "slot": "shorts",
+   "format": "shorts",
+   "game": "sejarah",
+   "pillar": "strange_events",
+   "title": "1518: Ratusan Orang Menari Berhari-hari dan Nggak Bisa Berhenti",
+   "status": "draft",
+   "asset_url": null,
+   "scheduled_at": null,
+   "posted_at": null,
+   "channel": "youtube"
   }
  ],
  "clip_jobs": [],
  "today_tasks": [],
  "activity": [
+  {
+   "ts": "2026-11-27 23:16:27",
+   "agent_id": "yvisual",
+   "message": "Film history-wabah-menari (woodcut, penari kapsul 3 pose) check ok, #248; bank +SE-006"
+  },
+  {
+   "ts": "2026-11-27 23:16:22",
+   "agent_id": "yvideo",
+   "message": "Shorts #248 \"1518: Ratusan Orang Menari Berhari-hari dan Nggak Bisa Berhenti\" masuk antrean render laptop (film lemo-opuscar films/history-wabah-menari)"
+  },
+  {
+   "ts": "2026-11-27 23:12:59",
+   "agent_id": "vvisual",
+   "message": "Film marvel-fury-jackson (pop-art, figur agen orisinal) check ok; bank +FM-005/FM-006"
+  },
+  {
+   "ts": "2026-11-27 23:12:59",
+   "agent_id": "vvideo",
+   "message": "Shorts #247 \"Nick Fury Udah Mirip Samuel L. Jackson 6 Tahun Sebelum Dia Main\" masuk antrean render laptop (film lemo-opuscar films/marvel-fury-jackson)"
+  },
   {
    "ts": "2026-11-27 23:09:55",
    "agent_id": "svisual",
@@ -918,29 +966,30 @@
    "ts": "2026-11-27 19:00:55",
    "agent_id": "ttech",
    "message": "M15 berubah arah: bearish → sideways"
-  },
-  {
-   "ts": "2026-11-27 18:45:55",
-   "agent_id": "ttech",
-   "message": "M15 berubah arah: sideways → bearish"
-  },
-  {
-   "ts": "2026-11-27 18:00:55",
-   "agent_id": "trisk",
-   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-  },
-  {
-   "ts": "2026-11-27 18:00:55",
-   "agent_id": "ttech",
-   "message": "M30 berubah arah: sideways → bullish"
-  },
-  {
-   "ts": "2026-11-27 18:00:55",
-   "agent_id": "ttech",
-   "message": "M15 berubah arah: bearish → sideways"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-11-27 23:16:27",
+   "agent_id": "bvisual",
+   "to_id": "vvisual",
+   "kind": "santai",
+   "message": "Hari ini aku bikin keyboard dari bata, kamu bikin Nick Fury pop-art. Nanti tukeran review ya!"
+  },
+  {
+   "ts": "2026-11-27 23:16:27",
+   "agent_id": "ydir",
+   "to_id": "yresearch",
+   "kind": "oper",
+   "message": "Brief Shorts \"Zaa History #248 wabah menari 1518 antre render\" udah jadi. Nadhira, gas riset!"
+  },
+  {
+   "ts": "2026-11-27 23:12:59",
+   "agent_id": "vdir",
+   "to_id": "vresearch",
+   "kind": "oper",
+   "message": "Brief \"Marvel Talk #? Nick Fury antre render\" beres. Citra, gas riset!"
+  },
   {
    "ts": "2026-11-27 23:09:55",
    "agent_id": "sdir",
@@ -1199,46 +1248,25 @@
    "to_id": "dir",
    "kind": "oper",
    "message": "Laporan harian marketing udah aku kirim ke Bos, 0 konten tayang hari ini 📊"
-  },
-  {
-   "ts": "2026-11-26 08:01:23",
-   "agent_id": "dir",
-   "to_id": "researcher",
-   "kind": "oper",
-   "message": "Brief \"Pilih ide sesi sore: LCQ FFWS 3 tim RI\" udah jadi. Salsa, gas riset ya!"
-  },
-  {
-   "ts": "2026-11-26 08:01:18",
-   "agent_id": "researcher",
-   "to_id": "copywriter",
-   "kind": "oper",
-   "message": "Tiara, bahan buat \"Riset sesi sore: LCQ FFWS besok\" udah aku rangkum + sumbernya. Tinggal kamu racik captionnya ✍️"
-  },
-  {
-   "ts": "2026-11-25 23:19:04",
-   "agent_id": "bvisual",
-   "to_id": "vvisual",
-   "kind": "santai",
-   "message": "Jendela pesawat aku bikin dari bata, kamu Thor-nya pake mahkota emas ya? 😆"
   }
  ],
  "stats": {
   "this_week": {
    "week": "2026-11-23",
-   "total": 29,
+   "total": 31,
    "posted": 27,
    "pending": 0,
    "scheduled": 0,
-   "yt_total": 21,
+   "yt_total": 23,
    "yt_posted": 19,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 17306,
+   "views": 17309,
    "likes": 263,
    "comments": 5,
    "shares": 0,
    "saves": 1,
-   "yt_views": 11002,
+   "yt_views": 11005,
    "top": [
     {
      "title": "Jemkin & something resmi bukan pemain impor lagi di VCT 2027",
@@ -1280,12 +1308,12 @@
    "yt_posted": 16,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 21217,
+   "views": 21221,
    "likes": 316,
    "comments": 5,
    "shares": 0,
    "saves": 2,
-   "yt_views": 16706,
+   "yt_views": 16710,
    "top": [
     {
      "title": "Gua di Biak Ini Konon Jadi Kuburan Ribuan Tentara Jepang",
