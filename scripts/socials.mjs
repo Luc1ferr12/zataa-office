@@ -9,6 +9,7 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { loadEnv, db } from './approval.mjs';
 import { api as zernio } from './zernio.mjs';
+import { writeTrend } from './trend.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const OUT = join(ROOT, 'docs', 'data', 'socials.json');
@@ -154,6 +155,7 @@ export async function collect() {
   for (const k of Object.keys(all)) for (const p of out[k].top ?? []) { delete p.pid; delete p.text; }
   mkdirSync(dirname(OUT), { recursive: true });
   writeFileSync(OUT, `${JSON.stringify(out, null, 1)}\n`);
+  try { writeTrend(out); } catch (e) { console.error(`trend.json gagal: ${e.message}`); } // riwayat cuma pelengkap
   return Object.fromEntries(KEYS.map(([k]) => k).filter((k) => out[k]).map((k) => [k, out[k].error ? `gagal: ${out[k].error}` : `${out[k].posts.total} post`]));
 }
 

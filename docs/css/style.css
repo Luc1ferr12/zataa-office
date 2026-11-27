@@ -81,8 +81,8 @@ main { padding: 20px 24px 40px; max-width: 1440px; margin: 0 auto; display: grid
 .kpi small { color: var(--muted); font-size: 12px; }
 /* kartu audiens + donut per divisi (warna ikut divisi, sama di semua kartu) */
 .kpi.pie { grid-template-columns: minmax(0, 1fr) 72px; column-gap: 12px; align-content: start; }
-.kpi.pie > span, .kpi.pie > strong, .kpi.pie > .kpi-leg { grid-column: 1; }
-.kpi-pie { grid-column: 2; grid-row: 1 / span 3; align-self: center; width: 72px; height: 72px; position: relative; z-index: 1; }
+.kpi.pie > span, .kpi.pie > strong, .kpi.pie > .kpi-delta, .kpi.pie > .kpi-leg { grid-column: 1; }
+.kpi-pie { grid-column: 2; grid-row: 1 / span 4; align-self: center; width: 72px; height: 72px; position: relative; z-index: 1; }
 .kpi-pie svg { width: 100%; height: 100%; display: block; overflow: visible; }
 .kpi-pie circle.sl { transition: opacity .15s; cursor: default; }
 .kpi-pie svg:hover circle.sl { opacity: .35; } .kpi-pie svg circle.sl:hover { opacity: 1; }
@@ -90,11 +90,50 @@ main { padding: 20px 24px 40px; max-width: 1440px; margin: 0 auto; display: grid
 .kpi-leg li { display: flex; align-items: center; gap: 6px; color: var(--muted); min-width: 0; }
 .kpi-leg li i { width: 8px; height: 8px; border-radius: 2px; flex: none; }
 .kpi-leg li span { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: inherit; }
-.kpi-leg li b { color: var(--text, #e8e6f5); font-weight: 600; font-variant-numeric: tabular-nums; }
+.kpi-leg li b { color: var(--text, #e8e6f5); font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap; }
+/* perubahan 7 hari: tanda +/− ikut ditulis, warna cuma penguat */
+.kpi em, .compare em { font-style: normal; font-variant-numeric: tabular-nums; color: var(--muted); white-space: nowrap; }
+.kpi em.up, .compare em.up { color: var(--ok); }
+.kpi em.down, .compare em.down { color: #f87171; }
+.kpi-leg li em { min-width: 42px; text-align: right; }
+.kpi-delta { min-height: 18px; }
+.kpi small a { color: var(--brand-2); position: relative; z-index: 1; }
+/* progres target subscriber */
+.kpi.goals { align-content: start; }
+.kpi.goals .kpi-leg li { flex-wrap: wrap; row-gap: 2px; }
+.kpi-leg li b small { color: var(--muted); font-weight: 400; font-size: inherit; }
+.kpi-leg .goal { flex: 0 0 100%; height: 4px; border-radius: 99px; background: #ffffff14; overflow: hidden; margin-bottom: 2px; }
+.kpi-leg .goal u { display: block; height: 100%; border-radius: 99px; text-decoration: none; }
+.kpi .goal-note { font-size: 11px; margin-top: 4px; }
+.kpi.pie.detail { grid-template-columns: minmax(0, 1fr) 60px; column-gap: 8px; }
+.kpi.detail .kpi-pie { width: 60px; height: 60px; }
+/* 4 kolom di layar sedang: donut kartu rincian disembunyikan supaya nama divisi & angkanya nggak kepotong */
+@media (min-width: 1101px) and (max-width: 1300px) {
+  .kpi.pie.detail { grid-template-columns: minmax(0, 1fr); }
+  .kpi.detail .kpi-pie { display: none; }
+}
 @media (max-width: 640px) {
-  .kpi.pie { grid-template-columns: minmax(0, 1fr) 42px; column-gap: 8px; }
-  .kpi-pie { width: 42px; height: 42px; grid-row: 1 / span 2; }
+  .kpi.pie, .kpi.pie.detail { grid-template-columns: minmax(0, 1fr) 42px; column-gap: 8px; }
+  .kpi-pie, .kpi.detail .kpi-pie { width: 42px; height: 42px; grid-row: 1 / span 3; }
   .kpi.pie > .kpi-leg { grid-column: 1 / -1; font-size: 11px; }
+  .kpi.detail { grid-column: 1 / -1; }
+  /* kartu total views setengah lebar: donut sejajar judul saja, angkanya dapat lebar penuh */
+  .kpi.pie:not(.detail) .kpi-pie { grid-row: 1; }
+  .kpi.pie:not(.detail) > strong, .kpi.pie:not(.detail) > .kpi-delta { grid-column: 1 / -1; }
+}
+/* tabel perbandingan divisi (tab Analytics) */
+.compare-scroll { overflow-x: auto; }
+.compare table { width: 100%; border-collapse: collapse; font-size: 13px; font-variant-numeric: tabular-nums; }
+.compare th, .compare td { padding: 8px 10px; text-align: right; border-bottom: 1px solid var(--line); white-space: nowrap; }
+.compare thead th { color: var(--muted); font-size: 11.5px; font-weight: 600; }
+.compare th:first-child { text-align: left; padding-left: 0; }
+.compare tbody th { font-weight: 600; }
+.compare tbody th i { display: inline-block; width: 8px; height: 8px; border-radius: 2px; margin-right: 8px; }
+.compare td small { display: block; color: var(--muted); font-size: 11px; }
+.compare p { margin: 10px 0 0; }
+@media (max-width: 640px) {
+  .compare th, .compare td { padding: 7px 6px; white-space: normal; }
+  .compare table { font-size: 12px; }
 }
 
 /* tab navigasi: satu panel tampil sekaligus (pilihan diingat di localStorage + #hash) */

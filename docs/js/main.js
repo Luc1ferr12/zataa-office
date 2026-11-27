@@ -1,6 +1,7 @@
 import { AGENTS, wita, activityAt, describe, officeStatus, approvalWaits, pairBilliard } from './schedule.js';
 import { chatFeed } from './chatter.js';
 import { BIRTHDAYS, birthdaysOn, relationsOn, STAGE_LABEL, dateOf } from './social.js';
+import { change } from './trend.js';
 
 const $ = (id) => document.getElementById(id);
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
@@ -17,6 +18,7 @@ const NAMES = Object.fromEntries([['owner', 'Zamiir'], ...AGENTS.map((a) => [a.i
 
 let state = null;
 let socials = null;
+let trend = null; // docs/data/trend.json
 let health = null; // docs/data/health.json
 let office = null;
 let selected = null;
@@ -39,6 +41,10 @@ async function loadState() {
     const r = await fetch(`data/socials.json?t=${Date.now()}`, { cache: 'no-store' });
     if (r.ok) socials = await r.json();
   } catch { /* belum ada data analytics */ }
+  try {
+    const r = await fetch(`data/trend.json?t=${Date.now()}`, { cache: 'no-store' });
+    if (r.ok) trend = await r.json();
+  } catch { /* belum ada riwayat: dashboard tampil tanpa angka perubahan */ }
   try {
     const r = await fetch(`data/health.json?t=${Date.now()}`, { cache: 'no-store' });
     if (r.ok) health = await r.json();
@@ -139,11 +145,24 @@ function renderSocials() {
   }).join('');
 }
 
-// ---------- KPI audiens (socials.json): total semua akun YouTube & TikTok + donut per divisi (IG dijeda, tidak dihitung)
+// ---------- KPI audiens (socials.json): total semua akun YouTube & TikTok + rincian per divisi (IG dijeda, tidak dihitung)
+// + perubahan 7 hari (trend.json) + progres target subscriber. Zaa Clips libur (nggak ada clip minggu ini) = disembunyikan.
 // warna = identitas divisi, urutan tetap (palet kategorikal tervalidasi utk latar gelap kartu)
 const KPI_DIV = [['esports', 'About Esports', '#3987e5'], ['history', 'Zaa History', '#d95926'], ['story', 'Zaa Story', '#199e70'], ['marvel', 'Marvel Talk', '#c98500'], ['cowo', 'Cowo Bingung', '#8a63d2'], ['clip', 'Zaa Clips', '#d55181']];
+const SUB_TARGET = 500;                                        // ±500 subscriber → divisi Shorts tambah video panjang
+const SUB_TARGET_DIV = ['history', 'story', 'marvel', 'cowo'];
+const YT = /youtube$/, TT = /^(.+_)?tiktok$/;
 const divOf = (k) => ({ tiktok: 'esports', youtube: 'history' })[k] ?? k.split('_')[0];
-function donut(slices, label) {
+const clipsOn = () => (state?.clip_jobs?.length ?? 0) > 0;
+const activeDivs = () => KPI_DIV.filter(([d]) => d !== 'clip' || clipsOn());
+const keysOf = (re, div) => Object.keys(socials ?? {}).filter((k) => re.test(k) && (div ? divOf(k) === div : activeDivs().some(([d]) => d === divOf(k))));
+// jumlah satu angka dari beberapa akun; null = semua akunnya gagal ditarik (tampil "—", bukan 0)
+const total = (keys, f) => { const ok = keys.map((k) => socials[k]).filter((p) => p && !p.error); return ok.length ? ok.reduce((a, p) => a + (+p[f] || 0), 0) : null; };
+const signed = (n) => (n > 0 ? `+${compact(n)}` : n < 0 ? `−${compact(-n)}` : '±0');
+const deltaEl = (c) => (c ? `<em class="${c.diff > 0 ? 'up' : c.diff < 0 ? 'down' : ''}" title="perubahan ${c.days} hari">${signed(c.diff)}</em>` : '<em></em>');
+const deltaLine = (c) => (c ? `${deltaEl(c)} dalam ${c.days} hari` : '');
+function donut(all, label) {
+  const slices = all.filter((x) => x.v > 0);
   const total = slices.reduce((a, x) => a + x.v, 0);
   const R = 16, C = 2 * Math.PI * R, GAP = slices.length > 1 ? 1.2 : 0; // celah 2px warna latar antar irisan
   let at = 0;
@@ -155,25 +174,54 @@ function donut(slices, label) {
   }).join('');
   return `<svg viewBox="0 0 42 42" aria-label="${esc(label)}"><g transform="rotate(-90 21 21)">${arcs || `<circle cx="21" cy="21" r="${R}" fill="none" stroke="var(--line)" stroke-width="8"/>`}</g></svg>`;
 }
+// satu baris per divisi yang punya akun di platform itu (nilai 0 tetap tampil)
+function divRows(re, f, tf) {
+  return activeDivs().flatMap(([d, n, c]) => {
+    const keys = keysOf(re, d);
+    return keys.length ? [{ d, n, c, v: total(keys, f), change: change(trend, socials, keys, tf) }] : [];
+  });
+}
 function renderAudienceKpis() {
-  const ok = Object.entries(socials ?? {}).filter(([k, p]) => k !== 'generated_at' && p && !p.error && k !== 'instagram' && !k.endsWith('instagram'));
-  const YT = /youtube$/, TT = /^(.+_)?tiktok$/;
-  const byDiv = (re, f) => KPI_DIV.map(([d, n, c]) => ({ n, c, v: ok.filter(([k]) => re.test(k) && divOf(k) === d).reduce((a, [, p]) => a + (+p[f] || 0), 0) })).filter((x) => x.v > 0);
-  const set = (id, slices, label, any) => {
-    const total = slices.reduce((a, x) => a + x.v, 0);
-    $(id).textContent = any ? num(total) : '—';
-    $(`${id}-pie`).innerHTML = donut(slices, label);
-    $(`${id}-pie`).setAttribute('aria-label', `${label}: ${slices.map((x) => `${x.n} ${num(x.v)}`).join(', ') || 'belum ada data'}`);
-    $(`${id}-leg`).innerHTML = slices.length ? slices.map((x) => `<li><i style="background:${x.c}"></i><span>${esc(x.n)}</span><b>${compact(x.v)}</b></li>`).join('') : '<li>belum ada data</li>';
+  const head = (id, keys, f, tf) => {
+    const v = total(keys, f);
+    $(id).textContent = v == null ? '—' : num(v);
+    $(`${id}-delta`).innerHTML = deltaLine(change(trend, socials, keys, tf));
   };
-  const hasYT = ok.some(([k]) => YT.test(k)), hasTT = ok.some(([k]) => TT.test(k));
-  const ytV = byDiv(YT, 'views'), ttV = byDiv(TT, 'views');
-  set('k-tt-views', ttV, 'Views TikTok per divisi', hasTT);
-  set('k-yt-views', ytV, 'Views YouTube per divisi', hasYT);
-  set('k-yt-subs', byDiv(YT, 'subscribers'), 'Subscribers YouTube per divisi', hasYT);
-  set('k-tt-fol', byDiv(TT, 'followers'), 'Followers TikTok per divisi', hasTT);
-  const sum = (xs) => xs.reduce((a, x) => a + x.v, 0);
-  set('k-views', [{ n: 'YouTube', c: '#e66767', v: sum(ytV) }, { n: 'TikTok', c: '#9085e9', v: sum(ttV) }].filter((x) => x.v > 0), 'Total views per platform', hasYT || hasTT);
+  const pie = (id, rows, label) => {
+    $(`${id}-pie`).innerHTML = donut(rows, label);
+    $(`${id}-pie`).setAttribute('aria-label', `${label}: ${rows.map((x) => `${x.n} ${num(x.v)}`).join(', ') || 'belum ada data'}`);
+    $(`${id}-leg`).innerHTML = rows.length ? rows.map((x) => `<li><i style="background:${x.c}"></i><span>${esc(x.n)}</span><b>${compact(x.v)}</b>${x.change === undefined ? '' : deltaEl(x.change)}</li>`).join('') : '<li>belum ada data</li>';
+  };
+  for (const [id, re, f, tf, label] of [['k-tt-views', TT, 'views', 'v', 'Views TikTok per divisi'], ['k-yt-views', YT, 'views', 'v', 'Views YouTube per divisi'], ['k-tt-fol', TT, 'followers', 'a', 'Followers TikTok per divisi']]) {
+    head(id, keysOf(re), f, tf);
+    pie(id, divRows(re, f, tf), label);
+  }
+  const both = [...keysOf(YT), ...keysOf(TT)];
+  head('k-views', both, 'views', 'v');
+  pie('k-views', [['YouTube', '#e66767', YT], ['TikTok', '#9085e9', TT]].flatMap(([n, c, re]) => { const v = total(keysOf(re), 'views'); return v == null ? [] : [{ n, c, v }]; }), 'Total views per platform');
+  head('k-yt-subs', keysOf(YT), 'subscribers', 'a');
+  const subs = divRows(YT, 'subscribers', 'a');
+  $('k-yt-subs-leg').innerHTML = subs.length ? subs.map((x) => {
+    const goal = SUB_TARGET_DIV.includes(x.d);
+    const pct = goal && x.v != null ? Math.min(100, (x.v / SUB_TARGET) * 100) : 0;
+    return `<li><i style="background:${x.c}"></i><span>${esc(x.n)}</span><b>${num(x.v)}${goal ? `<small>/${SUB_TARGET}</small>` : ''}</b>${deltaEl(x.change)}${goal ? `<div class="goal" role="progressbar" aria-label="Target subscriber ${esc(x.n)}" aria-valuemin="0" aria-valuemax="${SUB_TARGET}" aria-valuenow="${Math.min(x.v ?? 0, SUB_TARGET)}"><u style="width:${pct}%;background:${x.c}"></u></div>` : ''}</li>`;
+  }).join('') : '<li>belum ada data</li>';
+}
+// tabel Analytics: views per divisi + rata-rata per video (total views ÷ jumlah post sejak awal)
+function renderCompare() {
+  const per = (keys) => {
+    const ok = keys.map((k) => socials[k]).filter((p) => p && !p.error && p.views != null);
+    const n = ok.reduce((a, p) => a + (p.posts?.total ?? 0), 0);
+    return n ? `<b>${num(Math.round(ok.reduce((a, p) => a + p.views, 0) / n))}</b><small>${num(n)} video</small>` : '—';
+  };
+  const rows = activeDivs().flatMap(([d, n, c]) => {
+    const yt = keysOf(YT, d), tt = keysOf(TT, d), all = [...yt, ...tt];
+    if (!all.length) return [];
+    const v = total(all, 'views');
+    return [`<tr><th scope="row"><i style="background:${c}"></i>${esc(n)}</th><td><b>${v == null ? '—' : compact(v)}</b></td><td>${deltaEl(change(trend, socials, all, 'v'))}</td><td>${per(yt)}</td><td>${per(tt)}</td></tr>`];
+  });
+  $('compare-body').innerHTML = rows.join('') || '<tr><td colspan="5">Belum ada data.</td></tr>';
+  $('compare-note').textContent = `Rata-rata = total views ÷ jumlah video sejak awal.${clipsOn() ? '' : ' Zaa Clips libur: tidak dihitung di sini dan di kartu ringkasan.'}`;
 }
 
 function renderDashboard() {
@@ -185,10 +233,13 @@ function renderDashboard() {
   $('k-total').textContent = st.total ?? 0;
   $('k-total-sub').textContent = split(st.total, st.yt_total);
   $('k-pending').textContent = st.pending ?? 0;
-  $('k-pending-sub').textContent = `${split(st.pending, st.yt_pending)} · cek Telegram`;
+  // ajakan cek cuma muncul kalau memang ada antrean
+  const pendingSub = st.pending ? `${esc(split(st.pending, st.yt_pending))} · <a href="#approval">buka Approval →</a>` : 'Nggak ada konten minggu ini yang nunggu';
+  if ($('k-pending-sub').innerHTML !== pendingSub) $('k-pending-sub').innerHTML = pendingSub;
   $('k-posted').textContent = st.posted ?? 0;
   $('k-sched').textContent = `${split(st.posted, st.yt_posted)} · ${st.scheduled ?? 0} terjadwal`;
   renderAudienceKpis();
+  renderCompare();
   // klik link pelacak (golink.mjs) → toko (scripts/golink.mjs); nama sumber sama dengan SOURCES di sana
   const SRC = { ig: 'IG bio', igs: 'IG Story', tt: 'TikTok', tg: 'Telegram', yt: 'YouTube', wa: 'WA', '(direct)': 'langsung', google: 'Google' };
   const g = st.ga4;

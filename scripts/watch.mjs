@@ -193,7 +193,7 @@ async function talk() {
 
 // GitHub Pages: push state.json tiap 10 menit kalau ada perubahan (status pegawai, aktivitas, chit-chat). 0 token.
 const SYNC_EVERY = 10 * 60_000;
-const PAGES_DATA = () => ['docs/data/state.json', 'docs/data/tiktok.json', 'docs/data/socials.json', 'docs/data/health.json', 'docs/data/api.json', 'docs/data/progress.json'].filter((f) => existsSync(join(ROOT, f)));
+const PAGES_DATA = () => ['docs/data/state.json', 'docs/data/tiktok.json', 'docs/data/socials.json', 'docs/data/trend.json', 'docs/data/health.json', 'docs/data/api.json', 'docs/data/progress.json'].filter((f) => existsSync(join(ROOT, f)));
 async function syncPages() {
   if (posting) return; // publish.mjs juga lagi push media, jangan tabrakan
   const git = (...a) => execFileSync('git', a, { cwd: ROOT, encoding: 'utf8', windowsHide: true, stdio: ['ignore', 'pipe', 'pipe'] });

@@ -74,14 +74,14 @@
 
     <section class="kpis" aria-label="Ringkasan minggu ini">
       <article class="kpi"><span>Konten minggu ini</span><strong id="k-total">0</strong><small id="k-total-sub">dari plan</small></article>
-      <article class="kpi"><span>Nunggu approval</span><strong id="k-pending">0</strong><small id="k-pending-sub">cek Telegram</small></article>
+      <article class="kpi"><span>Nunggu approval</span><strong id="k-pending">0</strong><small id="k-pending-sub">—</small></article>
       <article class="kpi"><span>Terposting</span><strong id="k-posted">0</strong><small id="k-sched">0 terjadwal</small></article>
-            <article class="kpi pie"><span>Total views semua akun</span><strong id="k-views">—</strong><div class="kpi-pie" id="k-views-pie" role="img"></div><ul class="kpi-leg" id="k-views-leg"></ul></article>
+      <article class="kpi pie"><span>Total views semua akun</span><strong id="k-views">—</strong><small class="kpi-delta" id="k-views-delta"></small><div class="kpi-pie" id="k-views-pie" role="img"></div><ul class="kpi-leg" id="k-views-leg"></ul></article>
       <!-- baris 2: rincian per divisi (semua akun) -->
-      <article class="kpi pie"><span>Views TikTok</span><strong id="k-tt-views">—</strong><div class="kpi-pie" id="k-tt-views-pie" role="img"></div><ul class="kpi-leg" id="k-tt-views-leg"></ul></article>
-      <article class="kpi pie"><span>Views YouTube</span><strong id="k-yt-views">—</strong><div class="kpi-pie" id="k-yt-views-pie" role="img"></div><ul class="kpi-leg" id="k-yt-views-leg"></ul></article>
-      <article class="kpi pie"><span>Subscribers YouTube</span><strong id="k-yt-subs">—</strong><div class="kpi-pie" id="k-yt-subs-pie" role="img"></div><ul class="kpi-leg" id="k-yt-subs-leg"></ul></article>
-      <article class="kpi pie"><span>Followers TikTok</span><strong id="k-tt-fol">—</strong><div class="kpi-pie" id="k-tt-fol-pie" role="img"></div><ul class="kpi-leg" id="k-tt-fol-leg"></ul></article>
+      <article class="kpi pie detail"><span>Views TikTok</span><strong id="k-tt-views">—</strong><small class="kpi-delta" id="k-tt-views-delta"></small><div class="kpi-pie" id="k-tt-views-pie" role="img"></div><ul class="kpi-leg" id="k-tt-views-leg"></ul></article>
+      <article class="kpi pie detail"><span>Views YouTube</span><strong id="k-yt-views">—</strong><small class="kpi-delta" id="k-yt-views-delta"></small><div class="kpi-pie" id="k-yt-views-pie" role="img"></div><ul class="kpi-leg" id="k-yt-views-leg"></ul></article>
+      <article class="kpi goals detail"><span>Subscribers YouTube</span><strong id="k-yt-subs">—</strong><small class="kpi-delta" id="k-yt-subs-delta"></small><ul class="kpi-leg" id="k-yt-subs-leg"></ul><small class="goal-note">Target 500 per channel Shorts → mulai video panjang</small></article>
+      <article class="kpi pie detail"><span>Followers TikTok</span><strong id="k-tt-fol">—</strong><small class="kpi-delta" id="k-tt-fol-delta"></small><div class="kpi-pie" id="k-tt-fol-pie" role="img"></div><ul class="kpi-leg" id="k-tt-fol-leg"></ul></article>
       <!-- toko zataa.my.id dimatiin 15 Nov 2026: kartu disembunyikan, hapus hidden kalau nyala lagi --><article class="kpi" hidden><span>Kunjungan zataa.my.id</span><strong id="k-clicks">0</strong><small id="k-clicks-sub">lewat link pelacak</small></article>
     </section>
 
@@ -154,6 +154,16 @@
       <div class="pg-divs" id="pg-divs"></div>
     </section>
     <section class="panel" data-panel="analytics">
+      <div class="card compare">
+        <div class="card-head"><h2>Perbandingan divisi</h2><span class="muted">YouTube + TikTok</span></div>
+        <div class="compare-scroll">
+          <table>
+            <thead><tr><th scope="col">Divisi</th><th scope="col">Views</th><th scope="col">7 hari</th><th scope="col">YouTube per video</th><th scope="col">TikTok per video</th></tr></thead>
+            <tbody id="compare-body"><tr><td colspan="5">Memuat…</td></tr></tbody>
+          </table>
+        </div>
+        <p class="muted" id="compare-note"></p>
+      </div>
       <div class="card social">
         <div class="card-head"><h2>Analytics sosmed</h2><span class="muted" id="social-updated"></span></div>
         <div class="social-grid" id="social-grid"><p class="muted">Memuat data…</p></div>
