@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-27T10:30:39.325Z",
+ "generated_at": "2026-11-27T10:40:39.324Z",
  "today": "2026-11-27",
  "week_start": "2026-11-23",
  "campaign": null,
@@ -98,7 +98,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-27 10:16:09"
+   "updated_at": "2026-11-27 10:31:09"
   },
   {
    "id": "tresearch",
@@ -106,7 +106,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
-   "updated_at": "2026-11-27 10:16:09"
+   "updated_at": "2026-11-27 10:31:09"
   },
   {
    "id": "ttech",
@@ -114,7 +114,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-27 10:16:09"
+   "updated_at": "2026-11-27 10:31:09"
   },
   {
    "id": "trisk",
@@ -122,7 +122,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-11-27 10:16:09"
+   "updated_at": "2026-11-27 10:31:09"
   },
   {
    "id": "texec",
@@ -787,6 +787,11 @@
  "today_tasks": [],
  "activity": [
   {
+   "ts": "2026-11-27 10:31:09",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: sideways → bullish"
+  },
+  {
    "ts": "2026-11-27 10:21:09",
    "agent_id": "ttech",
    "message": "M10 berubah arah: bullish → sideways"
@@ -905,11 +910,6 @@
    "ts": "2026-11-27 05:16:09",
    "agent_id": "trisk",
    "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-  },
-  {
-   "ts": "2026-11-27 04:25:02",
-   "agent_id": "owner",
-   "message": "Approve Shorts #239 ✅"
   }
  ],
  "chats": [
@@ -1313,9 +1313,14 @@
   "paused": false,
   "balance": 1757.48,
   "today_pnl": 0,
-  "price": 3670,
+  "price": 3675,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-27 10:31:09",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
    {
     "ts": "2026-11-27 10:16:09",
     "decision": "NO TRADE",
@@ -1340,11 +1345,6 @@
     "ts": "2026-11-27 09:16:09",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-11-27 09:01:09",
-    "decision": "NO TRADE",
-    "reason": "setup SELL di band, konfirmasi baru 1/3 (MACD) · London–NY (mode aman)"
    }
   ],
   "trades": [
@@ -1422,7 +1422,7 @@
    1757.48
   ],
   "last": {
-   "ts": "2026-11-27 10:16:09",
+   "ts": "2026-11-27 10:31:09",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1443,7 +1443,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3669.45 di atas tengah band (3633.5–3691.8) · RSI 63 · Stoch 69 · MACD -1.90 · H1 sideways"
+    "note": "M15 3670.00 di atas tengah band (3634.7–3692.5) · RSI 64 · Stoch 57 · MACD -2.32 · H1 sideways"
    }
   },
   "fund": null,
@@ -1470,37 +1470,37 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "sideways",
-    "score": 1,
-    "price": 3668,
-    "ema20": 3668.44,
-    "ema50": 3646.98,
-    "rsi": 54.3,
+    "bias": "bullish",
+    "score": 3,
+    "price": 3670,
+    "ema20": 3668.59,
+    "ema50": 3647.89,
+    "rsi": 56,
     "n": 299,
-    "slot": 2992958,
-    "at": 1795774869594
+    "slot": 2992959,
+    "at": 1795775469408
    },
    "M15": {
     "bias": "bullish",
     "score": 3,
-    "price": 3668,
-    "ema20": 3660.53,
-    "ema50": 3631.85,
-    "rsi": 62.6,
+    "price": 3670,
+    "ema20": 3661.43,
+    "ema50": 3633.35,
+    "rsi": 63.7,
     "n": 299,
-    "slot": 1995305,
-    "at": 1795774569570
+    "slot": 1995306,
+    "at": 1795775469416
    },
    "M30": {
     "bias": "bullish",
     "score": 2,
-    "price": 3679.5,
-    "ema20": 3639.24,
-    "ema50": 3606.89,
-    "rsi": 86.3,
+    "price": 3670,
+    "ema20": 3642.17,
+    "ema50": 3609.36,
+    "rsi": 76.1,
     "n": 299,
-    "slot": 997652,
-    "at": 1795773669557
+    "slot": 997653,
+    "at": 1795775469417
    },
    "H1": {
     "bias": "bullish",
