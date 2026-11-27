@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-27T22:51:55.441Z",
+ "generated_at": "2026-11-27T23:01:55.442Z",
  "today": "2026-11-28",
  "week_start": "2026-11-23",
  "campaign": null,
@@ -25,8 +25,8 @@
    "name": "Salsa",
    "title": "Researcher",
    "status": "done",
-   "current_task": "Riset sesi malam: LCQ FFWS masih jalan",
-   "updated_at": "2026-11-27 12:02:18"
+   "current_task": "Riset sesi pagi: hasil LCQ sudah di #289, sisanya sepi",
+   "updated_at": "2026-11-27 23:01:32"
   },
   {
    "id": "copywriter",
@@ -138,7 +138,7 @@
    "title": "Evaluation & Optimization",
    "status": "done",
    "current_task": "Evaluasi mingguan beres",
-   "updated_at": "2026-11-20 23:00:54"
+   "updated_at": "2026-11-27 23:01:06"
   },
   {
    "id": "treport",
@@ -787,6 +787,31 @@
  "today_tasks": [],
  "activity": [
   {
+   "ts": "2026-11-27 23:01:37",
+   "agent_id": "dir",
+   "message": "Pagi 28 Nov: pilih 0 ide baru, hasil LCQ FFWS (RRQ Kazu & BTR lolos GF, ONIC gugur) sudah diajukan #289, nunggu Owner"
+  },
+  {
+   "ts": "2026-11-27 23:01:32",
+   "agent_id": "researcher",
+   "message": "Pagi 28 Nov: RSS+3 web; LCQ RRQ Kazu & BTR lolos GF (sudah #289), MPL/VCT nihil resmi"
+  },
+  {
+   "ts": "2026-11-27 23:01:32",
+   "agent_id": "researcher",
+   "message": "Nemu 3 topik baru"
+  },
+  {
+   "ts": "2026-11-27 23:01:06",
+   "agent_id": "teval",
+   "message": "Evaluasi + backtest mingguan selesai"
+  },
+  {
+   "ts": "2026-11-27 23:00:26",
+   "agent_id": "treport",
+   "message": "Laporan lengkap paper: belum layak ke akun real"
+  },
+  {
    "ts": "2026-11-27 22:01:18",
    "agent_id": "analyst",
    "message": "Update data 25 post IG 📈"
@@ -885,34 +910,16 @@
    "ts": "2026-11-27 17:00:55",
    "agent_id": "ttech",
    "message": "M60 berubah arah: sideways → bullish"
-  },
-  {
-   "ts": "2026-11-27 16:51:39",
-   "agent_id": "dir",
-   "message": "Kode kantor diperbarui, restart otomatis: scripts/golink.mjs, scripts/trading/run.mjs, scripts/watch.mjs"
-  },
-  {
-   "ts": "2026-11-27 16:30:40",
-   "agent_id": "ttech",
-   "message": "M15 berubah arah: sideways → bearish"
-  },
-  {
-   "ts": "2026-11-27 16:01:12",
-   "agent_id": "analyst",
-   "message": "Update data 25 post IG 📈"
-  },
-  {
-   "ts": "2026-11-27 16:00:40",
-   "agent_id": "trisk",
-   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-  },
-  {
-   "ts": "2026-11-27 16:00:40",
-   "agent_id": "ttech",
-   "message": "M60 berubah arah: bullish → sideways"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-11-27 23:00:26",
+   "agent_id": "treport",
+   "to_id": "tdir",
+   "kind": "oper",
+   "message": "Paper belum lolos syarat live, udah kulaporin ke Bos"
+  },
   {
    "ts": "2026-11-27 12:02:18",
    "agent_id": "researcher",
@@ -1185,13 +1192,6 @@
    "to_id": "copywriter",
    "kind": "oper",
    "message": "Tiara, bahan buat \"Riset sesi malam: Timnas WEC 2026\" udah aku rangkum + sumbernya. Tinggal kamu racik captionnya ✍️"
-  },
-  {
-   "ts": "2026-11-25 11:00:42",
-   "agent_id": "analyst",
-   "to_id": "dir",
-   "kind": "oper",
-   "message": "Laporan harian marketing udah aku kirim ke Bos, 2 konten tayang hari ini 📊"
   }
  ],
  "stats": {
@@ -1515,6 +1515,6 @@
    }
   },
   "currency": "USC",
-  "usd_idr": 18262.025806
+  "usd_idr": 18350.060494
  }
 }
