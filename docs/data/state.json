@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-27T02:57:35.822Z",
+ "generated_at": "2026-11-27T03:07:35.828Z",
  "today": "2026-11-27",
  "week_start": "2026-11-23",
  "campaign": null,
@@ -98,7 +98,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-27 02:46:08"
+   "updated_at": "2026-11-27 03:01:08"
   },
   {
    "id": "tresearch",
@@ -106,7 +106,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Tak ada berita 24 jam terakhir yang terverifikasi (data terbaru Okt 2026). Yield tinggi & PCE 3,7% condong bearish; konfiden rendah.",
-   "updated_at": "2026-11-27 02:46:08"
+   "updated_at": "2026-11-27 03:01:08"
   },
   {
    "id": "ttech",
@@ -114,7 +114,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-27 02:46:08"
+   "updated_at": "2026-11-27 03:01:08"
   },
   {
    "id": "trisk",
@@ -122,7 +122,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
-   "updated_at": "2026-11-27 02:46:08"
+   "updated_at": "2026-11-27 03:01:08"
   },
   {
    "id": "texec",
@@ -773,6 +773,16 @@
  "today_tasks": [],
  "activity": [
   {
+   "ts": "2026-11-27 03:01:08",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: sideways → bullish"
+  },
+  {
+   "ts": "2026-11-27 03:00:56",
+   "agent_id": "ypublish",
+   "message": "Cross-post Shorts #87 ke TikTok Zaa History"
+  },
+  {
    "ts": "2026-11-27 02:49:03",
    "agent_id": "yvideo",
    "message": "Shorts #242 dirender di laptop & dikirim ke Owner"
@@ -886,16 +896,6 @@
    "ts": "2026-11-27 00:16:08",
    "agent_id": "trisk",
    "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-  },
-  {
-   "ts": "2026-11-27 00:01:08",
-   "agent_id": "ttech",
-   "message": "M60 berubah arah: sideways → bullish"
-  },
-  {
-   "ts": "2026-11-27 00:01:08",
-   "agent_id": "ttech",
-   "message": "M15 berubah arah: bearish → sideways"
   }
  ],
  "chats": [
@@ -1281,9 +1281,14 @@
   "paused": false,
   "balance": 1757.48,
   "today_pnl": 0,
-  "price": 3622.800049,
+  "price": 3636.199951,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-27 03:01:08",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
+   },
    {
     "ts": "2026-11-27 02:46:08",
     "decision": "NO TRADE",
@@ -1308,11 +1313,6 @@
     "ts": "2026-11-27 01:46:08",
     "decision": "NO TRADE",
     "reason": "setup SELL di band, konfirmasi baru 0/2 (-) · sesi Asia"
-   },
-   {
-    "ts": "2026-11-27 01:31:08",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
    }
   ],
   "trades": [
@@ -1390,7 +1390,7 @@
    1757.48
   ],
   "last": {
-   "ts": "2026-11-27 02:46:08",
+   "ts": "2026-11-27 03:01:08",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1411,7 +1411,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3629.40 di atas band atas (3531.6–3624.3) · RSI 87 · Stoch 89 · MACD +7.04 · H1 sideways"
+    "note": "M15 3622.80 di atas tengah band (3531.3–3629.6) · RSI 81 · Stoch 86 · MACD +6.44 · H1 sideways"
    }
   },
   "fund": {
@@ -1441,48 +1441,48 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "sideways",
-    "score": 1,
-    "price": 3626,
-    "ema20": 3590.42,
-    "ema50": 3578.09,
-    "rsi": 74.8,
+    "bias": "bullish",
+    "score": 2,
+    "price": 3622.8,
+    "ema20": 3593.5,
+    "ema50": 3579.84,
+    "rsi": 72,
     "n": 299,
-    "slot": 2992913,
-    "at": 1795747868593
+    "slot": 2992914,
+    "at": 1795748468603
    },
    "M15": {
     "bias": "sideways",
     "score": 1,
-    "price": 3627.6,
-    "ema20": 3580.99,
-    "ema50": 3573.29,
-    "rsi": 86.6,
+    "price": 3622.8,
+    "ema20": 3584.97,
+    "ema50": 3575.23,
+    "rsi": 80.9,
     "n": 299,
-    "slot": 1995275,
-    "at": 1795747568596
+    "slot": 1995276,
+    "at": 1795748468611
    },
    "M30": {
     "bias": "bullish",
     "score": 2,
-    "price": 3611.8,
-    "ema20": 3573.3,
-    "ema50": 3568.67,
-    "rsi": 77.6,
+    "price": 3622.8,
+    "ema20": 3578.01,
+    "ema50": 3570.79,
+    "rsi": 80.5,
     "n": 299,
-    "slot": 997637,
-    "at": 1795746668599
+    "slot": 997638,
+    "at": 1795748468613
    },
    "H1": {
     "bias": "bullish",
     "score": 3,
-    "price": 3588.5,
-    "ema20": 3567.66,
-    "ema50": 3565.77,
-    "rsi": 60.6,
+    "price": 3622.8,
+    "ema20": 3572.91,
+    "ema50": 3568.01,
+    "rsi": 70.3,
     "n": 299,
-    "slot": 498818,
-    "at": 1795744868596
+    "slot": 498819,
+    "at": 1795748468617
    }
   },
   "currency": "USC",
