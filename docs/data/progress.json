@@ -1,49 +1,25 @@
 {
- "at": "2026-11-27T02:07:35.944Z",
+ "at": "2026-11-27T02:17:35.952Z",
  "today": "2026-11-27",
  "laptop": {
-  "at": "2026-11-27T02:07:16.543Z",
+  "at": "2026-11-27T02:17:19.592Z",
   "renderFrom": "09:45"
  },
  "queue": [
-  {
-   "id": 239,
-   "channel": "cowo",
-   "title": "Kenapa Ban Mobil Selalu Hitam?",
-   "style": "brick-toy",
-   "estMin": 17,
-   "pos": 1,
-   "state": "render",
-   "startAt": "2026-11-27T01:51:41.578Z",
-   "etaAt": "2026-11-27T02:10:09.228Z",
-   "live": true,
-   "step": "gambar",
-   "stepPct": 94,
-   "late": false
-  },
-  {
-   "id": 240,
-   "channel": "story",
-   "title": "Kerajaan Penguasa Selat Malaka Ini Sempat Dilupakan Ratusan Tahun",
-   "style": "shadow-puppet",
-   "estMin": 5,
-   "pos": 2,
-   "state": "antre",
-   "startAt": "2026-11-27T02:10:09.228Z",
-   "etaAt": "2026-11-27T02:15:09.228Z",
-   "waitingWindow": false
-  },
   {
    "id": 241,
    "channel": "marvel",
    "title": "Doctor Doom Pernah Jadi Tuhan di Komik Marvel",
    "style": "pop-art",
    "estMin": 6,
-   "pos": 3,
-   "state": "antre",
-   "startAt": "2026-11-27T02:15:09.228Z",
-   "etaAt": "2026-11-27T02:21:09.228Z",
-   "waitingWindow": false
+   "pos": 1,
+   "state": "render",
+   "startAt": "2026-11-27T02:16:49.644Z",
+   "etaAt": "2026-11-27T02:22:49.644Z",
+   "live": true,
+   "step": "suara",
+   "stepPct": 99,
+   "late": false
   },
   {
    "id": 242,
@@ -51,10 +27,10 @@
    "title": "Tabel Segitiga Ini 1.000 Tahun Lebih Tua dari Pythagoras",
    "style": "woodcut",
    "estMin": 17,
-   "pos": 4,
+   "pos": 2,
    "state": "antre",
-   "startAt": "2026-11-27T02:21:09.228Z",
-   "etaAt": "2026-11-27T02:38:09.228Z",
+   "startAt": "2026-11-27T02:22:49.644Z",
+   "etaAt": "2026-11-27T02:39:49.644Z",
    "waitingWindow": false
   },
   {
@@ -63,10 +39,10 @@
    "title": "Juara FFWS Nggak Ditentukan Poin Terbanyak? Ini Cara Kerja Champion Rush",
    "style": "telestrator",
    "estMin": 10,
-   "pos": 5,
+   "pos": 3,
    "state": "antre",
-   "startAt": "2026-11-27T02:38:09.228Z",
-   "etaAt": "2026-11-27T02:48:09.228Z",
+   "startAt": "2026-11-27T02:39:49.644Z",
+   "etaAt": "2026-11-27T02:49:49.644Z",
    "waitingWindow": false
   }
  ],
@@ -89,10 +65,10 @@
       "title": "Juara FFWS Nggak Ditentukan Poin Terbanyak? Ini Cara Kerja Champion Rush",
       "style": "telestrator",
       "estMin": 10,
-      "pos": 5,
+      "pos": 3,
       "state": "antre",
-      "startAt": "2026-11-27T02:38:09.228Z",
-      "etaAt": "2026-11-27T02:48:09.228Z",
+      "startAt": "2026-11-27T02:39:49.644Z",
+      "etaAt": "2026-11-27T02:49:49.644Z",
       "waitingWindow": false
      },
      "note": ""
@@ -118,10 +94,10 @@
       "title": "Tabel Segitiga Ini 1.000 Tahun Lebih Tua dari Pythagoras",
       "style": "woodcut",
       "estMin": 17,
-      "pos": 4,
+      "pos": 2,
       "state": "antre",
-      "startAt": "2026-11-27T02:21:09.228Z",
-      "etaAt": "2026-11-27T02:38:09.228Z",
+      "startAt": "2026-11-27T02:22:49.644Z",
+      "etaAt": "2026-11-27T02:39:49.644Z",
       "waitingWindow": false
      },
      "note": ""
@@ -140,20 +116,8 @@
      "title": "Kerajaan Penguasa Selat Malaka Ini Sempat Dilupakan Ratusan Tahun",
      "revisions": 0,
      "airAt": "2026-11-27T11:00:00.000Z",
-     "stage": "antre",
-     "render": {
-      "id": 240,
-      "channel": "story",
-      "title": "Kerajaan Penguasa Selat Malaka Ini Sempat Dilupakan Ratusan Tahun",
-      "style": "shadow-puppet",
-      "estMin": 5,
-      "pos": 2,
-      "state": "antre",
-      "startAt": "2026-11-27T02:10:09.228Z",
-      "etaAt": "2026-11-27T02:15:09.228Z",
-      "waitingWindow": false
-     },
-     "note": ""
+     "stage": "approval",
+     "note": "Nunggu ✅ Bos"
     }
    ],
    "nextSession": "besok 07:00"
@@ -169,18 +133,21 @@
      "title": "Doctor Doom Pernah Jadi Tuhan di Komik Marvel",
      "revisions": 0,
      "airAt": "2026-11-27T12:00:00.000Z",
-     "stage": "antre",
+     "stage": "render",
      "render": {
       "id": 241,
       "channel": "marvel",
       "title": "Doctor Doom Pernah Jadi Tuhan di Komik Marvel",
       "style": "pop-art",
       "estMin": 6,
-      "pos": 3,
-      "state": "antre",
-      "startAt": "2026-11-27T02:15:09.228Z",
-      "etaAt": "2026-11-27T02:21:09.228Z",
-      "waitingWindow": false
+      "pos": 1,
+      "state": "render",
+      "startAt": "2026-11-27T02:16:49.644Z",
+      "etaAt": "2026-11-27T02:22:49.644Z",
+      "live": true,
+      "step": "suara",
+      "stepPct": 99,
+      "late": false
      },
      "note": ""
     }
@@ -198,23 +165,8 @@
      "title": "Kenapa Ban Mobil Selalu Hitam?",
      "revisions": 0,
      "airAt": "2026-11-27T12:00:00.000Z",
-     "stage": "render",
-     "render": {
-      "id": 239,
-      "channel": "cowo",
-      "title": "Kenapa Ban Mobil Selalu Hitam?",
-      "style": "brick-toy",
-      "estMin": 17,
-      "pos": 1,
-      "state": "render",
-      "startAt": "2026-11-27T01:51:41.578Z",
-      "etaAt": "2026-11-27T02:10:09.228Z",
-      "live": true,
-      "step": "gambar",
-      "stepPct": 94,
-      "late": false
-     },
-     "note": ""
+     "stage": "approval",
+     "note": "Nunggu ✅ Bos"
     }
    ],
    "nextSession": "besok 07:00"

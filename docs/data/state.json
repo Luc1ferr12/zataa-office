@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-27T02:07:35.807Z",
+ "generated_at": "2026-11-27T02:17:35.812Z",
  "today": "2026-11-27",
  "week_start": "2026-11-23",
  "campaign": null,
@@ -98,7 +98,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-27 02:01:08"
+   "updated_at": "2026-11-27 02:16:08"
   },
   {
    "id": "tresearch",
@@ -106,7 +106,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Tak ada berita 24 jam terakhir yang terverifikasi (data terbaru Okt 2026). Yield tinggi & PCE 3,7% condong bearish; konfiden rendah.",
-   "updated_at": "2026-11-27 02:01:08"
+   "updated_at": "2026-11-27 02:16:08"
   },
   {
    "id": "ttech",
@@ -114,7 +114,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-27 02:01:08"
+   "updated_at": "2026-11-27 02:16:08"
   },
   {
    "id": "trisk",
@@ -122,7 +122,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: ada candle spike di M15 (kemungkinan berita dadakan), tunggu tenang",
-   "updated_at": "2026-11-27 02:01:08"
+   "updated_at": "2026-11-27 02:16:08"
   },
   {
    "id": "texec",
@@ -720,7 +720,7 @@
    "game": "sejarah",
    "pillar": "coba_bikin",
    "title": "Kenapa Ban Mobil Selalu Hitam?",
-   "status": "draft",
+   "status": "pending_approval",
    "asset_url": null,
    "scheduled_at": null,
    "posted_at": null,
@@ -734,7 +734,7 @@
    "game": "sejarah",
    "pillar": "misteri_kuno",
    "title": "Kerajaan Penguasa Selat Malaka Ini Sempat Dilupakan Ratusan Tahun",
-   "status": "draft",
+   "status": "pending_approval",
    "asset_url": null,
    "scheduled_at": null,
    "posted_at": null,
@@ -772,6 +772,31 @@
  "clip_jobs": [],
  "today_tasks": [],
  "activity": [
+  {
+   "ts": "2026-11-27 02:16:46",
+   "agent_id": "yvideo",
+   "message": "Shorts #240 dirender di laptop & dikirim ke Owner"
+  },
+  {
+   "ts": "2026-11-27 02:16:45",
+   "agent_id": "spublish",
+   "message": "Kirim Shorts #240 ke Owner buat approval"
+  },
+  {
+   "ts": "2026-11-27 02:16:08",
+   "agent_id": "trisk",
+   "message": "NO TRADE · ada candle spike di M15 (kemungkinan berita dadakan), tunggu tenang"
+  },
+  {
+   "ts": "2026-11-27 02:09:17",
+   "agent_id": "yvideo",
+   "message": "Shorts #239 dirender di laptop & dikirim ke Owner"
+  },
+  {
+   "ts": "2026-11-27 02:09:16",
+   "agent_id": "bpublish",
+   "message": "Kirim Shorts #239 ke Owner buat approval"
+  },
   {
    "ts": "2026-11-27 02:01:08",
    "agent_id": "ttech",
@@ -871,31 +896,6 @@
    "ts": "2026-11-26 23:13:05",
    "agent_id": "vdir",
    "message": "27 Nov: LT-009 God Emperor Doom (pop-art, pendek 87 kata) antre render; bank Marvel tinggal 0 approved, perlu diisi"
-  },
-  {
-   "ts": "2026-11-26 23:13:05",
-   "agent_id": "vvideo",
-   "message": "Shorts #241 \"Doctor Doom Pernah Jadi Tuhan di Komik Marvel\" masuk antrean render laptop (film lemo-opuscar films/marvel-doom-god-emperor)"
-  },
-  {
-   "ts": "2026-11-26 23:10:16",
-   "agent_id": "sdir",
-   "message": "27 Nov: HH-012 Sriwijaya (#240, shadow-puppet, varian panjang 115 kata) antre render; bank +LM-005 approved, +LM-006 backlog"
-  },
-  {
-   "ts": "2026-11-26 23:09:56",
-   "agent_id": "svideo",
-   "message": "Shorts #240 \"Kerajaan Penguasa Selat Malaka Ini Sempat Dilupakan Ratusan Tahun\" masuk antrean render laptop (film lemo-opuscar films/story-sriwijaya)"
-  },
-  {
-   "ts": "2026-11-26 23:06:01",
-   "agent_id": "bdir",
-   "message": "27 Nov: CB-001 ban hitam (#239, brick-toy) antre render; bank +KG-004, TA-001 approved"
-  },
-  {
-   "ts": "2026-11-26 23:05:48",
-   "agent_id": "bvideo",
-   "message": "Shorts #239 \"Kenapa Ban Mobil Selalu Hitam?\" masuk antrean render laptop (film lemo-opuscar films/cowo-ban-hitam)"
   }
  ],
  "chats": [
@@ -1185,11 +1185,11 @@
    "week": "2026-11-23",
    "total": 26,
    "posted": 21,
-   "pending": 0,
+   "pending": 2,
    "scheduled": 0,
    "yt_total": 19,
    "yt_posted": 15,
-   "yt_pending": 0,
+   "yt_pending": 2,
    "yt_scheduled": 0,
    "views": 14808,
    "likes": 228,
@@ -1281,9 +1281,14 @@
   "paused": false,
   "balance": 1757.48,
   "today_pnl": 0,
-  "price": 3606.899902,
+  "price": 3622.199951,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-27 02:16:08",
+    "decision": "NO TRADE",
+    "reason": "ada candle spike di M15 (kemungkinan berita dadakan), tunggu tenang"
+   },
    {
     "ts": "2026-11-27 02:01:08",
     "decision": "NO TRADE",
@@ -1308,11 +1313,6 @@
     "ts": "2026-11-27 01:01:08",
     "decision": "NO TRADE",
     "reason": "ada candle spike di M15 (kemungkinan berita dadakan), tunggu tenang"
-   },
-   {
-    "ts": "2026-11-27 00:46:08",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
    }
   ],
   "trades": [
@@ -1390,7 +1390,7 @@
    1757.48
   ],
   "last": {
-   "ts": "2026-11-27 02:01:08",
+   "ts": "2026-11-27 02:16:08",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1411,7 +1411,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3589.20 di atas band atas (3552.7–3585.2) · RSI 74 · Stoch 95 · MACD +2.62 · H1 sideways"
+    "note": "M15 3595.80 di atas band atas (3547.7–3594.1) · RSI 74 · Stoch 74 · MACD +3.63 · H1 sideways"
    }
   },
   "fund": {
@@ -1443,24 +1443,24 @@
    "M10": {
     "bias": "sideways",
     "score": 1,
-    "price": 3588.5,
-    "ema20": 3570.37,
-    "ema50": 3568.64,
-    "rsi": 70.6,
+    "price": 3615,
+    "ema20": 3574.62,
+    "ema50": 3570.46,
+    "rsi": 81.4,
     "n": 299,
-    "slot": 2992908,
-    "at": 1795744868583
+    "slot": 2992909,
+    "at": 1795745468755
    },
    "M15": {
     "bias": "sideways",
     "score": 1,
-    "price": 3588.5,
-    "ema20": 3569.51,
-    "ema50": 3568.2,
-    "rsi": 73.1,
+    "price": 3599.1,
+    "ema20": 3572.32,
+    "ema50": 3569.41,
+    "rsi": 78.5,
     "n": 299,
-    "slot": 1995272,
-    "at": 1795744868590
+    "slot": 1995273,
+    "at": 1795745768596
    },
    "M30": {
     "bias": "bullish",
