@@ -3,6 +3,7 @@ import { chatFeed } from './chatter.js';
 import { BIRTHDAYS, birthdaysOn, relationsOn, STAGE_LABEL, dateOf } from './social.js';
 import { change } from './trend.js';
 import { kpiModel, kpiHtml } from './kpi.js';
+import { skillsHtml, skillGuideHtml } from './skills.js';
 
 const $ = (id) => document.getElementById(id);
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
@@ -412,6 +413,7 @@ function tick(force = false) {
       <div class="bust" style="--av:${a.avatar}">${a.name[0]}<img src="assets/office/busts/${a.id}.webp" alt="" loading="lazy" onerror="this.onerror=()=>this.remove();this.src='assets/office/faces/${a.id}.webp'"></div>
       <div class="who"><strong>${a.name}${bdayIds.includes(a.id) ? ' 🎂' : ''} <small>${a.title}</small></strong><span>${info.emoji} ${esc(info.label)}</span></div>
       <i class="mood" title="${esc(info.mood?.label ?? '')}">${info.mood?.emoji ?? ''}</i>
+      ${skillsHtml(a.id)}
     </li>`;
   const division = (d) => {
     const rows = d.ids.map((id) => byId[id]).filter(Boolean);
@@ -626,6 +628,8 @@ $('sim-time').addEventListener('input', () => { updateSimOut(); tick(); });
 $('sim-day').addEventListener('change', () => tick());
 
 // ---------- start ----------
+// kamus skill diisi sekali saja (daftar Tim di-render ulang tiap detik, ini jangan biar tetap kebuka)
+$('skill-guide').innerHTML = skillGuideHtml(Object.fromEntries(AGENTS.map((a) => [a.id, a.name])));
 setInterval(tick, 1000);
 setInterval(loadState, 60_000);
 loadState();

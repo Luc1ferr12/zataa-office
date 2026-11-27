@@ -99,6 +99,9 @@ Selain Telegram, Owner bisa ✅/✏️/❌ di tab **✅ Approval** web (`docs/js
 ## Progress di web (25 Nov 2026)
 Tab **📶 Progress** (`docs/js/progress.js`, setelah Jadwal): tahap tiap konten per divisi (Meeting → Riset → Copywriting → Editing → Antre render → Rendering → Approval → Waiting list → Uploading → Uploaded), antrean render + perkiraan selesai, waiting list upload. Data `scripts/progress.mjs` (status konten + pegawai `working`): live `GET /api/progress` (publik, cuma baca) tiap 15 dtk, cadangan `docs/data/progress.json` ikut `office.mjs export`. Selama render, laptop lapor tiap 20 dtk (`laptop-worker.mjs` → `render-progress.mjs` + `frame-log.mjs`, ditaruh di `tmp/render-progress.json` VPS); tahap persiapan cuma akurat kalau pegawai di-set `office.mjs agent <id> working`.
 
+## Skill di menu Tim (28 Nov 2026)
+Kartu pegawai di tab **👥 Tim** nampilin skill, alat & keahlian (+ "📚 Kamus skill & alat") dari `docs/js/skills.js` (ditulis manual). Playbook `office/roles/<id>.md` atau suara/mesin berubah, atau pegawai baru → samakan di file itu.
+
 ## Chat Owner via Telegram
 Bot **chit-chat** (`scripts/chitchat-bot.mjs`, di watcher, `CHITCHAT_BOT_TOKEN`): pure ngobrol santai, bukan kerja. Obrolan santai web diterusin (deterministik, 0 token; /santai default · /rame · /diem · /siapa), Owner nimbrung → pegawai bales via Haiku, masuk `chats` kind `nimbrung` → panel Chit-chat web.
 **Lampiran (16 Nov 2026):** ke-8 bot bisa baca foto, video (6 frame, ffmpeg-static), PDF/dokumen & link (web: isi ringkas; YouTube/TikTok/IG: judul+deskripsi+thumbnail via `yt-dlp`) lewat `scripts/media.mjs` (`digest(m, token, bot)` → catatan prompt), tetap sesuai kamar bot-nya. Bot kantor (About Esports) sejak 16 Nov 2026 **tanpa n8n**: long polling langsung di watcher (`scripts/office-bot.mjs`, `OFFICE_BOT_DIRECT=1`; antrean keputusan `tmp/office-bot.json` → `approval.mjs poll()`). File di `tmp/telegram/<bot>/`, dihapus >3 hari (Nabila langsung dihapus).
