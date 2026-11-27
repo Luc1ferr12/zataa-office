@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-27T01:47:35.807Z",
+ "generated_at": "2026-11-27T01:57:35.810Z",
  "today": "2026-11-27",
  "week_start": "2026-11-23",
  "campaign": null,
@@ -25,16 +25,16 @@
    "name": "Salsa",
    "title": "Researcher",
    "status": "done",
-   "current_task": "Riset sesi pagi: GF FFWS Champion Rush",
-   "updated_at": "2026-11-26 23:01:22"
+   "current_task": "Cek fakta aturan Champion Rush FFWS GF",
+   "updated_at": "2026-11-27 01:53:06"
   },
   {
    "id": "copywriter",
    "name": "Tiara",
    "title": "Copywriter",
-   "status": "done",
-   "current_task": "Naskah film ONIC Delta Force",
-   "updated_at": "2026-11-25 08:05:13"
+   "status": "working",
+   "current_task": "Naskah film Champion Rush FFWS",
+   "updated_at": "2026-11-27 01:53:19"
   },
   {
    "id": "designer",
@@ -759,6 +759,16 @@
  "today_tasks": [],
  "activity": [
   {
+   "ts": "2026-11-27 01:51:35",
+   "agent_id": "owner",
+   "message": "Approve 1 ide konten tambahan 💡"
+  },
+  {
+   "ts": "2026-11-27 01:51:04",
+   "agent_id": "owner",
+   "message": "Keputusan dari web: 💡 1 ide di-approve, gas!"
+  },
+  {
    "ts": "2026-11-27 01:31:08",
    "agent_id": "ttech",
    "message": "M30 berubah arah: sideways → bullish"
@@ -872,19 +882,23 @@
    "ts": "2026-11-26 23:01:29",
    "agent_id": "trisk",
    "message": "NO TRADE · jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
-  },
-  {
-   "ts": "2026-11-26 23:01:23",
-   "agent_id": "dir",
-   "message": "Sesi pagi: pilih #285 explainer Champion Rush GF FFWS (video telestrator), tunggu ✅ Owner"
-  },
-  {
-   "ts": "2026-11-26 23:01:23",
-   "agent_id": "dir",
-   "message": "Kirim 1 ide briefing ke Owner"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-11-27 01:53:06",
+   "agent_id": "researcher",
+   "to_id": "copywriter",
+   "kind": "oper",
+   "message": "Tiara, bahan buat \"Cek fakta aturan Champion Rush FFWS GF\" udah aku rangkum + sumbernya. Tinggal kamu racik captionnya ✍️"
+  },
+  {
+   "ts": "2026-11-27 01:51:35",
+   "agent_id": "dir",
+   "to_id": null,
+   "kind": "oper",
+   "message": "Bos ACC 1 ide tambahan! \"Juara FFWS Nggak Ditentukan Poin Terbanyak? Ini Cara Kerja Champion Rush\" 🎉"
+  },
   {
    "ts": "2026-11-26 23:16:18",
    "agent_id": "bdir",
@@ -1150,20 +1164,6 @@
    "to_id": "designer",
    "kind": "oper",
    "message": "Vania, copy \"Naskah film VCT 2027 8 tim\" udah masuk. Headline-nya jangan dikecilin ya 😆"
-  },
-  {
-   "ts": "2026-11-25 00:32:55",
-   "agent_id": "researcher",
-   "to_id": "copywriter",
-   "kind": "oper",
-   "message": "Tiara, bahan buat \"Cek fakta VCT 2027 8 tim/region\" udah aku rangkum + sumbernya. Tinggal kamu racik captionnya ✍️"
-  },
-  {
-   "ts": "2026-11-25 00:31:28",
-   "agent_id": "dir",
-   "to_id": null,
-   "kind": "oper",
-   "message": "Bos ACC 1 ide tambahan! \"VCT 2027 cuma 8 tim per region: roster baru siapa yang paling ngeri?\" 🎉"
   }
  ],
  "stats": {
@@ -1177,7 +1177,7 @@
    "yt_posted": 15,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 14800,
+   "views": 14808,
    "likes": 228,
    "comments": 4,
    "shares": 0,
@@ -1267,7 +1267,7 @@
   "paused": false,
   "balance": 1757.48,
   "today_pnl": 0,
-  "price": 3572.149902,
+  "price": 3580.699951,
   "open": [],
   "signals": [
    {
@@ -1429,13 +1429,13 @@
    "M10": {
     "bias": "sideways",
     "score": 1,
-    "price": 3577.3,
-    "ema20": 3568.33,
-    "ema50": 3567.75,
-    "rsi": 68.4,
+    "price": 3569.7,
+    "ema20": 3568.46,
+    "ema50": 3567.83,
+    "rsi": 52.6,
     "n": 299,
-    "slot": 2992906,
-    "at": 1795743668722
+    "slot": 2992907,
+    "at": 1795744268565
    },
    "M15": {
     "bias": "sideways",

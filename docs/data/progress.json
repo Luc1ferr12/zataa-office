@@ -1,8 +1,8 @@
 {
- "at": "2026-11-27T01:47:35.944Z",
+ "at": "2026-11-27T01:57:35.945Z",
  "today": "2026-11-27",
  "laptop": {
-  "at": "2026-11-26T23:51:38.210Z",
+  "at": "2026-11-27T01:57:21.635Z",
   "renderFrom": "09:45"
  },
  "queue": [
@@ -13,10 +13,13 @@
    "style": "brick-toy",
    "estMin": 17,
    "pos": 1,
-   "state": "antre",
-   "startAt": "2026-11-27T01:47:35.944Z",
-   "etaAt": "2026-11-27T02:04:35.944Z",
-   "waitingWindow": false
+   "state": "render",
+   "startAt": "2026-11-27T01:51:41.578Z",
+   "etaAt": "2026-11-27T02:09:21.021Z",
+   "live": true,
+   "step": "gambar",
+   "stepPct": 25,
+   "late": false
   },
   {
    "id": 240,
@@ -26,8 +29,8 @@
    "estMin": 5,
    "pos": 2,
    "state": "antre",
-   "startAt": "2026-11-27T02:04:35.944Z",
-   "etaAt": "2026-11-27T02:09:35.944Z",
+   "startAt": "2026-11-27T02:09:21.021Z",
+   "etaAt": "2026-11-27T02:14:21.021Z",
    "waitingWindow": false
   },
   {
@@ -38,8 +41,8 @@
    "estMin": 6,
    "pos": 3,
    "state": "antre",
-   "startAt": "2026-11-27T02:09:35.944Z",
-   "etaAt": "2026-11-27T02:15:35.944Z",
+   "startAt": "2026-11-27T02:14:21.021Z",
+   "etaAt": "2026-11-27T02:20:21.021Z",
    "waitingWindow": false
   },
   {
@@ -50,8 +53,8 @@
    "estMin": 17,
    "pos": 4,
    "state": "antre",
-   "startAt": "2026-11-27T02:15:35.944Z",
-   "etaAt": "2026-11-27T02:32:35.944Z",
+   "startAt": "2026-11-27T02:20:21.021Z",
+   "etaAt": "2026-11-27T02:37:21.021Z",
    "waitingWindow": false
   }
  ],
@@ -59,15 +62,21 @@
   {
    "key": "esports",
    "name": "About Esports",
-   "working": null,
+   "working": {
+    "id": "copywriter",
+    "name": "Tiara",
+    "task": "Naskah film Champion Rush FFWS",
+    "stage": "naskah",
+    "at": "2026-11-27T01:53:19.000Z"
+   },
    "items": [
     {
      "idea": 285,
      "day": "2026-11-27",
      "title": "Juara FFWS Nggak Ditentukan Poin Terbanyak? Ini Cara Kerja Champion Rush",
-     "stage": "riset",
-     "note": "Hasil riset nunggu ✅ Bos",
-     "waitOwner": true
+     "stage": "naskah",
+     "note": "Ide di-✅, konten mau dibikin",
+     "waitOwner": false
     }
    ],
    "nextSession": "hari ini 12:00"
@@ -92,8 +101,8 @@
       "estMin": 17,
       "pos": 4,
       "state": "antre",
-      "startAt": "2026-11-27T02:15:35.944Z",
-      "etaAt": "2026-11-27T02:32:35.944Z",
+      "startAt": "2026-11-27T02:20:21.021Z",
+      "etaAt": "2026-11-27T02:37:21.021Z",
       "waitingWindow": false
      },
      "note": ""
@@ -121,8 +130,8 @@
       "estMin": 5,
       "pos": 2,
       "state": "antre",
-      "startAt": "2026-11-27T02:04:35.944Z",
-      "etaAt": "2026-11-27T02:09:35.944Z",
+      "startAt": "2026-11-27T02:09:21.021Z",
+      "etaAt": "2026-11-27T02:14:21.021Z",
       "waitingWindow": false
      },
      "note": ""
@@ -150,8 +159,8 @@
       "estMin": 6,
       "pos": 3,
       "state": "antre",
-      "startAt": "2026-11-27T02:09:35.944Z",
-      "etaAt": "2026-11-27T02:15:35.944Z",
+      "startAt": "2026-11-27T02:14:21.021Z",
+      "etaAt": "2026-11-27T02:20:21.021Z",
       "waitingWindow": false
      },
      "note": ""
@@ -170,7 +179,7 @@
      "title": "Kenapa Ban Mobil Selalu Hitam?",
      "revisions": 0,
      "airAt": "2026-11-27T12:00:00.000Z",
-     "stage": "antre",
+     "stage": "render",
      "render": {
       "id": 239,
       "channel": "cowo",
@@ -178,10 +187,13 @@
       "style": "brick-toy",
       "estMin": 17,
       "pos": 1,
-      "state": "antre",
-      "startAt": "2026-11-27T01:47:35.944Z",
-      "etaAt": "2026-11-27T02:04:35.944Z",
-      "waitingWindow": false
+      "state": "render",
+      "startAt": "2026-11-27T01:51:41.578Z",
+      "etaAt": "2026-11-27T02:09:21.021Z",
+      "live": true,
+      "step": "gambar",
+      "stepPct": 25,
+      "late": false
      },
      "note": ""
     }
