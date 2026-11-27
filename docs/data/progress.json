@@ -1,37 +1,25 @@
 {
- "at": "2026-11-27T02:17:35.952Z",
+ "at": "2026-11-27T02:27:35.982Z",
  "today": "2026-11-27",
  "laptop": {
-  "at": "2026-11-27T02:17:19.592Z",
+  "at": "2026-11-27T02:27:12.192Z",
   "renderFrom": "09:45"
  },
  "queue": [
-  {
-   "id": 241,
-   "channel": "marvel",
-   "title": "Doctor Doom Pernah Jadi Tuhan di Komik Marvel",
-   "style": "pop-art",
-   "estMin": 6,
-   "pos": 1,
-   "state": "render",
-   "startAt": "2026-11-27T02:16:49.644Z",
-   "etaAt": "2026-11-27T02:22:49.644Z",
-   "live": true,
-   "step": "suara",
-   "stepPct": 99,
-   "late": false
-  },
   {
    "id": 242,
    "channel": "youtube",
    "title": "Tabel Segitiga Ini 1.000 Tahun Lebih Tua dari Pythagoras",
    "style": "woodcut",
    "estMin": 17,
-   "pos": 2,
-   "state": "antre",
-   "startAt": "2026-11-27T02:22:49.644Z",
-   "etaAt": "2026-11-27T02:39:49.644Z",
-   "waitingWindow": false
+   "pos": 1,
+   "state": "render",
+   "startAt": "2026-11-27T02:21:35.274Z",
+   "etaAt": "2026-11-27T02:38:35.274Z",
+   "live": true,
+   "step": "suara",
+   "stepPct": 13,
+   "late": false
   },
   {
    "id": 243,
@@ -39,10 +27,10 @@
    "title": "Juara FFWS Nggak Ditentukan Poin Terbanyak? Ini Cara Kerja Champion Rush",
    "style": "telestrator",
    "estMin": 10,
-   "pos": 3,
+   "pos": 2,
    "state": "antre",
-   "startAt": "2026-11-27T02:39:49.644Z",
-   "etaAt": "2026-11-27T02:49:49.644Z",
+   "startAt": "2026-11-27T02:38:35.274Z",
+   "etaAt": "2026-11-27T02:48:35.274Z",
    "waitingWindow": false
   }
  ],
@@ -65,10 +53,10 @@
       "title": "Juara FFWS Nggak Ditentukan Poin Terbanyak? Ini Cara Kerja Champion Rush",
       "style": "telestrator",
       "estMin": 10,
-      "pos": 3,
+      "pos": 2,
       "state": "antre",
-      "startAt": "2026-11-27T02:39:49.644Z",
-      "etaAt": "2026-11-27T02:49:49.644Z",
+      "startAt": "2026-11-27T02:38:35.274Z",
+      "etaAt": "2026-11-27T02:48:35.274Z",
       "waitingWindow": false
      },
      "note": ""
@@ -87,18 +75,21 @@
      "title": "Tabel Segitiga Ini 1.000 Tahun Lebih Tua dari Pythagoras",
      "revisions": 0,
      "airAt": "2026-11-27T12:00:00.000Z",
-     "stage": "antre",
+     "stage": "render",
      "render": {
       "id": 242,
       "channel": "youtube",
       "title": "Tabel Segitiga Ini 1.000 Tahun Lebih Tua dari Pythagoras",
       "style": "woodcut",
       "estMin": 17,
-      "pos": 2,
-      "state": "antre",
-      "startAt": "2026-11-27T02:22:49.644Z",
-      "etaAt": "2026-11-27T02:39:49.644Z",
-      "waitingWindow": false
+      "pos": 1,
+      "state": "render",
+      "startAt": "2026-11-27T02:21:35.274Z",
+      "etaAt": "2026-11-27T02:38:35.274Z",
+      "live": true,
+      "step": "suara",
+      "stepPct": 13,
+      "late": false
      },
      "note": ""
     }
@@ -133,23 +124,8 @@
      "title": "Doctor Doom Pernah Jadi Tuhan di Komik Marvel",
      "revisions": 0,
      "airAt": "2026-11-27T12:00:00.000Z",
-     "stage": "render",
-     "render": {
-      "id": 241,
-      "channel": "marvel",
-      "title": "Doctor Doom Pernah Jadi Tuhan di Komik Marvel",
-      "style": "pop-art",
-      "estMin": 6,
-      "pos": 1,
-      "state": "render",
-      "startAt": "2026-11-27T02:16:49.644Z",
-      "etaAt": "2026-11-27T02:22:49.644Z",
-      "live": true,
-      "step": "suara",
-      "stepPct": 99,
-      "late": false
-     },
-     "note": ""
+     "stage": "approval",
+     "note": "Nunggu ✅ Bos"
     }
    ],
    "nextSession": "besok 07:00"
