@@ -1,11 +1,36 @@
 {
- "at": "2026-11-27T23:01:55.583Z",
+ "at": "2026-11-27T23:11:55.591Z",
  "today": "2026-11-28",
  "laptop": {
-  "at": "2026-11-27T23:01:40.239Z",
+  "at": "2026-11-27T23:11:38.580Z",
   "renderFrom": "09:45"
  },
- "queue": [],
+ "queue": [
+  {
+   "id": 245,
+   "channel": "cowo",
+   "title": "Kenapa Tombol F dan J di Keyboard Ada Tonjolannya?",
+   "style": "brick-toy",
+   "estMin": 17,
+   "pos": 1,
+   "state": "antre",
+   "startAt": "2026-11-28T01:45:00.000Z",
+   "etaAt": "2026-11-28T02:02:00.000Z",
+   "waitingWindow": true
+  },
+  {
+   "id": 246,
+   "channel": "story",
+   "title": "Penjara di Bawah Museum Ini Tingginya Cuma Sepinggang",
+   "style": "backrooms",
+   "estMin": 6,
+   "pos": 2,
+   "state": "antre",
+   "startAt": "2026-11-28T02:02:00.000Z",
+   "etaAt": "2026-11-28T02:08:00.000Z",
+   "waitingWindow": true
+  }
+ ],
  "divisions": [
   {
    "key": "esports",
@@ -25,13 +50,41 @@
    "key": "story",
    "name": "Zaa Story",
    "working": null,
-   "items": [],
+   "items": [
+    {
+     "id": 246,
+     "day": "2026-11-28",
+     "title": "Penjara di Bawah Museum Ini Tingginya Cuma Sepinggang",
+     "revisions": 0,
+     "airAt": "2026-11-28T11:00:00.000Z",
+     "stage": "antre",
+     "render": {
+      "id": 246,
+      "channel": "story",
+      "title": "Penjara di Bawah Museum Ini Tingginya Cuma Sepinggang",
+      "style": "backrooms",
+      "estMin": 6,
+      "pos": 2,
+      "state": "antre",
+      "startAt": "2026-11-28T02:02:00.000Z",
+      "etaAt": "2026-11-28T02:08:00.000Z",
+      "waitingWindow": true
+     },
+     "note": ""
+    }
+   ],
    "nextSession": "besok 07:00"
   },
   {
    "key": "marvel",
    "name": "Marvel Talk",
-   "working": null,
+   "working": {
+    "id": "vdir",
+    "name": "Reza",
+    "task": "Pilih topik Marvel Talk 28 Nov",
+    "stage": "meeting",
+    "at": "2026-11-27T23:10:48.000Z"
+   },
    "items": [],
    "nextSession": "besok 07:00"
   },
@@ -39,7 +92,29 @@
    "key": "cowo",
    "name": "Cowo Bingung",
    "working": null,
-   "items": [],
+   "items": [
+    {
+     "id": 245,
+     "day": "2026-11-28",
+     "title": "Kenapa Tombol F dan J di Keyboard Ada Tonjolannya?",
+     "revisions": 0,
+     "airAt": "2026-11-28T05:00:00.000Z",
+     "stage": "antre",
+     "render": {
+      "id": 245,
+      "channel": "cowo",
+      "title": "Kenapa Tombol F dan J di Keyboard Ada Tonjolannya?",
+      "style": "brick-toy",
+      "estMin": 17,
+      "pos": 1,
+      "state": "antre",
+      "startAt": "2026-11-28T01:45:00.000Z",
+      "etaAt": "2026-11-28T02:02:00.000Z",
+      "waitingWindow": true
+     },
+     "note": ""
+    }
+   ],
    "nextSession": "besok 07:00"
   }
  ]

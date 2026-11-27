@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-27T23:01:55.442Z",
+ "generated_at": "2026-11-27T23:11:55.444Z",
  "today": "2026-11-28",
  "week_start": "2026-11-23",
  "campaign": null,
@@ -209,8 +209,8 @@
    "name": "Raditya",
    "title": "Manajer Zataa Story",
    "status": "done",
-   "current_task": "Sesi pagi 27 Nov selesai",
-   "updated_at": "2026-11-26 23:16:18"
+   "current_task": "Zaa Story #246 penjara Fatahillah antre render",
+   "updated_at": "2026-11-27 23:09:55"
   },
   {
    "id": "sresearch",
@@ -256,9 +256,9 @@
    "id": "vdir",
    "name": "Reza",
    "title": "Manajer Marvel Talk",
-   "status": "done",
-   "current_task": "Sesi pagi 27 Nov selesai",
-   "updated_at": "2026-11-26 23:16:19"
+   "status": "working",
+   "current_task": "Pilih topik Marvel Talk 28 Nov",
+   "updated_at": "2026-11-27 23:10:48"
   },
   {
    "id": "vresearch",
@@ -345,8 +345,8 @@
    "name": "Aurel",
    "title": "Manajer Cowo Bingung",
    "status": "done",
-   "current_task": "Sesi pagi 27 Nov selesai",
-   "updated_at": "2026-11-26 23:16:18"
+   "current_task": "Cowo Bingung #245 tonjolan F & J antre render",
+   "updated_at": "2026-11-27 23:07:43"
   },
   {
    "id": "bresearch",
@@ -781,11 +781,64 @@
    "scheduled_at": null,
    "posted_at": "2026-11-27 12:01:31",
    "channel": "youtube"
+  },
+  {
+   "id": 245,
+   "day": "2026-11-28",
+   "slot": "shorts",
+   "format": "shorts",
+   "game": "sejarah",
+   "pillar": "kenapa_gitu",
+   "title": "Kenapa Tombol F dan J di Keyboard Ada Tonjolannya?",
+   "status": "draft",
+   "asset_url": null,
+   "scheduled_at": null,
+   "posted_at": null,
+   "channel": "cowo"
+  },
+  {
+   "id": 246,
+   "day": "2026-11-28",
+   "slot": "shorts",
+   "format": "shorts",
+   "game": "sejarah",
+   "pillar": "horor_sejarah",
+   "title": "Penjara di Bawah Museum Ini Tingginya Cuma Sepinggang",
+   "status": "draft",
+   "asset_url": null,
+   "scheduled_at": null,
+   "posted_at": null,
+   "channel": "story"
   }
  ],
  "clip_jobs": [],
  "today_tasks": [],
  "activity": [
+  {
+   "ts": "2026-11-27 23:09:55",
+   "agent_id": "svisual",
+   "message": "Film story-fatahillah (backrooms, dari rumah-cimanggis, lebih gelap) check ok, #246 varian pendek 101 kata"
+  },
+  {
+   "ts": "2026-11-27 23:09:44",
+   "agent_id": "svideo",
+   "message": "Shorts #246 \"Penjara di Bawah Museum Ini Tingginya Cuma Sepinggang\" masuk antrean render laptop (film lemo-opuscar films/story-fatahillah)"
+  },
+  {
+   "ts": "2026-11-27 23:07:43",
+   "agent_id": "bresearch",
+   "message": "Tambah 2 ide bank: gerigi tutup botol 21, tombol tutup pintu lift"
+  },
+  {
+   "ts": "2026-11-27 23:07:43",
+   "agent_id": "bvisual",
+   "message": "Film cowo-tonjolan-fj (brick-toy, keyboard + tangan bata) check ok, antre laptop #245"
+  },
+  {
+   "ts": "2026-11-27 23:07:26",
+   "agent_id": "bvideo",
+   "message": "Shorts #245 \"Kenapa Tombol F dan J di Keyboard Ada Tonjolannya?\" masuk antrean render laptop (film lemo-opuscar films/cowo-tonjolan-fj)"
+  },
   {
    "ts": "2026-11-27 23:01:37",
    "agent_id": "dir",
@@ -885,34 +938,23 @@
    "ts": "2026-11-27 18:00:55",
    "agent_id": "ttech",
    "message": "M15 berubah arah: bearish → sideways"
-  },
-  {
-   "ts": "2026-11-27 18:00:55",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: bearish → sideways"
-  },
-  {
-   "ts": "2026-11-27 17:50:55",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: sideways → bearish"
-  },
-  {
-   "ts": "2026-11-27 17:30:55",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: bearish → sideways"
-  },
-  {
-   "ts": "2026-11-27 17:00:55",
-   "agent_id": "trisk",
-   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-  },
-  {
-   "ts": "2026-11-27 17:00:55",
-   "agent_id": "ttech",
-   "message": "M60 berubah arah: sideways → bullish"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-11-27 23:09:55",
+   "agent_id": "sdir",
+   "to_id": "sresearch",
+   "kind": "oper",
+   "message": "Sekar, topik Zaa Story hari ini: \"Zaa Story #246 penjara Fatahillah antre render\". Cari sisi sejarahnya ya, jangan cuma seremnya 👻"
+  },
+  {
+   "ts": "2026-11-27 23:07:43",
+   "agent_id": "bdir",
+   "to_id": "bresearch",
+   "kind": "oper",
+   "message": "Keisha, topik Cowo Bingung hari ini: \"Cowo Bingung #245 tonjolan F & J antre render\". Cari 2 sumber ya, yang bikin orang mikir \"hah, masa sih?\" 🤔"
+  },
   {
    "ts": "2026-11-27 23:00:26",
    "agent_id": "treport",
@@ -1178,30 +1220,16 @@
    "to_id": "vvisual",
    "kind": "santai",
    "message": "Jendela pesawat aku bikin dari bata, kamu Thor-nya pake mahkota emas ya? 😆"
-  },
-  {
-   "ts": "2026-11-25 12:01:24",
-   "agent_id": "dir",
-   "to_id": "researcher",
-   "kind": "oper",
-   "message": "Brief \"Ide sesi malam dikirim ke Owner: Timnas WEC 2026\" udah jadi. Salsa, gas riset ya!"
-  },
-  {
-   "ts": "2026-11-25 12:01:17",
-   "agent_id": "researcher",
-   "to_id": "copywriter",
-   "kind": "oper",
-   "message": "Tiara, bahan buat \"Riset sesi malam: Timnas WEC 2026\" udah aku rangkum + sumbernya. Tinggal kamu racik captionnya ✍️"
   }
  ],
  "stats": {
   "this_week": {
    "week": "2026-11-23",
-   "total": 27,
+   "total": 29,
    "posted": 27,
    "pending": 0,
    "scheduled": 0,
-   "yt_total": 19,
+   "yt_total": 21,
    "yt_posted": 19,
    "yt_pending": 0,
    "yt_scheduled": 0,
