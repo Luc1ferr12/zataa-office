@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-27T21:11:55.385Z",
+ "generated_at": "2026-11-27T21:21:55.396Z",
  "today": "2026-11-28",
  "week_start": "2026-11-23",
  "campaign": null,
@@ -98,15 +98,15 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-27 21:00:56"
+   "updated_at": "2026-11-27 21:15:55"
   },
   {
    "id": "tresearch",
    "name": "Davina",
    "title": "Research & Fundamental",
    "status": "done",
-   "current_task": "Fundamental: Inflasi AS Okt panas, USD menguat, pasar pasang peluang kenaikan Fed → emas tertekan. Berita 24 jam belum terverifikasi.",
-   "updated_at": "2026-11-27 21:00:56"
+   "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
+   "updated_at": "2026-11-27 21:15:55"
   },
   {
    "id": "ttech",
@@ -114,7 +114,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-27 21:00:56"
+   "updated_at": "2026-11-27 21:15:55"
   },
   {
    "id": "trisk",
@@ -122,7 +122,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
-   "updated_at": "2026-11-27 21:00:56"
+   "updated_at": "2026-11-27 21:15:55"
   },
   {
    "id": "texec",
@@ -1205,12 +1205,12 @@
    "yt_posted": 19,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 17255,
+   "views": 17262,
    "likes": 260,
    "comments": 5,
    "shares": 0,
    "saves": 1,
-   "yt_views": 10994,
+   "yt_views": 11001,
    "top": [
     {
      "title": "Jemkin & something resmi bukan pemain impor lagi di VCT 2027",
@@ -1228,7 +1228,7 @@
      "title": "Pedang 400 Tahun Ini Ternyata Mengandung Teknologi Nano",
      "format": "shorts",
      "pillar": "hidden_history",
-     "views": 1422
+     "views": 1427
     }
    ],
    "clicks": 0,
@@ -1317,6 +1317,11 @@
   "open": [],
   "signals": [
    {
+    "ts": "2026-11-27 21:15:55",
+    "decision": "NO TRADE",
+    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
+   },
+   {
     "ts": "2026-11-27 21:00:56",
     "decision": "NO TRADE",
     "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
@@ -1340,11 +1345,6 @@
     "ts": "2026-11-27 20:00:55",
     "decision": "NO TRADE",
     "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
-   },
-   {
-    "ts": "2026-11-27 19:45:56",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
   ],
   "trades": [
@@ -1422,7 +1422,7 @@
    1757.48
   ],
   "last": {
-   "ts": "2026-11-27 21:00:56",
+   "ts": "2026-11-27 21:15:55",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1433,8 +1433,8 @@
    "risk_usd": null,
    "reason": "jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu",
    "fund": {
-    "bias": -0.35,
-    "note": "Inflasi AS Okt panas, USD menguat, pasar pasang peluang kenaikan Fed → emas tertekan. Berita 24 jam belum terverifikasi.",
+    "bias": 0,
+    "note": "netral (belum ada ringkasan hari ini)",
     "danger": null,
     "blackout": null
    },
@@ -1443,7 +1443,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3650.00 di atas tengah band (3623.3–3659.3) · RSI 57 · Stoch 90 · MACD +1.79 · H1 sideways"
+    "note": "M15 3650.00 di atas tengah band (3626.7–3658.6) · RSI 57 · Stoch 89 · MACD +1.57 · H1 sideways"
    }
   },
   "fund": null,
@@ -1473,23 +1473,23 @@
     "bias": "bullish",
     "score": 2,
     "price": 3650,
-    "ema20": 3645.45,
-    "ema50": 3644,
+    "ema20": 3645.89,
+    "ema50": 3644.24,
     "rsi": 61.5,
     "n": 299,
-    "slot": 2993023,
-    "at": 1795813855595
+    "slot": 2993024,
+    "at": 1795814455779
    },
    "M15": {
     "bias": "bullish",
     "score": 3,
     "price": 3650,
-    "ema20": 3643.91,
-    "ema50": 3641.92,
+    "ema20": 3644.49,
+    "ema50": 3642.23,
     "rsi": 57,
     "n": 299,
-    "slot": 1995348,
-    "at": 1795813255767
+    "slot": 1995349,
+    "at": 1795814155603
    },
    "M30": {
     "bias": "sideways",
