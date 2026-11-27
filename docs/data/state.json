@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-27T13:00:39.380Z",
+ "generated_at": "2026-11-27T13:10:39.379Z",
  "today": "2026-11-27",
  "week_start": "2026-11-23",
  "campaign": null,
@@ -74,7 +74,7 @@
    "title": "Data Analyst",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-11-27 10:01:12"
+   "updated_at": "2026-11-27 13:01:09"
   },
   {
    "id": "price",
@@ -98,7 +98,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-27 12:46:09"
+   "updated_at": "2026-11-27 13:01:09"
   },
   {
    "id": "tresearch",
@@ -106,7 +106,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Inflasi AS Okt panas, USD menguat, pasar pasang peluang kenaikan Fed → emas tertekan. Berita 24 jam belum terverifikasi.",
-   "updated_at": "2026-11-27 12:46:09"
+   "updated_at": "2026-11-27 13:01:09"
   },
   {
    "id": "ttech",
@@ -114,7 +114,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-27 12:46:09"
+   "updated_at": "2026-11-27 13:01:09"
   },
   {
    "id": "trisk",
@@ -122,7 +122,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-11-27 12:46:09"
+   "updated_at": "2026-11-27 13:01:09"
   },
   {
    "id": "texec",
@@ -787,6 +787,16 @@
  "today_tasks": [],
  "activity": [
   {
+   "ts": "2026-11-27 13:01:09",
+   "agent_id": "analyst",
+   "message": "Update data 26 post IG 📈"
+  },
+  {
+   "ts": "2026-11-27 13:01:09",
+   "agent_id": "ttech",
+   "message": "M15 berubah arah: bullish → sideways"
+  },
+  {
    "ts": "2026-11-27 12:46:09",
    "agent_id": "trisk",
    "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
@@ -900,16 +910,6 @@
    "ts": "2026-11-27 08:47:48",
    "agent_id": "publisher",
    "message": "#244 lolos QA & langsung dijadwalkan tayang (riset di-ACC Owner)"
-  },
-  {
-   "ts": "2026-11-27 08:46:09",
-   "agent_id": "trisk",
-   "message": "NO TRADE · lot minimum terlalu besar untuk risiko 0.5% (SL 12.64)"
-  },
-  {
-   "ts": "2026-11-27 08:08:22",
-   "agent_id": "publisher",
-   "message": "Konten #244 (Jinggg → All Gamers) antre render laptop, QA otomatis setelah jadi"
   }
  ],
  "chats": [
@@ -1205,12 +1205,12 @@
    "yt_posted": 19,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 15642,
-   "likes": 238,
+   "views": 15768,
+   "likes": 247,
    "comments": 4,
    "shares": 0,
    "saves": 1,
-   "yt_views": 9658,
+   "yt_views": 9784,
    "top": [
     {
      "title": "Jemkin & something resmi bukan pemain impor lagi di VCT 2027",
@@ -1252,12 +1252,12 @@
    "yt_posted": 16,
    "yt_pending": 0,
    "yt_scheduled": 0,
-   "views": 21197,
+   "views": 21199,
    "likes": 316,
    "comments": 5,
    "shares": 0,
    "saves": 2,
-   "yt_views": 16693,
+   "yt_views": 16695,
    "top": [
     {
      "title": "Gua di Biak Ini Konon Jadi Kuburan Ribuan Tentara Jepang",
@@ -1269,7 +1269,7 @@
      "title": "Kuburan Belanda di Jakarta Ini Sekarang Jadi Museum, Konon Angker",
      "format": "shorts",
      "pillar": "horor_sejarah",
-     "views": 2053
+     "views": 2055
     },
     {
      "title": "Legenda Danau Toba Konon Menyimpan Jejak Letusan Terbesar",
@@ -1313,9 +1313,14 @@
   "paused": false,
   "balance": 1757.48,
   "today_pnl": 0,
-  "price": 3663.899902,
+  "price": 3668.600098,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-27 13:01:09",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
    {
     "ts": "2026-11-27 12:46:09",
     "decision": "NO TRADE",
@@ -1338,11 +1343,6 @@
    },
    {
     "ts": "2026-11-27 11:46:09",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-11-27 11:31:09",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1422,7 +1422,7 @@
    1757.48
   ],
   "last": {
-   "ts": "2026-11-27 12:46:09",
+   "ts": "2026-11-27 13:01:09",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1443,7 +1443,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3668.65 di bawah tengah band (3662.3–3684.1) · RSI 56 · Stoch 18 · MACD -3.04 · H1 sideways"
+    "note": "M15 3663.90 di bawah tengah band (3661.9–3684.2) · RSI 51 · Stoch 8 · MACD -3.45 · H1 sideways"
    }
   },
   "fund": {
@@ -1475,46 +1475,46 @@
    "M10": {
     "bias": "sideways",
     "score": 1,
-    "price": 3668.1,
-    "ema20": 3670.39,
-    "ema50": 3658.05,
-    "rsi": 49.2,
+    "price": 3663.9,
+    "ema20": 3669.78,
+    "ema50": 3658.28,
+    "rsi": 43.6,
     "n": 299,
-    "slot": 2992973,
-    "at": 1795783869640
+    "slot": 2992974,
+    "at": 1795784469649
    },
    "M15": {
-    "bias": "bullish",
-    "score": 3,
-    "price": 3670.2,
-    "ema20": 3667.73,
-    "ema50": 3645.14,
-    "rsi": 57.4,
+    "bias": "sideways",
+    "score": 1,
+    "price": 3663.9,
+    "ema20": 3667.36,
+    "ema50": 3645.87,
+    "rsi": 51,
     "n": 299,
-    "slot": 1995315,
-    "at": 1795783569601
+    "slot": 1995316,
+    "at": 1795784469655
    },
    "M30": {
     "bias": "bullish",
     "score": 3,
-    "price": 3667.8,
-    "ema20": 3652.12,
-    "ema50": 3618.72,
-    "rsi": 68.5,
+    "price": 3663.9,
+    "ema20": 3653.24,
+    "ema50": 3620.49,
+    "rsi": 64.9,
     "n": 299,
-    "slot": 997657,
-    "at": 1795782669584
+    "slot": 997658,
+    "at": 1795784469659
    },
    "H1": {
     "bias": "bullish",
     "score": 3,
-    "price": 3669.2,
-    "ema20": 3625.67,
-    "ema50": 3595.6,
-    "rsi": 74.3,
+    "price": 3663.9,
+    "ema20": 3629.31,
+    "ema50": 3598.28,
+    "rsi": 70.9,
     "n": 299,
-    "slot": 498828,
-    "at": 1795780869582
+    "slot": 498829,
+    "at": 1795784469666
    }
   },
   "currency": "USC",
