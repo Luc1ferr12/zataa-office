@@ -1,37 +1,25 @@
 {
- "at": "2026-11-27T02:47:35.952Z",
+ "at": "2026-11-27T02:57:35.957Z",
  "today": "2026-11-27",
  "laptop": {
-  "at": "2026-11-27T02:47:16.579Z",
+  "at": "2026-11-27T02:57:30.790Z",
   "renderFrom": "09:45"
  },
  "queue": [
-  {
-   "id": 242,
-   "channel": "youtube",
-   "title": "Tabel Segitiga Ini 1.000 Tahun Lebih Tua dari Pythagoras",
-   "style": "woodcut",
-   "estMin": 17,
-   "pos": 1,
-   "state": "render",
-   "startAt": "2026-11-27T02:21:35.274Z",
-   "etaAt": "2026-11-27T02:47:46.579Z",
-   "live": true,
-   "step": "kirim",
-   "stepPct": null,
-   "late": false
-  },
   {
    "id": 243,
    "channel": "",
    "title": "Juara FFWS Nggak Ditentukan Poin Terbanyak? Ini Cara Kerja Champion Rush",
    "style": "telestrator",
    "estMin": 10,
-   "pos": 2,
-   "state": "antre",
-   "startAt": "2026-11-27T02:48:35.952Z",
-   "etaAt": "2026-11-27T02:58:35.952Z",
-   "waitingWindow": false
+   "pos": 1,
+   "state": "render",
+   "startAt": "2026-11-27T02:51:56.392Z",
+   "etaAt": "2026-11-27T03:04:56.392Z",
+   "live": true,
+   "step": "suara",
+   "stepPct": 11,
+   "late": false
   }
  ],
  "divisions": [
@@ -46,18 +34,21 @@
      "title": "Juara FFWS Nggak Ditentukan Poin Terbanyak? Ini Cara Kerja Champion Rush",
      "revisions": 0,
      "airAt": null,
-     "stage": "antre",
+     "stage": "render",
      "render": {
       "id": 243,
       "channel": "",
       "title": "Juara FFWS Nggak Ditentukan Poin Terbanyak? Ini Cara Kerja Champion Rush",
       "style": "telestrator",
       "estMin": 10,
-      "pos": 2,
-      "state": "antre",
-      "startAt": "2026-11-27T02:48:35.952Z",
-      "etaAt": "2026-11-27T02:58:35.952Z",
-      "waitingWindow": false
+      "pos": 1,
+      "state": "render",
+      "startAt": "2026-11-27T02:51:56.392Z",
+      "etaAt": "2026-11-27T03:04:56.392Z",
+      "live": true,
+      "step": "suara",
+      "stepPct": 11,
+      "late": false
      },
      "note": ""
     }
@@ -75,23 +66,8 @@
      "title": "Tabel Segitiga Ini 1.000 Tahun Lebih Tua dari Pythagoras",
      "revisions": 0,
      "airAt": "2026-11-27T12:00:00.000Z",
-     "stage": "render",
-     "render": {
-      "id": 242,
-      "channel": "youtube",
-      "title": "Tabel Segitiga Ini 1.000 Tahun Lebih Tua dari Pythagoras",
-      "style": "woodcut",
-      "estMin": 17,
-      "pos": 1,
-      "state": "render",
-      "startAt": "2026-11-27T02:21:35.274Z",
-      "etaAt": "2026-11-27T02:47:46.579Z",
-      "live": true,
-      "step": "kirim",
-      "stepPct": null,
-      "late": false
-     },
-     "note": ""
+     "stage": "approval",
+     "note": "Nunggu ✅ Bos"
     }
    ],
    "nextSession": "besok 07:00"
