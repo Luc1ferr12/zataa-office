@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-27T03:57:35.840Z",
+ "generated_at": "2026-11-27T04:07:35.844Z",
  "today": "2026-11-27",
  "week_start": "2026-11-23",
  "campaign": null,
@@ -17,16 +17,16 @@
    "name": "Andre",
    "title": "Marketing Director",
    "status": "done",
-   "current_task": "Ide sesi pagi dikirim ke Owner",
-   "updated_at": "2026-11-26 23:01:23"
+   "current_task": "Sesi siang: pilih 0 ide, nggak ada berita baru layak",
+   "updated_at": "2026-11-27 04:01:06"
   },
   {
    "id": "researcher",
    "name": "Salsa",
    "title": "Researcher",
    "status": "done",
-   "current_task": "Cek fakta aturan Champion Rush FFWS GF",
-   "updated_at": "2026-11-27 01:53:06"
+   "current_task": "Riset sesi siang: LCQ FFWS belum ada hasil, MPL/VCT nihil",
+   "updated_at": "2026-11-27 04:01:05"
   },
   {
    "id": "copywriter",
@@ -74,7 +74,7 @@
    "title": "Data Analyst",
    "status": "done",
    "current_task": null,
-   "updated_at": "2026-11-27 01:01:01"
+   "updated_at": "2026-11-27 04:01:08"
   },
   {
    "id": "price",
@@ -98,7 +98,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-27 03:46:09"
+   "updated_at": "2026-11-27 04:01:09"
   },
   {
    "id": "tresearch",
@@ -106,7 +106,7 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Tak ada berita 24 jam terakhir yang terverifikasi (data terbaru Okt 2026). Yield tinggi & PCE 3,7% condong bearish; konfiden rendah.",
-   "updated_at": "2026-11-27 03:46:09"
+   "updated_at": "2026-11-27 04:01:09"
   },
   {
    "id": "ttech",
@@ -114,7 +114,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-27 03:46:09"
+   "updated_at": "2026-11-27 04:01:09"
   },
   {
    "id": "trisk",
@@ -122,7 +122,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (sesi Asia)",
-   "updated_at": "2026-11-27 03:46:09"
+   "updated_at": "2026-11-27 04:01:09"
   },
   {
    "id": "texec",
@@ -773,6 +773,26 @@
  "today_tasks": [],
  "activity": [
   {
+   "ts": "2026-11-27 04:01:08",
+   "agent_id": "analyst",
+   "message": "Update data 29 post IG 📈"
+  },
+  {
+   "ts": "2026-11-27 04:01:06",
+   "agent_id": "dir",
+   "message": "Sesi siang 27 Nov: 0 ide dikirim; tunggu hasil LCQ FFWS untuk sesi sore/malam"
+  },
+  {
+   "ts": "2026-11-27 04:01:05",
+   "agent_id": "researcher",
+   "message": "Sesi siang: RSS + 3 web, belum ada berita baru 2 sumber; hasil LCQ FFWS ditunggu sore/malam"
+  },
+  {
+   "ts": "2026-11-27 04:01:05",
+   "agent_id": "researcher",
+   "message": "Nemu 3 topik baru"
+  },
+  {
    "ts": "2026-11-27 03:46:08",
    "agent_id": "ttech",
    "message": "M15 berubah arah: sideways → bullish"
@@ -876,26 +896,6 @@
    "ts": "2026-11-27 01:16:08",
    "agent_id": "trisk",
    "message": "NO TRADE · ada candle spike di M15 (kemungkinan berita dadakan), tunggu tenang"
-  },
-  {
-   "ts": "2026-11-27 01:16:08",
-   "agent_id": "ttech",
-   "message": "M15 berubah arah: bearish → sideways"
-  },
-  {
-   "ts": "2026-11-27 01:11:08",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: bearish → sideways"
-  },
-  {
-   "ts": "2026-11-27 01:01:08",
-   "agent_id": "ttech",
-   "message": "M60 berubah arah: bullish → sideways"
-  },
-  {
-   "ts": "2026-11-27 01:01:08",
-   "agent_id": "ttech",
-   "message": "M30 berubah arah: bullish → sideways"
   }
  ],
  "chats": [
@@ -1281,9 +1281,14 @@
   "paused": false,
   "balance": 1757.48,
   "today_pnl": 0,
-  "price": 3629.300049,
+  "price": 3627.899902,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-27 04:01:09",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
+   },
    {
     "ts": "2026-11-27 03:46:09",
     "decision": "NO TRADE",
@@ -1306,11 +1311,6 @@
    },
    {
     "ts": "2026-11-27 02:46:08",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-   },
-   {
-    "ts": "2026-11-27 02:31:08",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
    }
@@ -1390,7 +1390,7 @@
    1757.48
   ],
   "last": {
-   "ts": "2026-11-27 03:46:09",
+   "ts": "2026-11-27 04:01:09",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1411,7 +1411,7 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3629.00 di atas tengah band (3530.2–3649.8) · RSI 80 · Stoch 89 · MACD +5.08 · H1 sideways"
+    "note": "M15 3629.50 di atas tengah band (3532.1–3654.5) · RSI 80 · Stoch 91 · MACD +4.32 · H1 sideways"
    }
   },
   "fund": {
@@ -1443,46 +1443,46 @@
    "M10": {
     "bias": "bullish",
     "score": 3,
-    "price": 3625,
-    "ema20": 3606.58,
-    "ema50": 3588.39,
-    "rsi": 66.7,
+    "price": 3629.5,
+    "ema20": 3608.77,
+    "ema50": 3590,
+    "rsi": 68.6,
     "n": 299,
-    "slot": 2992919,
-    "at": 1795751468844
+    "slot": 2992920,
+    "at": 1795752068837
    },
    "M15": {
     "bias": "bullish",
     "score": 2,
-    "price": 3628.5,
-    "ema20": 3596.04,
-    "ema50": 3581.16,
-    "rsi": 79.5,
+    "price": 3629.5,
+    "ema20": 3599.23,
+    "ema50": 3583.06,
+    "rsi": 79.8,
     "n": 299,
-    "slot": 1995279,
-    "at": 1795751168834
+    "slot": 1995280,
+    "at": 1795752068842
    },
    "M30": {
     "bias": "bullish",
     "score": 2,
-    "price": 3625.55,
-    "ema20": 3582.54,
-    "ema50": 3572.94,
-    "rsi": 81.2,
+    "price": 3629.5,
+    "ema20": 3587.01,
+    "ema50": 3575.16,
+    "rsi": 82.1,
     "n": 299,
-    "slot": 997639,
-    "at": 1795750268806
+    "slot": 997640,
+    "at": 1795752068843
    },
    "H1": {
     "bias": "bullish",
     "score": 3,
-    "price": 3622.8,
-    "ema20": 3572.91,
-    "ema50": 3568.01,
-    "rsi": 70.3,
+    "price": 3629.5,
+    "ema20": 3578.3,
+    "ema50": 3570.42,
+    "rsi": 71.8,
     "n": 299,
-    "slot": 498819,
-    "at": 1795748468617
+    "slot": 498820,
+    "at": 1795752068848
    }
   },
   "currency": "USC",
