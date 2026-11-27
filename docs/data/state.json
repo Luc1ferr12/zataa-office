@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-27T11:50:39.365Z",
+ "generated_at": "2026-11-27T12:00:39.367Z",
  "today": "2026-11-27",
  "week_start": "2026-11-23",
  "campaign": null,
@@ -24,9 +24,9 @@
    "id": "researcher",
    "name": "Salsa",
    "title": "Researcher",
-   "status": "done",
-   "current_task": "Cek fakta Jinggg resmi ke All Gamers (The Spike, Dot Esports, Sheep)",
-   "updated_at": "2026-11-27 08:06:57"
+   "status": "working",
+   "current_task": "Riset berita hangat sesi malam",
+   "updated_at": "2026-11-27 12:00:23"
   },
   {
    "id": "copywriter",
@@ -787,6 +787,11 @@
  "today_tasks": [],
  "activity": [
   {
+   "ts": "2026-11-27 11:51:09",
+   "agent_id": "ttech",
+   "message": "M10 berubah arah: bullish → sideways"
+  },
+  {
    "ts": "2026-11-27 11:46:09",
    "agent_id": "trisk",
    "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
@@ -905,11 +910,6 @@
    "ts": "2026-11-27 07:41:07",
    "agent_id": "dir",
    "message": "Kode kantor diperbarui, restart otomatis: scripts/golink.mjs, scripts/trading/run.mjs, scripts/watch.mjs"
-  },
-  {
-   "ts": "2026-11-27 07:00:41",
-   "agent_id": "analyst",
-   "message": "Update data 28 post IG 📈"
   }
  ],
  "chats": [
@@ -1313,7 +1313,7 @@
   "paused": false,
   "balance": 1757.48,
   "today_pnl": 0,
-  "price": 3668.899902,
+  "price": 3669.100098,
   "open": [],
   "signals": [
    {
@@ -1473,15 +1473,15 @@
   "proposals": [],
   "tf": {
    "M10": {
-    "bias": "bullish",
-    "score": 3,
-    "price": 3675.8,
-    "ema20": 3672,
-    "ema50": 3654.56,
-    "rsi": 59.6,
+    "bias": "sideways",
+    "score": 1,
+    "price": 3668.9,
+    "ema20": 3671.7,
+    "ema50": 3655.12,
+    "rsi": 50.4,
     "n": 299,
-    "slot": 2992966,
-    "at": 1795779669489
+    "slot": 2992967,
+    "at": 1795780269505
    },
    "M15": {
     "bias": "bullish",
