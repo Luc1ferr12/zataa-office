@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-27T07:51:23.518Z",
+ "generated_at": "2026-11-27T08:00:39.020Z",
  "today": "2026-11-27",
  "week_start": "2026-11-23",
  "campaign": null,
@@ -24,9 +24,9 @@
    "id": "researcher",
    "name": "Salsa",
    "title": "Researcher",
-   "status": "done",
-   "current_task": "Riset sesi siang: LCQ FFWS belum ada hasil, MPL/VCT nihil",
-   "updated_at": "2026-11-27 04:01:05"
+   "status": "working",
+   "current_task": "Riset berita sore",
+   "updated_at": "2026-11-27 08:00:17"
   },
   {
    "id": "copywriter",
@@ -773,6 +773,26 @@
  "today_tasks": [],
  "activity": [
   {
+   "ts": "2026-11-27 08:00:23",
+   "agent_id": "dir",
+   "message": "Kode kantor diperbarui, restart otomatis: scripts/golink.mjs, scripts/trading/run.mjs, scripts/watch.mjs"
+  },
+  {
+   "ts": "2026-11-27 08:00:09",
+   "agent_id": "owner",
+   "message": "Keputusan dari web: ❌ campaign \"KOL ID X VICTORIA WONG\" diteruskan ke bot Zaa Clips (±5 dtk)"
+  },
+  {
+   "ts": "2026-11-27 08:00:08",
+   "agent_id": "owner",
+   "message": "Keputusan dari web: ❌ campaign \"BEVAN COLLAB\" diteruskan ke bot Zaa Clips (±5 dtk)"
+  },
+  {
+   "ts": "2026-11-27 08:00:07",
+   "agent_id": "owner",
+   "message": "Keputusan dari web: ❌ campaign \"NO NA X SHOPEE JINGLE\" diteruskan ke bot Zaa Clips (±5 dtk)"
+  },
+  {
    "ts": "2026-11-27 07:45:53",
    "agent_id": "trisk",
    "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
@@ -876,26 +896,6 @@
    "ts": "2026-11-27 03:16:08",
    "agent_id": "trisk",
    "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-  },
-  {
-   "ts": "2026-11-27 03:01:08",
-   "agent_id": "ttech",
-   "message": "M10 berubah arah: sideways → bullish"
-  },
-  {
-   "ts": "2026-11-27 03:00:56",
-   "agent_id": "ypublish",
-   "message": "Cross-post Shorts #87 ke TikTok Zaa History"
-  },
-  {
-   "ts": "2026-11-27 02:49:03",
-   "agent_id": "yvideo",
-   "message": "Shorts #242 dirender di laptop & dikirim ke Owner"
-  },
-  {
-   "ts": "2026-11-27 02:49:02",
-   "agent_id": "ypublish",
-   "message": "Kirim Shorts #242 ke Owner buat approval"
   }
  ],
  "chats": [
@@ -1191,8 +1191,8 @@
    "yt_posted": 15,
    "yt_pending": 0,
    "yt_scheduled": 4,
-   "views": 15156,
-   "likes": 230,
+   "views": 15271,
+   "likes": 233,
    "comments": 4,
    "shares": 0,
    "saves": 1,
@@ -1202,7 +1202,7 @@
      "title": "Jemkin & something resmi bukan pemain impor lagi di VCT 2027",
      "format": "video",
      "pillar": "news",
-     "views": 1757
+     "views": 1758
     },
     {
      "title": "Komputer 2.000 Tahun dari Dasar Laut Yunani",
@@ -1276,12 +1276,30 @@
    }
   }
  },
+ "kpi_retention": {
+  "cowo": {
+   "apv": 59.3,
+   "n": 1
+  },
+  "history": {
+   "apv": 20.6,
+   "n": 11
+  },
+  "marvel": {
+   "apv": 40.8,
+   "n": 6
+  },
+  "story": {
+   "apv": 33.9,
+   "n": 8
+  }
+ },
  "trading": {
   "mode": "paper",
   "paused": false,
   "balance": 1757.48,
   "today_pnl": 0,
-  "price": 3658,
+  "price": 3663.800049,
   "open": [],
   "signals": [
    {
