@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-27T01:57:35.810Z",
+ "generated_at": "2026-11-27T02:07:35.807Z",
  "today": "2026-11-27",
  "week_start": "2026-11-23",
  "campaign": null,
@@ -32,9 +32,9 @@
    "id": "copywriter",
    "name": "Tiara",
    "title": "Copywriter",
-   "status": "working",
+   "status": "done",
    "current_task": "Naskah film Champion Rush FFWS",
-   "updated_at": "2026-11-27 01:53:19"
+   "updated_at": "2026-11-27 01:58:04"
   },
   {
    "id": "designer",
@@ -49,16 +49,16 @@
    "name": "Dimas",
    "title": "Video Production",
    "status": "done",
-   "current_task": "Film caption-news ONIC Delta Force",
-   "updated_at": "2026-11-25 08:06:46"
+   "current_task": "Film telestrator Champion Rush FFWS",
+   "updated_at": "2026-11-27 01:58:16"
   },
   {
    "id": "publisher",
    "name": "Fikri",
    "title": "Social Media Publisher",
    "status": "done",
-   "current_task": null,
-   "updated_at": "2026-11-25 08:48:56"
+   "current_task": "Antre render + QA Champion Rush #243",
+   "updated_at": "2026-11-27 01:58:25"
   },
   {
    "id": "ads",
@@ -98,7 +98,7 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-27 01:46:08"
+   "updated_at": "2026-11-27 02:01:08"
   },
   {
    "id": "tresearch",
@@ -106,23 +106,23 @@
    "title": "Research & Fundamental",
    "status": "done",
    "current_task": "Fundamental: Tak ada berita 24 jam terakhir yang terverifikasi (data terbaru Okt 2026). Yield tinggi & PCE 3,7% condong bearish; konfiden rendah.",
-   "updated_at": "2026-11-27 01:46:08"
+   "updated_at": "2026-11-27 02:01:08"
   },
   {
    "id": "ttech",
    "name": "Keira",
    "title": "Technical Analysis",
    "status": "done",
-   "current_task": "Setup SELL di band (tanpa konfirmasi)",
-   "updated_at": "2026-11-27 01:46:08"
+   "current_task": "Belum ada pantulan band · H1 sideways",
+   "updated_at": "2026-11-27 02:01:08"
   },
   {
    "id": "trisk",
    "name": "Aryaputra",
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
-   "current_task": "NO TRADE: setup SELL di band, konfirmasi baru 0/2 (-) · sesi Asia",
-   "updated_at": "2026-11-27 01:46:08"
+   "current_task": "NO TRADE: ada candle spike di M15 (kemungkinan berita dadakan), tunggu tenang",
+   "updated_at": "2026-11-27 02:01:08"
   },
   {
    "id": "texec",
@@ -699,6 +699,20 @@
    "channel": "youtube"
   },
   {
+   "id": 243,
+   "day": "2026-11-27",
+   "slot": "kilat",
+   "format": "video",
+   "game": "ff",
+   "pillar": "news",
+   "title": "Juara FFWS Nggak Ditentukan Poin Terbanyak? Ini Cara Kerja Champion Rush",
+   "status": "draft",
+   "asset_url": null,
+   "scheduled_at": null,
+   "posted_at": null,
+   "channel": null
+  },
+  {
    "id": 239,
    "day": "2026-11-27",
    "slot": "shorts",
@@ -758,6 +772,11 @@
  "clip_jobs": [],
  "today_tasks": [],
  "activity": [
+  {
+   "ts": "2026-11-27 02:01:08",
+   "agent_id": "ttech",
+   "message": "M60 berubah arah: sideways → bullish"
+  },
   {
    "ts": "2026-11-27 01:51:35",
    "agent_id": "owner",
@@ -877,14 +896,58 @@
    "ts": "2026-11-26 23:05:48",
    "agent_id": "bvideo",
    "message": "Shorts #239 \"Kenapa Ban Mobil Selalu Hitam?\" masuk antrean render laptop (film lemo-opuscar films/cowo-ban-hitam)"
-  },
-  {
-   "ts": "2026-11-26 23:01:29",
-   "agent_id": "trisk",
-   "message": "NO TRADE · jam rollover/pasar sepi (04:00–08:00 WITA), libur dulu"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-11-27 01:58:43",
+   "agent_id": "publisher",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Lolos QA langsung tayang TikTok + YouTube, nanti Bos dikabarin otomatis."
+  },
+  {
+   "ts": "2026-11-27 01:58:43",
+   "agent_id": "video",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Film telestrator pertama kita udah jadi (#243) dan antre render di laptop mulai 09:45. Tapi filenya belum ke-push karena aku nggak dapet izin git, Bos tolong push folder films/esports-champion-rush-ffws ya."
+  },
+  {
+   "ts": "2026-11-27 01:58:43",
+   "agent_id": "researcher",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Aturan Champion Rush udah aku cek ke 2 sumber Bos. Angka ambang Grand Final belum ketemu, jadi sengaja nggak ditulis biar nggak salah info."
+  },
+  {
+   "ts": "2026-11-27 01:58:26",
+   "agent_id": "video",
+   "to_id": "designer",
+   "kind": "santai",
+   "message": "Vania, film telestrator pertama kantor nih. Coret-coret peta pulau ala analis bola, seru juga ternyata."
+  },
+  {
+   "ts": "2026-11-27 01:58:25",
+   "agent_id": "publisher",
+   "to_id": "owner",
+   "kind": "oper",
+   "message": "Bos, \"Antre render + QA Champion Rush #243\" udah aku kirim ke Telegram. Ditunggu approve-nya 🙏"
+  },
+  {
+   "ts": "2026-11-27 01:58:16",
+   "agent_id": "video",
+   "to_id": "publisher",
+   "kind": "oper",
+   "message": "Render \"Film telestrator Champion Rush FFWS\" selesai, Fikri. Cek cover-nya ya"
+  },
+  {
+   "ts": "2026-11-27 01:58:04",
+   "agent_id": "copywriter",
+   "to_id": "designer",
+   "kind": "oper",
+   "message": "Teks buat \"Naskah film Champion Rush FFWS\" ready. Vania, giliranmu bikin cakep!"
+  },
   {
    "ts": "2026-11-27 01:53:06",
    "agent_id": "researcher",
@@ -1115,61 +1178,12 @@
    "to_id": "copywriter",
    "kind": "oper",
    "message": "Tiara, bahan buat \"Riset sesi siang: nihil berita hangat\" udah aku rangkum + sumbernya. Tinggal kamu racik captionnya ✍️"
-  },
-  {
-   "ts": "2026-11-25 03:23:13",
-   "agent_id": "publisher",
-   "to_id": null,
-   "kind": "oper",
-   "message": "\"VCT 2027 cuma 8 tim per region: roster siapa palin\" udah tayang di TikTok + YouTube 🚀 Makasih semua!"
-  },
-  {
-   "ts": "2026-11-25 00:35:42",
-   "agent_id": "video",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Filmnya (konten 232) udah antre render laptop, mulai 09:45. Lolos QA langsung tayang TikTok + YouTube, nanti Bos dikabari!"
-  },
-  {
-   "ts": "2026-11-25 00:35:42",
-   "agent_id": "copywriter",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Valyn ke Fnatic sama roster baru G2 kutulis \"per laporan media\" ya Bos, belum semua diumumkan tim."
-  },
-  {
-   "ts": "2026-11-25 00:35:42",
-   "agent_id": "researcher",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Udah dicek Bos, Riot resmi cuma kasih 8 slot partner per region. Vitality nggak ada di daftar Red Bull Home Ground, jadi nggak kita tulis."
-  },
-  {
-   "ts": "2026-11-25 00:35:16",
-   "agent_id": "video",
-   "to_id": "copywriter",
-   "kind": "santai",
-   "message": "Tiara, nama HYUNMIN itu bikin whisper bingung nggak ya wkwk, semoga captionnya pas"
-  },
-  {
-   "ts": "2026-11-25 00:35:15",
-   "agent_id": "video",
-   "to_id": "publisher",
-   "kind": "oper",
-   "message": "Fikri, video \"Film caption-news VCT 2027 8 tim\" udah render 9:16. Musiknya aman kok"
-  },
-  {
-   "ts": "2026-11-25 00:35:01",
-   "agent_id": "copywriter",
-   "to_id": "designer",
-   "kind": "oper",
-   "message": "Vania, copy \"Naskah film VCT 2027 8 tim\" udah masuk. Headline-nya jangan dikecilin ya 😆"
   }
  ],
  "stats": {
   "this_week": {
    "week": "2026-11-23",
-   "total": 25,
+   "total": 26,
    "posted": 21,
    "pending": 0,
    "scheduled": 0,
@@ -1267,9 +1281,14 @@
   "paused": false,
   "balance": 1757.48,
   "today_pnl": 0,
-  "price": 3580.699951,
+  "price": 3606.899902,
   "open": [],
   "signals": [
+   {
+    "ts": "2026-11-27 02:01:08",
+    "decision": "NO TRADE",
+    "reason": "ada candle spike di M15 (kemungkinan berita dadakan), tunggu tenang"
+   },
    {
     "ts": "2026-11-27 01:46:08",
     "decision": "NO TRADE",
@@ -1292,11 +1311,6 @@
    },
    {
     "ts": "2026-11-27 00:46:08",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
-   },
-   {
-    "ts": "2026-11-27 00:31:08",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (sesi Asia)"
    }
@@ -1376,7 +1390,7 @@
    1757.48
   ],
   "last": {
-   "ts": "2026-11-27 01:46:08",
+   "ts": "2026-11-27 02:01:08",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1385,7 +1399,7 @@
    "lot": null,
    "rr": null,
    "risk_usd": null,
-   "reason": "setup SELL di band, konfirmasi baru 0/2 (-) · sesi Asia",
+   "reason": "ada candle spike di M15 (kemungkinan berita dadakan), tunggu tenang",
    "fund": {
     "bias": -0.1,
     "note": "Tak ada berita 24 jam terakhir yang terverifikasi (data terbaru Okt 2026). Yield tinggi & PCE 3,7% condong bearish; konfiden rendah.",
@@ -1395,9 +1409,9 @@
    "tech": {
     "bias": "sideways",
     "score": 0,
-    "trigger": "sell",
+    "trigger": null,
     "confirm": [],
-    "note": "M15 3574.10 di atas tengah band (3559.2–3575.0) · RSI 61 · Stoch 87 · MACD +1.10 · H1 sideways · setup SELL (tanpa konfirmasi)"
+    "note": "M15 3589.20 di atas band atas (3552.7–3585.2) · RSI 74 · Stoch 95 · MACD +2.62 · H1 sideways"
    }
   },
   "fund": {
@@ -1429,46 +1443,46 @@
    "M10": {
     "bias": "sideways",
     "score": 1,
-    "price": 3569.7,
-    "ema20": 3568.46,
-    "ema50": 3567.83,
-    "rsi": 52.6,
+    "price": 3588.5,
+    "ema20": 3570.37,
+    "ema50": 3568.64,
+    "rsi": 70.6,
     "n": 299,
-    "slot": 2992907,
-    "at": 1795744268565
+    "slot": 2992908,
+    "at": 1795744868583
    },
    "M15": {
     "bias": "sideways",
     "score": 1,
-    "price": 3574.1,
-    "ema20": 3567.51,
-    "ema50": 3567.37,
-    "rsi": 60.7,
+    "price": 3588.5,
+    "ema20": 3569.51,
+    "ema50": 3568.2,
+    "rsi": 73.1,
     "n": 299,
-    "slot": 1995271,
-    "at": 1795743968559
+    "slot": 1995272,
+    "at": 1795744868590
    },
    "M30": {
     "bias": "bullish",
-    "score": 3,
-    "price": 3574.6,
-    "ema20": 3567.22,
-    "ema50": 3566.03,
-    "rsi": 58.2,
+    "score": 2,
+    "price": 3588.5,
+    "ema20": 3569.24,
+    "ema50": 3566.91,
+    "rsi": 68,
     "n": 299,
-    "slot": 997635,
-    "at": 1795743068557
+    "slot": 997636,
+    "at": 1795744868591
    },
    "H1": {
-    "bias": "sideways",
-    "score": 1,
-    "price": 3559.8,
-    "ema20": 3565.47,
-    "ema50": 3564.85,
-    "rsi": 47,
+    "bias": "bullish",
+    "score": 3,
+    "price": 3588.5,
+    "ema20": 3567.66,
+    "ema50": 3565.77,
+    "rsi": 60.6,
     "n": 299,
-    "slot": 498817,
-    "at": 1795741268542
+    "slot": 498818,
+    "at": 1795744868596
    }
   },
   "currency": "USC",

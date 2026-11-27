@@ -1,8 +1,8 @@
 {
- "at": "2026-11-27T01:57:35.945Z",
+ "at": "2026-11-27T02:07:35.944Z",
  "today": "2026-11-27",
  "laptop": {
-  "at": "2026-11-27T01:57:21.635Z",
+  "at": "2026-11-27T02:07:16.543Z",
   "renderFrom": "09:45"
  },
  "queue": [
@@ -15,10 +15,10 @@
    "pos": 1,
    "state": "render",
    "startAt": "2026-11-27T01:51:41.578Z",
-   "etaAt": "2026-11-27T02:09:21.021Z",
+   "etaAt": "2026-11-27T02:10:09.228Z",
    "live": true,
    "step": "gambar",
-   "stepPct": 25,
+   "stepPct": 94,
    "late": false
   },
   {
@@ -29,8 +29,8 @@
    "estMin": 5,
    "pos": 2,
    "state": "antre",
-   "startAt": "2026-11-27T02:09:21.021Z",
-   "etaAt": "2026-11-27T02:14:21.021Z",
+   "startAt": "2026-11-27T02:10:09.228Z",
+   "etaAt": "2026-11-27T02:15:09.228Z",
    "waitingWindow": false
   },
   {
@@ -41,8 +41,8 @@
    "estMin": 6,
    "pos": 3,
    "state": "antre",
-   "startAt": "2026-11-27T02:14:21.021Z",
-   "etaAt": "2026-11-27T02:20:21.021Z",
+   "startAt": "2026-11-27T02:15:09.228Z",
+   "etaAt": "2026-11-27T02:21:09.228Z",
    "waitingWindow": false
   },
   {
@@ -53,8 +53,20 @@
    "estMin": 17,
    "pos": 4,
    "state": "antre",
-   "startAt": "2026-11-27T02:20:21.021Z",
-   "etaAt": "2026-11-27T02:37:21.021Z",
+   "startAt": "2026-11-27T02:21:09.228Z",
+   "etaAt": "2026-11-27T02:38:09.228Z",
+   "waitingWindow": false
+  },
+  {
+   "id": 243,
+   "channel": "",
+   "title": "Juara FFWS Nggak Ditentukan Poin Terbanyak? Ini Cara Kerja Champion Rush",
+   "style": "telestrator",
+   "estMin": 10,
+   "pos": 5,
+   "state": "antre",
+   "startAt": "2026-11-27T02:38:09.228Z",
+   "etaAt": "2026-11-27T02:48:09.228Z",
    "waitingWindow": false
   }
  ],
@@ -62,21 +74,28 @@
   {
    "key": "esports",
    "name": "About Esports",
-   "working": {
-    "id": "copywriter",
-    "name": "Tiara",
-    "task": "Naskah film Champion Rush FFWS",
-    "stage": "naskah",
-    "at": "2026-11-27T01:53:19.000Z"
-   },
+   "working": null,
    "items": [
     {
-     "idea": 285,
+     "id": 243,
      "day": "2026-11-27",
      "title": "Juara FFWS Nggak Ditentukan Poin Terbanyak? Ini Cara Kerja Champion Rush",
-     "stage": "naskah",
-     "note": "Ide di-✅, konten mau dibikin",
-     "waitOwner": false
+     "revisions": 0,
+     "airAt": null,
+     "stage": "antre",
+     "render": {
+      "id": 243,
+      "channel": "",
+      "title": "Juara FFWS Nggak Ditentukan Poin Terbanyak? Ini Cara Kerja Champion Rush",
+      "style": "telestrator",
+      "estMin": 10,
+      "pos": 5,
+      "state": "antre",
+      "startAt": "2026-11-27T02:38:09.228Z",
+      "etaAt": "2026-11-27T02:48:09.228Z",
+      "waitingWindow": false
+     },
+     "note": ""
     }
    ],
    "nextSession": "hari ini 12:00"
@@ -101,8 +120,8 @@
       "estMin": 17,
       "pos": 4,
       "state": "antre",
-      "startAt": "2026-11-27T02:20:21.021Z",
-      "etaAt": "2026-11-27T02:37:21.021Z",
+      "startAt": "2026-11-27T02:21:09.228Z",
+      "etaAt": "2026-11-27T02:38:09.228Z",
       "waitingWindow": false
      },
      "note": ""
@@ -130,8 +149,8 @@
       "estMin": 5,
       "pos": 2,
       "state": "antre",
-      "startAt": "2026-11-27T02:09:21.021Z",
-      "etaAt": "2026-11-27T02:14:21.021Z",
+      "startAt": "2026-11-27T02:10:09.228Z",
+      "etaAt": "2026-11-27T02:15:09.228Z",
       "waitingWindow": false
      },
      "note": ""
@@ -159,8 +178,8 @@
       "estMin": 6,
       "pos": 3,
       "state": "antre",
-      "startAt": "2026-11-27T02:14:21.021Z",
-      "etaAt": "2026-11-27T02:20:21.021Z",
+      "startAt": "2026-11-27T02:15:09.228Z",
+      "etaAt": "2026-11-27T02:21:09.228Z",
       "waitingWindow": false
      },
      "note": ""
@@ -189,10 +208,10 @@
       "pos": 1,
       "state": "render",
       "startAt": "2026-11-27T01:51:41.578Z",
-      "etaAt": "2026-11-27T02:09:21.021Z",
+      "etaAt": "2026-11-27T02:10:09.228Z",
       "live": true,
       "step": "gambar",
-      "stepPct": 25,
+      "stepPct": 94,
       "late": false
      },
      "note": ""
