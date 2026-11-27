@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-27T11:00:39.338Z",
+ "generated_at": "2026-11-27T11:10:39.341Z",
  "today": "2026-11-27",
  "week_start": "2026-11-23",
  "campaign": null,
@@ -98,15 +98,15 @@
    "title": "Trading Director",
    "status": "done",
    "current_task": "Siklus beres: NO TRADE",
-   "updated_at": "2026-11-27 10:46:09"
+   "updated_at": "2026-11-27 11:01:27"
   },
   {
    "id": "tresearch",
    "name": "Davina",
    "title": "Research & Fundamental",
    "status": "done",
-   "current_task": "Fundamental: netral (belum ada ringkasan hari ini)",
-   "updated_at": "2026-11-27 10:46:09"
+   "current_task": "Fundamental: Inflasi AS Okt panas, USD menguat, pasar pasang peluang kenaikan Fed → emas tertekan. Berita 24 jam belum terverifikasi.",
+   "updated_at": "2026-11-27 11:01:27"
   },
   {
    "id": "ttech",
@@ -114,7 +114,7 @@
    "title": "Technical Analysis",
    "status": "done",
    "current_task": "Belum ada pantulan band · H1 sideways",
-   "updated_at": "2026-11-27 10:46:09"
+   "updated_at": "2026-11-27 11:01:27"
   },
   {
    "id": "trisk",
@@ -122,7 +122,7 @@
    "title": "Decision & Risk · MQL Developer",
    "status": "done",
    "current_task": "NO TRADE: belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
-   "updated_at": "2026-11-27 10:46:09"
+   "updated_at": "2026-11-27 11:01:27"
   },
   {
    "id": "texec",
@@ -748,10 +748,10 @@
    "game": "sejarah",
    "pillar": "misteri_kuno",
    "title": "Kerajaan Penguasa Selat Malaka Ini Sempat Dilupakan Ratusan Tahun",
-   "status": "approved",
-   "asset_url": null,
+   "status": "posted",
+   "asset_url": "https://www.youtube.com/watch?v=_-RlsKV7PWI",
    "scheduled_at": null,
-   "posted_at": null,
+   "posted_at": "2026-11-27 11:01:06",
    "channel": "story"
   },
   {
@@ -786,6 +786,16 @@
  "clip_jobs": [],
  "today_tasks": [],
  "activity": [
+  {
+   "ts": "2026-11-27 11:01:39",
+   "agent_id": "spublish",
+   "message": "Cross-post Shorts #240 ke TikTok Zaa Story"
+  },
+  {
+   "ts": "2026-11-27 11:01:06",
+   "agent_id": "spublish",
+   "message": "Upload Shorts #240 ke Zaa Story (Publik via Zernio)"
+  },
   {
    "ts": "2026-11-27 10:46:09",
    "agent_id": "trisk",
@@ -900,19 +910,16 @@
    "ts": "2026-11-27 06:49:51",
    "agent_id": "dir",
    "message": "Kode kantor diperbarui, restart otomatis: scripts/golink.mjs, scripts/trading/run.mjs, scripts/watch.mjs"
-  },
-  {
-   "ts": "2026-11-27 06:48:35",
-   "agent_id": "dir",
-   "message": "Kode kantor diperbarui, restart otomatis: scripts/golink.mjs, scripts/trading/run.mjs, scripts/watch.mjs"
-  },
-  {
-   "ts": "2026-11-27 06:31:09",
-   "agent_id": "trisk",
-   "message": "NO TRADE · belum ada pantulan di Bollinger Band M15 (sesi Asia)"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-11-27 11:00:47",
+   "agent_id": "analyst",
+   "to_id": "dir",
+   "kind": "oper",
+   "message": "Laporan harian marketing udah aku kirim ke Bos, 2 konten tayang hari ini 📊"
+  },
   {
    "ts": "2026-11-27 08:49:13",
    "agent_id": "publisher",
@@ -1185,26 +1192,19 @@
    "to_id": null,
    "kind": "oper",
    "message": "\"ONIC wakil tunggal Indonesia di Delta Force Invita\" udah tayang di TikTok + YouTube 🚀 Makasih semua!"
-  },
-  {
-   "ts": "2026-11-25 08:07:42",
-   "agent_id": "publisher",
-   "to_id": "owner",
-   "kind": "santai",
-   "message": "Konten #234 udah antre, QA lolos langsung tayang di TikTok + YouTube, Bos dikabarin pas udah naik."
   }
  ],
  "stats": {
   "this_week": {
    "week": "2026-11-23",
    "total": 27,
-   "posted": 23,
+   "posted": 24,
    "pending": 0,
-   "scheduled": 4,
+   "scheduled": 3,
    "yt_total": 19,
-   "yt_posted": 15,
+   "yt_posted": 16,
    "yt_pending": 0,
-   "yt_scheduled": 4,
+   "yt_scheduled": 3,
    "views": 15464,
    "likes": 234,
    "comments": 4,
@@ -1317,6 +1317,11 @@
   "open": [],
   "signals": [
    {
+    "ts": "2026-11-27 11:01:27",
+    "decision": "NO TRADE",
+    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
+   },
+   {
     "ts": "2026-11-27 10:46:09",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
@@ -1338,11 +1343,6 @@
    },
    {
     "ts": "2026-11-27 09:46:09",
-    "decision": "NO TRADE",
-    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
-   },
-   {
-    "ts": "2026-11-27 09:31:09",
     "decision": "NO TRADE",
     "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))"
    }
@@ -1422,7 +1422,7 @@
    1757.48
   ],
   "last": {
-   "ts": "2026-11-27 10:46:09",
+   "ts": "2026-11-27 11:01:27",
    "decision": "NO TRADE",
    "side": null,
    "entry": null,
@@ -1433,8 +1433,8 @@
    "risk_usd": null,
    "reason": "belum ada pantulan di Bollinger Band M15 (London–NY (mode aman))",
    "fund": {
-    "bias": 0,
-    "note": "netral (belum ada ringkasan hari ini)",
+    "bias": -0.35,
+    "note": "Inflasi AS Okt panas, USD menguat, pasar pasang peluang kenaikan Fed → emas tertekan. Berita 24 jam belum terverifikasi.",
     "danger": null,
     "blackout": null
    },
@@ -1443,10 +1443,13 @@
     "score": 0,
     "trigger": null,
     "confirm": [],
-    "note": "M15 3675.00 di atas tengah band (3638.9–3691.9) · RSI 67 · Stoch 61 · MACD -2.31 · H1 sideways"
+    "note": "M15 3678.20 di atas tengah band (3641.8–3692.6) · RSI 68 · Stoch 72 · MACD -2.00 · H1 sideways"
    }
   },
-  "fund": null,
+  "fund": {
+   "bias": -0.35,
+   "note": "Inflasi AS Okt panas, USD menguat, pasar pasang peluang kenaikan Fed → emas tertekan. Berita 24 jam belum terverifikasi."
+  },
   "calendar": [],
   "ea": {
    "connected": false,
@@ -1472,46 +1475,46 @@
    "M10": {
     "bias": "bullish",
     "score": 3,
-    "price": 3674.5,
-    "ema20": 3669.27,
-    "ema50": 3649.76,
-    "rsi": 59.9,
+    "price": 3678.2,
+    "ema20": 3670.12,
+    "ema50": 3650.88,
+    "rsi": 62.8,
     "n": 299,
-    "slot": 2992961,
-    "at": 1795776669609
+    "slot": 2992962,
+    "at": 1795777270458
    },
    "M15": {
     "bias": "bullish",
     "score": 3,
-    "price": 3670,
-    "ema20": 3662.25,
-    "ema50": 3634.78,
-    "rsi": 63.7,
+    "price": 3678.2,
+    "ema20": 3663.77,
+    "ema50": 3636.49,
+    "rsi": 68.5,
     "n": 299,
-    "slot": 1995307,
-    "at": 1795776369441
+    "slot": 1995308,
+    "at": 1795777270465
    },
    "M30": {
     "bias": "bullish",
     "score": 2,
-    "price": 3670,
-    "ema20": 3642.17,
-    "ema50": 3609.36,
-    "rsi": 76.1,
+    "price": 3678.2,
+    "ema20": 3645.6,
+    "ema50": 3612.06,
+    "rsi": 78.5,
     "n": 299,
-    "slot": 997653,
-    "at": 1795775469417
+    "slot": 997654,
+    "at": 1795777270467
    },
    "H1": {
     "bias": "bullish",
     "score": 3,
-    "price": 3679.5,
-    "ema20": 3615.07,
-    "ema50": 3589.1,
-    "rsi": 81.1,
+    "price": 3678.2,
+    "ema20": 3621.09,
+    "ema50": 3592.59,
+    "rsi": 80.2,
     "n": 299,
-    "slot": 498826,
-    "at": 1795773669561
+    "slot": 498827,
+    "at": 1795777270472
    }
   },
   "currency": "USC",
