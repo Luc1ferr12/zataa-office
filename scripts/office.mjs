@@ -9,6 +9,7 @@
 process.removeAllListeners('warning'); // sembunyikan ExperimentalWarning node:sqlite
 import { openDb } from './db.mjs';
 import { briefFor } from './learn-core.mjs';
+import { briefGrowth } from './growth.mjs';
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -102,6 +103,7 @@ const commands = {
     if (revisions.length) brief.revisions = revisions;
     // tim Shorts: pola views per video (terbaik/terburuk, kelompok hook/suara/jam) + eksperimen mingguan (scripts/learn-core.mjs)
     try { const l = briefFor(db, agent); if (l) brief.belajar = l; } catch { /* tabel/belum ada data */ }
+    try { const g = briefGrowth(db, agent); if (g) brief.usulan = g; } catch (e) { brief.usulan = { error: e.message }; }
     if (agent === 'researcher' || agent === 'dir') {
       brief.recent_topics = all('SELECT topic FROM research WHERE day >= ? ORDER BY id DESC LIMIT 15', addDays(t, -14)).map((r) => r.topic);
     }

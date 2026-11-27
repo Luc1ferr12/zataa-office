@@ -9,11 +9,12 @@ git pull -q --rebase --autostash >>"$LOG" 2>&1
 
 PROMPT='Kamu menjalankan sesi kerja PAGI Zaa Office di folder ini (cron 07:00 WITA).
 
-Baca lalu ikuti PERSIS file SOP office/daily.md: (1) sesi riset About Esports "pagi" (berita hangat → idea add sesi=pagi → idea pick → approval.mjs ideas, lalu STOP sampai Owner approve; TIDAK ADA plan mingguan lagi), (3C) cek Zaa Clips, (3Y) Shorts 4 divisi (Cowo Bingung, Marvel Talk, Zaa Story, Zaa History) — video WAJIB film lemo-opuscar pakai skill lemo-opuscar sesuai office/film.md (library ~/lemo-opuscar, mulai dari films/_contoh), baca blok belajar di office.mjs brief, (4) evaluasi Minggu, (5) penutup. Sesi riset siang/sore/malam dijalankan cron lain (scripts/vps/esports-sesi.sh). Patuhi CLAUDE.md (hemat token & aturan konten). Kerjakan mandiri tanpa menunggu konfirmasi, dan akhiri dengan ringkasan singkat untuk Owner.'
+Baca lalu ikuti PERSIS file SOP office/daily.md: (1) sesi riset About Esports "pagi" (berita hangat → idea add sesi=pagi → idea pick → approval.mjs ideas, lalu STOP sampai Owner approve; TIDAK ADA plan mingguan lagi), (3C) cek Zaa Clips, (3U) usulan pertumbuhan manajer Shorts (hanya brand yang growth.mjs status-nya perlu_usulan), (3Y) Shorts 4 divisi (Cowo Bingung, Marvel Talk, Zaa Story, Zaa History) — video WAJIB film lemo-opuscar pakai skill lemo-opuscar sesuai office/film.md (library ~/lemo-opuscar, mulai dari films/_contoh), baca blok belajar di office.mjs brief, (4) evaluasi Minggu, (5) penutup. Sesi riset siang/sore/malam dijalankan cron lain (scripts/vps/esports-sesi.sh). Patuhi CLAUDE.md (hemat token & aturan konten). Kerjakan mandiri tanpa menunggu konfirmasi, dan akhiri dengan ringkasan singkat untuk Owner.'
 
 echo "=== $(date) mulai" >>"$LOG"
 # 23 Nov 2026: 4 film lemo-opuscar per hari -> batas 3,5 jam; skill lemo-opuscar + library di luar repo (--add-dir)
-timeout 210m claude -p --permission-mode acceptEdits --add-dir "$HOME/lemo-opuscar" \
+# 27 Nov 2026: +30 menit untuk usulan manajer hari Senin (office/daily.md 3U)
+timeout 240m claude -p --permission-mode acceptEdits --add-dir "$HOME/lemo-opuscar" \
   --allowedTools 'Bash(node:*)' 'Bash(git:*)' Read Edit Write Glob Grep WebSearch WebFetch Skill \
   <<<"$PROMPT" >>"$LOG" 2>&1
 CODE=$?

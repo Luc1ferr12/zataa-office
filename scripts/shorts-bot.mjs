@@ -13,6 +13,7 @@
 //   ❌ Tolak → Claude CLI bikin Shorts pengganti (topik lain, hari & jam sama); antrean di tabel redo, tahan restart
 //   node scripts/shorts-bot.mjs ganti <id>            minta (ulang) pengganti untuk Shorts yang ditolak
 //   node scripts/shorts-bot.mjs say <agent> "<teks>"  pesan dari pegawai YouTube
+//   node scripts/shorts-bot.mjs usul <file.json>      manajer kirim 3 usulan pertumbuhan ke Owner (✅/❌, scripts/growth.mjs)
 //   node scripts/shorts-bot.mjs tiktok <id>           cross-post ke TikTok brand ini sekarang (Story: otomatis setelah tayang YouTube)
 //   node scripts/shorts-bot.mjs bot                   jalankan bot Telegram brand ini (dipakai watcher untuk --brand=story)
 //   Semua perintah: tambah --brand=story untuk Zaa Story.
@@ -34,6 +35,7 @@ import { B, cliArgs } from './brand.mjs';
 import { claude, formatReply, ESCALATE, isStatusQuestion } from './ask.mjs';
 import { haiku, OFFICE, ANSWER_ANY } from './haiku.mjs';
 import { annotate } from './learn-core.mjs';
+import * as growth from './growth.mjs';
 import { check as filmCheck, filmHash } from './film.mjs';
 import { addressedAgent, redirectText } from './bots.mjs';
 import { digest } from './media.mjs';
@@ -133,9 +135,10 @@ export async function newShort(p) {
     if (topic.status !== 'approved') throw new Error(`topik ${p.topic_id} statusnya ${topic.status}, harus approved dulu`);
     checkQuota(d, day, topic.pillar);
   }
+  const usulan = p.usulan != null && !p.test ? growth.checkTag(d, B.key, p.usulan) : null; // video yang menjalankan usulan manajer (growth.mjs)
   // Fase 1/2/4 (learn-core.mjs): eksperimen mingguan memasang varian (suara/kecepatan/mood/jam), gerak visual diacak, atribut video dicatat buat dianalisis
   const ann = annotate(d, B.key, p, day);
-  const data = { tag: B.tag, ...ann.spec, ...(p.tags ? { tags: p.tags } : {}), ...(p.synthetic ? { synthetic: true } : {}), ...(p.test ? { _test: 1 } : {}), ...(ann.jam ? { _jam: ann.jam } : {}), ...(topic ? { _topic: topic.topic_id } : {}), ...ann.meta, _laptop: 1 };
+  const data = { tag: B.tag, ...ann.spec, ...(p.tags ? { tags: p.tags } : {}), ...(p.synthetic ? { synthetic: true } : {}), ...(p.test ? { _test: 1 } : {}), ...(ann.jam ? { _jam: ann.jam } : {}), ...(topic ? { _topic: topic.topic_id } : {}), ...(usulan ? { _usulan: usulan } : {}), ...ann.meta, _laptop: 1 };
   const r = d.prepare("INSERT INTO contents (channel, day, slot, format, game, pillar, title, data_json, caption, hashtags, sources, template) VALUES (?, ?, 'shorts', 'shorts', 'sejarah', ?, ?, ?, ?, ?, ?, 'shorts')")
     .run(CH, day, topic?.pillar ?? 'misteri', String(p.title).slice(0, 100), JSON.stringify(data), p.caption ?? '', p.hashtags ?? B.hashtags, p.sources ?? null);
   const id = Number(r.lastInsertRowid);
@@ -376,6 +379,32 @@ Akhiri dengan SATU kalimat ringkas (santai) tentang apa yang diubah.`, film ? 45
   log(`revisi shorts #${id} beres`);
 }
 
+// ---------- usulan pertumbuhan manajer (growth.mjs, office/daily.md §3U): kirim 3 usulan, Owner ✅/❌ per usulan
+const PROP_BTN = (id) => ({ inline_keyboard: [[{ text: '✅ Jalankan', callback_data: `uok:${id}` }, { text: '❌ Tolak', callback_data: `uno:${id}` }]] });
+export async function propose(items, { say = sayAs } = {}) {
+  const d = await db();
+  const rows = growth.add(d, B.key, items);
+  try {
+    for (const p of rows) await say(T.dir, `usulan minggu ini buat ${B.name}, Bos 👇\n\n${growth.messageText(p)}`, { reply_markup: PROP_BTN(p.id) });
+  } catch (e) { // nggak sampai ke Owner → jangan dianggap sudah diajukan, sesi bisa kirim ulang
+    growth.remove(d, rows.map((p) => p.id));
+    throw e;
+  }
+  act(d, T.dir, `Ajukan 3 usulan pertumbuhan ${B.name} ke Owner`);
+  return { ok: true, usulan: rows.map((p) => ({ id: p.id, jenis: p.kind, judul: p.title })) };
+}
+
+export async function decideProposal(id, ok, { say = sayAs } = {}) {
+  const d = await db();
+  const p = growth.decide(d, B.key, id, ok);
+  if (!p) return say(T.dir, `Usulan #${id} udah nggak bisa diputus, Bos (sudah dijawab atau minggunya lewat).`);
+  act(d, 'owner', `${ok ? 'Setujui' : 'Tolak'} usulan #${id} ${B.name}`);
+  if (ok) return say(T.dir, `Siap Bos! ✅ Usulan #${id} "${esc(p.title)}" jalan mulai sesi produksi berikutnya. Hasilnya aku laporin setelah videonya terukur.`);
+  lesson(d, [T.dir, T.research], `❌ ditolak usulan ${p.kind} "${p.title.slice(0, 60)}" — jangan ajukan ide serupa`);
+  const s = growth.status(d, B.key);
+  return say(T.dir, `Oke Bos, usulan #${id} dicoret.${s.perlu_usulan ? ' Semua ditolak, jadi aku bawa usulan pengganti di sesi pagi berikutnya.' : ''}`);
+}
+
 // ❌ Owner → tolak + tim bikin Shorts pengganti (topik lain) untuk hari & jam tayang yang sama
 async function reject(id, log) {
   const d = await db();
@@ -419,7 +448,7 @@ Langkah:
 1. Baca ${B.sop} lalu playbook office/roles/${Object.values(T).join('.md, office/roles/')}.md.
 2. node scripts/shorts-bot.mjs list lalu node scripts/shorts-topics.mjs next ${day} → pilih topik approved dari bank (patuhi pilar wajib yang dicetak), JANGAN sama/mirip "${old.title}" atau Shorts 14 hari terakhir. Bank kosong untuk pilar itu → tambah topik lengkap (shorts-topics.mjs add) lalu set status approved.
 3. Riset (≤5 pencarian web, ≥2 sumber, label fakta/teori/mitos). Video = FILM lemo-opuscar (pakai skill lemo-opuscar), gaya = 1 dari ${B.films.join(' / ')} yang paling cocok dengan tema (otomatis dari pilar): node scripts/film.mjs new <slug> ${BR} --pillar=<pilar topik>, salin film contoh yang dicetak, ganti cerita/adegan & lines.json (±8–11 baris, ≤1.100 karakter, kalimat terakhir ajak komen), lalu node scripts/film.mjs check films/<slug>.
-4. Tulis JSON ke tmp/ lalu: node scripts/shorts-bot.mjs new <file.json> dengan "topic_id", "day": "${day}", "jam": "${jamOf(old)}" dan "spec": {"film": "films/<slug>"}.
+4. Tulis JSON ke tmp/ lalu: node scripts/shorts-bot.mjs new <file.json> dengan "topic_id", "day": "${day}", "jam": "${jamOf(old)}" dan "spec": {"film": "films/<slug>"}. Cek node scripts/growth.mjs status ${BR}: kalau videonya menjalankan usulan aktif, tambahkan "usulan": <id>.
 5. JANGAN render (otomatis di laptop), jangan kirim Telegram, jangan ubah konten lain.
 ${job.tries ? 'Percobaan sebelumnya gagal: kalau sudah ada film setengah jadi di films/ buat pengganti ini, lanjutkan itu. ' : ''}Akhiri dengan SATU kalimat ringkas (santai): topik penggantinya apa.`, 60, { env: { [REDO_ENV.content]: String(old.id) } });
   const made = redoResult(d, job.id); // diisi newShort; konten sudah ada = beres walau Claude-nya sempat error
@@ -803,6 +832,7 @@ async function handle(u, log) {
     if (kind === 'yok') { await clear(); later(() => approve(id, log), log); }
     else if (kind === 'yno') { await clear(); await reject(id, log); }
     else if (kind === 'ypub') { await clear(); await markPublic(id); }
+    else if (kind === 'uok' || kind === 'uno') { await clear(); await decideProposal(id, kind === 'uok'); }
     else if (kind === 'yrev') {
       patchState((s) => { s.awaitRev = id; });
       await sayAs(T.script, `✏️ Ketik catatan revisi buat Shorts #${id} ya, Bos (naskah, gambar, judul, apa aja).`, { reply_markup: { force_reply: true } });
@@ -884,6 +914,7 @@ if (isMain) {
     } else if (cmd === 'say') { await sayAs(a, esc(b)); out('ok'); }
     else if (cmd === 'tiktok') out(await crossTikTok(+a));
     else if (cmd === 'ganti') out(await askReplacement(+a));
+    else if (cmd === 'usul') out(await propose(json(a)));
     else if (cmd === 'bot') await startShortsBot();
     else if (cmd === 'report') out(await dailyReport({ dry: a === '--dry' }));
     else if (cmd === 'weekly') out(await weeklyReport({ dry: a === '--dry' }));

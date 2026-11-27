@@ -3,7 +3,14 @@
 //   - atribut tiap video (tipe hook, jumlah kata, suara, kecepatan, mood, jam, gaya visual) dihitung dari spec → bisa dibandingkan
 //   - experiments : SATU variabel per minggu per brand; varian dibagi rata antar video, hasilnya dievaluasi, pemenang dikunci
 //   - briefFor    : ringkasan pola + eksperimen yang disuntik ke `office.mjs brief <agent>` penulis/manajer/publisher
+import { readFileSync } from 'node:fs';
+import { join, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { BRANDS } from './brand.mjs';
+
+const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
+// gaya film lemo-opuscar (films/<slug>/film.json) → bisa dibandingkan gaya mana yang paling ditonton
+const filmStyle = (film) => { try { return JSON.parse(readFileSync(join(ROOT, String(film), 'film.json'), 'utf8')).style ?? null; } catch { return null; } };
 
 const SQL = [
   `CREATE TABLE IF NOT EXISTS video_stats (id INTEGER PRIMARY KEY AUTOINCREMENT, content_id INTEGER NOT NULL, brand TEXT NOT NULL, platform TEXT NOT NULL,
@@ -54,6 +61,7 @@ export function attrsOf(spec = {}, jam = null) {
     hook_type: hookType(sc[0]?.vo), words, len: words <= LEN_SPLIT ? 'pendek' : 'panjang', scenes: sc.length,
     voice: spec.voice ?? null, speed: String(spec.speed ?? ''), mood: spec.mood ?? null, jam: jam ?? spec._jam ?? '18:00',
     style: sc.some((s) => Array.isArray(s.clips)) ? 'klip' : 'gambar', hook_text: String(spec.hook ?? sc[0]?.vo ?? '').slice(0, 80),
+    ...(spec.film ? { film_style: filmStyle(spec.film) } : {}),
   };
 }
 const dataOf = (c) => { try { return JSON.parse(c.data_json ?? '{}'); } catch { return {}; } };
@@ -146,14 +154,14 @@ export function videoRows(d, brandKey, today = todayWita()) {
     const good = snaps.filter((s) => (s.age_days ?? 0) >= 2);
     const s = good.length ? good.reduce((b, x) => (Math.abs(x.age_days - 3) < Math.abs(b.age_days - 3) ? x : b)) : snaps[snaps.length - 1];
     out.push({ id: c.id, day: c.day, title: c.title, pillar: c.pillar, age: daysBetween(c.day, today), mature: (s.age_days ?? 0) >= 2, views: s.views, likes: s.likes, comments: s.comments, apv: s.apv, subs: s.subs,
-      a: attrsOfContent(c), exp: dataOf(c)._exp ?? null });
+      a: attrsOfContent(c), exp: dataOf(c)._exp ?? null, usulan: dataOf(c)._usulan ?? null });
   }
   const med = median(out.filter((r) => r.mature).map((r) => r.views)) || 1;
   for (const r of out) r.lift = r.views / med;
   return out;
 }
 
-const KEYS = [['hook_type', 'Tipe hook'], ['len', 'Panjang naskah'], ['pillar', 'Pilar'], ['jam', 'Jam tayang'], ['voice', 'Suara'], ['speed', 'Kecepatan'], ['mood', 'Mood musik'], ['style', 'Gaya visual']];
+const KEYS = [['hook_type', 'Tipe hook'], ['len', 'Panjang naskah'], ['pillar', 'Pilar'], ['jam', 'Jam tayang'], ['voice', 'Suara'], ['speed', 'Kecepatan'], ['mood', 'Mood musik'], ['style', 'Gaya visual'], ['film_style', 'Gaya film']];
 const val = (r, k) => (k === 'pillar' ? r.pillar : r.a[k]);
 export function groups(rows) {
   const res = [];
@@ -203,7 +211,7 @@ export function patternLines(d, brandKey, { top = 3 } = {}) {
   const lines = [];
   if (!rows.length) return { rows, lines: ['Belum ada data views per video (scripts/learn.mjs collect belum jalan / video belum tayang).'] };
   const sorted = [...rows].sort((a, b) => b.views - a.views);
-  const row = (r) => `"${r.title.slice(0, 48)}" · ${r.views} views · hook ${r.a.hook_type}: "${r.a.hook_text.slice(0, 50)}" · ${r.a.len} · jam ${r.a.jam}${r.apv != null ? ` · ditonton ${Math.round(r.apv)}%` : ''}`;
+  const row = (r) => `"${r.title.slice(0, 48)}" · ${r.views} views · hook ${r.a.hook_type}: "${r.a.hook_text.slice(0, 50)}" · ${r.a.len} · jam ${r.a.jam}${r.a.film_style ? ` · gaya ${r.a.film_style}` : ''}${r.apv != null ? ` · ditonton ${Math.round(r.apv)}%` : ''}`;
   lines.push('TERBAIK:', ...sorted.slice(0, top).map(row), 'TERBURUK:', ...sorted.slice(-top).reverse().map(row));
   const insights = [];
   for (const g of groups(rows)) {
