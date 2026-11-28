@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-28T11:51:55.744Z",
+ "generated_at": "2026-11-28T12:01:08.633Z",
  "today": "2026-11-28",
  "week_start": "2026-11-23",
  "campaign": null,
@@ -17,16 +17,16 @@
    "name": "Andre",
    "title": "Marketing Director",
    "status": "done",
-   "current_task": "Sesi sore: pilih 0 ide, hasil GF FFWS jadi bahan sesi malam",
-   "updated_at": "2026-11-28 08:01:20"
+   "current_task": "Sesi malam: pilih 0, hasil GF FFWS dipitch pagi",
+   "updated_at": "2026-11-28 12:01:08"
   },
   {
    "id": "researcher",
    "name": "Salsa",
    "title": "Researcher",
    "status": "done",
-   "current_task": "Riset sesi sore 28 Nov",
-   "updated_at": "2026-11-28 08:01:20"
+   "current_task": "Riset sesi malam: hasil GF FFWS belum terbit",
+   "updated_at": "2026-11-28 12:01:08"
   },
   {
    "id": "copywriter",
@@ -871,6 +871,16 @@
  "today_tasks": [],
  "activity": [
   {
+   "ts": "2026-11-28 12:01:08",
+   "agent_id": "dir",
+   "message": "Sesi malam 28 Nov: hasil GF FFWS belum terbit 20:00 WITA, tidak ada berita hangat 2 sumber, pilih 0"
+  },
+  {
+   "ts": "2026-11-28 12:01:08",
+   "agent_id": "researcher",
+   "message": "Nemu 2 topik baru"
+  },
+  {
    "ts": "2026-11-28 11:01:51",
    "agent_id": "vpublish",
    "message": "Cross-post Shorts #247 ke TikTok Marvel Talk"
@@ -984,16 +994,6 @@
    "ts": "2026-11-28 04:01:37",
    "agent_id": "dir",
    "message": "Pilih 1 berita hangat dari sesi riset siang"
-  },
-  {
-   "ts": "2026-11-28 04:01:30",
-   "agent_id": "researcher",
-   "message": "Nemu 1 topik baru"
-  },
-  {
-   "ts": "2026-11-28 04:01:17",
-   "agent_id": "analyst",
-   "message": "Update data 25 post IG 📈"
   }
  ],
  "chats": [
