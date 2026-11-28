@@ -1,61 +1,25 @@
 {
- "at": "2026-11-28T02:11:55.658Z",
+ "at": "2026-11-28T02:21:55.654Z",
  "today": "2026-11-28",
  "laptop": {
-  "at": "2026-11-28T02:11:33.716Z",
+  "at": "2026-11-28T02:21:52.590Z",
   "renderFrom": "09:45"
  },
  "queue": [
-  {
-   "id": 245,
-   "channel": "cowo",
-   "title": "Kenapa Tombol F dan J di Keyboard Ada Tonjolannya?",
-   "style": "brick-toy",
-   "estMin": 17,
-   "pos": 1,
-   "state": "render",
-   "startAt": "2026-11-28T01:51:42.766Z",
-   "etaAt": "2026-11-28T02:14:33.622Z",
-   "live": true,
-   "step": "gambar",
-   "stepPct": 93,
-   "late": false
-  },
-  {
-   "id": 246,
-   "channel": "story",
-   "title": "Penjara di Bawah Museum Ini Tingginya Cuma Sepinggang",
-   "style": "backrooms",
-   "estMin": 6,
-   "pos": 2,
-   "state": "antre",
-   "startAt": "2026-11-28T02:14:33.622Z",
-   "etaAt": "2026-11-28T02:20:33.622Z",
-   "waitingWindow": false
-  },
-  {
-   "id": 247,
-   "channel": "marvel",
-   "title": "Nick Fury Udah Mirip Samuel L. Jackson 6 Tahun Sebelum Dia Main",
-   "style": "pop-art",
-   "estMin": 5,
-   "pos": 3,
-   "state": "antre",
-   "startAt": "2026-11-28T02:20:33.622Z",
-   "etaAt": "2026-11-28T02:25:33.622Z",
-   "waitingWindow": false
-  },
   {
    "id": 248,
    "channel": "youtube",
    "title": "1518: Ratusan Orang Menari Berhari-hari dan Nggak Bisa Berhenti",
    "style": "woodcut",
    "estMin": 27,
-   "pos": 4,
-   "state": "antre",
-   "startAt": "2026-11-28T02:25:33.622Z",
-   "etaAt": "2026-11-28T02:52:33.622Z",
-   "waitingWindow": false
+   "pos": 1,
+   "state": "render",
+   "startAt": "2026-11-28T02:20:14.864Z",
+   "etaAt": "2026-11-28T02:47:14.864Z",
+   "live": true,
+   "step": "suara",
+   "stepPct": null,
+   "late": false
   }
  ],
  "divisions": [
@@ -77,18 +41,21 @@
      "title": "1518: Ratusan Orang Menari Berhari-hari dan Nggak Bisa Berhenti",
      "revisions": 0,
      "airAt": "2026-11-28T05:00:00.000Z",
-     "stage": "antre",
+     "stage": "render",
      "render": {
       "id": 248,
       "channel": "youtube",
       "title": "1518: Ratusan Orang Menari Berhari-hari dan Nggak Bisa Berhenti",
       "style": "woodcut",
       "estMin": 27,
-      "pos": 4,
-      "state": "antre",
-      "startAt": "2026-11-28T02:25:33.622Z",
-      "etaAt": "2026-11-28T02:52:33.622Z",
-      "waitingWindow": false
+      "pos": 1,
+      "state": "render",
+      "startAt": "2026-11-28T02:20:14.864Z",
+      "etaAt": "2026-11-28T02:47:14.864Z",
+      "live": true,
+      "step": "suara",
+      "stepPct": null,
+      "late": false
      },
      "note": ""
     }
@@ -106,20 +73,8 @@
      "title": "Penjara di Bawah Museum Ini Tingginya Cuma Sepinggang",
      "revisions": 0,
      "airAt": "2026-11-28T11:00:00.000Z",
-     "stage": "antre",
-     "render": {
-      "id": 246,
-      "channel": "story",
-      "title": "Penjara di Bawah Museum Ini Tingginya Cuma Sepinggang",
-      "style": "backrooms",
-      "estMin": 6,
-      "pos": 2,
-      "state": "antre",
-      "startAt": "2026-11-28T02:14:33.622Z",
-      "etaAt": "2026-11-28T02:20:33.622Z",
-      "waitingWindow": false
-     },
-     "note": ""
+     "stage": "approval",
+     "note": "Nunggu ✅ Bos"
     }
    ],
    "nextSession": "besok 07:00"
@@ -135,20 +90,8 @@
      "title": "Nick Fury Udah Mirip Samuel L. Jackson 6 Tahun Sebelum Dia Main",
      "revisions": 0,
      "airAt": "2026-11-28T11:00:00.000Z",
-     "stage": "antre",
-     "render": {
-      "id": 247,
-      "channel": "marvel",
-      "title": "Nick Fury Udah Mirip Samuel L. Jackson 6 Tahun Sebelum Dia Main",
-      "style": "pop-art",
-      "estMin": 5,
-      "pos": 3,
-      "state": "antre",
-      "startAt": "2026-11-28T02:20:33.622Z",
-      "etaAt": "2026-11-28T02:25:33.622Z",
-      "waitingWindow": false
-     },
-     "note": ""
+     "stage": "approval",
+     "note": "Nunggu ✅ Bos"
     }
    ],
    "nextSession": "besok 07:00"
@@ -164,23 +107,8 @@
      "title": "Kenapa Tombol F dan J di Keyboard Ada Tonjolannya?",
      "revisions": 0,
      "airAt": "2026-11-28T05:00:00.000Z",
-     "stage": "render",
-     "render": {
-      "id": 245,
-      "channel": "cowo",
-      "title": "Kenapa Tombol F dan J di Keyboard Ada Tonjolannya?",
-      "style": "brick-toy",
-      "estMin": 17,
-      "pos": 1,
-      "state": "render",
-      "startAt": "2026-11-28T01:51:42.766Z",
-      "etaAt": "2026-11-28T02:14:33.622Z",
-      "live": true,
-      "step": "gambar",
-      "stepPct": 93,
-      "late": false
-     },
-     "note": ""
+     "stage": "approval",
+     "note": "Nunggu ✅ Bos"
     }
    ],
    "nextSession": "besok 07:00"
