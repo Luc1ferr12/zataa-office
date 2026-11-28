@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-28T05:41:55.571Z",
+ "generated_at": "2026-11-28T05:51:55.587Z",
  "today": "2026-11-28",
  "week_start": "2026-11-23",
  "campaign": null,
@@ -25,16 +25,16 @@
    "name": "Salsa",
    "title": "Researcher",
    "status": "done",
-   "current_task": "Riset siang: GF FFWS hari ini, Pak AP hadiah spesial",
-   "updated_at": "2026-11-28 04:01:36"
+   "current_task": "Cek fakta Pak AP & RRQ Kazu (esports.id ×2, RevivalTV)",
+   "updated_at": "2026-11-28 05:48:47"
   },
   {
    "id": "copywriter",
    "name": "Tiara",
    "title": "Copywriter",
    "status": "done",
-   "current_task": "Naskah + caption film Jinggg ke All Gamers",
-   "updated_at": "2026-11-27 08:08:09"
+   "current_task": "Naskah film RRQ Kazu x Pak AP",
+   "updated_at": "2026-11-28 05:50:36"
   },
   {
    "id": "designer",
@@ -49,16 +49,16 @@
    "name": "Dimas",
    "title": "Video Production",
    "status": "done",
-   "current_task": "Film Jinggg ke All Gamers antre render laptop",
-   "updated_at": "2026-11-27 08:08:22"
+   "current_task": "Film RRQ Kazu x Pak AP antre render laptop",
+   "updated_at": "2026-11-28 05:50:55"
   },
   {
    "id": "publisher",
    "name": "Fikri",
    "title": "Social Media Publisher",
    "status": "done",
-   "current_task": null,
-   "updated_at": "2026-11-27 08:49:13"
+   "current_task": "Konten #250 diantre, QA otomatis",
+   "updated_at": "2026-11-28 05:50:55"
   },
   {
    "id": "ads",
@@ -783,6 +783,20 @@
    "channel": "youtube"
   },
   {
+   "id": 250,
+   "day": "2026-11-28",
+   "slot": "kilat",
+   "format": "video",
+   "game": "ff",
+   "pillar": "news",
+   "title": "Bos RRQ Sempat Khawatir Mental RRQ Kazu, Kini Siapin Hadiah",
+   "status": "draft",
+   "asset_url": null,
+   "scheduled_at": null,
+   "posted_at": null,
+   "channel": null
+  },
+  {
    "id": 245,
    "day": "2026-11-28",
    "slot": "shorts",
@@ -856,6 +870,21 @@
  "clip_jobs": [],
  "today_tasks": [],
  "activity": [
+  {
+   "ts": "2026-11-28 05:50:55",
+   "agent_id": "publisher",
+   "message": "Konten #250 (RRQ Kazu x Pak AP) antre render, QA otomatis saat laptop submit"
+  },
+  {
+   "ts": "2026-11-28 05:46:55",
+   "agent_id": "owner",
+   "message": "Approve 1 ide konten tambahan 💡"
+  },
+  {
+   "ts": "2026-11-28 05:46:45",
+   "agent_id": "owner",
+   "message": "Keputusan dari web: 💡 1 ide di-approve, gas!"
+  },
   {
    "ts": "2026-11-28 05:01:33",
    "agent_id": "bpublish",
@@ -965,24 +994,72 @@
    "ts": "2026-11-28 03:00:23",
    "agent_id": "ypublish",
    "message": "Cross-post Shorts #92 ke TikTok Zaa History"
-  },
-  {
-   "ts": "2026-11-28 02:45:23",
-   "agent_id": "yvideo",
-   "message": "Shorts #248 dirender di laptop & dikirim ke Owner"
-  },
-  {
-   "ts": "2026-11-28 02:45:23",
-   "agent_id": "ypublish",
-   "message": "Kirim Shorts #248 ke Owner buat approval"
-  },
-  {
-   "ts": "2026-11-28 02:20:12",
-   "agent_id": "yvideo",
-   "message": "Shorts #247 dirender di laptop & dikirim ke Owner"
   }
  ],
  "chats": [
+  {
+   "ts": "2026-11-28 05:51:17",
+   "agent_id": "publisher",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Abis render langsung aku QA, lolos = tayang TikTok + YouTube, nanti Bos dikabarin ya!"
+  },
+  {
+   "ts": "2026-11-28 05:51:17",
+   "agent_id": "video",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Film caption-news-nya udah jadi dan masuk antrean render laptop sebagai konten #250 🎬"
+  },
+  {
+   "ts": "2026-11-28 05:51:17",
+   "agent_id": "researcher",
+   "to_id": "owner",
+   "kind": "santai",
+   "message": "Udah dicek Bos, Pak AP beneran khawatir mental RRQ Kazu dan sekarang hadir langsung di Bangkok. Hadiahnya \"mungkin liburan ke luar negeri\", masih ide spontan, jadi di video ditulis gitu 👍"
+  },
+  {
+   "ts": "2026-11-28 05:50:55",
+   "agent_id": "publisher",
+   "to_id": "owner",
+   "kind": "oper",
+   "message": "Bos, \"Konten #250 diantre, QA otomatis\" udah aku kirim ke Telegram. Ditunggu approve-nya 🙏"
+  },
+  {
+   "ts": "2026-11-28 05:50:55",
+   "agent_id": "researcher",
+   "to_id": "copywriter",
+   "kind": "santai",
+   "message": "Pak AP mau ngajak liburan ke luar negeri, kita kapan ya Tir 😭"
+  },
+  {
+   "ts": "2026-11-28 05:50:55",
+   "agent_id": "video",
+   "to_id": "publisher",
+   "kind": "oper",
+   "message": "Render \"Film RRQ Kazu x Pak AP antre render laptop\" selesai, Fikri. Cek cover-nya ya"
+  },
+  {
+   "ts": "2026-11-28 05:50:36",
+   "agent_id": "copywriter",
+   "to_id": "designer",
+   "kind": "oper",
+   "message": "Teks buat \"Naskah film RRQ Kazu x Pak AP\" ready. Vania, giliranmu bikin cakep!"
+  },
+  {
+   "ts": "2026-11-28 05:48:47",
+   "agent_id": "researcher",
+   "to_id": "copywriter",
+   "kind": "oper",
+   "message": "Tiara, bahan buat \"Cek fakta Pak AP & RRQ Kazu (esports.id ×2, RevivalTV)\" udah aku rangkum + sumbernya. Tinggal kamu racik captionnya ✍️"
+  },
+  {
+   "ts": "2026-11-28 05:46:55",
+   "agent_id": "dir",
+   "to_id": null,
+   "kind": "oper",
+   "message": "Bos ACC 1 ide tambahan! \"Bos RRQ sempat ragu mental Kazu, sekarang janji hadiah spesial kalau juara FFWS\" 🎉"
+  },
   {
    "ts": "2026-11-28 04:01:38",
    "agent_id": "dir",
@@ -1199,75 +1276,12 @@
    "to_id": "bresearch",
    "kind": "oper",
    "message": "Brief \"Sesi pagi 27 Nov selesai\" beres. Keisha, gas riset!"
-  },
-  {
-   "ts": "2026-11-26 23:16:17",
-   "agent_id": "bvisual",
-   "to_id": "svisual",
-   "kind": "santai",
-   "message": "Arga, hari ini aku bikin ban bata muter di treadmill, kamu bikin kapal wayang ya? Lucu juga kalau digabung 😆"
-  },
-  {
-   "ts": "2026-11-26 23:15:53",
-   "agent_id": "yvisual",
-   "to_id": "yvideo",
-   "kind": "oper",
-   "message": "Aset adegan \"Film Plimpton 322 antre laptop\" kelar, Yoga. Gas edit!"
-  },
-  {
-   "ts": "2026-11-26 23:13:05",
-   "agent_id": "vvisual",
-   "to_id": "vvideo",
-   "kind": "oper",
-   "message": "Aset \"Film Doom jadi tuhan antre laptop\" kelar, Kevin. Siap dirakit"
-  },
-  {
-   "ts": "2026-11-26 23:10:16",
-   "agent_id": "svisual",
-   "to_id": "svideo",
-   "kind": "oper",
-   "message": "Aset \"Film Sriwijaya (#240) antre laptop\" kelar, Bima. Gas edit!"
-  },
-  {
-   "ts": "2026-11-26 23:06:01",
-   "agent_id": "bvisual",
-   "to_id": "bvideo",
-   "kind": "oper",
-   "message": "Celine, film \"Film Kenapa Ban Selalu Hitam (#239) antre laptop\" gaya Brick Toy udah aku rakit di kode. Tinggal suara + render 🧱"
-  },
-  {
-   "ts": "2026-11-26 23:01:23",
-   "agent_id": "dir",
-   "to_id": "researcher",
-   "kind": "oper",
-   "message": "Brief \"Ide sesi pagi dikirim ke Owner\" udah jadi. Salsa, gas riset ya!"
-  },
-  {
-   "ts": "2026-11-26 23:01:22",
-   "agent_id": "researcher",
-   "to_id": "copywriter",
-   "kind": "oper",
-   "message": "Riset \"Riset sesi pagi: GF FFWS Champion Rush\" beres, udah dicek 2 sumber. Tiara, lanjut ya~"
-  },
-  {
-   "ts": "2026-11-26 12:00:51",
-   "agent_id": "dir",
-   "to_id": "researcher",
-   "kind": "santai",
-   "message": "Sal, malam ini sepi ya. Besok pagi pantau hasil LCQ FFWS, itu pasti rame."
-  },
-  {
-   "ts": "2026-11-26 12:00:51",
-   "agent_id": "dir",
-   "to_id": "researcher",
-   "kind": "oper",
-   "message": "Salsa, plan minggu ini udah aku taruh ya. Fokus \"Review riset sesi malam (0 ide)\". Tolong cariin bahan beritanya 🙏"
   }
  ],
  "stats": {
   "this_week": {
    "week": "2026-11-23",
-   "total": 31,
+   "total": 32,
    "posted": 29,
    "pending": 1,
    "scheduled": 1,
